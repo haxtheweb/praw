@@ -33,8 +33,9 @@ These rules apply specifically when working with HAX web components in the eleme
 ### File Organization
 - Follow monorepo element structure: `elements/component-name/`
 - Include package.json, component files, and demo files
-- Maintain consistent naming: `component-name.js`, `component-name.scss`
+- Maintain consistent naming: `component-name.js` for the main component file
 - Include proper exports in index.js files
+- Remove any legacy SCSS files when encountered - we use CSS-in-JS patterns
 
 ### Documentation Requirements
 - Include comprehensive JSDoc comments for all public methods

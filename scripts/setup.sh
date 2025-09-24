@@ -88,6 +88,11 @@ alias praw-validate='$SCRIPT_DIR/manage-rules.sh validate'
 alias praw-export='$SCRIPT_DIR/manage-rules.sh export'
 alias praw-help='$SCRIPT_DIR/manage-rules.sh help'
 
+# Faculty Resource Management Aliases
+alias faculty-setup='$SCRIPT_DIR/faculty-setup.sh'
+alias find-course='$SCRIPT_DIR/find-course-resources.sh'
+alias add-url-resource='$SCRIPT_DIR/add-url-resource.sh'
+
 # Quick navigation to PRAW directory
 alias cd-praw='cd $PRAW_DIR'
 "
@@ -115,6 +120,9 @@ create_symlinks() {
     if [[ -d "$HOME/bin" ]]; then
         ln -sf "$SCRIPT_DIR/add-rule.sh" "$HOME/bin/praw-add" 2>/dev/null || true
         ln -sf "$SCRIPT_DIR/manage-rules.sh" "$HOME/bin/praw-manage" 2>/dev/null || true
+        ln -sf "$SCRIPT_DIR/faculty-setup.sh" "$HOME/bin/faculty-setup" 2>/dev/null || true
+        ln -sf "$SCRIPT_DIR/find-course-resources.sh" "$HOME/bin/find-course" 2>/dev/null || true
+        ln -sf "$SCRIPT_DIR/add-url-resource.sh" "$HOME/bin/add-url-resource" 2>/dev/null || true
         print_success "Created symlinks in ~/bin/"
     fi
     
@@ -122,6 +130,9 @@ create_symlinks() {
     if [[ -w "/usr/local/bin" ]]; then
         ln -sf "$SCRIPT_DIR/add-rule.sh" "/usr/local/bin/praw-add" 2>/dev/null || true
         ln -sf "$SCRIPT_DIR/manage-rules.sh" "/usr/local/bin/praw-manage" 2>/dev/null || true
+        ln -sf "$SCRIPT_DIR/faculty-setup.sh" "/usr/local/bin/faculty-setup" 2>/dev/null || true
+        ln -sf "$SCRIPT_DIR/find-course-resources.sh" "/usr/local/bin/find-course" 2>/dev/null || true
+        ln -sf "$SCRIPT_DIR/add-url-resource.sh" "/usr/local/bin/add-url-resource" 2>/dev/null || true
         print_success "Created system-wide symlinks in /usr/local/bin/"
     fi
 }
@@ -173,7 +184,8 @@ create_backup() {
     
     # Backup WARP.md files
     find "$PRAW_DIR" -name "WARP.md" -type f | while read -r warp_file; do
-        local relative_path=$(realpath --relative-to="$PRAW_DIR" "$warp_file")
+        # Cross-platform relative path calculation
+        local relative_path=$(echo "$warp_file" | sed "s|^$PRAW_DIR/||")
         local backup_file="$backup_dir/$(dirname "$relative_path")"
         mkdir -p "$backup_file"
         cp "$warp_file" "$backup_file/"
@@ -209,6 +221,11 @@ show_usage() {
     echo
     echo "  # Get help"
     echo "  praw-help"
+    echo
+    echo "  # Faculty Resource Management:"
+    echo "  faculty-setup 'Biology 101'         # Create course resource folder"
+    echo "  find-course 'Biology 101'           # Find course materials"
+    echo "  add-url-resource 'Biology 101' 'https://example.com' 'Description'"
     echo
 }
 

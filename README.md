@@ -71,6 +71,34 @@ If you're working across multiple HAX repositories, you can:
 
 3. **Let Warp automatically detect** the rules when working in HAX directories
 
+## 🎓 Faculty Resource Management **NEW!**
+
+**For non-technical faculty**: Create course resource repositories that AI agents use for grounded content generation.
+
+### Quick Faculty Setup
+```bash
+# Set up a course resource folder
+faculty-setup "Your Course Name"
+
+# Add web resources
+add-url-resource "Course Name" "https://example.com" "Description"
+
+# Find course materials
+find-course "Course Name"
+```
+
+### Faculty Workflow
+1. **Setup**: Run one command to create course folder
+2. **Add materials**: Drag-and-drop PDFs, docs, images
+3. **Request content**: "Create a HAX site for [Course Name]"
+4. **AI generates**: Grounded content using YOUR materials
+
+**Benefits**: Zero technical knowledge required, natural language interface, authoritative content
+
+📖 **[See complete faculty guide →](FACULTY_RESOURCES.md)**
+
+---
+
 ## Rule Categories
 
 ### 🏗️ Architecture & File Structure
@@ -191,10 +219,14 @@ praw/
 ├── RULES.md                    # Central registry of all rules
 ├── WARP.md                     # Master HAX ecosystem rules
 ├── README.md                   # This file
-├── scripts/                    # Rule management scripts
-│   ├── setup.sh               # Setup the management system
+├── FACULTY_RESOURCES.md        # Faculty resource management guide
+├── scripts/                    # Management scripts
+│   ├── setup.sh               # Setup the rule management system
 │   ├── add-rule.sh            # Add new rules
-│   └── manage-rules.sh        # Search, list, and manage rules
+│   ├── manage-rules.sh        # Search, list, and manage rules
+│   ├── faculty-setup.sh       # Create course resource folders
+│   ├── find-course-resources.sh # Locate course materials  
+│   └── add-url-resource.sh    # Add web resources to courses
 ├── webcomponents/WARP.md      # Web component specific rules
 ├── haxcms/WARP.md             # HAXcms specific rules
 ├── design-system/WARP.md      # Design system specific rules

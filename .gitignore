@@ -1,0 +1,33 @@
+# PRAW Rule Management System - Local Files
+
+# Backup directories (local deployment artifacts)
+backups/
+
+# Export files (generated content)
+exports/
+
+# Temporary files
+*.tmp
+*.temp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Log files
+*.log
+
+# Local configuration overrides
+local-config.*

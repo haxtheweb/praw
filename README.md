@@ -6,6 +6,7 @@
 
 This repository contains:
 - **`RULES.md`** - Centralized registry of all HAX ecosystem rules with unique IDs and categorization
+- **`KNOWLEDGE.md`** - Log of emergent knowledge, decisions, and conventions that inform rule development
 - **`WARP.md`** files - Detailed context-specific rules for different project types
 - **Rule Management System** - Scripts and tools for adding, searching, and managing rules
 - **Cross-references** - Connections between rules and related documentation
@@ -196,12 +197,14 @@ This repository evolves with the HAX ecosystem. To contribute:
 2. **Follow the categorization system** - choose appropriate category and provide context
 3. **Test new rules** in your local development environment
 4. **Validate structure**: `praw-validate` before committing
+5. **Document knowledge**: Log decisions and rationale in `KNOWLEDGE.md`
 
 ### Updating Existing Rules
 1. **Locate the rule** using `praw-search` or `praw-list`
 2. **Edit RULES.md directly** or use the management system
 3. **Maintain rule precedence** - ensure changes align with precedence hierarchy
 4. **Update related WARP.md files** if necessary
+5. **Record context**: Add insights about the change to `KNOWLEDGE.md`
 
 ## Rule Precedence
 
@@ -217,6 +220,7 @@ This ensures project-specific needs take priority while maintaining ecosystem co
 ```
 praw/
 ├── RULES.md                    # Central registry of all rules
+├── KNOWLEDGE.md                # Log of emergent knowledge and decisions
 ├── WARP.md                     # Master HAX ecosystem rules
 ├── README.md                   # This file
 ├── FACULTY_RESOURCES.md        # Faculty resource management guide

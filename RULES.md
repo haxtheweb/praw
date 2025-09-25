@@ -172,6 +172,16 @@ All future RULES work should:
 3. **Update** this RULES.md file as the central registry
 4. **Reference** appropriate WARP.md files for detailed context
 5. **Maintain** precedence order and rule relationships
+6. **Log emergent knowledge** in KNOWLEDGE.md for insights that may become rules
+
+### Knowledge Capture Process
+
+**For emergent insights and learnings:**
+- Log decisions, patterns, and discoveries in `KNOWLEDGE.md`
+- Use the structured template for consistency
+- Mark potential rules with `Candidate: Yes`
+- Promote stable knowledge items to formal rules in this file
+- Link back to KNOWLEDGE.md entries for context and rationale
 
 ---
 

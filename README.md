@@ -8,6 +8,7 @@ This repository contains:
 - **`RULES.md`** - Centralized registry of all HAX ecosystem rules with unique IDs and categorization
 - **`KNOWLEDGE.md`** - Log of emergent knowledge, decisions, and conventions that inform rule development
 - **`WARP.md`** files - Detailed context-specific rules for different project types
+- **`programs/`** - Utility programs for LinkedIn posting and issue management automation
 - **Rule Management System** - Scripts and tools for adding, searching, and managing rules
 - **Cross-references** - Connections between rules and related documentation
 
@@ -97,6 +98,42 @@ find-course "Course Name"
 **Benefits**: Zero technical knowledge required, natural language interface, authoritative content
 
 📖 **[See complete faculty guide →](FACULTY_RESOURCES.md)**
+
+## 🤖 Agent Automation Programs **NEW!**
+
+**For agents helping users**: Pre-built automation tools for social media posting and project management.
+
+### LinkedIn Posting Automation
+```bash
+cd programs/linkedin/
+
+# First-time setup
+node setup-linkedin.js
+
+# Post custom content
+node post-to-linkedin.js --custom "Great discussion about web components!"
+
+# Automated issue summaries
+./linkedin
+```
+
+### GitHub Issue Management
+```bash
+cd programs/issue-management/
+
+# Fetch and cache all issues
+./fetch_issues.sh
+
+# Analyze project statistics
+./query_issues.sh stats
+
+# Weekly automation
+./weekly-post.sh
+```
+
+**Benefits**: Streamlined social media presence, data-driven content, productivity tracking
+
+📖 **[See complete programs guide →](programs/README.md)**
 
 ---
 

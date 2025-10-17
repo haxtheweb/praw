@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# LinkedIn posting script for content automation
+# Usage: ./linkedin [--custom "content"] [--help]
+
+cd "$(dirname "$0")"
+
+echo "🚀 LinkedIn Content Poster"
+echo "=============================="
+
+# Check if we have issue management scripts available
+if [[ -f "../issue-management/fetch_issues.sh" ]]; then
+    echo "📊 Fetching latest issue data..."
+    cd ../issue-management
+    if ./fetch_issues.sh; then
+        echo "✅ Data updated"
+        cd - > /dev/null
+    else
+        echo "⚠️  Issue data update failed, continuing anyway..."
+        cd - > /dev/null
+    fi
+else
+    echo "💡 No issue data available - custom content mode only"
+fi
+
+# Run the LinkedIn poster with any provided arguments
+node post-to-linkedin.js "$@"

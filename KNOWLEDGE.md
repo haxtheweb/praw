@@ -44,6 +44,46 @@ Structure your entries using the templates below. Keep entries concise and searc
 
 ## Design System (DDD & SimpleColors)
 
+- Title: DDD `data-palette` (site palettes) vs `data-primary` / `data-accent` (single colors)
+- Date: 2026-02-17
+- Context: Theme development for HAXcms themes (`clean-portfolio-theme`, `journey-theme`) uses `data-palette` to switch multi-color palettes. Initial analysis focused on `data-primary` / `data-accent`, which control only `--ddd-theme-primary` / `--ddd-theme-accent` (single-color theming), not full palettes.
+- Guidance:
+  - Use `data-primary` / `data-accent` when you need a single primary/accent color for an element (sets `--ddd-theme-primary` / `--ddd-theme-accent`).
+  - Use `data-palette` when you need a coordinated multi-color palette for a whole region/site.
+  - Ensure the CSS that defines palette variables is applied in a scope that can match the element carrying the `data-palette` attribute.
+    - `DDDPaletteStyles` uses selectors like `[data-palette="3"] { ... }` (NOT `:host([data-palette="3"])`). This means it must exist in a stylesheet that can match the actual DOM element with `data-palette` (typically the global document stylesheet), otherwise palette switching may appear to do nothing.
+  - If a theme wants deterministic palette switching, prefer one of:
+    - Extend `DDDSuper(...)` so DDD (including palettes) is registered via `DesignSystemManager` at the document level.
+    - Or inject the palette styles into the global theme stylesheet (via `HAXCMSGlobalStyleSheetContent()`), rather than relying on shadow-scoped styles.
+- Rationale:
+  - In DDD, `DDDPaletteStyles` defines `--ddd-palette-color-1` through `--ddd-palette-color-7` and changes them based on `[data-palette]`.
+  - Palettes currently defined in `DDDPaletteStyles` (name / number):
+    - `wisdom-walk-green` / `0` (default)
+    - `very-violent-red` / `1`
+    - `beetles-yellow` / `2`
+    - `offbrand-nittany-blue` / `3`
+    - `boring-blue-gray` / `4`
+    - `monotone` / `5`
+    - `salmon-season` / `6`
+    - `tweedle-dee` / `7`
+  - Application notes (as of 2026-02-17):
+    - `clean-portfolio-theme`
+      - Reflects `dataPalette` to `data-palette`, persists `HAXCMSSitePalette` via `user-scaffold`.
+      - Extends `DDDSuper(HAXCMSLitElementTheme)` and includes `DDDAllStyles` in global theme stylesheet; palette selectors match and update `--ddd-palette-color-*`.
+      - Maps `--ddd-palette-color-*` → `--ddd-palette-*` and then defines `--ddd-lightDark-*` helper vars used throughout its CSS.
+      - Cycles palettes `0..6` (does not reach palette `7`).
+    - `journey-theme`
+      - Reflects `dataPalette` to `data-palette`, persists `HAXCMSSitePalette` via `user-scaffold`.
+      - Includes `DDDAllStyles` in `static styles` (shadow scope). Because `DDDPaletteStyles` is written as `[data-palette="..."]` selectors, shadow-scoped inclusion alone does not guarantee it can match the host element; palettes may only work if DDD palette styles are also present globally.
+      - Only maps two variables: `--ddd-palette-1` from `--ddd-palette-color-1` and `--ddd-palette-2` from `--ddd-palette-color-6`.
+      - Cycles palettes `0..5` (does not reach palettes `6` or `7`).
+- Links:
+  - `webcomponents/elements/d-d-d/lib/DDDStyles.js` (`DDDPaletteStyles`)
+  - `webcomponents/elements/clean-portfolio-theme/clean-portfolio-theme.js` (`dataPalette`, `togglePalette`, palette var mapping)
+  - `webcomponents/elements/journey-theme/journey-theme.js` (`dataPalette`, `togglePalette`, palette var mapping)
+  - `webcomponents/elements/haxcms-elements/lib/core/HAXCMSLitElementTheme.js` (global theme stylesheet injection via `HAXCMSGlobalStyleSheetContent()`)
+- Candidate: Yes
+
 - Title: Example – Prefer DDD tokens; use SimpleColors sparingly
 - Date: 2025-09-25
 - Context: Migrating components to DDD while retaining shade coverage

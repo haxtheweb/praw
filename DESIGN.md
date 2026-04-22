@@ -143,6 +143,20 @@ Use these component-level defaults:
 - **Icons**: Prefer `simple-icon-lite` so icon color can follow light DOM CSS `color`.
 - **Cards**: Follow the `ddd-card` pattern (surface background, strong title hierarchy, moderate shadow, larger radius).
 - **Instructional callouts**: Use semantic instructional treatments and keep contrast compliant.
+### CSS variable implementation pattern
+- Treat CSS custom properties as the primary implementation contract for styling.
+- Use DDD token families consistently:
+  - Colors: `--ddd-primary-*`, `--ddd-accent-*`, `--ddd-theme-default-*`
+  - Typography: `--ddd-font-*`, `--ddd-lh-*`, `--ddd-ls-*`
+  - Spacing: `--ddd-spacing-*`
+  - Shape: `--ddd-radius-*`
+  - Borders: `--ddd-border-*`
+  - Elevation: `--ddd-boxShadow-*`
+  - Icons: `--ddd-icon-*`
+- Prefer `var(--ddd-token)` usage over hardcoded values.
+- Use local component aliases only when needed for clarity or theming boundaries (for example `--my-el-card-bg: var(--ddd-accent-2)`).
+- Use `light-dark(...)` patterns where available for dark mode compatibility.
+- Use `data-palette` for coordinated palette themes; use `data-primary` and `data-accent` for single-color theming hooks.
 
 When implementing DDD in web components, import DDD from `@haxtheweb/d-d-d/d-d-d.js` and use DDD as the base class (or base in mixin chains).
 ## Do's and Don'ts

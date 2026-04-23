@@ -52,6 +52,10 @@ This document contains all comprehensive rules for Warp AI agents working within
 - **Rule ID**: `K0lV6BJOPrqP7iJMZkemUw`
 - **Content**: We have an older color based designs system called SimpleColors. We still use this in order to fill in gaps in DDD as far as shades of all colors. SimpleColors creates a base line color spectrum for levels of red, orange, blue, etc. When possible we should be using DDD's colors instead of these, though there are elements that will still leverage it in unique situations.
 
+### DESIGN.md Compliance (PRAW Design Source of Truth)
+- **Rule ID**: `c4f0b69d-9ed4-4b6d-bf52-6a3d9937c98f`
+- **Content**: For any design-related decisions in this repository, `DESIGN.md` at the repository root is the canonical source of truth. Future design work must conform to its design tokens, CSS variable implementation patterns, component guidance, and Do's/Don'ts.
+
 ## 🧩 Web Component Development
 
 ### HAX Schema Capability

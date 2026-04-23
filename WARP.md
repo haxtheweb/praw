@@ -64,6 +64,7 @@ HAX is built on community pillars that guide all development decisions and commu
 - Should be leveraged for fonts, colors, padding, spacing, margins and other consistency in component and site design
 - Always perform a quick audit to ensure proper usage of the DDD design system when working on web components
 - DDD should be used instead of SimpleColors when possible
+- `DESIGN.md` at the repository root is the canonical design guidance for this repository; future design work should conform to it (tokens, CSS variable patterns, component conventions, and Do's/Don'ts)
 
 ### SimpleColors (Legacy/Supplementary)
 - Older color-based design system still used to fill gaps in DDD

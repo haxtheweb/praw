@@ -2,6 +2,11 @@
 
 These rules apply specifically when working with HAX design systems, primarily DDD (Design, Develop, Deliver) and legacy SimpleColors.
 
+## DESIGN.md Compliance (Required)
+- `DESIGN.md` at the repository root is the canonical design specification for this repository.
+- Align all future design decisions with `DESIGN.md` design tokens, CSS variable implementation patterns, component conventions, and Do's/Don'ts.
+- When making tradeoffs, default to DDD-first patterns described in `DESIGN.md` and only use SimpleColors where explicitly needed.
+
 ## DDD Design System (Primary)
 
 ### Implementation Requirements

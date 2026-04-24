@@ -7,6 +7,7 @@
 This repository contains:
 - **`RULES.md`** - Centralized registry of all HAX ecosystem rules with unique IDs and categorization
 - **`KNOWLEDGE.md`** - Log of emergent knowledge, decisions, and conventions that inform rule development
+- **`WORLDVIEW.md`** - Curated worldview synthesis from long-form ecosystem writing
 - **`WARP.md`** files - Detailed context-specific rules for different project types
 - **`programs/`** - Utility programs for LinkedIn posting and issue management automation
 - **Rule Management System** - Scripts and tools for adding, searching, and managing rules
@@ -258,6 +259,7 @@ This ensures project-specific needs take priority while maintaining ecosystem co
 praw/
 ├── RULES.md                    # Central registry of all rules
 ├── KNOWLEDGE.md                # Log of emergent knowledge and decisions
+├── WORLDVIEW.md                # Curated worldview profile and thematic priorities
 ├── WARP.md                     # Master HAX ecosystem rules
 ├── README.md                   # This file
 ├── FACULTY_RESOURCES.md        # Faculty resource management guide

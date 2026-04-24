@@ -13,7 +13,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-RULES_FILE="/home/bto108a/Documents/git/haxtheweb/praw/RULES.md"
+RULES_FILE="~/Documents/git/haxtheweb/praw/RULES.md"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PRAW_DIR="$(dirname "$SCRIPT_DIR")"
 

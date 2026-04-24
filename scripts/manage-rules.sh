@@ -15,7 +15,7 @@ CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 # Configuration
-RULES_FILE="/home/bto108a/Documents/git/haxtheweb/praw/RULES.md"
+RULES_FILE="~/Documents/git/haxtheweb/praw/RULES.md"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PRAW_DIR="$(dirname "$SCRIPT_DIR")"
 
@@ -335,7 +335,7 @@ validate_rules() {
 
 export_rules() {
     local format="${1:-md}"
-    local output_file="/home/bto108a/Documents/git/haxtheweb/praw/exports/rules-export.${format}"
+    local output_file="~/Documents/git/haxtheweb/praw/exports/rules-export.${format}"
     
     # Create exports directory
     mkdir -p "$(dirname "$output_file")"

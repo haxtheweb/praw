@@ -1,11 +1,13 @@
 # WORLDVIEW
-This document captures a normalized worldview profile derived from Bryan Ollendyke's `btopro/blog` writing corpus (spanning roughly two decades of life, work, research, and philosophy), with emphasis on HAX, ELMS:LN, education, edtech, web architecture, building, and community.
+This document captures a normalized worldview profile derived from two aligned sources: Bryan Ollendyke's `btopro/blog` writing corpus (spanning roughly two decades of life, work, research, and philosophy) and his 2015 thesis, *Information Altruism*. The blog captures long-run practice in public; the thesis provides explicit theory for how those practices reshape institutions.
 ## Source scope
 - Primary corpus (local): `~/Documents/git/btopro/blog`
 - Primary corpus (served): `https://btopro.com`
 - Primary corpus (source mirror): `https://github.com/btopro/blog`
+- Thesis corpus (local): `~/Documents/git/haxtheweb/praw/thesis-bryan-ollendyke-information-altruism.pdf`
 - Current corpus snapshot: `site.json` with 83 indexed items
 - Inclusion focus: HAX, HAXcms, ELMS:LN, open web, instructional design, educational transformation, community development, sustainability, faculty/student empowerment
+- Thesis inclusion focus: Information Altruism, Actor-Network Theory, tempered radicalism, diffusion of innovation, do-ocracy, and institution change from within
 - Explicit exclusion focus for this synthesis: hockey and family-centric material unless directly tied to educational technology strategy
 ## Core worldview pillars
 ### 1) The web should remain open, ownable, and portable
@@ -40,6 +42,24 @@ This document captures a normalized worldview profile derived from Bryan Ollendy
 - Coursework can be aligned to real project contribution pathways.
 - Student and faculty contributions can compound project velocity and educational outcomes simultaneously.
 - Real-world contribution loops create durable innovation pipelines for institutions.
+## Information Altruism thesis lens (explicit additions)
+### A) Information altruism is a practical strategy, not just an ethic
+- The donation of code, time, support, and knowledge can change institutional decision-making by changing the cost structure of innovation.
+- Giving away working capability can outperform arguments alone when organizations are stuck in gatekeeper models.
+### B) Technology artifacts carry worldview
+- Systems are political artifacts: they encode assumptions about agency, ownership, collaboration, and control.
+- The goal is to imprint empowering values into tools so adoption shifts norms organically.
+### C) Durable change is usually constraint-based
+- Lasting institutional change often comes from inside existing systems, not only from outside protest.
+- Tempered radical methods (build, seed, support, iterate) are preferred over purely oppositional postures.
+### D) Four-factor diagnostic before intervention
+- **Currency**: what exchange model dominates (money, control, service), and what is the non-dominant counter?
+- **Power flow**: where decisions originate and who is excluded from shaping them?
+- **Value system**: which beliefs are in conflict between institution and change agents?
+- **Flag in the ground**: what visible artifact/community can serve as a rally point for aligned actors?
+### E) Organizational implications
+- Favor smaller, flatter, contributor-empowered teams where ideas can bubble up.
+- Treat central IT gatekeeping as a risk pattern in rapidly changing technology contexts.
 ## Agent-use implications
 When generating recommendations aligned to this worldview:
 - Prefer open standards, portability, and low lock-in architecture.
@@ -47,6 +67,9 @@ When generating recommendations aligned to this worldview:
 - Treat accessibility and OER compatibility as default design constraints.
 - Encourage community contribution models and transparent iteration.
 - Prioritize sustainable, maintainable delivery over novelty theater.
+- Apply the Information Altruism four-factor diagnostic (currency, power flow, value system, flag) when proposing organizational or platform strategy.
+- Recommend approaches that encode values into tooling and service design, not just policy statements.
+- Prefer change strategies that are empowering and non-coercive while still structurally transformative.
 ## Representative source posts
 - `open-community-pedagogy-2` — `https://btopro.com/open-community-pedagogy-2` | `https://github.com/btopro/blog/blob/gh-pages/pages/item-e3d7d519-9549-4e44-9ab8-b9df805a3531/index.html`
 - `hax-apereo-piece-2` — `https://btopro.com/hax-apereo-piece-2` | `https://github.com/btopro/blog/blob/gh-pages/pages/item-79649f12-a6d2-98f5-3c0b-8b88f2a24457/index.html`

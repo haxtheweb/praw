@@ -3,7 +3,7 @@
 This document captures learned patterns, discovered workflows, and integration knowledge for how WARP should work effectively across the entire HAX ecosystem.
 ## Indexed External Worldview Sources
 ### `btopro/blog` (Bryan Ollendyke long-form corpus)
-- Path (local): `/home/bto108a/Documents/git/btopro/blog`
+- Path (local): `~/Documents/git/btopro/blog`
 - Path (served): `https://btopro.com`
 - Path (source mirror): `https://github.com/btopro/blog`
 - Scope: writing across life/work/research/philosophy, indexed for HAX, ELMS:LN, education, edtech, web architecture, open source, building, and community themes

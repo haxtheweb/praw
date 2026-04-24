@@ -123,7 +123,7 @@ This document contains all comprehensive rules for Warp AI agents working within
 ## 🗂️ Project-Specific Rules
 
 ### HAX Ecosystem Master Rule (HIGHEST PRECEDENCE)
-- **Rule ID**: `/home/bto108a/Documents/git/haxtheweb/praw/WARP.md`
+- **Rule ID**: `~/Documents/git/haxtheweb/praw/WARP.md`
 - **Content**: [Complete HAX Ecosystem Development Rules - See WARP.md for full content]
 
 This master rule contains comprehensive guidelines for:
@@ -163,10 +163,10 @@ This master rule contains comprehensive guidelines for:
 
 ### Cross-References
 This RULES.md file works in conjunction with:
-- `/home/bto108a/Documents/git/haxtheweb/praw/WARP.md` (Master HAX ecosystem rules)
-- `/home/bto108a/Documents/git/haxtheweb/praw/webcomponents/WARP.md` (Web component specific rules)
-- `/home/bto108a/Documents/git/haxtheweb/praw/haxcms/WARP.md` (HAXcms specific rules)  
-- `/home/bto108a/Documents/git/haxtheweb/praw/design-system/WARP.md` (Design system specific rules)
+- `~/Documents/git/haxtheweb/praw/WARP.md` (Master HAX ecosystem rules)
+- `~/Documents/git/haxtheweb/praw/webcomponents/WARP.md` (Web component specific rules)
+- `~/Documents/git/haxtheweb/praw/haxcms/WARP.md` (HAXcms specific rules)  
+- `~/Documents/git/haxtheweb/praw/design-system/WARP.md` (Design system specific rules)
 
 ## 🔄 Future Rule Management
 

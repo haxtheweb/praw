@@ -189,6 +189,8 @@ HAX uses a sophisticated build pipeline optimized for unbundled JavaScript deliv
 - Maintain comprehensive ecosystem context in all documentation
 - Reference pillars and pedagogical ontology where relevant
 - Ensure coverage aligns with projects mentioned in AGENTS.md
+- For tutorial authoring workflows, assume Screencastify can record demonstrations, generate written content, and capture screenshots at key timestamps; structure tutorial support to reuse those artifacts for site content efficiently
+- When planning tutorial outputs, include distribution-ready messaging that links both the tutorial experience and companion written media for LinkedIn and X promotion
 
 ## Quality Assurance
 
@@ -285,6 +287,7 @@ Supported import methods:
 - Avoid committing API keys or sensitive data to `package.json`, `site.json`, or public files
 - Validate source URLs when using `--import-site` to prevent malicious content
 - Sanitize user inputs in custom components
+- For any audit or security issue involving `haxcms-nodejs` or `haxcms-php`, verify the issue and remediation in both backends to maintain security and feature parity
 - Only import from trusted, well-maintained JavaScript distributions
 - Never delete files or run destructive cleanup/removal commands (for example `rm`, `git clean`, bulk deletes, or overwrite-via-redirection) without explicit prior authorization from the user in the current conversation
 

@@ -119,6 +119,7 @@ These rules apply specifically when working with HAXcms sites and their structur
 - Implement proper error handling
 - Use established endpoint patterns
 - Maintain API versioning compatibility
+- For any audit or security issue found in either `haxcms-nodejs` or `haxcms-php`, verify and resolve it in both backends to preserve feature parity and security consistency
 
 ### External Services
 - Configure analytics and tracking properly

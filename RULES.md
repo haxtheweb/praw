@@ -38,6 +38,10 @@ This document contains all comprehensive rules for Warp AI agents working within
 - **Rule ID**: `tJnuFVxe11BgToleU8oPxK`
 - **Content**: For any git repository in or below the current working directory, issues should be checked against the unified issue queue located at `~/Documents/git/haxtheweb/issues`.
 
+### HAXcms Backend Security/Parity
+- **Rule ID**: `a8bf4a47-3d4f-4f8e-a356-a04db66ce1ab`
+- **Content**: Anytime an audit or security issue is raised for either `haxcms-nodejs` or `haxcms-php`, verify and resolve it in both backends to maintain feature parity and security consistency.
+
 ## 🎨 Design System Standards
 
 ### DDD Design System (Primary)

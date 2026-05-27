@@ -160,3 +160,7 @@ When working with DDD, verify:
 ---
 
 *These rules ensure consistent, accessible, and maintainable design implementations across the HAX ecosystem using established design system patterns.*
+## Engineering Execution Rules
+- Favor concrete code over abstract theory.
+- Prioritize the simplest possible solution (KISS principle). Avoid over-engineering, design patterns for their own sake, and unnecessary modularization.
+- Ensure file paths and string quotes are not double encoded.

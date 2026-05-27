@@ -301,3 +301,8 @@ Supported import methods:
 ---
 
 *This file serves as the authoritative guide for HAX ecosystem development. All contributors should familiarize themselves with these standards to maintain consistency and quality across the platform.*
+
+## Engineering Execution Rules (Global)
+- Favor concrete code over abstract theory.
+- Prioritize the simplest possible solution (KISS principle). Avoid over-engineering, design patterns for their own sake, and unnecessary modularization.
+- Ensure file paths and string quotes are not double encoded.

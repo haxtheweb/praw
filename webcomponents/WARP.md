@@ -84,3 +84,7 @@ For educational web components:
 ---
 
 *These rules ensure HAX web components maintain high quality and consistent behavior across the ecosystem.*
+## Engineering Execution Rules
+- Favor concrete code over abstract theory.
+- Prioritize the simplest possible solution (KISS principle). Avoid over-engineering, design patterns for their own sake, and unnecessary modularization.
+- Ensure file paths and string quotes are not double encoded.

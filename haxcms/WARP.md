@@ -130,3 +130,7 @@ These rules apply specifically when working with HAXcms sites and their structur
 ---
 
 *These rules ensure HAXcms sites maintain consistency, quality, and proper integration with the broader HAX ecosystem.*
+## Engineering Execution Rules
+- Favor concrete code over abstract theory.
+- Prioritize the simplest possible solution (KISS principle). Avoid over-engineering, design patterns for their own sake, and unnecessary modularization.
+- Ensure file paths and string quotes are not double encoded.

@@ -129,6 +129,52 @@ try {
 }
 ```
 
+### Backend Core Data-Loading Patterns (Node + PHP parity)
+
+#### Canonical sequence for backend routes:
+- **Load site context first** using backend core loader:
+  - Node: `HAXCMS.loadSite(siteName)`
+  - PHP: `$HAXCMS->loadSite($siteName)`
+- **Resolve page/node from the manifest**:
+  - Node: `site.loadNode(nodeId)`
+  - PHP: `$site->loadNode($nodeId)`
+- **Read/write page content through existing page/site methods** (avoid ad-hoc filesystem abstractions):
+  - Node: `site.getPageContent(page)`, `page.writeLocation(...)`
+  - PHP: `$site->getPageContent($page)`, `$page->writeLocation(...)`
+- **Persist manifest + regenerate derived artifacts**:
+  - Node: `site.manifest.save(...)`, `site.writePageAlternateFormats(...)`, `site.updateAlternateFormats()`
+  - PHP: `$site->manifest->save(...)`, `$site->writePageAlternateFormats(...)`, `$site->updateAlternateFormats()`
+- **Commit mutation operations** with existing site git helpers:
+  - Node: `site.gitCommit(...)`
+  - PHP: `$site->gitCommit(...)`
+
+#### Canonical core methods to reuse (do not re-abstract):
+- Site loading and context:
+  - Node: `HAXCMSSite.load`, `HAXCMSSite.loadSingle`, `HAXCMS.loadSite`
+  - PHP: `HAXCMSSite::load`, `HAXCMS::loadSite`
+- Node/page lookup and model mutation:
+  - Node: `loadNode`, `itemFromParams`, `updateNode`, `deleteNode`
+  - PHP: `loadNode`, `itemFromParams`, `updateNode`, `deleteNode`
+- Content + alternate formats:
+  - Node: `getPageContent`, `writePageAlternateFormats`, `getPageAlternateLocation`
+  - PHP: `getPageContent`, `writePageAlternateFormats`, `getPageAlternateLocation`
+
+#### Route-level parity where this pattern is already established:
+- **Node backend** (`haxcms-nodejs/src/routes`):
+  - `saveNode`, `saveNodeDetails`, `saveOutline`, `deleteNode`, `siteSearch`, `getNodeRevisions`, `getNodeRevision`, `restoreNodeRevision`, `saveManifest`, `listFiles`, `fileOperation`
+- **PHP backend** (`haxcms-php/system/backend/php/lib/routes` and shared `Operations` helpers):
+  - `saveNode`, `saveNodeDetails`, `saveOutline`, `deleteNode`, `siteSearch`, `nodeRevisions` (covers list/get/restore revision flows), `saveManifest`, `listFiles`, and file operations routed through shared Operations helpers
+
+#### Stability rule for future backend changes:
+- Prefer **existing core model/file methods** before adding any new loader, resolver, or filesystem abstraction.
+- If a route needs site or node data, start from `loadSite` + `loadNode` and then use existing site/page helper methods for all reads/writes.
+- Keep direct raw `site.json` parsing in route code as an exception path only, not a new default pattern.
+
+#### Known parity caveat (PHP host context):
+- Method-level behavior should remain equivalent between Node and PHP.
+- The primary sanctioned divergence is **host context plumbing for HAXiam-managed PHP deployments**, including tenant/user resolution and capability gating.
+- Even with HAXiam context differences, route logic should still rely on the same core load → resolve → mutate → save/update-alternates flow.
+
 ## Educational Content Integration
 
 ### OER Schema Implementation Learning:

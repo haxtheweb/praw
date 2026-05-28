@@ -134,3 +134,8 @@ These rules apply specifically when working with HAXcms sites and their structur
 - Favor concrete code over abstract theory.
 - Prioritize the simplest possible solution (KISS principle). Avoid over-engineering, design patterns for their own sake, and unnecessary modularization.
 - Ensure file paths and string quotes are not double encoded.
+## AI Coding Session Guardrails (Adapted from CLAUDE.md)
+- Think before coding: state assumptions explicitly when ambiguity exists, ask clarifying questions when multiple interpretations would change implementation outcomes, and surface simpler alternatives/tradeoffs before writing code.
+- Simplicity first: implement only what was requested, avoid speculative abstractions or configurability, and prefer the smallest change that solves the problem.
+- Surgical changes: touch only files and lines required by the request, avoid unrelated refactors/formatting churn, and only remove dead code created by your own change unless explicitly asked.
+- Goal-driven verification: define explicit success criteria for each task and verify with project-appropriate checks (targeted command output, lint, runtime behavior, or existing tests when applicable), then report what was verified.

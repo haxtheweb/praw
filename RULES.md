@@ -118,6 +118,19 @@ This document contains all comprehensive rules for Warp AI agents working within
 - **Rule ID**: `SSy9vkxAqBTIcIXvYUstGA`
 - **Content**: The agent is explicitly not allowed to run the ubiquity script under any circumstances.
 
+### AI Coding Session Guardrails (CLAUDE Adaptation)
+- **Rule ID**: `74cc0274-6bf2-45a0-8e06-b88254f4cf9e`
+- **Content**: Before implementing, state assumptions explicitly when ambiguity exists, ask clarifying questions when multiple interpretations would materially change the solution, and surface simpler alternatives/tradeoffs instead of silently choosing one.
+
+- **Rule ID**: `f98f5e24-c343-4c12-b1c8-d6ae9783afaa`
+- **Content**: Prefer minimum viable implementation. Do not add speculative features, abstractions, configurability, or defensive complexity that was not requested.
+
+- **Rule ID**: `d2315f2d-f4b2-4e86-bdd0-37b2d42fef89`
+- **Content**: Keep diffs surgical: modify only code directly tied to the request, avoid unrelated refactors or formatting-only churn, and only remove unused code introduced by your own changes unless explicitly asked.
+
+- **Rule ID**: `f15ba99a-0a0a-42a0-a413-d8dfdc8eb20b`
+- **Content**: Define concrete success criteria and verify outcomes using project-appropriate checks (command output, linting, runtime validation, or existing tests when applicable), then report what was validated.
+
 ## 📝 Documentation Standards
 
 ### Documentation Structure (Duplicate - Lower Precedence)

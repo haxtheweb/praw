@@ -91,6 +91,14 @@ This document contains all comprehensive rules for Warp AI agents working within
 - **Rule ID**: `ip9IudNwZrZQsyk4ggvCzH`
 - **Content**: When running hax commands don't do npx, instead use the local copy that we have as it is always the latest or even experimental as the source starts with this machine.
 
+### Web Component Scaffolding
+- **Rule ID**: `hax-webcomponent-scaffold`
+- **Content**: When creating new webcomponents in the `webcomponents` monorepo, always use the `hax webcomponent` command to scaffold the element. This ensures the component is generated with the correct structure, HAX compatibility, DDD design system integration, i18n support, and follows the standard monorepo conventions. Do not create webcomponent directories or files manually in the monorepo — always scaffold with the CLI tool first.
+
+### HAX Site Scaffolding
+- **Rule ID**: `hax-site-scaffold`
+- **Content**: When creating HAXcms sites for testing or any purpose, always use the `hax site` command to generate the site. This ensures the site is created in the standard deployment location with the correct structure, theme configuration, and follows HAXcms conventions. Do not create site directories or files manually — always scaffold with the CLI tool first.
+
 ### Build Commands
 - **Rule ID**: `pCcVD8jgmc7zHeHTDEBzD1`
 - **Content**: Do not ask or prompt to run traditional build commands in this monorepo as they are not used.

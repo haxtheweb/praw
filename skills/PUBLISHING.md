@@ -41,6 +41,8 @@ skills/
 ├── hax-issue-analysis/
 │   ├── SKILL.md          ← required
 │   └── scripts/          ← optional
+├── hax-claudehax/
+│   └── SKILL.md          ← required
 └── README.md             ← human documentation
 ```
 
@@ -62,6 +64,7 @@ npx skills add ./skills/hax-design-system
 npx skills add ./skills/hax-ecosystem-onboarding
 npx skills add ./skills/hax-rule-management
 npx skills add ./skills/hax-issue-analysis
+npx skills add ./skills/hax-claudehax
 ```
 
 Verify:
@@ -80,13 +83,14 @@ git add llms.txt
 
 git commit -m "feat: add HAX ecosystem agent skills for skills.sh
 
-Adds 6 focused agent skills:
+Adds 7 focused agent skills:
 - hax-webcomponent-dev
 - hax-site-building
 - hax-design-system
 - hax-ecosystem-onboarding
 - hax-rule-management
 - hax-issue-analysis
+- hax-claudehax
 
 Also adds .well-known/skills/default/SKILL.md and llms.txt
 for agent discovery and routing.
@@ -113,6 +117,7 @@ npx skills add haxtheweb/praw --skill hax-design-system
 npx skills add haxtheweb/praw --skill hax-ecosystem-onboarding
 npx skills add haxtheweb/praw --skill hax-rule-management
 npx skills add haxtheweb/praw --skill hax-issue-analysis
+npx skills add haxtheweb/praw --skill hax-claudehax
 
 # Or install all at once
 npx skills add haxtheweb/praw --all
@@ -159,6 +164,7 @@ npx skills add haxtheweb/praw --skill hax-design-system
 npx skills add haxtheweb/praw --skill hax-ecosystem-onboarding
 npx skills add haxtheweb/praw --skill hax-rule-management
 npx skills add haxtheweb/praw --skill hax-issue-analysis
+npx skills add haxtheweb/praw --skill hax-claudehax
 ```
 ```
 

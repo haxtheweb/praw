@@ -61,6 +61,7 @@ For specific tasks, use the more focused skills in this package:
 - `hax-ecosystem-onboarding` — New developer setup, environment configuration, scaffolding
 - `hax-rule-management` — PRAW rule management, validation, export
 - `hax-issue-analysis` — GitHub issue fetching, analysis, reporting
+- `hax-claudehax` — Operate HAX sites via the ClaudeHAX plugin in Claude Code
 
 ## Core Conventions
 

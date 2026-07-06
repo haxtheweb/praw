@@ -24,6 +24,8 @@ The following skills are available for AI agents working within the HAX ecosyste
   - Path: `/skills/hax-rule-management/SKILL.md`
 - **hax-issue-analysis**: GitHub issue fetching and analysis across the ecosystem
   - Path: `/skills/hax-issue-analysis/SKILL.md`
+- **hax-claudehax**: Operate HAX sites via the ClaudeHAX plugin in Claude Code
+  - Path: `/skills/hax-claudehax/SKILL.md`
 
 ## Install All Skills
 

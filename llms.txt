@@ -1,0 +1,45 @@
+# llms.txt
+
+> llms.txt for the HAX ecosystem — agent discovery and skill installation.
+
+## HAX Ecosystem
+
+The HAX (Headless Authoring eXperience) ecosystem is a comprehensive web development platform for rapid creation of accessible, performant web components and static sites. It consists of a monorepo with 250+ LitElement components, a HAXcms content management system, a DDD design system, and extensive tooling.
+
+## Agent Skills
+
+The following skills are available for AI agents working within the HAX ecosystem:
+
+- **hax-ecosystem** (default): Master ecosystem overview and routing skill
+  - Path: `/.well-known/skills/default/SKILL.md`
+- **hax-webcomponent-dev**: Web component development with LitElement, DDD, and HAXSchema
+  - Path: `/skills/hax-webcomponent-dev/SKILL.md`
+- **hax-site-building**: HAXcms site creation and theme management
+  - Path: `/skills/hax-site-building/SKILL.md`
+- **hax-design-system**: DDD design system application and SimpleColors migration
+  - Path: `/skills/hax-design-system/SKILL.md`
+- **hax-ecosystem-onboarding**: New developer onboarding and environment setup
+  - Path: `/skills/hax-ecosystem-onboarding/SKILL.md`
+- **hax-rule-management**: PRAW rule management and validation
+  - Path: `/skills/hax-rule-management/SKILL.md`
+- **hax-issue-analysis**: GitHub issue fetching and analysis across the ecosystem
+  - Path: `/skills/hax-issue-analysis/SKILL.md`
+
+## Install All Skills
+
+```bash
+npx skills add haxtheweb/praw --all
+```
+
+## Documentation
+
+- PRAW Repository: https://github.com/haxtheweb/praw
+- HAX Documentation: https://haxtheweb.org/
+- DDD Design System: https://haxtheweb.org/ddd
+- HAX CLI: https://www.npmjs.com/package/@haxtheweb/create
+
+## Community
+
+- Discord: https://bit.ly/hax-discord
+- Issues: https://github.com/haxtheweb/issues
+- Twitter/X: https://x.com/haxtheweb

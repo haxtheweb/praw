@@ -26,11 +26,17 @@ The following skills are available for AI agents working within the HAX ecosyste
   - Path: `/skills/hax-issue-analysis/SKILL.md`
 - **hax-claudehax**: Operate HAX sites via the ClaudeHAX plugin in Claude Code
   - Path: `/skills/hax-claudehax/SKILL.md`
+- **hax-openstax2hax**: Convert OpenStax books into HAX sites via the openstax2hax plugin
+  - Path: `/skills/hax-openstax2hax/SKILL.md`
 
 ## Install All Skills
 
 ```bash
 npx skills add haxtheweb/praw --all
+
+# Or install individually
+npx skills add haxtheweb/praw --skill hax-claudehax
+npx skills add haxtheweb/praw --skill hax-openstax2hax
 ```
 
 ## Documentation
@@ -42,6 +48,6 @@ npx skills add haxtheweb/praw --all
 
 ## Community
 
-- Discord: https://bit.ly/hax-discord
+- Discord: https://discord.gg/EKYJAjqGhf
 - Issues: https://github.com/haxtheweb/issues
 - Twitter/X: https://x.com/haxtheweb

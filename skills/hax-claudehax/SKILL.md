@@ -180,6 +180,10 @@ Check `node -v`. Upgrade to Node.js 22+ if needed.
 ### Plugin behavior seems outdated
 Update the plugin: `/plugin update hax`. If the plugin references outdated HAX commands or components, the maintainer must run `npm run refresh:docs` in the claudehax repo and push.
 
+## OpenStax Import Workflow
+
+If the user is starting from an OpenStax book, use the `hax-openstax2hax` skill first to prepare the conversion. openstax2hax writes `conversion/hax-handoff-prompt.md`, which claudehax then consumes to build the HAX site. Do not attempt to build directly from raw OpenStax content without going through openstax2hax first.
+
 ## References
 
 - ClaudeHAX repository: `https://github.com/haxtheweb/claudehax`

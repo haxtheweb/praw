@@ -43,6 +43,8 @@ skills/
 │   └── scripts/          ← optional
 ├── hax-claudehax/
 │   └── SKILL.md          ← required
+├── hax-openstax2hax/
+│   └── SKILL.md          ← required
 └── README.md             ← human documentation
 ```
 
@@ -65,6 +67,7 @@ npx skills add ./skills/hax-ecosystem-onboarding
 npx skills add ./skills/hax-rule-management
 npx skills add ./skills/hax-issue-analysis
 npx skills add ./skills/hax-claudehax
+npx skills add ./skills/hax-openstax2hax
 ```
 
 Verify:
@@ -91,6 +94,7 @@ Adds 7 focused agent skills:
 - hax-rule-management
 - hax-issue-analysis
 - hax-claudehax
+- hax-openstax2hax
 
 Also adds .well-known/skills/default/SKILL.md and llms.txt
 for agent discovery and routing.
@@ -165,6 +169,7 @@ npx skills add haxtheweb/praw --skill hax-ecosystem-onboarding
 npx skills add haxtheweb/praw --skill hax-rule-management
 npx skills add haxtheweb/praw --skill hax-issue-analysis
 npx skills add haxtheweb/praw --skill hax-claudehax
+npx skills add haxtheweb/praw --skill hax-openstax2hax
 ```
 ```
 

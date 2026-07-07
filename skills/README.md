@@ -13,6 +13,7 @@ Reusable agent skills for the HAX (Headless Authoring eXperience) ecosystem. The
 | `hax-rule-management` | Manage PRAW rules and conventions stored in RULES.md | `npx skills add haxtheweb/praw --skill hax-rule-management` |
 | `hax-issue-analysis` | Fetch, analyze, and summarize GitHub issues across the HAX ecosystem | `npx skills add haxtheweb/praw --skill hax-issue-analysis` |
 | `hax-claudehax` | Operate HAX sites via the ClaudeHAX plugin in Claude Code | `npx skills add haxtheweb/praw --skill hax-claudehax` |
+| `hax-openstax2hax` | Convert OpenStax books into HAX sites via the openstax2hax plugin | `npx skills add haxtheweb/praw --skill hax-openstax2hax` |
 
 ## Install All Skills
 

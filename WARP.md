@@ -290,7 +290,7 @@ Supported import methods:
 
 ### Community & Support
 - **HAX Community**: Run `hax party` for involvement opportunities
-- **Discord**: https://bit.ly/hax-discord
+- **Discord**: https://discord.gg/EKYJAjqGhf
 - **Issue Reporting**: Use `haxtheweb/issues` or GitHub interface
 - **Documentation**: Run `man hax` (Linux/macOS) for comprehensive CLI docs
 - **Educational Resources**: Complete documentation at https://haxtheweb.org/

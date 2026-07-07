@@ -62,6 +62,7 @@ For specific tasks, use the more focused skills in this package:
 - `hax-rule-management` — PRAW rule management, validation, export
 - `hax-issue-analysis` — GitHub issue fetching, analysis, reporting
 - `hax-claudehax` — Operate HAX sites via the ClaudeHAX plugin in Claude Code
+- `hax-openstax2hax` — Convert OpenStax books into HAX sites via the openstax2hax plugin
 
 ## Core Conventions
 
@@ -82,3 +83,4 @@ For specific tasks, use the more focused skills in this package:
 - For onboarding details: `../../skills/hax-ecosystem-onboarding/SKILL.md`
 - For rule management details: `../../skills/hax-rule-management/SKILL.md`
 - For issue analysis details: `../../skills/hax-issue-analysis/SKILL.md`
+- For openstax2hax details: `../../skills/hax-openstax2hax/SKILL.md`

@@ -122,6 +122,10 @@ This document contains all comprehensive rules for Warp AI agents working within
 - **Rule ID**: `xu7Bcf5TJpHmb0ToPhyZ55`
 - **Content**: User prefers not to write tests in the current suggested way and does not do testing in that manner.
 
+### Monorepo Dependency Verification
+- **Rule ID**: `4a7c9e2b-8d5f-4e1a-9c3b-7f2e6d5a4b3c`
+- **Content**: If we add a dependency (import or reference) to an element in the webcomponents monorepo, verify that the dependency is declared in the `package.json` for that element before completing the change.
+
 ### Script Restrictions
 - **Rule ID**: `SSy9vkxAqBTIcIXvYUstGA`
 - **Content**: The agent is explicitly not allowed to run the ubiquity script under any circumstances.

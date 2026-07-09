@@ -131,6 +131,33 @@ When working with DDD, verify:
 - Implement responsive design patterns
 - Follow established spacing and typography scales
 
+## Transitions & Animations
+
+### CSS Transition Standards
+When creating CSS transitions, use the following standardized timing values to maintain consistent interaction feel across the HAX ecosystem:
+
+- **Minimal interactions**: Use `.3s ease-in-out` for subtle transitions such as hover states, focus rings, color changes, and small-scale property changes.
+- **Extended interactions**: Use `.6s ease-in-out` for more noticeable transitions such as panel slides, expand/collapse, opacity fades, and larger layout shifts.
+
+### Implementation
+```css
+/* Minimal interaction example */
+.button:hover {
+  background-color: var(--ddd-accent-1);
+  transition: background-color .3s ease-in-out;
+}
+
+/* Extended interaction example */
+.panel {
+  transition: max-height .6s ease-in-out, opacity .6s ease-in-out;
+}
+```
+
+### Guidelines
+- Prefer `ease-in-out` as the default easing function for all transitions unless a specific interaction requires a different curve.
+- Avoid one-off transition durations; stick to `.3s` or `.6s` unless there is a documented design reason to deviate.
+- Ensure transitions respect `prefers-reduced-motion` for accessibility compliance.
+
 ## Best Practices
 
 ### Performance

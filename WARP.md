@@ -245,7 +245,15 @@ HAX leverages cloud infrastructure at https://hax.cloud for:
 ## Advanced HAX Patterns
 
 ### Content Import & Migration
-Supported import methods:
+
+The `hax-imports/` folder in this repository contains working example files demonstrating valid import formats. Reference these when testing or documenting import capabilities:
+- `import-example.docx` - Microsoft Word document
+- `import-example.html` - Generic HTML export
+- `import-example.pdf` - PDF file (for reference; not directly importable as structured content)
+- `import-example.pptx` - PowerPoint presentation
+- `import-example.xlsx` - Excel spreadsheet
+
+Supported import methods (`--import-structure` values):
 - `pressbooksToSite` - Academic textbook platform
 - `elmslnToSite` - ELMS Learning Network
 - `haxcmsToSite` - Between HAXcms instances

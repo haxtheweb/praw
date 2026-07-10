@@ -92,6 +92,12 @@ All HAX Projects
 5. **Quality Phase**: Test accessibility, performance, cross-device compatibility
 6. **Integration Phase**: Verify content works with selected backend
 
+#### Content Import & Migration Testing:
+- The `hax-imports/` folder in this repository contains real example files for testing import pipelines
+- Example formats available: DOCX, HTML, PDF, PPTX, XLSX
+- Use `hax site mysite --import-site <url> --import-structure <method> --y` for URL-based imports
+- Reference `hax-imports/README.md` for documented URL-based import examples
+
 #### Cross-Repository Bug Fixes:
 1. **Issue Location**: Check unified `issues/` repository first
 2. **Impact Assessment**: Identify which repositories are affected

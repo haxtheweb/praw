@@ -23,6 +23,10 @@ depends_on: [audio-program-transcribe, hax-claudehax, hax-site-building, hax-des
 
 Turn the staging tree from `audio-program-transcribe` into a live, searchable HAXcms library site you can serve locally and selectively publish. The site lets you listen to the original program inline (`media-playlist` + `audio-player`), read distilled notes, and publish a curated page of your favorite quotes (`media-quote`) with full citations back to disc/track/timestamp.
 
+## Skill dependency resolution
+
+This skill `depends_on` interface skills (`hax-claudehax`, `hax-site-building`) that now live in the `create` repo and ship with the `hax` CLI. They are resolved by name in this order: project `.agents/skills/`, then `~/.agents/skills/`, then `create`'s bundled `dist/skills/`. Install them with `hax skills install --all` (or `hax skills install hax-site-building hax-claudehax`). The workflow skills (`audio-program-transcribe`, `hax-design-system`) remain in PRAW.
+
 ## When to use
 
 - The user says "publish <program> to my HAX library", "add this course to my audio site", "put my transcripts into HAX", or "curate quotes from <program>".

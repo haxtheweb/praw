@@ -81,6 +81,10 @@ This document contains all comprehensive rules for Warp AI agents working within
 - **Rule ID**: `eis0l9w9l2jG1COFySmvdT`
 - **Content**: When you write content for hax sites make sure that the webcomponent tags you are using are things that could have been authored and put in the page. This means written using the HAX editor via elements that have HAXSchema. This registry has a list of all valid HAX capable elements and while not always used on every page, it's useful for knowing what is possible. Some times supplying visually interesting content helps with engagement for video, table, and block element data. Also keep in mind the DDD attributes that we support to help make headings and paragraph content offset in a consistent way.
 
+### a11y-collapse heading-button
+- **Rule ID**: `a11y-collapse-heading-button`
+- **Content**: When using a11y-collapse, ensure that the `heading-button` property is set on the HTML element to make it easier for the end user to click the whole heading to expand the content. Without it, only the small toggle icon is clickable; with it, the entire heading bar becomes a clickable button, which is a better UX.
+
 ### Educational Content Standards
 - **Rule ID**: `c3XjsqFbCmoA3cxsooNyxG`
 - **Content**: When creating educational elements within HAX, attempt to apply the OER Schema metadata parameters to ensure consistent semantic structure and interoperability.
@@ -98,6 +102,10 @@ This document contains all comprehensive rules for Warp AI agents working within
 ### HAX Site Scaffolding
 - **Rule ID**: `hax-site-scaffold`
 - **Content**: When creating HAXcms sites for testing or any purpose, always use the `hax site` command to generate the site. This ensures the site is created in the standard deployment location with the correct structure, theme configuration, and follows HAXcms conventions. Do not create site directories or files manually — always scaffold with the CLI tool first.
+
+### HAXcms Page Creation via CLI
+- **Rule ID**: `hax-page-creation-cli`
+- **Content**: Always create HAXcms site pages through the `hax` CLI (`hax site node:add` or `hax site site:items-import`), never by manually creating page directories or hand-editing `site.json`. Manual page creation bypasses the CLI's page-id generation, slug/location management, and atomic `site.json` updates, which corrupts the JSON Outline Schema structure and breaks the site in production. The CLI owns page structure; the agent only owns page content. Use `node:add` for single pages or `site:items-import` for bulk creation with a JOS items array.
 
 ### Build Commands
 - **Rule ID**: `pCcVD8jgmc7zHeHTDEBzD1`

@@ -16,6 +16,10 @@ metadata:
 
 Convert OpenStax books into HAX sites using the openstax2hax plugin and HAX CLI.
 
+## Skill dependency resolution
+
+This skill interfaces with the `hax-claudehax` skill, which now lives in the `create` repo and ships with the `hax` CLI. It is resolved by name in this order: project `.agents/skills/`, then `~/.agents/skills/`, then `create`'s bundled `dist/skills/`. Install it with `hax skills install hax-claudehax` (or `hax skills install --all`).
+
 ## When to Use
 
 - The user wants to turn an OpenStax book or chapter into a HAX site

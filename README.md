@@ -15,6 +15,24 @@ This repository contains:
 
 These rules ensure consistency, quality, and proper integration across all HAX projects and web components.
 
+## Skill Architecture: PRAW vs create
+
+PRAW and the `create` repo (`@haxtheweb/create`, the `hax` CLI) have a clear separation of concerns for agent skills:
+
+- **`create`** owns **interface skills** — skills that document CLI commands, flags, and output. These are version-locked to the CLI and ship via npm (`dist/skills/`). Install them with `hax skills install --all`. Current interface skills: `hax-site-building`, `hax-claudehax`, `hax-webcomponent-dev`, `hax-ecosystem-onboarding`.
+
+- **PRAW** owns **workflow and knowledge skills** — higher-order patterns that compose the CLI but are not CLI capabilities, plus the canonical rules (`RULES.md`, `WARP.md`). Current PRAW skills: `audio-program-transcribe`, `audio-program-hax`, `hax-openstax2hax`, `hax-design-system`, `hax-issue-analysis`, `hax-rule-management`, `grad-blooms`.
+
+Workflow skills declare `depends_on` by skill name (not repo path). Interface deps resolve in order: project `.agents/skills/` → `~/.agents/skills/` → `create`'s bundled `dist/skills/`. This keeps the two repos decoupled at the filesystem level while skills compose.
+
+### Stale copy cleanup
+
+If you previously had PRAW skills installed in `~/.agents/skills/` (e.g. `hax-site-building`, `hax-claudehax`), those are now stale — the canonical source is `create`. Run `hax skills install --all` to overwrite them with the current versions, or delete the stale dirs manually:
+```bash
+rm -rf ~/.agents/skills/{hax-site-building,hax-claudehax,hax-webcomponent-dev,hax-ecosystem-onboarding}
+hax skills install --all
+```
+
 ## Quick Start - New to HAX?
 
 **🚀 For complete newcomers**, we've created an automated onboarding script that sets up your entire HAX development environment with Warp optimization:

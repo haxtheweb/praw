@@ -54,6 +54,12 @@
       "sourceType": "github",
       "skillPath": "skills/hax-webcomponent-dev/SKILL.md",
       "computedHash": "123cd0550958f08c8d75c54c2896d86caf2565d5ce303ff1c82d8e9967b746d5"
+    },
+    "pdf": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/pdf/SKILL.md",
+      "computedHash": "cfbc539377088ca7e44a813b30c306327385bbd973cd7a721e1743f60837dd62"
     }
   }
 }

@@ -14,6 +14,20 @@ Reusable agent skills for the HAX (Headless Authoring eXperience) ecosystem. The
 | `hax-issue-analysis` | Fetch, analyze, and summarize GitHub issues across the HAX ecosystem | `npx skills add haxtheweb/praw --skill hax-issue-analysis` |
 | `hax-claudehax` | Operate HAX sites via the ClaudeHAX plugin in Claude Code | `npx skills add haxtheweb/praw --skill hax-claudehax` |
 | `hax-openstax2hax` | Convert OpenStax books into HAX sites via the openstax2hax plugin | `npx skills add haxtheweb/praw --skill hax-openstax2hax` |
+| `audio-program-transcribe` | Transcribe and distill an owned audio/video program into a portable markdown staging tree | `npx skills add haxtheweb/praw --skill audio-program-transcribe` |
+| `audio-program-hax` | Publish a transcribed audio/video program as a searchable HAXcms library site with inline playback | `npx skills add haxtheweb/praw --skill audio-program-hax` |
+| `hax-a11y-audit` | Read-only WCAG 2.0 AA audit of authored HAX pages with HAX remediation | `npx skills add haxtheweb/praw --skill hax-a11y-audit` |
+| `hax-udl-audit` | Read-only UDL 3.0 audit (Engagement, Representation, Action & Expression) of a HAX page | `npx skills add haxtheweb/praw --skill hax-udl-audit` |
+| `hax-content-chunking-audit` | Audit a HAX page for cognitive load / chunking and recommend HAX remediation | `npx skills add haxtheweb/praw --skill hax-content-chunking-audit` |
+| `hax-ubd-unit-audit` | Read-only UbD review of an existing HAX unit with remediation handoff | `npx skills add haxtheweb/praw --skill hax-ubd-unit-audit` |
+| `hax-issue-research` | Research a HAX GitHub issue, draft a plan, and capture it as a "Plan Created" comment | `npx skills add haxtheweb/praw --skill hax-issue-research` |
+| `hax-ubd-backward-design` | Design HAX course units via UbD backward design; emits unit plan + HAX site skeleton | `npx skills add haxtheweb/praw --skill hax-ubd-backward-design` |
+| `hax-ubd-stage1` | UbD Stage 1 — unpack standards into big ideas, understandings, EQs, K/S, misconceptions | `npx skills add haxtheweb/praw --skill hax-ubd-stage1` |
+| `hax-ubd-stage2` | UbD Stage 2 — build evidence scrapbook, GRASPS task, facet rubric, validity self-test | `npx skills add haxtheweb/praw --skill hax-ubd-stage2` |
+| `hax-ubd-stage3` | UbD Stage 3 — plan learning experiences via WHERETO from Stages 1+2 | `npx skills add haxtheweb/praw --skill hax-ubd-stage3` |
+| `hax-ubd-essential-questions` | Author UbD essential and entry questions from the six-facet starter bank | `npx skills add haxtheweb/praw --skill hax-ubd-essential-questions` |
+| `hax-ubd-grasps` | Frame UbD GRASPS performance tasks and pick authentic-context HAX media | `npx skills add haxtheweb/praw --skill hax-ubd-grasps` |
+| `hax-ubd-six-facets` | Apply UbD six facets to write understandings and build facet-mapped rubric criteria | `npx skills add haxtheweb/praw --skill hax-ubd-six-facets` |
 
 ## Install All Skills
 

@@ -42,6 +42,10 @@ This document contains all comprehensive rules for Warp AI agents working within
 - **Rule ID**: `a8bf4a47-3d4f-4f8e-a356-a04db66ce1ab`
 - **Content**: Anytime an audit or security issue is raised for either `haxcms-nodejs` or `haxcms-php`, verify and resolve it in both backends to maintain feature parity and security consistency.
 
+### MFR Call Namespacing (`@system/` and `@site/`)
+- **Rule ID**: `82dc87fd-6bc1-4d20-9d68-5b077bb88b89`
+- **Content**: System-level calls (such as site imports, file format conversions, and other operations not scoped to a single site) must be made via the MicroFrontendRegistry (MFR) under the `@system/` namespace, registered from the on-premises OpenAPI spec at `/system/api/v1` (see `app-hax-system-api-registry.js` and `system-spec.yaml`; server handlers live in `haxcms-nodejs/src/systemRoutes/v1`). Site-level calls for actions scoped to a specific site must be made under the `@site/` namespace. We have moved away from the legacy `@haxcms/` style MFR registrations (e.g. `@haxcms/wordpressToSite`, `@haxcms/htmlToSite`) because those resolved to external endpoints on `open-apis.hax.cloud`, which have been phased out in favor of on-premises calls. Do not add new `@haxcms/`-namespaced MFR registrations or wire new import/conversion flows through the `create` CLI's `--import-structure` legacy v0 path; route new work through the v1 `@system/` (system-wide) or `@site/` (site-scoped) namespaces instead.
+
 ## 🎨 Design System Standards
 
 ### DDD Design System (Primary)

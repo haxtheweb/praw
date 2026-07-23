@@ -78,7 +78,7 @@ VTT-specific logic.
 ## Error handling
 
 - **No captions (manual or auto)** — the script exits non-zero with a clear
-  message. Callers (e.g. `create-tutorial-site`) treat this as a **soft
+  message. Callers (e.g. `hax-tutorial-site`) treat this as a **soft
   failure** and continue without a transcript.
 - **yt-dlp absent + venv provisioning fails** (e.g. no network) — the script
   errors clearly; callers fall back to no-transcript.

@@ -1,50 +1,62 @@
 ---
-name: create-tutorial-site
+name: hax-tutorial-site
 description: >
   Create a published HAXcms tutorial site from a YouTube video and a DOCX transcript
   (with screenshots and timestamps), then generate LinkedIn / X / Mastodon posts and a
   YouTube SEO description. Use this skill whenever the user says "create a tutorial site
-  for this", "turn this video into a tutorial site", "make a tutorial site from this docx
-  and youtube", "build a tutorial site from this video", or provides a YouTube URL plus a
-  .docx file and wants a single-page tutorial published to surge with social copy — even
-  if they do not say "skill" or "tutorial site" explicitly. Also use it when the user
-  references the `btopro-tutorial` skeleton or the `ai-single-site-tutorials` directory
-  in the context of turning a video + transcript into a site.
-version: 1.2.0
+  for this", "run the hax tutorial skill", "hax tutorial skill", "make a tutorial site
+  from this docx and youtube", "build a tutorial site from this video", or provides a
+  YouTube URL plus a .docx file and wants a single-page tutorial published to surge with
+  social copy — even if they do not say "skill" or "tutorial site" explicitly. "hax
+  tutorial skill" is an alias for "make a HAXcms site" so the skill is discovered faster.
+  Also use it when the user references the `hax-tutorial` skeleton or the
+  `ai-single-site-tutorials` directory in the context of turning a video + transcript
+  into a site. The skeleton is bundled with the skill (references/hax-tutorial.json)
+  and referenced via `--skeleton-file`, so no personal-profile install is required and
+  other people can use the skill to create tutorial sites rapidly.
+version: 1.3.0
 license: Apache-2.0
 metadata:
   author: haxtheweb
-  tags: [hax, tutorial, youtube, docx, surge, resume-theme, page-anchor, social-copy, provenance, puppeteer, review-mode, transcript, vtt, a11y-media-player]
+  tags: [hax, tutorial, youtube, docx, surge, resume-theme, page-anchor, social-copy, provenance, puppeteer, review-mode, transcript, vtt, a11y-media-player, skeleton-file, portable]
 ---
 
 # Create a Tutorial Site
 
 Turn a YouTube video + a DOCX transcript (screenshots + timestamps) into a published,
 single-page HAXcms tutorial site, plus ready-to-post LinkedIn / X / Mastodon copy and a
-YouTube SEO description. Trigger phrase: **"create a tutorial site for this"**.
+YouTube SEO description. Trigger phrase: **"create a tutorial site for this"** (also
+**"run the hax tutorial skill"** / **"hax tutorial skill"** — an alias for "make a HAXcms
+site" so it is discovered faster).
 
 ## Inputs
 
 - **YouTube watch URL** — e.g. `https://www.youtube.com/watch?v=XXXXXXXXXXX`. The video
-  title (via oEmbed) becomes the site title; the video is embedded at the top of the page.
+  title (via oEmbed) becomes the site title and the page `<h1>`; the video is embedded
+  directly below that title.
 - **Local `.docx` path** — the transcript with screenshots and timestamps. Screenshots are
   extracted into the site so media lives with the tutorial; timestamps become in-page
   seek links.
 - **Puppeteer `.json` path (optional)** — a browser-automation recording artifact. When
-  supplied, it is copied into the site `files/` folder and linked in an "Automation
-  recording" sub-section at the bottom of the Details block. The converter treats it as a
-  linked artifact; it does not parse an unknown JSON shape into page content.
+  supplied, it is copied into the site `files/` folder and linked as an "Automation
+  recording (JSON)" bullet at the bottom of the Tutorial Details block. The converter
+  treats it as a linked artifact; it does not parse an unknown JSON shape into page
+  content.
 
-## Prerequisites (verified on this machine)
+## Prerequisites
 
 - `hax` CLI (local copy — never `npx`), `surge`, `node` v22+. mammoth is resolved from the
   `create`/`haxcms-nodejs` `node_modules` (no pandoc/yt-dlp required).
-- The `btopro-tutorial` site skeleton installed at `~/.haxcmsconfig/skeletons/btopro-tutorial.json`
-  — it bakes in the `resume-theme`, site settings, and platform config, plus one placeholder
-  page (title "Tutorial", slug `tutorial`). It does NOT bake in the author profile
-  (`metadata.author` ships empty `{}`), so the skill injects the author from
-  `references/author-profile.json` during step 7. The skill does not pass `--theme`.
-- All sites live under `~/Documents/git/haxtheweb/ai-single-site-tutorials/`.
+- The `hax-tutorial` site skeleton is **bundled with this skill** at
+  `references/hax-tutorial.json` — it bakes in the `resume-theme`, site settings, and
+  platform config, plus one placeholder page (title "Tutorial", slug `tutorial`). The
+  skill scaffolds from it via `--skeleton-file` (a direct path), so the skeleton does NOT
+  need to be installed in `~/.haxcmsconfig/skeletons/` and the skill is portable to other
+  users. It does NOT bake in the author profile (`metadata.author` ships empty `{}`), so
+  the skill injects the author from `references/author-profile.json` during step 7. The
+  skill does not pass `--theme`.
+- All sites live under `~/Documents/git/haxtheweb/ai-single-site-tutorials/` (adjust the
+  parent directory if adopting the skill elsewhere).
 
 ## Modes
 
@@ -74,12 +86,14 @@ YouTube SEO description. Trigger phrase: **"create a tutorial site for this"**.
 3. **Derive machine name** — slugify the video title to kebab-case (lowercase, hyphen-separated,
    no spaces). If `<machine-name>` already exists under `ai-single-site-tutorials/`, append
    `-2`, `-3`, etc. Per ecosystem rule, `metadata.site.name` MUST equal this folder name.
-4. **Scaffold the site from the skeleton** — run from the tutorials directory with automation
-   flags (never `npx`; the `--y --no-i --auto --skip --quiet` flags prevent prompts and
-   sub-process launches):
+4. **Scaffold the site from the bundled skeleton** — run from the tutorials directory
+   with automation flags (never `npx`; the `--y --no-i --auto --skip --quiet` flags prevent
+   prompts and sub-process launches). Use `--skeleton-file` pointing at the skeleton that
+   ships with the skill (a direct path), NOT `--skeleton-machine-name`, so the skill does
+   not depend on a skeleton installed in the user's personal `~/.haxcmsconfig` profile:
    ```
    cd ~/Documents/git/haxtheweb/ai-single-site-tutorials && \
-     hax site <machine-name> --skeleton-machine-name btopro-tutorial \
+     hax site <machine-name> --skeleton-file <skill-dir>/references/hax-tutorial.json \
        --y --no-i --auto --skip --quiet
    ```
 5. **Generate a video-player UUID** — used so timestamp `page-anchor` links can seek the
@@ -90,16 +104,20 @@ YouTube SEO description. Trigger phrase: **"create a tutorial site for this"**.
    downloaded):
    `node <youtube-vtt-skill-dir>/scripts/youtube-to-vtt.cjs <watch-url> <tmp-dir>`
    It auto-provisions `yt-dlp` via an isolated venv if needed (first run only), tries manual
-   captions then YouTube auto-captions, and normalizes to `<tmp-dir>/transcript.vtt`. On
+   captions then YouTube auto-captions, normalizes to `<tmp-dir>/transcript.vtt`, and
+   cleans the result: strips YouTube's inline karaoke timing tags, de-duplicates the
+   2-line rolling auto-caption repetition, and fixes the "HackCMS" speech-to-text typo. On
    success, pass `--transcript-vtt <tmp-dir>/transcript.vtt` to the converter in step 7. On
    failure (no captions available), warn and continue — the converter simply omits the
    transcript track and bullet, and the tutorial is still fully usable. This step is
    automatic (default on); it requires no user input beyond the YouTube URL.
 7. **Convert the DOCX, assemble the page, and finalize site.json in one pass** — run the
-   bundled converter. It extracts screenshots into `<site>/files/images/`, rewrites
-   `<img src>` to site-relative paths, wraps timestamp tokens in
-   `<page-anchor target="#<uuid>" value="<seconds>">`, prepends a
-   `<video-player id="<uuid>" source="<watch-url>">`, writes the combined HTML to the
+   bundled converter. It extracts screenshots into `<site>/files/images/` and converts
+   each into a `<media-image source=\"files/images/<n>.<ext>\" caption=\"<nearest preceding heading>\" offset=\"narrow\" card box>`, fixes the common speech-to-text typo
+   "HackCMS"/"Hack CMS" -> "HAXcms", wraps timestamp tokens in
+   `<page-anchor target=\"#<uuid>\" value=\"<seconds>\">`, emits an `<h1>` of the video
+   title followed immediately by a `<video-player id=\"<uuid>\" source=\"<watch-url>\">`,
+   writes the combined HTML to the
    skeleton's root page (location resolved from `site.json`'s first root item — the
    placeholder page folder is UUID-based), AND finalizes `site.json`: sets `title` to the
    video title, `description` (from `--description` or a default), and injects the author
@@ -124,18 +142,20 @@ YouTube SEO description. Trigger phrase: **"create a tutorial site for this"**.
    to the `create` and `haxcms-nodejs` `node_modules`, so it works even without `NODE_PATH`
    on this machine. If the DOCX has no timestamp tokens, no `page-anchor` elements are
    emitted (the video-player is still embedded).
-   The author injection matters: the `btopro-tutorial` skeleton ships `metadata.author` as
+   The author injection matters: the `hax-tutorial` skeleton ships `metadata.author` as
    an empty `{}`, so without this step the resume-theme sidebar renders no presenter. The
    profile keys (name, image, email, phone, location, website, website2, socialLink,
    socialLink2) map directly to what `resume-theme.js` reads from `metadata.author`.
-   The converter also appends a **Details / provenance section** to the bottom of the page:
-   a `<h2>Details</h2>` heading and a bulleted list linking the YouTube video, every
-   screenshot in the page, and the source DOCX (copied into `files/`), followed by a
-   "Last updated" date and the "HAXcms version" used in generation (read from the
-   scaffolded site's `package.json`, falling back to the `create` CLI version). When
-   `--puppeteer-json` is supplied, an "Automation recording" sub-section is appended at the
-   very bottom of the Details section linking the copied JSON file. When `--transcript-vtt`
-   is supplied, a "Transcript (VTT)" bullet is added with the other asset links.
+   The converter also appends a **Tutorial Details / provenance section** to the bottom of
+   the page: a `<h2>Tutorial Details</h2>` heading and a bulleted list (every link opens in
+   a new window via `target=\"_blank\"`). The first bullet is "Video Tutorial Link
+   (YouTube)" with a `transcript` link to the VTT right after it (when a transcript was
+   supplied); next, "Images in this page:" followed by a comma-separated list of image
+   links (one `<li>`, not a nested list); then "Original Content Source (DOCX)"; the
+   "Automation recording (JSON)" artifact as a bullet (not a sub-heading) when a puppeteer
+   JSON was supplied; then a "Last updated" date and the "HAXcms version" used in
+   generation (read from the scaffolded site's `package.json`, falling back to the `create`
+   CLI version).
 
    **Review-mode fork:** in review mode, stop after step 7. Start `hax serve` from
    `<site-dir>` for in-browser editing, report the local site directory and page file path,
@@ -163,9 +183,9 @@ YouTube SEO description. Trigger phrase: **"create a tutorial site for this"**.
 
 ## Command reference
 
-- Scaffold: `hax site <name> --skeleton-machine-name btopro-tutorial --y --no-i --auto --skip --quiet`
-- VTT transcript: `node <youtube-vtt-skill-dir>/scripts/youtube-to-vtt.cjs <watch-url> <tmp-dir> [--lang en]` (auto-provisions yt-dlp via venv; subtitle-only; normalizes to transcript.vtt; soft-fails on no captions)
-- Convert + assemble + finalize site.json + Details section: `node scripts/docx-to-content.cjs <docx> <site-dir> <uuid> <watch-url> "<title>" [--description "<text>"] [--puppeteer-json "<path>"] [--transcript-vtt "<path>"]` (injects author profile into `metadata.author`, sets title/description, builds the page + Details/provenance block, optionally links a puppeteer JSON and attaches a VTT transcript via the `video-player` `track` attribute)
+- Scaffold: `hax site <name> --skeleton-file <skill-dir>/references/hax-tutorial.json --y --no-i --auto --skip --quiet` (uses the skeleton bundled with the skill via a direct file path; portable, no personal-profile install required)
+- VTT transcript: `node <youtube-vtt-skill-dir>/scripts/youtube-to-vtt.cjs <watch-url> <tmp-dir> [--lang en]` (auto-provisions yt-dlp via venv; subtitle-only; normalizes + cleans transcript.vtt [strips inline timing tags, de-duplicates rolling auto-captions, fixes "HackCMS"->"HAXcms"]; soft-fails on no captions)
+- Convert + assemble + finalize site.json + Tutorial Details section: `node scripts/docx-to-content.cjs <docx> <site-dir> <uuid> <watch-url> \"<title>\" [--description \"<text>\"] [--puppeteer-json \"<path>\"] [--transcript-vtt \"<path>\"]` (injects author profile into `metadata.author`, sets title/description, builds the page [H1 video title + video-player + media-image screenshots + page-anchor timestamps + HackCMS->HAXcms fix] + Tutorial Details/provenance block with target=\"_blank\" links, optionally links a puppeteer JSON and attaches a VTT transcript via the `video-player` `track` attribute)
 - Publish: `hax site site:surge --domain <name>.surge.sh --y --no-i --auto --quiet`
 - Review-mode dev server: `cd <site-dir> && hax serve` (in-browser HAX editor for local review; stop it before publishing)
 - Video metadata: `curl -s "https://www.youtube.com/oembed?url=<watch-url>&format=json"`
@@ -194,17 +214,25 @@ deep-link. `value` is total seconds (`1:30` → `90`). The converter handles thi
 
 ## References
 
-- `scripts/docx-to-content.cjs` — mammoth DOCX→HTML converter (image extraction + page-anchor
-  timestamps + video-player prepend), Details/provenance section builder (YouTube + screenshot
-  + DOCX links, last-updated date, HAXcms version; optional puppeteer-JSON "Automation recording"
-  sub-section; optional "Transcript (VTT)" bullet), AND site.json finalizer (title, description,
-  author profile injection into `metadata.author`). Accepts `--puppeteer-json <path>` to attach a
+- `scripts/docx-to-content.cjs` — mammoth DOCX→HTML converter (image extraction +
+  `<media-image>` conversion with heading captions + "HackCMS"->"HAXcms" fix + page-anchor
+  timestamps + H1(video-title)+video-player assembly), Tutorial Details/provenance section
+  builder (Video Tutorial Link (YouTube) + `transcript` + comma-separated image links +
+  Original Content Source (DOCX) + Automation recording bullet; all links `target=\"_blank\"`;
+  last-updated date, HAXcms version), AND site.json finalizer (title, description, author
+  profile injection into `metadata.author`). Accepts `--puppeteer-json <path>` to attach a
   browser-automation artifact and `--transcript-vtt <path>` to copy a WebVTT into `files/`, add a
-  `track="files/transcript.vtt"` attribute to the `<video-player>` (so `a11y-media-player` renders
+  `track=\"files/transcript.vtt\"` attribute to the `<video-player>` (so `a11y-media-player` renders
   the searchable transcript), and link it in Details.
 - **`youtube-vtt` skill** (`../youtube-vtt/`) — dependency for step 6. Its
-  `scripts/youtube-to-vtt.cjs` turns the YouTube URL into `transcript.vtt` via yt-dlp
-  subtitle-only extraction (auto-provisions yt-dlp via a venv; soft-fails on no captions).
+  `scripts/youtube-to-vtt.cjs` turns the YouTube URL into a cleaned `transcript.vtt` via
+  yt-dlp subtitle-only extraction (auto-provisions yt-dlp via a venv; strips inline timing
+  tags + de-duplicates rolling auto-captions + fixes the "HackCMS" typo; soft-fails on no
+  captions).
+- `references/hax-tutorial.json` — the `hax-tutorial` site skeleton bundled with
+  this skill (resume-theme + site settings + platform config + one placeholder "Tutorial"
+  page). Scaffolding uses `--skeleton-file <skill-dir>/references/hax-tutorial.json`, so
+  the skill is self-contained and portable (no `~/.haxcmsconfig/skeletons/` install needed).
 - `references/author-profile.json` — author profile (Bryan T Ollendyke); written into
   `site.json` `metadata.author` for the resume-theme sidebar and reused for promotional copy.
 - `references/social-copy-templates.md` — LinkedIn / X / YouTube copy templates.

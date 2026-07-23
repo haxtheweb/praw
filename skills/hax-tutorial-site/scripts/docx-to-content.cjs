@@ -110,6 +110,72 @@ function wrapTimestamps(html, uuid) {
     .join("");
 }
 
+// Escape the minimum needed for a double-quoted HTML attribute value (do not
+// double-encode file paths or existing entities).
+function escAttr(s) {
+  return String(s).replace(/"/g, "&quot;");
+}
+
+// Escape text content for an HTML element (not quotes — text content).
+function escText(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+// Fix common speech-to-text mis-transcriptions of "HAXcms". Applied to text
+// segments only so URLs/attributes are never touched.
+function fixSpeechToText(html) {
+  return html
+    .split(/(<[^>]+>)/)
+    .map((seg, i) =>
+      i % 2 === 1 ? seg : seg.replace(/Hack[ ]?CMS/gi, "HAXcms"),
+    )
+    .join("");
+}
+
+// Demote the first <h1> in the content to <h2> so the page keeps a single H1
+// (the video title injected above the video-player).
+function demoteFirstH1(html) {
+  return html.replace(
+    /<h1(\s[^>]*)?>([\s\S]*?)<\/h1>/i,
+    (m, attrs, inner) => `<h2${attrs || ""}>${inner}</h2>`,
+  );
+}
+
+// Replace <p><img ...></p> (and bare <img>) screenshots with <media-image>
+// elements. caption = plain text of the nearest preceding heading (falling
+// back to alt). Attributes: offset="narrow" card box (DDD styling).
+function transformImagesToMediaImage(html) {
+  const tokenRe =
+    /<h([1-6])[^>]*>([\s\S]*?)<\/h[1-6]>|<p>\s*(<img[^>]*?>)\s*<\/p>|(<img[^>]*?>)/gi;
+  let lastHeading = "";
+  let out = "";
+  let lastIdx = 0;
+  let m;
+  while ((m = tokenRe.exec(html)) !== null) {
+    out += html.slice(lastIdx, m.index);
+    if (m[1] !== undefined) {
+      lastHeading = m[2].replace(/<[^>]+>/g, "").trim();
+      out += m[0];
+    } else {
+      const imgTag = m[3] !== undefined ? m[3] : m[4];
+      const srcMatch = /src=["']([^"']*)["']/i.exec(imgTag);
+      const altMatch = /alt=["']([^"']*)["']/i.exec(imgTag);
+      const src = srcMatch ? srcMatch[1] : "";
+      const alt = altMatch ? altMatch[1] : "";
+      const caption = lastHeading || alt || "";
+      const altAttr = alt ? ` alt="${escAttr(alt)}"` : "";
+      const captionAttr = caption ? ` caption="${escAttr(caption)}"` : "";
+      out += `<media-image source="${src}"${altAttr}${captionAttr} offset="narrow" card box></media-image>`;
+    }
+    lastIdx = tokenRe.lastIndex;
+  }
+  out += html.slice(lastIdx);
+  return out;
+}
+
 // --- optional CLI flag parsing ---------------------------------------------
 function parseFlags(argv) {
   const flags = {
@@ -185,38 +251,42 @@ function buildDetailsSection(
   puppeteerSiteRelPath,
   transcriptSiteRelPath,
 ) {
-  let imageLinks = "";
+  // YouTube link (renamed) with a "transcript" link to the VTT right after it
+  // when a transcript was supplied. All links open in a new window.
+  let youtubeLi = `    <li><a href="${watchUrl}" target="_blank">Video Tutorial Link (YouTube)</a>`;
+  if (transcriptSiteRelPath) {
+    youtubeLi += ` - <a href="${transcriptSiteRelPath}" target="_blank">transcript</a>`;
+  }
+  youtubeLi += `</li>`;
+
+  // Images: a single <li> with a colon + comma-separated links (not a nested
+  // <ul> of separate <li>s).
+  let imageLi;
   if (screenshotFilenames.length > 0) {
-    const items = screenshotFilenames
-      .map((f) => `      <li><a href="files/images/${f}">${f}</a></li>`)
-      .join("\n");
-    imageLinks = `    <li>Images in this page
-      <ul>
-${items}
-      </ul>
-    </li>`;
+    const links = screenshotFilenames
+      .map((f) => `<a href="files/images/${f}" target="_blank">${f}</a>`)
+      .join(", ");
+    imageLi = `    <li>Images in this page: ${links}</li>`;
   } else {
-    imageLinks = "    <li>Images in this page: none</li>";
+    imageLi = `    <li>Images in this page: none</li>`;
   }
 
-  const transcriptBullet = transcriptSiteRelPath
-    ? `    <li><a href="${transcriptSiteRelPath}">Transcript (VTT)</a></li>\n`
+  const docxLi = `    <li><a href="${docxSiteRelPath}" target="_blank">Original Content Source (DOCX)</a></li>`;
+
+  // Automation recording is a bullet (not a sub-heading).
+  const puppeteerLi = puppeteerSiteRelPath
+    ? `    <li><a href="${puppeteerSiteRelPath}" target="_blank">Automation recording (JSON)</a></li>\n`
     : "";
 
-  let html = `<h2>Details</h2>
+  return `<h2>Tutorial Details</h2>
 <ul>
-    <li><a href="${watchUrl}">YouTube video</a></li>
-${imageLinks}
-    <li><a href="${docxSiteRelPath}">Source transcript (DOCX)</a></li>
-${transcriptBullet}    <li>Last updated: ${lastUpdated}</li>
+${youtubeLi}
+${imageLi}
+${docxLi}
+${puppeteerLi}    <li>Last updated: ${lastUpdated}</li>
     <li>HAXcms version: ${haxVersion}</li>
-</ul>`;
-
-  if (puppeteerSiteRelPath) {
-    html += `\n<h3>Automation recording</h3>\n<p><a href="${puppeteerSiteRelPath}">Puppeteer recording (JSON)</a></p>`;
-  }
-
-  return html + "\n";
+</ul>
+`;
 }
 
 // --- site.json metadata finalization ---------------------------------------
@@ -324,6 +394,17 @@ async function main() {
   const result = await mammoth.convertToHtml({ buffer }, mammothOptions);
   let contentHtml = result.value || "";
 
+  // Fix common speech-to-text mis-transcriptions ("HackCMS"/"Hack CMS" -> "HAXcms")
+  contentHtml = fixSpeechToText(contentHtml);
+
+  // Demote the content's first H1 to H2 so the page keeps a single H1 (the
+  // video title, injected above the video-player).
+  contentHtml = demoteFirstH1(contentHtml);
+
+  // Replace <p><img></p> screenshots with <media-image> (caption = nearest
+  // preceding heading; offset="narrow" card box per design request).
+  contentHtml = transformImagesToMediaImage(contentHtml);
+
   // wrap timestamp tokens -> <page-anchor> (in-page seeking)
   contentHtml = wrapTimestamps(contentHtml, uuid);
 
@@ -386,7 +467,9 @@ async function main() {
     transcriptSiteRelPath,
   );
 
-  const pageHtml = `${videoPlayer}\n${contentHtml}\n${detailsHtml}`;
+  // Page order: H1 (video title) -> video-player -> content -> Tutorial Details.
+  const h1 = `<h1>${escText(videoTitle)}</h1>`;
+  const pageHtml = `${h1}\n${videoPlayer}\n${contentHtml}\n${detailsHtml}`;
 
   // Resolve the root page's location from site.json so we overwrite the
   // skeleton's actual placeholder page (its folder is UUID-based, not

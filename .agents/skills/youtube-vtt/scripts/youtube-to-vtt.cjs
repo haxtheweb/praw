@@ -101,30 +101,151 @@ function listVtts(dir) {
     .sort();
 }
 
-// Normalize all .vtt sidecars into a single <dir>/transcript.vtt; remove the
-// rest. Returns the final path or null if there were no .vtt files.
+// --- VTT cleaning (YouTube auto-caption de-duplication) ---------------------
+// YouTube auto-captions ship as 2-line "rolling" cues: each cue repeats the
+// previous line plus the new line, and yt-dlp inserts 10ms "reset" cues with
+// the plain text in between. The result is near-duplicate content for every
+// phrase. cleanVtt() strips the inline karaoke timing tags (<HH:MM:SS.mmm> and
+// <c>/<v> wrappers), drops the reset cues, de-duplicates the rolling
+// repetition, and emits one clean cue per spoken phrase with consolidated
+// timing. Also fixes the common "HackCMS"/"Hack CMS" speech-to-text typo.
+function vttTsToSeconds(ts) {
+  const parts = ts.split(":").map(Number);
+  if (parts.some((n) => Number.isNaN(n))) return null;
+  if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+  if (parts.length === 2) return parts[0] * 60 + parts[1];
+  return null;
+}
+
+function vttSecondsToTs(sec) {
+  // Work in integer milliseconds so the seconds/minutes/hours carry correctly
+  // and the fractional part is always exactly 3 digits (VTT requires .mmm).
+  let totalMs = Math.max(0, Math.round(sec * 1000));
+  const h = Math.floor(totalMs / 3600000);
+  totalMs -= h * 3600000;
+  const m = Math.floor(totalMs / 60000);
+  totalMs -= m * 60000;
+  const s = Math.floor(totalMs / 1000);
+  const ms = totalMs - s * 1000;
+  const pad = (n, l) => String(n).padStart(l, "0");
+  return `${pad(h, 2)}:${pad(m, 2)}:${pad(s, 2)}.${pad(ms, 3)}`;
+}
+
+function cleanVtt(raw) {
+  const lines = raw.split(/\r?\n/);
+  // header: keep WEBVTT + optional KEY: value metadata lines
+  const header = ["WEBVTT"];
+  let i = 0;
+  if (lines.length > 0 && /^WEBVTT/i.test(lines[0].trim())) i = 1;
+  while (i < lines.length && /^[A-Za-z-]+:/i.test(lines[i].trim())) {
+    const t = lines[i].trim();
+    if (t) header.push(t);
+    i++;
+  }
+  // parse cues (timestamp line -> text lines -> blank line ends cue)
+  const cues = [];
+  let cur = null;
+  const cueRe =
+    /^(\d{2}:\d{2}:\d{2}\.\d{3}|\d{2}:\d{2}\.\d{3})\s*-->\s*(\d{2}:\d{2}:\d{2}\.\d{3}|\d{2}:\d{2}\.\d{3})/;
+  for (; i < lines.length; i++) {
+    const line = lines[i];
+    const tm = cueRe.exec(line.trim());
+    if (tm) {
+      if (cur) cues.push(cur);
+      cur = {
+        start: vttTsToSeconds(tm[1]),
+        end: vttTsToSeconds(tm[2]),
+        textLines: [],
+      };
+      continue;
+    }
+    if (cur !== null) {
+      // A cue ends on a truly empty line. YouTube rolling captions use a " "
+      // (single space) line as an empty caption line WITHIN a cue, so only an
+      // empty string (not whitespace-only) is a separator.
+      if (line === "") {
+        cues.push(cur);
+        cur = null;
+      } else {
+        cur.textLines.push(line);
+      }
+    }
+  }
+  if (cur) cues.push(cur);
+
+  // strip inline tags, fix speech-to-text typo, trim, drop empties
+  const stripInline = (s) =>
+    s
+      .replace(/<[^>]+>/g, "")
+      .replace(/Hack[ ]?CMS/gi, "HAXcms")
+      .replace(/\s+/g, " ")
+      .trim();
+  for (const c of cues) {
+    c.lines = c.textLines.map(stripInline).filter((l) => l !== "");
+  }
+
+  // de-duplicate the rolling repetition: emit only lines that differ from the
+  // most recently emitted line.
+  const emitted = [];
+  let prevLine = "";
+  for (const c of cues) {
+    if (c.start === null) continue;
+    for (const ln of c.lines) {
+      if (ln === prevLine) continue;
+      emitted.push({ start: c.start, text: ln });
+      prevLine = ln;
+    }
+  }
+  if (emitted.length === 0) return null;
+
+  // build clean cues: each phrase starts at its source start and ends at the
+  // next phrase's start (or +2s for the final one).
+  const out = [];
+  for (let k = 0; k < emitted.length; k++) {
+    const start = emitted[k].start;
+    let end = k + 1 < emitted.length ? emitted[k + 1].start : start + 2;
+    if (!(end > start)) end = start + 2;
+    out.push(
+      `${vttSecondsToTs(start)} --> ${vttSecondsToTs(end)}\n${emitted[k].text}`,
+    );
+  }
+  return header.join("\n") + "\n\n" + out.join("\n\n") + "\n";
+}
+
+// Normalize all .vtt sidecars into a single cleaned <dir>/transcript.vtt;
+// remove the rest. Returns the final path or null if there were no .vtt files
+// (or no usable cues after cleaning).
 function normalizeVtt(dir) {
   const vtts = listVtts(dir);
   if (vtts.length === 0) {
     return null;
   }
   const finalPath = path.join(dir, "transcript.vtt");
-  // If transcript.vtt already exists from a prior run, remove it so a fresh
-  // copy is authoritative.
   if (fs.existsSync(finalPath)) {
     fs.unlinkSync(finalPath);
   }
-  // Re-list without the (now removed) transcript.vtt, then copy the first
-  // remaining sidecar into place and delete the rest.
   const sidecars = listVtts(dir);
   if (sidecars.length === 0) {
     return null;
   }
-  fs.copyFileSync(sidecars[0], finalPath);
-  for (let i = 0; i < sidecars.length; i++) {
-    if (sidecars[i] !== finalPath) {
+  // read the first sidecar, clean it, and write the cleaned transcript
+  const raw = fs.readFileSync(sidecars[0], "utf8");
+  const cleaned = cleanVtt(raw);
+  if (cleaned === null) {
+    for (const sc of sidecars) {
       try {
-        fs.unlinkSync(sidecars[i]);
+        fs.unlinkSync(sc);
+      } catch (e) {
+        // best-effort cleanup
+      }
+    }
+    return null;
+  }
+  fs.writeFileSync(finalPath, cleaned);
+  for (const sc of sidecars) {
+    if (sc !== finalPath) {
+      try {
+        fs.unlinkSync(sc);
       } catch (e) {
         // best-effort cleanup
       }

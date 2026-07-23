@@ -155,6 +155,10 @@ This document contains all comprehensive rules for Warp AI agents working within
 - **Rule ID**: `f15ba99a-0a0a-42a0-a413-d8dfdc8eb20b`
 - **Content**: Define concrete success criteria and verify outcomes using project-appropriate checks (command output, linting, runtime validation, or existing tests when applicable), then report what was validated.
 
+### HAX Skill Lookup Locations
+- **Rule ID**: `c089870b608c482a847ccc`
+- **Content**: When looking for skills related to HAX itself (HAX-specific workflows, CLI operations, site building, web component development, the DDD design system, onboarding, issue analysis, rule management, UbD/UDL instructional design, etc.), look in the `praw` and `create` repositories rather than searching elsewhere. The canonical HAX skills live under `praw/.agents/skills/` (the authoritative registry) and `create/src/skills/` (a shipped subset that is built into `create/dist/skills/`). Check these locations first before assuming a needed HAX skill does not exist.
+
 ## 📝 Documentation Standards
 
 ### Documentation Structure (Duplicate - Lower Precedence)

@@ -10,11 +10,11 @@ description: >
   if they do not say "skill" or "tutorial site" explicitly. Also use it when the user
   references the `btopro-tutorial` skeleton or the `ai-single-site-tutorials` directory
   in the context of turning a video + transcript into a site.
-version: 1.1.0
+version: 1.2.0
 license: Apache-2.0
 metadata:
   author: haxtheweb
-  tags: [hax, tutorial, youtube, docx, surge, resume-theme, page-anchor, social-copy, provenance, puppeteer, review-mode]
+  tags: [hax, tutorial, youtube, docx, surge, resume-theme, page-anchor, social-copy, provenance, puppeteer, review-mode, transcript, vtt, a11y-media-player]
 ---
 
 # Create a Tutorial Site
@@ -43,7 +43,7 @@ YouTube SEO description. Trigger phrase: **"create a tutorial site for this"**.
   — it bakes in the `resume-theme`, site settings, and platform config, plus one placeholder
   page (title "Tutorial", slug `tutorial`). It does NOT bake in the author profile
   (`metadata.author` ships empty `{}`), so the skill injects the author from
-  `references/author-profile.json` during step 6. The skill does not pass `--theme`.
+  `references/author-profile.json` during step 7. The skill does not pass `--theme`.
 - All sites live under `~/Documents/git/haxtheweb/ai-single-site-tutorials/`.
 
 ## Modes
@@ -55,11 +55,11 @@ YouTube SEO description. Trigger phrase: **"create a tutorial site for this"**.
   (e.g. "review before publishing", "let me review/edit first", "I want to oversee this",
   "draft it first", "don't publish yet", "let me look it over before it goes live").
   Detection is natural-language judgment, not a literal flag. In review mode the skill
-  runs steps 1–6, then **stops before the surge publish**: it reports the local site
+  runs steps 1–7, then **stops before the surge publish**: it reports the local site
   directory and the exact page file path so the user can edit by hand, and starts
   `hax serve` from the site directory so the user can open the HAX editor in the browser
   to review/edit. It waits for the user's explicit go-ahead ("publish now", "go ahead and
-  publish", "publish it"), then stops the dev server and runs steps 7–9. The
+  publish", "publish it"), then stops the dev server and runs steps 8–10. The
   `--y --no-i --auto --skip --quiet` automation flags still apply to scaffold/convert/
   publish; `hax serve` is the one intentional interactive sub-process, started only here.
 
@@ -85,7 +85,17 @@ YouTube SEO description. Trigger phrase: **"create a tutorial site for this"**.
 5. **Generate a video-player UUID** — used so timestamp `page-anchor` links can seek the
    embedded video in-page:
    `node -p "crypto.randomUUID()"`
-6. **Convert the DOCX, assemble the page, and finalize site.json in one pass** — run the
+6. **Generate a VTT transcript (automatic)** — run the `youtube-vtt` skill script against
+   the watch URL to produce a searchable WebVTT transcript (the video itself is NOT
+   downloaded):
+   `node <youtube-vtt-skill-dir>/scripts/youtube-to-vtt.cjs <watch-url> <tmp-dir>`
+   It auto-provisions `yt-dlp` via an isolated venv if needed (first run only), tries manual
+   captions then YouTube auto-captions, and normalizes to `<tmp-dir>/transcript.vtt`. On
+   success, pass `--transcript-vtt <tmp-dir>/transcript.vtt` to the converter in step 7. On
+   failure (no captions available), warn and continue — the converter simply omits the
+   transcript track and bullet, and the tutorial is still fully usable. This step is
+   automatic (default on); it requires no user input beyond the YouTube URL.
+7. **Convert the DOCX, assemble the page, and finalize site.json in one pass** — run the
    bundled converter. It extracts screenshots into `<site>/files/images/`, rewrites
    `<img src>` to site-relative paths, wraps timestamp tokens in
    `<page-anchor target="#<uuid>" value="<seconds>">`, prepends a
@@ -99,11 +109,17 @@ YouTube SEO description. Trigger phrase: **"create a tutorial site for this"**.
    NODE_PATH=~/Documents/git/haxtheweb/create/node_modules \
      node <skill-dir>/scripts/docx-to-content.cjs \
      <docx-path> <site-dir> <uuid> <watch-url> "<video-title>" \
-     --description "<optional SEO summary>" [--puppeteer-json "<optional path>"]
+     --description "<optional SEO summary>" [--puppeteer-json "<optional path>"] \
+     [--transcript-vtt "<optional path>"]
    ```
    `--author-profile` defaults to `references/author-profile.json` (override only if needed).
    Pass `--puppeteer-json <path>` only when a puppeteer `.json` was attached; it is copied
-   into `<site>/files/` and linked in the Details section (see below).
+   into `<site>/files/` and linked in the Details section (see below). Pass
+   `--transcript-vtt <path>` with the VTT produced in step 6; it is copied into
+   `<site>/files/transcript.vtt`, a `track="files/transcript.vtt"` attribute is added to
+   the `<video-player>` (so `a11y-media-player` renders the searchable transcript that
+   reads along with the video), and a "Transcript (VTT)" bullet is added to the Details
+   section.
    The script resolves mammoth via `require('mammoth')` (honors `NODE_PATH`) with fallbacks
    to the `create` and `haxcms-nodejs` `node_modules`, so it works even without `NODE_PATH`
    on this machine. If the DOCX has no timestamp tokens, no `page-anchor` elements are
@@ -118,20 +134,21 @@ YouTube SEO description. Trigger phrase: **"create a tutorial site for this"**.
    "Last updated" date and the "HAXcms version" used in generation (read from the
    scaffolded site's `package.json`, falling back to the `create` CLI version). When
    `--puppeteer-json` is supplied, an "Automation recording" sub-section is appended at the
-   very bottom of the Details section linking the copied JSON file.
+   very bottom of the Details section linking the copied JSON file. When `--transcript-vtt`
+   is supplied, a "Transcript (VTT)" bullet is added with the other asset links.
 
-   **Review-mode fork:** in review mode, stop after step 6. Start `hax serve` from
+   **Review-mode fork:** in review mode, stop after step 7. Start `hax serve` from
    `<site-dir>` for in-browser editing, report the local site directory and page file path,
-   and wait for the user's explicit go-ahead before running step 7. (Publish mode continues
+   and wait for the user's explicit go-ahead before running step 8. (Publish mode continues
    straight through.)
-7. **Publish to surge** — the domain is `<machine-name>.surge.sh`:
+8. **Publish to surge** — the domain is `<machine-name>.surge.sh`:
    ```
    cd <site-dir> && hax site site:surge --domain <machine-name>.surge.sh \
      --y --no-i --auto --quiet
    ```
    The CLI auto-installs surge if missing, swaps in the static `index.html` for publish,
    and restores it afterward. Record `https://<machine-name>.surge.sh`.
-8. **Generate promotional copy** — read `references/author-profile.json` and
+9. **Generate promotional copy** — read `references/author-profile.json` and
    `references/social-copy-templates.md` and produce three ready-to-post pieces, each
    referencing both the tutorial site URL and the YouTube URL:
    - **LinkedIn post** — hook + what you'll learn + CTA + both links + hashtags.
@@ -141,13 +158,14 @@ YouTube SEO description. Trigger phrase: **"create a tutorial site for this"**.
    - **YouTube SEO description** — keyword-rich first 1-2 lines, brief summary, a
      timestamps/chapters list pulled from the DOCX, links to the tutorial site + author
      profiles, and relevant hashtags.
-9. **Report back** — print the published site URL, the local site path, and the three copy
+10. **Report back** — print the published site URL, the local site path, and the three copy
     blocks so the user can post them immediately.
 
 ## Command reference
 
 - Scaffold: `hax site <name> --skeleton-machine-name btopro-tutorial --y --no-i --auto --skip --quiet`
-- Convert + assemble + finalize site.json + Details section: `node scripts/docx-to-content.cjs <docx> <site-dir> <uuid> <watch-url> "<title>" [--description "<text>"] [--puppeteer-json "<path>"]` (injects author profile into `metadata.author`, sets title/description, builds the page + Details/provenance block, optionally links a puppeteer JSON)
+- VTT transcript: `node <youtube-vtt-skill-dir>/scripts/youtube-to-vtt.cjs <watch-url> <tmp-dir> [--lang en]` (auto-provisions yt-dlp via venv; subtitle-only; normalizes to transcript.vtt; soft-fails on no captions)
+- Convert + assemble + finalize site.json + Details section: `node scripts/docx-to-content.cjs <docx> <site-dir> <uuid> <watch-url> "<title>" [--description "<text>"] [--puppeteer-json "<path>"] [--transcript-vtt "<path>"]` (injects author profile into `metadata.author`, sets title/description, builds the page + Details/provenance block, optionally links a puppeteer JSON and attaches a VTT transcript via the `video-player` `track` attribute)
 - Publish: `hax site site:surge --domain <name>.surge.sh --y --no-i --auto --quiet`
 - Review-mode dev server: `cd <site-dir> && hax serve` (in-browser HAX editor for local review; stop it before publishing)
 - Video metadata: `curl -s "https://www.youtube.com/oembed?url=<watch-url>&format=json"`
@@ -179,8 +197,14 @@ deep-link. `value` is total seconds (`1:30` → `90`). The converter handles thi
 - `scripts/docx-to-content.cjs` — mammoth DOCX→HTML converter (image extraction + page-anchor
   timestamps + video-player prepend), Details/provenance section builder (YouTube + screenshot
   + DOCX links, last-updated date, HAXcms version; optional puppeteer-JSON "Automation recording"
-  sub-section), AND site.json finalizer (title, description, author profile injection into
-  `metadata.author`). Accepts `--puppeteer-json <path>` to attach a browser-automation artifact.
+  sub-section; optional "Transcript (VTT)" bullet), AND site.json finalizer (title, description,
+  author profile injection into `metadata.author`). Accepts `--puppeteer-json <path>` to attach a
+  browser-automation artifact and `--transcript-vtt <path>` to copy a WebVTT into `files/`, add a
+  `track="files/transcript.vtt"` attribute to the `<video-player>` (so `a11y-media-player` renders
+  the searchable transcript), and link it in Details.
+- **`youtube-vtt` skill** (`../youtube-vtt/`) — dependency for step 6. Its
+  `scripts/youtube-to-vtt.cjs` turns the YouTube URL into `transcript.vtt` via yt-dlp
+  subtitle-only extraction (auto-provisions yt-dlp via a venv; soft-fails on no captions).
 - `references/author-profile.json` — author profile (Bryan T Ollendyke); written into
   `site.json` `metadata.author` for the resume-theme sidebar and reused for promotional copy.
 - `references/social-copy-templates.md` — LinkedIn / X / YouTube copy templates.

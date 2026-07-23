@@ -20,15 +20,21 @@
  *  - when --puppeteer-json <path> is supplied, copies that JSON into files/
  *    and appends an "Automation recording" sub-section at the bottom of the
  *    Details block linking the copied file
+ *  - when --transcript-vtt <path> is supplied, copies it into files/
+ *    transcript.vtt, adds a `track="files/transcript.vtt"` attribute to the
+ *    <video-player> (so a11y-media-player renders the searchable transcript),
+ *    and adds a "Transcript (VTT)" bullet to the Details section
  *
  * Usage:
  *   NODE_PATH=<create node_modules> node docx-to-content.cjs \
  *     <docx-path> <site-dir> <video-player-uuid> <youtube-watch-url> "<video-title>" \
- *     [--author-profile <path>] [--description "<text>"] [--puppeteer-json "<path>"]
+ *     [--author-profile <path>] [--description "<text>"] [--puppeteer-json "<path>"] \
+ *     [--transcript-vtt "<path>"]
  *
  * --author-profile defaults to ../references/author-profile.json (next to this
  * script). --description defaults to a generic SEO summary built from the title.
- * --puppeteer-json is optional; when omitted no automation sub-section is emitted.
+ * --puppeteer-json and --transcript-vtt are optional; when omitted the related
+ * sub-section/track are not emitted.
  *
  * mammoth is resolved via require('mammoth') (honors NODE_PATH) with fallbacks
  * to the create and haxcms-nodejs node_modules, so it runs on this machine
@@ -110,6 +116,7 @@ function parseFlags(argv) {
     authorProfile: null,
     description: null,
     puppeteerJson: null,
+    transcriptVtt: null,
   };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
@@ -119,6 +126,8 @@ function parseFlags(argv) {
       flags.description = argv[++i];
     } else if (a === "--puppeteer-json") {
       flags.puppeteerJson = argv[++i];
+    } else if (a === "--transcript-vtt") {
+      flags.transcriptVtt = argv[++i];
     }
   }
   return flags;
@@ -163,9 +172,10 @@ function formatLastUpdated() {
 }
 
 // Build the bottom-of-page Details/provenance section. screenshotFilenames are
-// the bare filenames written to files/images/. docxSiteRelPath and
-// puppeteerSiteRelPath are site-relative paths (e.g. "files/foo.docx").
-// puppeteerSiteRelPath may be null to omit the automation sub-section.
+// the bare filenames written to files/images/. docxSiteRelPath,
+// puppeteerSiteRelPath, and transcriptSiteRelPath are site-relative paths
+// (e.g. "files/foo.docx"). puppeteerSiteRelPath and transcriptSiteRelPath may
+// be null to omit the automation sub-section / transcript bullet.
 function buildDetailsSection(
   watchUrl,
   screenshotFilenames,
@@ -173,6 +183,7 @@ function buildDetailsSection(
   lastUpdated,
   haxVersion,
   puppeteerSiteRelPath,
+  transcriptSiteRelPath,
 ) {
   let imageLinks = "";
   if (screenshotFilenames.length > 0) {
@@ -188,12 +199,16 @@ ${items}
     imageLinks = "    <li>Images in this page: none</li>";
   }
 
+  const transcriptBullet = transcriptSiteRelPath
+    ? `    <li><a href="${transcriptSiteRelPath}">Transcript (VTT)</a></li>\n`
+    : "";
+
   let html = `<h2>Details</h2>
 <ul>
     <li><a href="${watchUrl}">YouTube video</a></li>
 ${imageLinks}
     <li><a href="${docxSiteRelPath}">Source transcript (DOCX)</a></li>
-    <li>Last updated: ${lastUpdated}</li>
+${transcriptBullet}    <li>Last updated: ${lastUpdated}</li>
     <li>HAXcms version: ${haxVersion}</li>
 </ul>`;
 
@@ -248,7 +263,8 @@ async function main() {
     if (
       rawArgv[i] === "--author-profile" ||
       rawArgv[i] === "--description" ||
-      rawArgv[i] === "--puppeteer-json"
+      rawArgv[i] === "--puppeteer-json" ||
+      rawArgv[i] === "--transcript-vtt"
     ) {
       skipNext.add(i);
       skipNext.add(i + 1);
@@ -260,7 +276,7 @@ async function main() {
 
   if (!docxPath || !siteDir || !uuid || !watchUrl || !videoTitle) {
     console.error(
-      "Usage: node docx-to-content.cjs <docx> <site-dir> <video-player-uuid> <youtube-watch-url> <video-title> [--author-profile <path>] [--description <text>] [--puppeteer-json <path>]",
+      "Usage: node docx-to-content.cjs <docx> <site-dir> <video-player-uuid> <youtube-watch-url> <video-title> [--author-profile <path>] [--description <text>] [--puppeteer-json <path>] [--transcript-vtt <path>]",
     );
     process.exit(1);
   }
@@ -311,10 +327,6 @@ async function main() {
   // wrap timestamp tokens -> <page-anchor> (in-page seeking)
   contentHtml = wrapTimestamps(contentHtml, uuid);
 
-  // prepend the video player carrying the matching UUID
-  const escapedTitle = videoTitle.replace(/"/g, "&quot;");
-  const videoPlayer = `<video-player id="${uuid}" source="${watchUrl}" media-title="${escapedTitle}" data-width="100" data-margin="center"></video-player>`;
-
   // --- Details / provenance section ----------------------------------------
   // Copy the source DOCX into files/ so the page can link the artifact that
   // produced the content. files/ already exists (images dir was created), but
@@ -339,6 +351,29 @@ async function main() {
     puppeteerSiteRelPath = `files/${puppeteerBasename}`;
   }
 
+  // Optional WebVTT transcript: copy into files/transcript.vtt and wire it as
+  // the <video-player> track so a11y-media-player renders the searchable
+  // transcript. Added to the Details section as a link too.
+  let transcriptSiteRelPath = null;
+  if (flags.transcriptVtt) {
+    if (!fs.existsSync(flags.transcriptVtt)) {
+      console.error(`Transcript VTT not found: ${flags.transcriptVtt}`);
+      process.exit(1);
+    }
+    const transcriptDestPath = path.join(filesDir, "transcript.vtt");
+    fs.copyFileSync(flags.transcriptVtt, transcriptDestPath);
+    transcriptSiteRelPath = "files/transcript.vtt";
+  }
+
+  // prepend the video player carrying the matching UUID; add a track attribute
+  // when a transcript VTT was supplied (a11y-media-player renders the
+  // searchable transcript via .tracks / track fallback).
+  const escapedTitle = videoTitle.replace(/"/g, "&quot;");
+  const trackAttr = transcriptSiteRelPath
+    ? ` track="${transcriptSiteRelPath}"`
+    : "";
+  const videoPlayer = `<video-player id="${uuid}" source="${watchUrl}" media-title="${escapedTitle}" data-width="100" data-margin="center"${trackAttr}></video-player>`;
+
   const haxVersion = resolveHaxcmsVersion(siteDir);
   const lastUpdated = formatLastUpdated();
   const detailsHtml = buildDetailsSection(
@@ -348,6 +383,7 @@ async function main() {
     lastUpdated,
     haxVersion,
     puppeteerSiteRelPath,
+    transcriptSiteRelPath,
   );
 
   const pageHtml = `${videoPlayer}\n${contentHtml}\n${detailsHtml}`;
@@ -400,6 +436,8 @@ async function main() {
         lastUpdated,
         docxCopied: docxSiteRelPath,
         puppeteerJsonCopied: puppeteerSiteRelPath,
+        transcriptVttCopied: transcriptSiteRelPath,
+        videoPlayerTrack: !!transcriptSiteRelPath,
       },
       null,
       2,

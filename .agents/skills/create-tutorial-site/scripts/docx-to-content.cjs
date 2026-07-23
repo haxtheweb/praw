@@ -14,14 +14,21 @@
  *  - injects the author profile into site.json metadata.author (and sets the
  *    top-level author string to the author name for fallback compatibility)
  *  - sets site.json title (video title) and description
+ *  - appends a <h2>Details</h2> provenance block: links to the YouTube video,
+ *    every screenshot in the page, the source DOCX (copied into files/), a
+ *    "Last updated" date, and the HAXcms version used in generation
+ *  - when --puppeteer-json <path> is supplied, copies that JSON into files/
+ *    and appends an "Automation recording" sub-section at the bottom of the
+ *    Details block linking the copied file
  *
  * Usage:
  *   NODE_PATH=<create node_modules> node docx-to-content.cjs \
  *     <docx-path> <site-dir> <video-player-uuid> <youtube-watch-url> "<video-title>" \
- *     [--author-profile <path>] [--description "<text>"]
+ *     [--author-profile <path>] [--description "<text>"] [--puppeteer-json "<path>"]
  *
  * --author-profile defaults to ../references/author-profile.json (next to this
  * script). --description defaults to a generic SEO summary built from the title.
+ * --puppeteer-json is optional; when omitted no automation sub-section is emitted.
  *
  * mammoth is resolved via require('mammoth') (honors NODE_PATH) with fallbacks
  * to the create and haxcms-nodejs node_modules, so it runs on this machine
@@ -99,13 +106,19 @@ function wrapTimestamps(html, uuid) {
 
 // --- optional CLI flag parsing ---------------------------------------------
 function parseFlags(argv) {
-  const flags = { authorProfile: null, description: null };
+  const flags = {
+    authorProfile: null,
+    description: null,
+    puppeteerJson: null,
+  };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === "--author-profile") {
       flags.authorProfile = argv[++i];
     } else if (a === "--description") {
       flags.description = argv[++i];
+    } else if (a === "--puppeteer-json") {
+      flags.puppeteerJson = argv[++i];
     }
   }
   return flags;
@@ -115,6 +128,80 @@ function defaultDescription(title) {
   // Generic, SEO-friendly fallback when no description is supplied.
   const clean = title.replace(/\s*\-\s*Conversation with HAX$/i, "").trim();
   return `A HAX tutorial conversation: ${clean}. Written walkthrough with screenshots and an embedded video.`;
+}
+
+// --- Details / provenance block --------------------------------------------
+// Resolve the HAXcms version baked into the scaffolded site (package.json),
+// falling back to the create CLI version, then the literal "unknown".
+function resolveHaxcmsVersion(siteDir) {
+  const candidates = [
+    path.join(siteDir, "package.json"),
+    path.join(os.homedir(), "Documents/git/haxtheweb/create/package.json"),
+  ];
+  for (let i = 0; i < candidates.length; i++) {
+    try {
+      const p = candidates[i];
+      if (fs.existsSync(p)) {
+        const pkg = JSON.parse(fs.readFileSync(p, "utf8"));
+        if (pkg && typeof pkg.version === "string" && pkg.version !== "") {
+          return pkg.version;
+        }
+      }
+    } catch (e) {
+      // try next candidate
+    }
+  }
+  return "unknown";
+}
+
+function formatLastUpdated() {
+  return new Date().toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+// Build the bottom-of-page Details/provenance section. screenshotFilenames are
+// the bare filenames written to files/images/. docxSiteRelPath and
+// puppeteerSiteRelPath are site-relative paths (e.g. "files/foo.docx").
+// puppeteerSiteRelPath may be null to omit the automation sub-section.
+function buildDetailsSection(
+  watchUrl,
+  screenshotFilenames,
+  docxSiteRelPath,
+  lastUpdated,
+  haxVersion,
+  puppeteerSiteRelPath,
+) {
+  let imageLinks = "";
+  if (screenshotFilenames.length > 0) {
+    const items = screenshotFilenames
+      .map((f) => `      <li><a href="files/images/${f}">${f}</a></li>`)
+      .join("\n");
+    imageLinks = `    <li>Images in this page
+      <ul>
+${items}
+      </ul>
+    </li>`;
+  } else {
+    imageLinks = "    <li>Images in this page: none</li>";
+  }
+
+  let html = `<h2>Details</h2>
+<ul>
+    <li><a href="${watchUrl}">YouTube video</a></li>
+${imageLinks}
+    <li><a href="${docxSiteRelPath}">Source transcript (DOCX)</a></li>
+    <li>Last updated: ${lastUpdated}</li>
+    <li>HAXcms version: ${haxVersion}</li>
+</ul>`;
+
+  if (puppeteerSiteRelPath) {
+    html += `\n<h3>Automation recording</h3>\n<p><a href="${puppeteerSiteRelPath}">Puppeteer recording (JSON)</a></p>`;
+  }
+
+  return html + "\n";
 }
 
 // --- site.json metadata finalization ---------------------------------------
@@ -158,7 +245,11 @@ async function main() {
   // positional args = everything that isn't a --flag or its value
   const skipNext = new Set();
   for (let i = 0; i < rawArgv.length; i++) {
-    if (rawArgv[i] === "--author-profile" || rawArgv[i] === "--description") {
+    if (
+      rawArgv[i] === "--author-profile" ||
+      rawArgv[i] === "--description" ||
+      rawArgv[i] === "--puppeteer-json"
+    ) {
       skipNext.add(i);
       skipNext.add(i + 1);
     }
@@ -169,7 +260,7 @@ async function main() {
 
   if (!docxPath || !siteDir || !uuid || !watchUrl || !videoTitle) {
     console.error(
-      "Usage: node docx-to-content.cjs <docx> <site-dir> <video-player-uuid> <youtube-watch-url> <video-title> [--author-profile <path>] [--description <text>]",
+      "Usage: node docx-to-content.cjs <docx> <site-dir> <video-player-uuid> <youtube-watch-url> <video-title> [--author-profile <path>] [--description <text>] [--puppeteer-json <path>]",
     );
     process.exit(1);
   }
@@ -192,6 +283,7 @@ async function main() {
   const imagesDir = path.join(siteDir, "files", "images");
   fs.mkdirSync(imagesDir, { recursive: true });
   let imgCount = 0;
+  const screenshotFilenames = [];
 
   // mammoth image converter: write each screenshot to files/images/ and
   // rewrite the <img src> to a site-relative path so media lives with the site.
@@ -202,6 +294,7 @@ async function main() {
     let ext = (ct.split("/")[1] || "png").replace("jpeg", "jpg");
     const filename = `screenshot-${imgCount}.${ext}`;
     fs.writeFileSync(path.join(imagesDir, filename), buf);
+    screenshotFilenames.push(filename);
     return { src: `files/images/${filename}` };
   });
 
@@ -222,7 +315,42 @@ async function main() {
   const escapedTitle = videoTitle.replace(/"/g, "&quot;");
   const videoPlayer = `<video-player id="${uuid}" source="${watchUrl}" media-title="${escapedTitle}" data-width="100" data-margin="center"></video-player>`;
 
-  const pageHtml = `${videoPlayer}\n${contentHtml}\n`;
+  // --- Details / provenance section ----------------------------------------
+  // Copy the source DOCX into files/ so the page can link the artifact that
+  // produced the content. files/ already exists (images dir was created), but
+  // ensure it for the no-screenshot case.
+  const filesDir = path.join(siteDir, "files");
+  fs.mkdirSync(filesDir, { recursive: true });
+  const docxBasename = path.basename(docxPath);
+  const docxDestPath = path.join(filesDir, docxBasename);
+  fs.copyFileSync(docxPath, docxDestPath);
+  const docxSiteRelPath = `files/${docxBasename}`;
+
+  // Optional puppeteer JSON: copy into files/ and link it at the bottom of the
+  // Details section.
+  let puppeteerSiteRelPath = null;
+  if (flags.puppeteerJson) {
+    if (!fs.existsSync(flags.puppeteerJson)) {
+      console.error(`Puppeteer JSON not found: ${flags.puppeteerJson}`);
+      process.exit(1);
+    }
+    const puppeteerBasename = path.basename(flags.puppeteerJson);
+    fs.copyFileSync(flags.puppeteerJson, path.join(filesDir, puppeteerBasename));
+    puppeteerSiteRelPath = `files/${puppeteerBasename}`;
+  }
+
+  const haxVersion = resolveHaxcmsVersion(siteDir);
+  const lastUpdated = formatLastUpdated();
+  const detailsHtml = buildDetailsSection(
+    watchUrl,
+    screenshotFilenames,
+    docxSiteRelPath,
+    lastUpdated,
+    haxVersion,
+    puppeteerSiteRelPath,
+  );
+
+  const pageHtml = `${videoPlayer}\n${contentHtml}\n${detailsHtml}`;
 
   // Resolve the root page's location from site.json so we overwrite the
   // skeleton's actual placeholder page (its folder is UUID-based, not
@@ -267,6 +395,11 @@ async function main() {
         authorProfileUsed: fs.existsSync(authorProfilePath)
           ? authorProfilePath
           : null,
+        detailsSection: true,
+        haxVersion,
+        lastUpdated,
+        docxCopied: docxSiteRelPath,
+        puppeteerJsonCopied: puppeteerSiteRelPath,
       },
       null,
       2,

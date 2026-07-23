@@ -10,11 +10,11 @@ description: >
   if they do not say "skill" or "tutorial site" explicitly. Also use it when the user
   references the `btopro-tutorial` skeleton or the `ai-single-site-tutorials` directory
   in the context of turning a video + transcript into a site.
-version: 1.0.0
+version: 1.1.0
 license: Apache-2.0
 metadata:
   author: haxtheweb
-  tags: [hax, tutorial, youtube, docx, surge, resume-theme, page-anchor, social-copy]
+  tags: [hax, tutorial, youtube, docx, surge, resume-theme, page-anchor, social-copy, provenance, puppeteer, review-mode]
 ---
 
 # Create a Tutorial Site
@@ -30,6 +30,10 @@ YouTube SEO description. Trigger phrase: **"create a tutorial site for this"**.
 - **Local `.docx` path** — the transcript with screenshots and timestamps. Screenshots are
   extracted into the site so media lives with the tutorial; timestamps become in-page
   seek links.
+- **Puppeteer `.json` path (optional)** — a browser-automation recording artifact. When
+  supplied, it is copied into the site `files/` folder and linked in an "Automation
+  recording" sub-section at the bottom of the Details block. The converter treats it as a
+  linked artifact; it does not parse an unknown JSON shape into page content.
 
 ## Prerequisites (verified on this machine)
 
@@ -41,6 +45,23 @@ YouTube SEO description. Trigger phrase: **"create a tutorial site for this"**.
   (`metadata.author` ships empty `{}`), so the skill injects the author from
   `references/author-profile.json` during step 6. The skill does not pass `--theme`.
 - All sites live under `~/Documents/git/haxtheweb/ai-single-site-tutorials/`.
+
+## Modes
+
+- **Publish mode (default)** — the full workflow runs end to end: scaffold, convert,
+  publish to surge, generate social copy, report back. This is what happens unless the
+  user signals otherwise.
+- **Review mode** — used when the user's request implies oversight before publishing
+  (e.g. "review before publishing", "let me review/edit first", "I want to oversee this",
+  "draft it first", "don't publish yet", "let me look it over before it goes live").
+  Detection is natural-language judgment, not a literal flag. In review mode the skill
+  runs steps 1–6, then **stops before the surge publish**: it reports the local site
+  directory and the exact page file path so the user can edit by hand, and starts
+  `hax serve` from the site directory so the user can open the HAX editor in the browser
+  to review/edit. It waits for the user's explicit go-ahead ("publish now", "go ahead and
+  publish", "publish it"), then stops the dev server and runs steps 7–9. The
+  `--y --no-i --auto --skip --quiet` automation flags still apply to scaffold/convert/
+  publish; `hax serve` is the one intentional interactive sub-process, started only here.
 
 ## Workflow
 
@@ -78,9 +99,11 @@ YouTube SEO description. Trigger phrase: **"create a tutorial site for this"**.
    NODE_PATH=~/Documents/git/haxtheweb/create/node_modules \
      node <skill-dir>/scripts/docx-to-content.cjs \
      <docx-path> <site-dir> <uuid> <watch-url> "<video-title>" \
-     --description "<optional SEO summary>"
+     --description "<optional SEO summary>" [--puppeteer-json "<optional path>"]
    ```
    `--author-profile` defaults to `references/author-profile.json` (override only if needed).
+   Pass `--puppeteer-json <path>` only when a puppeteer `.json` was attached; it is copied
+   into `<site>/files/` and linked in the Details section (see below).
    The script resolves mammoth via `require('mammoth')` (honors `NODE_PATH`) with fallbacks
    to the `create` and `haxcms-nodejs` `node_modules`, so it works even without `NODE_PATH`
    on this machine. If the DOCX has no timestamp tokens, no `page-anchor` elements are
@@ -89,6 +112,18 @@ YouTube SEO description. Trigger phrase: **"create a tutorial site for this"**.
    an empty `{}`, so without this step the resume-theme sidebar renders no presenter. The
    profile keys (name, image, email, phone, location, website, website2, socialLink,
    socialLink2) map directly to what `resume-theme.js` reads from `metadata.author`.
+   The converter also appends a **Details / provenance section** to the bottom of the page:
+   a `<h2>Details</h2>` heading and a bulleted list linking the YouTube video, every
+   screenshot in the page, and the source DOCX (copied into `files/`), followed by a
+   "Last updated" date and the "HAXcms version" used in generation (read from the
+   scaffolded site's `package.json`, falling back to the `create` CLI version). When
+   `--puppeteer-json` is supplied, an "Automation recording" sub-section is appended at the
+   very bottom of the Details section linking the copied JSON file.
+
+   **Review-mode fork:** in review mode, stop after step 6. Start `hax serve` from
+   `<site-dir>` for in-browser editing, report the local site directory and page file path,
+   and wait for the user's explicit go-ahead before running step 7. (Publish mode continues
+   straight through.)
 7. **Publish to surge** — the domain is `<machine-name>.surge.sh`:
    ```
    cd <site-dir> && hax site site:surge --domain <machine-name>.surge.sh \
@@ -112,8 +147,9 @@ YouTube SEO description. Trigger phrase: **"create a tutorial site for this"**.
 ## Command reference
 
 - Scaffold: `hax site <name> --skeleton-machine-name btopro-tutorial --y --no-i --auto --skip --quiet`
-- Convert + assemble + finalize site.json: `node scripts/docx-to-content.cjs <docx> <site-dir> <uuid> <watch-url> "<title>" [--description "<text>"]` (injects author profile into `metadata.author`, sets title/description, builds the page)
+- Convert + assemble + finalize site.json + Details section: `node scripts/docx-to-content.cjs <docx> <site-dir> <uuid> <watch-url> "<title>" [--description "<text>"] [--puppeteer-json "<path>"]` (injects author profile into `metadata.author`, sets title/description, builds the page + Details/provenance block, optionally links a puppeteer JSON)
 - Publish: `hax site site:surge --domain <name>.surge.sh --y --no-i --auto --quiet`
+- Review-mode dev server: `cd <site-dir> && hax serve` (in-browser HAX editor for local review; stop it before publishing)
 - Video metadata: `curl -s "https://www.youtube.com/oembed?url=<watch-url>&format=json"`
 - UUID: `node -p "crypto.randomUUID()"`
 
@@ -141,8 +177,10 @@ deep-link. `value` is total seconds (`1:30` → `90`). The converter handles thi
 ## References
 
 - `scripts/docx-to-content.cjs` — mammoth DOCX→HTML converter (image extraction + page-anchor
-  timestamps + video-player prepend) AND site.json finalizer (title, description, author
-  profile injection into `metadata.author`).
+  timestamps + video-player prepend), Details/provenance section builder (YouTube + screenshot
+  + DOCX links, last-updated date, HAXcms version; optional puppeteer-JSON "Automation recording"
+  sub-section), AND site.json finalizer (title, description, author profile injection into
+  `metadata.author`). Accepts `--puppeteer-json <path>` to attach a browser-automation artifact.
 - `references/author-profile.json` — author profile (Bryan T Ollendyke); written into
   `site.json` `metadata.author` for the resume-theme sidebar and reused for promotional copy.
 - `references/social-copy-templates.md` — LinkedIn / X / YouTube copy templates.

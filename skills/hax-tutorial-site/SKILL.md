@@ -2,7 +2,7 @@
 name: hax-tutorial-site
 description: >
   Create a published HAXcms tutorial site from a YouTube video and a DOCX transcript
-  (with screenshots and timestamps), then generate LinkedIn / X / Mastodon posts and a
+  (with screenshots and timestamps), then generate LinkedIn / X posts and a
   YouTube SEO description. Use this skill whenever the user says "create a tutorial site
   for this", "run the hax tutorial skill", "hax tutorial skill", "make a tutorial site
   from this docx and youtube", "build a tutorial site from this video", or provides a
@@ -14,7 +14,7 @@ description: >
   into a site. The skeleton is bundled with the skill (references/hax-tutorial.json)
   and referenced via `--skeleton-file`, so no personal-profile install is required and
   other people can use the skill to create tutorial sites rapidly.
-version: 1.3.0
+version: 1.4.0
 license: Apache-2.0
 metadata:
   author: haxtheweb
@@ -24,7 +24,7 @@ metadata:
 # Create a Tutorial Site
 
 Turn a YouTube video + a DOCX transcript (screenshots + timestamps) into a published,
-single-page HAXcms tutorial site, plus ready-to-post LinkedIn / X / Mastodon copy and a
+single-page HAXcms tutorial site, plus ready-to-post LinkedIn / X copy and a
 YouTube SEO description. Trigger phrase: **"create a tutorial site for this"** (also
 **"run the hax tutorial skill"** / **"hax tutorial skill"** — an alias for "make a HAXcms
 site" so it is discovered faster).
@@ -32,8 +32,8 @@ site" so it is discovered faster).
 ## Inputs
 
 - **YouTube watch URL** — e.g. `https://www.youtube.com/watch?v=XXXXXXXXXXX`. The video
-  title (via oEmbed) becomes the site title and the page `<h1>`; the video is embedded
-  directly below that title.
+  title (resolved via yt-dlp in step 2) becomes the site title and the page `<h1>`; the
+  video is embedded directly below that title.
 - **Local `.docx` path** — the transcript with screenshots and timestamps. Screenshots are
   extracted into the site so media lives with the tutorial; timestamps become in-page
   seek links.
@@ -46,7 +46,9 @@ site" so it is discovered faster).
 ## Prerequisites
 
 - `hax` CLI (local copy — never `npx`), `surge`, `node` v22+. mammoth is resolved from the
-  `create`/`haxcms-nodejs` `node_modules` (no pandoc/yt-dlp required).
+  `create`/`haxcms-nodejs` `node_modules` (no pandoc required). yt-dlp is used for video
+  metadata + VTT and is auto-provisioned via an isolated venv by the skill scripts (no
+  manual install or sudo needed).
 - The `hax-tutorial` site skeleton is **bundled with this skill** at
   `references/hax-tutorial.json` — it bakes in the `resume-theme`, site settings, and
   platform config, plus one placeholder page (title "Tutorial", slug `tutorial`). The
@@ -75,14 +77,23 @@ site" so it is discovered faster).
   `--y --no-i --auto --skip --quiet` automation flags still apply to scaffold/convert/
   publish; `hax serve` is the one intentional interactive sub-process, started only here.
 
+## Execution style
+
+Run the whole workflow straight through with minimal narration — no per-step
+confirmation or status chatter, just run it. Only report once, at the end (step 10):
+the published site URL, the local site path, and the copy blocks. If a step soft-fails
+(e.g. no captions available), note it in one line and continue.
+
 ## Workflow
 
 1. **Collect inputs** — YouTube watch URL + local `.docx` path. Validate the URL contains an
    11-char video ID and the DOCX exists.
-2. **Resolve video metadata** — fetch the YouTube oEmbed endpoint to get `title`,
-   `author_name`, and `thumbnail_url`:
-   `curl -s "https://www.youtube.com/oembed?url=<watch-url>&format=json"`
-   Extract the video ID from the URL. The oEmbed `title` becomes the site title.
+2. **Resolve video metadata** — use the bundled yt-dlp helper (NOT curl/oEmbed, so no
+   network call that needs interactive confirmation). It auto-provisions yt-dlp via the
+   same isolated venv the VTT step uses and prints `{ title, author, thumbnail }`:
+   `node <skill-dir>/scripts/youtube-metadata.cjs <watch-url>`
+   The `title` becomes the site title and the page `<h1>`. Extract the video ID from the
+   URL with a regex (the 11-char id after `v=`).
 3. **Derive machine name** — slugify the video title to kebab-case (lowercase, hyphen-separated,
    no spaces). If `<machine-name>` already exists under `ai-single-site-tutorials/`, append
    `-2`, `-3`, etc. Per ecosystem rule, `metadata.site.name` MUST equal this folder name.
@@ -168,18 +179,23 @@ site" so it is discovered faster).
    ```
    The CLI auto-installs surge if missing, swaps in the static `index.html` for publish,
    and restores it afterward. Record `https://<machine-name>.surge.sh`.
-9. **Generate promotional copy** — read `references/author-profile.json` and
-   `references/social-copy-templates.md` and produce three ready-to-post pieces, each
-   referencing both the tutorial site URL and the YouTube URL:
-   - **LinkedIn post** — hook + what you'll learn + CTA + both links + hashtags.
-   - **X / Mastodon post** — concise (≤280 for X), punchy, tutorial site link (+ YouTube link
-     if space). If `twitter`/`mastodon` in the profile are blank, link haxtheweb.org instead
-     of a personal handle.
+9. **Generate promotional copy** — read `references/social-copy-templates.md` (the author
+   profile is already in `site.json` from step 7) and produce three ready-to-post pieces,
+   each referencing both the YouTube URL and the tutorial site URL. Use the exact emoji +
+   link format from the templates:
+   - **LinkedIn post** — one-line hook, then `🎬 Watch:` (YouTube) and `📝 Tutorial:` (site)
+     links BEFORE the details/summary, then a 2-3 sentence "what you'll learn" summary, then
+     the hashtags `#HAXTheWeb #OER #opensource #edtech #education #pennstate`. Do NOT append
+     author name / links / signature after the hashtags.
+   - **X post** (also covers Mastodon — one output, not two) — concise (≤280), simplified
+     language, `🎬 Watch:` + `📝 Tutorial:` lines, then a single hashtag `#HAXTheWeb`. No other
+     hashtags. No personal handle.
    - **YouTube SEO description** — keyword-rich first 1-2 lines, brief summary, a
-     timestamps/chapters list pulled from the DOCX, links to the tutorial site + author
-     profiles, and relevant hashtags.
-10. **Report back** — print the published site URL, the local site path, and the three copy
-    blocks so the user can post them immediately.
+     chapters/what's-covered list pulled from the DOCX, a Links section, and the SAME
+     hashtags as the LinkedIn post: `#HAXTheWeb #OER #opensource #edtech #education #pennstate`.
+10. **Report back (concise)** — print only: the published site URL, the local site path,
+    and the three copy blocks (LinkedIn, X, YouTube). No per-step recap, no restating what
+    each step did. Keep it scannable so the user can copy/paste and post immediately.
 
 ## Command reference
 
@@ -188,7 +204,7 @@ site" so it is discovered faster).
 - Convert + assemble + finalize site.json + Tutorial Details section: `node scripts/docx-to-content.cjs <docx> <site-dir> <uuid> <watch-url> \"<title>\" [--description \"<text>\"] [--puppeteer-json \"<path>\"] [--transcript-vtt \"<path>\"]` (injects author profile into `metadata.author`, sets title/description, builds the page [H1 video title + video-player + media-image screenshots + page-anchor timestamps + HackCMS->HAXcms fix] + Tutorial Details/provenance block with target=\"_blank\" links, optionally links a puppeteer JSON and attaches a VTT transcript via the `video-player` `track` attribute)
 - Publish: `hax site site:surge --domain <name>.surge.sh --y --no-i --auto --quiet`
 - Review-mode dev server: `cd <site-dir> && hax serve` (in-browser HAX editor for local review; stop it before publishing)
-- Video metadata: `curl -s "https://www.youtube.com/oembed?url=<watch-url>&format=json"`
+- Video metadata: `node <skill-dir>/scripts/youtube-metadata.cjs <watch-url>` (yt-dlp, auto-provisioned venv; prints {title, author, thumbnail}; no curl/oEmbed, no interactive confirm)
 - UUID: `node -p "crypto.randomUUID()"`
 
 ## How the in-page seeking works
@@ -224,6 +240,9 @@ deep-link. `value` is total seconds (`1:30` → `90`). The converter handles thi
   browser-automation artifact and `--transcript-vtt <path>` to copy a WebVTT into `files/`, add a
   `track=\"files/transcript.vtt\"` attribute to the `<video-player>` (so `a11y-media-player` renders
   the searchable transcript), and link it in Details.
+- `scripts/youtube-metadata.cjs` — yt-dlp-based video metadata fetcher used in step 2
+  (title, author, thumbnail). Resolves yt-dlp via PATH then the same managed venv as the
+  youtube-vtt skill (auto-provisions on first run; no curl/oEmbed, no interactive confirm).
 - **`youtube-vtt` skill** (`../youtube-vtt/`) — dependency for step 6. Its
   `scripts/youtube-to-vtt.cjs` turns the YouTube URL into a cleaned `transcript.vtt` via
   yt-dlp subtitle-only extraction (auto-provisions yt-dlp via a venv; strips inline timing
@@ -235,4 +254,8 @@ deep-link. `value` is total seconds (`1:30` → `90`). The converter handles thi
   the skill is self-contained and portable (no `~/.haxcmsconfig/skeletons/` install needed).
 - `references/author-profile.json` — author profile (Bryan T Ollendyke); written into
   `site.json` `metadata.author` for the resume-theme sidebar and reused for promotional copy.
-- `references/social-copy-templates.md` — LinkedIn / X / YouTube copy templates.
+- `references/social-copy-templates.md` — LinkedIn / X / YouTube copy templates. LinkedIn:
+  hook → `🎬 Watch:` / `📝 Tutorial:` links before the details → summary → hashtags
+  `#HAXTheWeb #OER #opensource #edtech #education #pennstate` (no author signature after
+  hashtags). X (also serves Mastodon): `🎬 Watch:` / `📝 Tutorial:` → only `#HAXTheWeb`.
+  YouTube SEO description: same hashtags as LinkedIn.

@@ -24,8 +24,8 @@ Placeholders:
 ```
 I just published a new tutorial: {{videoTitle}}.
 
-🎬 Watch: {{youtubeUrl}}
-📝 Tutorial: {{siteUrl}}
+🎬▶️ Watch: {{youtubeUrl}}
+📝🌐 Tutorial: {{siteUrl}}
 
 [2-3 sentence summary of what the viewer learns — pull from the DOCX intro/sections].
 
@@ -33,26 +33,25 @@ I just published a new tutorial: {{videoTitle}}.
 ```
 
 Notes:
-- The `🎬 Watch:` (YouTube) and `📝 Tutorial:` (site) links go BEFORE the details/summary.
+- The `🎬▶️ Watch:` (YouTube) and `📝🌐 Tutorial:` (site) links go BEFORE the details/summary.
 - Do NOT include author name, LinkedIn/website links, or any signature after the hashtags.
 - Professional tone, 4-7 sentences total.
 
-## X post (also serves Mastodon — produce ONE, not two)
+## X post
 
 ```
 New {{videoTitle}} tutorial
 
-🎬 Watch: {{youtubeUrl}}
-📝 Tutorial: {{siteUrl}}
+🎬▶️ Watch: {{youtubeUrl}}
+📝🌐 Tutorial: {{siteUrl}}
 
 #HAXTheWeb
 ```
 
 Notes:
 - ≤280 characters for X. Simplified, punchy language. If over, shorten the opening line; keep
-  both `🎬 Watch:` / `📝 Tutorial:` lines and the `#HAXTheWeb` hashtag.
+  both `🎬▶️ Watch:` / `📝🌐 Tutorial:` lines and the `#HAXTheWeb` hashtag.
 - No personal handle. No hashtags other than `#HAXTheWeb`.
-- Mastodon uses the same post verbatim.
 
 ## YouTube SEO description
 
@@ -67,7 +66,7 @@ below links straight to that moment in the video.
 {{chapters}}
 
 🔗 Links
-Written tutorial + screenshots: {{siteUrl}}
+📝 Written tutorial + screenshots: {{siteUrl}}
 {{authorName}}: {{linkedin}}
 HAXTheWeb: {{website}}
 GitHub: {{github}}

@@ -9,5 +9,5 @@
     "socialLink": "https://www.linkedin.com/in/btopro/",
     "socialLink2": "https://github.com/haxtheweb"
   },
-  "_note": "Source of truth for the author block. The skill writes this `author` object into site.json `metadata.author` (and sets the top-level `author` string to the name) so the resume-theme sidebar renders the presenter — resume-theme reads name, image, email, phone, location, website, website2, socialLink, socialLink2 from metadata.author. The LinkedIn and X posts do NOT include a personal handle/signature after the hashtags. The YouTube SEO description Links section uses linkedin, github, and website. twitter/mastodon are intentionally blank and unused."
+  "_note": "Source of truth for the author block. The skill writes this `author` object into site.json `metadata.author` (and sets the top-level `author` string to the name) so the resume-theme sidebar renders the presenter — resume-theme reads name, image, email, phone, location, website, website2, socialLink, socialLink2 from metadata.author. The LinkedIn and X posts do NOT include a personal handle/signature after the hashtags. The YouTube SEO description Links section uses linkedin, github, and website. No twitter or mastodon fields are used; socialLink carries LinkedIn and socialLink2 carries GitHub."
 }

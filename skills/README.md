@@ -28,12 +28,31 @@ Reusable agent skills for the HAX (Headless Authoring eXperience) ecosystem. The
 | `hax-ubd-essential-questions` | Author UbD essential and entry questions from the six-facet starter bank | `npx skills add haxtheweb/praw --skill hax-ubd-essential-questions` |
 | `hax-ubd-grasps` | Frame UbD GRASPS performance tasks and pick authentic-context HAX media | `npx skills add haxtheweb/praw --skill hax-ubd-grasps` |
 | `hax-ubd-six-facets` | Apply UbD six facets to write understandings and build facet-mapped rubric criteria | `npx skills add haxtheweb/praw --skill hax-ubd-six-facets` |
+| `oerschema-audit` | Read-only OER Schema diagnostic of authored content (HAX pages, VitePress, JSON-LD, Docs export) with class/property/surface remediation | `npx skills add haxtheweb/praw --skill oerschema-audit` |
+| `oerschema-integration-finder` | Read-only scan of webcomponents/themes/backends/plugins for code surfaces that should emit or consume OER Schema but don't | `npx skills add haxtheweb/praw --skill oerschema-integration-finder` |
 
 ## Install All Skills
 
 ```bash
 npx skills add haxtheweb/praw --all
 ```
+
+## Companion Document Skills (not bundled)
+
+The Anthropic document skills — `docx`, `pdf`, `pptx`, `xlsx` — are **not bundled** in this repository. They are source-available (not open source) and governed by Anthropic's terms, so this repo does not redistribute them. Install them on your machine from Anthropic's official repo if you need document creation/editing capabilities:
+
+```bash
+# Install all four document skills globally (into ~/.agents/skills/)
+npx skills add anthropics/skills --skill docx --skill pdf --skill pptx --skill xlsx -g -y
+
+# Or install individually
+npx skills add anthropics/skills@docx -g -y
+npx skills add anthropics/skills@pdf -g -y
+npx skills add anthropics/skills@pptx -g -y
+npx skills add anthropics/skills@xlsx -g -y
+```
+
+Target a specific agent with `-a <agent>` (e.g. `-a warp`, `-a claude-code`); omit `-g` for a project-local install. Per Anthropic's README these skills are provided for demonstration/educational purposes — verify the license terms and your entitlement before relying on them.
 
 ## What Are Agent Skills?
 

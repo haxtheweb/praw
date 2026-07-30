@@ -31,3 +31,10 @@ Thumbs.db
 
 # Local configuration overrides
 local-config.*
+
+# Anthropic document skills — source-available (not OSS), not bundled in this repo.
+# Install on your machine via: npx skills add anthropics/skills --skill <name> -g -y
+.agents/skills/docx/
+.agents/skills/pdf/
+.agents/skills/pptx/
+.agents/skills/xlsx/

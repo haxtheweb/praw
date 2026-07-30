@@ -1,12 +1,6 @@
 {
   "version": 1,
   "skills": {
-    "docx": {
-      "source": "anthropics/skills",
-      "sourceType": "github",
-      "skillPath": "skills/docx/SKILL.md",
-      "computedHash": "6962db07127ee540a56e4677f65576d0727668a1d67f7da8bc978f10791c2bfe"
-    },
     "grad-blooms": {
       "source": "asgard-ai-platform/skills",
       "sourceType": "github",
@@ -60,24 +54,6 @@
       "sourceType": "github",
       "skillPath": "skills/hax-webcomponent-dev/SKILL.md",
       "computedHash": "123cd0550958f08c8d75c54c2896d86caf2565d5ce303ff1c82d8e9967b746d5"
-    },
-    "pdf": {
-      "source": "anthropics/skills",
-      "sourceType": "github",
-      "skillPath": "skills/pdf/SKILL.md",
-      "computedHash": "cfbc539377088ca7e44a813b30c306327385bbd973cd7a721e1743f60837dd62"
-    },
-    "pptx": {
-      "source": "anthropics/skills",
-      "sourceType": "github",
-      "skillPath": "skills/pptx/SKILL.md",
-      "computedHash": "82eaf5daede5a1779aa17ccf06597cb209a0c2bd41d3a2f18bd45e0301a387fb"
-    },
-    "xlsx": {
-      "source": "anthropics/skills",
-      "sourceType": "github",
-      "skillPath": "skills/xlsx/SKILL.md",
-      "computedHash": "f5945e6e76dc7c178375e5cdf3140959b30cbcd4570ec3dc62296812259fc38d"
     },
     "yt-dlp": {
       "source": "lwmxiaobei/yt-dlp-skill",

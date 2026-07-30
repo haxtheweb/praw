@@ -14,7 +14,7 @@ description: >
   into a site. The skeleton is bundled with the skill (references/hax-tutorial.json)
   and referenced via `--skeleton-file`, so no personal-profile install is required and
   other people can use the skill to create tutorial sites rapidly.
-version: 1.4.0
+version: 1.5.0
 license: Apache-2.0
 metadata:
   author: haxtheweb
@@ -118,10 +118,12 @@ the published site URL, the local site path, and the copy blocks. If a step soft
    captions then YouTube auto-captions, normalizes to `<tmp-dir>/transcript.vtt`, and
    cleans the result: strips YouTube's inline karaoke timing tags, de-duplicates the
    2-line rolling auto-caption repetition, and fixes the "HackCMS" speech-to-text typo. On
-   success, pass `--transcript-vtt <tmp-dir>/transcript.vtt` to the converter in step 7. On
-   failure (no captions available), warn and continue — the converter simply omits the
-   transcript track and bullet, and the tutorial is still fully usable. This step is
-   automatic (default on); it requires no user input beyond the YouTube URL.
+   success, pass `--transcript-vtt <tmp-dir>/transcript.vtt` straight to the converter in
+   step 7. On failure (no captions available), warn and continue — the converter simply
+   omits the transcript track and bullet, and the tutorial is still fully usable. This step
+   is automatic (default on); it requires no user input beyond the YouTube URL. Do NOT
+   re-open, re-run, or double-check the VTT after it is created — it is already built, so
+   just pass the path through to the converter.
 7. **Convert the DOCX, assemble the page, and finalize site.json in one pass** — run the
    bundled converter. It extracts screenshots into `<site>/files/images/` and converts
    each into a `<media-image source=\"files/images/<n>.<ext>\" caption=\"<nearest preceding heading>\" offset=\"narrow\" card box>`, fixes the common speech-to-text typo
@@ -178,18 +180,20 @@ the published site URL, the local site path, and the copy blocks. If a step soft
      --y --no-i --auto --quiet
    ```
    The CLI auto-installs surge if missing, swaps in the static `index.html` for publish,
-   and restores it afterward. Record `https://<machine-name>.surge.sh`.
+   and restores it afterward. Record `https://<machine-name>.surge.sh`. Do NOT verify the
+   surge URL after publishing (no curl/HTTP check, no opening it) — the user opens the
+   published site manually once the workflow is done.
 9. **Generate promotional copy** — read `references/social-copy-templates.md` (the author
    profile is already in `site.json` from step 7) and produce three ready-to-post pieces,
    each referencing both the YouTube URL and the tutorial site URL. Use the exact emoji +
    link format from the templates:
-   - **LinkedIn post** — one-line hook, then `🎬 Watch:` (YouTube) and `📝 Tutorial:` (site)
+   - **LinkedIn post** — one-line hook, then `🎬▶️ Watch:` (YouTube) and `📝🌐 Tutorial:` (site)
      links BEFORE the details/summary, then a 2-3 sentence "what you'll learn" summary, then
      the hashtags `#HAXTheWeb #OER #opensource #edtech #education #pennstate`. Do NOT append
      author name / links / signature after the hashtags.
-   - **X post** (also covers Mastodon — one output, not two) — concise (≤280), simplified
-     language, `🎬 Watch:` + `📝 Tutorial:` lines, then a single hashtag `#HAXTheWeb`. No other
-     hashtags. No personal handle.
+   - **X post** — concise (≤280), simplified language, `🎬▶️ Watch:` + `📝🌐 Tutorial:` lines,
+     then a single hashtag `#HAXTheWeb`. No other hashtags. No personal handle. (No separate
+     Mastodon output — X copy only.)
    - **YouTube SEO description** — keyword-rich first 1-2 lines, brief summary, a
      chapters/what's-covered list pulled from the DOCX, a Links section, and the SAME
      hashtags as the LinkedIn post: `#HAXTheWeb #OER #opensource #edtech #education #pennstate`.
@@ -222,6 +226,11 @@ deep-link. `value` is total seconds (`1:30` → `90`). The converter handles thi
 - Keep `metadata.site.name` equal to the site folder name; do not modify it.
 - Do not create `x/` routes (reserved for internal HAXcms paths).
 - Do not run the monorepo build or the ubiquity script.
+- After publishing to surge, do NOT verify the URL is live (no curl/HTTP check, no opening
+  it) — the user opens the published site manually when the workflow is done.
+- Do NOT re-open, re-run, or double-check the VTT after step 6 creates it — it is already
+  built; pass the path straight to the converter in step 7.
+- Do not produce Mastodon copy — X post only (no Mastodon output).
 - Inject the author profile from `references/author-profile.json` into `site.json`
   `metadata.author` (the skeleton ships it empty). Never modify `metadata.site.name`.
   The same profile also feeds the promotional copy.
@@ -255,7 +264,7 @@ deep-link. `value` is total seconds (`1:30` → `90`). The converter handles thi
 - `references/author-profile.json` — author profile (Bryan T Ollendyke); written into
   `site.json` `metadata.author` for the resume-theme sidebar and reused for promotional copy.
 - `references/social-copy-templates.md` — LinkedIn / X / YouTube copy templates. LinkedIn:
-  hook → `🎬 Watch:` / `📝 Tutorial:` links before the details → summary → hashtags
+  hook → `🎬▶️ Watch:` / `📝🌐 Tutorial:` links before the details → summary → hashtags
   `#HAXTheWeb #OER #opensource #edtech #education #pennstate` (no author signature after
-  hashtags). X (also serves Mastodon): `🎬 Watch:` / `📝 Tutorial:` → only `#HAXTheWeb`.
+  hashtags). X: `🎬▶️ Watch:` / `📝🌐 Tutorial:` → only `#HAXTheWeb` (no Mastodon output).
   YouTube SEO description: same hashtags as LinkedIn.

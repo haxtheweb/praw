@@ -28,6 +28,10 @@ The following skills are available for AI agents working within the HAX ecosyste
   - Path: `/skills/hax-claudehax/SKILL.md`
 - **hax-openstax2hax**: Convert OpenStax books into HAX sites via the openstax2hax plugin
   - Path: `/skills/hax-openstax2hax/SKILL.md`
+- **oerschema-audit**: Read-only OER Schema diagnostic of authored content (HAX pages, VitePress, JSON-LD, Docs export)
+  - Path: `/skills/oerschema-audit/SKILL.md`
+- **oerschema-integration-finder**: Read-only scan of webcomponents/themes/backends/plugins for missing OER Schema emission/consumption
+  - Path: `/skills/oerschema-integration-finder/SKILL.md`
 
 ## Install All Skills
 
@@ -37,6 +41,14 @@ npx skills add haxtheweb/praw --all
 # Or install individually
 npx skills add haxtheweb/praw --skill hax-claudehax
 npx skills add haxtheweb/praw --skill hax-openstax2hax
+```
+
+## Companion Skills (install separately)
+
+The Anthropic document skills (`docx`, `pdf`, `pptx`, `xlsx`) are source-available, not open source, and are NOT bundled in this repo. Install them from Anthropic's official repo on your machine:
+
+```bash
+npx skills add anthropics/skills --skill docx --skill pdf --skill pptx --skill xlsx -g -y
 ```
 
 ## Documentation

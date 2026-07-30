@@ -54,12 +54,6 @@
       "sourceType": "github",
       "skillPath": "skills/hax-webcomponent-dev/SKILL.md",
       "computedHash": "123cd0550958f08c8d75c54c2896d86caf2565d5ce303ff1c82d8e9967b746d5"
-    },
-    "yt-dlp": {
-      "source": "lwmxiaobei/yt-dlp-skill",
-      "sourceType": "github",
-      "skillPath": "SKILL.md",
-      "computedHash": "0748a41e6c5dded47f2a9135805b7aea82d7a6f745a64e8e4fd1d49e69772631"
     }
   }
 }

@@ -38,3 +38,6 @@ local-config.*
 .agents/skills/pdf/
 .agents/skills/pptx/
 .agents/skills/xlsx/
+
+# yt-dlp skill — vendored from a third-party repo with no license declared; not redistributed here.
+.agents/skills/yt-dlp/

@@ -6,11 +6,10 @@ description: >
   says "generate a VTT from this YouTube video", "download the subtitles",
   "make a transcript from YouTube", "youtube to vtt", "get captions for this
   video", or "transcribe this youtube video" — even if they don't say "vtt" or
-  "skill". Leverages the yt-dlp skill (engine + URL conventions) and adds the
-  subtitle-only extraction + VTT normalization that the yt-dlp skill's
-  download scripts do not provide. Auto-provisions yt-dlp via an isolated venv
-  if it is not installed, so it works on PEP 668 / externally-managed systems
-  without sudo.
+  "skill". Uses the yt-dlp CLI (engine + URL conventions) and adds subtitle-only
+  extraction + VTT normalization that yt-dlp's download workflow does not
+  provide. Auto-provisions yt-dlp via an isolated venv if it is not installed,
+  so it works on PEP 668 / externally-managed systems without sudo.
 version: 1.0.0
 license: Apache-2.0
 metadata:
@@ -43,14 +42,13 @@ along with the video.
   externally-managed lock; no sudo, no system packages touched). The venv is
   reusable across runs.
 
-## Relationship to the `yt-dlp` skill
+## Relationship to the `yt-dlp` CLI
 
-This skill leverages the **`yt-dlp`** skill (engine + URL-domain conventions)
-but does NOT modify it. The `yt-dlp` skill's `scripts/download_video.py`
-downloads video/audio and does not write subtitles/VTT; this skill adds the
-subtitle-only extraction and VTT normalization layer on top of the same engine.
-Keeping them separate means updating the `yt-dlp` skill won't clobber this
-VTT-specific logic.
+This skill shells out to the **`yt-dlp`** command-line tool (engine + URL-domain
+conventions) and auto-provisions it via an isolated venv if it is not on PATH.
+yt-dlp's download workflow fetches video/audio and does not write subtitles/VTT;
+this skill adds the subtitle-only extraction and VTT normalization layer on top
+of the same engine.
 
 ## Workflow
 
@@ -96,4 +94,4 @@ VTT-specific logic.
 
 - `scripts/youtube-to-vtt.cjs` — the VTT extractor + normalizer (yt-dlp
   subtitle-only, manual-then-auto, venv auto-provision, JSON status output).
-- `../yt-dlp/SKILL.md` — the underlying yt-dlp skill (engine + URL conventions).
+- `yt-dlp` CLI — the underlying engine (auto-provisioned via venv by `scripts/youtube-to-vtt.cjs`).

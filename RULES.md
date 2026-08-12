@@ -44,7 +44,7 @@ This document contains all comprehensive rules for Warp AI agents working within
 
 ### MFR Call Namespacing (`@system/` and `@site/`)
 - **Rule ID**: `82dc87fd-6bc1-4d20-9d68-5b077bb88b89`
-- **Content**: System-level calls (such as site imports, file format conversions, and other operations not scoped to a single site) must be made via the MicroFrontendRegistry (MFR) under the `@system/` namespace, registered from the on-premises OpenAPI spec at `/system/api/v1` (see `app-hax-system-api-registry.js` and `system-spec.yaml`; server handlers live in `haxcms-nodejs/src/systemRoutes/v1`). Site-level calls for actions scoped to a specific site must be made under the `@site/` namespace. We have moved away from the legacy `@haxcms/` style MFR registrations (e.g. `@haxcms/wordpressToSite`, `@haxcms/htmlToSite`) because those resolved to external endpoints on `open-apis.hax.cloud`, which have been phased out in favor of on-premises calls. Do not add new `@haxcms/`-namespaced MFR registrations or wire new import/conversion flows through the `create` CLI's `--import-structure` legacy v0 path; route new work through the v1 `@system/` (system-wide) or `@site/` (site-scoped) namespaces instead.
+- **Content**: System-level calls (such as site imports, file format conversions, and other operations not scoped to a single site) must be made via the MicroFrontendRegistry (MFR) under the `@system/` namespace, registered from the on-premises OpenAPI spec at `/system/api/v1` (see `app-hax-system-api-registry.js` and `system-spec.yaml`; server handlers live in `haxcms-nodejs/src/systemRoutes/v1`). Site-level calls for actions scoped to a specific site must be made under the `@site/` namespace (server handlers live in `haxcms-nodejs/src/siteRoutes/v1`). The v0→v1 siteRoutes migration is complete — legacy v0 site API endpoints have been removed; all site-scoped work goes through `siteRoutes/v1`. We have moved away from the legacy `@haxcms/` style MFR registrations (e.g. `@haxcms/wordpressToSite`, `@haxcms/htmlToSite`) because those resolved to external endpoints on `open-apis.hax.cloud`, which have been phased out in favor of on-premises calls. Do not add new `@haxcms/`-namespaced MFR registrations or wire new import/conversion flows through the `create` CLI's `--import-structure` legacy v0 path; route new work through the v1 `@system/` (system-wide) or `@site/` (site-scoped) namespaces instead.
 
 ## 🎨 Design System Standards
 
@@ -130,10 +130,6 @@ This document contains all comprehensive rules for Warp AI agents working within
 - **Rule ID**: `bAKMWCMrqRLGdWmuNWgVUw`
 - **Content**: Always start new shells in the ~/Documents/git/haxtheweb/ folder because that's where all of the user's projects are located.
 
-### Testing Philosophy
-- **Rule ID**: `xu7Bcf5TJpHmb0ToPhyZ55`
-- **Content**: User prefers not to write tests in the current suggested way and does not do testing in that manner.
-
 ### Monorepo Dependency Verification
 - **Rule ID**: `4a7c9e2b-8d5f-4e1a-9c3b-7f2e6d5a4b3c`
 - **Content**: If we add a dependency (import or reference) to an element in the webcomponents monorepo, verify that the dependency is declared in the `package.json` for that element before completing the change.
@@ -161,10 +157,7 @@ This document contains all comprehensive rules for Warp AI agents working within
 
 ## 📝 Documentation Standards
 
-### Documentation Structure (Duplicate - Lower Precedence)
-- **Rule ID**: `c8CNccjwJMRRciVBRZgdQP`
-- **Content**: For the HAXcms site, all documentation is located in the `docs` folder. The site structure includes `site.json` for page order in JSON outline schema format, all files are under the `files` folder, and all page HTML content is in the `pages` folder. Documentation should ensure coverage of pillars, pedagogical ontology, and relevant projects referenced in AGENTS.md to maintain comprehensive ecosystem context.
-
+See `HAXcms Site Organization` under Architecture & File Structure Rules (`ZVEm3yg7jTXBsXBOp3yPzy`) — the duplicate entry previously here has been consolidated into that single rule.
 ## 🧠 Instructional Design
 
 ### HAX Course Units via Understanding by Design

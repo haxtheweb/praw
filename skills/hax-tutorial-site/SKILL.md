@@ -2,18 +2,16 @@
 name: hax-tutorial-site
 description: >
   Create a published HAXcms tutorial site from a YouTube video and a DOCX transcript
-  (with screenshots and timestamps), then generate LinkedIn / X posts and a
-  YouTube SEO description. Use this skill whenever the user says "create a tutorial site
-  for this", "run the hax tutorial skill", "hax tutorial skill", "make a tutorial site
-  from this docx and youtube", "build a tutorial site from this video", or provides a
-  YouTube URL plus a .docx file and wants a single-page tutorial published to surge with
-  social copy — even if they do not say "skill" or "tutorial site" explicitly. "hax
-  tutorial skill" is an alias for "make a HAXcms site" so the skill is discovered faster.
-  Also use it when the user references the `hax-tutorial` skeleton or the
-  `ai-single-site-tutorials` directory in the context of turning a video + transcript
-  into a site. The skeleton is bundled with the skill (references/hax-tutorial.json)
-  and referenced via `--skeleton-file`, so no personal-profile install is required and
-  other people can use the skill to create tutorial sites rapidly.
+  (with screenshots and timestamps), then generate LinkedIn / X posts and a YouTube SEO
+  description. Use when the user says "create a tutorial site for this", "run the hax
+  tutorial skill", "hax tutorial skill", "make a tutorial site from this docx and
+  youtube", or "build a tutorial site from this video", or provides a YouTube URL plus a
+  .docx file and wants a single-page tutorial published to surge with social copy — even
+  if they don't say "skill" or "tutorial site". "hax tutorial skill" is an alias for
+  "make a HAXcms site" so the skill is discovered faster. Also use when the user references
+  the `hax-tutorial` skeleton or `ai-single-site-tutorials` directory to turn a video +
+  transcript into a site. The skeleton is bundled (references/hax-tutorial.json) and used
+  via `--skeleton-file`, so no personal-profile install is required and the skill is portable.
 version: 1.5.0
 license: Apache-2.0
 metadata:

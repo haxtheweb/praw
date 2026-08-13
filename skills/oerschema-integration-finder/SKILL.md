@@ -1,19 +1,17 @@
 ---
 name: oerschema-integration-finder
 description: >
-  READ-ONLY diagnostic: scan the HAX webcomponents monorepo, site themes, and CMS backends (PHP /
-  NodeJS HAXcms) for elements and code surfaces that render or consume pedagogical content but do
-  NOT emit or consume OER Schema metadata — quiz/assessment elements with no Assessment microdata,
-  outline/navigation components not mapping to TableOfContents, objective/rubric/syllabus elements
-  with no itemtype, authoring UIs that don't surface forCourse/hasLearningObjective, and the
-  VitePress plugin / Google Apps Script add-on where directive coverage is missing. Emit a per-file
-  hit-list naming the class and property each surface should expose and hand implementation to
-  hax-webcomponent-dev. Use when the user says "which of my webcomponents should emit oer schema",
-  "find assessment code without schema support", "where in my codebase should oerschema be wired in",
-  "audit my components for oer schema integration opportunities", "does the quiz element emit
-  microdata", or "what elements in HAX could expose oer schema but don't" — even if they don't say
-  "finder" or "oerschema". Diagnoses only; hands off to hax-webcomponent-dev for implementation and
-  to oerschema-audit when the gap is in authored content, not code.
+  READ-ONLY diagnostic: scan HAX webcomponents, themes, CMS backends (PHP/NodeJS HAXcms), the
+  VitePress plugin, and the Google Apps Script add-on for code surfaces that render or consume
+  pedagogical content but do NOT emit or consume OER Schema metadata — e.g. quiz/assessment
+  elements with no Assessment microdata, outline components not mapping to TableOfContents,
+  objective/rubric/syllabus elements with no itemtype. Emit a per-file hit-list of the class +
+  property each surface should expose. Use when the user says "which of my webcomponents should
+  emit oer schema", "find assessment code without schema support", "where in my codebase should
+  oerschema be wired in", "audit my components for oer schema integration opportunities", "does
+  the quiz element emit microdata", or "what elements in HAX could expose oer schema but don't" —
+  even if they don't say "finder" or "oerschema". Diagnoses only; hands off to hax-webcomponent-dev
+  for implementation and to oerschema-audit when the gap is in authored content, not code.
 version: 1.0.0
 license: MIT
 metadata:

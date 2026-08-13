@@ -1,0 +1,21 @@
+{
+  "site": {
+    "description": "Skills shipped to every HAXsite (per-site boilerplate). Curated explicit list — nothing ships to a site unless named here.",
+    "skills": [
+      "hax-site-structure",
+      "hax-content-authoring",
+      "hax-managed-files",
+      "hax-design-system",
+      "hax-a11y-audit",
+      "oerschema-audit",
+      "hax-ubd-backward-design",
+      "hax-udl-audit",
+      "hax-content-chunking-audit",
+      "hax-webcomponent-dev"
+    ]
+  },
+  "deployment": {
+    "description": "Skills shipped to HAXcms deployment roots (NodeJS app root + PHP root). \"*\" means every skill in the canonical index.json — self-maintaining so new skills reach deployments without editing this file.",
+    "skills": ["*"]
+  }
+}

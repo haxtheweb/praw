@@ -33,6 +33,26 @@ const skillsSrcDir = path.join(prawRoot, 'skills');
 const indexPath = path.join(wkDir, 'index.json');
 const setsPath = path.join(wkDir, 'agent-skills-sets.json');
 
+// Scoped .htaccess written into every snapshot dest dir. CORS open so
+// browser-based agents on other origins can fetch the index + skills; script
+// execution hardened off so a slipped-through script can never run server-side.
+// The discovery index only ships .md/.json/.txt; this is defense in depth.
+// Harmless on Node/static-hosted targets (ignored).
+const AGENT_SKILLS_HTACCESS = '# HAXcms Agent Skills discovery (agentskills.io v0.2.0)\n'
+  + '# CORS: open so browser-based agents on other origins can fetch the index + skills.\n'
+  + '<IfModule mod_headers.c>\n'
+  + '  Header set Access-Control-Allow-Origin "*"\n'
+  + '  Header set Vary "Origin"\n'
+  + '</IfModule>\n'
+  + '# Defense in depth: the discovery index only ships .md/.json/.txt, but harden\n'
+  + '# so a slipped-through script file can never execute server-side here.\n'
+  + '<FilesMatch "\\.(php|phtml|php[3-7]|phps|pht|sh|cgi|pl|py)$">\n'
+  + '  php_flag engine off\n'
+  + '  RemoveHandler .php .phtml .php3 .php4 .php5 .php7\n'
+  + '  SetHandler text/plain\n'
+  + '  ForceType text/plain\n'
+  + '</FilesMatch>\n';
+
 function sha256(buf) {
   return 'sha256:' + crypto.createHash('sha256').update(buf).digest('hex');
 }
@@ -41,6 +61,10 @@ function die(msg) {
   console.error('snapshot-agent-skills: ' + msg);
   process.exit(1);
 }
+
+// Defense in depth: even if files[] somehow lists a non-content extension,
+// never copy it to a web-served destination. Mirrors the generator's allowlist.
+const ALLOWED_AUX_EXT = new Set(['md', 'json', 'txt']);
 
 const setName = process.argv[2];
 const destDir = process.argv[3];
@@ -93,6 +117,9 @@ fs.writeFileSync(
   path.join(destAbs, 'index.json'),
   JSON.stringify({ '$schema': index['$schema'], skills: filtered }, null, 2) + '\n'
 );
+// 2b. scoped .htaccess: CORS + script-execution hardening for Apache-hosted
+// deployments/sites. Harmless on Node/static-hosted targets (ignored).
+fs.writeFileSync(path.join(destAbs, '.htaccess'), AGENT_SKILLS_HTACCESS);
 
 // 3. copy each skill's declared files with digest verification
 const warnings = [];
@@ -117,8 +144,13 @@ filtered.forEach(function (skill) {
     warnings.push(skill.name + '/SKILL.md digest mismatch (index ' + skill.digest + ' vs source)');
   }
 
-  // auxiliary files (references/**, evals/**, etc.)
+  // auxiliary files (references/**, evals/**, etc.) — content extensions only
   (skill.files || []).forEach(function (f) {
+    const ext = f.path.split('.').pop().toLowerCase();
+    if (!ALLOWED_AUX_EXT.has(ext)) {
+      warnings.push(skill.name + '/' + f.path + ' has non-content extension .' + ext + ', skipping (only .md/.json/.txt shipped)');
+      return;
+    }
     const fSrc = path.join(skillSrc, f.path);
     const fDest = path.join(skillDest, f.path);
     if (!fs.existsSync(fSrc)) {

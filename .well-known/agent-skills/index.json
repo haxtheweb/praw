@@ -134,14 +134,6 @@
         {
           "path": "references/social-copy-templates.md",
           "digest": "sha256:b2361106cf234578924855238174f3ef6907804bddf924f60619d1f79a42fece"
-        },
-        {
-          "path": "scripts/docx-to-content.cjs",
-          "digest": "sha256:a8fae85176c1d56096db878c3e28797e5658f1582aa6baaa932798640d987e3a"
-        },
-        {
-          "path": "scripts/youtube-metadata.cjs",
-          "digest": "sha256:241bff13ffa8926dfb8019954dc67871aadbdf95ea0a54b5cc86ecffd4cd14bc"
         }
       ]
     },
@@ -265,30 +257,6 @@
         {
           "path": "references/segment-scan-prompt.md",
           "digest": "sha256:15827811e406790e17f9978cc95bbc79333700ed8380bbe3fe75310329fec4a7"
-        },
-        {
-          "path": "scripts/build-report.js",
-          "digest": "sha256:7a9a929f588032b4535fc55831fce78c65677a519bbf0fcd3185a1e9a929436a"
-        },
-        {
-          "path": "scripts/chunk-transcript.js",
-          "digest": "sha256:92d969438cf3341c62b70098bb60e3cdd0e7ea8564aebeaa23b2a2cc4d0ba319"
-        },
-        {
-          "path": "scripts/extract-site-content.js",
-          "digest": "sha256:17046fd8b18532352770392c5d3061a58ff84877c9080f0c718342737afb8e78"
-        },
-        {
-          "path": "scripts/format-emoji-summary.js",
-          "digest": "sha256:920eec7477b585a1ba8fc220fdd5ad058c7f7b5e320ea377e16e4bed3b2ffccd"
-        },
-        {
-          "path": "scripts/rank-candidate-chunks.js",
-          "digest": "sha256:c8f4d794dd9e7b747dfd8116308ee5593010e036478236d76d67478e0f1c0637"
-        },
-        {
-          "path": "scripts/reconcile-evidence.js",
-          "digest": "sha256:c2b0a4535cd11c24ee70c472959a6d4c2d409dc2f3067229b57a4a8e5b677204"
         }
       ]
     },

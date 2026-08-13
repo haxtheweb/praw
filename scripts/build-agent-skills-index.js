@@ -28,6 +28,11 @@ const crypto = require('crypto');
 const SCHEMA_URI = 'https://schemas.agentskills.io/discovery/0.2.0/schema.json';
 const NAME_RE = /^[a-z0-9]([a-z0-9-]{0,62}[a-z0-9])?$/;
 const MAX_DESC = 1024;
+// Only declarative content is shipped in .well-known/agent-skills/. Executable
+// artifacts (.js/.cjs/.mjs/.sh/.php/.py/...) are never listed in files[] so they
+// cannot land on a live web server via the snapshot step. SKILL.md (.md) and
+// index.json (.json) are always covered; aux files are restricted to these exts.
+const ALLOWED_AUX_EXT = new Set(['md', 'json', 'txt']);
 
 const prawRoot = path.resolve(__dirname, '..');
 const skillsDir = path.join(prawRoot, 'skills');
@@ -75,11 +80,14 @@ function parseFrontmatter(text) {
 }
 
 /**
- * Recursively list auxiliary files in a skill dir (everything except SKILL.md),
- * returned as { path, full } with path relative to the skill dir (posix separators).
+ * Recursively list auxiliary files in a skill dir (everything except SKILL.md).
+ * Returns { aux, skipped }:
+ *   aux     — allowed content files (.md/.json/.txt) as { path, full }
+ *   skipped — executable/non-content files excluded from files[] (for warnings)
  */
 function walkAuxFiles(skillDir) {
-  const found = [];
+  const aux = [];
+  const skipped = [];
   function walk(dir, rel) {
     let entries;
     try {
@@ -95,12 +103,17 @@ function walkAuxFiles(skillDir) {
       if (entry.isDirectory()) {
         walk(full, relPath);
       } else if (entry.isFile()) {
-        found.push({ path: relPath, full: full });
+        const ext = entry.name.split('.').pop().toLowerCase();
+        if (ALLOWED_AUX_EXT.has(ext)) {
+          aux.push({ path: relPath, full: full });
+        } else {
+          skipped.push(relPath);
+        }
       }
     }
   }
   walk(skillDir, '');
-  return found;
+  return { aux: aux, skipped: skipped };
 }
 
 const skills = [];
@@ -138,8 +151,11 @@ for (let d = 0; d < dirs.length; d++) {
     warnings.push('MISSING DESCRIPTION in ' + name);
   }
 
-  const aux = walkAuxFiles(skillDir);
-  const files = aux
+  const walked = walkAuxFiles(skillDir);
+  walked.skipped.forEach(function (s) {
+    console.log('  excluded ' + name + '/' + s + ' (non-content; not shipped to .well-known)');
+  });
+  const files = walked.aux
     .map(function (a) {
       return { path: a.path, digest: sha256(fs.readFileSync(a.full)) };
     })

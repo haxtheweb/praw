@@ -14,8 +14,30 @@
       "hax-webcomponent-dev"
     ]
   },
-  "deployment": {
-    "description": "Skills shipped to HAXcms deployment roots (NodeJS app root + PHP root). \"*\" means every skill in the canonical index.json — self-maintaining so new skills reach deployments without editing this file.",
-    "skills": ["*"]
+  "system": {
+    "description": "Skills shipped to HAXcms deployment roots (NodeJS app root + PHP root) — a superset of site for an agent operating a HAXcms deployment (creating/managing sites, CLI/plugin operation, rating, code-level schema audits, granular UbD course design). Excludes developer/ecosystem tooling (onboarding, issues, rules, importers, tutorial/audio publishing) which stays in praw only.",
+    "skills": [
+      "hax-site-structure",
+      "hax-content-authoring",
+      "hax-managed-files",
+      "hax-design-system",
+      "hax-a11y-audit",
+      "oerschema-audit",
+      "hax-ubd-backward-design",
+      "hax-udl-audit",
+      "hax-content-chunking-audit",
+      "hax-webcomponent-dev",
+      "hax-site-building",
+      "hax-claudehax",
+      "haxcms-lrs-rater",
+      "oerschema-integration-finder",
+      "hax-ubd-stage1",
+      "hax-ubd-stage2",
+      "hax-ubd-stage3",
+      "hax-ubd-grasps",
+      "hax-ubd-essential-questions",
+      "hax-ubd-six-facets",
+      "hax-ubd-unit-audit"
+    ]
   }
 }

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "openstax2hax",
+  "version": "0.1.0",
+  "description": "Claude Code plugin that prepares OpenStax books for conversion into HAX sites.",
+  "author": {
+    "name": "Dave Fusco"
+  },
+  "license": "MIT"
+}

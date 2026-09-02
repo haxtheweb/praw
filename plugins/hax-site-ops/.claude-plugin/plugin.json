@@ -1,0 +1,15 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "hax-site-ops",
+  "displayName": "HAX Site Operations",
+  "version": "1.0.0",
+  "description": "Operate HAX sites from Claude Code using the HAX CLI and HAX web components. Add pages, create courses, update content, inspect, validate, export, and publish. Ships a site-operations skill plus reference docs for the CLI and HAX element catalog.",
+  "author": {
+    "name": "HAXTheWeb core team",
+    "url": "https://hax.psu.edu/"
+  },
+  "homepage": "https://haxtheweb.org/",
+  "repository": "https://github.com/haxtheweb/praw",
+  "license": "Apache-2.0",
+  "keywords": ["hax", "haxcms", "site-ops", "content", "courses", "webcomponents", "lit"]
+}

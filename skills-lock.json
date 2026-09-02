@@ -7,23 +7,11 @@
       "skillPath": "grad-blooms/SKILL.md",
       "computedHash": "88cc969bf2690b16c28c81c5285c932c56a075fa827fe35653a5e70c62864683"
     },
-    "hax-claudehax": {
-      "source": "haxtheweb/praw",
-      "sourceType": "github",
-      "skillPath": "skills/hax-claudehax/SKILL.md",
-      "computedHash": "d94559fc77963648fb863512eeda064ca173df52b8ed86745a7680f62efa44cc"
-    },
     "hax-design-system": {
       "source": "haxtheweb/praw",
       "sourceType": "github",
       "skillPath": "skills/hax-design-system/SKILL.md",
       "computedHash": "536eb7fe72fc8b40170bb0441d45c109370ef782e850f76d0d6b17f4fc880d4e"
-    },
-    "hax-ecosystem-onboarding": {
-      "source": "haxtheweb/praw",
-      "sourceType": "github",
-      "skillPath": "skills/hax-ecosystem-onboarding/SKILL.md",
-      "computedHash": "c8c910666a67806c91daa239d5807291d300c5c1f58c93f201d4fe99411a004d"
     },
     "hax-issue-analysis": {
       "source": "haxtheweb/praw",
@@ -42,18 +30,6 @@
       "sourceType": "github",
       "skillPath": "skills/hax-rule-management/SKILL.md",
       "computedHash": "ae7e798842bfe002af46304f86ea610b0d6c5ee3eebdf0e69ffd4f353d8e836e"
-    },
-    "hax-site-building": {
-      "source": "haxtheweb/praw",
-      "sourceType": "github",
-      "skillPath": "skills/hax-site-building/SKILL.md",
-      "computedHash": "608de39ed34ebdc892e615aaccb5ab580ef051b00d34572e39294abec583af7b"
-    },
-    "hax-webcomponent-dev": {
-      "source": "haxtheweb/praw",
-      "sourceType": "github",
-      "skillPath": "skills/hax-webcomponent-dev/SKILL.md",
-      "computedHash": "123cd0550958f08c8d75c54c2896d86caf2565d5ce303ff1c82d8e9967b746d5"
     }
   }
 }

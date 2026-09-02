@@ -15,7 +15,7 @@ Use the `openstax2hax` skill as the source of truth, especially the
 
 Give the user a single command that turns an OpenStax book URL into a complete
 set of conversion files plus a HAX handoff prompt. The actual HAX site is built
-later by the [`claudehax`](https://github.com/haxtheweb/claudehax) plugin.
+later by the [`hax-site-ops`](https://github.com/haxtheweb/praw) plugin.
 
 ## Steps
 
@@ -52,7 +52,7 @@ later by the [`claudehax`](https://github.com/haxtheweb/claudehax) plugin.
    - `conversion/hax-handoff-prompt.md`
 5. **Stop before building the HAX site.** Do not run the HAX CLI, do not create
    `site.json`, and do not generate HAX pages. Leave `hax-site/` empty for
-   `claudehax`.
+   `hax-site-ops`.
 
 When creating the conversion files in step 4 from the shell, follow the **Shell
 Safety Rules** in the `openstax2hax` skill: write each file with a single-quoted
@@ -67,7 +67,7 @@ the file's Markdown/JSON content inside a quoted CLI argument.
   local paths and any captions/alt text.
 - `pilot-chapter-plan.md` — the concrete plan for the single pilot chapter to
   build first.
-- `hax-handoff-prompt.md` — must follow `/openstax2hax:handoff`: tell `claudehax`
+- `hax-handoff-prompt.md` — must follow `/openstax2hax:handoff`: tell `hax-site-ops`
   to build into `./hax-site`, pilot chapter first, preserving structure,
   figures, captions, tables, learning objectives, review questions, exercises,
   glossary terms, math, and attribution, and to write
@@ -75,14 +75,14 @@ the file's Markdown/JSON content inside a quoted CLI argument.
 
 ## After import
 
-Tell the user the exact next steps to build the site with `claudehax`:
+Tell the user the exact next steps to build the site with `hax-site-ops`:
 
 ```text
-/plugin marketplace add djfusco/claudehax
-/plugin install hax@claudehax
+/plugin marketplace add haxtheweb/praw
+/plugin install hax-site-ops@haxtheweb
 /hax Read conversion/hax-handoff-prompt.md and build only the pilot chapter in ./hax-site.
 ```
 
-Remind them: `openstax2hax` grabbed and prepared the book; `claudehax` builds the
+Remind them: `openstax2hax` grabbed and prepared the book; `hax-site-ops` builds the
 HAX site, and the first build should be a single pilot chapter, not the whole
 book.

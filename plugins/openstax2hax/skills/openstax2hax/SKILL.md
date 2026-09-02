@@ -8,7 +8,7 @@ description: Inspect OpenStax books and prepare conversion files plus a HAX hand
 You help users inspect OpenStax books and **prepare** them for conversion into
 HAX sites. You produce conversion files and a HAX handoff prompt. You do **not**
 build the final HAX site — that is the job of the
-[`claudehax`](https://github.com/haxtheweb/claudehax) plugin.
+[`hax-site-ops`](https://github.com/haxtheweb/praw) plugin.
 
 ## When to use this skill
 
@@ -17,10 +17,10 @@ Use this skill when the user wants to:
 - Inspect a downloaded OpenStax book or export and understand its structure.
 - Convert an OpenStax book (or a single chapter) into a HAX site.
 - Produce clean, structured conversion files from OpenStax content.
-- Generate a prompt that the `claudehax` plugin can consume to build the site.
+- Generate a prompt that the `hax-site-ops` plugin can consume to build the site.
 
 Do **not** use this skill to build the HAX site directly. When the user is ready
-to build, hand off to `claudehax`.
+to build, hand off to `hax-site-ops`.
 
 ## What you do vs. do not do
 
@@ -30,7 +30,7 @@ You DO:
 - Normalize structure (book → chapters → sections) into `book-structure.json`.
 - Map OpenStax elements to HAX-friendly representations.
 - Preserve attribution and licensing.
-- Generate a `hax-handoff-prompt.md` for `claudehax`.
+- Generate a `hax-handoff-prompt.md` for `hax-site-ops`.
 
 You DO NOT:
 
@@ -187,10 +187,10 @@ Do not create `site.json` or build the HAX site.
 
 When handing off (the `/openstax2hax:handoff` command), create
 `conversion/hax-handoff-prompt.md` following `docs/hax-handoff-format.md`. The
-prompt is meant to be pasted into a `claudehax`-enabled Claude Code session and
+prompt is meant to be pasted into a `hax-site-ops`-enabled Claude Code session and
 must:
 
-- Instruct `claudehax` to build a HAX site using the HAX CLI and HAX web
+- Instruct `hax-site-ops` to build a HAX site using the HAX CLI and HAX web
   components.
 - Provide the page tree and per-page content references.
 - Provide component hints (e.g. objectives → callout, examples → worked-example
@@ -198,7 +198,7 @@ must:
 - Carry the attribution/license text that must appear in the finished site.
 - Recommend building the pilot chapter first.
 - Explicitly forbid flattening the book into one page.
-- Include a **Shell safety** instruction telling `claudehax` to write page
+- Include a **Shell safety** instruction telling `hax-site-ops` to write page
   content (Markdown/HTML) to a file with a single-quoted heredoc and pass the
   file PATH to the HAX CLI — never inline multiline content, `node -e`, or
   `python3 -c` in a quoted argument.
@@ -223,7 +223,7 @@ Always recommend fully preparing a single **pilot chapter** before the whole boo
 - It validates the structure mapping and component choices cheaply.
 - It surfaces format-specific problems (math, media, callouts) early.
 - It gives the user a reviewable sample before committing to the full book.
-- It keeps the handoff prompt small enough for `claudehax` to act on reliably.
+- It keeps the handoff prompt small enough for `hax-site-ops` to act on reliably.
 
 Prepare the pilot chapter completely, scaffold the remaining chapters, and let
 the user approve before expanding.
@@ -255,7 +255,7 @@ If the user provides an OpenStax URL, prefer the import workflow
 - Create the standard conversion files in `./conversion`.
 - Create `conversion/hax-handoff-prompt.md`.
 - Stop before building the HAX site.
-- The final site build is done by the `claudehax` plugin, into `./hax-site`.
+- The final site build is done by the `hax-site-ops` plugin, into `./hax-site`.
 
 The import script (`scripts/openstax-import.sh`) validates the URL is on
 `openstax.org`, resolves `details` URLs (e.g.
@@ -271,7 +271,7 @@ OpenStax URL
   → local source files
   → conversion files
   → HAX handoff prompt
-  → claudehax builds pilot HAX site
+  → hax-site-ops builds pilot HAX site
 ```
 
 ## General workflow
@@ -281,7 +281,7 @@ OpenStax URL
 2. `/openstax2hax:inspect <source-path>` → diagnose a local source.
 3. `/openstax2hax:prepare <source-path>` → create conversion files (pilot first).
 4. `/openstax2hax:handoff` → write the HAX handoff prompt.
-5. The user pastes the handoff prompt into a `claudehax` session to build the site.
+5. The user pastes the handoff prompt into a `hax-site-ops` session to build the site.
 
 Keep responses concise: summarize the source, the actions taken, the files
 created, and the recommended next command.

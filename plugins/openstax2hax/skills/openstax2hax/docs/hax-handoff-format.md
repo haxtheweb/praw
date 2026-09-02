@@ -2,7 +2,7 @@
 
 This doc defines the conversion files produced by `/openstax2hax:prepare` and the
 handoff prompt produced by `/openstax2hax:handoff`. These artifacts are what the
-[`claudehax`](https://github.com/haxtheweb/claudehax) plugin consumes to build
+[`hax-site-ops`](https://github.com/haxtheweb/praw) plugin consumes to build
 the HAX site. This plugin never builds the site itself.
 
 ## Conversion files overview
@@ -94,7 +94,7 @@ representation. Recommended default mappings:
 - References → references section.
 - Links → internal links remapped to HAX slugs; external links preserved.
 
-These are recommendations; `claudehax` chooses the actual HAX components.
+These are recommendations; `hax-site-ops` chooses the actual HAX components.
 
 ## pages/
 
@@ -116,17 +116,17 @@ source URL, and access date.
 
 ## hax-handoff-prompt.md
 
-The paste-ready prompt for a `claudehax` session. It must:
+The paste-ready prompt for a `hax-site-ops` session. It must:
 
 1. State the goal: build a HAX site from these conversion files.
-2. Tell `claudehax` to prefer the HAX CLI and HAX web components.
+2. Tell `hax-site-ops` to prefer the HAX CLI and HAX web components.
 3. Recommend building the **pilot chapter first**, then expanding.
 4. **Forbid flattening the book into one page** — preserve the page tree.
 5. Include the page tree (from `book-structure.json`) and per-page content
    references (from `pages/`).
 6. Include component hints (from `content-map.md`).
 7. Include the attribution/license text that must appear in the site.
-8. Include a **Shell safety** rule for `claudehax`: when creating HAX pages,
+8. Include a **Shell safety** rule for `hax-site-ops`: when creating HAX pages,
    write the page content (Markdown/HTML/JSON) to a file with a single-quoted
    heredoc (`cat > page.html <<'EOF' ... EOF`) and pass the file PATH to the HAX
    CLI. Never inline multiline content in a quoted argument, and never use

@@ -36,7 +36,7 @@ This skill `depends_on` interface skills (`hax-claudehax`, `hax-site-building`) 
 ## Prerequisites
 
 - The `hax` CLI installed globally (`npm install -g @haxtheweb/create`). Use the local/global `hax` binary, never `npx hax` (that resolves to a different npm package). Confirm with `hax --help`.
-- The ClaudeHAX plugin (`/plugin install hax@claudehax`) if invoking via the `/hax` slash command. See the `hax-claudehax` skill.
+- The hax-site-ops plugin (`/plugin install hax-site-ops@haxtheweb`) if invoking via the `/hax` slash command. See the `hax-claudehax` skill.
 - A staging tree from `audio-program-transcribe` at `staging/<Publisher>/<Program>/...`.
 - The original audio assets (the CD rips / downloads), to copy into the site for inline playback.
 

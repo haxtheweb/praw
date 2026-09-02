@@ -20,7 +20,7 @@ Convert OpenStax books into HAX sites using the openstax2hax plugin and HAX CLI.
 
 - The user wants to turn an OpenStax book or chapter into a HAX site
 - Inspecting or preparing downloaded OpenStax source files (HTML, EPUB, PDF, CNXML, Markdown)
-- Generating HAX handoff prompts for the claudehax plugin
+- Generating HAX handoff prompts for the hax-site-ops plugin
 - Working with OpenStax URL imports and conversion files
 - Preserving OpenStax attribution and licensing in HAX sites
 
@@ -39,11 +39,11 @@ Inside Claude Code:
 
 1. Add the marketplace:
    ```
-   /plugin marketplace add djfusco/openstax2hax
+   /plugin marketplace add haxtheweb/praw
    ```
 2. Install the plugin:
    ```
-   /plugin install openstax2hax@openstax2hax
+   /plugin install openstax2hax@haxtheweb
    ```
 3. Verify:
    ```
@@ -89,17 +89,17 @@ This validates the URL, downloads the book into `./source`, creates `./conversio
    /openstax2hax:handoff
    ```
 
-5. **Build** the HAX site with claudehax in a separate session:
+5. **Build** the HAX site with hax-site-ops in a separate session:
    ```
-   /plugin marketplace add djfusco/claudehax
-   /plugin install hax@claudehax
+   /plugin marketplace add haxtheweb/praw
+   /plugin install hax-site-ops@haxtheweb
    /hax Read conversion/hax-handoff-prompt.md and build only the pilot chapter in ./hax-site.
    ```
 
-## Relationship to claudehax
+## Relationship to hax-site-ops
 
 - **openstax2hax** prepares the conversion and writes `conversion/hax-handoff-prompt.md`
-- **claudehax** consumes that prompt and builds the actual HAX site using the HAX CLI
+- **hax-site-ops** consumes that prompt and builds the actual HAX site using the HAX CLI
 
 Always keep source analysis separate from site building. openstax2hax does NOT run the HAX CLI or create `site.json`.
 
@@ -112,7 +112,7 @@ Always keep source analysis separate from site building. openstax2hax does NOT r
 - `conversion/attribution.md` — license and attribution metadata
 - `conversion/pages/` — cleaned per-page Markdown (pilot chapter first)
 - `conversion/qa-report.md` — QA checklist results
-- `conversion/hax-handoff-prompt.md` — paste-ready prompt for claudehax
+- `conversion/hax-handoff-prompt.md` — paste-ready prompt for hax-site-ops
 
 ## Key Guidelines
 
@@ -124,7 +124,7 @@ Always keep source analysis separate from site building. openstax2hax does NOT r
 
 ## References
 
-- openstax2hax repository: `https://github.com/haxtheweb/openstax2hax`
-- claudehax repository: `https://github.com/haxtheweb/claudehax`
+- openstax2hax plugin (PRAW): `https://github.com/haxtheweb/praw`
+- hax-site-ops plugin (PRAW): `https://github.com/haxtheweb/praw`
 - HAX CLI: `https://www.npmjs.com/package/@haxtheweb/create`
 - HAX Documentation: `https://haxtheweb.org/`

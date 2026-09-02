@@ -1,5 +1,5 @@
 ---
-description: Generate a HAX handoff prompt that the claudehax plugin can consume.
+description: Generate a HAX handoff prompt that the hax-site-ops plugin can consume.
 ---
 
 # /openstax2hax:handoff
@@ -13,7 +13,7 @@ Use the `openstax2hax` skill, especially
 ## Goal
 
 Produce a single, self-contained prompt that a user can paste into a Claude Code
-session running the [`claudehax`](https://github.com/haxtheweb/claudehax) plugin
+session running the [`hax-site-ops`](https://github.com/haxtheweb/praw) plugin
 to build the actual HAX site.
 
 **This command does NOT build the HAX site.** It only writes the handoff prompt.
@@ -26,7 +26,7 @@ to build the actual HAX site.
    `/openstax2hax:prepare` first.
 2. Read the normalized structure, content map, and attribution metadata.
 3. Assemble the handoff prompt following the HAX handoff format. It must tell
-   the `claudehax` plugin to:
+   the `hax-site-ops` plugin to:
    - Read the conversion files in `./conversion` (book structure, content map,
      attribution, and any pages/plans).
    - Build the HAX site in `./hax-site` (preferring the HAX CLI and HAX web
@@ -52,5 +52,5 @@ than placing the prompt's Markdown inside a quoted argument.
 - `conversion/hax-handoff-prompt.md` — the complete, paste-ready HAX handoff
   prompt.
 
-When finished, tell the user to open a `claudehax`-enabled session and paste the
+When finished, tell the user to open a `hax-site-ops`-enabled session and paste the
 contents of `conversion/hax-handoff-prompt.md` (typically with `/hax`).

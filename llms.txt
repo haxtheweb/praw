@@ -6,26 +6,39 @@
 
 The HAX (Headless Authoring eXperience) ecosystem is a comprehensive web development platform for rapid creation of accessible, performant web components and static sites. It consists of a monorepo with 250+ LitElement components, a HAXcms content management system, a DDD design system, and extensive tooling.
 
-## Agent Skills
+## Interface Skills (canonical source: `create`)
 
-The following skills are available for AI agents working within the HAX ecosystem:
+The following interface skills are owned by the `create` repo (`@haxtheweb/create`, the `hax` CLI) and are version-locked to the CLI. They are NOT bundled in PRAW — install them from `create`:
+
+- **hax-webcomponent-dev**: Web component development with LitElement, DDD, and HAXSchema
+  - Canonical source: `create/src/skills/hax-webcomponent-dev/` -> shipped via `dist/skills/`
+- **hax-site-building**: HAXcms site creation and theme management
+  - Canonical source: `create/src/skills/hax-site-building/` -> shipped via `dist/skills/`
+- **hax-ecosystem-onboarding**: New developer onboarding and environment setup
+  - Canonical source: `create/src/skills/hax-ecosystem-onboarding/` -> shipped via `dist/skills/`
+- **hax-claudehax**: Operate HAX sites via the HAX CLI and HAX web components
+  - Canonical source: `create/src/skills/hax-claudehax/` -> shipped via `dist/skills/`
+- **hax-webcomponent-documentation-writer**: Generate/maintain HAX element READMEs from custom-elements.json + haxProperties
+  - Canonical source: `create/src/skills/hax-webcomponent-documentation-writer/` -> shipped via `dist/skills/`
+
+Install all interface skills with:
+
+```bash
+hax skills install --all
+```
+
+## Workflow & Knowledge Skills (owned by PRAW)
+
+The following skills are owned by PRAW and are available in this repo:
 
 - **hax-ecosystem** (default): Master ecosystem overview and routing skill
   - Path: `/.well-known/skills/default/SKILL.md`
-- **hax-webcomponent-dev**: Web component development with LitElement, DDD, and HAXSchema
-  - Path: `/skills/hax-webcomponent-dev/SKILL.md`
-- **hax-site-building**: HAXcms site creation and theme management
-  - Path: `/skills/hax-site-building/SKILL.md`
 - **hax-design-system**: DDD design system application and SimpleColors migration
   - Path: `/skills/hax-design-system/SKILL.md`
-- **hax-ecosystem-onboarding**: New developer onboarding and environment setup
-  - Path: `/skills/hax-ecosystem-onboarding/SKILL.md`
 - **hax-rule-management**: PRAW rule management and validation
   - Path: `/skills/hax-rule-management/SKILL.md`
 - **hax-issue-analysis**: GitHub issue fetching and analysis across the ecosystem
   - Path: `/skills/hax-issue-analysis/SKILL.md`
-- **hax-claudehax**: Operate HAX sites via the ClaudeHAX plugin in Claude Code
-  - Path: `/skills/hax-claudehax/SKILL.md`
 - **hax-openstax2hax**: Convert OpenStax books into HAX sites via the openstax2hax plugin
   - Path: `/skills/hax-openstax2hax/SKILL.md`
 - **oerschema-audit**: Read-only OER Schema diagnostic of authored content (HAX pages, VitePress, JSON-LD, Docs export)
@@ -33,13 +46,26 @@ The following skills are available for AI agents working within the HAX ecosyste
 - **oerschema-integration-finder**: Read-only scan of webcomponents/themes/backends/plugins for missing OER Schema emission/consumption
   - Path: `/skills/oerschema-integration-finder/SKILL.md`
 
-## Install All Skills
+## Claude Code Plugin Marketplace
+
+PRAW hosts a Claude Code plugin marketplace with three plugins:
+
+```text
+/plugin marketplace add haxtheweb/praw
+/plugin install hax-onboarding@haxtheweb
+```
+
+- **hax-onboarding** — Golden-path onboarding: auto-installs the HAX CLI, ships a knowledge skill, and provides slash commands (quickstart, site, webcomponent, audit, serve, publish).
+- **hax-site-ops** — Operate HAX sites from Claude Code: add pages, create courses, update content, inspect, validate, and publish. (Renamed from the old `hax` plugin in claudehax.)
+- **openstax2hax** — Prepare OpenStax books for conversion into HAX sites.
+
+## Install Workflow Skills
 
 ```bash
 npx skills add haxtheweb/praw --all
 
 # Or install individually
-npx skills add haxtheweb/praw --skill hax-claudehax
+npx skills add haxtheweb/praw --skill hax-design-system
 npx skills add haxtheweb/praw --skill hax-openstax2hax
 ```
 

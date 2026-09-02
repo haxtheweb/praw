@@ -1,0 +1,471 @@
+# HAX Elements Reference
+
+Generated on 2026-06-05T22:48:05Z.
+
+Source: https://github.com/haxtheweb/webcomponents/tree/master/elements
+
+Use these web components when creating interactive, educational, media, layout, or assessment content.
+
+## Available elements
+
+- `<.idea>`
+- `<.vscode>`
+- `<a11y-behaviors>`
+- `<a11y-carousel>`
+- `<a11y-collapse>`
+- `<a11y-compare-image>`
+- `<a11y-details>`
+- `<a11y-figure>`
+- `<a11y-gif-player>`
+- `<a11y-media-player>`
+- `<a11y-menu-button>`
+- `<a11y-tabs>`
+- `<a11y-utils>`
+- `<absolute-position-behavior>`
+- `<accent-card>`
+- `<aframe-player>`
+- `<ai-usage-license>`
+- `<air-horn>`
+- `<anchor-behaviors>`
+- `<app-hax>`
+- `<audio-player>`
+- `<author-card>`
+- `<awesome-explosion>`
+- `<b-r>`
+- `<baseline-build-hax>`
+- `<beaker-broker>`
+- `<bibliography-builder>`
+- `<bootstrap-theme>`
+- `<career-timeline>`
+- `<chartist-render>`
+- `<chat-agent>`
+- `<check-it-out>`
+- `<citation-element>`
+- `<clean-one>`
+- `<clean-portfolio-theme>`
+- `<clean-two>`
+- `<cms-hax>`
+- `<code-editor>`
+- `<code-sample>`
+- `<collection-list>`
+- `<count-up>`
+- `<course-design>`
+- `<course-model>`
+- `<csv-render>`
+- `<d-d-d>`
+- `<d-d-docs>`
+- `<data-viz>`
+- `<date-card>`
+- `<deduping-fix>`
+- `<demo-snippet>`
+- `<discord-embed>`
+- `<disqus-embed>`
+- `<dl-behavior>`
+- `<documentation-player>`
+- `<dynamic-import-registry>`
+- `<editable-table>`
+- `<elmsln-loading>`
+- `<enhanced-text>`
+- `<es-global-bridge>`
+- `<event-badge>`
+- `<example-hax-element>`
+- `<example-haxcms-theme>`
+- `<figure-label>`
+- `<file-system-broker>`
+- `<fill-in-the-blanks>`
+- `<flash-card>`
+- `<fluid-type>`
+- `<full-width-image>`
+- `<fullscreen-behaviors>`
+- `<future-terminal-text>`
+- `<git-corner>`
+- `<github-preview>`
+- `<glossy-portfolio-theme>`
+- `<grade-book>`
+- `<grid-plate>`
+- `<h-a-x>`
+- `<h5p-element>`
+- `<hal-9000>`
+- `<hax-body>`
+- `<hax-body-behaviors>`
+- `<hax-bookmarklet>`
+- `<hax-cloud>`
+- `<hax-iconset>`
+- `<hax-logo>`
+- `<haxcms-elements>`
+- `<haxma-theme>`
+- `<haxor-slevin>`
+- `<hex-picker>`
+- `<hexagon-loader>`
+- `<html-block>`
+- `<i18n-manager>`
+- `<iframe-loader>`
+- `<image-compare-slider>`
+- `<image-inspector>`
+- `<img-pan-zoom>`
+- `<img-view-modal>`
+- `<inline-audio>`
+- `<intersection-element>`
+- `<journey-theme>`
+- `<json-outline-schema>`
+- `<jwt-login>`
+- `<la-tex>`
+- `<lazy-image-helpers>`
+- `<lazy-import-discover>`
+- `<learn-two-theme>`
+- `<license-element>`
+- `<link-card-theme>`
+- `<linkedin-embed>`
+- `<lorem-data>`
+- `<lrn-gitgraph>`
+- `<lrn-math>`
+- `<lrn-table>`
+- `<lrn-vocab>`
+- `<lrndesign-chart>`
+- `<lrndesign-imagemap>`
+- `<lrndesign-timeline>`
+- `<lrs-elements>`
+- `<lunr-search>`
+- `<map-menu>`
+- `<mark-the-words>`
+- `<matching-question>`
+- `<md-block>`
+- `<media-behaviors>`
+- `<media-image>`
+- `<media-quote>`
+- `<meme-maker>`
+- `<merit-badge>`
+- `<micro-frontend-registry>`
+- `<moar-sarcasm>`
+- `<moment-element>`
+- `<multiple-choice>`
+- `<music-player>`
+- `<mutation-observer-import-mixin>`
+- `<oer-schema>`
+- `<outline-designer>`
+- `<outline-player>`
+- `<page-break>`
+- `<page-contents-menu>`
+- `<page-flag>`
+- `<page-scroll-position>`
+- `<page-section>`
+- `<paper-input-flagged>`
+- `<paper-stepper>`
+- `<parallax-image>`
+- `<pdf-browser-viewer>`
+- `<person-testimonial>`
+- `<place-holder>`
+- `<play-list>`
+- `<polaris-theme>`
+- `<portal-launcher>`
+- `<post-card>`
+- `<pouch-db>`
+- `<product-card>`
+- `<product-glance>`
+- `<product-offering>`
+- `<progress-donut>`
+- `<promise-progress>`
+- `<q-r>`
+- `<radio-behaviors>`
+- `<relative-heading>`
+- `<replace-tag>`
+- `<responsive-grid>`
+- `<responsive-utility>`
+- `<retro-card>`
+- `<rich-text-editor>`
+- `<rpg-character>`
+- `<runkit-embed>`
+- `<schema-behaviors>`
+- `<screen-recorder>`
+- `<scroll-button>`
+- `<self-check>`
+- `<shadow-style>`
+- `<simple-autocomplete>`
+- `<simple-blog>`
+- `<simple-colors>`
+- `<simple-colors-shared-styles>`
+- `<simple-cta>`
+- `<simple-datetime>`
+- `<simple-emoji>`
+- `<simple-fields>`
+- `<simple-filter>`
+- `<simple-icon>`
+- `<simple-icon-picker>`
+- `<simple-img>`
+- `<simple-login>`
+- `<simple-modal>`
+- `<simple-picker>`
+- `<simple-popover>`
+- `<simple-progress>`
+- `<simple-range-input>`
+- `<simple-search>`
+- `<simple-toast>`
+- `<simple-toolbar>`
+- `<simple-tooltip>`
+- `<simple-wc>`
+- `<social-share-link>`
+- `<sorting-question>`
+- `<spacebook-theme>`
+- `<spotify-embed>`
+- `<star-rating>`
+- `<stop-note>`
+- `<super-daemon>`
+- `<tagging-question>`
+- `<terrible-themes>`
+- `<training-theme>`
+- `<twenty-six-theme>`
+- `<twitter-embed>`
+- `<type-writer>`
+- `<un-sdg>`
+- `<undo-manager>`
+- `<unity-webgl>`
+- `<user-action>`
+- `<user-scaffold>`
+- `<utils>`
+- `<video-player>`
+- `<vocab-term>`
+- `<voice-recorder>`
+- `<wc-autoload>`
+- `<web-container>`
+- `<wikipedia-query>`
+- `<word-count>`
+- `<wysiwyg-hax>`
+
+## Suggested intent mapping
+
+- Multiple choice quizzes: look for `<multiple-choice>`.
+- Fill-in-the-blank activities: look for `<fill-in-the-blanks>`.
+- Flashcards: look for `<flash-card>`.
+- Video: look for `<video-player>`.
+- Tabs: look for `<a11y-tabs>`.
+- Accordions/collapsible content: look for `<a11y-collapse>`.
+- Layout, cards, galleries, media, timelines, charts, callouts, and assessment components should be selected from the available element list when appropriate.
+
+## Usage guidance
+
+When the user asks for quizzes, assessments, checks for understanding, flashcards, media, timelines, cards, figures, galleries, tabs, accordions, or interactive learning content, prefer an appropriate HAX web component over plain HTML.
+
+Before using a component, inspect its folder, README, demo, or source if available to confirm exact attributes, slots, and child markup.
+
+## Component folders with README files
+
+- `<a11y-behaviors>`: `elements/a11y-behaviors/README.md`
+- `<a11y-carousel>`: `elements/a11y-carousel/README.md`
+- `<a11y-collapse>`: `elements/a11y-collapse/README.md`
+- `<a11y-compare-image>`: `elements/a11y-compare-image/README.md`
+- `<a11y-details>`: `elements/a11y-details/README.md`
+- `<a11y-figure>`: `elements/a11y-figure/README.md`
+- `<a11y-gif-player>`: `elements/a11y-gif-player/README.md`
+- `<a11y-media-player>`: `elements/a11y-media-player/README.md`
+- `<a11y-menu-button>`: `elements/a11y-menu-button/README.md`
+- `<a11y-tabs>`: `elements/a11y-tabs/README.md`
+- `<a11y-utils>`: `elements/a11y-utils/README.md`
+- `<absolute-position-behavior>`: `elements/absolute-position-behavior/README.md`
+- `<accent-card>`: `elements/accent-card/README.md`
+- `<aframe-player>`: `elements/aframe-player/README.md`
+- `<ai-usage-license>`: `elements/ai-usage-license/README.md`
+- `<air-horn>`: `elements/air-horn/README.md`
+- `<anchor-behaviors>`: `elements/anchor-behaviors/README.md`
+- `<app-hax>`: `elements/app-hax/README.md`
+- `<audio-player>`: `elements/audio-player/README.md`
+- `<author-card>`: `elements/author-card/README.md`
+- `<awesome-explosion>`: `elements/awesome-explosion/README.md`
+- `<b-r>`: `elements/b-r/README.md`
+- `<baseline-build-hax>`: `elements/baseline-build-hax/README.md`
+- `<beaker-broker>`: `elements/beaker-broker/README.md`
+- `<bibliography-builder>`: `elements/bibliography-builder/README.md`
+- `<bootstrap-theme>`: `elements/bootstrap-theme/README.md`
+- `<career-timeline>`: `elements/career-timeline/README.md`
+- `<chartist-render>`: `elements/chartist-render/README.md`
+- `<chat-agent>`: `elements/chat-agent/README.md`
+- `<check-it-out>`: `elements/check-it-out/README.md`
+- `<citation-element>`: `elements/citation-element/README.md`
+- `<clean-one>`: `elements/clean-one/README.md`
+- `<clean-portfolio-theme>`: `elements/clean-portfolio-theme/README.md`
+- `<clean-two>`: `elements/clean-two/README.md`
+- `<cms-hax>`: `elements/cms-hax/README.md`
+- `<code-editor>`: `elements/code-editor/README.md`
+- `<code-sample>`: `elements/code-sample/README.md`
+- `<collection-list>`: `elements/collection-list/README.md`
+- `<count-up>`: `elements/count-up/README.md`
+- `<course-design>`: `elements/course-design/README.md`
+- `<course-model>`: `elements/course-model/README.md`
+- `<csv-render>`: `elements/csv-render/README.md`
+- `<d-d-d>`: `elements/d-d-d/README.md`
+- `<d-d-docs>`: `elements/d-d-docs/README.md`
+- `<data-viz>`: `elements/data-viz/README.md`
+- `<date-card>`: `elements/date-card/README.md`
+- `<deduping-fix>`: `elements/deduping-fix/README.md`
+- `<demo-snippet>`: `elements/demo-snippet/README.md`
+- `<discord-embed>`: `elements/discord-embed/README.md`
+- `<disqus-embed>`: `elements/disqus-embed/README.md`
+- `<dl-behavior>`: `elements/dl-behavior/README.md`
+- `<documentation-player>`: `elements/documentation-player/README.md`
+- `<dynamic-import-registry>`: `elements/dynamic-import-registry/README.md`
+- `<editable-table>`: `elements/editable-table/README.md`
+- `<elmsln-loading>`: `elements/elmsln-loading/README.md`
+- `<enhanced-text>`: `elements/enhanced-text/README.md`
+- `<es-global-bridge>`: `elements/es-global-bridge/README.md`
+- `<event-badge>`: `elements/event-badge/README.md`
+- `<example-hax-element>`: `elements/example-hax-element/README.md`
+- `<example-haxcms-theme>`: `elements/example-haxcms-theme/README.md`
+- `<figure-label>`: `elements/figure-label/README.md`
+- `<file-system-broker>`: `elements/file-system-broker/README.md`
+- `<fill-in-the-blanks>`: `elements/fill-in-the-blanks/README.md`
+- `<flash-card>`: `elements/flash-card/README.md`
+- `<fluid-type>`: `elements/fluid-type/README.md`
+- `<full-width-image>`: `elements/full-width-image/README.md`
+- `<fullscreen-behaviors>`: `elements/fullscreen-behaviors/README.md`
+- `<future-terminal-text>`: `elements/future-terminal-text/README.md`
+- `<git-corner>`: `elements/git-corner/README.md`
+- `<github-preview>`: `elements/github-preview/README.md`
+- `<glossy-portfolio-theme>`: `elements/glossy-portfolio-theme/README.md`
+- `<grade-book>`: `elements/grade-book/README.md`
+- `<grid-plate>`: `elements/grid-plate/README.md`
+- `<h-a-x>`: `elements/h-a-x/README.md`
+- `<h5p-element>`: `elements/h5p-element/README.md`
+- `<hal-9000>`: `elements/hal-9000/README.md`
+- `<hax-body-behaviors>`: `elements/hax-body-behaviors/README.md`
+- `<hax-body>`: `elements/hax-body/README.md`
+- `<hax-bookmarklet>`: `elements/hax-bookmarklet/README.md`
+- `<hax-cloud>`: `elements/hax-cloud/README.md`
+- `<hax-iconset>`: `elements/hax-iconset/README.md`
+- `<hax-logo>`: `elements/hax-logo/README.md`
+- `<haxcms-elements>`: `elements/haxcms-elements/README.md`
+- `<haxma-theme>`: `elements/haxma-theme/README.md`
+- `<haxor-slevin>`: `elements/haxor-slevin/README.md`
+- `<hex-picker>`: `elements/hex-picker/README.md`
+- `<hexagon-loader>`: `elements/hexagon-loader/README.md`
+- `<html-block>`: `elements/html-block/README.md`
+- `<i18n-manager>`: `elements/i18n-manager/README.md`
+- `<iframe-loader>`: `elements/iframe-loader/README.md`
+- `<image-compare-slider>`: `elements/image-compare-slider/README.md`
+- `<image-inspector>`: `elements/image-inspector/README.md`
+- `<img-pan-zoom>`: `elements/img-pan-zoom/README.md`
+- `<img-view-modal>`: `elements/img-view-modal/README.md`
+- `<inline-audio>`: `elements/inline-audio/README.md`
+- `<intersection-element>`: `elements/intersection-element/README.md`
+- `<journey-theme>`: `elements/journey-theme/README.md`
+- `<json-outline-schema>`: `elements/json-outline-schema/README.md`
+- `<jwt-login>`: `elements/jwt-login/README.md`
+- `<la-tex>`: `elements/la-tex/README.md`
+- `<lazy-image-helpers>`: `elements/lazy-image-helpers/README.md`
+- `<lazy-import-discover>`: `elements/lazy-import-discover/README.md`
+- `<learn-two-theme>`: `elements/learn-two-theme/README.md`
+- `<license-element>`: `elements/license-element/README.md`
+- `<link-card-theme>`: `elements/link-card-theme/README.md`
+- `<linkedin-embed>`: `elements/linkedin-embed/README.md`
+- `<lorem-data>`: `elements/lorem-data/README.md`
+- `<lrn-gitgraph>`: `elements/lrn-gitgraph/README.md`
+- `<lrn-math>`: `elements/lrn-math/README.md`
+- `<lrn-table>`: `elements/lrn-table/README.md`
+- `<lrn-vocab>`: `elements/lrn-vocab/README.md`
+- `<lrndesign-chart>`: `elements/lrndesign-chart/README.md`
+- `<lrndesign-imagemap>`: `elements/lrndesign-imagemap/README.md`
+- `<lrndesign-timeline>`: `elements/lrndesign-timeline/README.md`
+- `<lrs-elements>`: `elements/lrs-elements/README.md`
+- `<lunr-search>`: `elements/lunr-search/README.md`
+- `<map-menu>`: `elements/map-menu/README.md`
+- `<mark-the-words>`: `elements/mark-the-words/README.md`
+- `<matching-question>`: `elements/matching-question/README.md`
+- `<md-block>`: `elements/md-block/README.md`
+- `<media-behaviors>`: `elements/media-behaviors/README.md`
+- `<media-image>`: `elements/media-image/README.md`
+- `<media-quote>`: `elements/media-quote/README.md`
+- `<meme-maker>`: `elements/meme-maker/README.md`
+- `<merit-badge>`: `elements/merit-badge/README.md`
+- `<micro-frontend-registry>`: `elements/micro-frontend-registry/README.md`
+- `<moar-sarcasm>`: `elements/moar-sarcasm/README.md`
+- `<moment-element>`: `elements/moment-element/README.md`
+- `<multiple-choice>`: `elements/multiple-choice/README.md`
+- `<music-player>`: `elements/music-player/README.md`
+- `<mutation-observer-import-mixin>`: `elements/mutation-observer-import-mixin/README.md`
+- `<oer-schema>`: `elements/oer-schema/README.md`
+- `<outline-designer>`: `elements/outline-designer/README.md`
+- `<outline-player>`: `elements/outline-player/README.md`
+- `<page-break>`: `elements/page-break/README.md`
+- `<page-contents-menu>`: `elements/page-contents-menu/README.md`
+- `<page-flag>`: `elements/page-flag/README.md`
+- `<page-scroll-position>`: `elements/page-scroll-position/README.md`
+- `<page-section>`: `elements/page-section/README.md`
+- `<paper-input-flagged>`: `elements/paper-input-flagged/README.md`
+- `<paper-stepper>`: `elements/paper-stepper/README.md`
+- `<parallax-image>`: `elements/parallax-image/README.md`
+- `<pdf-browser-viewer>`: `elements/pdf-browser-viewer/README.md`
+- `<person-testimonial>`: `elements/person-testimonial/README.md`
+- `<place-holder>`: `elements/place-holder/README.md`
+- `<play-list>`: `elements/play-list/README.md`
+- `<polaris-theme>`: `elements/polaris-theme/README.md`
+- `<portal-launcher>`: `elements/portal-launcher/README.md`
+- `<post-card>`: `elements/post-card/README.md`
+- `<pouch-db>`: `elements/pouch-db/README.md`
+- `<product-card>`: `elements/product-card/README.md`
+- `<product-glance>`: `elements/product-glance/README.md`
+- `<product-offering>`: `elements/product-offering/README.md`
+- `<progress-donut>`: `elements/progress-donut/README.md`
+- `<promise-progress>`: `elements/promise-progress/README.md`
+- `<q-r>`: `elements/q-r/README.md`
+- `<radio-behaviors>`: `elements/radio-behaviors/README.md`
+- `<relative-heading>`: `elements/relative-heading/README.md`
+- `<replace-tag>`: `elements/replace-tag/README.md`
+- `<responsive-grid>`: `elements/responsive-grid/README.md`
+- `<responsive-utility>`: `elements/responsive-utility/README.md`
+- `<retro-card>`: `elements/retro-card/README.md`
+- `<rich-text-editor>`: `elements/rich-text-editor/README.md`
+- `<rpg-character>`: `elements/rpg-character/README.md`
+- `<runkit-embed>`: `elements/runkit-embed/README.md`
+- `<schema-behaviors>`: `elements/schema-behaviors/README.md`
+- `<screen-recorder>`: `elements/screen-recorder/README.md`
+- `<scroll-button>`: `elements/scroll-button/README.md`
+- `<self-check>`: `elements/self-check/README.md`
+- `<shadow-style>`: `elements/shadow-style/README.md`
+- `<simple-autocomplete>`: `elements/simple-autocomplete/README.md`
+- `<simple-blog>`: `elements/simple-blog/README.md`
+- `<simple-colors-shared-styles>`: `elements/simple-colors-shared-styles/README.md`
+- `<simple-colors>`: `elements/simple-colors/README.md`
+- `<simple-cta>`: `elements/simple-cta/README.md`
+- `<simple-datetime>`: `elements/simple-datetime/README.md`
+- `<simple-emoji>`: `elements/simple-emoji/README.md`
+- `<simple-fields>`: `elements/simple-fields/README.md`
+- `<simple-filter>`: `elements/simple-filter/README.md`
+- `<simple-icon-picker>`: `elements/simple-icon-picker/README.md`
+- `<simple-icon>`: `elements/simple-icon/README.md`
+- `<simple-img>`: `elements/simple-img/README.md`
+- `<simple-login>`: `elements/simple-login/README.md`
+- `<simple-modal>`: `elements/simple-modal/README.md`
+- `<simple-picker>`: `elements/simple-picker/README.md`
+- `<simple-popover>`: `elements/simple-popover/README.md`
+- `<simple-progress>`: `elements/simple-progress/README.md`
+- `<simple-range-input>`: `elements/simple-range-input/README.md`
+- `<simple-search>`: `elements/simple-search/README.md`
+- `<simple-toast>`: `elements/simple-toast/README.md`
+- `<simple-toolbar>`: `elements/simple-toolbar/README.md`
+- `<simple-tooltip>`: `elements/simple-tooltip/README.md`
+- `<simple-wc>`: `elements/simple-wc/README.md`
+- `<social-share-link>`: `elements/social-share-link/README.md`
+- `<sorting-question>`: `elements/sorting-question/README.md`
+- `<spacebook-theme>`: `elements/spacebook-theme/README.md`
+- `<spotify-embed>`: `elements/spotify-embed/README.md`
+- `<star-rating>`: `elements/star-rating/README.md`
+- `<stop-note>`: `elements/stop-note/README.md`
+- `<super-daemon>`: `elements/super-daemon/README.md`
+- `<tagging-question>`: `elements/tagging-question/README.md`
+- `<terrible-themes>`: `elements/terrible-themes/README.md`
+- `<training-theme>`: `elements/training-theme/README.md`
+- `<twenty-six-theme>`: `elements/twenty-six-theme/README.md`
+- `<twitter-embed>`: `elements/twitter-embed/README.md`
+- `<type-writer>`: `elements/type-writer/README.md`
+- `<un-sdg>`: `elements/un-sdg/README.md`
+- `<undo-manager>`: `elements/undo-manager/README.md`
+- `<unity-webgl>`: `elements/unity-webgl/README.md`
+- `<user-action>`: `elements/user-action/README.md`
+- `<user-scaffold>`: `elements/user-scaffold/README.md`
+- `<utils>`: `elements/utils/README.md`
+- `<video-player>`: `elements/video-player/README.md`
+- `<vocab-term>`: `elements/vocab-term/README.md`
+- `<voice-recorder>`: `elements/voice-recorder/README.md`
+- `<wc-autoload>`: `elements/wc-autoload/README.md`
+- `<web-container>`: `elements/web-container/README.md`
+- `<wikipedia-query>`: `elements/wikipedia-query/README.md`
+- `<word-count>`: `elements/word-count/README.md`
+- `<wysiwyg-hax>`: `elements/wysiwyg-hax/README.md`

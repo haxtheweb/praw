@@ -1,0 +1,100 @@
+{
+  "_note": "Sample only. Fake titles and placeholder content. Contains no real OpenStax book content.",
+  "book": {
+    "title": "Introduction to Sample Science",
+    "edition": "1st edition (sample)",
+    "license": "CC BY 4.0 (placeholder)",
+    "attribution": {
+      "authors": "Sample Author A; Sample Author B",
+      "publisher": "OpenStax / Rice University (placeholder)",
+      "sourceUrl": "https://example.org/sample-book",
+      "accessed": "2026-06-26"
+    }
+  },
+  "pilotChapter": "ch01",
+  "chapters": [
+    {
+      "id": "ch01",
+      "title": "Foundations of Sample Science",
+      "slug": "chapter-1-foundations-of-sample-science",
+      "order": 1,
+      "sections": [
+        {
+          "id": "ch01-sec01",
+          "title": "What Is Sample Science?",
+          "slug": "what-is-sample-science",
+          "order": 1,
+          "page": "pages/ch01-section-01.md",
+          "elements": {
+            "learningObjectives": 3,
+            "figures": 2,
+            "tables": 1,
+            "examples": 1,
+            "notes": 2,
+            "keyTerms": 5,
+            "glossaryTerms": 5,
+            "summary": true,
+            "reviewQuestions": 4,
+            "exercises": 3,
+            "math": 0,
+            "references": 6,
+            "links": 4
+          }
+        },
+        {
+          "id": "ch01-sec02",
+          "title": "Methods and Measurement",
+          "slug": "methods-and-measurement",
+          "order": 2,
+          "page": "pages/ch01-section-02.md",
+          "elements": {
+            "learningObjectives": 2,
+            "figures": 3,
+            "tables": 2,
+            "examples": 2,
+            "notes": 1,
+            "keyTerms": 4,
+            "glossaryTerms": 4,
+            "summary": true,
+            "reviewQuestions": 5,
+            "exercises": 4,
+            "math": 3,
+            "references": 5,
+            "links": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "ch02",
+      "title": "Applications of Sample Science",
+      "slug": "chapter-2-applications-of-sample-science",
+      "order": 2,
+      "scaffoldOnly": true,
+      "sections": [
+        {
+          "id": "ch02-sec01",
+          "title": "Sample Science in Daily Life",
+          "slug": "sample-science-in-daily-life",
+          "order": 1,
+          "page": "pages/ch02-section-01.md",
+          "elements": {
+            "learningObjectives": 2,
+            "figures": 1,
+            "tables": 0,
+            "examples": 1,
+            "notes": 1,
+            "keyTerms": 3,
+            "glossaryTerms": 3,
+            "summary": true,
+            "reviewQuestions": 3,
+            "exercises": 2,
+            "math": 1,
+            "references": 4,
+            "links": 3
+          }
+        }
+      ]
+    }
+  ]
+}

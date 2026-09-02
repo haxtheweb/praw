@@ -33,6 +33,23 @@ rm -rf ~/.agents/skills/{hax-site-building,hax-claudehax,hax-webcomponent-dev,ha
 hax skills install --all
 ```
 
+## Claude Code Plugin Marketplace
+
+PRAW hosts the official HAX Claude Code plugin marketplace. Add it and install a plugin:
+
+```text
+/plugin marketplace add haxtheweb/praw
+/plugin install hax-onboarding@haxtheweb
+```
+
+Three plugins are available:
+
+- **`hax-onboarding`** — Golden-path onboarding: auto-installs the HAX CLI via a SessionStart hook, ships a knowledge skill with the full command surface, and provides slash commands (`quickstart`, `site`, `webcomponent`, `audit`, `serve`, `publish`) to go from nothing to a live HAXsite in one pass.
+- **`hax-site-ops`** — Operate HAX sites from Claude Code using the HAX CLI and HAX web components: add pages, create courses, update content, inspect, validate, export, and publish. Ships a site-operations skill plus reference docs. (Renamed from the old `hax` plugin in claudehax — this resolves the name collision.)
+- **`openstax2hax`** — Prepare OpenStax books for conversion into HAX sites: inspect source files, extract content structure, and generate HAX handoff prompts.
+
+See [`plugins/`](plugins/) for the full plugin tree and [`plugins/hax-onboarding/README.md`](plugins/hax-onboarding/README.md) for onboarding details.
+
 ## Quick Start - New to HAX?
 
 **🚀 For complete newcomers**, we've created an automated onboarding script that sets up your entire HAX development environment with Warp optimization:

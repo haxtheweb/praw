@@ -10,6 +10,7 @@ Reusable agent skills for the HAX (Headless Authoring eXperience) ecosystem. The
 | `hax-site-building` | Build and maintain HAXcms sites with JSON Outline Schema and themes | `npx skills add haxtheweb/praw --skill hax-site-building` |
 | `hax-design-system` | Apply the DDD design system and manage SimpleColors legacy usage | `npx skills add haxtheweb/praw --skill hax-design-system` |
 | `hax-ecosystem-onboarding` | Onboard new developers to the HAX ecosystem | `npx skills add haxtheweb/praw --skill hax-ecosystem-onboarding` |
+| `hax-i18n-translate` | Scaffold and translate HAX web component i18n locale files at scale (this.t extraction, ~100-language stubbing, parallel translation, validation) | `npx skills add haxtheweb/praw --skill hax-i18n-translate` |
 | `hax-rule-management` | Manage PRAW rules and conventions stored in RULES.md | `npx skills add haxtheweb/praw --skill hax-rule-management` |
 | `hax-issue-analysis` | Fetch, analyze, and summarize GitHub issues across the HAX ecosystem | `npx skills add haxtheweb/praw --skill hax-issue-analysis` |
 | `hax-claudehax` | Operate HAX sites via the ClaudeHAX plugin in Claude Code | `npx skills add haxtheweb/praw --skill hax-claudehax` |

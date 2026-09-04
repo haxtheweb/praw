@@ -6,7 +6,7 @@
       "type": "skill-md",
       "description": "Publish a transcribed audio/video program as a searchable HAXcms library site: per-track transcript pages, per-disc distilled notes, a program-level summary, inline audio playback via media-playlist + audio-player, and a publishable \"favorite quotes\" page built from media-quote elements. Use when the user says \"publish <program> to my HAX library\", \"add this course to my audio site\", \"put my transcripts into HAX\", or \"curate quotes from <program>\". Consumes the staging tree produced by audio-program-transcribe. Depends on audio-program-transcribe, hax-claudehax, hax-site-building, and hax-design-system. Personal-use content; keep verbatim transcripts and audio assets private, publish only distilled notes and short cited quotes.",
       "url": "audio-program-hax/SKILL.md",
-      "digest": "sha256:2bc36e1392140a7c46723a5e688421d17750741ba9cfba1b16fdd42b8dce6bd8"
+      "digest": "sha256:9ebbf68cf101b31d2d8b4317d2a96c64e19d9fed1332958585170632fe55ed72"
     },
     {
       "name": "audio-program-transcribe",
@@ -33,13 +33,6 @@
       ]
     },
     {
-      "name": "hax-claudehax",
-      "type": "skill-md",
-      "description": "Operate HAX sites from Claude Code using the ClaudeHAX plugin, HAX CLI, and HAX web components. Use when the user wants to add pages, create courses, update content, add assessments, add quizzes, add videos, use HAX web components, analyze existing HAX sites, or suggest improvements using the ClaudeHAX /hax slash command or HAX CLI directly.",
-      "url": "hax-claudehax/SKILL.md",
-      "digest": "sha256:7b50163dfa233698cc8d1317bbc491bb4748432855187570801b58be6ef798f7"
-    },
-    {
       "name": "hax-content-authoring",
       "type": "skill-md",
       "description": "Author HAX page content using the right web components and conventions. Use when writing or editing page HTML in pages/, adding HAX-capable elements, applying DDD heading/paragraph attributes, choosing input/icon/button/media components, creating pages via the hax CLI, or remixing a HAX site's content as OER. Covers which tags are valid (HAXSchema/haxProperties), the preferred component families, and the authoring rules that keep content portable and editable in the HAX editor.",
@@ -61,11 +54,17 @@
       "digest": "sha256:bf26ab130666fe1c5bcc105e4c0f52400f63cc8e8832429296358448ed8ec110"
     },
     {
-      "name": "hax-ecosystem-onboarding",
+      "name": "hax-i18n-translate",
       "type": "skill-md",
-      "description": "Onboard new developers to the HAX ecosystem by cloning repositories, installing the CLI, and setting up the development environment. Use when a developer is new to HAX, needs a fresh environment setup, or wants to scaffold their first web component or HAXsite.",
-      "url": "hax-ecosystem-onboarding/SKILL.md",
-      "digest": "sha256:0b0d59725993ac40d1fcd02c838255c6ebfa2a22d25e01a56c9f9499c94c8f9e"
+      "description": "Scaffold and translate HAX web component i18n locale files at scale. Use when the user says \"add translations to <element>\", \"translate the locales for <element>\", \"stub out translation files for <element>\", \"add support for the top 100 languages\", \"i18n my component\", \"extract the this.t strings\", \"set up locales for <element>\", or references a HAX element's locales/ folder, this.t object, I18NMixin, registerLocalization, or translation-manifest — even when they don't say \"skill\" or \"i18n\". Covers both phases: (1) extracting English strings from the this.t object in the element's JS and stubbing out locale files for ~100 languages, and (2) threading out parallel translation of every stub into its target language, then validating.",
+      "url": "hax-i18n-translate/SKILL.md",
+      "digest": "sha256:e9b97352e7ff526e09af16552ac8fec2b357231072671d78cc763b9fed4fd405",
+      "files": [
+        {
+          "path": "references/languages.json",
+          "digest": "sha256:5e845fb2a42f86b23976c502446e925d9b4f3c81ec548a862c2ad1cf912666f4"
+        }
+      ]
     },
     {
       "name": "hax-issue-analysis",
@@ -93,7 +92,7 @@
       "type": "skill-md",
       "description": "Convert OpenStax books into HAX sites using the openstax2hax plugin. Use when the user wants to import, inspect, or prepare an OpenStax book for conversion into a HAX site, or when working with OpenStax source files and HAX handoff prompts.",
       "url": "hax-openstax2hax/SKILL.md",
-      "digest": "sha256:fb09f5c1874b5724762ef1b87d5c1d16b4d6b0e2664493e7e3eb1ddf8b455bfe"
+      "digest": "sha256:343fc80cff469534389c52594b7473deca323ef4e3ab37f36dda96b5e77ea955"
     },
     {
       "name": "hax-rule-management",
@@ -101,13 +100,6 @@
       "description": "Add, search, validate, and export PRAW (HAX ecosystem) rules stored in RULES.md. Use when managing HAX ecosystem development rules, adding new conventions, or updating existing rule entries in the PRAW repository.",
       "url": "hax-rule-management/SKILL.md",
       "digest": "sha256:0084ed510e0a0ed3382bd2c038dab7e8dc2dd6c74d0037615ace0b9c15a51bd0"
-    },
-    {
-      "name": "hax-site-building",
-      "type": "skill-md",
-      "description": "Build and maintain HAXcms sites with proper structure, themes, and JSON Outline Schema. Use when creating a new HAXsite, editing site.json, managing page content, or modifying themes in the HAXcms ecosystem.",
-      "url": "hax-site-building/SKILL.md",
-      "digest": "sha256:b32de0566bd6086b887d604a5b145f519a42fa6956a6210dc163b34ad9de87cf"
     },
     {
       "name": "hax-site-structure",
@@ -223,13 +215,6 @@
           "digest": "sha256:e74b0d200c2a4171d4c77d15d11eb90c3cce7f362a7f5606d458beb988d36c25"
         }
       ]
-    },
-    {
-      "name": "hax-webcomponent-dev",
-      "type": "skill-md",
-      "description": "Develop HAX-capable web components using LitElement, DDD design system, and HAXSchema. Use when scaffolding new components, adding HAX editor support, auditing accessibility, or applying DDD tokens to elements in the webcomponents monorepo.",
-      "url": "hax-webcomponent-dev/SKILL.md",
-      "digest": "sha256:80373c15d1623a223d3af7e862d8e227147117b7a22e367e67ae959666d1e53f"
     },
     {
       "name": "haxcms-lrs-rater",

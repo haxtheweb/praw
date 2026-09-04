@@ -6,16 +6,17 @@ description: >
   <element>", "stub out translation files for <element>", "add support for the top 100
   languages", "i18n my component", "extract the this.t strings", or "set up locales for
   <element>", or references a HAX element's locales/ folder, this.t object, I18NMixin,
-  registerLocalization, or translation-manifest — even when they don't say "skill" or
-  "i18n". Covers both phases: (1) extracting English strings from the this.t object and
-  stubbing locale files for ~100 languages, and (2) translating every stub, choosing the
-  lowest-cost path (inline single-response for small string sets, parallel agents for
-  large ones), then validating.
-version: 1.1.0
+  registerLocalization, haxProperties, i18n-manager-register-element, or
+  translation-manifest — even when they don't say "skill" or "i18n". Covers both
+  phases: (1) extracting English strings from the this.t object or a
+  lib/*.haxProperties.json schema and stubbing locale files for ~100 languages, and
+  (2) translating every stub, choosing the lowest-cost path (inline single-response for
+  small string sets, parallel agents for large ones), then validating.
+version: 1.2.0
 license: Apache-2.0
 metadata:
   author: haxtheweb
-  tags: [hax, i18n, translation, locales, internationalization, webcomponents, this.t, I18NMixin]
+  tags: [hax, i18n, translation, locales, internationalization, webcomponents, this.t, I18NMixin, haxProperties]
 ---
 
 # HAX i18n translation at scale
@@ -32,6 +33,10 @@ When the user says "Translate stop-note" (or any element), run Phases 1–3 belo
 order, fully, without stopping for confirmation. That phrase is the default invocation.
 
 ## How HAX i18n works (the parts that matter)
+
+HAX elements use one of two i18n patterns (auto-detected; some use both).
+
+### this.t (flat)
 
 A component declares English strings in the constructor as a `this.t` object:
 ```js
@@ -51,6 +56,32 @@ Two consequences shape this skill:
 - Adding a language = adding a `locales/<namespace>.<lang>.json` file, then
   regenerating the manifest. Never hand-edit the manifest.
 
+### haxProperties (nested)
+
+Some elements surface translatable editor UI through haxProperties instead. English
+strings live in `lib/<tag>.haxProperties.json`; the namespace is `<tag>.haxProperties`,
+declared via an `i18n-manager-register-element` event:
+```js
+globalThis.dispatchEvent(new CustomEvent("i18n-manager-register-element", {
+  detail: { namespace: `wikipedia-query.haxProperties`, localesPath: new URL(`./locales`, import.meta.url).href },
+}));
+```
+The manager fetches `locales/<tag>.haxProperties.<lang>.json` and deep-merges it over
+the base schema. Locale files are SPARSE: they hold only the translatable leaves,
+never the full schema.
+
+Translatable leaves (haxProperties mode): `gizmo.title`, `gizmo.description`, and for
+each settings group (`configure`, `advanced`, `developer`) each entry's `title`,
+`description`, and the values of an `options` map (e.g. language-name selects). Not
+translated: tags, icons, colors, handles, meta, property names, inputMethod, demoSchema.
+
+Two consequences for this pattern:
+- The base schema `lib/<tag>.haxProperties.json` is the English reference — no
+  `.en.json` is written.
+- Adding a language = adding a sparse `locales/<tag>.haxProperties.<lang>.json`, then
+  regenerating the manifest. The manifest scanner already handles `.haxProperties`
+  namespaces (it splits `<namespace>.<lang>.json` on dots).
+
 ## Phase 1 — Extract and stub (always)
 
 From the webcomponents root:
@@ -58,13 +89,16 @@ From the webcomponents root:
 python3 <skill>/scripts/extract_and_stub.py elements/<element-dir>
 node scripts/generate-translation-manifest.js
 ```
-The extractor finds the main JS file, reads `static get tag()` for the namespace,
-parses the `this.t = { ... }` block, writes `locales/<namespace>.en.json`, then writes
-`<namespace>.<lang>.json` for every code in `references/languages.json` (copying English
-values as placeholders). Existing locale files are never clobbered, so it is safe to
-re-run on elements that already have some translations. Then run the manifest scanner so
-the new languages are registered (a scanner, not a build and not the ubiquity script —
-safe to run from the webcomponents root).
+The extractor auto-detects the i18n pattern. For `this.t` elements it reads
+`static get tag()` for the namespace, parses the `this.t = { ... }` block, writes
+`locales/<namespace>.en.json`, then writes `<namespace>.<lang>.json` for every code in
+`references/languages.json` (copying English values as placeholders). For haxProperties
+elements it walks `lib/<tag>.haxProperties.json` for the translatable leaves and writes
+a sparse nested `locales/<tag>.haxProperties.<lang>.json` per language (English
+placeholders). Existing locale files are never clobbered; on re-run they are merge-filled
+(existing translations kept, missing leaves added). Then run the manifest scanner so the
+new languages are registered (a scanner, not a build and not the ubiquity script — safe
+to run from the webcomponents root).
 
 Note the extracted string count. If it is wrong (fewer keys than `this.t` shows), the
 object has concatenation or template literals the parser can't handle — fix the source
@@ -94,7 +128,12 @@ python3 <skill>/scripts/apply_translations.py --map /tmp/<namespace>.translation
 ```
 `apply_translations.py` writes every language from the map in one pass, preserving the
 `en.json` key order and merging with existing files (an already-translated `es.json` is
-preserved). It prints the file count and any codes with missing keys.
+preserved). It prints the file count and any codes with missing keys. For haxProperties
+elements the map uses dotted paths with array indices instead of flat keys, e.g.
+`{"af": {"gizmo.title": "...", "settings.configure[0].title": "...",
+"settings.configure[2].options.en": "Engels"}}`; the applier materializes each code's
+paths into a sparse nested object and deep-merges over the existing file and the English
+skeleton.
 
 To keep the map compact and the response cheap:
 - One line per language is fine. Language code→name lookups come from
@@ -120,6 +159,11 @@ every value that still equals the English source, keep already-translated values
 preserve key order, write the file back with create_file (2-space indent, trailing
 newline). Report files written + any low-confidence codes.
 ```
+For haxProperties elements the stub is a sparse nested object; translate the leaf values
+in place, keep the exact structure and key order, and preserve any non-translatable keys
+already present (e.g. demoSchema). The `options` map values are language NAMES written
+in the target language (English -> "Engels" in Afrikaans). Keep brand proper nouns like
+"Wikipedia" untranslated.
 
 ### Translation guidelines (applies to both paths)
 
@@ -146,10 +190,12 @@ python3 <skill>/scripts/validate.py elements/<element-dir>
 ```
 Reports JSON parse errors and any keys whose value still equals the English source,
 excluding `englishLabel` and known loanword keys (`crossoriginTitle`, `gizmoTitle`,
-`tagMedia`, `tagAudioVideo`, `sourceTitle`). Genuine leftovers mean re-do those codes
-(Path A: fix the map entries; Path B: re-dispatch those languages). Then summarize:
-files written, validation result, and the low-confidence codes for native review
-(expect this for e.g. gn, qu, sn, xh, zu, wuu, yi).
+`tagMedia`, `tagAudioVideo`, `sourceTitle`). For haxProperties namespaces the reference
+is the base schema; `gizmo.title` leftovers go to a "review (may be brand)" bucket (a
+proper-noun title can legitimately stay) and all other leftovers are genuine. Genuine
+leftovers mean re-do those codes (Path A: fix the map entries; Path B: re-dispatch those
+languages). Then summarize: files written, validation result, and the low-confidence
+codes for native review (expect this for e.g. gn, qu, sn, xh, zu, wuu, yi).
 
 ## What not to do
 

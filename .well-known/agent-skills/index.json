@@ -56,9 +56,9 @@
     {
       "name": "hax-i18n-translate",
       "type": "skill-md",
-      "description": "Scaffold and translate HAX web component i18n locale files at scale. Use when the user says \"Translate <element>\", \"add translations to <element>\", \"translate the locales for <element>\", \"stub out translation files for <element>\", \"add support for the top 100 languages\", \"i18n my component\", \"extract the this.t strings\", or \"set up locales for <element>\", or references a HAX element's locales/ folder, this.t object, I18NMixin, registerLocalization, or translation-manifest — even when they don't say \"skill\" or \"i18n\". Covers both phases: (1) extracting English strings from the this.t object and stubbing locale files for ~100 languages, and (2) translating every stub, choosing the lowest-cost path (inline single-response for small string sets, parallel agents for large ones), then validating.",
+      "description": "Scaffold and translate HAX web component i18n locale files at scale. Use when the user says \"Translate <element>\", \"add translations to <element>\", \"translate the locales for <element>\", \"stub out translation files for <element>\", \"add support for the top 100 languages\", \"i18n my component\", \"extract the this.t strings\", or \"set up locales for <element>\", or references a HAX element's locales/ folder, this.t object, I18NMixin, registerLocalization, haxProperties, i18n-manager-register-element, or translation-manifest — even when they don't say \"skill\" or \"i18n\". Covers both phases: (1) extracting English strings from the this.t object or a lib/*.haxProperties.json schema and stubbing locale files for ~100 languages, and (2) translating every stub, choosing the lowest-cost path (inline single-response for small string sets, parallel agents for large ones), then validating.",
       "url": "hax-i18n-translate/SKILL.md",
-      "digest": "sha256:a9381858cea8d8fcf5d89b74314620d092720a5bd8a953bfc131910b06c4999e",
+      "digest": "sha256:838b3801155814ffd88f4265744c5e1700e9cb038a2d3f78969f10edd2b886d8",
       "files": [
         {
           "path": "references/languages.json",

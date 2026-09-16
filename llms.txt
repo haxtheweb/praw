@@ -86,6 +86,6 @@ npx skills add anthropics/skills --skill docx --skill pdf --skill pptx --skill x
 
 ## Community
 
-- Discord: https://discord.gg/EKYJAjqGhf
+- Discord: https://discord.gg/aCGxmRHEJP
 - Issues: https://github.com/haxtheweb/issues
 - Twitter/X: https://x.com/haxtheweb

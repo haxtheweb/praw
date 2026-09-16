@@ -1,50 +1,25 @@
 # Design System Rules
 
-These rules apply specifically when working with HAX design systems, primarily DDD (Design, Develop, Deliver) and legacy SimpleColors.
+Scoped rules for the HAX design systems: DDD (Design, Develop, Deliver — primary) and SimpleColors (legacy/supplementary). This file is read when editing design-system-path files. Authoritative rule records (Rule IDs + Scope) live in `RULES.md`. `DESIGN.md` at the repository root is the canonical design guidance for this repo; conform future design work to its tokens, CSS variable patterns, component conventions, and Do's/Don'ts.
 
-## DESIGN.md Compliance (Required)
-- `DESIGN.md` at the repository root is the canonical design specification for this repository.
-- Align all future design decisions with `DESIGN.md` design tokens, CSS variable implementation patterns, component conventions, and Do's/Don'ts.
-- When making tradeoffs, default to DDD-first patterns described in `DESIGN.md` and only use SimpleColors where explicitly needed.
+## Scoped rules (triggers — full text in RULES.md)
+- **DDD Design System (Primary)** (`MLhl56jNSqHvnRiAW5A2GR`) — DDD lives at `elements/d-d-d`; use it for fonts, colors, padding, spacing, margins, consistency.
+- **SimpleColors (Legacy)** (`K0lV6BJOPrqP7iJMZkemUw`) — use only to fill DDD gaps in color shades; prefer DDD colors otherwise.
+- **DESIGN.md Compliance** (`c4f0b69d-9ed4-4b6d-bf52-6a3d9937c98f`) — `DESIGN.md` is the canonical source of truth for design decisions in this repo.
+- *(When auditing a specific component for DDD usage, see webcomponents-scoped rule `MT6HPJ9BDhA13jwSXjcmeA`.)*
 
-## DDD Design System (Primary)
+## DDD implementation
+- Always import DDD: `import "@haxtheweb/d-d-d/d-d-d.js"`. Extend `DDD` directly (never `DDD(LitElement)`); with mixins, `DDD` is the base class.
+- Use `ddd-`-prefixed CSS custom properties consistently; prioritize DDD tokens over hardcoded values.
+- Use DDD icon-sizing variables for icon height/width (not spacing variables).
 
-### Implementation Requirements
-- Always import DDD: `import "@haxtheweb/d-d-d/d-d-d.js"`
-- Use DDD CSS custom properties for all styling needs
-- Apply `ddd-` prefixed custom properties consistently
-- Prioritize DDD tokens over hardcoded values
+### Core tokens (reference)
+- **Typography**: `--ddd-font-primary`, `--ddd-font-secondary`, `--ddd-font-size-*` (xs,s,ms,m,ml,l,xl,xxl), `--ddd-font-weight-*` (light,regular,medium,bold), `--ddd-line-height-*`.
+- **Spacing**: `--ddd-spacing-*` (0-32) for margin/padding/gaps; `--ddd-radius-*` (xs,s,m,l,xl).
+- **Colors**: `--ddd-primary-*` (0-25), `--ddd-accent-*`, `--ddd-text-*`, `--ddd-border-*`. Prefer DDD over SimpleColors.
+- **Layout**: `--ddd-breakpoint-*`; CSS Grid/Flexbox with DDD spacing tokens.
 
-### Core Design Tokens
-
-#### Typography
-- `--ddd-font-primary` - Primary font family
-- `--ddd-font-secondary` - Secondary font family
-- `--ddd-font-size-*` - Standardized font sizes (xs, s, ms, m, ml, l, xl, xxl)
-- `--ddd-font-weight-*` - Font weights (light, regular, medium, bold)
-- `--ddd-line-height-*` - Line height values
-
-#### Spacing
-- `--ddd-spacing-*` - Consistent spacing scale (0-32)
-- `--ddd-radius-*` - Border radius values (xs, s, m, l, xl)
-- Apply spacing tokens for margins, padding, and gaps
-- Use spacing scale consistently across components
-
-#### Colors
-- `--ddd-primary-*` - Primary brand colors (0-25 scale)
-- `--ddd-accent-*` - Accent color variations
-- `--ddd-text-*` - Text color variations
-- `--ddd-border-*` - Border color options
-- Prefer DDD colors over SimpleColors when available
-
-#### Layout
-- `--ddd-breakpoint-*` - Responsive breakpoints
-- Use CSS Grid and Flexbox with DDD spacing tokens
-- Implement consistent container and wrapper patterns
-
-### Implementation Patterns
-
-#### Component Styling
+### Component styling pattern
 ```css
 :host {
   display: block;
@@ -52,7 +27,6 @@ These rules apply specifically when working with HAX design systems, primarily D
   color: var(--ddd-text-primary);
   margin: var(--ddd-spacing-4);
 }
-
 .component-header {
   font-size: var(--ddd-font-size-l);
   font-weight: var(--ddd-font-weight-medium);
@@ -60,139 +34,20 @@ These rules apply specifically when working with HAX design systems, primarily D
 }
 ```
 
-#### Responsive Design
-```css
-@media (max-width: 768px) {
-  :host {
-    margin: var(--ddd-spacing-2);
-  }
-  
-  .component-header {
-    font-size: var(--ddd-font-size-m);
-  }
-}
-```
+## Transitions & animations (standards)
+- Minimal interactions: `.3s ease-in-out` (hover, focus, color, small changes).
+- Extended interactions: `.6s ease-in-out` (panel slides, expand/collapse, fades, layout shifts).
+- Default to `ease-in-out`; avoid one-off durations; respect `prefers-reduced-motion`.
 
-### Design System Audits
-When working with DDD, verify:
-1. **Token Usage**: All spacing, colors, and typography use DDD tokens
-2. **Consistency**: Visual elements align with established patterns
-3. **Responsiveness**: Design adapts properly across breakpoints
-4. **Accessibility**: Color contrast meets accessibility standards
-5. **Performance**: Minimal custom CSS beyond token usage
+## SimpleColors (when DDD is insufficient)
+12 base colors × 25 shades (0-24): red, pink, purple, indigo, blue, cyan, teal, green, lime, yellow, amber, orange. Light/dark theme variations; accessible contrast built in. Example: `var(--simple-colors-default-theme-blue-7)`. Migrate to DDD equivalents where possible; document remaining SimpleColors dependencies.
 
-## SimpleColors (Legacy System)
-
-### When to Use SimpleColors
-- Filling gaps where DDD doesn't provide needed color variations
-- Working with legacy components that haven't migrated to DDD
-- Creating complex color schemes requiring extended color palettes
-- Supporting existing themes that rely on SimpleColors
-
-### SimpleColors Structure
-- Provides 12 base colors with 25 shades each (0-24)
-- Colors: red, pink, purple, indigo, blue, cyan, teal, green, lime, yellow, amber, orange
-- Each color includes light/dark theme variations
-- Accessible contrast ratios built into the color scale
-
-### Implementation Guidelines
-```css
-/* Use SimpleColors only when DDD is insufficient */
-.legacy-component {
-  background-color: var(--simple-colors-default-theme-blue-7);
-  color: var(--simple-colors-default-theme-blue-1);
-  border: 1px solid var(--simple-colors-default-theme-blue-4);
-}
-```
-
-### Migration Strategy
-- Audit existing SimpleColors usage in components
-- Replace with DDD equivalents where possible
-- Document remaining SimpleColors dependencies
-- Plan gradual migration to DDD tokens
-
-## Design System Integration
-
-### Component Development
-- Start with DDD tokens for all new components
-- Use SimpleColors only for specific color needs not covered by DDD
-- Document design decisions and token choices
-- Test components across different themes and contexts
-
-### Theme Development
-- Build themes using DDD as the foundation
-- Extend with SimpleColors for specialized color needs
-- Ensure consistent application of design tokens
-- Test theme variations for accessibility compliance
-
-### Quality Standards
-- Maintain consistent visual hierarchy
-- Use proper contrast ratios for accessibility
-- Implement responsive design patterns
-- Follow established spacing and typography scales
-
-## Transitions & Animations
-
-### CSS Transition Standards
-When creating CSS transitions, use the following standardized timing values to maintain consistent interaction feel across the HAX ecosystem:
-
-- **Minimal interactions**: Use `.3s ease-in-out` for subtle transitions such as hover states, focus rings, color changes, and small-scale property changes.
-- **Extended interactions**: Use `.6s ease-in-out` for more noticeable transitions such as panel slides, expand/collapse, opacity fades, and larger layout shifts.
-
-### Implementation
-```css
-/* Minimal interaction example */
-.button:hover {
-  background-color: var(--ddd-accent-1);
-  transition: background-color .3s ease-in-out;
-}
-
-/* Extended interaction example */
-.panel {
-  transition: max-height .6s ease-in-out, opacity .6s ease-in-out;
-}
-```
-
-### Guidelines
-- Prefer `ease-in-out` as the default easing function for all transitions unless a specific interaction requires a different curve.
-- Avoid one-off transition durations; stick to `.3s` or `.6s` unless there is a documented design reason to deviate.
-- Ensure transitions respect `prefers-reduced-motion` for accessibility compliance.
-
-## Best Practices
-
-### Performance
-- Minimize custom CSS beyond design system tokens
-- Use CSS custom properties efficiently
-- Avoid redundant style declarations
-- Optimize for CSS payload size
-
-### Maintainability
-- Document design system usage patterns
-- Create reusable style mixins where appropriate
-- Maintain consistency across component library
-- Plan for design system evolution and updates
-
-### Accessibility
-- Use design system color combinations with proper contrast
-- Implement focus states using design system tokens
-- Ensure typography scales remain readable
-- Test with assistive technologies
-
-### Developer Experience
-- Provide clear documentation for design system usage
-- Include examples and code snippets
-- Maintain up-to-date design system documentation
-- Create tooling to validate design system compliance
+## Design system audits (when working on DDD)
+1. **Token usage**: spacing, colors, typography use DDD tokens.
+2. **Consistency**: visual elements align with established patterns.
+3. **Responsiveness**: adapts across breakpoints.
+4. **Accessibility**: color contrast meets standards; dark-mode compliance.
+5. **Performance**: minimal custom CSS beyond tokens.
 
 ---
-
-*These rules ensure consistent, accessible, and maintainable design implementations across the HAX ecosystem using established design system patterns.*
-## Engineering Execution Rules
-- Favor concrete code over abstract theory.
-- Prioritize the simplest possible solution (KISS principle). Avoid over-engineering, design patterns for their own sake, and unnecessary modularization.
-- Ensure file paths and string quotes are not double encoded.
-## AI Coding Session Guardrails (Adapted from CLAUDE.md)
-- Think before coding: state assumptions explicitly when ambiguity exists, ask clarifying questions when multiple interpretations would change implementation outcomes, and surface simpler alternatives/tradeoffs before writing code.
-- Simplicity first: implement only what was requested, avoid speculative abstractions or configurability, and prefer the smallest change that solves the problem.
-- Surgical changes: touch only files and lines required by the request, avoid unrelated refactors/formatting churn, and only remove dead code created by your own change unless explicitly asked.
-- Goal-driven verification: define explicit success criteria for each task and verify with project-appropriate checks (targeted command output, lint, runtime behavior, or existing tests when applicable), then report what was verified.
+*Scoped to design-system. Full rule registry + IDs: `RULES.md`. Always-on global rules apply in addition.*

@@ -10,8 +10,7 @@
       "oerschema-audit",
       "hax-ubd-backward-design",
       "hax-udl-audit",
-      "hax-content-chunking-audit",
-      "hax-webcomponent-dev"
+      "hax-content-chunking-audit"
     ]
   },
   "system": {
@@ -26,9 +25,6 @@
       "hax-ubd-backward-design",
       "hax-udl-audit",
       "hax-content-chunking-audit",
-      "hax-webcomponent-dev",
-      "hax-site-building",
-      "hax-claudehax",
       "haxcms-lrs-rater",
       "oerschema-integration-finder",
       "hax-ubd-stage1",

@@ -15,9 +15,9 @@ CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 # Configuration
-RULES_FILE="~/Documents/git/haxtheweb/praw/RULES.md"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PRAW_DIR="$(dirname "$SCRIPT_DIR")"
+RULES_FILE="$PRAW_DIR/RULES.md"
 
 # Helper functions
 print_header() {
@@ -269,7 +269,7 @@ validate_rules() {
     # Check file exists
     if [[ ! -f "$RULES_FILE" ]]; then
         print_error "RULES.md file not found"
-        ((errors++))
+        errors=$((errors + 1))
         return $errors
     fi
     
@@ -283,41 +283,34 @@ validate_rules() {
     for section in "${required_sections[@]}"; do
         if ! grep -q "## .*$section" "$RULES_FILE"; then
             print_error "Missing required section: $section"
-            ((errors++))
+            errors=$((errors + 1))
         fi
     done
     
-    # Check rule structure
-    local rule_count=0
-    local malformed_rules=0
-    
-    while IFS= read -r line; do
-        if [[ "$line" =~ ^###[[:space:]] ]]; then
-            ((rule_count++))
-            local has_id=false
-            local has_content=false
-            
-            # Check next few lines for proper structure
-            for i in {1..5}; do
-                read -r next_line
-                if [[ "$next_line" =~ ^-[[:space:]]**Rule[[:space:]]ID** ]]; then
-                    has_id=true
-                elif [[ "$next_line" =~ ^-[[:space:]]**Content** ]]; then
-                    has_content=true
-                fi
-            done
-            
-            if [[ "$has_id" == false ]] || [[ "$has_content" == false ]]; then
-                ((malformed_rules++))
-            fi
+    # Per-rule structure (id + scope + content) and duplicate checks are handled
+    # by build-rules.js below — it parses the compact Rule ID / Scope / Content
+    # format correctly, unlike the legacy line-lookahead checker it replaces.
+    local rule_count
+    rule_count=$(grep -c '^### ' "$RULES_FILE" || echo 0)
+
+    # Duplicate ID + duplicate content checks via build-rules.js
+    print_info "Running duplicate checks (build-rules.js)..."
+    if [[ -f "$SCRIPT_DIR/build-rules.js" ]] && command -v node >/dev/null 2>&1; then
+        local build_output build_exit
+        set +e
+        build_output=$(node "$SCRIPT_DIR/build-rules.js" 2>&1)
+        build_exit=$?
+        set -e
+        echo "$build_output" | sed 's/^/    /'
+        if [[ $build_exit -ne 0 ]]; then
+            warnings=$((warnings + 1))
+            print_warning "build-rules.js reported issues (exit $build_exit)"
         fi
-    done < "$RULES_FILE"
-    
-    if [[ $malformed_rules -gt 0 ]]; then
-        print_warning "$malformed_rules malformed rule(s) found"
-        ((warnings++))
+    else
+        print_warning "build-rules.js or node not available — skipped duplicate checks"
+        warnings=$((warnings + 1))
     fi
-    
+
     # Summary
     echo
     if [[ $errors -eq 0 ]]; then

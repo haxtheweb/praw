@@ -175,6 +175,71 @@ try {
 - The primary sanctioned divergence is **host context plumbing for HAXiam-managed PHP deployments**, including tenant/user resolution and capability gating.
 - Even with HAXiam context differences, route logic should still rely on the same core load → resolve → mutate → save/update-alternates flow.
 
+### Entity API Usage — load/read/write/update/delete (Node, #3043)
+
+The Entity API (`haxcms-nodejs/src/lib/Entity.js`, `EntityDefinition.js`, `EntityRegistry.js`, `EntityStorage.js`) is the generic, typed record layer over `entities.yaml`. `FileEntity`/`FileStorage` is currently the only writable (`datastore`) implementation — every other type (`item`, `theme`, `skeleton`, `site`, `system`) is read-only until a real adapter is registered. **Do not hand-roll files.json reads/writes, uuid lookups, or bespoke record-shape validation in route code — go through this API.** These examples are the full surface; nothing more is needed for basic CRUD.
+
+#### Setup (once per request/site context)
+```javascript
+const EntityRegistry = require('./lib/EntityRegistry.js');
+const FileStorage = require('./lib/FileStorage.js');
+
+const registry = new EntityRegistry(site); // site = a loaded HAXCMSSite
+FileStorage.registerOn(registry); // wires the writable 'file' adapter; without this, getStorage('file') is a NotImplementedStorage stub
+const fileStorage = registry.getStorage('file');
+```
+
+#### Load (by primary key — `uuid` for file)
+```javascript
+const fileEntity = fileStorage.load(uuid); // returns a FileEntity, or null if not found
+```
+
+#### Read (typed accessors on FileEntity, or the generic `get()` on any Entity)
+```javascript
+fileEntity.getName();      // 'banner.jpg'
+fileEntity.getMimetype();  // 'image/jpeg'
+fileEntity.getSize();      // 12345
+fileEntity.isImage();      // true
+fileEntity.get('path');    // base Entity accessor — works for any field on any entity type
+```
+
+#### Write / create (new record)
+```javascript
+const FileEntity = require('./lib/FileEntity.js');
+
+const entity = new FileEntity(registry.getDefinition('file'), {
+  uuid, path: 'files/banner.jpg', name: 'banner.jpg', mimetype: 'image/jpeg', size: 12345,
+});
+entity.save(); // instance method — validates required fields, then upserts via FileStorage
+```
+
+#### Update (load, mutate, save — save() is an upsert by primary key)
+```javascript
+const entity = fileStorage.load(uuid);
+entity.set('name', 'renamed.jpg');
+entity.save();
+```
+
+#### Delete (either the instance method or the storage adapter directly)
+```javascript
+fileStorage.load(uuid).delete();
+// equivalent:
+fileStorage.delete(uuid);
+```
+
+#### Base `Entity` class (generic — applies to any future writable type, e.g. a hypothetical `widget` type once registered)
+```javascript
+const widgetStorage = registry.getStorage('widget'); // must be storage.type: datastore in entities.yaml, with a registered adapter
+const widget = widgetStorage.load(id);
+widget.set('title', 'Updated title');
+widget.save();   // throws EntityReadOnlyException if the definition's storage.type !== 'datastore'
+widget.delete();
+```
+
+- `save()`/`delete()` on `Entity` always check `definition.isReadOnly()` first and throw `EntityReadOnlyException` for non-datastore types — don't add your own read-only guard in calling code.
+- An unregistered adapter throws `EntityStorageNotImplementedException` from every `EntityStorage` method — don't wrap `getStorage()` calls in extra existence checks; let the exception surface.
+- `list(filters)` on `FileStorage` is async (it reconciles from disk first); `load`/`save`/`delete` are sync.
+
 ## Educational Content Integration
 
 ### OER Schema Implementation Learning:

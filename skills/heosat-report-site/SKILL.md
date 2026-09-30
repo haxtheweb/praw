@@ -48,7 +48,7 @@ Run the whole workflow straight through with minimal narration. Only report once
 ## Workflow
 
 1. **Collect the input** — repo URL / `owner/repo` (fresh mode) or an existing scores directory (existing mode; verify `scores.json` exists there).
-2. **Run the assessment (fresh mode only)** — execute the **`heosat` skill** end to end: clone the repo into `/tmp/heosat-<owner>-<repo>/`, gather evidence (static review only), score all 45 questions into `scores.json`, and run its `aggregate.py` until validation is clean, producing `<scores-dir>/report.md`. In existing mode, reuse the given directory as `<scores-dir>`.
+2. **Run the assessment (fresh mode only)** — execute the **`heosat` skill** end to end: pull down the repo into `/tmp/heosat-<owner>-<repo>/` (HAXtheweb projects skip the clone and use their local `~/Documents/git/haxtheweb/` checkout when one exists — the heosat skill's clone-repo.sh resolves local-first), gather evidence (static review only), score all 45 questions into `scores.json`, and run its `aggregate.py` until validation is clean, producing `<scores-dir>/report.md`. In existing mode, reuse the given directory as `<scores-dir>`.
 3. **Write the project profile** — gather project details via `gh` and write `<scores-dir>/project-profile.json` per the profile rule above:
    ```bash
    gh repo view <owner/repo> --json name,description,homepageUrl,licenseInfo,primaryLanguage

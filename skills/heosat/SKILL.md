@@ -42,7 +42,7 @@ Work in the /tmp scratch directory the clone script creates, so the assessment i
 
 ### Step 0 — Identify the target
 
-Accept a GitHub URL (`https://github.com/owner/repo`, with or without `.git` or `/tree/...` suffixes), an `owner/repo` shorthand, another git host URL, or a local path. If the user just names a project ("grade booklooky-official-lrs-rater"), confirm the repository URL before cloning.
+Accept a GitHub URL (`https://github.com/owner/repo`, with or without `.git` or `/tree/...` suffixes), an `owner/repo` shorthand, a bare HAXtheweb project name (e.g. `webcomponents`), another git host URL, or a local path. A bare name resolves to the `haxtheweb` org (or its local checkout — see Step 1); for any other project named without a URL, confirm the repository before cloning.
 
 ### Step 1 — Pull down a copy of the repo
 
@@ -52,14 +52,16 @@ bash scripts/clone-repo.sh https://github.com/owner/repo
 
 This clones (depth 50, override with `HEOSAT_CLONE_DEPTH=0` for a full clone) into `/tmp/heosat-<owner>-<repo>/repo` and prints:
 
-- `SCRATCH=...` / `REPO=...` — the scratch dir and clone path (re-runs reuse an existing clone)
-- quick inventory: HEAD, default branch, tracked file count, last commit, top-level layout, and which key files (README, LICENSE, CONTRIBUTING, GOVERNANCE, SECURITY.md, ...) exist
+- `SCRATCH=...` / `REPO=...` — the scratch dir and repo path (re-runs reuse an existing clone)
+- quick inventory: HEAD, default branch, tracked/dirty file counts, last commit, top-level layout, and which key files (README, LICENSE, CONTRIBUTING, GOVERNANCE, SECURITY.md, ...) exist
+
+**HAXtheweb local-first:** when the target names a HAXtheweb ecosystem project — a bare name (`webcomponents`), `haxtheweb/<repo>`, or a `github.com/haxtheweb/<repo>` URL — and a local checkout exists under `~/Documents/git/haxtheweb/<repo>` (override with `HEOSAT_HAXTHEWEB_ROOT`), the clone step is SKIPPED and the local checkout is assessed in place: `REUSED=local-haxtheweb`, `REPO=<local path>`. The scratch dir (`scores.json`, `report.md`) still lives at `/tmp/heosat-haxtheweb-<repo>/` — never inside the projects tree. Assess the local state as-is, including any uncommitted changes (`DIRTY_FILES` in the inventory), and keep the checkout strictly read-only: never modify the working copy. A HAXtheweb target with no local checkout clones from GitHub normally.
 
 The scratch layout for the rest of the run:
 
 ```
 /tmp/heosat-<owner>-<repo>/
-├── repo/        # the clone (read-only — do not modify it)
+├── repo/        # the clone or local checkout (read-only — do not modify it)
 ├── scores.json  # you write this (Step 4)
 └── report.md    # aggregate.py writes this (Step 5)
 ```

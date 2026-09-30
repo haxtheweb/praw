@@ -15,6 +15,13 @@ This repository contains:
 
 These rules ensure consistency, quality, and proper integration across all HAX projects and web components.
 
+## Who PRAW is for
+
+- **Warp AI-agent users** — the rules, knowledge, and worldview files that keep agent work consistent with HAX conventions.
+- **HAX contributors** — the codified best practices (RULES.md, WARP.md files) behind every ecosystem convention.
+- **Claude Code users** — the official HAX plugin marketplace: onboarding, site-ops, and OpenStax conversion.
+- **Faculty and non-technical users** — course resource management and guided workflows, no technical knowledge required.
+
 ## Skill Architecture: PRAW vs create
 
 PRAW and the `create` repo (`@haxtheweb/create`, the `hax` CLI) have a clear separation of concerns for agent skills:

@@ -15,8 +15,12 @@
  *    skill's aggregate.py)
  *  - builds the page: H1, context + overall stop-note, editable-table
  *    scorecard, a11y-collapse-group with one a11y-collapse per section
- *    (heading-button so the whole heading is clickable), per-question
- *    evidence detail, strengths, recommendations as collapses, and an
+ *    (heading-button + icon are set on the GROUP so they cascade to every
+ *    child collapse — the group spreads all A11yCollapse properties and
+ *    copies its defined values onto each item on attach/update; headings
+ *    are slotted via <p slot="heading"> rather than the heading attribute
+ *    so long headings wrap naturally as light DOM), per-question evidence
+ *    detail, strengths, recommendations as collapses, and an
  *    About/provenance block
  *  - copies report.md (if present) and scores.json into <site-dir>/files/ as
  *    heosat-report.md and heosat-scores.json and links them from the About
@@ -208,7 +212,8 @@ function buildSectionCollapses(rubric, sections, scores) {
       const questionBlocks = s.questions
         .map((q) => buildQuestionBlock({ id: q.id, text: q.text, entry: scores[q.id] }, scale))
         .join("\n");
-      return `    <a11y-collapse heading="${escAttr(heading)}" heading-button icon="arrow-drop-down" label="toggle ${escAttr(s.title)} section" tooltip="toggle section detail">
+      return `    <a11y-collapse label="toggle ${escAttr(s.title)} section" tooltip="toggle section detail">
+      <p slot="heading">${escText(heading)}</p>
       <div slot="content">
 ${questionBlocks}
       </div>
@@ -231,7 +236,8 @@ function buildRecommendationCollapses(recommendations) {
           `        <p>Learn more: <a href="${escAttr(rec.learn)}" target="_blank">${escText(rec.learn)}</a></p>`,
         );
       }
-      return `    <a11y-collapse heading="${escAttr(heading)}" heading-button icon="arrow-drop-down" label="toggle recommendation ${i + 1}" tooltip="toggle recommendation detail">
+      return `    <a11y-collapse label="toggle recommendation ${i + 1}" tooltip="toggle recommendation detail">
+      <p slot="heading">${escText(heading)}</p>
       <div slot="content">
 ${content.join("\n")}
       </div>
@@ -371,7 +377,7 @@ function main() {
   pageParts.push(
     `<p data-margin="xs">Expand a section to see all 45 scored questions with the evidence behind every score.</p>`,
   );
-  pageParts.push(`<a11y-collapse-group>
+  pageParts.push(`<a11y-collapse-group heading-button icon="arrow-drop-down">
 ${buildSectionCollapses(rubric, rubric.sections, scores)}
 </a11y-collapse-group>`);
   if (doc.strengths && doc.strengths.length > 0) {
@@ -382,7 +388,7 @@ ${buildSectionCollapses(rubric, rubric.sections, scores)}
   }
   if (doc.recommendations && doc.recommendations.length > 0) {
     pageParts.push(`<h2 data-margin="s">Prioritized recommendations</h2>`);
-    pageParts.push(`<a11y-collapse-group>
+    pageParts.push(`<a11y-collapse-group heading-button icon="arrow-drop-down">
 ${buildRecommendationCollapses(doc.recommendations)}
 </a11y-collapse-group>`);
   }

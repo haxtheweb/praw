@@ -101,7 +101,7 @@ All page elements are HAX-capable components (they could have been authored in t
 
 - `stop-note` — the overall score callout (title: `Overall: X.X / 5 (band)`)
 - `editable-table` (bordered, condensed, responsive, striped) — the 9-section + overall scorecard with a caption
-- `a11y-collapse-group` + `a11y-collapse` per section and per recommendation, always with `heading-button` so the whole heading is clickable; content shows each question as `LL1 — 3/5 (band)` + the question text + evidence list + notes
+- `a11y-collapse-group` + `a11y-collapse` per section and per recommendation. `heading-button` (and the shared `icon`) are set on the **group**, not per-child — the group spreads all A11yCollapse properties and copies its defined values onto every child collapse on attach and on update, so the whole heading is clickable on every item (per-child `label`/`tooltip` stay unique and are never wiped, since the group leaves those undefined). Headings use the **slot method** (`<p slot="heading">…</p>` light DOM, not the `heading` attribute) because report headings are long — slotted headings wrap naturally as real content. Content shows each question as `LL1 — 3/5 (band)` + the question text + evidence list + notes
 - DDD `data-margin` attributes (`s` on headings, `xs` on intro paragraphs) for consistent offsets
 - The About block links the copied `files/heosat-report.md` (full report) and `files/heosat-scores.json` (machine-readable scores) and carries the HEOSAT attribution (adapted from the OSS Watch Openness Rating, guidance CC BY-SA 4.0)
 

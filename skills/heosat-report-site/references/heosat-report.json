@@ -1,0 +1,152 @@
+{
+  "meta": {
+    "name": "heosat-report",
+    "machineName": "heosat-report",
+    "priority": 0,
+    "description": "Template for a single-page HEOSAT open source assessment report site",
+    "version": "1.0.0",
+    "created": "2026-09-30T00:00:00.000Z",
+    "type": "skeleton",
+    "sourceUrl": "http://localhost:3001/report?admin=admin-transfer",
+    "useCaseTitle": "heosat-report",
+    "useCaseDescription": "Template for a single-page HEOSAT open source assessment report site",
+    "useCaseImage": "@haxtheweb/haxcms-elements/lib/theme-screenshots/theme-resume-theme-thumb.jpg",
+    "category": [],
+    "tags": [],
+    "attributes": []
+  },
+  "site": {
+    "name": "heosat-report",
+    "description": "Template for a single-page HEOSAT open source assessment report site",
+    "theme": "resume-theme",
+    "settings": {
+      "lang": "en-US",
+      "publishPagesOn": true,
+      "canonical": true,
+      "sw": true,
+      "forceUpgrade": true,
+      "private": false,
+      "pathauto": true
+    },
+    "platform": {
+      "audience": "expert",
+      "features": {},
+      "allowedBlocks": []
+    }
+  },
+  "build": {
+    "type": "skeleton",
+    "structure": "from-skeleton",
+    "items": [
+      {
+        "id": "450d70a4-1d85-9ac5-1d6b-c6c4bcaa0709",
+        "title": "HEOSAT Report",
+        "slug": "report",
+        "order": 0,
+        "parent": null,
+        "indent": 0,
+        "content": "\n<p>HEOSAT assessment report placeholder.</p>\n",
+        "metadata": {
+          "published": true,
+          "hideInMenu": false,
+          "tags": []
+        }
+      }
+    ],
+    "files": []
+  },
+  "theme": {
+    "imageAlt": "",
+    "imageLink": "",
+    "palette": "0",
+    "path": "@haxtheweb/resume-theme/resume-theme.js",
+    "name": "resume-theme",
+    "thumbnail": "@haxtheweb/haxcms-elements/lib/theme-screenshots/theme-resume-theme-thumb.jpg",
+    "description": "Start with a blank site using the resume-theme",
+    "category": [
+      "Website"
+    ],
+    "hidden": false,
+    "priority": 0,
+    "terrible": false,
+    "supportedPalettes": null,
+    "regions": {
+      "header": [],
+      "sidebarFirst": [],
+      "sidebarSecond": [],
+      "contentTop": [],
+      "contentBottom": [],
+      "footerPrimary": [],
+      "footerSecondary": []
+    }
+  },
+  "_skeleton": {
+    "originalMetadata": {
+      "site": {
+        "category": [],
+        "tags": [],
+        "settings": {
+          "lang": "en-US",
+          "publishPagesOn": true,
+          "canonical": true,
+          "sw": true,
+          "forceUpgrade": true,
+          "gaID": "",
+          "private": false,
+          "pathauto": true
+        }
+      },
+      "licensing": {},
+      "node": {
+        "fields": {}
+      },
+      "platform": {
+        "audience": "expert",
+        "features": {},
+        "allowedBlocks": []
+      }
+    },
+    "originalSettings": {
+      "lang": "en-US",
+      "publishPagesOn": true,
+      "canonical": true,
+      "sw": true,
+      "forceUpgrade": true,
+      "private": false,
+      "pathauto": true
+    },
+    "fullThemeConfig": {
+      "element": "resume-theme",
+      "variables": {
+        "image": "",
+        "imageAlt": "",
+        "imageLink": "",
+        "cssVariable": "--simple-colors-default-theme-light-blue-7",
+        "palette": "0",
+        "icon": "icons:assessment"
+      },
+      "settings": {
+        "path": "@haxtheweb/resume-theme/resume-theme.js",
+        "name": "resume-theme",
+        "thumbnail": "@haxtheweb/haxcms-elements/lib/theme-screenshots/theme-resume-theme-thumb.jpg",
+        "description": "Start with a blank site using the resume-theme",
+        "category": [
+          "Website"
+        ],
+        "hidden": false,
+        "priority": 0,
+        "terrible": false,
+        "supportedPalettes": null,
+        "regions": {
+          "header": [],
+          "sidebarFirst": [],
+          "sidebarSecond": [],
+          "contentTop": [],
+          "contentBottom": [],
+          "footerPrimary": [],
+          "footerSecondary": []
+        }
+      }
+    }
+  }
+}

@@ -6,19 +6,20 @@ Reusable agent skills for the HAX (Headless Authoring eXperience) ecosystem. The
 
 | Skill | Description | Install |
 |-------|-------------|---------|
-| `hax-webcomponent-dev` | Develop HAX-capable web components with LitElement, DDD, and HAXSchema | `npx skills add haxtheweb/praw --skill hax-webcomponent-dev` |
-| `hax-site-building` | Build and maintain HAXcms sites with JSON Outline Schema and themes | `npx skills add haxtheweb/praw --skill hax-site-building` |
 | `hax-design-system` | Apply the DDD design system and manage SimpleColors legacy usage | `npx skills add haxtheweb/praw --skill hax-design-system` |
-| `hax-ecosystem-onboarding` | Onboard new developers to the HAX ecosystem | `npx skills add haxtheweb/praw --skill hax-ecosystem-onboarding` |
+| `hax-site-structure` | Read and navigate an existing HAXcms site from its portable files (site.json, pages/, files/, theme) | `npx skills add haxtheweb/praw --skill hax-site-structure` |
+| `hax-content-authoring` | Author HAX page content using HAX-capable web components, DDD attributes, and `pages/` conventions | `npx skills add haxtheweb/praw --skill hax-content-authoring` |
+| `hax-managed-files` | Know which HAXcms files are generated (rebuild, do not hand-edit) vs authored, and the protective rules around builds | `npx skills add haxtheweb/praw --skill hax-managed-files` |
 | `hax-i18n-translate` | Scaffold and translate HAX web component i18n locale files at scale (this.t extraction, ~100-language stubbing, parallel translation, validation) | `npx skills add haxtheweb/praw --skill hax-i18n-translate` |
 | `hax-rule-management` | Manage PRAW rules and conventions stored in RULES.md | `npx skills add haxtheweb/praw --skill hax-rule-management` |
 | `hax-issue-analysis` | Fetch, analyze, and summarize GitHub issues across the HAX ecosystem | `npx skills add haxtheweb/praw --skill hax-issue-analysis` |
-| `hax-claudehax` | Operate HAX sites via the ClaudeHAX plugin in Claude Code | `npx skills add haxtheweb/praw --skill hax-claudehax` |
 | `hax-openstax2hax` | Convert OpenStax books into HAX sites via the openstax2hax plugin | `npx skills add haxtheweb/praw --skill hax-openstax2hax` |
 | `audio-program-transcribe` | Transcribe and distill an owned audio/video program into a portable markdown staging tree | `npx skills add haxtheweb/praw --skill audio-program-transcribe` |
 | `audio-program-hax` | Publish a transcribed audio/video program as a searchable HAXcms library site with inline playback | `npx skills add haxtheweb/praw --skill audio-program-hax` |
+| `hax-tutorial-site` | Create a published HAXcms tutorial site from a YouTube video and a DOCX transcript (with screenshots and timestamps), plus LinkedIn / X posts and a YouTube SEO description | `npx skills add haxtheweb/praw --skill hax-tutorial-site` |
 | `hax-a11y-audit` | Read-only WCAG 2.0 AA audit of authored HAX pages with HAX remediation | `npx skills add haxtheweb/praw --skill hax-a11y-audit` |
 | `hax-udl-audit` | Read-only UDL 3.0 audit (Engagement, Representation, Action & Expression) of a HAX page | `npx skills add haxtheweb/praw --skill hax-udl-audit` |
+| `haxcms-lrs-rater` | Run BookLooky's Looky Rating System (LRS) content rating and minimum-age recommendation on a HAXcms site's aggregated content | `npx skills add haxtheweb/praw --skill haxcms-lrs-rater` |
 | `hax-content-chunking-audit` | Audit a HAX page for cognitive load / chunking and recommend HAX remediation | `npx skills add haxtheweb/praw --skill hax-content-chunking-audit` |
 | `hax-ubd-unit-audit` | Read-only UbD review of an existing HAX unit with remediation handoff | `npx skills add haxtheweb/praw --skill hax-ubd-unit-audit` |
 | `hax-issue-research` | Research a HAX GitHub issue, draft a plan, and capture it as a "Plan Created" comment | `npx skills add haxtheweb/praw --skill hax-issue-research` |
@@ -31,12 +32,20 @@ Reusable agent skills for the HAX (Headless Authoring eXperience) ecosystem. The
 | `hax-ubd-six-facets` | Apply UbD six facets to write understandings and build facet-mapped rubric criteria | `npx skills add haxtheweb/praw --skill hax-ubd-six-facets` |
 | `oerschema-audit` | Read-only OER Schema diagnostic of authored content (HAX pages, VitePress, JSON-LD, Docs export) with class/property/surface remediation | `npx skills add haxtheweb/praw --skill oerschema-audit` |
 | `oerschema-integration-finder` | Read-only scan of webcomponents/themes/backends/plugins for code surfaces that should emit or consume OER Schema but don't | `npx skills add haxtheweb/praw --skill oerschema-integration-finder` |
+| `heosat` | Run the HEOSAT (Higher Education Open Source Assessment Tool) maturity assessment on an open source project into an evidence-backed scorecard | `npx skills add haxtheweb/praw --skill heosat` |
+| `heosat-report-site` | Publish a HEOSAT assessment as a single-page HAXcms report site on surge, with scorecard, per-question evidence, and ready-to-post LinkedIn / X copy | `npx skills add haxtheweb/praw --skill heosat-report-site` |
 
 ## Install All Skills
 
 ```bash
 npx skills add haxtheweb/praw --all
 ```
+
+## Interface Skills (owned by `create`)
+
+`hax-site-building`, `hax-webcomponent-dev`, `hax-ecosystem-onboarding`, `hax-claudehax`, and `hax-webcomponent-documentation-writer` are interface skills owned by the `create` repo (`@haxtheweb/create`, the `hax` CLI) — version-locked to the CLI and not published from this repo. Install them with `hax skills install --all`.
+
+Three repo-local project skills — `grad-blooms`, `hax-theme-builder`, and `youtube-vtt` — live in `.agents/skills/` and are not part of the published `skills/` set.
 
 ## Companion Document Skills (not bundled)
 

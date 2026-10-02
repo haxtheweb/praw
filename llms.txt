@@ -29,22 +29,66 @@ hax skills install --all
 
 ## Workflow & Knowledge Skills (owned by PRAW)
 
-The following skills are owned by PRAW and are available in this repo:
+All skills below live in `skills/` in this repo. The machine-readable discovery index (names, descriptions, digests — agentskills.io discovery spec v0.2.0) is `.well-known/agent-skills/index.json`.
 
-- **hax-ecosystem** (default): Master ecosystem overview and routing skill
-  - Path: `/.well-known/skills/default/SKILL.md`
+- **audio-program-transcribe**: Transcribe and distill an owned audio/video program into a portable markdown staging tree
+  - Path: `/skills/audio-program-transcribe/SKILL.md`
+- **audio-program-hax**: Publish a transcribed audio/video program as a searchable HAXcms library site with inline playback
+  - Path: `/skills/audio-program-hax/SKILL.md`
+- **hax-a11y-audit**: Read-only WCAG 2.0 AA audit of authored HAX pages with HAX remediation
+  - Path: `/skills/hax-a11y-audit/SKILL.md`
+- **hax-content-authoring**: Author HAX page content using HAX-capable web components, DDD attributes, and pages/ conventions
+  - Path: `/skills/hax-content-authoring/SKILL.md`
+- **hax-content-chunking-audit**: Audit a HAX page for cognitive load / chunking and recommend HAX remediation
+  - Path: `/skills/hax-content-chunking-audit/SKILL.md`
 - **hax-design-system**: DDD design system application and SimpleColors migration
   - Path: `/skills/hax-design-system/SKILL.md`
-- **hax-rule-management**: PRAW rule management and validation
-  - Path: `/skills/hax-rule-management/SKILL.md`
+- **hax-i18n-translate**: Scaffold and translate HAX web component i18n locale files at scale
+  - Path: `/skills/hax-i18n-translate/SKILL.md`
 - **hax-issue-analysis**: GitHub issue fetching and analysis across the ecosystem
   - Path: `/skills/hax-issue-analysis/SKILL.md`
+- **hax-issue-research**: Research a HAX GitHub issue, draft a plan, and capture it as a "Plan Created" comment
+  - Path: `/skills/hax-issue-research/SKILL.md`
+- **hax-managed-files**: Know which HAXcms files are generated vs authored, and the protective rules around builds
+  - Path: `/skills/hax-managed-files/SKILL.md`
 - **hax-openstax2hax**: Convert OpenStax books into HAX sites via the openstax2hax plugin
   - Path: `/skills/hax-openstax2hax/SKILL.md`
+- **hax-rule-management**: PRAW rule management and validation
+  - Path: `/skills/hax-rule-management/SKILL.md`
+- **hax-site-structure**: Read and navigate an existing HAXcms site from its portable files (site.json, pages/, files/, theme)
+  - Path: `/skills/hax-site-structure/SKILL.md`
+- **hax-tutorial-site**: Create a published HAXcms tutorial site from a YouTube video and a DOCX transcript, plus LinkedIn / X posts
+  - Path: `/skills/hax-tutorial-site/SKILL.md`
+- **hax-ubd-backward-design**: Design HAX course units via UbD backward design; emits unit plan + HAX site skeleton
+  - Path: `/skills/hax-ubd-backward-design/SKILL.md`
+- **hax-ubd-essential-questions**: Author UbD essential and entry questions from the six-facet starter bank
+  - Path: `/skills/hax-ubd-essential-questions/SKILL.md`
+- **hax-ubd-grasps**: Frame UbD GRASPS performance tasks and pick authentic-context HAX media
+  - Path: `/skills/hax-ubd-grasps/SKILL.md`
+- **hax-ubd-six-facets**: Apply UbD six facets to write understandings and build facet-mapped rubric criteria
+  - Path: `/skills/hax-ubd-six-facets/SKILL.md`
+- **hax-ubd-stage1**: UbD Stage 1 — unpack standards into big ideas, understandings, EQs, K/S, misconceptions
+  - Path: `/skills/hax-ubd-stage1/SKILL.md`
+- **hax-ubd-stage2**: UbD Stage 2 — build evidence scrapbook, GRASPS task, facet rubric, validity self-test
+  - Path: `/skills/hax-ubd-stage2/SKILL.md`
+- **hax-ubd-stage3**: UbD Stage 3 — plan learning experiences via WHERETO from Stages 1+2
+  - Path: `/skills/hax-ubd-stage3/SKILL.md`
+- **hax-ubd-unit-audit**: Read-only UbD review of an existing HAX unit with remediation handoff
+  - Path: `/skills/hax-ubd-unit-audit/SKILL.md`
+- **hax-udl-audit**: Read-only UDL 3.0 audit (Engagement, Representation, Action & Expression) of a HAX page
+  - Path: `/skills/hax-udl-audit/SKILL.md`
+- **haxcms-lrs-rater**: Run BookLooky's Looky Rating System (LRS) content rating and minimum-age recommendation on a HAXcms site's aggregated content
+  - Path: `/skills/haxcms-lrs-rater/SKILL.md`
+- **heosat**: Run the HEOSAT (Higher Education Open Source Assessment Tool) maturity assessment on an open source project into an evidence-backed scorecard
+  - Path: `/skills/heosat/SKILL.md`
+- **heosat-report-site**: Publish a HEOSAT assessment as a single-page HAXcms report site on surge, with scorecard, evidence, and social copy
+  - Path: `/skills/heosat-report-site/SKILL.md`
 - **oerschema-audit**: Read-only OER Schema diagnostic of authored content (HAX pages, VitePress, JSON-LD, Docs export)
   - Path: `/skills/oerschema-audit/SKILL.md`
 - **oerschema-integration-finder**: Read-only scan of webcomponents/themes/backends/plugins for missing OER Schema emission/consumption
   - Path: `/skills/oerschema-integration-finder/SKILL.md`
+
+Repo-local project skills (not in the published `skills/` set): **grad-blooms**, **hax-theme-builder**, **youtube-vtt** — under `.agents/skills/`.
 
 ## Claude Code Plugin Marketplace
 

@@ -53,6 +53,8 @@ All skills below live in `skills/` in this repo. The machine-readable discovery 
   - Path: `/skills/hax-managed-files/SKILL.md`
 - **hax-openstax2hax**: Convert OpenStax books into HAX sites via the openstax2hax plugin
   - Path: `/skills/hax-openstax2hax/SKILL.md`
+- **hax-pattern-library-audit**: READ-ONLY diagnostic — analyze a single HAX web component against the DDD Atomic Design pattern library (composition conformance, internal contracts, library-ingest candidates)
+  - Path: `/skills/hax-pattern-library-audit/SKILL.md`
 - **hax-rule-management**: PRAW rule management and validation
   - Path: `/skills/hax-rule-management/SKILL.md`
 - **hax-site-structure**: Read and navigate an existing HAXcms site from its portable files (site.json, pages/, files/, theme)

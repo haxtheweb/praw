@@ -95,6 +95,19 @@
       "digest": "sha256:343fc80cff469534389c52594b7473deca323ef4e3ab37f36dda96b5e77ea955"
     },
     {
+      "name": "hax-pattern-library-audit",
+      "type": "skill-md",
+      "description": "READ-ONLY diagnostic: analyze a single HAX web component in the webcomponents monorepo against the DDD Atomic Design pattern library and emit a report with three sections — (a) Composition conformance (does the element appear in any registry composition, and do authored usages match the canonical recipe for slots, spacing tokens, data-attributes), (b) Internal-contract conformance (for each internal surface the element exposes — title/caption, callout, collapsible heading, click-to-reveal trigger, iframe/embed wrapper, admin fieldset — does it use the contracted DDD tokens/classes/structure, or does it hardcode/deviate), and (c) Library-ingest candidates (custom patterns the element implements that are reusable and should be promoted into the registry as new molecules/organisms/contracts). Use when the user says \"audit this element against the pattern library\", \"does this element conform to DDD patterns\", \"what patterns should this element be part of\", \"check this element's internal consistency\", \"find ingest candidates in this element\", or \"grade this element against the pattern library\" — even if they don't say \"pattern library\" or \"audit\". Diagnoses only; hands off to hax-webcomponent-dev / hax-design-system for remediation and to the DDDPatternLibrary registry for ingest.",
+      "url": "hax-pattern-library-audit/SKILL.md",
+      "digest": "sha256:52be5dfe85db783bf8d0d1d843103be1fa292145b5fbdc2efebd179b23aa0e87",
+      "files": [
+        {
+          "path": "references/pattern-library-map.md",
+          "digest": "sha256:c49676586ee583d28eac362cc2c103f5c02a9ee6ac30d05eb7329b296820e0a1"
+        }
+      ]
+    },
+    {
       "name": "hax-rule-management",
       "type": "skill-md",
       "description": "Add, search, validate, and export PRAW (HAX ecosystem) rules stored in RULES.md. Use when managing HAX ecosystem development rules, adding new conventions, or updating existing rule entries in the PRAW repository.",

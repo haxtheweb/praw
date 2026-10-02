@@ -32,6 +32,7 @@ Reusable agent skills for the HAX (Headless Authoring eXperience) ecosystem. The
 | `hax-ubd-six-facets` | Apply UbD six facets to write understandings and build facet-mapped rubric criteria | `npx skills add haxtheweb/praw --skill hax-ubd-six-facets` |
 | `oerschema-audit` | Read-only OER Schema diagnostic of authored content (HAX pages, VitePress, JSON-LD, Docs export) with class/property/surface remediation | `npx skills add haxtheweb/praw --skill oerschema-audit` |
 | `oerschema-integration-finder` | Read-only scan of webcomponents/themes/backends/plugins for code surfaces that should emit or consume OER Schema but don't | `npx skills add haxtheweb/praw --skill oerschema-integration-finder` |
+| `hax-pattern-library-audit` | Read-only diagnostic: analyze a single HAX web component against the DDD Atomic Design pattern library (composition conformance, internal contracts, library-ingest candidates) | `npx skills add haxtheweb/praw --skill hax-pattern-library-audit` |
 | `heosat` | Run the HEOSAT (Higher Education Open Source Assessment Tool) maturity assessment on an open source project into an evidence-backed scorecard | `npx skills add haxtheweb/praw --skill heosat` |
 | `heosat-report-site` | Publish a HEOSAT assessment as a single-page HAXcms report site on surge, with scorecard, per-question evidence, and ready-to-post LinkedIn / X copy | `npx skills add haxtheweb/praw --skill heosat-report-site` |
 

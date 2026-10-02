@@ -1,6 +1,11 @@
 ---
 name: heosat
-description: Run the HEOSAT (Higher Education Open Source Assessment Tool) maturity assessment on an open source project — pulls a copy of the repo into a /tmp scratch directory, applies the official locusplex.us/HEOSAT rubric (9 sections, 45 questions, 0-5 maturity scale: governance, licensing, community, documentation, operations, security, accessibility, adoption, sustainability), and produces an evidence-backed scorecard with strengths and prioritized recommendations. Use this whenever the user says "grade/score/assess this open source project", "run HEOSAT", "HEOSAT this repo", "how mature is this project", "assess this repo's health/sustainability/governance", "score this project against the rubric", or references HEOSAT, the locusplex HEOSAT tool, Apereo's higher-ed open source maturity assessment, or the OSS Watch openness rating — even if they don't say "HEOSAT" or "skill". Also use when the user hands you a GitHub repo URL and asks for a project maturity/readiness/health report.
+description: "Run the HEOSAT (Higher Education Open Source Assessment Tool) maturity assessment on an open source project — pulls a copy of the repo into a /tmp scratch directory, applies the official locusplex.us/HEOSAT rubric (9 sections, 45 questions, 0-5 maturity scale: governance, licensing, community, documentation, operations, security, accessibility, adoption, sustainability), and produces an evidence-backed scorecard with strengths and prioritized recommendations. Use this whenever the user says \"grade/score/assess this open source project\", \"run HEOSAT\", \"HEOSAT this repo\", \"how mature is this project\", \"assess this repo's health/sustainability/governance\", \"score this project against the rubric\", or references HEOSAT, the locusplex HEOSAT tool, Apereo's higher-ed open source maturity assessment, or the OSS Watch openness rating — even if they don't say \"HEOSAT\" or \"skill\". Also use when the user hands you a GitHub repo URL and asks for a project maturity/readiness/health report."
+version: 1.0.0
+license: Apache-2.0
+metadata:
+  author: haxtheweb
+  tags: [hax, heosat, assessment, maturity, open-source, rubric, scorecard, oss-watch, higher-ed]
 ---
 
 # HEOSAT — Higher Education Open Source Assessment Tool

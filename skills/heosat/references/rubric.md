@@ -19,7 +19,7 @@ Every question is scored on this 6-level scale (0-5):
 ## Contents
 
 - 1. Legal & Licensing (LL1, LL2, LL3, LL4, LL5)
-- 2. Governance & Decision-Making (GV1, GV2, GV3, GV4, GV5)
+- 2. Governance & Decision-Making (GV1, GV2, GV3, GV4, GV5, GV6, GV7)
 - 3. Community Engagement (CE1, CE2, CE3, CE4, CE5)
 - 4. Documentation & Onboarding (DO1, DO2, DO3, DO4, DO5)
 - 5. Project Operations & Roadmap (PO1, PO2, PO3, PO4, PO5)
@@ -104,7 +104,7 @@ Projects need to know that contributions can legally be included and redistribut
 
 Higher education perspective. Universities may have employment, student work, grant, and technology transfer rules that affect contribution rights. A documented policy helps contributors and their institutions participate confidently.
 
-What good looks like. A mature project states contribution licensing expectations in CONTRIBUTING.md, uses DCO or CLA processes only when needed, and avoids surprising contributors.
+What good looks like. A mature project states contribution licensing expectations in CONTRIBUTING.md, uses DCO or CLA processes only when needed, and avoids surprising contributors. A stated policy is a 2 (Documented); projects that also collect and track signed agreements from active and former contributors — the stricter bar some incubation programs (e.g. Apereo) require at exit — demonstrate the practice is actually followed and can score a 3 or higher.
 
 **Evidence to look for:**
 
@@ -112,6 +112,8 @@ What good looks like. A mature project states contribution licensing expectation
 - DCO/CLA records if used
 - Pull request attestation process
 - Institutional contribution guidance
+- CLA/DCO signature bot records (e.g. EasyCLA, CLA Assistant logs)
+- Roster or count of signed ICLAs/CCLAs/SGLAs, if used
 
 **Learn more:**
 
@@ -253,6 +255,48 @@ What good looks like. A mature project schedules governance reviews, invites com
 - [Sustaining Open Source Software in the Research Enterprise](https://sr.ithaka.org/publications/sustaining-open-source-software-in-the-research-enterprise/)
 - [Apereo Incubation](https://www.apereo.org/programs/software-incubation)
 - [CHAOSS Metrics Models](https://chaoss.community/kb/metrics-models/)
+
+### GV6 — The project documents and practices a standard voting procedure for decisions requiring formal approval.
+
+Consensus works until it doesn't. A documented voting procedure (e.g., lazy consensus with a fallback to a majority or supermajority vote) gives a project a clear path to a decision when consensus stalls, and makes outcomes legitimate and auditable.
+
+Higher education perspective. Apereo's Incubation Process requires incubating projects to adopt and demonstrate standard voting practices before graduation, since multi-institutional communities cannot rely on one maintainer's informal judgment call.
+
+What good looks like. A mature project documents voting thresholds and eligible voters, and can point to at least one real vote on record, not just a hypothetical procedure.
+
+**Evidence to look for:**
+
+- Documented voting procedure and thresholds (majority, supermajority, lazy consensus)
+- Defined quorum rules and eligible-voter roster
+- Evidence of an actual vote on record (meeting minutes, mailing list, issue/PR)
+- Escalation from stalled consensus to a formal vote
+
+**Learn more:**
+
+- [Apereo Incubation](https://www.apereo.org/programs/software-incubation)
+- [Producing Open Source Software](https://producingoss.com/)
+- [CHAOSS Metrics Models](https://chaoss.community/kb/metrics-models/)
+
+### GV7 — The project has an adopted, documented process for resolving community or governance disputes.
+
+Disagreements over technical direction, roles, or conduct are normal in any community; what distinguishes a mature project is having an agreed path to resolve them rather than letting disputes fester or drive out contributors.
+
+Higher education perspective. Apereo's Incubation Process requires an explicit conflict resolution policy, distinct from a conflict-of-interest policy, as an exit criterion — multi-institutional governance needs a known escalation path when participants disagree.
+
+What good looks like. A mature project documents a dispute process with escalation steps (e.g., to mentors, a board, or a steering committee), distinguishes it from code-of-conduct incident response, and can show it has been invoked at least once.
+
+**Evidence to look for:**
+
+- Documented conflict/dispute resolution process
+- Escalation path to mentors, board, or steering committee
+- Evidence the process was invoked (meeting minutes, issue, decision record)
+- Clear boundary between this process and code-of-conduct incident response
+
+**Learn more:**
+
+- [Apereo Incubation](https://www.apereo.org/programs/software-incubation)
+- [CHAOSS Metrics Models](https://chaoss.community/kb/metrics-models/)
+- [It Takes a Village Guidebook](https://itav.lyrasis.org/guidebook/)
 
 ## 3. Community Engagement
 

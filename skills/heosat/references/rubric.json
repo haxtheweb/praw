@@ -175,12 +175,14 @@
             "id": "LL4",
             "text": "The project has a documented contributor licensing or contribution agreement policy.",
             "guidance": {
-              "why": "<p>Projects need to know that contributions can legally be included and redistributed. Contributor licensing policies clarify whether inbound contributions are accepted under the project license, a Developer Certificate of Origin, or a contributor agreement.</p><p><strong>Higher education perspective.</strong> Universities may have employment, student work, grant, and technology transfer rules that affect contribution rights. A documented policy helps contributors and their institutions participate confidently.</p><p><strong>What good looks like.</strong> A mature project states contribution licensing expectations in CONTRIBUTING.md, uses DCO or CLA processes only when needed, and avoids surprising contributors.</p>",
+              "why": "<p>Projects need to know that contributions can legally be included and redistributed. Contributor licensing policies clarify whether inbound contributions are accepted under the project license, a Developer Certificate of Origin, or a contributor agreement.</p><p><strong>Higher education perspective.</strong> Universities may have employment, student work, grant, and technology transfer rules that affect contribution rights. A documented policy helps contributors and their institutions participate confidently.</p><p><strong>What good looks like.</strong> A mature project states contribution licensing expectations in CONTRIBUTING.md, uses DCO or CLA processes only when needed, and avoids surprising contributors. A stated policy is a 2 (Documented); projects that also collect and track signed agreements from active and former contributors — the stricter bar some incubation programs (e.g. Apereo) require at exit — demonstrate the practice is actually followed and can score a 3 or higher.</p>",
               "evidence": [
                 "CONTRIBUTING.md licensing section",
                 "DCO/CLA records if used",
                 "Pull request attestation process",
-                "Institutional contribution guidance"
+                "Institutional contribution guidance",
+                "CLA/DCO signature bot records (e.g. EasyCLA, CLA Assistant logs)",
+                "Roster or count of signed ICLAs/CCLAs/SGLAs, if used"
               ],
               "learn": [
                 {
@@ -382,6 +384,60 @@
                 {
                   "title": "CHAOSS Metrics Models",
                   "url": "https://chaoss.community/kb/metrics-models/"
+                }
+              ]
+            }
+          },
+          {
+            "id": "GV6",
+            "text": "The project documents and practices a standard voting procedure for decisions requiring formal approval.",
+            "guidance": {
+              "why": "<p>Consensus works until it doesn't. A documented voting procedure (e.g., lazy consensus with a fallback to a majority or supermajority vote) gives a project a clear path to a decision when consensus stalls, and makes outcomes legitimate and auditable.</p><p><strong>Higher education perspective.</strong> Apereo's Incubation Process requires incubating projects to adopt and demonstrate standard voting practices before graduation, since multi-institutional communities cannot rely on one maintainer's informal judgment call.</p><p><strong>What good looks like.</strong> A mature project documents voting thresholds and eligible voters, and can point to at least one real vote on record, not just a hypothetical procedure.</p>",
+              "evidence": [
+                "Documented voting procedure and thresholds (majority, supermajority, lazy consensus)",
+                "Defined quorum rules and eligible-voter roster",
+                "Evidence of an actual vote on record (meeting minutes, mailing list, issue/PR)",
+                "Escalation from stalled consensus to a formal vote"
+              ],
+              "learn": [
+                {
+                  "title": "Apereo Incubation",
+                  "url": "https://www.apereo.org/programs/software-incubation"
+                },
+                {
+                  "title": "Producing Open Source Software",
+                  "url": "https://producingoss.com/"
+                },
+                {
+                  "title": "CHAOSS Metrics Models",
+                  "url": "https://chaoss.community/kb/metrics-models/"
+                }
+              ]
+            }
+          },
+          {
+            "id": "GV7",
+            "text": "The project has an adopted, documented process for resolving community or governance disputes.",
+            "guidance": {
+              "why": "<p>Disagreements over technical direction, roles, or conduct are normal in any community; what distinguishes a mature project is having an agreed path to resolve them rather than letting disputes fester or drive out contributors.</p><p><strong>Higher education perspective.</strong> Apereo's Incubation Process requires an explicit conflict resolution policy, distinct from a conflict-of-interest policy, as an exit criterion — multi-institutional governance needs a known escalation path when participants disagree.</p><p><strong>What good looks like.</strong> A mature project documents a dispute process with escalation steps (e.g., to mentors, a board, or a steering committee), distinguishes it from code-of-conduct incident response, and can show it has been invoked at least once.</p>",
+              "evidence": [
+                "Documented conflict/dispute resolution process",
+                "Escalation path to mentors, board, or steering committee",
+                "Evidence the process was invoked (meeting minutes, issue, decision record)",
+                "Clear boundary between this process and code-of-conduct incident response"
+              ],
+              "learn": [
+                {
+                  "title": "Apereo Incubation",
+                  "url": "https://www.apereo.org/programs/software-incubation"
+                },
+                {
+                  "title": "CHAOSS Metrics Models",
+                  "url": "https://chaoss.community/kb/metrics-models/"
+                },
+                {
+                  "title": "It Takes a Village Guidebook",
+                  "url": "https://itav.lyrasis.org/guidebook/"
                 }
               ]
             }

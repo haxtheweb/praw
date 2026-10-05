@@ -27,6 +27,101 @@ SKILL_ROOT = Path(__file__).resolve().parent.parent
 REFS_DIR = SKILL_ROOT / "references"
 HEOSAT_JS_URL = "https://locusplex.us/HEOSAT/assets/js/heosat.js"
 
+# ---------------------------------------------------------------- local extensions
+#
+# These questions/evidence close gaps between the upstream HEOSAT rubric and
+# Apereo Foundation Incubation Process Section 5 (Exit Criteria) that upstream
+# does not cover: standard voting practices (5.4), a conflict resolution
+# policy (5.6), and a stricter contributor-agreement bar (5.1.3). Because
+# rubric.json/rubric.md are regenerated wholesale from the upstream tool on
+# every sync, they are NOT hand-maintained in those files directly — this
+# function re-applies them after every fetch so a `python3 update-rubric.py`
+# re-sync never silently drops them. If upstream ever adds equivalent
+# coverage (same question id, or GV6/GV7 ids reused for something else),
+# re-check this list by hand before the next sync.
+
+_LL4_EXTRA_WHY = (
+    " A stated policy is a 2 (Documented); projects that also collect and "
+    "track signed agreements from active and former contributors \u2014 the "
+    "stricter bar some incubation programs (e.g. Apereo) require at exit \u2014 "
+    "demonstrate the practice is actually followed and can score a 3 or higher."
+)
+
+_LL4_EXTRA_EVIDENCE = [
+    "CLA/DCO signature bot records (e.g. EasyCLA, CLA Assistant logs)",
+    "Roster or count of signed ICLAs/CCLAs/SGLAs, if used",
+]
+
+_LOCAL_EXTENSION_QUESTIONS = {
+    "Governance & Decision-Making": [
+        {
+            "id": "GV6",
+            "text": "The project documents and practices a standard voting procedure for decisions requiring formal approval.",
+            "guidance": {
+                "why": "<p>Consensus works until it doesn't. A documented voting procedure (e.g., lazy consensus with a fallback to a majority or supermajority vote) gives a project a clear path to a decision when consensus stalls, and makes outcomes legitimate and auditable.</p><p><strong>Higher education perspective.</strong> Apereo's Incubation Process requires incubating projects to adopt and demonstrate standard voting practices before graduation, since multi-institutional communities cannot rely on one maintainer's informal judgment call.</p><p><strong>What good looks like.</strong> A mature project documents voting thresholds and eligible voters, and can point to at least one real vote on record, not just a hypothetical procedure.</p>",
+                "evidence": [
+                    "Documented voting procedure and thresholds (majority, supermajority, lazy consensus)",
+                    "Defined quorum rules and eligible-voter roster",
+                    "Evidence of an actual vote on record (meeting minutes, mailing list, issue/PR)",
+                    "Escalation from stalled consensus to a formal vote",
+                ],
+                "learn": [
+                    {"title": "Apereo Incubation", "url": "https://www.apereo.org/programs/software-incubation"},
+                    {"title": "Producing Open Source Software", "url": "https://producingoss.com/"},
+                    {"title": "CHAOSS Metrics Models", "url": "https://chaoss.community/kb/metrics-models/"},
+                ],
+            },
+        },
+        {
+            "id": "GV7",
+            "text": "The project has an adopted, documented process for resolving community or governance disputes.",
+            "guidance": {
+                "why": "<p>Disagreements over technical direction, roles, or conduct are normal in any community; what distinguishes a mature project is having an agreed path to resolve them rather than letting disputes fester or drive out contributors.</p><p><strong>Higher education perspective.</strong> Apereo's Incubation Process requires an explicit conflict resolution policy, distinct from a conflict-of-interest policy, as an exit criterion \u2014 multi-institutional governance needs a known escalation path when participants disagree.</p><p><strong>What good looks like.</strong> A mature project documents a dispute process with escalation steps (e.g., to mentors, a board, or a steering committee), distinguishes it from code-of-conduct incident response, and can show it has been invoked at least once.</p>",
+                "evidence": [
+                    "Documented conflict/dispute resolution process",
+                    "Escalation path to mentors, board, or steering committee",
+                    "Evidence the process was invoked (meeting minutes, issue, decision record)",
+                    "Clear boundary between this process and code-of-conduct incident response",
+                ],
+                "learn": [
+                    {"title": "Apereo Incubation", "url": "https://www.apereo.org/programs/software-incubation"},
+                    {"title": "CHAOSS Metrics Models", "url": "https://chaoss.community/kb/metrics-models/"},
+                    {"title": "It Takes a Village Guidebook", "url": "https://itav.lyrasis.org/guidebook/"},
+                ],
+            },
+        },
+    ],
+}
+
+
+def apply_local_extensions(data):
+    """Re-apply the local Apereo-gap extensions on top of freshly-fetched
+    upstream data (idempotent — safe to run on every sync)."""
+    for section in data.get("sections", []):
+        existing_ids = {q["id"] for q in section["questions"]}
+
+        for q in section["questions"]:
+            if q["id"] == "LL4":
+                why = q.get("guidance", {}).get("why", "")
+                if _LL4_EXTRA_WHY.strip() not in why:
+                    closing = "</p>"
+                    if why.endswith(closing):
+                        why = why[: -len(closing)] + _LL4_EXTRA_WHY + closing
+                    else:
+                        why += _LL4_EXTRA_WHY
+                    q["guidance"]["why"] = why
+                evidence = q.get("guidance", {}).setdefault("evidence", [])
+                for item in _LL4_EXTRA_EVIDENCE:
+                    if item not in evidence:
+                        evidence.append(item)
+
+        extensions = _LOCAL_EXTENSION_QUESTIONS.get(section["title"], [])
+        for ext_q in extensions:
+            if ext_q["id"] not in existing_ids:
+                section["questions"].append(json.loads(json.dumps(ext_q)))
+
+    return data
+
 
 # ---------------------------------------------------------------- HTML -> text
 
@@ -163,6 +258,7 @@ def main():
             js_text = res.read().decode("utf-8")
 
     data = extract_data(js_text)
+    data = apply_local_extensions(data)
     fetched_at = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     questions = sum(len(s["questions"]) for s in data["sections"])
@@ -190,7 +286,7 @@ def main():
     )
 
     print(f"HEOSAT rubric synced: {data['version']}")
-    print(f"  sections: {len(data['sections'])}, questions: {questions}")
+    print(f"  sections: {len(data['sections'])}, questions: {questions} (includes local Apereo-gap extensions GV6/GV7)")
     print(f"  wrote {REFS_DIR / 'rubric.json'}")
     print(f"  wrote {REFS_DIR / 'rubric.md'}")
 

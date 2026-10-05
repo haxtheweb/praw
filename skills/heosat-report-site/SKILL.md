@@ -1,6 +1,6 @@
 ---
 name: heosat-report-site
-description: Run a HEOSAT open source maturity assessment on a project and publish the result as a single-page HAXcms report site on surge — scorecard, per-question evidence, strengths, and prioritized recommendations, plus ready-to-post LinkedIn / X copy. Takes the same input as the heosat skill (a GitHub repo URL, owner/repo, or an existing assessment directory with scores.json/report.md). Use whenever the user says "publish the HEOSAT report", "make a HEOSAT report site for this repo", "assess this project and publish it", "put this assessment on surge", "turn this HEOSAT report into a site", or hands you a repo and wants a published, shareable maturity report link — even if they don't say "skill", "site", or "surge". Companion to the `heosat` skill; leverages the same site scaffold + surge publish workflow as `hax-tutorial-site`.
+description: Run a HEOSAT open source maturity assessment on a project and publish the result as a single-page HAXcms report site on surge — scorecard, per-question evidence, strengths, and prioritized recommendations, plus ready-to-post LinkedIn / X copy (47 questions across 9 sections). Takes the same input as the heosat skill (a GitHub repo URL, owner/repo, or an existing assessment directory with scores.json/report.md). Use whenever the user says "publish the HEOSAT report", "make a HEOSAT report site for this repo", "assess this project and publish it", "put this assessment on surge", "turn this HEOSAT report into a site", or hands you a repo and wants a published, shareable maturity report link — even if they don't say "skill", "site", or "surge". Companion to the `heosat` skill; leverages the same site scaffold + surge publish workflow as `hax-tutorial-site`.
 version: 1.0.0
 license: Apache-2.0
 metadata:
@@ -10,11 +10,11 @@ metadata:
 
 # HEOSAT Report Site
 
-Assess an open source project with the **`heosat` skill** (9 sections, 45 questions, 0-5 maturity scale, evidence-backed scoring), then turn the resulting report into a **published single-page HAXcms site** the user can share as a link — scorecard, per-question evidence, strengths, prioritized recommendations, and provenance — plus ready-to-post LinkedIn / X copy.
+Assess an open source project with the **`heosat` skill** (9 sections, 47 questions, 0-5 maturity scale, evidence-backed scoring), then turn the resulting report into a **published single-page HAXcms site** the user can share as a link — scorecard, per-question evidence, strengths, prioritized recommendations, and provenance — plus ready-to-post LinkedIn / X copy.
 
 ## Inputs (two modes)
 
-- **Fresh assessment (default)** — a GitHub URL, `owner/repo` shorthand, or any git repo URL. The workflow runs the full `heosat` skill first (clone to /tmp → evidence → 45 scores → validated `scores.json` + `report.md`), then builds and publishes the site.
+- **Fresh assessment (default)** — a GitHub URL, `owner/repo` shorthand, or any git repo URL. The workflow runs the full `heosat` skill first (clone to /tmp → evidence → 47 scores → validated `scores.json` + `report.md`), then builds and publishes the site.
 - **Existing report** — a directory that already contains `scores.json` (and ideally `report.md`), e.g. a `/tmp/heosat-<owner>-<repo>/` scratch dir from a previous `heosat` run. Skip straight to site generation (step 4).
 
 ## Prerequisites
@@ -48,7 +48,7 @@ Run the whole workflow straight through with minimal narration. Only report once
 ## Workflow
 
 1. **Collect the input** — repo URL / `owner/repo` (fresh mode) or an existing scores directory (existing mode; verify `scores.json` exists there).
-2. **Run the assessment (fresh mode only)** — execute the **`heosat` skill** end to end: pull down the repo into `/tmp/heosat-<owner>-<repo>/` (HAXtheweb projects skip the clone and use their local `~/Documents/git/haxtheweb/` checkout when one exists — the heosat skill's clone-repo.sh resolves local-first), gather evidence (static review only), score all 45 questions into `scores.json`, and run its `aggregate.py` until validation is clean, producing `<scores-dir>/report.md`. In existing mode, reuse the given directory as `<scores-dir>`.
+2. **Run the assessment (fresh mode only)** — execute the **`heosat` skill** end to end: pull down the repo into `/tmp/heosat-<owner>-<repo>/` (HAXtheweb projects skip the clone and use their local `~/Documents/git/haxtheweb/` checkout when one exists — the heosat skill's clone-repo.sh resolves local-first), gather evidence (static review only), score all 47 questions into `scores.json`, and run its `aggregate.py` until validation is clean, producing `<scores-dir>/report.md`. In existing mode, reuse the given directory as `<scores-dir>`.
 3. **Write the project profile** — gather project details via `gh` and write `<scores-dir>/project-profile.json` per the profile rule above:
    ```bash
    gh repo view <owner/repo> --json name,description,homepageUrl,licenseInfo,primaryLanguage

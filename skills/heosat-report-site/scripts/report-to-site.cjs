@@ -6,7 +6,7 @@
  * aggregate step) into a single-page HAXcms report site page, and finalize the
  * site metadata — in one pass:
  *
- *  - reads <scores-dir>/scores.json (all 45 scores, evidence, notes,
+ *  - reads <scores-dir>/scores.json (all rubric scores, evidence, notes,
  *    strengths, recommendations, project context)
  *  - reads the bundled HEOSAT rubric (default: ../heosat/references/rubric.json
  *    next to this skill) for section titles, question texts, scale names,
@@ -362,10 +362,11 @@ function main() {
   const overallBand = bandLabel(scale, overallAvg);
   const siteTitle = `HEOSAT Assessment: ${profile.name || doc.repo}`;
 
+  const totalQuestions = rubric.sections.reduce((a, s) => a + s.questions.length, 0);
   const pageParts = [];
   pageParts.push(`<h1>${escText(siteTitle)}</h1>`);
   pageParts.push(
-    `<stop-note title="Overall: ${escAttr(fmtAvg(overallAvg))} / 5 (${escAttr(overallBand)})"><span slot="message">45-question maturity assessment against HEOSAT ${escText(rubric.version)} · assessed ${escText(doc.assessedAt || "n/a")} · every score backed by cited evidence or an explicit "checked, not found" note.</span></stop-note>`,
+    `<stop-note title="Overall: ${escAttr(fmtAvg(overallAvg))} / 5 (${escAttr(overallBand)})"><span slot="message">${totalQuestions}-question maturity assessment against HEOSAT ${escText(rubric.version)} · assessed ${escText(doc.assessedAt || "n/a")} · every score backed by cited evidence or an explicit "checked, not found" note.</span></stop-note>`,
   );
   if (doc.context) {
     pageParts.push(`<p data-margin="xs">${escText(doc.context)}</p>`);
@@ -375,7 +376,7 @@ function main() {
   pageParts.push(`<p data-margin="xs">Level distribution — ${escText(levelDist)}</p>`);
   pageParts.push(`<h2 data-margin="s">Section detail</h2>`);
   pageParts.push(
-    `<p data-margin="xs">Expand a section to see all 45 scored questions with the evidence behind every score.</p>`,
+    `<p data-margin="xs">Expand a section to see all ${totalQuestions} scored questions with the evidence behind every score.</p>`,
   );
   pageParts.push(`<a11y-collapse-group heading-button icon="arrow-drop-down">
 ${buildSectionCollapses(rubric, rubric.sections, scores)}

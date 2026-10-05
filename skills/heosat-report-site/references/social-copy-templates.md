@@ -26,7 +26,7 @@ I just published a HEOSAT open source maturity assessment of {{projectName}} ({{
 
 📊🌐 Report: {{siteUrl}}
 
-Overall: {{overall}} ({{band}}) across 45 evidence-backed questions — governance, licensing, community, documentation, operations, security, accessibility, adoption, and sustainability. {{summary}}
+Overall: {{overall}} ({{band}}) across 47 evidence-backed questions — governance, licensing, community, documentation, operations, security, accessibility, adoption, and sustainability. {{summary}}
 
 #HAXTheWeb #OER #opensource #edtech #education #pennstate
 ```

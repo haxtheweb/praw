@@ -1,6 +1,6 @@
 ---
 name: heosat
-description: "Run the HEOSAT (Higher Education Open Source Assessment Tool) maturity assessment on an open source project — pulls a copy of the repo into a /tmp scratch directory, applies the official locusplex.us/HEOSAT rubric (9 sections, 45 questions, 0-5 maturity scale: governance, licensing, community, documentation, operations, security, accessibility, adoption, sustainability), and produces an evidence-backed scorecard with strengths and prioritized recommendations. Use this whenever the user says \"grade/score/assess this open source project\", \"run HEOSAT\", \"HEOSAT this repo\", \"how mature is this project\", \"assess this repo's health/sustainability/governance\", \"score this project against the rubric\", or references HEOSAT, the locusplex HEOSAT tool, Apereo's higher-ed open source maturity assessment, or the OSS Watch openness rating — even if they don't say \"HEOSAT\" or \"skill\". Also use when the user hands you a GitHub repo URL and asks for a project maturity/readiness/health report."
+description: "Run the HEOSAT (Higher Education Open Source Assessment Tool) maturity assessment on an open source project — pulls a copy of the repo into a /tmp scratch directory, applies the official locusplex.us/HEOSAT rubric (9 sections, 47 questions, 0-5 maturity scale: governance, licensing, community, documentation, operations, security, accessibility, adoption, sustainability), and produces an evidence-backed scorecard with strengths and prioritized recommendations. Use this whenever the user says \"grade/score/assess this open source project\", \"run HEOSAT\", \"HEOSAT this repo\", \"how mature is this project\", \"assess this repo's health/sustainability/governance\", \"score this project against the rubric\", or references HEOSAT, the locusplex HEOSAT tool, Apereo's higher-ed open source maturity assessment, or the OSS Watch openness rating — even if they don't say \"HEOSAT\" or \"skill\". Also use when the user hands you a GitHub repo URL and asks for a project maturity/readiness/health report."
 version: 1.0.0
 license: Apache-2.0
 metadata:
@@ -10,12 +10,12 @@ metadata:
 
 # HEOSAT — Higher Education Open Source Assessment Tool
 
-HEOSAT is a guided maturity assessment for open source software projects in higher education and edtech, published at <https://locusplex.us/HEOSAT/> (adapted from OSS Watch's Open Source Openness Rating; guidance content CC BY-SA 4.0). This skill lets you (the invoking agent) perform the full assessment yourself: pull down a copy of the target repo, gather evidence, score all 45 rubric questions, and produce an evidence-backed scorecard — no API keys, no external calls beyond fetching the repo and its public metadata.
+HEOSAT is a guided maturity assessment for open source software projects in higher education and edtech, published at <https://locusplex.us/HEOSAT/> (adapted from OSS Watch's Open Source Openness Rating; guidance content CC BY-SA 4.0). This skill lets you (the invoking agent) perform the full assessment yourself: pull down a copy of the target repo, gather evidence, score all 47 rubric questions, and produce an evidence-backed scorecard — no API keys, no external calls beyond fetching the repo and its public metadata.
 
-The rubric has **9 sections × 5 questions**, each scored on a **0-5 maturity scale**:
+The rubric has **9 sections, 47 questions** (5 questions each, except Governance & Decision-Making which has 7 — two local extensions cover Apereo Foundation Incubation exit criteria for voting practices and conflict resolution), each scored on a **0-5 maturity scale**:
 
 1. Legal & Licensing (LL1-5)
-2. Governance & Decision-Making (GV1-5)
+2. Governance & Decision-Making (GV1-7)
 3. Community Engagement (CE1-5)
 4. Documentation & Onboarding (DO1-5)
 5. Project Operations & Roadmap (PO1-5)
@@ -96,7 +96,7 @@ Survey the clone and its public metadata, recording evidence as you go. Concrete
 
 Aim for one evidence pass that covers all 9 sections, then score. For repos on non-GitHub hosts, use whatever the clone and plain HTTP reveal, and note which metadata was unavailable.
 
-### Step 4 — Score all 45 questions
+### Step 4 — Score all 47 questions
 
 Work section by section. After each section, update `<scratch>/scores.json` (resumable across turns). Exact schema:
 
@@ -124,7 +124,7 @@ Work section by section. After each section, update `<scratch>/scores.json` (res
 - A score of **0 should carry a note of what you checked** so the zero is verifiable, not lazy.
 - Cite specifics: `SECURITY.md documents a report process with a 48-hour target` — not `security seems fine`.
 
-**Higher-ed lens:** sections 7-9 lean institutional (procurement, campus fit, sustainability). For non-edtech repos, still score all 45 questions — score the general equivalent (e.g., for AI3 "institutional adoption", use documented adopters of any kind) and note the higher-ed context in `context`.
+**Higher-ed lens:** sections 7-9 lean institutional (procurement, campus fit, sustainability). For non-edtech repos, still score all 47 questions — score the general equivalent (e.g., for AI3 "institutional adoption", use documented adopters of any kind) and note the higher-ed context in `context`.
 
 Write `strengths` (3-6 items, each tied to scored evidence) and `recommendations` (prioritized by score gap × leverage; 5-8 items, each with a `learn` link from that question's rubric entry).
 
@@ -134,11 +134,11 @@ Write `strengths` (3-6 items, each tied to scored evidence) and `recommendations
 python3 scripts/aggregate.py <scratch>/scores.json
 ```
 
-This validates all 45 IDs, enforces the evidence discipline above, computes section averages and the overall score, and writes `<scratch>/report.md` while printing the summary. If it reports downgrades or warnings, fix `scores.json` (add the evidence you actually found, or rescore honestly) and re-run until it reports all scores valid.
+This validates all 47 IDs, enforces the evidence discipline above, computes section averages and the overall score, and writes `<scratch>/report.md` while printing the summary. If it reports downgrades or warnings, fix `scores.json` (add the evidence you actually found, or rescore honestly) and re-run until it reports all scores valid.
 
 ### Step 6 — Present the report
 
-In chat, present (do not dump all 45 questions — point to report.md for the detail):
+In chat, present (do not dump all 47 questions — point to report.md for the detail):
 
 ```
 ## HEOSAT Assessment — <owner/repo>
@@ -165,4 +165,6 @@ python3 scripts/update-rubric.py            # fetch fresh from locusplex.us
 python3 scripts/update-rubric.py heosat.js  # from a downloaded copy
 ```
 
-Synced version: **2026.07 enhanced guidance edition** (45 questions, 9 sections), extracted 2026-09-30. If the upstream rubric changes, re-run the script and adjust `aggregate.py`'s question-count messaging if the total changes. The scripts never call an LLM; all assessment judgment belongs to the invoking agent.
+Synced version: **2026.07 enhanced guidance edition** (47 questions, 9 sections), extracted 2026-09-30. If the upstream rubric changes, re-run the script and adjust `aggregate.py`'s question-count messaging if the total changes.
+
+**Local extensions (not from upstream):** `GV6` (standard voting practices) and `GV7` (conflict resolution policy), plus strengthened `LL4` evidence/guidance for tracked contributor agreements, close gaps against Apereo Foundation Incubation Process Section 5 (Exit Criteria) that the upstream rubric does not cover. `scripts/update-rubric.py` re-applies these automatically after every upstream re-sync (see `apply_local_extensions`) so they are never lost — if upstream ever adds equivalent coverage, reconcile that function by hand before the next sync. The scripts never call an LLM; all assessment judgment belongs to the invoking agent.

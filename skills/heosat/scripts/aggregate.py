@@ -232,7 +232,7 @@ def main():
         for w in warnings:
             print(f"  - {w}")
     if not downgrades and not warnings:
-        print("All 45 scores valid; evidence discipline satisfied.")
+        print(f"All {len(expected)} scores valid; evidence discipline satisfied.")
 
 
 if __name__ == "__main__":

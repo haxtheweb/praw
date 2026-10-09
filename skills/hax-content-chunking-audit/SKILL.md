@@ -166,7 +166,7 @@ This audit is the diagnosis step. Apply the fixes with these related skills and 
   chunked page:
   - Pages with content (single or bulk): give each item a `content` field and run
     `hax site site:items-import --items-import <items.json> --y --no-i`
-    (`node:add --content` does not persist page content yet; see haxtheweb/issues#3116.)
+    (`node:add --content` does not persist page content yet; see haxtheweb/issues#3125.)
   - Verify: `hax site site:items`
 - **`hax-design-system`** — DDD tokens for spacing, color, icon sizing on any inserted component.
 - **`grad-blooms`** — when a check-in is recommended, confirm its cognitive level matches the

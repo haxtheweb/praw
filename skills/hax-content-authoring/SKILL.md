@@ -76,7 +76,7 @@ names that are not in the registry. When a page needs something the registry lac
   `--y --no-i` (add `--auto` / `--quiet` / `--skip` as needed).
 - To add a single empty page:
   `hax site node:add --title "<title>" --slug "<slug>" --y --no-i`
-  (`node:add --content` does not persist page content yet; see haxtheweb/issues#3116.)
+  (`node:add --content` does not persist page content yet; see haxtheweb/issues#3125.)
 - To add pages with content, or to bulk import: give each item a `content` field and run
   `hax site site:items-import --items-import <items.json> --y --no-i`
 - Verify structure: `hax site site:items`

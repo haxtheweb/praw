@@ -37,14 +37,14 @@
       "type": "skill-md",
       "description": "Author HAX page content using the right web components and conventions. Use when writing or editing page HTML in pages/, adding HAX-capable elements, applying DDD heading/paragraph attributes, choosing input/icon/button/media components, creating pages via the hax CLI, or remixing a HAX site's content as OER. Covers which tags are valid (HAXSchema/haxProperties), the preferred component families, and the authoring rules that keep content portable and editable in the HAX editor.",
       "url": "hax-content-authoring/SKILL.md",
-      "digest": "sha256:b5fc71575dbe9aa50a72f1c6dd2d5b17f3e2728ebec98e17636fdb45876872dc"
+      "digest": "sha256:77e29712bb7894850f67c9a53c095802fe6e2abd31385ce005ef5874286dd652"
     },
     {
       "name": "hax-content-chunking-audit",
       "type": "skill-md",
       "description": "Audit a HAX site page (JSON Outline Schema node, raw HTML in pages/, or markdown) against cognitive-load and content-chunking instructional-design standards, then return actionable HAX web-component remediation. Use when the user asks to review a course page, textbook module, or HAX site for readability, \"wall of text\", overly long sections, list fatigue, media saturation, microlearning chunking, or to \"make this page less overwhelming\" — even if they don't say \"audit\".",
       "url": "hax-content-chunking-audit/SKILL.md",
-      "digest": "sha256:a3b76112370adc3887eda05c06b791161d0a54ab738fcf3fe881e0f7a68d88bf"
+      "digest": "sha256:c25eb04bf52d9f2c270e9a8210248359974ccfbf74f3e02b92bc6363ed25e624"
     },
     {
       "name": "hax-design-system",
@@ -119,7 +119,7 @@
       "type": "skill-md",
       "description": "Read and navigate an existing HAXcms site from its portable files. Use when an agent lands on a HAXsite or HAXcms deployment and needs to understand site.json (JSON Outline Schema), resolve page content in pages/, find assets in files/, locate the theme, compute basePath, or discover the web component registry (wc-registry.json) and the magic-script autoloader. Load this FIRST when working with any HAX site so the rest of the ecosystem makes sense.",
       "url": "hax-site-structure/SKILL.md",
-      "digest": "sha256:bfc60ac1fcd3fe88165ef45c7c4d5bff42be485e8f54224399eb94ac0dfe2b1d"
+      "digest": "sha256:14d540f5825f083b43146d99d157bc7f25edcd0caf8186404e0e8b56bfe99ff8"
     },
     {
       "name": "hax-tutorial-site",

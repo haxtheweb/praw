@@ -64,6 +64,23 @@
       ]
     },
     {
+      "name": "hax-design-system-sync",
+      "type": "skill-md",
+      "description": "Maintain the DDD design system across the HAX ecosystem and keep every derived copy in step with the source. Lint for unknown or broken --ddd-* tokens and fix them, check WCAG contrast of DDD's pairings, regenerate the DTCG token export and the hax-design-system skill references, rebuild the claude.ai DDD Design System with the sync script, open the pull requests, and publish once merged. Use when a maintainer says \"sync the design system\", \"run the DDD maintenance\", \"republish the DDD design system\", \"fix the unknown DDD tokens\", \"the token lint is failing\", \"update the design tokens\", \"regenerate ddd-tokens.md\", or after DDDStyles.js, SimpleColors or a DDD-based element changes — even if they don't say \"skill\" or \"sync\".",
+      "url": "hax-design-system-sync/SKILL.md",
+      "digest": "sha256:0f4cba4ad750146ea0f9711ac23589a55908ee18a95dd3f0f6184b098127d988",
+      "files": [
+        {
+          "path": "references/publishing.md",
+          "digest": "sha256:fcefb80b08e848ee02cbc9589a9a9826488c077ca2d0c8b2ec84be0570c48113"
+        },
+        {
+          "path": "references/token-remediation.md",
+          "digest": "sha256:bc2c2272b0710b8e63f70441e16353491342d7c0a9048b31a32b749b0c60a2ea"
+        }
+      ]
+    },
+    {
       "name": "hax-i18n-translate",
       "type": "skill-md",
       "description": "Scaffold and translate HAX web component i18n locale files at scale. Use when the user says \"Translate <element>\", \"add translations to <element>\", \"translate the locales for <element>\", \"stub out translation files for <element>\", \"add support for the top 100 languages\", \"i18n my component\", \"extract the this.t strings\", or \"set up locales for <element>\", or references a HAX element's locales/ folder, this.t object, I18NMixin, registerLocalization, haxProperties, i18n-manager-register-element, or translation-manifest — even when they don't say \"skill\" or \"i18n\". Covers both phases: (1) extracting English strings from the this.t object or a lib/*.haxProperties.json schema and stubbing locale files for ~100 languages, and (2) translating every stub, choosing the lowest-cost path (inline single-response for small string sets, parallel agents for large ones), then validating.",

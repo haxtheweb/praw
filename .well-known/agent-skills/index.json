@@ -98,7 +98,7 @@
       "type": "skill-md",
       "description": "Fetch, analyze, and summarize GitHub issues across the HAX ecosystem using the unified issue queue. Use when tracking bugs, planning sprints, generating weekly productivity reports, or creating social media content from project activity.",
       "url": "hax-issue-analysis/SKILL.md",
-      "digest": "sha256:638e6c8116808ba16e4d73976eb6cd9cc884fe67a1f494fda39459c48dbf53b5"
+      "digest": "sha256:e49b0b739acf6e49000e7ce9849fec2e52b4da55089e3a24d8d98ab3b8c7c99f"
     },
     {
       "name": "hax-issue-research",
@@ -139,7 +139,7 @@
       "type": "skill-md",
       "description": "Add, search, validate, and export PRAW (HAX ecosystem) rules stored in RULES.md. Use when managing HAX ecosystem development rules, adding new conventions, or updating existing rule entries in the PRAW repository.",
       "url": "hax-rule-management/SKILL.md",
-      "digest": "sha256:0084ed510e0a0ed3382bd2c038dab7e8dc2dd6c74d0037615ace0b9c15a51bd0"
+      "digest": "sha256:453e58659b5e4a3a67cdf74585b1bd7a2d81ed78cd76fb8d909ad4e0b7c38430"
     },
     {
       "name": "hax-site-structure",

@@ -87,8 +87,3 @@ For recurring analysis:
 - `programs/issue-management/weekly-post.sh` — Automated weekly posting
 - `programs/linkedin/post-to-linkedin.js` — Social media posting
 - `programs/linkedin/setup-linkedin.js` — LinkedIn API configuration
-
-## References
-
-- For issue query syntax: `references/issue-query-syntax.md`
-- For LinkedIn posting templates: `references/linkedin-templates.md`

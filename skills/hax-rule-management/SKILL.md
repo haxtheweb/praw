@@ -70,8 +70,3 @@ For emergent insights that may become rules:
 - `scripts/setup.sh` — Initial setup and alias installation
 - `scripts/add-rule.sh` — Interactive and CLI rule addition
 - `scripts/manage-rules.sh` — Search, list, validate, and export operations
-
-## References
-
-- For rule writing guidelines: `references/rule-writing-guide.md`
-- For precedence examples: `references/precedence-examples.md`

@@ -1,7 +1,7 @@
 ---
 name: hax-design-system
 description: >
-  Apply the DDD (Design, Develop, Deliver) design system and manage SimpleColors legacy usage.
+  Apply the DDD (Design, Develop, Destroy) design system and manage SimpleColors legacy usage.
   Use when styling components, auditing CSS for DDD compliance, migrating from SimpleColors,
   or creating new themes in the HAX ecosystem.
 version: 1.0.0
@@ -13,7 +13,7 @@ metadata:
 
 # HAX Design System
 
-Apply the DDD (Design, Develop, Deliver) design system and manage SimpleColors legacy usage.
+Apply the DDD (Design, Develop, Destroy) design system and manage SimpleColors legacy usage.
 
 ## When to Use
 

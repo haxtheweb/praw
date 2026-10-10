@@ -76,4 +76,3 @@ When encountering legacy SimpleColors usage:
 ## References
 
 - For complete DDD token reference: `references/ddd-tokens.md`
-- For SimpleColors to DDD mapping: `references/simplecolors-migration.md`

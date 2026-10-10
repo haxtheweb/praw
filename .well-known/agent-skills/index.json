@@ -49,9 +49,9 @@
     {
       "name": "hax-design-system",
       "type": "skill-md",
-      "description": "Apply the DDD (Design, Develop, Deliver) design system and manage SimpleColors legacy usage. Use when styling components, auditing CSS for DDD compliance, migrating from SimpleColors, or creating new themes in the HAX ecosystem.",
+      "description": "Apply the DDD (Design, Develop, Destroy) design system and manage SimpleColors legacy usage. Use when styling components, auditing CSS for DDD compliance, migrating from SimpleColors, or creating new themes in the HAX ecosystem.",
       "url": "hax-design-system/SKILL.md",
-      "digest": "sha256:63a3feb4bc6e703bc4ee5e92947c550e2bc513e37f6c92336607579be177a3bc",
+      "digest": "sha256:9450b84eb5eb38278b4562aef66f87119702c210137a3a5dd8ce9a8e2fdecb6c",
       "files": [
         {
           "path": "references/ddd-tokens.md",

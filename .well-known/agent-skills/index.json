@@ -271,26 +271,26 @@
     {
       "name": "heosat",
       "type": "skill-md",
-      "description": "\"Run the HEOSAT (Higher Education Open Source Assessment Tool) maturity assessment on an open source project — pulls a copy of the repo into a /tmp scratch directory, applies the official locusplex.us/HEOSAT rubric (9 sections, 45 questions, 0-5 maturity scale: governance, licensing, community, documentation, operations, security, accessibility, adoption, sustainability), and produces an evidence-backed scorecard with strengths and prioritized recommendations. Use this whenever the user says \\\"grade/score/assess this open source project\\\", \\\"run HEOSAT\\\", \\\"HEOSAT this repo\\\", \\\"how mature is this project\\\", \\\"assess this repo's health/sustainability/governance\\\", \\\"score this project against the rubric\\\", or references HEOSAT, the locusplex HEOSAT tool, Apereo's higher-ed open source maturity assessment, or the OSS Watch openness rating — even if they don't say \\\"HEOSAT\\\" or \\\"skill\\\". Also use when the user hands you a GitHub repo URL and asks for a project maturity/readiness/health report.\"",
+      "description": "\"Run the HEOSAT (Higher Education Open Source Assessment Tool) maturity assessment on an open source project — pulls a copy of the repo into a /tmp scratch directory, applies the official locusplex.us/HEOSAT rubric (9 sections, 47 questions, 0-5 maturity scale: governance, licensing, community, documentation, operations, security, accessibility, adoption, sustainability), and produces an evidence-backed scorecard with strengths and prioritized recommendations. Use this whenever the user says \\\"grade/score/assess this open source project\\\", \\\"run HEOSAT\\\", \\\"HEOSAT this repo\\\", \\\"how mature is this project\\\", \\\"assess this repo's health/sustainability/governance\\\", \\\"score this project against the rubric\\\", or references HEOSAT, the locusplex HEOSAT tool, Apereo's higher-ed open source maturity assessment, or the OSS Watch openness rating — even if they don't say \\\"HEOSAT\\\" or \\\"skill\\\". Also use when the user hands you a GitHub repo URL and asks for a project maturity/readiness/health report.\"",
       "url": "heosat/SKILL.md",
-      "digest": "sha256:6a68144e10490697a7a34804fd8a1e4a34bf586b04caeb3c1ca358cde83d9190",
+      "digest": "sha256:ed1f509fb82103a23a85b6bbdc4262540046422051352c4834b911835129e78c",
       "files": [
         {
           "path": "references/rubric.json",
-          "digest": "sha256:4457d1ec15d17688195f7809a060e7a52be139261056e1d390acc32aa302a69c"
+          "digest": "sha256:687020ce29f838495cbe228425d82b09d5d29f8287a6087bd95286a3e89c38f4"
         },
         {
           "path": "references/rubric.md",
-          "digest": "sha256:2e5049d88c2097ff6a080701a79dcf1181fa713f4a7cddbf2893cd8e6b29a036"
+          "digest": "sha256:e83e24190138bfd9d997c4608e4d3f6001d529813067fd6a65fc162e8e847bbd"
         }
       ]
     },
     {
       "name": "heosat-report-site",
       "type": "skill-md",
-      "description": "Run a HEOSAT open source maturity assessment on a project and publish the result as a single-page HAXcms report site on surge — scorecard, per-question evidence, strengths, and prioritized recommendations, plus ready-to-post LinkedIn / X copy. Takes the same input as the heosat skill (a GitHub repo URL, owner/repo, or an existing assessment directory with scores.json/report.md). Use whenever the user says \"publish the HEOSAT report\", \"make a HEOSAT report site for this repo\", \"assess this project and publish it\", \"put this assessment on surge\", \"turn this HEOSAT report into a site\", or hands you a repo and wants a published, shareable maturity report link — even if they don't say \"skill\", \"site\", or \"surge\". Companion to the `heosat` skill; leverages the same site scaffold + surge publish workflow as `hax-tutorial-site`.",
+      "description": "Run a HEOSAT open source maturity assessment on a project and publish the result as a single-page HAXcms report site on surge — scorecard, per-question evidence, strengths, and prioritized recommendations, plus ready-to-post LinkedIn / X copy (47 questions across 9 sections). Takes the same input as the heosat skill (a GitHub repo URL, owner/repo, or an existing assessment directory with scores.json/report.md). Use whenever the user says \"publish the HEOSAT report\", \"make a HEOSAT report site for this repo\", \"assess this project and publish it\", \"put this assessment on surge\", \"turn this HEOSAT report into a site\", or hands you a repo and wants a published, shareable maturity report link — even if they don't say \"skill\", \"site\", or \"surge\". Companion to the `heosat` skill; leverages the same site scaffold + surge publish workflow as `hax-tutorial-site`.",
       "url": "heosat-report-site/SKILL.md",
-      "digest": "sha256:8b161cabc5fa0a1e62bbc3144d69d73ae4a112ad76509e7b7014270129dfee05",
+      "digest": "sha256:93d8a20e249235ba1e12bea0995f1c1f110689b12a9b4aba8dcda1b66157d4e1",
       "files": [
         {
           "path": "references/heosat-report.json",
@@ -298,7 +298,7 @@
         },
         {
           "path": "references/social-copy-templates.md",
-          "digest": "sha256:580c92a1e9048c6487064b846cf877a80afd236b5144a96c8bc2769e4e2e091d"
+          "digest": "sha256:8197c9ebf683b2312df403266554cabf94bd190e93fda72902874c1044bcd0dc"
         }
       ]
     },

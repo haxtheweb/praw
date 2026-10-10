@@ -43,6 +43,8 @@ All skills below live in `skills/` in this repo. The machine-readable discovery 
   - Path: `/skills/hax-content-chunking-audit/SKILL.md`
 - **hax-design-system**: DDD design system application and SimpleColors migration
   - Path: `/skills/hax-design-system/SKILL.md`
+- **hax-design-system-sync**: Maintain DDD across the ecosystem: lint and fix tokens, check contrast, regenerate DTCG tokens and references, rebuild and publish the claude.ai design system
+  - Path: `/skills/hax-design-system-sync/SKILL.md`
 - **hax-i18n-translate**: Scaffold and translate HAX web component i18n locale files at scale
   - Path: `/skills/hax-i18n-translate/SKILL.md`
 - **hax-issue-analysis**: GitHub issue fetching and analysis across the ecosystem

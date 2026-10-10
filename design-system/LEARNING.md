@@ -9,27 +9,24 @@ Learned patterns and integration knowledge for WARP when working specifically wi
 #### Comprehensive DDD Token Categories:
 ```css
 /* Typography Tokens - Discovered Usage Patterns */
---ddd-font-primary: /* Main body text font */
---ddd-font-secondary: /* Headings and emphasis font */
+--ddd-font-primary: /* Body text and headings (Roboto) */
+--ddd-font-secondary: /* Serif accent font (Roboto Slab), opt-in */
 --ddd-font-navigation: /* Navigation elements font */
---ddd-font-size-type-hierarchy: /* Complete typography scale */
---ddd-font-size-4xs through --ddd-font-size-4xl: /* Size scale */
+--ddd-font-size-6xs through --ddd-font-size-4xl, type1-s/m/l: /* Size scale; body is xxs (20px), h1 is l (40px) */
 --ddd-font-weight-light through --ddd-font-weight-black: /* Weight scale */
 
 /* Spacing Tokens - Critical for Consistency */
---ddd-spacing-0 through --ddd-spacing-32: /* 0rem to 8rem scale */
---ddd-inset-*: /* Padding variations */
---ddd-gap-*: /* Gap spacing for layouts */
+--ddd-spacing-0 through --ddd-spacing-30: /* 0 to 120px in 4px steps; use for padding, margin and gap */
 
 /* Color System - Primary Palette */
 --ddd-primary-0 through --ddd-primary-25: /* Main brand colors */
---ddd-accent-0 through --ddd-accent-25: /* Secondary brand colors */
+--ddd-accent-0 through --ddd-accent-14: /* Secondary brand colors */
 --ddd-theme-default-*: /* Semantic color names */
 
 /* Layout and Interaction */
---ddd-radius-xs through --ddd-radius-xl: /* Border radius scale */
+--ddd-radius-0, xs through xl, rounded, circle: /* Border radius scale */
 --ddd-border-sm through --ddd-border-lg: /* Border width scale */
---ddd-duration-instant through --ddd-duration-slow: /* Animation timing */
+--ddd-duration-fast, normal, slow: /* Animation timing (150/300/600ms) */
 ```
 
 #### Effective Token Usage Patterns:

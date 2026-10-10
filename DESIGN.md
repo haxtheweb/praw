@@ -20,13 +20,13 @@ colors:
   info: "#014361"
 typography:
   headline-lg:
-    fontFamily: "Roboto Slab, serif"
+    fontFamily: "Roboto, Franklin Gothic Medium, Tahoma, sans-serif"
     fontSize: 40px
     fontWeight: 700
     lineHeight: 1.2
     letterSpacing: 0.2px
   headline-md:
-    fontFamily: "Roboto Slab, serif"
+    fontFamily: "Roboto, Franklin Gothic Medium, Tahoma, sans-serif"
     fontSize: 32px
     fontWeight: 700
     lineHeight: 1.2
@@ -112,7 +112,7 @@ For theming mechanics:
 - Treat `data-primary`/`data-accent` and `data-palette` as different tools, not substitutes.
 ## Typography
 Typography follows DDD defaults:
-- **Headlines**: Roboto Slab, bold weight, strong hierarchy.
+- **Headlines**: Roboto (`--ddd-font-primary`), bold weight, strong hierarchy. Roboto Slab (`--ddd-font-secondary`) is an opt-in accent, not the heading default.
 - **Body copy**: Roboto at readable sizes and generous line-height.
 - **Labels/navigation**: Roboto Condensed with moderate letter spacing for utility text.
 

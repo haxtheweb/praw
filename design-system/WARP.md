@@ -1,6 +1,6 @@
 # Design System Rules
 
-Scoped rules for the HAX design systems: DDD (Design, Develop, Deliver — primary) and SimpleColors (legacy/supplementary). This file is read when editing design-system-path files. Authoritative rule records (Rule IDs + Scope) live in `RULES.md`. `DESIGN.md` at the repository root is the canonical design guidance for this repo; conform future design work to its tokens, CSS variable patterns, component conventions, and Do's/Don'ts.
+Scoped rules for the HAX design systems: DDD (Design, Develop, Destroy — primary) and SimpleColors (legacy/supplementary). This file is read when editing design-system-path files. Authoritative rule records (Rule IDs + Scope) live in `RULES.md`. `DESIGN.md` at the repository root is the canonical design guidance for this repo; conform future design work to its tokens, CSS variable patterns, component conventions, and Do's/Don'ts.
 
 ## Scoped rules (triggers — full text in RULES.md)
 - **DDD Design System (Primary)** (`MLhl56jNSqHvnRiAW5A2GR`) — DDD lives at `elements/d-d-d`; use it for fonts, colors, padding, spacing, margins, consistency.
@@ -14,17 +14,17 @@ Scoped rules for the HAX design systems: DDD (Design, Develop, Deliver — prima
 - Use DDD icon-sizing variables for icon height/width (not spacing variables).
 
 ### Core tokens (reference)
-- **Typography**: `--ddd-font-primary`, `--ddd-font-secondary`, `--ddd-font-size-*` (xs,s,ms,m,ml,l,xl,xxl), `--ddd-font-weight-*` (light,regular,medium,bold), `--ddd-line-height-*`.
-- **Spacing**: `--ddd-spacing-*` (0-32) for margin/padding/gaps; `--ddd-radius-*` (xs,s,m,l,xl).
-- **Colors**: `--ddd-primary-*` (0-25), `--ddd-accent-*`, `--ddd-text-*`, `--ddd-border-*`. Prefer DDD over SimpleColors.
-- **Layout**: `--ddd-breakpoint-*`; CSS Grid/Flexbox with DDD spacing tokens.
+- **Typography**: `--ddd-font-primary`, `--ddd-font-secondary`, `--ddd-font-navigation`, `--ddd-font-size-*` (6xs-4xl, type1-s/m/l), `--ddd-font-weight-*` (light,regular,medium,bold,black), `--ddd-lh-*` (120,140,150), `--ddd-ls-*`.
+- **Spacing**: `--ddd-spacing-*` (0-30, 4px steps) for margin/padding/gaps; `--ddd-radius-*` (0,xs,sm,md,lg,xl,rounded,circle).
+- **Colors**: `--ddd-primary-*` (0-25), `--ddd-accent-*` (0-14), `--ddd-theme-default-*`, `--ddd-border-*` (xs-lg). DDD has no `--ddd-text-*` tokens; use `--ddd-theme-default-coalyGray` (or `--ddd-theme-primary` in themed regions) for text. Prefer DDD over SimpleColors.
+- **Layout**: `--ddd-breakpoint-*` (write the px value literally in `@media`); CSS Grid/Flexbox with DDD spacing tokens.
 
 ### Component styling pattern
 ```css
 :host {
   display: block;
   font-family: var(--ddd-font-primary);
-  color: var(--ddd-text-primary);
+  color: var(--ddd-theme-default-coalyGray);
   margin: var(--ddd-spacing-4);
 }
 .component-header {

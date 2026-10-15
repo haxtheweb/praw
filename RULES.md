@@ -174,6 +174,11 @@ Every rule has one of four scopes:
 - **Scope**: `global`
 - **Content**: Always start new shells in the ~/Documents/git/haxtheweb/ folder because that's where all of the user's projects are located.
 
+### Node.js Version — Latest LTS
+- **Rule ID**: `92dfb3b2-1c32-42dc-89c3-0f4ae66f7227`
+- **Scope**: `global`
+- **Content**: User prefers to always use the latest Node.js LTS release across the ecosystem (currently Node 24). Apply this to `.nvmrc`/`engines` fields, CI workflow `node-version` matrices (e.g. `actions/setup-node`), Docker base images, and local tooling. When a newer LTS supersedes 24, update this rule and all ecosystem workflows/configs in step.
+
 ### Monorepo Dependency Verification
 - **Rule ID**: `4a7c9e2b-8d5f-4e1a-9c3b-7f2e6d5a4b3c`
 - **Scope**: `webcomponents`

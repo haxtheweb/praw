@@ -34,7 +34,7 @@ Use the local CLI checkout (not `npx`) — it is always latest/experimental on t
 `pressbooksToSite` · `elmslnToSite` · `haxcmsToSite` · `notionToSite` · `gitbookToSite` · `evolutionToSite` · `htmlToSite` · `docxToSite`. Example import files live in `hax-imports/`.
 
 ## Critical always-on rules (see RULES.md for full text)
-These are `global`-scope and always loaded: no ubiquity script (`SSy9vkx…`), no traditional build prompts (`pCcVD8j…`), use local `hax` CLI not npx (`ip9IudN…`), issue queue at `~/Documents/git/haxtheweb/issues` (`tJnuFVx…`), start shells in `~/Documents/git/haxtheweb/` (`bAKMWCM…`), gh CLI is installed — read its output (`edaXma3Z…`), plus the four AI coding guardrails (state assumptions, minimum viable, surgical diffs, verify outcomes). Full registry: `RULES.md`.
+These are `global`-scope and always loaded: no ubiquity script (`SSy9vkx…`), no traditional build prompts (`pCcVD8j…`), use local `hax` CLI not npx (`ip9IudN…`), issue queue at `~/Documents/git/haxtheweb/issues` (`tJnuFVx…`), start shells in `~/Documents/git/haxtheweb/` (`bAKMWCM…`), always use the latest Node.js LTS (currently 24) across configs/CI/tooling (`92dfb3b2…`), gh CLI is installed — read its output (`edaXma3Z…`), plus the four AI coding guardrails (state assumptions, minimum viable, surgical diffs, verify outcomes). Full registry: `RULES.md`.
 
 ## Community
 Discord: https://discord.gg/aCGxmRHEJP · Docs: https://haxtheweb.org/ · `man hax` for CLI docs.

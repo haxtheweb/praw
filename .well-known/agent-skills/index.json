@@ -55,11 +55,11 @@
       "files": [
         {
           "path": "references/ddd-tokens.md",
-          "digest": "sha256:e1d0dc567668a2b9a7322137c3d662c03612eed3a9dd0afb130859594fb9da46"
+          "digest": "sha256:5ec2513300d0612a23948beadbb689ee4207675a42aac6cec09a2599ae1363ea"
         },
         {
           "path": "references/simplecolors-migration.md",
-          "digest": "sha256:0598f0f9e7f2dc7b0a598a260f3a06cc028e8f9bbdabf3cd4c7db0180e54b477"
+          "digest": "sha256:c2136ce34778216f822a74fce9adda8af431704811bcac77e70595448cbf46a0"
         }
       ]
     },
@@ -76,7 +76,7 @@
         },
         {
           "path": "references/token-remediation.md",
-          "digest": "sha256:bc2c2272b0710b8e63f70441e16353491342d7c0a9048b31a32b749b0c60a2ea"
+          "digest": "sha256:2b4c41ca10d7231287759fd07c26fbf0ef745eadcae4131b8991cb1eae9a02fd"
         }
       ]
     },

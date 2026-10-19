@@ -49,10 +49,38 @@ var dddVersion = JSON.parse(fs.readFileSync(dddPkgPath, 'utf8')).version
 // ---------------------------------------------------------------- parsing --
 
 // every `--name: value; /* comment */` inside the DDDVariables block, in order
+// numeric layout scales exported from DDDLayout.js as
+// `export const Name = Object.freeze({ key: 123, ... })`, keyed by name
+function layoutScales () {
+  var file = path.join(WC, 'elements', 'd-d-d', 'lib', 'DDDLayout.js')
+  if (!fs.existsSync(file)) return {}
+  var src = fs.readFileSync(file, 'utf8')
+  var scales = {}
+  var re = /export const (\w+) = Object\.freeze\(\{([^}]*)\}\)/g
+  var m
+  while ((m = re.exec(src))) {
+    var entries = {}
+    var er = /(\w+):\s*(-?\d+(?:\.\d+)?)\s*,?/g
+    var e
+    while ((e = er.exec(m[2]))) entries[e[1]] = e[2]
+    if (Object.keys(entries).length) scales[m[1]] = entries
+  }
+  return scales
+}
+
+// DDDStyles interpolates those scales into CSS, e.g.
+// `--ddd-breakpoint-sm: ${unsafeCSS(DDDBreakpoints.sm)}px;`
+function resolveLayout (block) {
+  var scales = layoutScales()
+  return block.replace(/\$\{\s*unsafeCSS\(\s*(\w+)\.(\w+)\s*,?\s*\)\s*\}/g, function (whole, scale, key) {
+    return scales[scale] && scales[scale][key] !== undefined ? scales[scale][key] : whole
+  })
+}
+
 function parseVariables (src) {
   var start = src.indexOf('export const DDDVariables')
   var end = src.indexOf('export const DDDGlobalStyles')
-  var block = src.slice(start, end)
+  var block = resolveLayout(src.slice(start, end))
   var re = /--([\w-]+):\s*((?:[^;])+?);[ \t]*(?:\/\*\s*([\s\S]*?)\s*\*\/)?/g
   var vars = []
   var m
@@ -175,7 +203,13 @@ function family (name) {
     [/^ddd-opacity-/, 'Opacity'],
     [/^ddd-(duration|timing)-/, 'Motion'],
     [/^ddd-focus-/, 'Focus'],
-    [/^ddd-textfield-height-/, 'Text field heights']
+    [/^ddd-textfield-height-/, 'Text field heights'],
+    [/^ddd-font-mono$/, 'Font families'],
+    [/^ddd-(control-height|target)-/, 'Control sizes and touch targets'],
+    [/^ddd-state-/, 'Interaction states'],
+    [/^ddd-(measure-|theme-measure$)/, 'Measure (line length)'],
+    [/^ddd-aspect-/, 'Aspect ratios'],
+    [/^ddd-(content-width|sidebar-width|container-width|theme-(content|sidebar|container)-width|theme-layout-gutter|grid-)/, 'Layout']
   ]
   for (var i = 0; i < rules.length; i++) if (rules[i][0].test(name)) return rules[i][1]
   return 'Component defaults DDD sets'

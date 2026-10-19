@@ -27,7 +27,7 @@ For colour, check dark mode as well:
 | `--ddd-theme-default-<color>-rgb`, `<color>10/30` | `color-mix(in srgb, var(--ddd-theme-default-<color>) N%, transparent)` | DDD only ships `-rgb` channels for primaries |
 | `--ddd-font-size-sm` / `-md` / `-2xs` / `-2xl` | `-3xs` (small text) / `-s` / `-xxs` / `-xxl` | DDD's `s` is 24px, larger than the 20px body |
 | `--ddd-font-body` | `--ddd-font-primary` | |
-| `--ddd-font-monospace` | No token yet. Use a literal stack `ui-monospace, "Courier New", monospace` | |
+| `--ddd-font-monospace` | `--ddd-font-mono` | Code, keyboard input, tabular data |
 | `--ddd-line-height-*` | `--ddd-lh-120` / `140` / `150` | |
 | `--ddd-icon-l` | `--ddd-icon-lg` (56px) or `--ddd-icon-md` (48px), whichever the fallback was | |
 | `--ddd-icon-5xs` | `--ddd-icon-4xs` (16px, the smallest) | |

@@ -13,7 +13,7 @@
       "type": "skill-md",
       "description": "Transcribe and distill a purchased audio or video program (CD rips, course downloads, lecture captures) into a portable staging tree of markdown notes: per-track verbatim transcripts, per-disc distilled notes, a program-level summary, and an overview. Use when the user says \"transcribe <program>\", \"ingest this course\", \"rip and summarize these CDs\", or points at a folder of audio/video files. Outputs a staging tree that audio-program-hax can publish as a HAX site, but works standalone for any markdown vault. Personal-use transcription of content you own; always credit the publisher and keep a copyright notice.",
       "url": "audio-program-transcribe/SKILL.md",
-      "digest": "sha256:5cb02d265cf617660fb7a19b59b566453ccd818bb421711b6d7267cccf8b5fc2"
+      "digest": "sha256:dc4632bdd5f7907c7990f4d30e3dd2030a1b4790af3eac63209a3bb8d2605e22"
     },
     {
       "name": "hax-a11y-audit",
@@ -98,7 +98,7 @@
       "type": "skill-md",
       "description": "Fetch, analyze, and summarize GitHub issues across the HAX ecosystem using the unified issue queue. Use when tracking bugs, planning sprints, generating weekly productivity reports, or creating social media content from project activity.",
       "url": "hax-issue-analysis/SKILL.md",
-      "digest": "sha256:e49b0b739acf6e49000e7ce9849fec2e52b4da55089e3a24d8d98ab3b8c7c99f"
+      "digest": "sha256:2772b384ce332cb463cbfbacd26608f9571dc4515958d55730cd12716853143c"
     },
     {
       "name": "hax-issue-research",
@@ -119,7 +119,7 @@
       "type": "skill-md",
       "description": "Convert OpenStax books into HAX sites using the openstax2hax plugin. Use when the user wants to import, inspect, or prepare an OpenStax book for conversion into a HAX site, or when working with OpenStax source files and HAX handoff prompts.",
       "url": "hax-openstax2hax/SKILL.md",
-      "digest": "sha256:343fc80cff469534389c52594b7473deca323ef4e3ab37f36dda96b5e77ea955"
+      "digest": "sha256:7d53eca4a1830639ea85a2793340c0de86771bf446f5d7bd8c96bdf3803824b5"
     },
     {
       "name": "hax-pattern-library-audit",
@@ -146,14 +146,14 @@
       "type": "skill-md",
       "description": "Read and navigate an existing HAXcms site from its portable files. Use when an agent lands on a HAXsite or HAXcms deployment and needs to understand site.json (JSON Outline Schema), resolve page content in pages/, find assets in files/, locate the theme, compute basePath, or discover the web component registry (wc-registry.json) and the magic-script autoloader. Load this FIRST when working with any HAX site so the rest of the ecosystem makes sense.",
       "url": "hax-site-structure/SKILL.md",
-      "digest": "sha256:97165add1f1cf49a2754864d808e50a33953d85ad15c443fe2f7fd49a8297130"
+      "digest": "sha256:88ddc1e37de23261bc5e77dead53a7c45055b2422569ca09f9d2e9349cea430d"
     },
     {
       "name": "hax-tutorial-site",
       "type": "skill-md",
       "description": "Create a published HAXcms tutorial site from a YouTube video and a DOCX transcript (with screenshots and timestamps), then generate LinkedIn / X posts and a YouTube SEO description. Use when the user says \"create a tutorial site for this\", \"run the hax tutorial skill\", \"hax tutorial skill\", \"make a tutorial site from this docx and youtube\", or \"build a tutorial site from this video\", or provides a YouTube URL plus a .docx file and wants a single-page tutorial published to surge with social copy — even if they don't say \"skill\" or \"tutorial site\". \"hax tutorial skill\" is an alias for \"make a HAXcms site\" so the skill is discovered faster. Also use when the user references the `hax-tutorial` skeleton or `ai-single-site-tutorials` directory to turn a video + transcript into a site. The skeleton is bundled (references/hax-tutorial.json) and used via `--skeleton-file`, so no personal-profile install is required and the skill is portable.",
       "url": "hax-tutorial-site/SKILL.md",
-      "digest": "sha256:c811f3d2aa9781b634f88b2197019335b4c1be723bedfcab8b7387f0595f9e3d",
+      "digest": "sha256:5385faaf4e7436d568e31dc495130327b167d481970a675eb615b1e7e06ce9c9",
       "files": [
         {
           "path": "references/author-profile.json",
@@ -261,7 +261,7 @@
       "type": "skill-md",
       "description": "Run BookLooky's Looky Rating System (LRS) content rating and minimum-age recommendation on a HAXcms site's aggregated content — either a local site checkout or a live published URL like btopro.com — entirely through the invoking agent's own reasoning, no API key or network call to an LLM required. Use this whenever the user asks to \"rate this HAXcms site\", \"run an LRS scan on my site/domain\", \"what age is btopro.com appropriate for\", \"check this site for violence/romance/language/etc. content\", \"score this site the way booklooky does\", or gives a HAX site URL/path and asks for a content rating or age recommendation. Distinct from booklooky-lrs-rater, which rates a single provided transcript/manuscript — this skill's job is reading a HAXcms site's llms.txt manifest to assemble that transcript first.",
       "url": "haxcms-lrs-rater/SKILL.md",
-      "digest": "sha256:e6e7226770ceb9d1d942ab2967c813bf8c48c4252bb67e083076184422937234",
+      "digest": "sha256:edd1a3db7a8e4e03e9e9ad87224d55def51ac4a0eb8f872158a9a4c0679afce0",
       "files": [
         {
           "path": "references/age-recommendation-prompt.md",

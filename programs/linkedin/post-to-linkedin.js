@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
-const { execSync } = require('child_process');
+const { execFileSync } = require('child_process');
 
 class LinkedInPoster {
   constructor() {
@@ -284,12 +284,20 @@ Building sustainable #WebComponents!
     console.log('─'.repeat(50));
     
     // Try to copy to clipboard
+    // Security best practice: pass content to xclip via stdin using an argument array instead of a
+    // shell pipe. Interpolating content into `echo "..."` allowed $(...) and backticks inside the
+    // content to execute (command injection) — AI/untrusted-generated content must never be
+    // shell-interpolated.
     try {
       const fs = require('fs');
-      const { execSync } = require('child_process');
-      
+
       fs.writeFileSync('/tmp/linkedin-post.txt', content);
-      execSync('echo "' + content.replace(/"/g, '\\"') + '" | xclip -selection clipboard', { stdio: 'ignore' });
+      execFileSync('xclip', ['-selection', 'clipboard'], {
+        input: content,
+        // stdout/stderr ignored so xclip's detached daemon cannot hold our pipes open
+        // (same behavior as the old `| xclip` pipe)
+        stdio: ['pipe', 'ignore', 'ignore'],
+      });
       console.log('📋 Content copied to clipboard!');
     } catch (clipError) {
       console.log('📋 Content ready for manual copy:');
@@ -302,9 +310,9 @@ Building sustainable #WebComponents!
     console.log('4. Click "Post" to publish');
     
     // Try to open LinkedIn
+    // Security best practice: argument-array execFileSync avoids any shell interpretation.
     try {
-      const { execSync } = require('child_process');
-      execSync('xdg-open "https://www.linkedin.com/feed/"', { stdio: 'ignore' });
+      execFileSync('xdg-open', ['https://www.linkedin.com/feed/'], { stdio: 'ignore' });
       console.log('\n🌐 LinkedIn opened in your browser!');
     } catch (openError) {
       console.log('\n🌐 Please open: https://www.linkedin.com/feed/');

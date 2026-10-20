@@ -109,6 +109,13 @@
       ]
     },
     {
+      "name": "hax-element-demo",
+      "type": "skill-md",
+      "description": "\"Build a throwaway demo of a HAX web component running inside the real HAX editor (h-a-x) as static files, to check the element is wired into the app store and editable. Use when asked to demo, preview, or play with a new or changed element in HAX, or to prove its haxProperties and light-DOM save round trip.\"",
+      "url": "hax-element-demo/SKILL.md",
+      "digest": "sha256:58de31c4d6dde85ecb2140ff41d6ee023d3aad77d54ef859fc6548066532026c"
+    },
+    {
       "name": "hax-i18n-translate",
       "type": "skill-md",
       "description": "\"Scaffold and translate HAX web component i18n locale files: extract this.t strings or haxProperties text, stub ~100 languages, translate, validate. Use for \\\"translate <element>\\\", \\\"i18n my component\\\" or work on an element's locales/ folder.\"",

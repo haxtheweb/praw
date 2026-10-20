@@ -42,5 +42,7 @@ System-level calls (site imports, file-format conversions, operations not scoped
 ## Site quality
 Performance (lazy loading, caching, minimal deps) · Accessibility (heading hierarchy, skip links, screen-reader/keyboard, contrast) · SEO (meta descriptions, semantic structure, structured data, sitemap).
 
+- **HAXiam**: check the `config->iam` path in endpoint/auth changes; enforce user/path alignment; verify in both backends (rule `1286150d…`).
+
 ---
 *Scoped to haxcms. Full rule registry + IDs: `RULES.md`. Always-on global rules apply in addition.*

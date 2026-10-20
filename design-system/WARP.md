@@ -49,5 +49,8 @@ Scoped rules for the HAX design systems: DDD (Design, Develop, Destroy — prima
 4. **Accessibility**: color contrast meets standards; dark-mode compliance.
 5. **Performance**: minimal custom CSS beyond tokens.
 
+## Palettes
+`data-primary`/`data-accent` = one color; `data-palette` = multi-color palette. `DDDPaletteStyles` uses `[data-palette="N"]` selectors, so it must be in document-level styles (`DDDSuper` or the global theme stylesheet), not shadow-only (rule `447f8d9b…`).
+
 ---
 *Scoped to design-system. Full rule registry + IDs: `RULES.md`. Always-on global rules apply in addition.*

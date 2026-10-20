@@ -291,7 +291,12 @@ Building sustainable #WebComponents!
     try {
       const fs = require('fs');
 
-      fs.writeFileSync('/tmp/linkedin-post.txt', content);
+      // Private per-run directory (mkdtemp creates it 0700) and a 0600 file, instead of a
+      // predictable world-readable /tmp path that other users could pre-create or symlink.
+      const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'linkedin-post-'));
+      const postFile = path.join(tmpDir, 'linkedin-post.txt');
+      fs.writeFileSync(postFile, content, { mode: 0o600, flag: 'wx' });
+      console.log(`📝 Post text saved to ${postFile}`);
       execFileSync('xclip', ['-selection', 'clipboard'], {
         input: content,
         // stdout/stderr ignored so xclip's detached daemon cannot hold our pipes open

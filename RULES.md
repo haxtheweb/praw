@@ -209,6 +209,11 @@ Every rule has one of four scopes:
 - **Scope**: `global`
 - **Content**: Define concrete success criteria and verify outcomes using project-appropriate checks (command output, linting, runtime validation, or existing tests when applicable), then report what was validated.
 
+### AI Guardrails — Pre-Submission Checks
+- **Rule ID**: `186fad44-1725-470e-80a7-903ea54fce1a`
+- **Scope**: `global`
+- **Content**: Before pushing code or opening a PR, run the repo's `precheck` script (`npm run precheck`; `yarn precheck` in `webcomponents`), fix every failure it reports, and re-run until it passes (`precheck:fix` repairs formatting and fixable lint). Repos with a `precheck` script (`create`, `haxcms-nodejs`, `webcomponents`) also block `git push` and `gh pr create` until it passes via a Claude Code hook; do not bypass it by loosening lint or format configs, adding ignore entries, or skipping hooks. In a repo without `precheck`, run its lint and format-check scripts on the files you changed. After pushing, check the PR's CI results (`gh pr checks`, or the REST API where GraphQL is unavailable) and, if a check fails, read its logs, fix the cause, and push again.
+
 ### HAX Skill Lookup Locations
 - **Rule ID**: `c089870b608c482a847ccc`
 - **Scope**: `global`

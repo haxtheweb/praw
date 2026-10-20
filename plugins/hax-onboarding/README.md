@@ -8,10 +8,11 @@ assistant the full command surface for everything that comes after.
 ## What's inside
 
 - **Auto-install hook** — a `SessionStart` hook checks whether `hax` is on your
-  `PATH`. If it's missing (and you don't have a local dev checkout), it installs
-  `@haxtheweb/create` globally (one time). If a local development copy is detected
+  `PATH`. If it's missing (and you don't have a local dev checkout), it tells you how to
+  install `@haxtheweb/create`; it only installs it globally (one time) if you opt in
+  with `export HAX_PLUGIN_AUTOINSTALL=1`. If a local development copy is detected
   under `~/Documents/git/haxtheweb/create`, it skips the install and uses that
-  instead. Opt out with `export HAX_PLUGIN_NO_AUTOINSTALL=1`.
+  instead.
 - **`hax` skill** — full command-surface knowledge (web components, sites,
   content/node ops, imports, skeletons, publishing, skills management) plus HAX
   conventions (JavaScript-only, DDD design tokens, `haxProperties`, no optional

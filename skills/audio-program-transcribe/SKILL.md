@@ -1,15 +1,6 @@
 ---
 name: audio-program-transcribe
-description: >
-  Transcribe and distill a purchased audio or video program (CD rips, course
-  downloads, lecture captures) into a portable staging tree of markdown notes:
-  per-track verbatim transcripts, per-disc distilled notes, a program-level
-  summary, and an overview. Use when the user says "transcribe <program>",
-  "ingest this course", "rip and summarize these CDs", or points at a folder of
-  audio/video files. Outputs a staging tree that audio-program-hax can publish
-  as a HAX site, but works standalone for any markdown vault. Personal-use
-  transcription of content you own; always credit the publisher and keep a
-  copyright notice.
+description: "Transcribe and distill an owned audio or video program (CD rips, course downloads, lectures) into a markdown staging tree of per-track transcripts, per-disc notes and a summary. Use for \"transcribe this program\" or \"ingest this course\". Personal use; credit the publisher."
 version: 0.1.0
 license: Apache-2.0
 metadata:

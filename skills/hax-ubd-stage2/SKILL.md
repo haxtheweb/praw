@@ -1,12 +1,6 @@
 ---
 name: hax-ubd-stage2
-description: >
-  UbD Stage 2 — think like an assessor: build a scrapbook of acceptable evidence,
-  frame ≥1 GRASPS performance task, map the six facets to rubric criteria, enforce
-  problem-not-exercise, and run the 7-question validity self-test. Use when the
-  user says "what evidence do I need", "design a performance task", "build a
-  GRASPS task", "what assessments prove understanding", or "is this assessment
-  valid". Encodes UbD Ch. 7–8. The most distinctive UbD skill.
+description: "UbD Stage 2: build the evidence scrapbook, a GRASPS performance task, facet-mapped rubric and validity self-test. Use for \"what evidence do I need\" or \"design a performance task\"."
 version: 1.0.0
 license: MIT
 metadata:

@@ -1,6 +1,6 @@
 ---
 name: hax-design-system-sync
-description: Maintain the DDD design system across the HAX ecosystem and keep every derived copy in step with the source. Lint for unknown or broken --ddd-* tokens and fix them, check WCAG contrast of DDD's pairings, regenerate the DTCG token export and the hax-design-system skill references, rebuild the claude.ai DDD Design System with the sync script, open the pull requests, and publish once merged. Use when a maintainer says "sync the design system", "run the DDD maintenance", "republish the DDD design system", "fix the unknown DDD tokens", "the token lint is failing", "update the design tokens", "regenerate ddd-tokens.md", or after DDDStyles.js, SimpleColors or a DDD-based element changes — even if they don't say "skill" or "sync".
+description: "Maintain the DDD design system and its derived copies: lint --ddd-* tokens, check contrast, regenerate the DTCG export and skill references, republish the claude.ai design system, open PRs. Use for \"sync the design system\" or \"the token lint is failing\"."
 version: 1.0.0
 license: Apache-2.0
 metadata:

@@ -1,12 +1,6 @@
 ---
 name: hax-ubd-stage1
-description: >
-  UbD Stage 1 — gain clarity on desired results: unpack standards into big ideas,
-  enduring understandings (full-sentence propositions), overarching + topical
-  essential questions, knowledge/skills, and predictable misunderstandings.
-  Use when the user says "what are the big ideas in X", "write enduring
-  understandings", "craft essential questions", "unpack this standard", or
-  "what misconceptions should I anticipate". Encodes UbD Ch. 3–6.
+description: "UbD Stage 1: unpack standards into big ideas, enduring understandings, essential questions, knowledge/skills and misconceptions. Use for \"what are the big ideas in X\" or \"write enduring understandings\"."
 version: 1.0.0
 license: MIT
 metadata:

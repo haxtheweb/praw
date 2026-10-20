@@ -1,12 +1,6 @@
 ---
 name: hax-ubd-unit-audit
-description: >
-  READ-ONLY diagnostic: review an existing HAX site/unit against Understanding by
-  Design standards and emit a report with actionable HAX remediation. Use when the
-  user says "review this unit for understanding", "is my course backward-designed",
-  "audit my HAX site against UbD", "are my assessments aligned", or "does this unit
-  have big ideas" — even if they don't say "UbD". Diagnoses only; hands off to the
-  stage skills and hax-claudehax for remediation.
+description: "READ-ONLY review of an existing HAX unit against Understanding by Design with HAX remediation. Use for \"is my course backward-designed\" or \"are my assessments aligned\". Hands off to the stage skills."
 version: 1.0.0
 license: MIT
 metadata:

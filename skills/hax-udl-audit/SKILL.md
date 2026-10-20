@@ -1,12 +1,6 @@
 ---
 name: hax-udl-audit
-description: >
-  READ-ONLY diagnostic: review a HAX site/page against Universal Design for Learning (UDL) 3.0 —
-  multiple means of Engagement, Representation, and Action & Expression — and emit a report with
-  actionable HAX web-component remediation. Use when the user says "is this accessible to all
-  learners", "audit for UDL", "does this page reach everyone", "add multiple means of expression",
-  "my course is all reading and video with no interaction", or "universal design" — even if they
-  don't say "UDL". Diagnoses only; hands off to hax-claudehax / hax-site-building for remediation.
+description: "READ-ONLY audit of a HAX page against UDL 3.0 (Engagement, Representation, Action & Expression) with HAX component remediation. Use for \"audit for UDL\" or \"does this page reach everyone\"."
 version: 1.0.0
 license: MIT
 metadata:

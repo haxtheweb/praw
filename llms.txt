@@ -91,6 +91,12 @@ All skills below live in `skills/` in this repo. The machine-readable discovery 
   - Path: `/skills/oerschema-audit/SKILL.md`
 - **oerschema-integration-finder**: Read-only scan of webcomponents/themes/backends/plugins for missing OER Schema emission/consumption
   - Path: `/skills/oerschema-integration-finder/SKILL.md`
+- **hax-backend-dev**: Keep haxcms-nodejs and haxcms-php in step: mirror routes and OpenAPI specs, use @site/ or @system/ MFR namespaces
+  - Path: `/skills/hax-backend-dev/SKILL.md`
+- **hax-testing**: Find and run the right tests per HAX repo and write the test for a new endpoint
+  - Path: `/skills/hax-testing/SKILL.md`
+- **hax-release-prep**: Verify locally and write the maintainer handoff for the ubiquity build and publish steps agents must never run
+  - Path: `/skills/hax-release-prep/SKILL.md`
 
 Repo-local project skills (not in the published `skills/` set): **grad-blooms**, **hax-theme-builder**, **youtube-vtt** — under `.agents/skills/`.
 

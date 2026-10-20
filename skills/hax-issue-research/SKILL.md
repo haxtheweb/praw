@@ -1,15 +1,6 @@
 ---
 name: hax-issue-research
-description: >
-  Research a GitHub issue in the HAX ecosystem, propose an implementation plan, and capture that plan
-  back on the issue as a comment labeled "Plan Created" so the work can be picked up later. Use this
-  skill whenever the user supplies a GitHub issue URL and wants it investigated — e.g. "research this
-  issue", "look into <github URL>", "write a plan for this issue", "what would it take to fix <URL>",
-  "scope this issue", "capture a plan on this issue", or "investigate <URL> and propose an approach".
-  Also use it when the user pastes an issue link and asks "is this a bug", "how should we approach
-  this", or "can you draft a plan" — even if they do not say "research" or "skill". The skill reads
-  the issue, investigates the real codebase, presents a plan for confirmation, then posts the plan as
-  an issue comment and applies the "Plan Created" label.
+description: "Research a GitHub issue in the HAX ecosystem, propose a plan, and post it as a \"Plan Created\" comment. Use when given an issue URL to \"research\", \"scope\" or \"write a plan for\"; presents the plan for confirmation before posting."
 version: 1.0.0
 license: Apache-2.0
 metadata:

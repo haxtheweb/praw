@@ -1,11 +1,6 @@
 ---
 name: hax-content-chunking-audit
-description: >
-  Audit a HAX site page (JSON Outline Schema node, raw HTML in pages/, or markdown) against
-  cognitive-load and content-chunking instructional-design standards, then return actionable HAX
-  web-component remediation. Use when the user asks to review a course page, textbook module, or
-  HAX site for readability, "wall of text", overly long sections, list fatigue, media saturation,
-  microlearning chunking, or to "make this page less overwhelming" — even if they don't say "audit".
+description: "Audit a HAX page against cognitive-load and chunking standards and return HAX remediation. Use for \"wall of text\", overly long sections, list fatigue or \"make this page less overwhelming\"."
 version: 1.0.0
 license: MIT
 metadata:

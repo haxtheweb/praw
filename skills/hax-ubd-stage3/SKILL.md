@@ -1,12 +1,6 @@
 ---
 name: hax-ubd-stage3
-description: >
-  UbD Stage 3 — plan learning experiences via WHERETO, derived from Stages 1+2.
-  Enforce uncoverage over coverage and build feedback/revision cycles. Use when
-  the user says "sequence this unit", "plan the learning activities", "WHERETO
-  my unit", "how do I teach for understanding", or "organize these pages".
-  Encodes UbD Ch. 9–10. Stage 3 points AT Stage 2 evidence; it never invents new
-  endpoints.
+description: "UbD Stage 3: plan learning experiences with WHERETO, derived from Stages 1 and 2. Use for \"sequence this unit\" or \"plan the learning activities\"; points at Stage 2 evidence and never invents endpoints."
 version: 1.0.0
 license: MIT
 metadata:

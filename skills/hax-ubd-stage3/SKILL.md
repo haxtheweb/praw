@@ -119,5 +119,5 @@ Full map (all stages): `../hax-ubd-backward-design/references/ubd-element-map.md
 - `../hax-ubd-backward-design/references/manifest-schema.md` — `stage3` fields
 - `../hax-ubd-backward-design/references/ubd-element-map.md` — WHERETO component map
 - `../hax-ubd-backward-design/references/design-standards.md` — standards 10–12
-- PRAW RULES.md: `~/Documents/git/haxtheweb/praw/RULES.md`
+- PRAW RULES.md: `https://github.com/haxtheweb/praw/blob/main/RULES.md`
 - Source: Wiggins & McTighe (2005), *UbD* Ch. 9–10.

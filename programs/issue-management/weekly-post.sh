@@ -34,7 +34,7 @@ print_warning() {
 
 # Check if we're in the right directory
 if [[ ! -f "fetch_issues.sh" ]]; then
-    print_error "Not in the issues directory. Please run from ~/Documents/git/haxtheweb/issues/"
+    print_error "Not in the issues directory. Run this from a checkout of https://github.com/haxtheweb/issues"
     exit 1
 fi
 

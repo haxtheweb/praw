@@ -186,5 +186,5 @@ This audit is the diagnosis step. Apply fixes with the related skills and the `h
 - `../hax-ubd-backward-design/references/ubd-element-map.md` — remediation component map (real tags only)
 - `../hax-ubd-backward-design/references/validity-self-test.md` — run on each assessment
 - `../hax-ubd-backward-design/references/manifest-schema.md` — for reconstructing/validating a partial manifest
-- PRAW RULES.md: `~/Documents/git/haxtheweb/praw/RULES.md`
+- PRAW RULES.md: `https://github.com/haxtheweb/praw/blob/main/RULES.md`
 - Source: Wiggins & McTighe (2005), *UbD* — design standards (Appendix) + Fig 8.5.

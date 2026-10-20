@@ -69,23 +69,17 @@ expensive to plan against the wrong target.
 The value of this skill is a plan that references actual files and actual current behavior, not
 generic advice. Investigate:
 
-- **Map the repo to a local path.** HAX repos live under `~/Documents/git/haxtheweb/`. Common map:
-  - `webcomponents` → `webcomponents/` (the monorepo; elements under `elements/`)
-  - `haxcms-nodejs` → `haxcms-nodejs/`
-  - `haxcms-php` → `haxcms-php/`
-  - `create` → `create/` (the `hax` CLI)
-  - `desktop` → `desktop/`
-  - `hax11ty` → `hax11ty/`
-  - `docs` → `docs/`
-  - `open-apis` → `open-apis/`
-  - `hax-schema` / `hax-element-schema` → same names
-  - `issues` → `issues/` (unified issue queue)
-  - If unsure, `ls ~/Documents/git/haxtheweb/` to confirm the directory name.
+- **Locate the repo.** Every HAX repo is public at `https://github.com/haxtheweb/<repo>`. Use an existing
+  local clone if there is one; otherwise read or clone it from GitHub. Common repos:
+  - `webcomponents` (the monorepo; elements under `elements/`)
+  - `haxcms-nodejs`, `haxcms-php`, `create` (the `hax` CLI), `desktop`, `hax11ty`
+  - `docs`, `open-apis`, `hax-schema`, `hax-element-schema`
+  - `issues` (the unified issue queue)
 - **Search the codebase.** Use `grep` for exact symbols/strings and `codebase_semantic_search` for
   conceptual lookups. Many HAX repos are indexed — pass the matching `codebase_path` when available.
   Read the relevant source files (not `build/` or `node_modules/`).
 - **Check linked references.** `gh issue view <url> --comments` surfaces cross-references; read
-  linked issues/PRs that change the scope. Check the unified issue queue at `~/Documents/git/haxtheweb/issues`
+  linked issues/PRs that change the scope. Check the unified issue queue at <https://github.com/haxtheweb/issues>
   for related/duplicate issues.
 - **Note governing constraints.** Scan the user's rules and existing skills that bear on the issue
   (see the "Plan considerations checklist" below) so the plan respects them.

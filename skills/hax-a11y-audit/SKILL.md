@@ -328,6 +328,6 @@ This audit is the diagnosis step. Apply fixes with the related skills and the `h
 ## References
 
 - `references/a11y-element-map.md` — WCAG failure → HAX component swap / plain-HTML fix map (verified tags only; the iron rule)
-- PRAW RULES.md: `~/Documents/git/haxtheweb/praw/RULES.md`
+- PRAW RULES.md: `https://github.com/haxtheweb/praw/blob/main/RULES.md`
 - W3C (2008). *Web Content Accessibility Guidelines (WCAG) 2.0*. https://www.w3.org/TR/WCAG20/
 - W3C (2023). *WCAG 2.0 Quick Reference*. https://www.w3.org/WAI/WCAG20/quickref/

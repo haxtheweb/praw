@@ -142,5 +142,5 @@ Page-content handoff: {one line per page → component list}
 - `references/ubd-element-map.md` — consolidated UbD → HAX element map (single source of truth)
 - `references/design-standards.md` — the 12 UbD design standards + rating → diagnosis mapping
 - `references/validity-self-test.md` — the 7-question assessment validity self-test
-- PRAW RULES.md: `~/Documents/git/haxtheweb/praw/RULES.md`
+- PRAW RULES.md: `https://github.com/haxtheweb/praw/blob/main/RULES.md`
 - Source: Wiggins, G. & McTighe, J. (2005). *Understanding by Design* (Expanded 2nd ed.). ASCD.

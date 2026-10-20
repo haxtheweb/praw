@@ -23,7 +23,11 @@
 # never inside the projects tree — so local-first assessment never writes
 # into the checkout. The checkout is read-only: static review only.
 #
-# Re-runs are safe: if the scratch dir already contains a clone, it is reused.
+# The scratch dir is created with mktemp -d (mode 0700, unpredictable name,
+# /tmp/heosat-<slug>-XXXXXX), so another local user cannot pre-create it or
+# plant a repo in it. To resume an earlier assessment, pass its directory via
+# HEOSAT_SCRATCH=<dir>: it must be a real directory (not a symlink) owned by
+# the current user; if it already contains repo/.git the clone is reused.
 # Clone depth defaults to 50 (recent history is evidence for operations and
 # cadence questions); override with HEOSAT_CLONE_DEPTH (0 = full clone).
 #
@@ -34,6 +38,21 @@ set -euo pipefail
 target="${1:?usage: clone-repo.sh <github-url | owner/repo | bare-haxtheweb-name | git-url | local-path>}"
 depth="${HEOSAT_CLONE_DEPTH:-50}"
 haxroot="${HEOSAT_HAXTHEWEB_ROOT:-$HOME/Documents/git/haxtheweb}"
+
+# Create (or validate a user-supplied) scratch directory; prints its path.
+make_scratch() {
+  local slug="$1" safe
+  safe="$(printf '%s' "$slug" | tr -c 'A-Za-z0-9._-' '-')"
+  if [ -n "${HEOSAT_SCRATCH:-}" ]; then
+    if [ -L "$HEOSAT_SCRATCH" ] || [ ! -d "$HEOSAT_SCRATCH" ] || [ ! -O "$HEOSAT_SCRATCH" ]; then
+      echo "error: HEOSAT_SCRATCH must be a real directory owned by you: $HEOSAT_SCRATCH" >&2
+      exit 1
+    fi
+    printf '%s' "$HEOSAT_SCRATCH"
+  else
+    mktemp -d "${TMPDIR:-/tmp}/heosat-${safe}-XXXXXX"
+  fi
+}
 
 # --- shared inventory (works on a clone or a local checkout) -----------------
 print_inventory() {
@@ -64,7 +83,9 @@ print_inventory() {
 # dir stays in /tmp so assessment artifacts never land inside the projects tree.
 use_local() {
   local repo_dir="$1" slug="$2" tag="$3"
-  echo "SCRATCH=/tmp/heosat-$(printf '%s' "$slug" | tr '/' '-')"
+  local scratch_dir
+  scratch_dir="$(make_scratch "$slug")"
+  echo "SCRATCH=$scratch_dir"
   echo "REPO=$repo_dir"
   echo "REUSED=$tag"
   print_inventory "$repo_dir" "$slug"
@@ -117,7 +138,7 @@ case "$slug" in
     ;;
 esac
 
-scratch="/tmp/heosat-$(printf '%s' "$slug" | tr '/' '-')"
+scratch="$(make_scratch "$slug")"
 repo_dir="$scratch/repo"
 
 # --- Clone (or reuse) -----------------------------------------------------------
@@ -126,7 +147,6 @@ if [ -d "$repo_dir/.git" ]; then
   echo "REPO=$repo_dir"
   echo "REUSED=clone"
 else
-  mkdir -p "$scratch"
   if [ "$depth" = "0" ]; then
     git clone "$clone_url" "$repo_dir" --quiet
   else

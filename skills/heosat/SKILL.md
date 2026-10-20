@@ -55,12 +55,12 @@ Accept a GitHub URL (`https://github.com/owner/repo`, with or without `.git` or 
 bash scripts/clone-repo.sh https://github.com/owner/repo
 ```
 
-This clones (depth 50, override with `HEOSAT_CLONE_DEPTH=0` for a full clone) into `/tmp/heosat-<owner>-<repo>/repo` and prints:
+This clones (depth 50, override with `HEOSAT_CLONE_DEPTH=0` for a full clone) into `repo/` inside a fresh private scratch directory (`mktemp -d`, `/tmp/heosat-<owner>-<repo>-XXXXXX`; reuse an earlier one with `HEOSAT_SCRATCH=<dir>`) and prints:
 
 - `SCRATCH=...` / `REPO=...` — the scratch dir and repo path (re-runs reuse an existing clone)
 - quick inventory: HEAD, default branch, tracked/dirty file counts, last commit, top-level layout, and which key files (README, LICENSE, CONTRIBUTING, GOVERNANCE, SECURITY.md, ...) exist
 
-**HAXtheweb local-first:** when the target names a HAXtheweb ecosystem project — a bare name (`webcomponents`), `haxtheweb/<repo>`, or a `github.com/haxtheweb/<repo>` URL — and a local checkout exists under `~/Documents/git/haxtheweb/<repo>` (override with `HEOSAT_HAXTHEWEB_ROOT`), the clone step is SKIPPED and the local checkout is assessed in place: `REUSED=local-haxtheweb`, `REPO=<local path>`. The scratch dir (`scores.json`, `report.md`) still lives at `/tmp/heosat-haxtheweb-<repo>/` — never inside the projects tree. Assess the local state as-is, including any uncommitted changes (`DIRTY_FILES` in the inventory), and keep the checkout strictly read-only: never modify the working copy. A HAXtheweb target with no local checkout clones from GitHub normally.
+**HAXtheweb local-first:** when the target names a HAXtheweb ecosystem project — a bare name (`webcomponents`), `haxtheweb/<repo>`, or a `github.com/haxtheweb/<repo>` URL — and a local checkout exists under `~/Documents/git/haxtheweb/<repo>` (override with `HEOSAT_HAXTHEWEB_ROOT`), the clone step is SKIPPED and the local checkout is assessed in place: `REUSED=local-haxtheweb`, `REPO=<local path>`. The scratch dir (`scores.json`, `report.md`) still lives in a `mktemp -d` directory under `/tmp` (the `SCRATCH=` line) — never inside the projects tree. Assess the local state as-is, including any uncommitted changes (`DIRTY_FILES` in the inventory), and keep the checkout strictly read-only: never modify the working copy. A HAXtheweb target with no local checkout clones from GitHub normally.
 
 The scratch layout for the rest of the run:
 

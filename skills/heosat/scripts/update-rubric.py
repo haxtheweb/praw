@@ -7,6 +7,7 @@ assets/js/heosat.js. This script fetches that JS (or reads a local copy), peels
 out the data object, and writes:
 
   references/rubric.json  — raw extracted data + provenance
+  references/rubric.source.sha256 — sha256 of the fetched/read JS (review it)
   references/rubric.md    — readable rubric (scale, sections, questions,
                             evidence checklists, learn links)
 
@@ -15,6 +16,7 @@ Usage:
   python3 update-rubric.py path/to/heosat.js  # use an already-downloaded copy
 """
 
+import hashlib
 import json
 import re
 import sys
@@ -251,11 +253,16 @@ def render_markdown(rubric, fetched_from, fetched_at):
 
 def main():
     if len(sys.argv) > 1:
-        js_text = Path(sys.argv[1]).read_text(encoding="utf-8")
+        js_bytes = Path(sys.argv[1]).read_bytes()
     else:
         req = urllib.request.Request(HEOSAT_JS_URL, headers={"User-Agent": "heosat-skill/1.0"})
         with urllib.request.urlopen(req, timeout=30) as res:
-            js_text = res.read().decode("utf-8")
+            js_bytes = res.read()
+
+    # Record the digest of exactly what was consumed so a reviewer can see when
+    # upstream content changed (the fetched JS is untrusted input).
+    js_sha256 = hashlib.sha256(js_bytes).hexdigest()
+    js_text = js_bytes.decode("utf-8")
 
     data = extract_data(js_text)
     data = apply_local_extensions(data)
@@ -285,10 +292,19 @@ def main():
         render_markdown(data, HEOSAT_JS_URL, fetched_at) + "\n", encoding="utf-8"
     )
 
+    sidecar = REFS_DIR / "rubric.source.sha256"
+    previous = sidecar.read_text(encoding="utf-8").split()[0] if sidecar.exists() and sidecar.read_text(encoding="utf-8").split() else None
+    source_label = sys.argv[1] if len(sys.argv) > 1 else HEOSAT_JS_URL
+    sidecar.write_text(f"{js_sha256}  {source_label}\n", encoding="utf-8")
+    print(f"source sha256: {js_sha256}")
+    if previous and previous != js_sha256:
+        print(f"  WARNING: differs from previous sync ({previous}) — review the diff of references/ before committing")
+
     print(f"HEOSAT rubric synced: {data['version']}")
     print(f"  sections: {len(data['sections'])}, questions: {questions} (includes local Apereo-gap extensions GV6/GV7)")
     print(f"  wrote {REFS_DIR / 'rubric.json'}")
     print(f"  wrote {REFS_DIR / 'rubric.md'}")
+    print(f"  wrote {sidecar}")
 
 
 if __name__ == "__main__":

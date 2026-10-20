@@ -5,9 +5,10 @@
 # Makes sure the HAX CLI (`hax`, shipped by @haxtheweb/create) is available.
 #   - If `hax` is already on PATH, reports its version and exits.
 #   - If a local development copy is detected, reports and exits (no global install).
-#   - If it is missing, installs @haxtheweb/create globally with npm.
+#   - If it is missing, tells the user how to install it. It only installs
+#     @haxtheweb/create globally with npm when explicitly opted in.
 #
-# Opt out of auto-install:  export HAX_PLUGIN_NO_AUTOINSTALL=1
+# Opt in to auto-install:  export HAX_PLUGIN_AUTOINSTALL=1
 # Override the local dev path:  export HAX_DEV_PATH=/path/to/create
 #
 # This hook is best-effort and always exits 0. Anything it prints on stdout is surfaced
@@ -51,9 +52,9 @@ if [ -f "${HAX_DEV_PATH}/dist/create.js" ]; then
   exit 0
 fi
 
-# --- Respect opt-out. -------------------------------------------------------
-if [ "${HAX_PLUGIN_NO_AUTOINSTALL:-0}" = "1" ]; then
-  echo "HAX CLI not found; auto-install disabled (HAX_PLUGIN_NO_AUTOINSTALL=1). Install with: ${MANUAL_INSTALL}"
+# --- Auto-install is opt-in. -------------------------------------------------
+if [ "${HAX_PLUGIN_AUTOINSTALL:-0}" != "1" ]; then
+  echo "HAX CLI not found. Install with: ${MANUAL_INSTALL} (or set HAX_PLUGIN_AUTOINSTALL=1 to let this plugin install it on session start)."
   exit 0
 fi
 

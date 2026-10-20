@@ -210,7 +210,9 @@ Ready to start setup? Press Enter to continue...
       createdAt: new Date().toISOString()
     };
     
-    fs.writeFileSync(this.configPath, JSON.stringify(configData, null, 2));
+    // Config holds the client secret and tokens: owner read/write only
+    fs.writeFileSync(this.configPath, JSON.stringify(configData, null, 2), { mode: 0o600 });
+    fs.chmodSync(this.configPath, 0o600);
     console.log(`✅ Configuration saved to ${this.configPath}`);
   }
 

@@ -1,11 +1,11 @@
 ---
 name: heosat-report-site
-description: Run a HEOSAT open source maturity assessment on a project and publish the result as a single-page HAXcms report site on surge — scorecard, per-question evidence, strengths, and prioritized recommendations, plus ready-to-post LinkedIn / X copy (47 questions across 9 sections). Takes the same input as the heosat skill (a GitHub repo URL, owner/repo, or an existing assessment directory with scores.json/report.md). Use whenever the user says "publish the HEOSAT report", "make a HEOSAT report site for this repo", "assess this project and publish it", "put this assessment on surge", "turn this HEOSAT report into a site", or hands you a repo and wants a published, shareable maturity report link — even if they don't say "skill", "site", or "surge". Companion to the `heosat` skill; leverages the same site scaffold + surge publish workflow as `hax-tutorial-site`.
-version: 1.0.0
+description: Run a HEOSAT open source maturity assessment on a project and publish the result as a single-page HAXcms report site on surge — radar-chart + scorecard, per-question evidence, strengths, and prioritized recommendations, plus ready-to-post LinkedIn / X copy (47 questions across 9 sections). Takes the same input as the heosat skill (a GitHub repo URL, owner/repo, or an existing assessment directory with scores.json/report.md). Use whenever the user says "publish the HEOSAT report", "make a HEOSAT report site for this repo", "assess this project and publish it", "put this assessment on surge", "turn this HEOSAT report into a site", or hands you a repo and wants a published, shareable maturity report link — even if they don't say "skill", "site", or "surge". Companion to the `heosat` skill; leverages the same site scaffold + surge publish workflow as `hax-tutorial-site`.
+version: 1.1.0
 license: Apache-2.0
 metadata:
   author: haxtheweb
-  tags: [hax, heosat, assessment, report, surge, resume-theme, editable-table, a11y-collapse, social-copy, skeleton-file, portable]
+  tags: [hax, heosat, assessment, report, surge, resume-theme, radar-chart, editable-table, a11y-collapse, social-copy, skeleton-file, portable]
 ---
 
 # HEOSAT Report Site
@@ -72,7 +72,7 @@ Run the whole workflow straight through with minimal narration. Only report once
      hax site <machine-name> --skeleton-file <skill-dir>/references/heosat-report.json \
        --y --no-i --auto --skip --quiet
    ```
-6. **Convert the assessment into the site** — one pass builds the page (H1, overall stop-note, editable-table scorecard, a11y-collapse sections with every scored question and its evidence, strengths, recommendation collapses, About/provenance block), copies `report.md` + `scores.json` into the site's `files/`, and finalizes `site.json` (title, description, sidebar subtitle, root page label, and the PROJECT profile in `metadata.author`):
+6. **Convert the assessment into the site** — one pass builds the page (H1, overall stop-note, radar-chart of the section averages, editable-table scorecard, a11y-collapse sections with every scored question and its evidence, strengths, recommendation collapses, About/provenance block), copies `report.md` + `scores.json` into the site's `files/`, and finalizes `site.json` (title, description, sidebar subtitle, root page label, and the PROJECT profile in `metadata.author`):
    ```bash
    node <skill-dir>/scripts/report-to-site.cjs <scores-dir> <site-dir>
    ```
@@ -100,6 +100,7 @@ Run the whole workflow straight through with minimal narration. Only report once
 All page elements are HAX-capable components (they could have been authored in the HAX editor), so the published page stays editable through HAX:
 
 - `stop-note` — the overall score callout (title: `Overall: X.X / 5 (band)`)
+- `radar-chart` — the at-a-glance shape of the assessment, placed at the top of the Scorecard section just above the table (the same visual the HEOSAT tool's own reports lead with). One spoke per rubric section, plotted at the section average on the 0-5 scale (`max-score` comes from the rubric scale) against a dashed Level 5 target ring (`target-scores`). `categories` is passed explicitly from the rubric section titles so the spokes always match the table rows; `scores` uses the same one-decimal averages as the table; `title` is `HEOSAT facet scores — <project name>`. The element supplies its own legend, hover tooltips, text alternative and a "Show data as a table" details block, so no extra markup is added. It needs 3+ categories (the rubric has 9); with fewer the converter omits it. This is the `@haxtheweb/radar-chart` element (`elements/radar-chart` in the webcomponents monorepo) — it must be present in the HAX version the site is built with; check `wc-registry.json` if the chart renders as an empty box.
 - `editable-table` (bordered, condensed, responsive, striped) — the 9-section + overall scorecard with a caption
 - `a11y-collapse-group` + `a11y-collapse` per section and per recommendation. `heading-button` (and the shared `icon`) are set on the **group**, not per-child — the group spreads all A11yCollapse properties and copies its defined values onto every child collapse on attach and on update, so the whole heading is clickable on every item (per-child `label`/`tooltip` stay unique and are never wiped, since the group leaves those undefined). Headings use the **slot method** (`<p slot="heading">…</p>` light DOM, not the `heading` attribute) because report headings are long — slotted headings wrap naturally as real content. Content shows each question as `LL1 — 3/5 (band)` + the question text + evidence list + notes
 - DDD `data-margin` attributes (`s` on headings, `xs` on intro paragraphs) for consistent offsets
@@ -121,6 +122,6 @@ All page elements are HAX-capable components (they could have been authored in t
 
 - `references/heosat-report.json` — the `heosat-report` site skeleton bundled with this skill (resume-theme + settings + one placeholder "HEOSAT Report" page). Scaffolding uses `--skeleton-file` with this direct path, so the skill is self-contained and portable.
 - `references/social-copy-templates.md` — LinkedIn / X copy templates for sharing the published report link (report framing, no YouTube/watch lines, no personal signature).
-- `scripts/report-to-site.cjs` — the converter: reads `<scores-dir>/scores.json` + the heosat rubric, builds the single-page report (scorecard, section/recommendation collapses with heading-button, About block), copies `report.md`/`scores.json` into `files/`, and finalizes `site.json` (title, description, sidebar subtitle, root item title, project profile into `metadata.author`).
+- `scripts/report-to-site.cjs` — the converter: reads `<scores-dir>/scores.json` + the heosat rubric, builds the single-page report (radar-chart + scorecard table, section/recommendation collapses with heading-button, About block), copies `report.md`/`scores.json` into `files/`, and finalizes `site.json` (title, description, sidebar subtitle, root item title, project profile into `metadata.author`).
 - **`heosat` skill** (`../heosat/`) — dependency for fresh assessments and the rubric source (`references/rubric.json`).
 - **`hax-tutorial-site` skill** (`../hax-tutorial-site/`) — the site scaffold + surge publish pattern this skill mirrors.

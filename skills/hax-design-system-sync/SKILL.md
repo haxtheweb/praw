@@ -24,7 +24,7 @@ This skill keeps those copies in step, and keeps the source clean while doing it
 
 ## Inputs
 
-- A **webcomponents** checkout and a **praw** checkout. The default layout is sibling folders, for example `~/Documents/git/haxtheweb/{webcomponents,praw}`.
+- A **webcomponents** checkout (https://github.com/haxtheweb/webcomponents) and a **praw** checkout (https://github.com/haxtheweb/praw), cloned side by side in any working directory. In a cloud workspace, clone both with `git clone --depth 1`. Commands below use `<webcomponents>` for the first checkout's path.
 - *(Optional)* the claude.ai DDD Design System artifact URL, needed only for the publish step.
 - *(Optional)* scope: the full run (default), or one step, such as "just fix the lint".
 
@@ -68,7 +68,7 @@ Run it straight through and report once at the end. If a step soft-fails, say so
    yarn tokens:ddd                       # DTCG export (CI runs build-tokens.js --check)
    yarn design-system:sync               # -> elements/d-d-d/design-system/dist/
    # praw
-   node scripts/generate-ddd-references.js --webcomponents ../webcomponents
+   node scripts/generate-ddd-references.js --webcomponents <webcomponents>
    node scripts/build-agent-skills-index.js
    ```
    **Sync warnings.** Resolve every one before opening the PR:

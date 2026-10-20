@@ -60,7 +60,6 @@
  */
 const fs = require("fs");
 const path = require("path");
-const os = require("os");
 
 // --- escaping ---------------------------------------------------------------
 
@@ -113,7 +112,6 @@ function parseFlags(argv) {
 function resolveHaxcmsVersion(siteDir) {
   const candidates = [
     path.join(siteDir, "package.json"),
-    path.join(os.homedir(), "Documents/git/haxtheweb/create/package.json"),
   ];
   for (const p of candidates) {
     try {

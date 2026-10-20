@@ -39,6 +39,9 @@ Reusable agent skills for the HAX (Headless Authoring eXperience) ecosystem. The
 | `hax-backend-dev` | Keep haxcms-nodejs and haxcms-php in step: mirror routes and OpenAPI specs, use @site/ or @system/ MFR namespaces | `npx skills add haxtheweb/praw --skill hax-backend-dev` |
 | `hax-testing` | Find and run the right tests per HAX repo and write the test for a new endpoint | `npx skills add haxtheweb/praw --skill hax-testing` |
 | `hax-release-prep` | Verify locally and write the maintainer handoff for the ubiquity build and publish steps agents must never run | `npx skills add haxtheweb/praw --skill hax-release-prep` |
+| `grad-blooms` | Classify learning objectives and design assessments with Bloom's revised taxonomy | `npx skills add haxtheweb/praw --skill grad-blooms` |
+| `hax-theme-builder` | Turn a screenshot into an accessible, dark-mode-ready HAXcms theme | `npx skills add haxtheweb/praw --skill hax-theme-builder` |
+| `youtube-vtt` | Generate a WebVTT transcript from a YouTube URL with yt-dlp, no video download | `npx skills add haxtheweb/praw --skill youtube-vtt` |
 
 ## Install All Skills
 
@@ -49,8 +52,6 @@ npx skills add haxtheweb/praw --all
 ## Interface Skills (owned by `create`)
 
 `hax-site-building`, `hax-webcomponent-dev`, `hax-ecosystem-onboarding`, `hax-claudehax`, and `hax-webcomponent-documentation-writer` are interface skills owned by the `create` repo (`@haxtheweb/create`, the `hax` CLI) — version-locked to the CLI and not published from this repo. Install them with `hax skills install --all`.
-
-Three repo-local project skills — `grad-blooms`, `hax-theme-builder`, and `youtube-vtt` — live in `.agents/skills/` and are not part of the published `skills/` set.
 
 ## Companion Document Skills (not bundled)
 

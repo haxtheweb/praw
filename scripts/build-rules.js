@@ -20,7 +20,7 @@
  *   - duplicate normalized content (same rule text under different IDs)
  *   - missing/invalid Scope on any rule
  *   - unknown scope value
- *   - local filesystem paths in RULES.md, WARP.md files and llms.txt (see LOCAL_PATH_PATTERNS)
+ *   - local filesystem paths in RULES.md, WARP.md files, llms.txt and skill markdown files (see LOCAL_PATH_PATTERNS)
  *
  * No external dependencies — Node built-ins only (praw is not a node project).
  * Run: node scripts/build-rules.js
@@ -93,9 +93,8 @@ function parseRules(text) {
 /**
  * Cross-repo references must be public URLs, not paths on someone's machine:
  * many agents run in the cloud and cannot see a local checkout. Strict surfaces
- * (rules, WARP.md files, llms.txt) produce warnings. Skills are counted and
- * listed but do not fail the build, because a few intentionally work in a
- * local folder.
+ * (rules, WARP.md files, llms.txt) produce warnings. Skill markdown files are checked too,
+ * so skills run unchanged in cloud agents.
  */
 const LOCAL_PATH_PATTERNS = [
   /~\/(Documents|git|haxtheweb)\b/,
@@ -194,9 +193,8 @@ function main() {
   STRICT_PATH_FILES.forEach(function (f) {
     findLocalPaths(f).forEach(function (h) { warnings.push('local path reference (use a public URL): ' + h); });
   });
-  const skillPathHits = [];
   skillFiles(path.join(prawRoot, 'skills'), []).forEach(function (f) {
-    findLocalPaths(f).forEach(function (h) { skillPathHits.push(h); });
+    findLocalPaths(f).forEach(function (h) { warnings.push('local path reference (use a public URL or a relative path): ' + h); });
   });
 
   const clean = function (r) {
@@ -242,10 +240,6 @@ function main() {
     process.exit(2);
   }
   console.log('  OK: no duplicate IDs, no duplicate content, all scopes valid');
-  if (skillPathHits.length > 0) {
-    console.log('  note: ' + skillPathHits.length + ' local path reference(s) in skills (not enforced):');
-    skillPathHits.forEach(function (h) { console.log('    - ' + h); });
-  }
 }
 
 main();

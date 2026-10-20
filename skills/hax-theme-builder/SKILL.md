@@ -1,14 +1,6 @@
 ---
 name: hax-theme-builder
-description: >
-  Turn a screenshot (plus a short Q&A loop) into a real HAXcms theme that extends
-  HAXCMSLitElementTheme correctly — accessible, dark-mode-compliant, responsive, with a
-  skip-link, site-menu/site-menu-button/site-breadcrumb wiring, and named regions. Use when
-  the user says "make a theme from this screenshot", "build a HAXcms theme", "run the hax
-  theme skill", "theme skill", "remake <name> using the theme skill", or attaches an image
-  of a site layout and asks for a matching theme — even if they don't say "skill". Offers to
-  add the result either as a custom theme on an existing HAXsite or as a new bundled theme
-  package in the webcomponents monorepo (haxtheweb/issues#2963, haxtheweb/issues#2962).
+description: "Turn a screenshot plus a short Q&A into an accessible, dark-mode-ready HAXcms theme extending HAXCMSLitElementTheme. Use for 'build a HAXcms theme' or a site-layout image; adds a custom site theme or a monorepo package."
 version: 1.0.0
 license: Apache-2.0
 metadata:
@@ -38,8 +30,9 @@ haxtheweb/issues#2963).
 
 - `hax` CLI (local copy — never `npx`). Always pass `--y --no-i --auto --skip --quiet` when
   scripting so no prompts or sub-processes launch.
-- Working from `~/Documents/git/haxtheweb/`. The monorepo path scaffolds under
-  `webcomponents/elements/`; the custom-theme path scaffolds under `<site>/custom/src/`.
+- Working inside a checkout of https://github.com/haxtheweb/webcomponents (clone it with
+  `git clone --depth 1` if there is none). The monorepo path scaffolds under
+  `elements/` in that checkout; the custom-theme path scaffolds under `<site>/custom/src/`.
 - Read `references/haxcms-theme-architecture.md` before writing the theme component — it is
   the cheat sheet for the base class, mixins, region components, palette registry, and the
   JSDoc tags theme-discovery.js parses. Do not guess these from memory.

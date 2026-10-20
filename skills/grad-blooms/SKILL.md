@@ -1,6 +1,6 @@
 ---
-name: "grad-blooms"
-description: "Apply Bloom's revised taxonomy to classify learning objectives and design assessments across six cognitive levels. Use this skill when the user needs to write learning objectives at specific cognitive levels, align assessment with instructional goals, or evaluate curriculum for cognitive complexity distribution — even if they say 'how to write learning objectives', 'what level of thinking does this require', or 'higher-order thinking skills'."
+name: grad-blooms
+description: "Classify learning objectives and design assessments with Bloom's revised taxonomy (six cognitive levels). Use for writing objectives at a level, aligning assessment to goals, or checking a curriculum's cognitive balance."
 metadata:
   category: "WP-33 傳播/教育/公共行政"
   tags: ["education", "blooms-taxonomy", "learning-objectives", "assessment"]

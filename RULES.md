@@ -63,6 +63,16 @@ Every rule has one of four scopes:
 - **Scope**: `haxcms`
 - **Content**: System-level calls (site imports, file format conversions, operations not scoped to a single site) must use the MicroFrontendRegistry (MFR) `@system/` namespace, registered from the on-premises OpenAPI spec at `/system/api/v1` (see `app-hax-system-api-registry.js` and `system-spec.yaml`; handlers in `haxcms-nodejs/src/systemRoutes/v1`). Site-scoped calls must use the `@site/` namespace (handlers in `haxcms-nodejs/src/siteRoutes/v1`); v0 site endpoints are removed. Do not add new `@haxcms/`-namespaced registrations or route new work through the legacy `create` CLI `--import-structure` v0 path — use `@system/` or `@site/` instead. (Full detail lives in `haxcms/WARP.md`.)
 
+### Editor State vs Site State (Dual Store)
+- **Rule ID**: `d513754d87c145d6a166ec`
+- **Scope**: `webcomponents`
+- **Content**: Keep the two MobX stores separate. `HAXStore` (`hax-body/lib/hax-store.js`) owns editor state (active node, edit mode, gizmo, preferences, tour); `haxcms-site-store` (`haxcms-elements/lib/core/haxcms-site-store.js`) owns site/CMS state (manifest, active page/route, site metadata, theme configuration). `haxcms-site-editor-ui` is the only bridge between them and runs the save flow (editor content, then backend API, then manifest update). HAXStore must never know about CMS routing, and the site store must never manipulate page DOM content. Rationale and flow: KNOWLEDGE.md entry "Dual-store architecture".
+
+### HAXiam Multi-Tenant Path/User Alignment
+- **Rule ID**: `1286150dc8944178aa82ca`
+- **Scope**: `haxcms`
+- **Content**: When changing API endpoints or auth code in haxcms-php or haxcms-nodejs, check the HAXiam path (`config->iam`) as well as single-tenant mode. In multi-tenant mode each user has an isolated sites directory, and endpoints such as `connectionSettings` must enforce strict alignment between the authenticated user and the requested path (for example `getIAMTenantUserName()` and `getRequestPathUserName()`). Never weaken that check, and verify the change in both backends. Rationale: KNOWLEDGE.md entry "HAXiam multi-tenant auth model".
+
 ## 🎨 Design System Standards
 
 ### DDD Design System (Primary)
@@ -84,6 +94,11 @@ Every rule has one of four scopes:
 - **Rule ID**: `c4f0b69d-9ed4-4b6d-bf52-6a3d9937c98f`
 - **Scope**: `design-system`
 - **Content**: For any design-related decisions in this repository, `DESIGN.md` at the repository root is the canonical source of truth. Future design work must conform to its design tokens, CSS variable implementation patterns, component guidance, and Do's/Don'ts.
+
+### DDD Palettes vs Single Colors
+- **Rule ID**: `447f8d9bc5484749b1188e`
+- **Scope**: `design-system`
+- **Content**: Use `data-primary` / `data-accent` for a single color on an element (they set `--ddd-theme-primary` / `--ddd-theme-accent`); use `data-palette` for a coordinated multi-color palette across a region or site (`--ddd-palette-color-1` to `-7`, palettes `0` to `7`). `DDDPaletteStyles` selects `[data-palette="N"]`, not `:host([data-palette])`, so those styles must exist where they can match the element: extend `DDDSuper(...)` so DDD registers at the document level, or add `DDDAllStyles` to the global theme stylesheet via `HAXCMSGlobalStyleSheetContent()`. Shadow-scoped inclusion alone can make palette switching silently do nothing. Details: KNOWLEDGE.md entry "DDD data-palette".
 
 ## 🧩 Web Component Development
 
@@ -126,6 +141,11 @@ Every rule has one of four scopes:
 - **Rule ID**: `c3XjsqFbCmoA3cxsooNyxG`
 - **Scope**: `webcomponents`
 - **Content**: Creating educational elements in HAX? Apply OER Schema metadata for consistent semantic structure and interoperability. Audit authored content with the `oerschema-audit` skill; find components missing schema with the `oerschema-integration-finder` skill. Map to real OER classes (Course/Unit/Module/Lesson/LearningObjective/Assessment/Quiz/Activity/Task/Rubric/SupportingMaterial/TableOfContents) — never invent classes.
+
+### User-Scaffold For Adaptive UX State
+- **Rule ID**: `01ed665f326941e9888ab1`
+- **Scope**: `webcomponents`
+- **Content**: Adaptive and remembered user state goes through the `user-scaffold` singleton (`globalThis.UserScaffold.requestAvailability()`), not ad-hoc localStorage or per-component trackers. Use `ltMemory` for persistent preferences, `stMemory` for session-level behavior, and honor the `active` flag, which pauses tracking when it would conflict with other systems. Treat it as the foundation for system-level adaptive features (welcome messages, adaptive tutorials, save-failure recovery). Rationale: KNOWLEDGE.md entry "User-scaffold".
 
 ## ⚙️ Build & Development Workflow
 

@@ -34,7 +34,8 @@ Structure your entries using the templates below. Keep entries concise and searc
   - When the user saves a page, the flow is: hax-body produces content → HAXStore holds the state → site-editor-ui reads from HAXStore and calls the backend API via the site-store's connection settings → backend persists to the page HTML file and updates site.json.
 - Rationale: Future agents need to understand this boundary to avoid mixing concerns. HAXStore should never directly know about CMS routing, and site-store should never directly manipulate DOM content.
 - Links: `webcomponents/elements/hax-body/lib/hax-store.js`, `webcomponents/elements/haxcms-elements/lib/core/haxcms-site-store.js`, `webcomponents/elements/haxcms-elements/lib/core/haxcms-site-editor-ui.js`
-- Candidate: Yes
+- Candidate: No
+- Promoted: rule `d513754d87c145d6a166ec` in RULES.md
 
 - Title: Admin dialog system — organic but consistent pattern
 - Date: 2026-05-07
@@ -46,7 +47,8 @@ Structure your entries using the templates below. Keep entries concise and searc
   - This is an area identified for potential future refactoring to standardize the triggering mechanism and form-to-API pipeline even further.
 - Rationale: When creating or modifying admin dialogs, follow the existing organic pattern (Merlin-invokable + panel-accessible) while keeping form structure consistent. Future standardization efforts should aim to make all dialogs follow an identical event-driven pattern.
 - Links: `webcomponents/elements/haxcms-elements/lib/core/haxcms-*-admin-dialog.js`, `webcomponents/elements/haxcms-elements/lib/core/haxcms-site-editor-ui.js`
-- Candidate: Yes
+- Candidate: No
+- Decision: kept as a guide, not a rule (2026-10-20)
 
 - Title: User-scaffold — foundational adaptive UX infrastructure
 - Date: 2026-05-07
@@ -63,7 +65,8 @@ Structure your entries using the templates below. Keep entries concise and searc
   - **Action architypes**: mouse clicks, paste (text/html/base64/url/file), drop, drag, keyboard input. Each action is classified into a type and architype for pattern recognition.
 - Rationale: When consuming user-scaffold state in components, use `ltMemory` for persistent user preferences and `stMemory` for session-level behavior tracking. The `active` flag exists to pause tracking when scaffold behavior would conflict with other systems.
 - Links: `webcomponents/elements/user-scaffold/user-scaffold.js`
-- Candidate: Yes
+- Candidate: No
+- Promoted: rule `01ed665f326941e9888ab1` in RULES.md
 
 - Title: HAXiam multi-tenant auth model
 - Date: 2026-05-07
@@ -80,7 +83,8 @@ Structure your entries using the templates below. Keep entries concise and searc
   - **API impact**: Some endpoints are only available when HAXiam is enabled (e.g., `haxiamAddUserAccess`). The frontend conditionally renders UI based on endpoint presence in `appSettings`.
 - Rationale: When modifying API endpoints or auth-related code, always check for the `config->iam` conditional path. HAXiam security requires strict path/user alignment validation.
 - Links: `haxcms-php/system/backend/php/lib/Operations.php` (connectionSettings, haxiamAddUserAccess), `haxcms-php/build/es6/node_modules/@haxtheweb/app-hax/lib/v2/HAXIAM_API_SPEC.md`
-- Candidate: Yes
+- Candidate: No
+- Promoted: rule `1286150dc8944178aa82ca` in RULES.md
 
 ## Site Insights & Reporting
 
@@ -165,7 +169,8 @@ Structure your entries using the templates below. Keep entries concise and searc
   - `webcomponents/elements/clean-portfolio-theme/clean-portfolio-theme.js` (`dataPalette`, `togglePalette`, palette var mapping)
   - `webcomponents/elements/journey-theme/journey-theme.js` (`dataPalette`, `togglePalette`, palette var mapping)
   - `webcomponents/elements/haxcms-elements/lib/core/HAXCMSLitElementTheme.js` (global theme stylesheet injection via `HAXCMSGlobalStyleSheetContent()`)
-- Candidate: Yes
+- Candidate: No
+- Promoted: rule `447f8d9bc5484749b1188e` in RULES.md
 
 - Title: Example – Prefer DDD tokens; use SimpleColors sparingly
 - Date: 2025-09-25

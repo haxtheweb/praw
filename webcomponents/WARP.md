@@ -37,5 +37,8 @@ Scoped rules for HAX web-component development in the `webcomponents` monorepo (
 ## Educational components
 Apply OER Schema metadata; include pedagogically meaningful defaults; structure content to support learning objectives; consider a11y from an equity perspective.
 
+- **Stores**: `HAXStore` owns editor state, `haxcms-site-store` owns site state; only `haxcms-site-editor-ui` bridges them (rule `d513754d…`).
+- **Adaptive state**: remembered/adaptive user state goes through `user-scaffold` (`ltMemory` persistent, `stMemory` session, honor `active`) (rule `01ed665f…`).
+
 ---
 *Scoped to webcomponents. Full rule registry + IDs: `RULES.md`. Always-on global rules (no ubiquity, no build prompts, AI guardrails, etc.) apply in addition.*

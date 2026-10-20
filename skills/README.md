@@ -39,7 +39,7 @@ Reusable agent skills for the HAX (Headless Authoring eXperience) ecosystem. The
 | `hax-backend-dev` | Keep haxcms-nodejs and haxcms-php in step: mirror routes and OpenAPI specs, use @site/ or @system/ MFR namespaces | `npx skills add haxtheweb/praw --skill hax-backend-dev` |
 | `hax-testing` | Find and run the right tests per HAX repo and write the test for a new endpoint | `npx skills add haxtheweb/praw --skill hax-testing` |
 | `hax-release-prep` | Verify locally and write the maintainer handoff for the ubiquity build and publish steps agents must never run | `npx skills add haxtheweb/praw --skill hax-release-prep` |
-| `hax-element-demo` | Build a throwaway demo of a HAX element inside the real HAX editor (h-a-x) as static files, to check app-store wiring and editability | `npx skills add haxtheweb/praw --skill hax-element-demo` |
+| `hax-editor-preview` | Build a throwaway demo of a HAX element inside the real HAX editor (h-a-x) as static files, to check app-store wiring and editability | `npx skills add haxtheweb/praw --skill hax-editor-preview` |
 | `grad-blooms` | Classify learning objectives and design assessments with Bloom's revised taxonomy | `npx skills add haxtheweb/praw --skill grad-blooms` |
 | `hax-theme-builder` | Turn a screenshot into an accessible, dark-mode-ready HAXcms theme | `npx skills add haxtheweb/praw --skill hax-theme-builder` |
 | `youtube-vtt` | Generate a WebVTT transcript from a YouTube URL with yt-dlp, no video download | `npx skills add haxtheweb/praw --skill youtube-vtt` |

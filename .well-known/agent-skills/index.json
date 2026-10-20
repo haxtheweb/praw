@@ -109,11 +109,11 @@
       ]
     },
     {
-      "name": "hax-element-demo",
+      "name": "hax-editor-preview",
       "type": "skill-md",
-      "description": "\"Build a throwaway demo of a HAX web component running inside the real HAX editor (h-a-x) as static files, to check the element is wired into the app store and editable. Use when asked to demo, preview, or play with a new or changed element in HAX, or to prove its haxProperties and light-DOM save round trip.\"",
-      "url": "hax-element-demo/SKILL.md",
-      "digest": "sha256:58de31c4d6dde85ecb2140ff41d6ee023d3aad77d54ef859fc6548066532026c"
+      "description": "\"Build a throwaway page that runs a HAX web component inside the real HAX editor (h-a-x) as static files, to check it is wired into the app store and editable. Use when asked to preview or play with a new or changed element in the HAX editor. Not for writing the element's demoSchema.\"",
+      "url": "hax-editor-preview/SKILL.md",
+      "digest": "sha256:cf6512515c145472495e9296d856694ef01d9d33bed5d15bd87a93effd5e853c"
     },
     {
       "name": "hax-i18n-translate",

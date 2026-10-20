@@ -97,8 +97,8 @@ All skills below live in `skills/` in this repo. The machine-readable discovery 
   - Path: `/skills/hax-testing/SKILL.md`
 - **hax-release-prep**: Verify locally and write the maintainer handoff for the ubiquity build and publish steps agents must never run
   - Path: `/skills/hax-release-prep/SKILL.md`
-- **hax-element-demo**: Build a throwaway demo of a HAX element inside the real HAX editor (h-a-x) as static files, to check app-store wiring and editability
-  - Path: `/skills/hax-element-demo/SKILL.md`
+- **hax-editor-preview**: Build a throwaway demo of a HAX element inside the real HAX editor (h-a-x) as static files, to check app-store wiring and editability
+  - Path: `/skills/hax-editor-preview/SKILL.md`
 - **grad-blooms**: Classify learning objectives and design assessments with Bloom's revised taxonomy
   - Path: `/skills/grad-blooms/SKILL.md`
 - **hax-theme-builder**: Turn a screenshot into an accessible, dark-mode-ready HAXcms theme

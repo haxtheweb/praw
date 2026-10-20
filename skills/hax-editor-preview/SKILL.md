@@ -1,6 +1,6 @@
 ---
-name: hax-element-demo
-description: "Build a throwaway demo of a HAX web component running inside the real HAX editor (h-a-x) as static files, to check the element is wired into the app store and editable. Use when asked to demo, preview, or play with a new or changed element in HAX, or to prove its haxProperties and light-DOM save round trip."
+name: hax-editor-preview
+description: "Build a throwaway page that runs a HAX web component inside the real HAX editor (h-a-x) as static files, to check it is wired into the app store and editable. Use when asked to preview or play with a new or changed element in the HAX editor. Not for writing the element's demoSchema."
 version: 1.0.0
 license: Apache-2.0
 metadata:
@@ -9,9 +9,10 @@ metadata:
   tags: [hax, demo, h-a-x, appstore, haxproperties, esbuild, playwright, preview]
 ---
 
-# HAX element demo
+# HAX editor preview
 
-A disposable page that boots the real `<h-a-x>` editor with your element in its app store. It answers: does
+This is not the element's `demoSchema` (the sample block in `haxProperties` that HAX offers in Blocks). Author that in the
+element itself. This skill builds a disposable page that boots the real `<h-a-x>` editor with your element in its app store. It answers: does
 the element register, appear in Blocks, open its settings form from `haxProperties`, and write its data to
 light DOM. It is a wiring check, not a release step. It never touches the PR, the registry, or the
 monorepo build.
@@ -51,8 +52,8 @@ files (a sandboxed page, a static host) works because nothing resolves bare impo
    `executablePath` at the installed browser, pass `--no-sandbox`), and log every response with status 400
    or more plus page errors. Copy each missing path from `node_modules` into `dist` at the same
    `node_modules/...` path. Repeat until there are no 404s and no page errors. It took two passes.
-7. **Verify the wiring, then look.** `document.querySelector('hax-store')` (`HAXStore` is not a global)
-   should list your tag in `elementList` and in `gizmoList`. Your array or object properties should be
+7. **Verify the wiring, then look.** The store instance is `globalThis.HaxStore.instance` (note the casing; `HAXStore` is an
+   import name, not a global; `Hax.get('elementList')` also works). It should list your tag in `elementList` and in `gizmoList`. Your array or object properties should be
    populated from light DOM. Take a screenshot, and one in dark mode.
 8. **Hand it over.** Say what it is, that edits are not saved, which "housing" you built, and what you did
    not test by hand (opening Edit, using the settings form, saving).

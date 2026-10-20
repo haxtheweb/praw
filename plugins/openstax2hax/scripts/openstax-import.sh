@@ -25,10 +25,14 @@ ORIGINAL_URL="$1"
 # ---------------------------------------------------------------------------
 # 2. Validate the URL is from openstax.org
 # ---------------------------------------------------------------------------
-# Accept https://openstax.org/... or https://www.openstax.org/... only.
-if ! printf '%s' "$ORIGINAL_URL" | grep -Eq '^https?://(www\.)?openstax\.org(/|$)'; then
+# Accept https://openstax.org/... or https://www.openstax.org/... only: https,
+# a single line, and a conservative URL character set (no whitespace, quotes,
+# control characters or shell/wget metacharacters).
+NL=$'\n'
+if [[ "$ORIGINAL_URL" == *"$NL"* ]] || \
+   ! printf '%s' "$ORIGINAL_URL" | grep -Eq '^https://(www\.)?openstax\.org(/[A-Za-z0-9._~%/+=&:@,-]*)?(\?[A-Za-z0-9._~%/+=&:@,-]*)?(#[A-Za-z0-9._~%/+=&:@,-]*)?$'; then
   echo "Refusing URL: \"$ORIGINAL_URL\"" >&2
-  echo "This command only accepts OpenStax URLs from the openstax.org domain," >&2
+  echo "This command only accepts https OpenStax URLs from the openstax.org domain," >&2
   echo "for example: https://openstax.org/details/books/principles-finance" >&2
   exit 1
 fi
@@ -88,7 +92,7 @@ wget \
   --no-parent \
   --domains openstax.org \
   --directory-prefix source \
-  "$RESOLVED_URL" 2>&1 | tee "$DOWNLOAD_LOG"
+  -- "$RESOLVED_URL" 2>&1 | tee "$DOWNLOAD_LOG"
 WGET_STATUS="${PIPESTATUS[0]}"
 set -e
 

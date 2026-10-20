@@ -84,48 +84,26 @@ Structure your entries using the templates below. Keep entries concise and searc
 
 ## Site Insights & Reporting
 
-- Title: Site Insights — current architecture and planned evolution
-- Date: 2026-05-07
-- Context: Understanding what haxcms-site-insights.js does today and where it is heading
+- Title: Site Insights — reports come from site-local x/api
+- Date: 2026-10-20
+- Context: An entry from 2026-05-07 planned a move from open-apis to site-local `x/api` endpoints. That move has landed.
 - Guidance:
-  - **Current state**: Insights currently hits open-apis endpoints to assemble information about the site. The data is churned and presented via the `haxcms-site-insights.js` component (renamed internally as "Reports UI").
-  - **Planned evolution**:
-    - Data source should move from open-apis to **`x/api` endpoints served by the site itself**. These x/api endpoints are planned but not yet implemented.
-    - Envisioned as a **dashboard** providing the site author with:
-      - Content insights (what's in the site, content quality)
-      - Accessibility auditing results
-      - Usage reports
-      - Last updated timestamps and change history
-      - Other site statistics
-    - The goal is to give users actionable insights into the site they are creating, not just raw data.
-  - **Architecture implication**: When building x/api endpoints for insights, they should be designed as site-local APIs (served under the reserved `x/` route prefix) that return structured data the frontend dashboard can consume without relying on external services.
-- Rationale: Moving insights to site-local x/api endpoints improves reliability (no external dependency), privacy (data stays on-site), and performance (no network round-trips to open-apis). This also makes insights available for static/offline sites.
-- Links: `webcomponents/elements/haxcms-elements/lib/core/haxcms-site-insights.js`
-- Candidate: Yes
+  - `haxcms-site-insights.js` loads reports through the `@site/listReports` and `@site/getReportByName` MFR calls, backed by `/x/api/v1/reports` in both `haxcms-nodejs` and `haxcms-php` (reports: overview, content, links, media).
+  - Add a new report as a `/x/api/v1/reports/{report}` entry, mirrored in both backends and both specs (see `haxcms/WARP.md`).
+  - Reports still missing from the original dashboard plan are tracked in https://github.com/haxtheweb/issues/issues/3167.
+- Rationale: Site-local APIs keep insights working without an external service, keep data on-site, and work for static or offline sites.
+- Links: `webcomponents/elements/haxcms-elements/lib/core/haxcms-site-insights.js`, `haxcms-nodejs/src/siteRoutes/v1/reports.js`, `haxcms-php/system/backend/php/lib/siteRoutes/v1/reports.php`
+- Candidate: No
 
 ## Strategic Direction & Adoption
 
-- Title: HAX adoption gaps — not features, but community and discoverability
-- Date: 2026-05-07
-- Context: Assessing what HAX needs most to grow adoption, comparing against WordPress/Drupal/Canvas/Notion
-- Guidance:
-  - **Critical reframe**: As of 26.0.0+, HAX's feature set is considered to be **far beyond anything else that exists**. The gaps are NOT feature gaps. They are adoption, community, and developer experience gaps.
-  - **Highest priority gaps** (in order of strategic importance):
-    1. **Documentation and examples** — Comprehensive, discoverable docs with real-world usage examples
-    2. **User success stories** — Demonstrating real adoption and impact to build credibility
-    3. **Community growth and investment** — Growing the contributor and user base
-    4. **More themes** — Expanding visual options to appeal to broader audiences
-    5. **Support for other design systems** — Beyond DDD, enabling organizations to bring their own design tokens
-    6. **Improved SEO via SSR / hax11ty** — Implementing hax11ty as a program to ensure published sites are optimized for search engines and deployment
-    7. **AI project demonstrations** — Showing, presenting on, and talking about current AI work to build awareness
-    8. **Discoverability and adoption curve** — Making it easier for people to find HAX, understand it, and get started beyond just migration tools (which already exist)
-    9. **Developer experience (DX)** — Making it easier for the developer community to adopt and extend HAX
-    10. **Extensibility patterns** — Modular extension system similar to Drupal modules, GravCMS plugins, WordPress plugins. People need to be able to mess with it, extend it beyond what it does, with well-defined patterns and documentation
-  - **The core communication challenge**: Getting people to understand that "anything can become the web" and that HAX is a radically simple approach to web development and material management.
-  - **What already works well**: Accessibility, UX, publishing workflow, and remixing capabilities all speak for themselves. The product is strong; the challenge is awareness and onboarding.
-- Rationale: Agents working on HAX should understand that the primary strategic need is not building more features but rather improving documentation, DX, community infrastructure, and extensibility. When prioritizing work, favor tasks that make HAX more discoverable, documentable, and extensible over adding new capabilities.
-- Links: WORLDVIEW.md (pillars), WARP.md (ecosystem overview)
-- Candidate: Yes
+- Title: HAX adoption gaps — strategy lives in the issue queue
+- Date: 2026-10-20
+- Context: A 2026-05-07 entry ranked ten adoption, community and developer-experience gaps. That is roadmap, not a technical decision, so it moved to the issue queue.
+- Guidance: Favor work that makes HAX more discoverable, documentable and extensible over adding new capabilities. The ranked gap list is tracked in https://github.com/haxtheweb/issues/issues/3166.
+- Rationale: Strategy changes faster than the technical decisions recorded here, and an issue can be split, assigned and closed.
+- Links: https://github.com/haxtheweb/issues/issues/3166, WORLDVIEW.md
+- Candidate: No
 
 ## Web Components
 

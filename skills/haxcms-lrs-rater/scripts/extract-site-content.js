@@ -101,16 +101,46 @@ function normalizeMarkdown(md) {
 // URL / path resolution
 // ---------------------------------------------------------------------------
 
-/** Resolve a possibly-relative URL against a base URL for remote fetching. */
+/**
+ * Resolve a possibly-relative URL against a base URL for remote fetching.
+ * Only https URLs on the same origin as the base site are allowed; anything
+ * else throws so a malicious llms.txt cannot redirect fetches elsewhere.
+ */
 function resolveRemoteUrl(url, baseUrl) {
-  if (/^https?:\/\//i.test(url)) return url;
-  return baseUrl.replace(/\/+$/, '') + '/' + url.replace(/^\/+/, '');
+  let resolved;
+  let base;
+  try {
+    base = new URL(baseUrl);
+    resolved = new URL(url, base);
+  } catch (err) {
+    throw new Error(`Refusing invalid URL: ${url}`);
+  }
+  if (resolved.protocol !== 'https:') {
+    throw new Error(`Refusing non-https URL: ${url}`);
+  }
+  if (resolved.origin !== base.origin) {
+    throw new Error(`Refusing cross-origin URL: ${url}`);
+  }
+  return resolved.href;
 }
 
-/** Convert a URL (absolute or relative) to a local filesystem path. */
+/**
+ * Convert a URL (absolute or relative) to a local filesystem path. The result
+ * must stay inside root; otherwise this throws.
+ */
 function urlToLocalPath(url, root) {
   let p = url.replace(/^https?:\/\/[^/]+\//, '').replace(/^\/+/, '');
-  return path.join(root, p);
+  return resolveInsideRoot(root, p);
+}
+
+/** Join rel onto root and refuse results that escape root. */
+function resolveInsideRoot(root, rel) {
+  const rootAbs = path.resolve(root);
+  const full = path.resolve(rootAbs, rel);
+  if (full !== rootAbs && !full.startsWith(rootAbs + path.sep)) {
+    throw new Error(`Refusing path outside site root: ${rel}`);
+  }
+  return full;
 }
 
 // ---------------------------------------------------------------------------
@@ -151,7 +181,13 @@ async function readRemoteSiteViaLlmsTxt(baseUrlInput) {
   const pages = [];
   let mdFailures = 0;
   for (const { title, url } of pageList) {
-    const mdUrl = resolveRemoteUrl(url, baseUrl);
+    let mdUrl;
+    try {
+      mdUrl = resolveRemoteUrl(url, baseUrl);
+    } catch (err) {
+      console.error(`Warning: skipping page "${title}": ${err.message}`);
+      continue;
+    }
     let text = '';
     let fetchedUrl = mdUrl;
 
@@ -194,7 +230,13 @@ async function readLocalSiteViaLlmsTxt(root) {
 
   const pages = [];
   for (const { title, url } of pageList) {
-    const mdPath = urlToLocalPath(url, root);
+    let mdPath;
+    try {
+      mdPath = urlToLocalPath(url, root);
+    } catch (err) {
+      console.error(`Warning: skipping page "${title}": ${err.message}`);
+      continue;
+    }
     let text = '';
 
     // Try .md first (clean markdown); fall back to .html on disk.
@@ -303,7 +345,13 @@ async function readLocalSiteViaSiteJson(root) {
   const pages = [];
   for (const item of items) {
     if (!item.location) continue;
-    const htmlPath = path.join(root, item.location);
+    let htmlPath;
+    try {
+      htmlPath = resolveInsideRoot(root, item.location);
+    } catch (err) {
+      console.error(`Warning: skipping page "${item.title}": ${err.message}`);
+      continue;
+    }
     const mdPath = htmlPath.replace(/\.html?$/i, '.md');
     let text = '';
     // Prefer .md sidecar (clean markdown), fall back to HTML

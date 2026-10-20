@@ -97,8 +97,12 @@ All skills below live in `skills/` in this repo. The machine-readable discovery 
   - Path: `/skills/hax-testing/SKILL.md`
 - **hax-release-prep**: Verify locally and write the maintainer handoff for the ubiquity build and publish steps agents must never run
   - Path: `/skills/hax-release-prep/SKILL.md`
-
-Repo-local project skills (not in the published `skills/` set): **grad-blooms**, **hax-theme-builder**, **youtube-vtt** — under `.agents/skills/`.
+- **grad-blooms**: Classify learning objectives and design assessments with Bloom's revised taxonomy
+  - Path: `/skills/grad-blooms/SKILL.md`
+- **hax-theme-builder**: Turn a screenshot into an accessible, dark-mode-ready HAXcms theme
+  - Path: `/skills/hax-theme-builder/SKILL.md`
+- **youtube-vtt**: Generate a WebVTT transcript from a YouTube URL with yt-dlp, no video download
+  - Path: `/skills/youtube-vtt/SKILL.md`
 
 ## Claude Code Plugin Marketplace
 

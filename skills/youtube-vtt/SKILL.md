@@ -1,15 +1,6 @@
 ---
 name: youtube-vtt
-description: >
-  Generate a WebVTT (.vtt) transcript file from a YouTube video URL using the
-  yt-dlp engine, WITHOUT downloading the video. Use this skill when the user
-  says "generate a VTT from this YouTube video", "download the subtitles",
-  "make a transcript from YouTube", "youtube to vtt", "get captions for this
-  video", or "transcribe this youtube video" — even if they don't say "vtt" or
-  "skill". Uses the yt-dlp CLI (engine + URL conventions) and adds subtitle-only
-  extraction + VTT normalization that yt-dlp's download workflow does not
-  provide. Auto-provisions yt-dlp via an isolated venv if it is not installed,
-  so it works on PEP 668 / externally-managed systems without sudo.
+description: "Generate a WebVTT transcript from a YouTube URL with yt-dlp, without downloading the video. Use for 'youtube to vtt', subtitles or captions for a video; auto-provisions yt-dlp in an isolated venv."
 version: 1.0.0
 license: Apache-2.0
 metadata:

@@ -42,25 +42,11 @@
  */
 const fs = require("fs");
 const path = require("path");
-const os = require("os");
 
 function resolveMammoth() {
   const candidates = [
     () => require("mammoth"),
-    () =>
-      require(
-        path.join(
-          os.homedir(),
-          "Documents/git/haxtheweb/create/node_modules/mammoth",
-        ),
-      ),
-    () =>
-      require(
-        path.join(
-          os.homedir(),
-          "Documents/git/haxtheweb/haxcms-nodejs/node_modules/mammoth",
-        ),
-      ),
+    () => require(path.join(process.cwd(), "node_modules", "mammoth")),
   ];
   for (const load of candidates) {
     try {
@@ -70,7 +56,7 @@ function resolveMammoth() {
     }
   }
   throw new Error(
-    "Could not resolve mammoth. Run with NODE_PATH pointing at create/node_modules.",
+    "Could not resolve mammoth. Run `npm install --no-save mammoth` in the working directory (or set NODE_PATH to a node_modules folder that has it).",
   );
 }
 
@@ -211,7 +197,6 @@ function defaultDescription(title) {
 function resolveHaxcmsVersion(siteDir) {
   const candidates = [
     path.join(siteDir, "package.json"),
-    path.join(os.homedir(), "Documents/git/haxtheweb/create/package.json"),
   ];
   for (let i = 0; i < candidates.length; i++) {
     try {

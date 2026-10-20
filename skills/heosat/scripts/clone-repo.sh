@@ -10,8 +10,9 @@
 #   clone-repo.sh https://gitlab.com/group/project.git
 #   clone-repo.sh /path/to/local/repo               # used in place, no clone
 #
-# Local-first for HAXtheweb projects: the full HAXtheweb ecosystem is checked
-# out under ~/Documents/git/haxtheweb/ (override with HEOSAT_HAXTHEWEB_ROOT).
+# Optional local-first for HAXtheweb projects: set HEOSAT_HAXTHEWEB_ROOT to a
+# folder of HAXtheweb checkouts. If unset (the default, and always the case in
+# cloud agents) every target is cloned from GitHub.
 # When the target names a HAXtheweb repo — a bare name (e.g. "webcomponents"),
 # haxtheweb/<repo>, or a github.com/haxtheweb/<repo> URL — and a local checkout
 # exists at <root>/<repo>, the clone step is SKIPPED and the local checkout is
@@ -37,7 +38,7 @@ set -euo pipefail
 
 target="${1:?usage: clone-repo.sh <github-url | owner/repo | bare-haxtheweb-name | git-url | local-path>}"
 depth="${HEOSAT_CLONE_DEPTH:-50}"
-haxroot="${HEOSAT_HAXTHEWEB_ROOT:-$HOME/Documents/git/haxtheweb}"
+haxroot="${HEOSAT_HAXTHEWEB_ROOT:-}"
 
 # Create (or validate a user-supplied) scratch directory; prints its path.
 make_scratch() {
@@ -130,7 +131,7 @@ fi
 case "$slug" in
   haxtheweb/*)
     repo_name="${slug#haxtheweb/}"
-    if [ -d "$haxroot/$repo_name/.git" ]; then
+    if [ -n "$haxroot" ] && [ -d "$haxroot/$repo_name/.git" ]; then
       use_local "$haxroot/$repo_name" "$slug" "local-haxtheweb"
       exit 0
     fi

@@ -78,7 +78,7 @@ license: personal-use
 
 ## Step 1: stage the source somewhere readable
 
-macOS privacy protection (TCC) blocks agent subprocesses out of `~/Music` and `~/Documents`. Have the user copy the program to a plain working folder (e.g. `~/audio-work/`) in Finder or their own terminal first. On Linux there is no such restriction, but a plain working folder is still cleaner. Sanity-check the copy: list disc folders, count tracks, and read the audio files' metadata (artist/album tags) to identify author and publisher. Confirm the program name, publisher, author, and disc/track structure with the user before transcribing.
+On a person's Mac, privacy protection (TCC) blocks agent subprocesses from the Music and Documents folders. Have the user copy the program to a plain working folder (for example `./audio-work/` under the current directory) in Finder or their own terminal first. In a cloud or Linux workspace there is no such restriction: use the uploaded folder, or copy it into a working folder under the current directory. Sanity-check the copy: list disc folders, count tracks, and read the audio files' metadata (artist/album tags) to identify author and publisher. Confirm the program name, publisher, author, and disc/track structure with the user before transcribing.
 
 ## Step 2: transcribe to the staging folder
 

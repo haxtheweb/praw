@@ -22,7 +22,7 @@ Assess an open source project with the **`heosat` skill** (9 sections, 47 questi
 - The sibling **`heosat`** skill (`../heosat/`) — provides the rubric (`references/rubric.json`) for the fresh-assessment mode and for page question text.
 - `hax` CLI (local copy — never `npx`), `surge`, `node` v18+, `gh` (installed — read its output directly, don't ask the user to verify).
 - The `heosat-report` site skeleton is **bundled with this skill** at `references/heosat-report.json` (resume-theme + one placeholder page) and is used via `--skeleton-file`, so no personal-profile skeleton install is required.
-- Sites live under `~/Documents/git/haxtheweb/ai-single-site-heosat-reports/` (create it if missing).
+- Sites are created under `./ai-single-site-heosat-reports/` in the current working directory (create it if missing).
 
 ## The project profile rule (read before building the profile)
 
@@ -48,7 +48,7 @@ Run the whole workflow straight through with minimal narration. Only report once
 ## Workflow
 
 1. **Collect the input** — repo URL / `owner/repo` (fresh mode) or an existing scores directory (existing mode; verify `scores.json` exists there).
-2. **Run the assessment (fresh mode only)** — execute the **`heosat` skill** end to end: pull down the repo into `/tmp/heosat-<owner>-<repo>/` (HAXtheweb projects skip the clone and use their local `~/Documents/git/haxtheweb/` checkout when one exists — the heosat skill's clone-repo.sh resolves local-first), gather evidence (static review only), score all 47 questions into `scores.json`, and run its `aggregate.py` until validation is clean, producing `<scores-dir>/report.md`. In existing mode, reuse the given directory as `<scores-dir>`.
+2. **Run the assessment (fresh mode only)** — execute the **`heosat` skill** end to end: pull down the repo into `/tmp/heosat-<owner>-<repo>/` (a HAXtheweb project is cloned from `https://github.com/haxtheweb/<repo>` like any other; the heosat skill's clone-repo.sh reuses a local checkout only when `HEOSAT_HAXTHEWEB_ROOT` is set), gather evidence (static review only), score all 47 questions into `scores.json`, and run its `aggregate.py` until validation is clean, producing `<scores-dir>/report.md`. In existing mode, reuse the given directory as `<scores-dir>`.
 3. **Write the project profile** — gather project details via `gh` and write `<scores-dir>/project-profile.json` per the profile rule above:
    ```bash
    gh repo view <owner/repo> --json name,description,homepageUrl,licenseInfo,primaryLanguage
@@ -68,7 +68,7 @@ Run the whole workflow straight through with minimal narration. Only report once
 4. **Derive the machine name** — `heosat-<repo-slug>` (repo slug = repo name, kebab-case, no owner segment; e.g. `booklooky-official-lrs-rater` → `heosat-booklooky-official-lrs-rater`). If it already exists under `ai-single-site-heosat-reports/`, append `-2`, `-3`, etc. `metadata.site.name` MUST equal this folder name (the scaffold sets it; never modify it).
 5. **Scaffold the site from the bundled skeleton** — run from the reports directory with automation flags (never `npx`; the `--y --no-i --auto --skip --quiet` flags prevent prompts and sub-process launches):
    ```bash
-   mkdir -p ~/Documents/git/haxtheweb/ai-single-site-heosat-reports && cd ~/Documents/git/haxtheweb/ai-single-site-heosat-reports && \
+   mkdir -p ai-single-site-heosat-reports && cd ai-single-site-heosat-reports && \
      hax site <machine-name> --skeleton-file <skill-dir>/references/heosat-report.json \
        --y --no-i --auto --skip --quiet
    ```

@@ -1,15 +1,6 @@
 ---
 name: hax-issue-research
-description: >
-  Research a GitHub issue in the HAX ecosystem, propose an implementation plan, and capture that plan
-  back on the issue as a comment labeled "Plan Created" so the work can be picked up later. Use this
-  skill whenever the user supplies a GitHub issue URL and wants it investigated — e.g. "research this
-  issue", "look into <github URL>", "write a plan for this issue", "what would it take to fix <URL>",
-  "scope this issue", "capture a plan on this issue", or "investigate <URL> and propose an approach".
-  Also use it when the user pastes an issue link and asks "is this a bug", "how should we approach
-  this", or "can you draft a plan" — even if they do not say "research" or "skill". The skill reads
-  the issue, investigates the real codebase, presents a plan for confirmation, then posts the plan as
-  an issue comment and applies the "Plan Created" label.
+description: "Research a GitHub issue in the HAX ecosystem, propose a plan, and post it as a \"Plan Created\" comment. Use when given an issue URL to \"research\", \"scope\" or \"write a plan for\"; presents the plan for confirmation before posting."
 version: 1.0.0
 license: Apache-2.0
 metadata:
@@ -78,23 +69,17 @@ expensive to plan against the wrong target.
 The value of this skill is a plan that references actual files and actual current behavior, not
 generic advice. Investigate:
 
-- **Map the repo to a local path.** HAX repos live under `~/Documents/git/haxtheweb/`. Common map:
-  - `webcomponents` → `webcomponents/` (the monorepo; elements under `elements/`)
-  - `haxcms-nodejs` → `haxcms-nodejs/`
-  - `haxcms-php` → `haxcms-php/`
-  - `create` → `create/` (the `hax` CLI)
-  - `desktop` → `desktop/`
-  - `hax11ty` → `hax11ty/`
-  - `docs` → `docs/`
-  - `open-apis` → `open-apis/`
-  - `hax-schema` / `hax-element-schema` → same names
-  - `issues` → `issues/` (unified issue queue)
-  - If unsure, `ls ~/Documents/git/haxtheweb/` to confirm the directory name.
+- **Locate the repo.** Every HAX repo is public at `https://github.com/haxtheweb/<repo>`. Use an existing
+  local clone if there is one; otherwise read or clone it from GitHub. Common repos:
+  - `webcomponents` (the monorepo; elements under `elements/`)
+  - `haxcms-nodejs`, `haxcms-php`, `create` (the `hax` CLI), `desktop`, `hax11ty`
+  - `docs`, `open-apis`, `hax-schema`, `hax-element-schema`
+  - `issues` (the unified issue queue)
 - **Search the codebase.** Use `grep` for exact symbols/strings and `codebase_semantic_search` for
   conceptual lookups. Many HAX repos are indexed — pass the matching `codebase_path` when available.
   Read the relevant source files (not `build/` or `node_modules/`).
 - **Check linked references.** `gh issue view <url> --comments` surfaces cross-references; read
-  linked issues/PRs that change the scope. Check the unified issue queue at `~/Documents/git/haxtheweb/issues`
+  linked issues/PRs that change the scope. Check the unified issue queue at <https://github.com/haxtheweb/issues>
   for related/duplicate issues.
 - **Note governing constraints.** Scan the user's rules and existing skills that bear on the issue
   (see the "Plan considerations checklist" below) so the plan respects them.

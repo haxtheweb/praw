@@ -66,7 +66,7 @@ See [`plugins/`](plugins/) for the full plugin tree and [`plugins/hax-onboarding
 curl -fsSL https://raw.githubusercontent.com/haxtheweb/praw/main/hax-onboarding.sh | bash
 
 # Or if you've already cloned this repo:
-cd ~/Documents/git/haxtheweb/praw
+cd praw
 ./hax-onboarding.sh
 ```
 
@@ -105,13 +105,13 @@ If you're working across multiple HAX repositories, you can:
 
 1. **Clone this repo** to your local HAX development area:
    ```bash
-   cd ~/Documents/git/haxtheweb/
+   # from the folder where you keep your HAX repositories
    git clone https://github.com/haxtheweb/praw.git
    ```
 
 2. **Symlink the main WARP.md** to your primary working directories:
    ```bash
-   ln -s ~/Documents/git/haxtheweb/praw/WARP.md ~/Documents/git/haxtheweb/webcomponents/
+   ln -s ../praw/WARP.md webcomponents/WARP.md
    ```
 
 3. **Let Warp automatically detect** the rules when working in HAX directories
@@ -215,7 +215,7 @@ cd programs/issue-management/
 
 1. **Install the management system**:
    ```bash
-   cd ~/Documents/git/haxtheweb/praw
+   cd praw
    ./scripts/setup.sh
    ```
 

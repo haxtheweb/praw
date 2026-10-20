@@ -1,6 +1,6 @@
 ---
 name: heosat-report-site
-description: Run a HEOSAT open source maturity assessment on a project and publish the result as a single-page HAXcms report site on surge — radar-chart + scorecard, per-question evidence, strengths, and prioritized recommendations, plus ready-to-post LinkedIn / X copy (47 questions across 9 sections). Takes the same input as the heosat skill (a GitHub repo URL, owner/repo, or an existing assessment directory with scores.json/report.md). Use whenever the user says "publish the HEOSAT report", "make a HEOSAT report site for this repo", "assess this project and publish it", "put this assessment on surge", "turn this HEOSAT report into a site", or hands you a repo and wants a published, shareable maturity report link — even if they don't say "skill", "site", or "surge". Companion to the `heosat` skill; leverages the same site scaffold + surge publish workflow as `hax-tutorial-site`.
+description: "Run a HEOSAT assessment and publish it as a single-page HAXcms report site on surge with scorecard, evidence and LinkedIn / X copy. Use for \"make a HEOSAT report site\". Companion to heosat."
 version: 1.1.0
 license: Apache-2.0
 metadata:

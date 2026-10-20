@@ -78,7 +78,7 @@ Verify:
 ### Step 3: Commit and Push to GitHub
 
 ```bash
-cd ~/Documents/git/haxtheweb/praw
+cd praw
 
 git add skills/
 git add .well-known/skills/

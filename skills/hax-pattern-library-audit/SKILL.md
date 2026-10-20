@@ -1,24 +1,6 @@
 ---
 name: hax-pattern-library-audit
-description: >
-  READ-ONLY diagnostic: analyze a single HAX web component in the webcomponents
-  monorepo against the DDD Atomic Design pattern library and emit a report with
-  three sections — (a) Composition conformance (does the element appear in any
-  registry composition, and do authored usages match the canonical recipe for
-  slots, spacing tokens, data-attributes), (b) Internal-contract conformance
-  (for each internal surface the element exposes — title/caption, callout,
-  collapsible heading, click-to-reveal trigger, iframe/embed wrapper, admin
-  fieldset — does it use the contracted DDD tokens/classes/structure, or does
-  it hardcode/deviate), and (c) Library-ingest candidates (custom patterns the
-  element implements that are reusable and should be promoted into the registry
-  as new molecules/organisms/contracts). Use when the user says "audit this
-  element against the pattern library", "does this element conform to DDD
-  patterns", "what patterns should this element be part of", "check this
-  element's internal consistency", "find ingest candidates in this element", or
-  "grade this element against the pattern library" — even if they don't say
-  "pattern library" or "audit". Diagnoses only; hands off to hax-webcomponent-dev
-  / hax-design-system for remediation and to the DDDPatternLibrary registry for
-  ingest.
+description: "READ-ONLY audit of one HAX web component against the DDD Atomic Design pattern library: composition conformance, internal-contract conformance, library-ingest candidates. Use for \"does this element conform to DDD patterns\". Hands off to hax-webcomponent-dev."
 version: 1.0.0
 license: Apache-2.0
 metadata:
@@ -345,4 +327,4 @@ monorepo build are never run by the agent; element-local `yarn run build` only.
 - `elements/d-d-d/lib/DDDPatternLibrary.js` — the registry itself.
 - `elements/d-d-d/lib/DDDStyleGuidePresets.js` — the style-guide presets that
   mirror the atom/molecule recipes.
-- PRAW RULES.md: `~/Documents/git/haxtheweb/praw/RULES.md`.
+- PRAW RULES.md: `https://github.com/haxtheweb/praw/blob/main/RULES.md`.

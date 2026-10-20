@@ -51,7 +51,7 @@ Every rule has one of four scopes:
 ### Issue Tracking
 - **Rule ID**: `tJnuFVxe11BgToleU8oPxK`
 - **Scope**: `global`
-- **Content**: For any git repository in or below the current working directory, issues should be checked against the unified issue queue located at `~/Documents/git/haxtheweb/issues`.
+- **Content**: For any git repository in the HAX ecosystem, check issues against the unified issue queue at https://github.com/haxtheweb/issues (for example `gh issue list --repo haxtheweb/issues`).
 
 ### HAXcms Backend Security/Parity
 - **Rule ID**: `a8bf4a47-3d4f-4f8e-a356-a04db66ce1ab`
@@ -169,10 +169,10 @@ Every rule has one of four scopes:
 - **Scope**: `global`
 - **Content**: github cli is installed just read the output of it instead of asking me to verify.
 
-### Environment Setup
+### Cross-Repo References — No Local Paths
 - **Rule ID**: `bAKMWCMrqRLGdWmuNWgVUw`
 - **Scope**: `global`
-- **Content**: Always start new shells in the ~/Documents/git/haxtheweb/ folder because that's where all of the user's projects are located.
+- **Content**: When one HAX repo, rule, skill or doc refers to another, use its public URL (`https://github.com/haxtheweb/<repo>`, or `https://raw.githubusercontent.com/haxtheweb/<repo>/<branch>/<path>` for a single file), never a path on someone's machine such as a home-folder checkout. Many agents run in the cloud and cannot see a local checkout. Instructions for a person at a terminal should be relative to their own clone.
 
 ### Node.js Version — Latest LTS
 - **Rule ID**: `92dfb3b2-1c32-42dc-89c3-0f4ae66f7227`
@@ -259,10 +259,10 @@ Every rule has one of four scopes:
 
 ### Cross-References
 This RULES.md file is the canonical registry. Scoped prose lives in:
-- `~/Documents/git/haxtheweb/praw/webcomponents/WARP.md` (webcomponents scope)
-- `~/Documents/git/haxtheweb/praw/haxcms/WARP.md` (haxcms scope)
-- `~/Documents/git/haxtheweb/praw/design-system/WARP.md` (design-system scope)
-- `~/Documents/git/haxtheweb/praw/WARP.md` (lean ecosystem index, always-on as the praw Project Rule)
+- <https://github.com/haxtheweb/praw/blob/main/webcomponents/WARP.md> (webcomponents scope)
+- <https://github.com/haxtheweb/praw/blob/main/haxcms/WARP.md> (haxcms scope)
+- <https://github.com/haxtheweb/praw/blob/main/design-system/WARP.md> (design-system scope)
+- <https://github.com/haxtheweb/praw/blob/main/WARP.md> (lean ecosystem index, always-on as the praw Project Rule)
 
 ## 🔄 Future Rule Management
 

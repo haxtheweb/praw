@@ -1,17 +1,6 @@
 ---
 name: hax-i18n-translate
-description: >
-  Scaffold and translate HAX web component i18n locale files at scale. Use when the user
-  says "Translate <element>", "add translations to <element>", "translate the locales for
-  <element>", "stub out translation files for <element>", "add support for the top 100
-  languages", "i18n my component", "extract the this.t strings", or "set up locales for
-  <element>", or references a HAX element's locales/ folder, this.t object, I18NMixin,
-  registerLocalization, haxProperties, i18n-manager-register-element, or
-  translation-manifest — even when they don't say "skill" or "i18n". Covers both
-  phases: (1) extracting English strings from the this.t object or a
-  lib/*.haxProperties.json schema and stubbing locale files for ~100 languages, and
-  (2) translating every stub, choosing the lowest-cost path (inline single-response for
-  small string sets, parallel agents for large ones), then validating.
+description: "Scaffold and translate HAX web component i18n locale files: extract this.t strings or haxProperties text, stub ~100 languages, translate, validate. Use for \"translate <element>\", \"i18n my component\" or work on an element's locales/ folder."
 version: 1.2.0
 license: Apache-2.0
 metadata:

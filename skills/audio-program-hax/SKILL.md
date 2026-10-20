@@ -1,16 +1,6 @@
 ---
 name: audio-program-hax
-description: >
-  Publish a transcribed audio/video program as a searchable HAXcms library site:
-  per-track transcript pages, per-disc distilled notes, a program-level summary,
-  inline audio playback via media-playlist + audio-player, and a publishable
-  "favorite quotes" page built from media-quote elements. Use when the user says
-  "publish <program> to my HAX library", "add this course to my audio site",
-  "put my transcripts into HAX", or "curate quotes from <program>". Consumes the
-  staging tree produced by audio-program-transcribe. Depends on
-  audio-program-transcribe, hax-claudehax, hax-site-building, and
-  hax-design-system. Personal-use content; keep verbatim transcripts and audio
-  assets private, publish only distilled notes and short cited quotes.
+description: "Publish a transcribed audio/video program as a searchable HAXcms library site with transcript pages, distilled notes, inline playback and a quotes page. Use for \"publish this program to my HAX library\" or \"curate quotes\". Consumes the audio-program-transcribe staging tree."
 version: 0.1.0
 license: Apache-2.0
 metadata:

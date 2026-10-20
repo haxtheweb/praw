@@ -20,6 +20,7 @@
  *   - duplicate normalized content (same rule text under different IDs)
  *   - missing/invalid Scope on any rule
  *   - unknown scope value
+ *   - local filesystem paths in RULES.md, WARP.md files and llms.txt (see LOCAL_PATH_PATTERNS)
  *
  * No external dependencies — Node built-ins only (praw is not a node project).
  * Run: node scripts/build-rules.js
@@ -89,6 +90,45 @@ function parseRules(text) {
   return rules.filter(function (r) { return r.id || r.content; });
 }
 
+/**
+ * Cross-repo references must be public URLs, not paths on someone's machine:
+ * many agents run in the cloud and cannot see a local checkout. Strict surfaces
+ * (rules, WARP.md files, llms.txt) produce warnings. Skills are counted and
+ * listed but do not fail the build, because a few intentionally work in a
+ * local folder.
+ */
+const LOCAL_PATH_PATTERNS = [
+  /~\/(Documents|git|haxtheweb)\b/,
+  /\$HOME\/(Documents|git|haxtheweb)\b/,
+  /\/home\/[A-Za-z0-9_.-]+\//,
+  /\/Users\/[A-Za-z0-9_.-]+\//,
+  /[A-Za-z]:\\Users\\/,
+  /\.\.\/(praw|webcomponents|create|haxcms-php|haxcms-nodejs|hax11ty|issues|docs)\b/,
+];
+const STRICT_PATH_FILES = ['RULES.md', 'WARP.md', 'webcomponents/WARP.md', 'haxcms/WARP.md', 'design-system/WARP.md', 'llms.txt'];
+
+function findLocalPaths(relFile) {
+  const full = path.join(prawRoot, relFile);
+  if (!fs.existsSync(full)) return [];
+  const hits = [];
+  fs.readFileSync(full, 'utf8').split(/\r?\n/).forEach(function (line, i) {
+    LOCAL_PATH_PATTERNS.forEach(function (re) {
+      const m = line.match(re);
+      if (m) hits.push(relFile + ':' + (i + 1) + ' (' + m[0] + ')');
+    });
+  });
+  return hits;
+}
+
+function skillFiles(dir, out) {
+  fs.readdirSync(dir, { withFileTypes: true }).forEach(function (e) {
+    const full = path.join(dir, e.name);
+    if (e.isDirectory()) skillFiles(full, out);
+    else if (e.name.endsWith('.md')) out.push(path.relative(prawRoot, full));
+  });
+  return out;
+}
+
 function main() {
   let text;
   try {
@@ -151,6 +191,14 @@ function main() {
   // Emit exports
   fs.mkdirSync(exportsDir, { recursive: true });
 
+  STRICT_PATH_FILES.forEach(function (f) {
+    findLocalPaths(f).forEach(function (h) { warnings.push('local path reference (use a public URL): ' + h); });
+  });
+  const skillPathHits = [];
+  skillFiles(path.join(prawRoot, 'skills'), []).forEach(function (f) {
+    findLocalPaths(f).forEach(function (h) { skillPathHits.push(h); });
+  });
+
   const clean = function (r) {
     return { id: r.id, title: r.title, category: r.category, content: r.content };
   };
@@ -194,6 +242,10 @@ function main() {
     process.exit(2);
   }
   console.log('  OK: no duplicate IDs, no duplicate content, all scopes valid');
+  if (skillPathHits.length > 0) {
+    console.log('  note: ' + skillPathHits.length + ' local path reference(s) in skills (not enforced):');
+    skillPathHits.forEach(function (h) { console.log('    - ' + h); });
+  }
 }
 
 main();

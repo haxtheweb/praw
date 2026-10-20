@@ -36,6 +36,9 @@ Reusable agent skills for the HAX (Headless Authoring eXperience) ecosystem. The
 | `hax-pattern-library-audit` | Read-only diagnostic: analyze a single HAX web component against the DDD Atomic Design pattern library (composition conformance, internal contracts, library-ingest candidates) | `npx skills add haxtheweb/praw --skill hax-pattern-library-audit` |
 | `heosat` | Run the HEOSAT (Higher Education Open Source Assessment Tool) maturity assessment on an open source project into an evidence-backed scorecard | `npx skills add haxtheweb/praw --skill heosat` |
 | `heosat-report-site` | Publish a HEOSAT assessment as a single-page HAXcms report site on surge, with scorecard, per-question evidence, and ready-to-post LinkedIn / X copy | `npx skills add haxtheweb/praw --skill heosat-report-site` |
+| `hax-backend-dev` | Keep haxcms-nodejs and haxcms-php in step: mirror routes and OpenAPI specs, use @site/ or @system/ MFR namespaces | `npx skills add haxtheweb/praw --skill hax-backend-dev` |
+| `hax-testing` | Find and run the right tests per HAX repo and write the test for a new endpoint | `npx skills add haxtheweb/praw --skill hax-testing` |
+| `hax-release-prep` | Verify locally and write the maintainer handoff for the ubiquity build and publish steps agents must never run | `npx skills add haxtheweb/praw --skill hax-release-prep` |
 
 ## Install All Skills
 

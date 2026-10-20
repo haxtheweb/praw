@@ -74,7 +74,7 @@ Ready to start setup? Press Enter to continue...
     // Updated scopes for LinkedIn API v2 with OpenID Connect
     const scopes = 'openid,profile,w_member_social';
     const redirectUri = 'http://localhost:3000/callback';
-    const state = Math.random().toString(36).substring(7);
+    const state = require('crypto').randomBytes(32).toString('hex');
     
     const authUrl = `https://www.linkedin.com/oauth/v2/authorization?` +
       `response_type=code&` +
@@ -97,20 +97,27 @@ Ready to start setup? Press Enter to continue...
         if (parsedUrl.pathname === '/callback') {
           const { code, state, error } = parsedUrl.query;
           
-          if (error) {
-            res.writeHead(400);
-            res.end(`Error: ${error}`);
-            server.close();
-            return reject(new Error(error));
-          }
-          
-          if (state !== expectedState) {
+          // Verify state first (constant-time) so unauthenticated requests
+          // cannot influence the flow
+          const stateBuf = Buffer.from(String(state || ''));
+          const expectedBuf = Buffer.from(String(expectedState));
+          if (
+            stateBuf.length !== expectedBuf.length ||
+            !require('crypto').timingSafeEqual(stateBuf, expectedBuf)
+          ) {
             res.writeHead(400);
             res.end('Invalid state parameter');
             server.close();
             return reject(new Error('Invalid state'));
           }
-          
+
+          if (error) {
+            res.writeHead(400);
+            res.end('Authorization error');
+            server.close();
+            return reject(new Error(String(error)));
+          }
+
           try {
             // Exchange code for access token
             const tokenResponse = await fetch('https://www.linkedin.com/oauth/v2/accessToken', {
@@ -182,7 +189,8 @@ Ready to start setup? Press Enter to continue...
         }
       });
       
-      server.listen(3000, () => {
+      // Bind to loopback only so the callback is not reachable from the network
+      server.listen(3000, '127.0.0.1', () => {
         console.log('🌐 Callback server started on http://localhost:3000');
       });
       

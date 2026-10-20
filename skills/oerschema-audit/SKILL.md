@@ -312,4 +312,4 @@ This audit is the diagnosis step. Apply fixes with the related skills and the `h
 - `references/hax-outline-mapping.md` — site.json JOS node → OER class + relationship properties
 - `references/ubd-mapping.md` — UbD artifacts (EU, GRASPS, WHERETO) → OER classes/properties
 - OER Schema vocabulary source: `oerschema` repo `app/lib/schema.ts`
-- PRAW RULES.md: `~/Documents/git/haxtheweb/praw/RULES.md`
+- PRAW RULES.md: `https://github.com/haxtheweb/praw/blob/main/RULES.md`

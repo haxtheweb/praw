@@ -269,7 +269,7 @@ setup_warp_config() {
 # HAX Ecosystem Development Rules
 
 ## Environment Setup
-- Always start new terminals in `~/Documents/git/haxtheweb/` directory
+- Start new terminals in the folder where your HAX repositories are cloned
 - Use local HAX CLI commands instead of npx (run `hax` not `npx @haxtheweb/create`)
 - When running HAX commands, use `--y`, `--no-i`, and `--auto` flags to prevent interactive interruptions
 
@@ -309,7 +309,7 @@ setup_warp_config() {
 - Test with screen readers and keyboard navigation
 
 ## Issues and Development
-- Check unified issue queue at `~/Documents/git/haxtheweb/issues` for any repository work
+- Check the unified issue queue at https://github.com/haxtheweb/issues for any repository work
 - Follow HAX community pillars: Accessible, Extensible, Free/Open, Efficient, Platform Agnostic, Remixable, Sustainable
 EOF
 
@@ -345,8 +345,8 @@ This repository is part of the HAX ecosystem. Follow HAX development guidelines:
 ${REPOSITORIES[$repo_name]:-"Part of the HAX ecosystem"}
 
 ## Getting Help
-- Check issues at: ../issues
-- Documentation: ../docs
+- Check issues at: https://github.com/haxtheweb/issues
+- Documentation: https://github.com/haxtheweb/docs
 - HAX CLI help: \`hax --help\`
 EOF
             fi

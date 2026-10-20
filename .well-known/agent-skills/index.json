@@ -20,7 +20,7 @@
       "type": "skill-md",
       "description": "\"READ-ONLY WCAG 2.0 AA audit of authored HAX pages (alt text, headings, landmarks, contrast, captions, keyboard, ARIA) with HAX remediation. Use for \\\"is this accessible\\\" or \\\"audit for WCAG\\\". Diagnoses only; hands off to hax-site-building.\"",
       "url": "hax-a11y-audit/SKILL.md",
-      "digest": "sha256:d2b2a3f66dd7b2684a875d6f68e31e1128e6b09b92f97ad3700efc6885dd0d0e",
+      "digest": "sha256:3821d4fcc92f80cdf006c88ef5673dc39a4cc93c6e9b2f887b6a5951355d5dd1",
       "files": [
         {
           "path": "evals/evals.json",
@@ -28,7 +28,7 @@
         },
         {
           "path": "references/a11y-element-map.md",
-          "digest": "sha256:273df2299a27b1daac900b2ab484f2d185e3bed79a194ba5bb00f72fcba0a4ba"
+          "digest": "sha256:69f545fab1096ba1d98dea141e46e6a09360192f8b092acaa95cab99c8b40a41"
         }
       ]
     },
@@ -51,7 +51,7 @@
       "type": "skill-md",
       "description": "\"Audit a HAX page against cognitive-load and chunking standards and return HAX remediation. Use for \\\"wall of text\\\", overly long sections, list fatigue or \\\"make this page less overwhelming\\\".\"",
       "url": "hax-content-chunking-audit/SKILL.md",
-      "digest": "sha256:3d8e84a7cb8b5aa2ef9d14b54cc6631e53ee9e85d29abfaa8e6ff518812f8c3c"
+      "digest": "sha256:86e4c9f40f8b26415662090178582d8c722b5a57615b1928db25ee6b5ccc5f27"
     },
     {
       "name": "hax-design-system",
@@ -105,14 +105,14 @@
       "type": "skill-md",
       "description": "Fetch, analyze, and summarize GitHub issues across the HAX ecosystem using the unified issue queue. Use when tracking bugs, planning sprints, generating weekly productivity reports, or creating social media content from project activity.",
       "url": "hax-issue-analysis/SKILL.md",
-      "digest": "sha256:2772b384ce332cb463cbfbacd26608f9571dc4515958d55730cd12716853143c"
+      "digest": "sha256:70a4a1d4f490b7864139d9531c14b1e92a4f098bd719f6fb72c0160523a7d57a"
     },
     {
       "name": "hax-issue-research",
       "type": "skill-md",
       "description": "\"Research a GitHub issue in the HAX ecosystem, propose a plan, and post it as a \\\"Plan Created\\\" comment. Use when given an issue URL to \\\"research\\\", \\\"scope\\\" or \\\"write a plan for\\\"; presents the plan for confirmation before posting.\"",
       "url": "hax-issue-research/SKILL.md",
-      "digest": "sha256:ea82581707303f97293c16f57787cbc3fbfd2f54ae40d7212cc58be8aa7e1b72"
+      "digest": "sha256:ad1222f0430845265271693e50598dfea9e0693c318d0ea0fb61a4fd2fd8fc83"
     },
     {
       "name": "hax-managed-files",
@@ -133,7 +133,7 @@
       "type": "skill-md",
       "description": "\"READ-ONLY audit of one HAX web component against the DDD Atomic Design pattern library: composition conformance, internal-contract conformance, library-ingest candidates. Use for \\\"does this element conform to DDD patterns\\\". Hands off to hax-webcomponent-dev.\"",
       "url": "hax-pattern-library-audit/SKILL.md",
-      "digest": "sha256:accbebad1ac005cc6465f1855591a9cc68dbaedbf908eeca7a0056e1e8077503",
+      "digest": "sha256:7f5c522451cd0f3d3b4a4da93dbd781c49bb8efe3a689d202bb37bfb9732b93d",
       "files": [
         {
           "path": "references/pattern-library-map.md",
@@ -195,7 +195,7 @@
       "type": "skill-md",
       "description": "\"Design HAX course units by Understanding by Design backward design, producing a UbD unit plan and a HAX site skeleton. Use for \\\"design a unit on X\\\" or \\\"build a course around big ideas\\\".\"",
       "url": "hax-ubd-backward-design/SKILL.md",
-      "digest": "sha256:25ee4f4f79f1980820bb91ea40d478ecc8873192f00c2c998644c9d07f965265",
+      "digest": "sha256:9dd36fa4570ee7ca39dc66afcef112c95ce45e5d62fd7190fcdf7d9dcba4a0e9",
       "files": [
         {
           "path": "references/design-standards.md",
@@ -207,7 +207,7 @@
         },
         {
           "path": "references/ubd-element-map.md",
-          "digest": "sha256:4146c226efe5af0b084d8a1b31c65e4d7de08fb4fc52f8797ccf16fb51653882"
+          "digest": "sha256:7fb1005e3500e1f5e7f0e4f53fcd15dae39b105c1129c003e4ec217c346dd058"
         },
         {
           "path": "references/validity-self-test.md",
@@ -241,39 +241,39 @@
       "type": "skill-md",
       "description": "\"UbD Stage 1: unpack standards into big ideas, enduring understandings, essential questions, knowledge/skills and misconceptions. Use for \\\"what are the big ideas in X\\\" or \\\"write enduring understandings\\\".\"",
       "url": "hax-ubd-stage1/SKILL.md",
-      "digest": "sha256:7bcc4154f157f522d22d1830cb30c753241882acc5a658c2e08adb757dff5782"
+      "digest": "sha256:b2bf044f310afa6ae9e3c4e1fcc25795cf1878e30711bdb08652e1ef3cb7e75a"
     },
     {
       "name": "hax-ubd-stage2",
       "type": "skill-md",
       "description": "\"UbD Stage 2: build the evidence scrapbook, a GRASPS performance task, facet-mapped rubric and validity self-test. Use for \\\"what evidence do I need\\\" or \\\"design a performance task\\\".\"",
       "url": "hax-ubd-stage2/SKILL.md",
-      "digest": "sha256:124ba9ac47ad3e6f03d887e82a65fa990826349f683d67090f82f81a3e309a08"
+      "digest": "sha256:2662398a0588d01fae36d3f9fc1e7a65b1ad09943e8a54637c1b98d8b11db3bb"
     },
     {
       "name": "hax-ubd-stage3",
       "type": "skill-md",
       "description": "\"UbD Stage 3: plan learning experiences with WHERETO, derived from Stages 1 and 2. Use for \\\"sequence this unit\\\" or \\\"plan the learning activities\\\"; points at Stage 2 evidence and never invents endpoints.\"",
       "url": "hax-ubd-stage3/SKILL.md",
-      "digest": "sha256:0662d25294d448e6d0638015d2938abbd56b75b7a61285ac05aedb76c2a01c3a"
+      "digest": "sha256:1a5c335eb5bdabf82a4b4ccd7631e6eaca77b555bdd535beb2f87ec5b97ff93c"
     },
     {
       "name": "hax-ubd-unit-audit",
       "type": "skill-md",
       "description": "\"READ-ONLY review of an existing HAX unit against Understanding by Design with HAX remediation. Use for \\\"is my course backward-designed\\\" or \\\"are my assessments aligned\\\". Hands off to the stage skills.\"",
       "url": "hax-ubd-unit-audit/SKILL.md",
-      "digest": "sha256:0e6ba2f580814c7f6cebbdd8f6221c6cd72f639ed8318846ac9a3076391bf9b1"
+      "digest": "sha256:d210b8247f414cadca7e96676a620ed9d6224223e38109143d68270815428305"
     },
     {
       "name": "hax-udl-audit",
       "type": "skill-md",
       "description": "\"READ-ONLY audit of a HAX page against UDL 3.0 (Engagement, Representation, Action & Expression) with HAX component remediation. Use for \\\"audit for UDL\\\" or \\\"does this page reach everyone\\\".\"",
       "url": "hax-udl-audit/SKILL.md",
-      "digest": "sha256:4610d6dc5584ce08d768aee9b504713a5c6c83dbe3fe51af79a8ea14fd618fbd",
+      "digest": "sha256:95c14fdd2be637c36d19439614b8efa8c448039c9ec38b984aef5802a2ac17bb",
       "files": [
         {
           "path": "references/udl-element-map.md",
-          "digest": "sha256:e74b0d200c2a4171d4c77d15d11eb90c3cce7f362a7f5606d458beb988d36c25"
+          "digest": "sha256:72a4067a67506cf64346172db3ccf7197c2e14d8ab98585a3d19c0c49019a18c"
         }
       ]
     },
@@ -345,7 +345,7 @@
       "type": "skill-md",
       "description": "\"READ-ONLY audit of authored content (HAX HTML, site.json, VitePress, JSON-LD, Docs export) against the OER Schema vocabulary, recommending class, properties and markup per finding. Use for \\\"audit this page for OER schema\\\".\"",
       "url": "oerschema-audit/SKILL.md",
-      "digest": "sha256:ee3e54b67df5c6fc1d7acfbe2402c36c8d9d38becb179a08bb752c5a4c139fc0",
+      "digest": "sha256:3ffeead8ba790e03fbae42e7ff6003b0c2089793a0cbab1b0498d1ea5e2f31d4",
       "files": [
         {
           "path": "references/hax-outline-mapping.md",
@@ -370,7 +370,7 @@
       "type": "skill-md",
       "description": "\"READ-ONLY scan of webcomponents, themes, CMS backends and plugins for pedagogical-content code that should emit or consume OER Schema but doesn't, with a per-file hit-list. Use for \\\"which elements should emit oer schema\\\".\"",
       "url": "oerschema-integration-finder/SKILL.md",
-      "digest": "sha256:1a1147094bff57251ffb73bfa85ea24ef822210d8275c58cfa95d6de446ce505",
+      "digest": "sha256:55d95f587c92fed7c40e6f3b281a1a3cd7469b583e1328a8bc0ec8b4f1495d08",
       "files": [
         {
           "path": "references/component-patterns.md",

@@ -131,5 +131,5 @@ G: {...} | R: {...} | A: {...} | S: {...} | P: {...} | S (standards): {...}
 - `../hax-ubd-backward-design/references/ubd-element-map.md` — Stage 2 component map
 - `../hax-ubd-backward-design/references/validity-self-test.md` — the 7-question self-test + defect→redesign patterns
 - `../hax-ubd-backward-design/references/design-standards.md` — standards 5–9
-- PRAW RULES.md: `~/Documents/git/haxtheweb/praw/RULES.md`
+- PRAW RULES.md: `https://github.com/haxtheweb/praw/blob/main/RULES.md`
 - Source: Wiggins & McTighe (2005), *UbD* Ch. 7–8.

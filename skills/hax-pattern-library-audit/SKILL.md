@@ -327,4 +327,4 @@ monorepo build are never run by the agent; element-local `yarn run build` only.
 - `elements/d-d-d/lib/DDDPatternLibrary.js` — the registry itself.
 - `elements/d-d-d/lib/DDDStyleGuidePresets.js` — the style-guide presets that
   mirror the atom/molecule recipes.
-- PRAW RULES.md: `~/Documents/git/haxtheweb/praw/RULES.md`.
+- PRAW RULES.md: `https://github.com/haxtheweb/praw/blob/main/RULES.md`.

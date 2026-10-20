@@ -60,7 +60,7 @@ backend/plugin maintainer. Never edit source files from within this skill.
 ## Inputs
 
 - A codebase path to scan. Typical targets:
-  - the webcomponents monorepo (e.g. `~/Documents/git/haxtheweb/webcomponents`)
+  - the webcomponents monorepo (e.g. `https://github.com/haxtheweb/webcomponents`)
   - a single element directory (e.g. `elements/<tag-name>`)
   - a HAXcms theme directory
   - a CMS backend (PHP: `haxcms-php`; NodeJS: `haxcms-nodejs`)
@@ -244,4 +244,4 @@ This finder is the diagnosis step. Implement with:
 - `oerschema-audit` skill's `references/vocabulary.md` — OER Schema v1.2.0 class/property tables
   (consult, do not duplicate)
 - OER Schema vocabulary source: `oerschema` repo `app/lib/schema.ts`
-- PRAW RULES.md: `~/Documents/git/haxtheweb/praw/RULES.md`
+- PRAW RULES.md: `https://github.com/haxtheweb/praw/blob/main/RULES.md`

@@ -13,7 +13,8 @@
  *    and the rubric version
  *  - computes section averages + the overall score (same math as the heosat
  *    skill's aggregate.py)
- *  - builds the page: H1, context + overall stop-note, editable-table
+ *  - builds the page: H1, context + overall stop-note, radar-chart of the
+ *    nine section averages (vs. a Level 5 target), editable-table
  *    scorecard, a11y-collapse-group with one a11y-collapse per section
  *    (heading-button + icon are set on the GROUP so they cascade to every
  *    child collapse — the group spreads all A11yCollapse properties and
@@ -182,6 +183,35 @@ ${rows}
     </tbody>
   </table>
 </editable-table>`;
+}
+
+// Full attribute escaping (the radar-chart attributes carry JSON + "&" in titles)
+function escAttrFull(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+/**
+ * The radar-chart element (@haxtheweb/radar-chart) — the same visual the
+ * HEOSAT tool's own reports lead with. One spoke per rubric section, plotted
+ * at the section average (0-5) against a Level 5 target ring. The element
+ * ships its own text alternative and "show data as a table" details block, so
+ * no extra a11y markup is needed. It needs 3+ categories; returns "" otherwise.
+ */
+function buildRadarChart(rubric, sectionStats, projectName) {
+  if (sectionStats.length < 3) {
+    return "";
+  }
+  const max = rubric.scale.length - 1;
+  const categories = JSON.stringify(sectionStats.map((st) => st.title));
+  // one decimal, comma separated — same rounding as the scorecard table
+  const scores = sectionStats.map((st) => fmtAvg(st.avg)).join(",");
+  const targets = sectionStats.map(() => max).join(",");
+  const title = `HEOSAT facet scores${projectName ? ` — ${projectName}` : ""}`;
+  return `<radar-chart title="${escAttrFull(title)}" max-score="${max}" categories="${escAttrFull(categories)}" scores="${scores}" target-scores="${targets}" score-label="Assessed score" target-label="Level ${max} (${escAttrFull(rubric.scale[max])})"></radar-chart>`;
 }
 
 function buildQuestionBlock(question, scale) {
@@ -372,6 +402,11 @@ function main() {
     pageParts.push(`<p data-margin="xs">${escText(doc.context)}</p>`);
   }
   pageParts.push(`<h2 data-margin="s">Scorecard</h2>`);
+  // radar-chart first (the at-a-glance shape of the project), then the exact numbers
+  const radarHtml = buildRadarChart(rubric, sectionStats, profile.name || "");
+  if (radarHtml) {
+    pageParts.push(radarHtml);
+  }
   pageParts.push(buildScorecardTable(rubric, sectionStats, { avg: overallAvg }));
   pageParts.push(`<p data-margin="xs">Level distribution — ${escText(levelDist)}</p>`);
   pageParts.push(`<h2 data-margin="s">Section detail</h2>`);

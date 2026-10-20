@@ -13,9 +13,9 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-RULES_FILE="~/Documents/git/haxtheweb/praw/RULES.md"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PRAW_DIR="$(dirname "$SCRIPT_DIR")"
+RULES_FILE="$PRAW_DIR/RULES.md"
 
 # Helper functions
 print_header() {
@@ -102,7 +102,7 @@ add_rule_to_file() {
 "
     
     # Check if category section exists
-    if grep -q "## $emoji $category_title" "$RULES_FILE"; then
+    if grep -qF -- "## $emoji $category_title" "$RULES_FILE"; then
         # Add to existing category (before the next ## section or end of file)
         local temp_file=$(mktemp)
         local in_category=false
@@ -135,8 +135,19 @@ add_rule_to_file() {
 ## $emoji $category_title
 $rule_entry"
         
-        # Add before rule management system section
-        sed -i "/## 📋 Rule Management System/i\\$category_section" "$RULES_FILE"
+        # Add before rule management system section. The text is passed via the
+        # environment (not interpolated into a script) so it cannot inject code.
+        local temp_file
+        temp_file=$(mktemp)
+        CATEGORY_SECTION="$category_section" awk '
+            !done && index($0, "## 📋 Rule Management System") == 1 {
+                print ENVIRON["CATEGORY_SECTION"]
+                done = 1
+            }
+            { print }
+            END { if (!done) print ENVIRON["CATEGORY_SECTION"] }
+        ' "$RULES_FILE" > "$temp_file"
+        mv "$temp_file" "$RULES_FILE"
     fi
 }
 
@@ -178,7 +189,7 @@ main() {
         
         # Get rule title
         echo
-        read -p "Enter rule title: " title
+        read -r -p "Enter rule title: " title
         if [[ -z "$title" ]]; then
             print_error "Rule title is required"
             exit 1
@@ -186,8 +197,7 @@ main() {
         
         # Get rule content
         echo
-        echo "Enter rule content (press Ctrl+D when finished):"
-        content=$(cat)
+        read -r -p "Enter rule content (single line): " content
         if [[ -z "$content" ]]; then
             print_error "Rule content is required"
             exit 1
@@ -216,6 +226,20 @@ main() {
         fi
     fi
     
+    # Reject newlines/control characters: values are written into RULES.md
+    # as single-line markdown fields.
+    local field
+    for field in "$category" "$title" "$content" "$rule_id"; do
+        if [[ "$field" == *$'\n'* || "$field" == *$'\r'* ]]; then
+            print_error "Newlines are not allowed in category, title, content or rule ID"
+            exit 1
+        fi
+    done
+    if [[ ! "$rule_id" =~ ^[A-Za-z0-9_-]+$ ]]; then
+        print_error "Rule ID may only contain letters, digits, '_' and '-'"
+        exit 1
+    fi
+
     # Confirm before adding
     echo
     echo "Rule to be added:"

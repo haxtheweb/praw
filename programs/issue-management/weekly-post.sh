@@ -5,6 +5,25 @@
 
 set -e  # Exit on any error
 
+# Usage: ./weekly-post.sh [--post] [--dry-run]
+#   Default is a DRY RUN: data is fetched and summarized, nothing is posted.
+#   --post   post to LinkedIn, but only after an explicit interactive
+#            confirmation. Without a terminal (e.g. cron) this falls back to
+#            a dry run.
+DRY_RUN=true
+WANT_POST=false
+for arg in "$@"; do
+    case "$arg" in
+        --post) WANT_POST=true ;;
+        --dry-run) WANT_POST=false ;;
+        -h|--help)
+            sed -n '/^# Usage:/,/^#            a dry run\./p' "$0" | sed 's/^# \{0,1\}//'
+            exit 0
+            ;;
+        *) echo "Unknown option: $arg" >&2; exit 2 ;;
+    esac
+done
+
 echo "🎯 HAX Weekly Productivity Automation"
 echo "======================================"
 
@@ -62,8 +81,28 @@ else
     exit 1
 fi
 
+# Decide whether we may post: requires --post, a terminal, and typed confirmation
+if [[ "$WANT_POST" == true ]]; then
+    if [[ -t 0 && -t 1 ]]; then
+        read -r -p "Post to LinkedIn? Type 'post' to confirm: " CONFIRM
+        if [[ "$CONFIRM" == "post" ]]; then
+            DRY_RUN=false
+        else
+            print_warning "Not confirmed; running as dry run"
+        fi
+    else
+        print_warning "Non-interactive session; running as dry run (nothing will be posted)"
+    fi
+else
+    print_status "Dry run (default). Use --post to publish after confirmation."
+fi
+
+if [[ "$DRY_RUN" == true ]]; then
+    print_status "Dry run: skipping LinkedIn setup, token refresh and posting"
+fi
+
 # Step 2: Check if LinkedIn is configured
-if [[ ! -f "linkedin-config.json" ]]; then
+if [[ "$DRY_RUN" == false && ! -f "linkedin-config.json" ]]; then
     print_warning "LinkedIn not configured yet"
     echo ""
     echo "🔧 Setup required:"
@@ -83,7 +122,7 @@ fi
 
 # Step 3: Check token expiry
 print_status "Checking LinkedIn token expiry..."
-if [[ -f "linkedin-config.json" ]]; then
+if [[ "$DRY_RUN" == false && -f "linkedin-config.json" ]]; then
     # Extract creation date and expires_in using jq
     created_at=$(jq -r '.createdAt' linkedin-config.json)
     expires_in=$(jq -r '.expiresIn' linkedin-config.json)
@@ -114,12 +153,16 @@ if [[ -f "linkedin-config.json" ]]; then
 fi
 
 # Step 4: Generate and post
-print_status "Generating productivity post..."
-if node post-to-linkedin.js; then
-    print_success "Weekly productivity post completed!"
+if [[ "$DRY_RUN" == true ]]; then
+    print_status "Dry run: not posting"
 else
-    print_error "Failed to generate/post content"
-    exit 1
+    print_status "Generating productivity post..."
+    if node post-to-linkedin.js; then
+        print_success "Weekly productivity post completed!"
+    else
+        print_error "Failed to generate/post content"
+        exit 1
+    fi
 fi
 
 # Step 5: Optional - show recent activity summary
@@ -153,5 +196,5 @@ echo "  • Schedule this script to run weekly via cron"
 echo ""
 echo "⏰ To automate weekly:"
 echo "  crontab -e"
-echo "  # Add: 0 9 * * 1 /path/to/weekly-post.sh"
+echo "  # Add: 0 9 * * 1 /path/to/weekly-post.sh   (cron runs are always dry runs)"
 echo "  # (Runs every Monday at 9 AM)"

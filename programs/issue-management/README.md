@@ -99,7 +99,7 @@ Complete automation pipeline that:
 1. Fetches latest issue data
 2. Checks LinkedIn configuration
 3. Generates productivity summaries
-4. Posts to social media (with approval)
+4. Posts to social media (only with `--post` and typed confirmation; the default is a dry run, and non-interactive runs such as cron never post)
 
 **Features:**
 - Dependency checking (Node.js, jq, GitHub CLI)

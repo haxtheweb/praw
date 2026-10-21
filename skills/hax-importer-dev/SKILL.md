@@ -13,7 +13,7 @@ metadata:
 
 An importer turns an outside source (a git repo, a site URL, an uploaded file) into HAXcms JSON Outline
 Schema items plus a map of files to download. HAX ships many of them, and each new one touches the same
-places in four repos. This skill is the checklist, the contract, and the security posture, so an agent
+places in four repos (two backends, the client, and the `hax` CLI). This skill is the checklist, the contract, and the security posture, so an agent
 spends its effort on parsing the source format and not on rediscovering the wiring.
 
 Everything resolves through public URLs, so it works from a local clone or a cloud agent:
@@ -21,6 +21,7 @@ Everything resolves through public URLs, so it works from a local clone or a clo
 - Node backend: https://github.com/haxtheweb/haxcms-nodejs
 - PHP backend: https://github.com/haxtheweb/haxcms-php
 - Client (app-hax, micro-frontend-registry): https://github.com/haxtheweb/webcomponents
+- CLI (`hax site --import-structure`): https://github.com/haxtheweb/create
 - Rules: https://github.com/haxtheweb/praw/blob/main/RULES.md
 - Work queue: https://github.com/haxtheweb/issues
 
@@ -165,6 +166,26 @@ repo's before running `--write`; a different major version reformats unrelated l
 Do not run the ubiquity script or a top-level monorepo build. After the PR merges, a maintainer runs it
 (see `hax-release-prep`).
 
+### create (the `hax` CLI)
+
+An importer is not finished until the CLI can reach it, so this repo is part of the work and its PR is opened
+with the others, without waiting to be asked. The CLI calls the backend's `site/import/:platform` dispatcher
+in-process (the v1 path, not the retired open-apis broker), so this is a small change:
+
+1. `src/lib/programs/site.js`: add `<platform>ToSite: { platform: "<platform>" }` to `IMPORT_STRUCTURE_MAP`.
+2. `src/create.js`: add `<platform>ToSite` to the `--import-structure` help text. It appears twice; edit both.
+3. `src/docs/hax.1`: add it to the man page list.
+4. `README.md`: add it to the `--import-structure` option list.
+5. `test/unit/site-imports.test.cjs`: add it to the expected platform table and add a mapping test.
+
+Run `npm run test:unit`. `npm run precheck` can report an error in code you did not touch (a constant interpolated
+into `exec` near `HAXCMS_NODEJS_FALLBACK_SPEC`); note it in the PR rather than changing it.
+
+The CLI loads the backend from the published `@haxtheweb/haxcms-nodejs` package. Until a backend release that
+contains the importer is published and the CLI's dependency picks it up, the new name answers "unsupported
+import platform". Say so in the PR description, and do not bump the dependency yourself; releases are the
+maintainer's step.
+
 ## Testing
 
 - The network is stubbed at `safeFetch`; the suite never leaves the machine. Build a small **synthetic
@@ -208,7 +229,8 @@ A real repository is good for finding gaps, and only for that.
 5. Port to PHP, structure for structure, then mirror the tests.
 6. Wire the client: registry service, chooser card, strings, locales.
 7. Run each repo's tests and pre-submission check.
-8. Open **one PR per repo**, cross-linked and referencing the issue. Each description says what the PR
+7a. Wire the CLI (`create`): the import map, help text, man page, README and test.
+8. Open **one PR per repo** (all four, including `create`), cross-linked and referencing the issue. Each description says what the PR
    touches and which commands you ran with their results. Do not merge; maintainers review.
 
 ## Guardrails
@@ -223,7 +245,8 @@ A real repository is good for finding gaps, and only for that.
 - [ ] Converter follows the output contract and security posture, in Node and PHP.
 - [ ] Dispatcher, spec (path, platform list, `ImportData` note), and API codes updated in both backends.
 - [ ] Client service, chooser card, strings, and every locale updated.
-- [ ] Tests added in all three repos and passing, or the gap stated in the PR.
+- [ ] Tests added in all four repos and passing, or the gap stated in the PR.
+- [ ] The `create` CLI lists the importer (`IMPORT_STRUCTURE_MAP`, help text, man page, README, test), and its PR is open.
 - [ ] No optional chaining in Node; no direct network calls; no code from the source executed.
 - [ ] No third-party content committed or published.
 - [ ] PRs cross-link and reference the issue; nothing merged.

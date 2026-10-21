@@ -80,7 +80,9 @@ equivalent, and report it. Rewrite in-book links to the imported slugs, and rewr
 references into the file map. A page that cannot be read gets a link back to the source, never an empty
 page that looks successful.
 
-Titles resolve in this order: front matter title, outline label, file name. Slugs derive from the outline
+Titles resolve in this order: an explicit outline label from the source's own navigation, then front matter
+title, then the first heading, then file name. The outline label wins because it is what the author chose to show
+in the table of contents, and it keeps slugs stable. Slugs derive from the outline
 path (parent slug plus title slug), never from file basenames alone, because `ch1/index` and `ch2/index`
 collide.
 
@@ -98,8 +100,9 @@ collide.
 - **Escape everything written into HTML**: `escapeHTMLAttribute` for attributes, and sanitize rendered
   content. Content from the source is untrusted.
 - **Bound the work.** Define a `LIMITS` object (max pages, max files, total fetch budget in seconds, delay
-  between requests), mark the result `truncated` when a limit hits, and export `LIMITS` so tests can lower
-  them. Keep the PHP values identical.
+  between requests, and for formats with includes or transclusion a max include count and depth), mark the
+  result `truncated` when a limit hits, and export `LIMITS` so tests can lower them. Keep the PHP values
+  identical.
 - **Return client-safe errors** with `clientSafeErrorDetail`. No paths or stack traces reach the response.
 - **GitHub limits apply.** Unauthenticated API calls are rate-limited. Fetch the tree once and read file
   contents from `raw.githubusercontent.com`.
@@ -122,7 +125,8 @@ Nothing is discovered automatically. Miss one of these and the importer is unrea
    `{platform}` description and the importer list in the `ImportData` schema description.
 4. API codes `src/lib/haxcmsApiCodes.json`: add regexes for the converter's error strings to the right
    code (`IMPORT_EMPTY`, `IMPORT_SOURCE_INVALID`, `IMPORT_FETCH_FAILED`, `IMPORT_FAILED`). An uncoded
-   error reaches the client as raw English.
+   error reaches the client as raw English. Add one example per new message to the `EXAMPLES` list in
+   `test/unit/api-message-codes.test.cjs`.
 5. Test `test/unit/convert<Name>ToSite.test.cjs`.
 
 ### haxcms-php
@@ -149,6 +153,14 @@ Same contract, same outline, slugs, file map, status codes and error strings.
 4. `elements/app-hax/locales/app-hax-use-case-filter.<lang>.json`: the new keys in every locale file. Use
    the `hax-i18n-translate` skill. Do not hand-edit around it.
 5. `elements/app-hax/test/app-hax-use-case-filter.test.js`: a card test next to the existing ones.
+6. `elements/haxcms-elements/lib/haxcms-api-codes.json`: the bundled copy of the API-code catalog (it is the
+   stated source of truth; the backends mirror it). Apply the same regex additions as in the backends. The
+   per-language `haxcms-api.<lang>.json` files key on the existing codes, so they need no change.
+
+In a blobless or sparse clone of webcomponents, never `git grep` across history: it fetches blobs one at a
+time. List paths with `git ls-tree -r HEAD --name-only`, read one file with `git show HEAD:<path>`, and add
+only the directory you need with `git sparse-checkout add`. Also check that your prettier version matches the
+repo's before running `--write`; a different major version reformats unrelated lines.
 
 Do not run the ubiquity script or a top-level monorepo build. After the PR merges, a maintainer runs it
 (see `hax-release-prep`).
@@ -176,6 +188,14 @@ A real repository is good for finding gaps, and only for that.
 - Prefer sources whose license allows derivatives when choosing a demo target.
 - Record what the real run revealed (shapes the fixture missed) by adding a **synthetic** case to the
   fixture, not the real content.
+- If the sandbox cannot reach the GitHub API (HTTP 403), clone the repo read-only into a scratch directory
+  and run the converter with `safeFetch` replaced by a stub that serves the tree and raw files from disk.
+  Keep the script and its output outside the repository.
+- A first real run typically reveals syntax that straddles another construct, for example a figure caption
+  that contains inline code and so splits across the code-span pass. Run inline rewrites that can contain
+  code spans before the code-span protection pass, and guard against matches that start inside a code span.
+- Check the converted output with counts, not eyeballs: leftover fences, attribute blocks, shortcodes,
+  cross-reference keys and broken links across every page.
 
 ## Workflow
 

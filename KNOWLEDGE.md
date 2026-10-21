@@ -119,6 +119,14 @@ Structure your entries using the templates below. Keep entries concise and searc
 - Links: RULES.md (JavaScript Standards)
 - Candidate: No
 
+- Title: SSR audit of checklist, reflective nudge and radar chart
+- Date: 2026-10-20
+- Context: First test cases for the SSR rule. Ran `hax audit ssr` and read the saved server HTML for `bullet-check-list`, `self-reflective-nudge` and `radar-chart` (webcomponents main, using the monorepo `d-d-d`). All three render. Verified in the output: (1) the checklist and the nudge write every checkbox / radio as `checked="false"`, because `.checked=${...}` on a native input is serialized as an attribute and browsers read its presence as on; (2) the checklist's `typeof="oer:LearningComponent"`, set in `firstUpdated`, is missing from the server HTML; (3) the nudge's text comes from light DOM children read in `firstUpdated`, so the server output has an empty nudge region; (4) `radar-chart` has no lifecycle code and its server output holds the full SVG, a text description and a data table. Also verified: published `@haxtheweb/d-d-d` 26.8.0 throws under SSR (`DesignSystemManager` undefined without `document.body`); monorepo main already guards it, so audits need the monorepo copy until it is released. Read from the code, not tested: the nudge creates its `MutationObserver` in `firstUpdated` and disconnects it in `disconnectedCallback`, so it probably stops observing after the element is moved; the checklist reads storage in `willUpdate`, which does run on the server (guarded by `isConnected` and try / catch), so its client first render can differ from the server's.
+- Guidance: Fix the checklist and nudge with `?checked` bindings, and move the checklist's `typeof` into the template or authored content. Treat `radar-chart` as the model for a render-derived element. Re-run `hax audit ssr` after each fix.
+- Rationale: The first draft of the SSR rule was written from general SSR practice and was wrong in places: the HAXcms shim already supplies `window`, `matchMedia` and observers, and the real hazards are the lifecycle split (only constructor, `willUpdate` and `render` run) and what the shim does not supply (`document.body`, storage, `location`). The bound-attribute bug could only be found by reading actual server output.
+- Links: RULES.md (SSR Safety & Enhancement Audit), https://github.com/haxtheweb/create/pull/85, https://github.com/haxtheweb/haxcms-nodejs/tree/main/src/lib/ssr
+- Candidate: Yes
+
 ## HAXcms
 
 - Title: Example – Keep metadata.site.name aligned

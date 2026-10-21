@@ -93,6 +93,8 @@ All skills below live in `skills/` in this repo. The machine-readable discovery 
   - Path: `/skills/oerschema-integration-finder/SKILL.md`
 - **hax-backend-dev**: Keep haxcms-nodejs and haxcms-php in step: mirror routes and OpenAPI specs, use @site/ or @system/ MFR namespaces
   - Path: `/skills/hax-backend-dev/SKILL.md`
+- **hax-importer-dev**: Build a site importer end to end: Node and PHP converters, dispatcher, OpenAPI spec, API error codes, client service and chooser card, i18n and tests
+  - Path: `/skills/hax-importer-dev/SKILL.md`
 - **hax-testing**: Find and run the right tests per HAX repo and write the test for a new endpoint
   - Path: `/skills/hax-testing/SKILL.md`
 - **hax-release-prep**: Verify locally and write the maintainer handoff for the ubiquity build and publish steps agents must never run

@@ -37,9 +37,10 @@ missing. If it isn't on PATH, fall back to the global install above (or `npx
 @haxtheweb/create` / `npm init @haxtheweb` for a one-off run). Requires Node
 `>=18.20.3`.
 
-If you have a local development checkout of `create` (e.g. under
-`~/Documents/git/haxtheweb/create`), the hook detects it and skips the global
-install — the local copy is always the latest or even experimental.
+If you have a local development checkout of
+[`create`](https://github.com/haxtheweb/create), set `HAX_DEV_PATH` to its path and
+the hook skips the global install — the local copy is always the latest or even
+experimental.
 
 ## Quickstart (golden path for a new user)
 
@@ -63,7 +64,7 @@ publishing for after they've seen their first site.
 For developers setting up a full HAX development environment:
 
 1. **Clone Repositories**: Clone all HAX ecosystem repositories into
-   `~/Documents/git/haxtheweb/`. Core repos: `webcomponents`, `create`,
+   a single workspace folder (ask the user where). Core repos: `webcomponents`, `create`,
    `haxcms-php`, `haxcms-nodejs`, `desktop`, `hax11ty`, `json-outline-schema`,
    `hax-schema`, `open-apis`, `docs`, and `issues`.
 2. **Install HAX CLI**: `npm install @haxtheweb/create --global` (or use the
@@ -71,7 +72,7 @@ For developers setting up a full HAX development environment:
 3. **Install Agent Skills**: Run `hax skills install --all` to install bundled
    interface skills (site building, ClaudeHAX, web component dev, onboarding)
    into `~/.agents/skills/` so any agent can use them.
-4. **Configure Environment**: Start new shells in `~/Documents/git/haxtheweb/`.
+4. **Configure Environment**: Start new shells in that workspace folder.
    Set up Warp with HAX-specific rules.
 5. **Verify**: Run `hax --version` to confirm CLI installation, then
    `hax skills list` to confirm bundled skills are available.

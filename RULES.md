@@ -154,6 +154,26 @@ Every rule has one of four scopes:
 
 ## ⚙️ Build & Development Workflow
 
+### Testing — Use the Repo's Own Runner Config
+- **Rule ID**: `646fc5cf-6f1f-47e0-b48c-c54544cda490`
+- **Scope**: `webcomponents`
+- **Content**: When running element tests locally, use the repo's own `web-test-runner.config.mjs` (e.g. `yarn test` from the element directory, or `--config=../../web-test-runner.config.mjs`), not a hand-written or stripped-down config. It supplies the `process` shim the test page needs and the raised per-test timeout; without them healthy suites fail with `process is not defined` or time out, which is easy to misread as an environment limit. If a custom config is unavoidable (for example to point at a different browser binary), spread the repo config and override only the launcher.
+
+### Testing — Poll, Don't Sleep
+- **Rule ID**: `932f6cd4-90a9-451c-98af-4fb577007f9d`
+- **Scope**: `webcomponents`
+- **Content**: Do not wait for asynchronous work in tests (or e2e flows) with a fixed `setTimeout`/sleep. Poll for the condition the test actually needs (a property, attribute, rendered node or dialog) with a bounded timeout, so a slow CI runner passes and a real failure still reports the real assertion. Use fixed waits only to prove that something does not happen.
+
+### Async Results Must Not Overwrite Newer State
+- **Rule ID**: `35309388-b7be-40ca-88a9-539fe1dd4b0d`
+- **Scope**: `webcomponents`
+- **Content**: When an asynchronous lookup (IndexedDB, fetch, storage) assigns to a component property, check that the property has not been set in the meantime before assigning (compare against the value read when the lookup started, or only assign while it is still unset). Otherwise a late result silently clobbers a user or test action, producing intermittent failures that depend on timing.
+
+### Never Rely on querySelectorAll Across Elements That May Stub It
+- **Rule ID**: `896ecfa1-8965-4c06-a3ab-31c7e7eb28bf`
+- **Scope**: `webcomponents`
+- **Content**: Some elements override `querySelectorAll` (for example `video-player`'s SSR stub, which returns `[]`), so shared helpers that call `el.querySelectorAll(...)` on an arbitrary element can silently do nothing. In shared code call the platform method directly (`Element.prototype.querySelectorAll.call(el, selector)`) or walk `el.children`/`el.childNodes`, and keep SSR stubs inert only for the element's own use. Tests for such helpers must assert that the expected node or object is actually found (and, for removals, that it is gone), not merely that the call did not throw; a failed assertion on a DOM node can also hang the test page until the runner's finish timeout.
+
 ### HAX CLI Usage
 - **Rule ID**: `ip9IudNwZrZQsyk4ggvCzH`
 - **Scope**: `global`

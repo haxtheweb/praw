@@ -15,6 +15,7 @@ Build and maintain HAX web components: apply and sync DDD tokens, audit against 
 
 | Skill | What it does |
 |---|---|
+| `hax-mental-model` | Orient newcomers and agents: how the pieces of HAX fit together, with a glossary and a contribution path. |
 | `hax-design-system` | Apply the DDD design system and manage SimpleColors legacy usage. |
 | `hax-design-system-sync` | Maintain DDD across the ecosystem: lint tokens, check contrast, regenerate exports. |
 | `hax-pattern-library-audit` | Read-only audit of one web component against the DDD Atomic Design pattern library. |
@@ -24,7 +25,7 @@ Build and maintain HAX web components: apply and sync DDD tokens, audit against 
 
 ## Where to start
 
-Start with hax-design-system; component scaffolding comes from hax-webcomponent-dev in create.
+Start with hax-mental-model for the big picture, then hax-design-system; component scaffolding comes from hax-webcomponent-dev in create.
 
 ## Prerequisites
 

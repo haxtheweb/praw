@@ -73,6 +73,11 @@ Every rule has one of four scopes:
 - **Scope**: `haxcms`
 - **Content**: When changing API endpoints or auth code in haxcms-php or haxcms-nodejs, check the HAXiam path (`config->iam`) as well as single-tenant mode. In multi-tenant mode each user has an isolated sites directory, and endpoints such as `connectionSettings` must enforce strict alignment between the authenticated user and the requested path (for example `getIAMTenantUserName()` and `getRequestPathUserName()`). Never weaken that check, and verify the change in both backends. Rationale: KNOWLEDGE.md entry "HAXiam multi-tenant auth model".
 
+### Canonical Repository Directories Are Never Renamed
+- **Rule ID**: `7e2c1a94-3b58-4d0f-9c6a-1f8e4d2b5a30`
+- **Scope**: `global`
+- **Content**: Never rename, move, or delete the canonical repository folders in the local HAX ecosystem working directory (the folder that holds all HAX repo checkouts — for example `create`, `webcomponents`, `haxcms-nodejs`, `haxcms-php`, `praw`, `docs`, `issues`). These folders are the single source of truth for local work; renaming a canonical folder (e.g. to a hidden `.name-<suffix>` copy) makes the work it contains effectively lost. If a repo must be duplicated for isolation (parallel agents, test fixtures), work in a hidden dot-suffixed copy (e.g. `.create-t0D9Xyd1`) and leave the canonical folder in place. When the work is finished, restore relocated checkouts to their canonical names. If a canonical folder is missing or gutted (only `node_modules` / lockfiles remain), recover it from the newest clean git checkout (including hidden copies and `.backup_*` folders) and put it back under its canonical name before doing further work there.
+
 ## 🎨 Design System Standards
 
 ### DDD Design System (Primary)

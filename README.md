@@ -49,7 +49,23 @@ PRAW hosts the official HAX Claude Code plugin marketplace. Add it and install a
 /plugin install hax-onboarding@haxtheweb
 ```
 
-Three plugins are available:
+Start with `hax-onboarding`, then add the plugin that matches what you do. Eleven plugins are available:
+
+| Plugin | For people who... |
+|---|---|
+| `hax-onboarding` | are new to HAX and want a live HAXsite fast |
+| `hax-site-ops` | operate HAX sites from the CLI |
+| `hax-site-authoring` | write content and maintain HAXcms sites |
+| `hax-ubd-course-design` | design courses with Understanding by Design |
+| `hax-content-audits` | audit content for accessibility, UDL, chunking, and OER Schema |
+| `hax-component-dev` | build web components and maintain DDD |
+| `hax-platform-dev` | work on HAXcms backends, importers, tests, and releases |
+| `hax-media-ingest` | turn audio, video, or YouTube into HAX sites |
+| `hax-project-health` | assess open source maturity with HEOSAT |
+| `hax-maintainer-ops` | triage issues and maintain PRAW rules |
+| `openstax2hax` | convert OpenStax books into HAX sites |
+
+Install any of them with `/plugin install <name>@haxtheweb`. The first three are described below; each newer plugin has its own README under [`plugins/`](plugins/).
 
 - **`hax-onboarding`** — Golden-path onboarding: auto-installs the HAX CLI via a SessionStart hook, ships a knowledge skill with the full command surface, and provides slash commands (`quickstart`, `site`, `webcomponent`, `audit`, `serve`, `publish`) to go from nothing to a live HAXsite in one pass.
 - **`hax-site-ops`** — Operate HAX sites from Claude Code using the HAX CLI and HAX web components: add pages, create courses, update content, inspect, validate, export, and publish. Ships a site-operations skill plus reference docs. (Renamed from the old `hax` plugin in claudehax — this resolves the name collision.)

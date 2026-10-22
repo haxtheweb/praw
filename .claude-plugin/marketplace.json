@@ -1,10 +1,13 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "haxtheweb",
-  "description": "Official Claude Code plugins for the HAX ecosystem — onboarding, site operations, and OpenStax conversion, all built around the HAX CLI (@haxtheweb/create).",
+  "description": "Official Claude Code plugins for the HAX ecosystem. Start with hax-onboarding, then add the plugin for what you do: site authoring, course design, content audits, component and platform development, media ingest, project health, or maintainer operations.",
   "owner": {
     "name": "HAXTheWeb core team",
     "url": "https://hax.psu.edu/"
+  },
+  "metadata": {
+    "version": "2.0.0"
   },
   "plugins": [
     {
@@ -19,12 +22,20 @@
       "homepage": "https://haxtheweb.org/",
       "repository": "https://github.com/haxtheweb/praw",
       "license": "Apache-2.0",
-      "keywords": ["hax", "haxcms", "onboarding", "cli", "webcomponents", "lit", "ddd"]
+      "keywords": [
+        "hax",
+        "haxcms",
+        "onboarding",
+        "cli",
+        "webcomponents",
+        "lit",
+        "ddd"
+      ]
     },
     {
       "name": "hax-site-ops",
       "source": "./plugins/hax-site-ops",
-      "description": "Operate HAX sites from Claude Code using the HAX CLI and HAX web components — add pages, create courses, update content, inspect, validate, and publish. Ships a site-operations skill plus reference docs.",
+      "description": "Operate HAX sites from Claude Code using the HAX CLI and HAX web components \u2014 add pages, create courses, update content, inspect, validate, and publish. Ships a site-operations skill plus reference docs.",
       "version": "1.0.0",
       "author": {
         "name": "HAXTheWeb core team",
@@ -33,13 +44,20 @@
       "homepage": "https://haxtheweb.org/",
       "repository": "https://github.com/haxtheweb/praw",
       "license": "Apache-2.0",
-      "keywords": ["hax", "haxcms", "site-ops", "content", "courses", "webcomponents"]
+      "keywords": [
+        "hax",
+        "haxcms",
+        "site-ops",
+        "content",
+        "courses",
+        "webcomponents"
+      ]
     },
     {
       "name": "openstax2hax",
       "source": "./plugins/openstax2hax",
-      "description": "Prepare OpenStax books for conversion into HAX sites — inspect source files, extract content structure, and generate HAX handoff prompts. Ships a skill plus import/inspect/prepare/handoff slash commands.",
-      "version": "1.0.0",
+      "description": "Prepare OpenStax books for conversion into HAX sites \u2014 inspect source files, extract content structure, and generate HAX handoff prompts. Ships a skill plus import/inspect/prepare/handoff slash commands.",
+      "version": "0.1.0",
       "author": {
         "name": "HAXTheWeb core team",
         "url": "https://hax.psu.edu/"
@@ -47,7 +65,256 @@
       "homepage": "https://haxtheweb.org/",
       "repository": "https://github.com/haxtheweb/praw",
       "license": "MIT",
-      "keywords": ["hax", "openstax", "oer", "conversion", "import", "haxcms"]
+      "keywords": [
+        "hax",
+        "openstax",
+        "oer",
+        "conversion",
+        "import",
+        "haxcms"
+      ]
+    },
+    {
+      "name": "hax-site-authoring",
+      "source": "./",
+      "strict": false,
+      "description": "Author and maintain HAXcms sites: understand the portable file structure, write content with the right components, avoid hand-editing generated files, theme a site, and publish tutorials.",
+      "version": "0.1.0",
+      "category": "authoring",
+      "skills": [
+        "./skills/hax-site-structure",
+        "./skills/hax-content-authoring",
+        "./skills/hax-managed-files",
+        "./skills/hax-theme-builder",
+        "./skills/hax-tutorial-site"
+      ],
+      "author": {
+        "name": "HAXTheWeb core team",
+        "url": "https://hax.psu.edu/"
+      },
+      "homepage": "https://haxtheweb.org/",
+      "repository": "https://github.com/haxtheweb/praw",
+      "license": "Apache-2.0",
+      "keywords": [
+        "hax",
+        "haxcms",
+        "content",
+        "authoring",
+        "theme",
+        "tutorial"
+      ]
+    },
+    {
+      "name": "hax-ubd-course-design",
+      "source": "./",
+      "strict": false,
+      "description": "Understanding by Design for HAX: backward-design a unit end to end (Stages 1-3), author essential questions and GRASPS tasks, map the six facets, classify objectives with Bloom's, and audit existing units.",
+      "version": "0.1.0",
+      "category": "instructional-design",
+      "skills": [
+        "./skills/hax-ubd-backward-design",
+        "./skills/hax-ubd-stage1",
+        "./skills/hax-ubd-stage2",
+        "./skills/hax-ubd-stage3",
+        "./skills/hax-ubd-essential-questions",
+        "./skills/hax-ubd-grasps",
+        "./skills/hax-ubd-six-facets",
+        "./skills/hax-ubd-unit-audit",
+        "./skills/grad-blooms"
+      ],
+      "author": {
+        "name": "HAXTheWeb core team",
+        "url": "https://hax.psu.edu/"
+      },
+      "homepage": "https://haxtheweb.org/",
+      "repository": "https://github.com/haxtheweb/praw",
+      "license": "Apache-2.0",
+      "keywords": [
+        "hax",
+        "ubd",
+        "backward-design",
+        "course-design",
+        "assessment",
+        "blooms",
+        "oer"
+      ]
+    },
+    {
+      "name": "hax-content-audits",
+      "source": "./",
+      "strict": false,
+      "description": "Read-only audits for HAX content: WCAG 2.0 AA accessibility, UDL 3.0, cognitive-load chunking, OER Schema, and content rating. Each audit ends with HAX-specific remediation.",
+      "version": "0.1.0",
+      "category": "quality",
+      "skills": [
+        "./skills/hax-a11y-audit",
+        "./skills/hax-udl-audit",
+        "./skills/hax-content-chunking-audit",
+        "./skills/oerschema-audit",
+        "./skills/haxcms-lrs-rater"
+      ],
+      "author": {
+        "name": "HAXTheWeb core team",
+        "url": "https://hax.psu.edu/"
+      },
+      "homepage": "https://haxtheweb.org/",
+      "repository": "https://github.com/haxtheweb/praw",
+      "license": "Apache-2.0",
+      "keywords": [
+        "hax",
+        "accessibility",
+        "wcag",
+        "udl",
+        "audit",
+        "oer-schema",
+        "content-rating"
+      ]
+    },
+    {
+      "name": "hax-component-dev",
+      "source": "./",
+      "strict": false,
+      "description": "Build and maintain HAX web components: apply and sync DDD tokens, audit against the pattern library, prove an element in the real HAX editor, find OER Schema integration gaps, and translate i18n at scale.",
+      "version": "0.1.0",
+      "category": "development",
+      "skills": [
+        "./skills/hax-design-system",
+        "./skills/hax-design-system-sync",
+        "./skills/hax-pattern-library-audit",
+        "./skills/oerschema-integration-finder",
+        "./skills/hax-element-demo",
+        "./skills/hax-i18n-translate"
+      ],
+      "author": {
+        "name": "HAXTheWeb core team",
+        "url": "https://hax.psu.edu/"
+      },
+      "homepage": "https://haxtheweb.org/",
+      "repository": "https://github.com/haxtheweb/praw",
+      "license": "Apache-2.0",
+      "keywords": [
+        "hax",
+        "webcomponents",
+        "lit",
+        "ddd",
+        "design-system",
+        "i18n",
+        "haxschema"
+      ]
+    },
+    {
+      "name": "hax-platform-dev",
+      "source": "./",
+      "strict": false,
+      "description": "Platform development for HAXcms: keep the Node and PHP backends in step, build site importers, run the right tests per repo, and prepare maintainer release handoffs without running publish steps.",
+      "version": "0.1.0",
+      "category": "development",
+      "skills": [
+        "./skills/hax-backend-dev",
+        "./skills/hax-importer-dev",
+        "./skills/hax-testing",
+        "./skills/hax-release-prep"
+      ],
+      "author": {
+        "name": "HAXTheWeb core team",
+        "url": "https://hax.psu.edu/"
+      },
+      "homepage": "https://haxtheweb.org/",
+      "repository": "https://github.com/haxtheweb/praw",
+      "license": "Apache-2.0",
+      "keywords": [
+        "hax",
+        "haxcms",
+        "backend",
+        "importer",
+        "testing",
+        "release",
+        "openapi"
+      ]
+    },
+    {
+      "name": "hax-media-ingest",
+      "source": "./",
+      "strict": false,
+      "description": "Turn media into HAX content: transcribe and distill audio or video programs, publish them as searchable library sites, and generate WebVTT transcripts from YouTube without downloading video.",
+      "version": "0.1.0",
+      "category": "content-import",
+      "skills": [
+        "./skills/audio-program-transcribe",
+        "./skills/audio-program-hax",
+        "./skills/youtube-vtt"
+      ],
+      "author": {
+        "name": "HAXTheWeb core team",
+        "url": "https://hax.psu.edu/"
+      },
+      "homepage": "https://haxtheweb.org/",
+      "repository": "https://github.com/haxtheweb/praw",
+      "license": "Apache-2.0",
+      "keywords": [
+        "hax",
+        "audio",
+        "video",
+        "transcription",
+        "youtube",
+        "vtt",
+        "haxcms"
+      ]
+    },
+    {
+      "name": "hax-project-health",
+      "source": "./",
+      "strict": false,
+      "description": "Assess open source project maturity with HEOSAT and publish the evidence-backed scorecard as a single-page HAXcms report site.",
+      "version": "0.1.0",
+      "category": "assessment",
+      "skills": [
+        "./skills/heosat",
+        "./skills/heosat-report-site"
+      ],
+      "author": {
+        "name": "HAXTheWeb core team",
+        "url": "https://hax.psu.edu/"
+      },
+      "homepage": "https://haxtheweb.org/",
+      "repository": "https://github.com/haxtheweb/praw",
+      "license": "Apache-2.0",
+      "keywords": [
+        "hax",
+        "heosat",
+        "open-source",
+        "maturity",
+        "assessment",
+        "sustainability"
+      ]
+    },
+    {
+      "name": "hax-maintainer-ops",
+      "source": "./",
+      "strict": false,
+      "description": "Maintainer workflows: summarize and analyze issues across the ecosystem, research an issue into a documented plan, and manage the PRAW rules registry.",
+      "version": "0.1.0",
+      "category": "maintenance",
+      "skills": [
+        "./skills/hax-issue-analysis",
+        "./skills/hax-issue-research",
+        "./skills/hax-rule-management"
+      ],
+      "author": {
+        "name": "HAXTheWeb core team",
+        "url": "https://hax.psu.edu/"
+      },
+      "homepage": "https://haxtheweb.org/",
+      "repository": "https://github.com/haxtheweb/praw",
+      "license": "Apache-2.0",
+      "keywords": [
+        "hax",
+        "issues",
+        "triage",
+        "planning",
+        "rules",
+        "maintainers"
+      ]
     }
   ]
 }

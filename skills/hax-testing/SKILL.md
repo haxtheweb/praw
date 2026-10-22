@@ -48,6 +48,26 @@ Repo: https://github.com/haxtheweb/webcomponents. Run tests from that repo with 
 `AGENTS.md` documents (`npm run test --filter <component_name>`). Never run a build at the monorepo top
 level; use the component's own `yarn run build` after changes that affect generated metadata.
 
+## Before you push or open a PR
+
+Run these in the repo you changed, after your last edit, and again if you commit more. Read that repo's
+`AGENTS.md` and `package.json` scripts first; each repo names its own checks.
+
+| Repo | Run before pushing |
+|---|---|
+| haxcms-nodejs, create | `npm run precheck` (Prettier and ESLint on changed files), then the test tier above |
+| webcomponents | `yarn precheck`, then `yarn test` in the element's folder |
+| haxcms-php | PHPUnit from `system/backend/php`; it has no `precheck`, so also run the node-side `precheck` for the mirrored change |
+
+- ESLint is not enough. It usually ignores test files, which Prettier still checks, so a new test file can
+  pass lint and fail format. `precheck` runs both.
+- The Claude Code hook that blocks `git push` and `gh pr create` until `precheck` passes does not fire for a
+  PR opened with `gh api` or from another working directory. Run `precheck` yourself first.
+- In a sparse or partial checkout `precheck` may be missing. Run Prettier and ESLint with the repo's own
+  config on the changed files and note in the PR description what could not be run.
+- After pushing, read the PR's CI results (`gh pr checks`, or the REST API) and fix failures. State in the PR
+  description which checks you ran.
+
 ## Recipe: test a new or changed endpoint
 
 1. Add or update the route's entry in `site-spec.yaml` or `system-spec.yaml` first. Conformance tests read

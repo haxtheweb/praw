@@ -91,6 +91,22 @@ The HAX ecosystem consists of multiple interconnected repositories:
 
 These skills encode years of ecosystem knowledge so AI agents can work productively without requiring the user to explain HAX conventions every session.
 
+## Where this comes from
+
+HAX is open source (Apache-2.0) and these pieces are published from public repos:
+
+- **PRAW** ([`haxtheweb/praw`](https://github.com/haxtheweb/praw)) — this repo: the Claude Code plugin marketplace, the workflow and knowledge skills, and the canonical ecosystem rules in [`RULES.md`](https://github.com/haxtheweb/praw/blob/main/RULES.md) that skills cite by Rule ID.
+- **create** ([`haxtheweb/create`](https://github.com/haxtheweb/create)) — the `hax` CLI and the interface skills bundled with it.
+- **webcomponents, HAXcms and the rest** — see the [HAX ecosystem](https://github.com/haxtheweb) on GitHub.
+
+Get involved:
+
+- **Report a bug or ask for a feature** — post it in the unified issue queue: <https://github.com/haxtheweb/issues/issues>. For a problem with a specific skill or plugin, name it in the issue.
+- **Get help or chat** — join the [HAX Discord](https://discord.gg/aCGxmRHEJP). Run `hax party` for more ways to get involved.
+- **Contribute** — fork the repo, then open a pull request that links the issue it addresses. See [CONTRIBUTING.md](https://github.com/haxtheweb/praw/blob/main/CONTRIBUTING.md) and the [ecosystem developer onboarding](https://github.com/haxtheweb/issues/blob/master/CONTRIBUTING.md).
+- **Report a security problem** — follow [SECURITY.md](https://github.com/haxtheweb/praw/blob/main/SECURITY.md).
+- **Learn more** — <https://haxtheweb.org/> · <https://hax.psu.edu/>
+
 ## Contributing
 
 To add a new skill or update an existing one:

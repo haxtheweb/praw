@@ -1,6 +1,6 @@
 # Security Best Practices Report — praw
 
-**Date:** 2026-10-19 · **Scope:** `~/Documents/git/haxtheweb/praw` (full repo) · **Focus:** prompt injection into agent context, plus script/tooling security
+**Date:** 2026-10-19 · **Scope:** `https://github.com/haxtheweb/praw` (full repo) · **Focus:** prompt injection into agent context, plus script/tooling security
 
 ## Executive summary
 

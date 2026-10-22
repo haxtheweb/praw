@@ -19,7 +19,7 @@ Assess an open source project with the **`heosat` skill** (9 sections, 47 questi
 
 ## Prerequisites
 
-- The sibling **`heosat`** skill (`../heosat/`) — provides the rubric (`references/rubric.json`) for the fresh-assessment mode and for page question text.
+- The sibling **`heosat`** skill (`https://github.com/haxtheweb/praw/tree/main/skills/heosat`) — provides the rubric (`references/rubric.json`) for the fresh-assessment mode and for page question text.
 - `hax` CLI (local copy — never `npx`), `surge`, `node` v18+, `gh` (installed — read its output directly, don't ask the user to verify).
 - The `heosat-report` site skeleton is **bundled with this skill** at `references/heosat-report.json` (resume-theme + one placeholder page) and is used via `--skeleton-file`, so no personal-profile skeleton install is required.
 - Sites are created under `./ai-single-site-heosat-reports/` in the current working directory (create it if missing).
@@ -123,5 +123,5 @@ All page elements are HAX-capable components (they could have been authored in t
 - `references/heosat-report.json` — the `heosat-report` site skeleton bundled with this skill (resume-theme + settings + one placeholder "HEOSAT Report" page). Scaffolding uses `--skeleton-file` with this direct path, so the skill is self-contained and portable.
 - `references/social-copy-templates.md` — LinkedIn / X copy templates for sharing the published report link (report framing, no YouTube/watch lines, no personal signature).
 - `scripts/report-to-site.cjs` — the converter: reads `<scores-dir>/scores.json` + the heosat rubric, builds the single-page report (radar-chart + scorecard table, section/recommendation collapses with heading-button, About block), copies `report.md`/`scores.json` into `files/`, and finalizes `site.json` (title, description, sidebar subtitle, root item title, project profile into `metadata.author`).
-- **`heosat` skill** (`../heosat/`) — dependency for fresh assessments and the rubric source (`references/rubric.json`).
-- **`hax-tutorial-site` skill** (`../hax-tutorial-site/`) — the site scaffold + surge publish pattern this skill mirrors.
+- **`heosat` skill** (`https://github.com/haxtheweb/praw/tree/main/skills/heosat`) — dependency for fresh assessments and the rubric source (`references/rubric.json`).
+- **`hax-tutorial-site` skill** (`https://github.com/haxtheweb/praw/tree/main/skills/hax-tutorial-site`) — the site scaffold + surge publish pattern this skill mirrors.

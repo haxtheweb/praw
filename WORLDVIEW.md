@@ -1,10 +1,9 @@
 # WORLDVIEW
 This document captures a normalized worldview profile derived from two aligned sources: Bryan Ollendyke's `btopro/blog` writing corpus (spanning roughly two decades of life, work, research, and philosophy) and his 2015 thesis, *Information Altruism*. The blog captures long-run practice in public; the thesis provides explicit theory for how those practices reshape institutions.
 ## Source scope
-- Primary corpus (local): `~/Documents/git/btopro/blog`
 - Primary corpus (served): `https://btopro.com`
 - Primary corpus (source mirror): `https://github.com/btopro/blog`
-- Thesis corpus (local): `~/Documents/git/haxtheweb/praw/thesis-bryan-ollendyke-information-altruism.pdf`
+- Thesis corpus: `https://github.com/haxtheweb/praw/blob/main/thesis-bryan-ollendyke-information-altruism.pdf`
 - Current corpus snapshot: `site.json` with 83 indexed items
 - Inclusion focus: HAX, HAXcms, ELMS:LN, open web, instructional design, educational transformation, community development, sustainability, faculty/student empowerment
 - Thesis inclusion focus: Information Altruism, Actor-Network Theory, tempered radicalism, diffusion of innovation, do-ocracy, and institution change from within

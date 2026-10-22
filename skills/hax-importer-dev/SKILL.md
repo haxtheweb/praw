@@ -69,8 +69,9 @@ A converter returns `{ status: 200, data: { items, filename, files, ... } }`:
   The file map carries URLs, and `createSite` downloads them behind its own SSRF guard. The converter never
   downloads assets itself.
 - `filename`: the site name.
-- Optional: `site: { license }`, `truncated`, and a list of unmapped source components, so the client can
-  tell the user what did not convert.
+- Optional: `site: { license }`, `truncated`, a list of unmapped source components, and `warnings` (a list of
+  `{ code, message }` notices), so the client can tell the user what did not convert and what to check
+  before publishing. See "License handling".
 - Errors use `{ status, data: { error, items: [], filename: null, files: {} } }`.
   400 for a bad request, 422 when the source is readable but is not what the importer expects or has no
   pages, 403 for authorization.
@@ -86,6 +87,28 @@ title, then the first heading, then file name. The outline label wins because it
 in the table of contents, and it keeps slugs stable. Slugs derive from the outline
 path (parent slug plus title slug), never from file basenames alone, because `ch1/index` and `ch2/index`
 collide.
+
+## License handling
+
+The source's license is part of the content. An importer carries it onto the site and the pages, and tells
+the person what it implies. It never decides whether the import is allowed; that is theirs.
+
+- **Use the shared list**, not a private one: `src/lib/licenses.js` in haxcms-nodejs and `HAXCMSLicenses` in
+  haxcms-php (the same list is in `license-element`). It holds Creative Commons 4.0, CC0 and the Public
+  Domain Mark, and the common software licenses, as lower case codes. Do not copy the list into an importer.
+- **Resolve in this order**: the license the source's own config declares, then the repository's license file
+  (`identifyLicense` / `identify`: SPDX tags, Creative Commons names and URLs, and the standard texts of the
+  software licenses), then nothing. A page's own front matter license overrides the site's for that page.
+- **Never guess.** A Creative Commons license at a version other than 4.0 gets no code (the links and badges
+  are for 4.0, and relabeling 3.0 work as 4.0 misstates its terms). A statement that cannot be identified is
+  reported, not mapped to the nearest license.
+- **Report notices in `warnings`**, with these stable codes: `license:no-derivatives`,
+  `license:non-commercial`, `license:share-alike` (from the code's terms), `license:from-file` (read from a
+  file, so confirm it covers the written content and not only the code), `license:unrecognized` and
+  `license:not-found`. Each has a plain message. They are information; the import still returns.
+- **Keep attribution**: a `license-element` on each page with the license code, title, creator and source URL.
+- Both backends return identical codes, order and messages. Cover each case in tests with synthetic license
+  text, never a real project's file.
 
 ## Security posture (non-negotiable)
 
@@ -246,6 +269,8 @@ A real repository is good for finding gaps, and only for that.
 - [ ] Dispatcher, spec (path, platform list, `ImportData` note), and API codes updated in both backends.
 - [ ] Client service, chooser card, strings, and every locale updated.
 - [ ] Tests added in all four repos and passing, or the gap stated in the PR.
+- [ ] The source's license is resolved with the shared list, unrecognized or non-4.0 licenses are reported
+      rather than guessed, and `warnings` carries the notices; both backends match.
 - [ ] The `create` CLI lists the importer (`IMPORT_STRUCTURE_MAP`, help text, man page, README, test), and its PR is open.
 - [ ] No optional chaining in Node; no direct network calls; no code from the source executed.
 - [ ] No third-party content committed or published.

@@ -15,6 +15,7 @@ Author and maintain HAXcms sites: understand the portable file structure, write 
 
 | Skill | What it does |
 |---|---|
+| `hax-mental-model` | Orient newcomers and agents: how the pieces of HAX fit together, with a glossary and a contribution path. |
 | `hax-site-structure` | Read and navigate an existing HAXcms site from its portable files (site.json, pages/, files/, theme). |
 | `hax-content-authoring` | Author page content using HAX-capable web components, DDD attributes, and pages/ conventions. |
 | `hax-managed-files` | Know which HAXcms files are generated vs authored, and the protective rules around builds. |
@@ -23,7 +24,7 @@ Author and maintain HAXcms sites: understand the portable file structure, write 
 
 ## Where to start
 
-Start with hax-site-structure, then hax-managed-files before you touch any build.
+Start with hax-mental-model for the big picture, then hax-site-structure, then hax-managed-files before you touch any build.
 
 ## Prerequisites
 

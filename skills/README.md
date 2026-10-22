@@ -6,6 +6,7 @@ Reusable agent skills for the HAX (Headless Authoring eXperience) ecosystem. The
 
 | Skill | Description | Install |
 |-------|-------------|---------|
+| `hax-mental-model` | Orient newcomers and agents: how site files, web components, HAXSchema, the editor, backends, DDD, and the `hax` CLI fit together, with a glossary, the values behind the rules, and a contribution path | `npx skills add haxtheweb/praw --skill hax-mental-model` |
 | `hax-design-system` | Apply the DDD design system and manage SimpleColors legacy usage | `npx skills add haxtheweb/praw --skill hax-design-system` |
 | `hax-design-system-sync` | Maintain DDD across the ecosystem: lint and fix `--ddd-*` tokens, check contrast, regenerate the DTCG export and skill references, rebuild and publish the claude.ai design system | `npx skills add haxtheweb/praw --skill hax-design-system-sync` |
 | `hax-site-structure` | Read and navigate an existing HAXcms site from its portable files (site.json, pages/, files/, theme) | `npx skills add haxtheweb/praw --skill hax-site-structure` |

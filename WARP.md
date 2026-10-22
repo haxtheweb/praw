@@ -31,7 +31,7 @@ Common flags: `--v` verbose · `--debug` · `--y`/`--auto` accept prompts · `--
 Use the local CLI checkout (not `npx`) — it is always latest/experimental on this machine.
 
 ## Import methods (`--import-structure` values)
-`pressbooksToSite` · `elmslnToSite` · `haxcmsToSite` · `notionToSite` · `gitbookToSite` · `evolutionToSite` · `htmlToSite` · `docxToSite`. Example import files live in `hax-imports/`.
+`pressbooksToSite` · `elmslnToSite` · `haxcmsToSite` · `notionToSite` · `gitbookToSite` · `evolutionToSite` · `ploneToSite` · `wordpressPagesToSite` · `drupalToSite` · `openstaxToSite` · `vitepressToSite` · `quartoToSite` · `htmlToSite` · `docxToSite` · `xlsxToSite`. A new importer adds its name here too (see rule `82dc87fd…`). Example import files live in `hax-imports/`.
 
 ## Critical always-on rules (see RULES.md for full text)
 These are `global`-scope and always loaded: no ubiquity script (`SSy9vkx…`), no traditional build prompts (`pCcVD8j…`), use local `hax` CLI not npx (`ip9IudN…`), issue queue at <https://github.com/haxtheweb/issues> (`tJnuFVx…`), cross-repo references use public URLs, never local paths (`bAKMWCM…`), always use the latest Node.js LTS (currently 24) across configs/CI/tooling (`92dfb3b2…`), gh CLI is installed — read its output (`edaXma3Z…`), plus the five AI coding guardrails (state assumptions, minimum viable, surgical diffs, verify outcomes, pre-submission checks: run `precheck` before pushing or opening a PR). Full registry: `RULES.md`.

@@ -13,7 +13,7 @@ metadata:
 
 An importer turns an outside source (a git repo, a site URL, an uploaded file) into HAXcms JSON Outline
 Schema items plus a map of files to download. HAX ships many of them, and each new one touches the same
-places in four repos. This skill is the checklist, the contract, and the security posture, so an agent
+places in four repos (two backends, the client, and the `hax` CLI). This skill is the checklist, the contract, and the security posture, so an agent
 spends its effort on parsing the source format and not on rediscovering the wiring.
 
 Everything resolves through public URLs, so it works from a local clone or a cloud agent:
@@ -21,6 +21,7 @@ Everything resolves through public URLs, so it works from a local clone or a clo
 - Node backend: https://github.com/haxtheweb/haxcms-nodejs
 - PHP backend: https://github.com/haxtheweb/haxcms-php
 - Client (app-hax, micro-frontend-registry): https://github.com/haxtheweb/webcomponents
+- CLI (`hax site --import-structure`): https://github.com/haxtheweb/create
 - Rules: https://github.com/haxtheweb/praw/blob/main/RULES.md
 - Work queue: https://github.com/haxtheweb/issues
 
@@ -68,8 +69,9 @@ A converter returns `{ status: 200, data: { items, filename, files, ... } }`:
   The file map carries URLs, and `createSite` downloads them behind its own SSRF guard. The converter never
   downloads assets itself.
 - `filename`: the site name.
-- Optional: `site: { license }`, `truncated`, and a list of unmapped source components, so the client can
-  tell the user what did not convert.
+- Optional: `site: { license }`, `truncated`, a list of unmapped source components, and `warnings` (a list of
+  `{ code, message }` notices), so the client can tell the user what did not convert and what to check
+  before publishing. See "License handling".
 - Errors use `{ status, data: { error, items: [], filename: null, files: {} } }`.
   400 for a bad request, 422 when the source is readable but is not what the importer expects or has no
   pages, 403 for authorization.
@@ -80,9 +82,33 @@ equivalent, and report it. Rewrite in-book links to the imported slugs, and rewr
 references into the file map. A page that cannot be read gets a link back to the source, never an empty
 page that looks successful.
 
-Titles resolve in this order: front matter title, outline label, file name. Slugs derive from the outline
+Titles resolve in this order: an explicit outline label from the source's own navigation, then front matter
+title, then the first heading, then file name. The outline label wins because it is what the author chose to show
+in the table of contents, and it keeps slugs stable. Slugs derive from the outline
 path (parent slug plus title slug), never from file basenames alone, because `ch1/index` and `ch2/index`
 collide.
+
+## License handling
+
+The source's license is part of the content. An importer carries it onto the site and the pages, and tells
+the person what it implies. It never decides whether the import is allowed; that is theirs.
+
+- **Use the shared list**, not a private one: `src/lib/licenses.js` in haxcms-nodejs and `HAXCMSLicenses` in
+  haxcms-php (the same list is in `license-element`). It holds Creative Commons 4.0, CC0 and the Public
+  Domain Mark, and the common software licenses, as lower case codes. Do not copy the list into an importer.
+- **Resolve in this order**: the license the source's own config declares, then the repository's license file
+  (`identifyLicense` / `identify`: SPDX tags, Creative Commons names and URLs, and the standard texts of the
+  software licenses), then nothing. A page's own front matter license overrides the site's for that page.
+- **Never guess.** A Creative Commons license at a version other than 4.0 gets no code (the links and badges
+  are for 4.0, and relabeling 3.0 work as 4.0 misstates its terms). A statement that cannot be identified is
+  reported, not mapped to the nearest license.
+- **Report notices in `warnings`**, with these stable codes: `license:no-derivatives`,
+  `license:non-commercial`, `license:share-alike` (from the code's terms), `license:from-file` (read from a
+  file, so confirm it covers the written content and not only the code), `license:unrecognized` and
+  `license:not-found`. Each has a plain message. They are information; the import still returns.
+- **Keep attribution**: a `license-element` on each page with the license code, title, creator and source URL.
+- Both backends return identical codes, order and messages. Cover each case in tests with synthetic license
+  text, never a real project's file.
 
 ## Security posture (non-negotiable)
 
@@ -98,8 +124,9 @@ collide.
 - **Escape everything written into HTML**: `escapeHTMLAttribute` for attributes, and sanitize rendered
   content. Content from the source is untrusted.
 - **Bound the work.** Define a `LIMITS` object (max pages, max files, total fetch budget in seconds, delay
-  between requests), mark the result `truncated` when a limit hits, and export `LIMITS` so tests can lower
-  them. Keep the PHP values identical.
+  between requests, and for formats with includes or transclusion a max include count and depth), mark the
+  result `truncated` when a limit hits, and export `LIMITS` so tests can lower them. Keep the PHP values
+  identical.
 - **Return client-safe errors** with `clientSafeErrorDetail`. No paths or stack traces reach the response.
 - **GitHub limits apply.** Unauthenticated API calls are rate-limited. Fetch the tree once and read file
   contents from `raw.githubusercontent.com`.
@@ -122,7 +149,8 @@ Nothing is discovered automatically. Miss one of these and the importer is unrea
    `{platform}` description and the importer list in the `ImportData` schema description.
 4. API codes `src/lib/haxcmsApiCodes.json`: add regexes for the converter's error strings to the right
    code (`IMPORT_EMPTY`, `IMPORT_SOURCE_INVALID`, `IMPORT_FETCH_FAILED`, `IMPORT_FAILED`). An uncoded
-   error reaches the client as raw English.
+   error reaches the client as raw English. Add one example per new message to the `EXAMPLES` list in
+   `test/unit/api-message-codes.test.cjs`.
 5. Test `test/unit/convert<Name>ToSite.test.cjs`.
 
 ### haxcms-php
@@ -149,9 +177,37 @@ Same contract, same outline, slugs, file map, status codes and error strings.
 4. `elements/app-hax/locales/app-hax-use-case-filter.<lang>.json`: the new keys in every locale file. Use
    the `hax-i18n-translate` skill. Do not hand-edit around it.
 5. `elements/app-hax/test/app-hax-use-case-filter.test.js`: a card test next to the existing ones.
+6. `elements/haxcms-elements/lib/haxcms-api-codes.json`: the bundled copy of the API-code catalog (it is the
+   stated source of truth; the backends mirror it). Apply the same regex additions as in the backends. The
+   per-language `haxcms-api.<lang>.json` files key on the existing codes, so they need no change.
+
+In a blobless or sparse clone of webcomponents, never `git grep` across history: it fetches blobs one at a
+time. List paths with `git ls-tree -r HEAD --name-only`, read one file with `git show HEAD:<path>`, and add
+only the directory you need with `git sparse-checkout add`. Also check that your prettier version matches the
+repo's before running `--write`; a different major version reformats unrelated lines.
 
 Do not run the ubiquity script or a top-level monorepo build. After the PR merges, a maintainer runs it
 (see `hax-release-prep`).
+
+### create (the `hax` CLI)
+
+An importer is not finished until the CLI can reach it, so this repo is part of the work and its PR is opened
+with the others, without waiting to be asked. The CLI calls the backend's `site/import/:platform` dispatcher
+in-process (the v1 path, not the retired open-apis broker), so this is a small change:
+
+1. `src/lib/programs/site.js`: add `<platform>ToSite: { platform: "<platform>" }` to `IMPORT_STRUCTURE_MAP`.
+2. `src/create.js`: add `<platform>ToSite` to the `--import-structure` help text. It appears twice; edit both.
+3. `src/docs/hax.1`: add it to the man page list.
+4. `README.md`: add it to the `--import-structure` option list.
+5. `test/unit/site-imports.test.cjs`: add it to the expected platform table and add a mapping test.
+
+Run `npm run test:unit`. `npm run precheck` can report an error in code you did not touch (a constant interpolated
+into `exec` near `HAXCMS_NODEJS_FALLBACK_SPEC`); note it in the PR rather than changing it.
+
+The CLI loads the backend from the published `@haxtheweb/haxcms-nodejs` package. Until a backend release that
+contains the importer is published and the CLI's dependency picks it up, the new name answers "unsupported
+import platform". Say so in the PR description, and do not bump the dependency yourself; releases are the
+maintainer's step.
 
 ## Testing
 
@@ -176,6 +232,14 @@ A real repository is good for finding gaps, and only for that.
 - Prefer sources whose license allows derivatives when choosing a demo target.
 - Record what the real run revealed (shapes the fixture missed) by adding a **synthetic** case to the
   fixture, not the real content.
+- If the sandbox cannot reach the GitHub API (HTTP 403), clone the repo read-only into a scratch directory
+  and run the converter with `safeFetch` replaced by a stub that serves the tree and raw files from disk.
+  Keep the script and its output outside the repository.
+- A first real run typically reveals syntax that straddles another construct, for example a figure caption
+  that contains inline code and so splits across the code-span pass. Run inline rewrites that can contain
+  code spans before the code-span protection pass, and guard against matches that start inside a code span.
+- Check the converted output with counts, not eyeballs: leftover fences, attribute blocks, shortcodes,
+  cross-reference keys and broken links across every page.
 
 ## Workflow
 
@@ -188,7 +252,8 @@ A real repository is good for finding gaps, and only for that.
 5. Port to PHP, structure for structure, then mirror the tests.
 6. Wire the client: registry service, chooser card, strings, locales.
 7. Run each repo's tests and pre-submission check.
-8. Open **one PR per repo**, cross-linked and referencing the issue. Each description says what the PR
+7a. Wire the CLI (`create`): the import map, help text, man page, README and test.
+8. Open **one PR per repo** (all four, including `create`), cross-linked and referencing the issue. Each description says what the PR
    touches and which commands you ran with their results. Do not merge; maintainers review.
 
 ## Guardrails
@@ -203,7 +268,10 @@ A real repository is good for finding gaps, and only for that.
 - [ ] Converter follows the output contract and security posture, in Node and PHP.
 - [ ] Dispatcher, spec (path, platform list, `ImportData` note), and API codes updated in both backends.
 - [ ] Client service, chooser card, strings, and every locale updated.
-- [ ] Tests added in all three repos and passing, or the gap stated in the PR.
+- [ ] Tests added in all four repos and passing, or the gap stated in the PR.
+- [ ] The source's license is resolved with the shared list, unrecognized or non-4.0 licenses are reported
+      rather than guessed, and `warnings` carries the notices; both backends match.
+- [ ] The `create` CLI lists the importer (`IMPORT_STRUCTURE_MAP`, help text, man page, README, test), and its PR is open.
 - [ ] No optional chaining in Node; no direct network calls; no code from the source executed.
 - [ ] No third-party content committed or published.
 - [ ] PRs cross-link and reference the issue; nothing merged.

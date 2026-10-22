@@ -328,7 +328,7 @@ validate_rules() {
 
 export_rules() {
     local format="${1:-md}"
-    local output_file="~/Documents/git/haxtheweb/praw/exports/rules-export.${format}"
+    local output_file="$PRAW_DIR/exports/rules-export.${format}"
     
     # Create exports directory
     mkdir -p "$(dirname "$output_file")"

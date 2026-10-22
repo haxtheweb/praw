@@ -4,7 +4,7 @@
 #
 # Makes sure the HAX CLI (`hax`, shipped by @haxtheweb/create) is available.
 #   - If `hax` is already on PATH, reports its version and exits.
-#   - If a local development copy is detected, reports and exits (no global install).
+#   - If HAX_DEV_PATH points at a local development copy, reports and exits (no global install).
 #   - If it is missing, tells the user how to install it. It only installs
 #     @haxtheweb/create globally with npm when explicitly opted in.
 #
@@ -19,24 +19,27 @@ set -uo pipefail
 
 MANUAL_INSTALL="npm install --global @haxtheweb/create"
 
-# Local development checkout path (overridable via HAX_DEV_PATH).
-HAX_DEV_PATH="${HAX_DEV_PATH:-/home/bto108a/Documents/git/haxtheweb/create}"
+# Optional local development checkout of https://github.com/haxtheweb/create.
+# Unset by default; set HAX_DEV_PATH to opt in.
+HAX_DEV_PATH="${HAX_DEV_PATH:-}"
 
 # --- Already installed? Report and bail. ------------------------------------
 if command -v hax >/dev/null 2>&1; then
   hax_path="$(command -v hax 2>/dev/null)"
 
   # Check if hax resolves to a path under the local dev checkout (npm link / local install).
-  case "$hax_path" in
-    "$HAX_DEV_PATH"*)
-      echo "HAX CLI available via local development copy ($hax_path) — skipping global install."
-      exit 0
-      ;;
-  esac
+  if [ -n "$HAX_DEV_PATH" ]; then
+    case "$hax_path" in
+      "$HAX_DEV_PATH"*)
+        echo "HAX CLI available via local development copy ($hax_path) — skipping global install."
+        exit 0
+        ;;
+    esac
+  fi
 
   # Also check if the local dev dist exists even if hax resolves elsewhere
   # (the local copy may be on PATH via a different mechanism).
-  if [ -f "${HAX_DEV_PATH}/dist/create.js" ]; then
+  if [ -n "$HAX_DEV_PATH" ] && [ -f "${HAX_DEV_PATH}/dist/create.js" ]; then
     echo "HAX CLI available via local development copy at ${HAX_DEV_PATH} — skipping global install."
     exit 0
   fi
@@ -47,7 +50,7 @@ if command -v hax >/dev/null 2>&1; then
 fi
 
 # --- Local dev dist exists but hax not on PATH? Report so the user can fix. --
-if [ -f "${HAX_DEV_PATH}/dist/create.js" ]; then
+if [ -n "$HAX_DEV_PATH" ] && [ -f "${HAX_DEV_PATH}/dist/create.js" ]; then
   echo "HAX CLI local development copy detected at ${HAX_DEV_PATH}/dist/create.js but \`hax\` is not on PATH. Add it to PATH or run \`npm link\` inside ${HAX_DEV_PATH} to use it. Skipping global install."
   exit 0
 fi

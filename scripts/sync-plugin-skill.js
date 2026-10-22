@@ -11,9 +11,10 @@
 //   node scripts/sync-plugin-skill.js <create-path> <plugin-skills-dir> <skill-name>
 //
 // Example:
-//   node scripts/sync-plugin-skill.js ~/Documents/git/haxtheweb/create \
+//   node scripts/sync-plugin-skill.js /path/to/create \
 //     plugins/hax-onboarding/skills hax
 //
+// <create-path> is a checkout of https://github.com/haxtheweb/create
 // The source skill is expected at <create-path>/src/skills/<skill-name>/.
 // The destination is <plugin-skills-dir>/<skill-name>/.
 // If the destination already exists, a drift diff is printed before copying.

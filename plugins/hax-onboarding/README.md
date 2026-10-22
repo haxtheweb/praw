@@ -10,9 +10,9 @@ assistant the full command surface for everything that comes after.
 - **Auto-install hook** — a `SessionStart` hook checks whether `hax` is on your
   `PATH`. If it's missing (and you don't have a local dev checkout), it tells you how to
   install `@haxtheweb/create`; it only installs it globally (one time) if you opt in
-  with `export HAX_PLUGIN_AUTOINSTALL=1`. If a local development copy is detected
-  under `~/Documents/git/haxtheweb/create`, it skips the install and uses that
-  instead.
+  with `export HAX_PLUGIN_AUTOINSTALL=1`. If you set `HAX_DEV_PATH` to a local checkout of
+  [`haxtheweb/create`](https://github.com/haxtheweb/create), it skips the install and
+  uses that instead.
 - **`hax` skill** — full command-surface knowledge (web components, sites,
   content/node ops, imports, skeletons, publishing, skills management) plus HAX
   conventions (JavaScript-only, DDD design tokens, `haxProperties`, no optional
@@ -69,7 +69,19 @@ into `~/.codex/prompts/hax-quickstart.md` and invoke it in Codex.
 
 - Node.js `>=18.20.3` and `npm` on your `PATH` (so the CLI can be installed).
 
-## Links
+## Where this comes from
 
-- HAX CLI source & docs: <https://github.com/haxtheweb/create>
-- HAX: <https://haxtheweb.org/> · <https://hax.psu.edu/>
+HAX is open source (Apache-2.0) and these pieces are published from public repos:
+
+- **PRAW** ([`haxtheweb/praw`](https://github.com/haxtheweb/praw)) — this repo: the Claude Code plugin marketplace, the workflow and knowledge skills, and the canonical ecosystem rules in [`RULES.md`](https://github.com/haxtheweb/praw/blob/main/RULES.md) that skills cite by Rule ID.
+- **create** ([`haxtheweb/create`](https://github.com/haxtheweb/create)) — the `hax` CLI and the interface skills bundled with it.
+- **webcomponents, HAXcms and the rest** — see the [HAX ecosystem](https://github.com/haxtheweb) on GitHub.
+
+Get involved:
+
+- **Report a bug or ask for a feature** — post it in the unified issue queue: <https://github.com/haxtheweb/issues/issues>. For a problem with a specific skill or plugin, name it in the issue.
+- **Get help or chat** — join the [HAX Discord](https://discord.gg/aCGxmRHEJP). Run `hax party` for more ways to get involved.
+- **Contribute** — fork the repo, then open a pull request that links the issue it addresses. See [CONTRIBUTING.md](https://github.com/haxtheweb/praw/blob/main/CONTRIBUTING.md) and the [ecosystem developer onboarding](https://github.com/haxtheweb/issues/blob/master/CONTRIBUTING.md).
+- **Report a security problem** — follow [SECURITY.md](https://github.com/haxtheweb/praw/blob/main/SECURITY.md).
+- **Learn more** — <https://haxtheweb.org/> · <https://hax.psu.edu/> · CLI source and docs: <https://github.com/haxtheweb/create>
+

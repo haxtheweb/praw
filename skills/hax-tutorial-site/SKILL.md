@@ -250,7 +250,7 @@ deep-link. `value` is total seconds (`1:30` → `90`). The converter handles thi
 - `scripts/youtube-metadata.cjs` — yt-dlp-based video metadata fetcher used in step 2
   (title, author, thumbnail). Resolves yt-dlp via PATH then the same managed venv as the
   youtube-vtt skill (auto-provisions on first run; no curl/oEmbed, no interactive confirm).
-- **`youtube-vtt` skill** (`../youtube-vtt/`) — dependency for step 6. Its
+- **`youtube-vtt` skill** (`https://github.com/haxtheweb/praw/tree/main/skills/youtube-vtt`) — dependency for step 6. Its
   `scripts/youtube-to-vtt.cjs` turns the YouTube URL into a cleaned `transcript.vtt` via
   yt-dlp subtitle-only extraction (auto-provisions yt-dlp via a venv; strips inline timing
   tags + de-duplicates rolling auto-captions + fixes the "HackCMS" typo; soft-fails on no

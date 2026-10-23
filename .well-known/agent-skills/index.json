@@ -133,7 +133,7 @@
       "type": "skill-md",
       "description": "\"Build a new site importer (a platform-to-HAXcms converter such as Quarto, VitePress, GitBook or OpenStax) end to end: Node and PHP converters, dispatcher, OpenAPI spec, API error codes, client service and chooser card, i18n, and tests. Use when asked to add or change an importer, or to support migrating a new format or CMS into HAX.\"",
       "url": "hax-importer-dev/SKILL.md",
-      "digest": "sha256:9a113240b41d28678604f4b48185e3420c5afcd39c7873aa91a69102f01672f7"
+      "digest": "sha256:b3d6c98e148bb38225be1b7d789688dbcb6fbd7098e1dc90633312bd325cc956"
     },
     {
       "name": "hax-issue-analysis",
@@ -223,7 +223,7 @@
       "type": "skill-md",
       "description": "\"Find and run the right tests per HAX repo and write the test for a new endpoint. Use before opening any PR in haxcms-nodejs, haxcms-php or webcomponents, or when asked how to test a backend or element change.\"",
       "url": "hax-testing/SKILL.md",
-      "digest": "sha256:a2e5ad53019d2b03828bd8bd8dbcdb834001437a345641de3e7045edae31817e"
+      "digest": "sha256:85a70a156a1b0674b137b30c1d99db51a069725959ff519ba96096825e2f7fc3"
     },
     {
       "name": "hax-theme-builder",

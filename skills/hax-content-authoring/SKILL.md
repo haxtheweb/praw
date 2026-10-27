@@ -45,7 +45,35 @@ names that are not in the registry. When a page needs something the registry lac
 - **Media — audio:** prefer `media-playlist` + `audio-player` to present media and enable direct
   playback. `inline-audio` is future use (pending mp3 clipping tools).
 - **Engagement:** `self-check`, `multiple-choice`, `fill-in-the-blanks`, `stop-note`, `flash-card`,
-  `video-player` for check-ins, reflection, retrieval, and segmented video.
+  `video-player` for check-ins, reflection, retrieval, and segmented video (see "Learning
+  elements" below).
+
+## Learning elements
+
+- **Question family:** `multiple-choice`, `true-false-question`, `short-answer-question`,
+  `sorting-question`, `matching-question`, `tagging-question`, `fill-in-the-blanks` and
+  `mark-the-words` share one base class, so they share:
+  - slots `feedbackIncorrect` and `hint` (shown after a wrong answer), `feedbackCorrect` and
+    `evidence` (shown after a right answer), `content` (related material, always available);
+  - attributes `max-attempts` (unset means unlimited) and `randomize`.
+  Fill the feedback slots; the built-in "Correct"/"Incorrect" text alone is the weakest kind of
+  feedback. Put feedback text in the slots, not in `correct-text` / `incorrect-text` attributes.
+  Choice answers are authored as `<input value="…">` children, with `data-correct="true"` on the
+  right ones.
+- **Reflection and routing:** `self-reflective-nudge` asks for a grade (`input="grade"`) or mood
+  (`input="mood"`) and shows the matching child nudge (`data-min-value`, `data-max-value`, optional
+  `data-link` to a page to visit next). Use it to send learners to review or to a challenge page.
+- **Game-based retrieval:** `concept-map-game` (explore concepts), `concept-quest-game` (answer
+  each concept's question; wrong answers cost a heart; the recap shows what to review),
+  `concept-runner-game` (timed sorting of good and bad concepts). Content goes in the `nodes` /
+  `items` properties.
+- **Guidance:** `lrndesign-imagemap` with `lrndesign-imagemap-hotspot` children to point at the
+  parts of an image that matter; `lrndesign-sidenote` (with `label`) for a set-apart note;
+  `lrn-vocab` for inline term definitions; `video-player` `start-time` / `end-time` to show one
+  segment.
+- **Design for the learner, not just the page:** see `hax-proficiency-scaffolding` (support level
+  by learner stage), `hax-feedback-design`, `hax-practice-and-retrieval` and
+  `hax-reflection-prompts`.
 
 ## DDD design system for content
 
@@ -105,7 +133,8 @@ the schema is not dynamic.
 
 - Related skills: `hax-site-structure` (read a site first), `hax-design-system` (DDD tokens),
   `hax-a11y-audit` (WCAG for authored content), `hax-managed-files` (what to edit vs rebuild),
-  `hax-webcomponent-dev` (when a needed component does not exist yet).
+  `hax-webcomponent-dev` (when a needed component does not exist yet),
+  `hax-instructional-events-audit` and `hax-multimedia-principles-audit` (lesson and media quality).
 - HAX web components registry: `wc-registry.json` on the site, or `webcomponents/elements` in the
   monorepo.
 - HAX CLI: `hax site --help`, `hax --help`.

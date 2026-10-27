@@ -5,6 +5,7 @@ Scoped rules for HAX web-component development in the `webcomponents` monorepo (
 ## Scoped rules (triggers — full text in RULES.md)
 - **Web Component Registry** (`69qEidWQwmAfq9eWziwMLn`) — `wc-registry.json` is built by the ubiquity script and drives the magic-script hydration. (Never run the ubiquity script — see global rule `SSy9vkx…`.)
 - **Web Component Scaffolding** (`E9Zioqke3Y0gdnWB08XQn8`) — all new elements must be scaffolded with `hax webcomponent`; never create element dirs/files manually.
+- **Element Docs Setup** (`f3c7716773784e8f94254a`) — never pass `--no-docs` to `hax webcomponent` in the monorepo; rebuild an element after changing its API so `lib/<tag>.docs.json` stays current.
 - **HAX Schema Capability** (`rVsCTSDjae8lRmsJmPO3Mk`) — elements implement `haxProperties` (HAXSchema); use `demoSchema` for valid demos.
 - **DDD Usage Audit** (`MT6HPJ9BDhA13jwSXjcmeA`) — when working on a component, audit DDD token usage. (Token reference: `design-system/WARP.md`.)
 - **Accessibility Audits** (`7CPveFErpSF0aZ8tKqxw0Y`) — when working on a component, audit for a11y enhancements without assuming issues exist.

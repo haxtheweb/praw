@@ -20,7 +20,7 @@
       "type": "skill-md",
       "description": "\"Classify learning objectives and design assessments with Bloom's revised taxonomy (six cognitive levels). Use for writing objectives at a level, aligning assessment to goals, or checking a curriculum's cognitive balance.\"",
       "url": "grad-blooms/SKILL.md",
-      "digest": "sha256:3e3707c982f8df89a808b574f3e74c50bbbcf01cc358c0d8288cd2d499d7ad17",
+      "digest": "sha256:d012de38a205eb0defa30ccfd62732b18eb18d444be6de37ae88261e9cd70472",
       "files": [
         {
           "path": "examples/sample_scenario.md",
@@ -65,7 +65,7 @@
       "type": "skill-md",
       "description": "\"Author HAX page HTML with valid HAX-capable web components and DDD attributes. Use when writing or editing pages/, choosing input, icon, button or media components, or creating pages via the hax CLI. Keeps content portable and editable in the HAX editor.\"",
       "url": "hax-content-authoring/SKILL.md",
-      "digest": "sha256:ed0752faec2769b933737722a8947e585618af501920292a784465d95c199440"
+      "digest": "sha256:9a734df03229cccad0a4459b0a75e7c3e924d60b2f762617e1c6a1743b28b0b5"
     },
     {
       "name": "hax-content-chunking-audit",

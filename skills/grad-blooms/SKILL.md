@@ -94,8 +94,8 @@ Use real, HAX-authorable elements (check `wc-registry.json`); never invent tags.
 | Level | HAX elements |
 |---|---|
 | Remember | `multiple-choice`, `true-false-question`, `matching-question`, `flash-card`, `fill-in-the-blanks` |
-| Understand | `short-answer-question` ("explain why"), `tagging-question` / `sorting-question` (classify, order), `self-check` with an explanation to compare |
-| Apply | `short-answer-question` or `multiple-choice` on a new case, `h5p-element` simulation, `worksheet-download` task |
+| Understand | `tagging-question` / `sorting-question` (classify, order), `self-check` ("explain why", then reveal a model explanation to compare); `short-answer-question` only for short exact answers, since it matches the authored answer exactly |
+| Apply | `multiple-choice` (or `short-answer-question` for an exact value) on a new case, `h5p-element` simulation, `worksheet-download` task |
 | Analyze | `sorting-question` / `matching-question` on relationships or causes, `image-compare-slider` (compare two cases), case analysis with an `editable-table` rubric |
 | Evaluate | Critique of a worked solution scored with an `editable-table` rubric; `self-check` revealing an expert critique |
 | Create | GRASPS performance task (`hax-ubd-grasps`), presented with `clean-portfolio-theme` / `glossy-portfolio-theme` |

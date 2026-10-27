@@ -54,12 +54,16 @@ names that are not in the registry. When a page needs something the registry lac
   `sorting-question`, `matching-question`, `tagging-question`, `fill-in-the-blanks` and
   `mark-the-words` share one base class, so they share:
   - slots `feedbackIncorrect` and `hint` (shown after a wrong answer), `feedbackCorrect` and
-    `evidence` (shown after a right answer), `content` (related material, always available);
+    `evidence` (shown after a right answer), `content` (related material: open before answering,
+    collapsed after);
   - attributes `max-attempts` (unset means unlimited) and `randomize`.
   Fill the feedback slots; the built-in "Correct"/"Incorrect" text alone is the weakest kind of
   feedback. Put feedback text in the slots, not in `correct-text` / `incorrect-text` attributes.
   Choice answers are authored as `<input value="…">` children, with `data-correct="true"` on the
-  right ones.
+  right ones. `short-answer-question` only accepts an exact match to an authored answer, so use
+  it for short terms or values; use `self-check` (prompt, then a revealed model answer) for
+  explanations. Per-option feedback (`data-selected` / `data-unselected` on an answer `input`)
+  shows only in `tagging-question` and `mark-the-words`.
 - **Reflection and routing:** `self-reflective-nudge` asks for a grade (`input="grade"`) or mood
   (`input="mood"`) and shows the matching child nudge (`data-min-value`, `data-max-value`, optional
   `data-link` to a page to visit next). Use it to send learners to review or to a challenge page.
@@ -68,7 +72,8 @@ names that are not in the registry. When a page needs something the registry lac
   `concept-runner-game` (timed sorting of good and bad concepts). Content goes in the `nodes` /
   `items` properties.
 - **Guidance:** `lrndesign-imagemap` with `lrndesign-imagemap-hotspot` children to point at the
-  parts of an image that matter; `lrndesign-sidenote` (with `label`) for a set-apart note;
+  parts of an image that matter (it needs an SVG, inline or via `src`, whose shape ids match each
+  hotspot's `hotspot-id`); `lrndesign-sidenote` (with `label`) for a set-apart note;
   `lrn-vocab` for inline term definitions; `video-player` `start-time` / `end-time` to show one
   segment.
 - **Design for the learner, not just the page:** see `hax-proficiency-scaffolding` (support level

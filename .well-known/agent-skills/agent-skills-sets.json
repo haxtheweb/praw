@@ -1,14 +1,12 @@
 {
   "site": {
-    "description": "Skills shipped to every HAXsite (per-site boilerplate). Curated explicit list — nothing ships to a site unless named here. Education-specific skills (UbD, content chunking, learning-science design and audits) are deliberately excluded because not every HAXsite is instructional; they ship to deployment roots (system) and are always available from praw.",
+    "description": "Skills shipped to every HAXsite (per-site boilerplate). Curated explicit list — nothing ships to a site unless named here. Site skills are only about using the site itself (structure, authoring, managed files, design system, accessibility). Education-specific skills (UbD, UDL, OER Schema, content chunking, learning-science design and audits) are deliberately excluded because not every HAXsite is instructional; they ship to deployment roots (system) and are always available from praw.",
     "skills": [
       "hax-site-structure",
       "hax-content-authoring",
       "hax-managed-files",
       "hax-design-system",
-      "hax-a11y-audit",
-      "oerschema-audit",
-      "hax-udl-audit"
+      "hax-a11y-audit"
     ]
   },
   "system": {

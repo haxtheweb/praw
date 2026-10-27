@@ -1,7 +1,8 @@
 # ELEVATE-XR crosswalk (Dreyfus × Bloom's × learning loop × SCAFF)
 
-Condensed from Stanney, Skinner & Hughes (2023), Tables 2 and 3. Wording is paraphrased; the
-learning loops and dial settings are the paper's.
+Condensed from Stanney, Skinner & Hughes (2023): the stage descriptions come from the paper's text,
+the objective, loop and dial rows from Tables 2 and 3. Wording is paraphrased; the learning loops
+and dial settings are the paper's.
 
 ## Who is at each stage
 
@@ -50,7 +51,7 @@ What each new step means:
 
 | Stage | Reflection prompt type | Appraisal (formative assessment) |
 |---|---|---|
-| Novice | Summarize the gap between expected and actual performance | Recall: multiple choice, matching, completion, worked-example imitation; immediate right/wrong |
+| Novice | Summarize the gap between desired (correct) and actual performance | Recall: multiple choice, matching, completion, worked-example imitation; immediate right/wrong |
 | Advanced beginner | Explain and give an example of correct performance | Understanding: "why" questions with explanations of the answer |
 | Competent | Relate: why that decision, what followed, where else it applies; what is still unknown | Practical application, probing questions, spot the missing or wrong step |
 | Proficient | Find consistencies and contradictions across cases | Analysis with self-explanation, plus peer assessment |
@@ -62,12 +63,12 @@ What each new step means:
 |---|---|---|---|---|---|
 | Stress | Low: no time limits, no consequences | Low: time awareness during instruction only, never during checks | Medium: some time pressure and consequences, nothing severe | High: significant time pressure and consequences, distractions | High: novel, uncertain, fast-paced, severe consequences |
 | Complexity | Low: isolated topics, few steps, recognition before recall, worked examples | Medium: harder but not more abstract; assess situation, spot relevance, recognize consequences | Medium: harder and more abstract; no obvious solution | High: conflicting cues, compare approaches, deconstruct to generalize | High: synthesis, complex patterns, invent a solution to an ambiguous problem |
-| Assistance | High: guided, no open exploration | Medium: guide and imitate modeled behavior | Medium: support during self-directed work | Low: only as needed, after several errors | None: post hoc only; let them proceed past errors |
-| Feedback | Immediate outcome (right/wrong, the correct answer), try again freely | Immediate elaborative (explanations), try again, progress shown | Immediate facilitative (advice, suggestions), self-explanation | Immediate strategy hints that do not give the answer | Delayed strategy feedback: point out inconsistencies |
+| Assistance | High: guided, no open exploration | Medium in Table 3, "high" in the paper's text: guide and imitate modeled behavior | Medium: support during self-directed work | Low: only as needed, after several errors | None: post hoc only; let them proceed past errors |
+| Feedback | Immediate outcome-based (right/wrong, the correct answer) plus a brief why; the text calls it error-sensitive and elaborative; try again freely | Immediate elaborative (explanations), try again, progress shown | Immediate facilitative (advice, suggestions), self-explanation | Immediate strategy hints that do not give the answer | Delayed strategy feedback: point out inconsistencies |
 | Fidelity | Low | Low visual (high physical feedback for motor skills) | Medium visual, high physical | High | High |
 
 ## Caveats to state when citing
 
 - Proposed framework; the authors call for empirical evaluation.
-- The headline ~30% gain comes from one study by the lead author's company (Claypoole et al., 2020).
+- The headline ~30% gain comes from Claypoole et al. (2020), a non-peer-reviewed ASNE symposium paper co-authored by Stanney.
 - Hours per stage (20, 40, 100, 2,000, 10,000) extrapolate from Kaufman (2014), Ericsson's work and an 80/20 heuristic. Treat as illustrative only; Macnamara et al. (2014) found deliberate practice explains far less variance in expertise than the 10,000-hour rule implies.

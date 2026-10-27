@@ -120,7 +120,7 @@
       "type": "skill-md",
       "description": "\"Write and audit feedback, hints and evidence for HAX question elements, matched to the learner's stage (right/wrong → explanation → advice → strategy hint → delayed). Use for \\\"improve my quiz feedback\\\", \\\"add hints\\\" or empty feedback slots.\"",
       "url": "hax-feedback-design/SKILL.md",
-      "digest": "sha256:7bcd1ec015f676525b3a303d9ab8315e5e28b0e81df12c239abaea6a18c90771"
+      "digest": "sha256:1c822adbde5554b378589ce24302ba335cd3f582e96faf045bbc3a5d0494805c"
     },
     {
       "name": "hax-i18n-translate",
@@ -196,7 +196,7 @@
       "type": "skill-md",
       "description": "\"READ-ONLY audit of how a HAX page combines words, images, audio and video against Mayer's multimedia principles, with HAX remediation. Use for \\\"is this media helping\\\", decorative images, long videos or text far from its diagram.\"",
       "url": "hax-multimedia-principles-audit/SKILL.md",
-      "digest": "sha256:438f4972adf2bd83d5151aac41e738bf701bbf3ff859e186744bcbfe1bf5f50e"
+      "digest": "sha256:b4e2b51c245215584e967669f7bc588f3e3a2780eaf487d1068611a8a67263b0"
     },
     {
       "name": "hax-openstax2hax",
@@ -223,22 +223,22 @@
       "type": "skill-md",
       "description": "\"Plan retrieval practice, spacing, interleaving and deliberate practice across a HAX site so learning lasts. Use for \\\"learners forget this\\\", \\\"add review\\\", \\\"build practice\\\" or a unit where each concept appears only once.\"",
       "url": "hax-practice-and-retrieval/SKILL.md",
-      "digest": "sha256:7e8274e48dd588218848304ae31a659eb07eeacf8422aab91ae862817ee14208"
+      "digest": "sha256:705dc7168e05b68f7efc971e72281a2a5e178ca41e55d1dae2cf85c618d262db"
     },
     {
       "name": "hax-proficiency-scaffolding",
       "type": "skill-md",
       "description": "\"Match a HAX unit's scaffolding to its learners' skill stage (novice to expert) using ELEVATE-XR: objectives, learning loop, stress, complexity, assistance, feedback and fidelity. Use for \\\"who is this for\\\", \\\"too easy / too hard for experts\\\" or adaptive paths.\"",
       "url": "hax-proficiency-scaffolding/SKILL.md",
-      "digest": "sha256:8ca9b72b762ab94235cf522a2a8cc343605a85499c5deef47ba30853ef91af7c",
+      "digest": "sha256:2005cb8f5792975e0719f8916144535c6053d0ec438b2d1f161a8519fd299e55",
       "files": [
         {
           "path": "references/elevate-crosswalk.md",
-          "digest": "sha256:bbb497147f5eaa6e40e2e26bbb925209321eeb3622d566f68451e38ab0922c98"
+          "digest": "sha256:03f6a9580572af366874f9261b5e4e5d9f00ad56c1fae95a277b208eeaf2119b"
         },
         {
           "path": "references/scaff-element-map.md",
-          "digest": "sha256:83d4da5cc9e7c2ab361b2ba983e7e5cc8c59e3ce8506174cd880008e4638686b"
+          "digest": "sha256:df3d03953ea8afd4a6d48112fb2120fe38016008a72debbf1ac662faad19cc9b"
         }
       ]
     },
@@ -247,7 +247,7 @@
       "type": "skill-md",
       "description": "\"Write reflection prompts for HAX pages matched to the learner's stage (summarize → give an example → relate → find contradictions → self-critique). Use for \\\"add reflection\\\", \\\"metacognition\\\" or a unit with no reflection step.\"",
       "url": "hax-reflection-prompts/SKILL.md",
-      "digest": "sha256:de493558cceb594d477b266e36571090aa6af1c0bac60054deb072adee0a8213"
+      "digest": "sha256:d37907119831dd0f5194ee3593457be30af1bc1b5caab78627a543873d1c06c1"
     },
     {
       "name": "hax-release-prep",

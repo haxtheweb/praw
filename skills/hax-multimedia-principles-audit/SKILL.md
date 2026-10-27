@@ -43,7 +43,7 @@ Reducing extraneous processing:
 | Principle | Flag when… | HAX remediation |
 |---|---|---|
 | Coherence | Decorative images, stock photos, background music or "seductive details" unrelated to the objective | Remove, or replace with an explanatory figure (`media-image` with a caption that teaches) |
-| Signaling | Long explanations with no headings or cues to the key points; complex images with nothing pointing to what matters | Headings; `lrndesign-imagemap` hotspots; bold key terms; `lrn-vocab` |
+| Signaling | Long explanations with no headings or cues to the key points; complex images with nothing pointing to what matters | Headings; `lrndesign-imagemap` hotspots (over an SVG with matching shape ids); bold key terms; `lrn-vocab` |
 | Redundancy | A narrated video that also shows the full narration as on-screen text (captions are fine; they are an accessibility requirement) | Keep narration plus graphics without duplicating the narration as on-screen body text; captions stay available |
 | Spatial contiguity | A diagram and the text that explains it are separated (different sections, or the explanation sits far below) | Put the explanation beside or under the figure: `media-image` caption, `lrndesign-imagemap` hotspot text, `a11y-figure` |
 | Temporal contiguity | Narration and the matching visual appear at different times | Re-segment the video so they coincide |
@@ -52,7 +52,7 @@ Managing essential processing:
 
 | Principle | Flag when… | HAX remediation |
 |---|---|---|
-| Segmenting | Continuous video or animation over about 6–10 minutes with no breaks or checks | `video-player` with `start-time` / `end-time` segments separated by a `self-check` or question |
+| Segmenting | Continuous video or animation the learner cannot pace, with no breaks or checks (engagement drops sharply past about 6 minutes, per Guo et al., 2014) | `video-player` with `start-time` / `end-time` segments separated by a `self-check` or question |
 | Pre-training | Complex process explained before learners know the names and parts | A short key-terms section first: `lrn-vocab`, `flash-card`, labeled `lrndesign-imagemap` |
 | Modality | A complex animation or diagram explained by a long block of printed text that competes for the eyes | Narrated walkthrough (`video-player` / `audio-player`) beside the visual; keep a transcript |
 
@@ -108,6 +108,7 @@ Fostering generative processing:
 ## References
 
 - Mayer, R. E. (2021). *Multimedia Learning* (3rd ed.). Cambridge University Press.
-- Fiorella, L., & Mayer, R. E. (Eds.). (2021). *The Cambridge Handbook of Multimedia Learning* (3rd ed.).
+- Mayer, R. E., & Fiorella, L. (Eds.). (2022). *The Cambridge Handbook of Multimedia Learning* (3rd ed.). Cambridge University Press.
+- Guo, P. J., Kim, J., & Rubin, R. (2014). How video production affects student engagement. *Proceedings of the First ACM Conference on Learning @ Scale*, 41–50.
 - Sweller, J., van Merriënboer, J. J. G., & Paas, F. (2019). Cognitive architecture and instructional design: 20 years later. *Educational Psychology Review*, 31, 261–292.
 - Stanney, Skinner & Hughes (2023), ELEVATE-XR (fidelity and extraneous load). https://doi.org/10.1080/10447318.2023.2188529

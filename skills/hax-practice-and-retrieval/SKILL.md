@@ -43,20 +43,20 @@ Non-mutating. Emits a concept-by-page practice map and the items to add. Apply w
 1. **List the concepts.** From the unit's objectives (UbD Stage 1 if present) and page headings,
    list the facts, concepts and procedures learners must keep. Note the page where each is taught.
 2. **Retrieval on first teaching.** Each concept gets one low-stakes retrieval item on its own page,
-   after the explanation (not before), with feedback.
+   at least after the explanation (a pre-question before it can also help), with feedback.
 3. **Space it.** Schedule each concept to come back at growing distances: roughly the next page or
    two, again a few pages later, and in the unit review. HAX has no scheduler, so page distance
    stands in for time; where the course runs on a calendar, put review pages at about a week and
    about a month after first teaching.
 4. **Interleave once concepts are distinct.** After learners can tell concepts apart one at a time,
    mix them in review sets so the learner must choose which idea applies (blocked practice first,
-   interleaved later). Use `randomize` on choice items and mixed `flash-card-set` decks.
+   interleaved later). Use `randomize` on choice items, and mix cards from several pages into a `flash-card-set` by hand (the set does not shuffle).
 5. **Make retrieval effortful but successful.** Prefer recall (`short-answer-question`,
    `fill-in-the-blanks`, `self-check`) over recognition (`multiple-choice`) once the learner is past
    novice. Aim for most attempts to succeed with effort; if almost all fail, add support upstream.
 6. **Deliberate practice for skills.** For procedures, give repeated attempts on the hardest step
    in isolation, with feedback, then reassemble the whole task. Use `concept-quest-game` (its recap
-   lists tries and what to review) or several varied `short-answer-question` cases.
+   lists tries and what to review) or several varied cases checked with question elements.
 7. **Close the loop.** End each unit with a cumulative review page that samples every concept, and
    a `self-reflective-nudge` pointing low scorers back to specific pages.
 8. **Emit** the practice map.
@@ -109,4 +109,4 @@ Non-mutating. Emits a concept-by-page practice map and the items to add. Apply w
 - Dunlosky, J., et al. (2013). Improving students' learning with effective learning techniques. *Psychological Science in the Public Interest*, 14(1), 4–58.
 - Ericsson, K. A., Krampe, R. T., & Tesch-Römer, C. (1993). The role of deliberate practice. *Psychological Review*, 100(3), 363–406.
 - Macnamara, B. N., Hambrick, D. Z., & Oswald, F. L. (2014). Deliberate practice and performance. *Psychological Science*, 25(8), 1608–1618.
-- Bjork, R. A. (1994). Memory and metamemory considerations in the training of human beings (desirable difficulties).
+- Bjork, R. A. (1994). Memory and metamemory considerations in the training of human beings. In J. Metcalfe & A. P. Shimamura (Eds.), *Metacognition: Knowing about knowing* (pp. 185–205). MIT Press.

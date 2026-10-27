@@ -73,8 +73,10 @@ Hand the plan to `hax-site-building` / `hax-claudehax` to apply it.
    **F**eedback, **F**idelity. Use the stage's settings from the crosswalk and the HAX controls in
    the element map. Fade assistance and raise complexity across the unit; never raise all five at once.
 6. **Handle mixed audiences.** Do not average. Build for the lowest stage and add:
-   - a `self-reflective-nudge` (or a short `multiple-choice` pre-check) whose nudges link
-     (`data-link`) to a refresher page for low answers and a challenge page for high ones;
+   - a short pre-check (a few question elements) followed by a `self-reflective-nudge` where the
+     learner reports how they did; its nudges link (`data-link`) to a refresher page for low answers
+     and a challenge page for high ones (the nudge routes on the learner's self-report; question
+     elements cannot route on their own);
    - `a11y-collapse` (with `heading-button`) sections titled "Need a refresher?" for support and
      "Ready for a harder case?" for extension, so experts skip support rather than wade through it.
 7. **Check for expertise reversal and overload** (audit mode, and a self-check in design mode) using
@@ -91,7 +93,7 @@ Over-support for the audience (expertise reversal), when the target stage is Com
 Overload for the audience, when the target stage is Novice or Advanced beginner:
 - an open-ended or ill-defined task appears before any worked example of the procedure
 - a high-fidelity image, video or simulation with no orienting cue (no hotspots, labels or "look for" prompt)
-- time pressure or penalties (`concept-runner-game`, hearts in `concept-quest-game`, low `max-attempts`) on first exposure
+- time pressure or penalties (`concept-runner-game`, low `max-attempts`) on first exposure; `concept-quest-game` hearts are a mild penalty
 - several new concepts introduced in one section with no practice between them
 
 Loop gaps:

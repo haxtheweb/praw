@@ -37,7 +37,7 @@ Non-mutating. Returns prompts and markup; apply with `hax-site-building` / `hax-
 
 | Stage | Reflection type | Prompt stems |
 |---|---|---|
-| Novice | Summarize the gap between expected and actual | "What did you expect to happen? What happened instead?" / "In one sentence, what is the main idea of this section?" |
+| Novice | Summarize the gap between desired and actual performance | "What should correct performance look like here? Where did yours differ?" / "Which step did you miss or get out of order?" |
 | Advanced beginner | Explain and exemplify desired performance | "Give an example of a situation where this step matters." / "Explain to a new colleague why step 2 comes before step 3." |
 | Competent | Relate and transfer | "Why did you choose that action, and what followed?" / "Where else at work would this apply? What would change?" / "What do you still not know how to do?" |
 | Proficient | Find contradictions across cases | "How do these two cases differ, and why did the same approach fail in one?" / "Which cue did you ignore that turned out to matter?" |
@@ -50,7 +50,7 @@ Put reflection right after the experience it is about (in action or immediately 
 | Use | Element and pattern |
 |---|---|
 | Prompt, then compare with an expert's reflection | `self-check`: prompt in `slot="question"`, the expert's model reflection as the revealed content |
-| Pause-and-think prompt with no answer | `stop-note` (`status="info"` or unset) holding the prompt |
+| Pause-and-think prompt with no answer | `stop-note` with `status="info"` (an unset status shows the red "stop" style) |
 | Self-rating that routes to next steps | `self-reflective-nudge` with `input="grade"` or `input="mood"` and nudges that link onward |
 | Optional deeper reflection | `a11y-collapse` with `heading-button` ("Going further") |
 | Structured debrief of a case | An `editable-table` with columns such as Expected / Actual / Why / Next time |
@@ -63,7 +63,7 @@ not submission. If reflections must be collected, link to the course's LMS assig
 1. Get the stage (from `hax-proficiency-scaffolding`, or ask what the learners can already do).
 2. Find the experience to reflect on: a worked example, a case, a simulation, a question set.
 3. Write one or two prompts of the stage's type, specific to that experience (name the case, the step, the decision).
-4. Choose the element: use `self-check` when an expert model answer helps (novice to competent), `stop-note` when it would short-circuit thinking (proficient, expert).
+4. Choose the element: use `self-check` when an expert model answer helps (novice to competent), `stop-note` when it would short-circuit thinking (proficient, expert). At those stages, if comparison with an expert is useful, put it in a debrief (`a11y-collapse` with `heading-button`, or the next page) after the learner has committed to their own answer.
 5. Place it immediately after the experience.
 
 ## Output Format

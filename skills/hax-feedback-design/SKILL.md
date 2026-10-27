@@ -11,8 +11,8 @@ metadata:
 
 # HAX Feedback Design
 
-Feedback is the single most powerful lever in formative assessment, and it can also make learning
-worse when it is vague, praises the person instead of the work, or hands the answer to someone who
+Feedback is among the most powerful influences on learning, and it can also make learning
+worse (about a third of feedback interventions in Kluger & DeNisi's meta-analysis lowered performance) when it is vague, praises the person instead of the work, or hands the answer to someone who
 should be working it out. HAX question elements already have slots for each kind of feedback; most
 authored questions leave them empty. This skill fills them in at the right level for the learner,
 and audits pages for missing or mismatched feedback.
@@ -46,9 +46,9 @@ All eight question elements share `QuestionElement`:
 |---|---|---|
 | `slot="feedbackIncorrect"` | After a wrong answer | What was wrong and what to do next |
 | `slot="feedbackCorrect"` | After a right answer | Confirm why it is right; extend |
-| `slot="hint"` | After a wrong answer, under "Need a hint?" | A cue or strategy, not the answer |
+| `slot="hint"` | Only after a wrong answer, under "Need a hint?" (never on request) | A cue or strategy, not the answer |
 | `slot="evidence"` | After a right answer | Source, reasoning or worked solution |
-| `slot="content"` | Always, collapsed | Related material to revisit |
+| `slot="content"` | Open before answering, collapsed after; hidden in edit mode | Related material to revisit |
 | `max-attempts` | Limits tries (unset = unlimited) | Stakes; pair with the feedback level |
 | `randomize` | Shuffles answers | Stops position memorizing on repeat attempts |
 
@@ -58,10 +58,10 @@ All eight question elements share `QuestionElement`:
 
 | Level (stage) | `feedbackIncorrect` | `hint` | `feedbackCorrect` / `evidence` | `max-attempts` |
 |---|---|---|---|---|
-| Outcome (novice) | States the correct answer plainly | Optional: point to the part of the page that has it | Restate the fact in one line | Unset |
+| Outcome (novice) | States the correct answer plus one line of why | Optional: point to the part of the page that has it | Restate the fact in one line | Unset |
 | Elaborative (advanced beginner) | Why the chosen answer is wrong and why the right one is right; name the likely misconception | Name the rule or concept to apply | Why it is right; link the rule | Unset |
 | Facilitative (competent) | Advice or a suggestion ("check the order of X and Y"), invite another try; do not reveal the answer | A question that redirects attention | Brief confirmation plus a transfer question ("where else would this apply?") | 2–3 |
-| Strategy (proficient) | Name the strategy that would expose the error, not the error itself | A cue to check or an alternative hypothesis to consider | Ask the learner to explain their reasoning (self-explanation) | 1–2 |
+| Strategy (proficient) | Name the strategy that would expose the error, not the error itself | A cue to check or an alternative hypothesis to consider | Ask the learner to explain their reasoning (self-explanation) | 2 (the hint only appears after a wrong answer, so a retry must remain) |
 | Delayed (expert) | Leave empty; put a debrief after the task that points out inconsistencies | Leave empty | Leave empty; debrief compares with expert reasoning | 1 |
 
 ## Writing rules
@@ -69,8 +69,11 @@ All eight question elements share `QuestionElement`:
 1. **About the task, never the person.** "Recheck the units in step 2", not "Great job!" or "You've got this".
    Praise and self-focused feedback can lower performance (Kluger & DeNisi, 1996; Hattie & Timperley, 2007).
 2. **Say what to do next.** Every `feedbackIncorrect` ends with an action.
-3. **Target the misconception.** For each wrong option in `multiple-choice`, know why someone would
-   pick it; address that reason. If one wrong option is common, write feedback that names it.
+3. **Target the misconception.** For each wrong option, know why someone would pick it.
+   `multiple-choice` has one `feedbackIncorrect` slot for all wrong answers, so name the most
+   common misconception there. Per-option feedback (`data-selected` / `data-unselected` on each
+   answer `input`) is displayed only by `tagging-question` and `mark-the-words`; do not write it
+   for other types, it will never show.
 4. **Hints never contain the answer** above the novice level.
 5. **Keep it short:** two or three sentences per slot. Longer material goes in `content` or a link.
 6. **Feedback must be correct.** Check the reasoning against the page's own content and sources.

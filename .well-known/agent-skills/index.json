@@ -243,7 +243,7 @@
       "type": "skill-md",
       "description": "\"Create a published HAXcms tutorial site from a YouTube video plus a DOCX transcript, then write LinkedIn / X posts and a YouTube SEO description. Use for \\\"hax tutorial skill\\\" or \\\"make a tutorial site from this video\\\". Bundled skeleton, portable.\"",
       "url": "hax-tutorial-site/SKILL.md",
-      "digest": "sha256:e25ba2392f72369caeaa78dd3590d21780feabe54b652d27d485260df5ba4ad8",
+      "digest": "sha256:f508eaabae6e2c1b02325651b47e0702652e1349d4cab1b5c1dd73da47b3b948",
       "files": [
         {
           "path": "references/author-profile.json",

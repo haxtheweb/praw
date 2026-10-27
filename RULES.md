@@ -189,6 +189,11 @@ Every rule has one of four scopes:
 - **Scope**: `webcomponents`
 - **Content**: All new elements in the monorepo must be created using the `hax webcomponent` CLI command to ensure uniformity, including generation of demo, packaging, and distribution files. Do not create webcomponent directories or files manually in the monorepo — always scaffold with the CLI tool first.
 
+### Element Docs Setup
+- **Rule ID**: `f3c7716773784e8f94254a`
+- **Scope**: `webcomponents`
+- **Content**: Every element in the webcomponents monorepo ships its documentation data. Scaffold with `hax webcomponent <name> --y --no-i` and never pass `--no-docs` there: in the monorepo the scaffold adds `node ../../scripts/extract-element-docs.mjs --write .` to the end of the element's `build` script, which writes `lib/<tag>.docs.json` for `<documentation-player>`. After changing an element's properties, HAX settings, slots or events, run `yarn run build` in its folder and commit the refreshed docs data. Walkthroughs (`lib/<tag>.motion.json`) and video tutorials (`lib/<tag>.video.json`, written by `scripts/link-element-tutorial.mjs`) sit next to it; check walkthroughs with `node scripts/extract-element-docs.mjs --status <element>`.
+
 ### HAX Site Scaffolding
 - **Rule ID**: `hax-site-scaffold`
 - **Scope**: `haxcms`

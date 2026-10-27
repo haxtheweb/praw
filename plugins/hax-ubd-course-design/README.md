@@ -1,6 +1,6 @@
 # hax-ubd-course-design
 
-Understanding by Design for HAX: backward-design a unit end to end (Stages 1-3), author essential questions and GRASPS tasks, map the six facets, classify objectives with Bloom's, and audit existing units.
+Understanding by Design for HAX: backward-design a unit end to end (Stages 1-3), author essential questions and GRASPS tasks, map the six facets, classify objectives with Bloom's, and audit existing units. Learning-science skills fit the design to the learners: scaffolding matched to their skill stage (novice to expert), feedback, retrieval and spaced practice, and reflection.
 
 **Who it is for:** You design courses or units and want backward design built into the workflow.
 
@@ -24,10 +24,14 @@ Understanding by Design for HAX: backward-design a unit end to end (Stages 1-3),
 | `hax-ubd-six-facets` | Write understandings and facet-mapped rubric criteria with the six facets. |
 | `hax-ubd-unit-audit` | Read-only UbD review of an existing HAX unit with remediation handoff. |
 | `grad-blooms` | Classify learning objectives and design assessments with Bloom's revised taxonomy. |
+| `hax-proficiency-scaffolding` | Fit scaffolding to the learners' stage (novice to expert) with ELEVATE-XR: objective level, learning loop, and stress, complexity, assistance, feedback and fidelity dials. |
+| `hax-feedback-design` | Write and audit feedback, hints and evidence for HAX question elements. |
+| `hax-practice-and-retrieval` | Plan retrieval practice, spacing, interleaving and deliberate practice across a site. |
+| `hax-reflection-prompts` | Write reflection prompts matched to the learners' stage. |
 
 ## Where to start
 
-Start with hax-ubd-backward-design; it orchestrates the stage skills.
+Start with hax-ubd-backward-design; it orchestrates the stage skills. When the audience's experience is uneven or not beginners, run hax-proficiency-scaffolding before Stage 3.
 
 ## How this plugin is built
 

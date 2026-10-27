@@ -43,6 +43,12 @@ Reusable agent skills for the HAX (Headless Authoring eXperience) ecosystem. The
 | `hax-release-prep` | Verify locally and write the maintainer handoff for the ubiquity build and publish steps agents must never run | `npx skills add haxtheweb/praw --skill hax-release-prep` |
 | `hax-element-demo` | Build a throwaway demo of a HAX element inside the real HAX editor (h-a-x) as static files, to check app-store wiring and editability | `npx skills add haxtheweb/praw --skill hax-element-demo` |
 | `grad-blooms` | Classify learning objectives and design assessments with Bloom's revised taxonomy | `npx skills add haxtheweb/praw --skill grad-blooms` |
+| `hax-proficiency-scaffolding` | Fit a unit's scaffolding to its learners' stage (novice to expert) with ELEVATE-XR: objective level, learning loop, and the stress, complexity, assistance, feedback and fidelity dials mapped to HAX elements | `npx skills add haxtheweb/praw --skill hax-proficiency-scaffolding` |
+| `hax-feedback-design` | Write and audit feedback, hints and evidence for HAX question elements at the right level for the learner | `npx skills add haxtheweb/praw --skill hax-feedback-design` |
+| `hax-practice-and-retrieval` | Plan retrieval practice, spacing, interleaving and deliberate practice across a HAX site | `npx skills add haxtheweb/praw --skill hax-practice-and-retrieval` |
+| `hax-reflection-prompts` | Write stage-matched reflection prompts (summarize, exemplify, relate, contradict, self-critique) for HAX pages | `npx skills add haxtheweb/praw --skill hax-reflection-prompts` |
+| `hax-instructional-events-audit` | Read-only audit of a HAX lesson against Gagné's nine events and Merrill's First Principles | `npx skills add haxtheweb/praw --skill hax-instructional-events-audit` |
+| `hax-multimedia-principles-audit` | Read-only audit of how a HAX page combines words and media against Mayer's multimedia principles | `npx skills add haxtheweb/praw --skill hax-multimedia-principles-audit` |
 | `hax-theme-builder` | Turn a screenshot into an accessible, dark-mode-ready HAXcms theme | `npx skills add haxtheweb/praw --skill hax-theme-builder` |
 | `youtube-vtt` | Generate a WebVTT transcript from a YouTube URL with yt-dlp, no video download | `npx skills add haxtheweb/praw --skill youtube-vtt` |
 

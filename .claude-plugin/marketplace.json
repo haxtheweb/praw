@@ -109,7 +109,7 @@
       "name": "hax-ubd-course-design",
       "source": "./",
       "strict": false,
-      "description": "Understanding by Design for HAX: backward-design a unit end to end (Stages 1-3), author essential questions and GRASPS tasks, map the six facets, classify objectives with Bloom's, and audit existing units.",
+      "description": "Understanding by Design for HAX: backward-design a unit end to end (Stages 1-3), author essential questions and GRASPS tasks, map the six facets, classify objectives with Bloom's, and audit existing units. Plus learning-science design: scaffolding matched to learner proficiency (novice to expert), feedback, retrieval and spaced practice, and reflection prompts.",
       "version": "0.1.0",
       "category": "instructional-design",
       "skills": [
@@ -121,7 +121,11 @@
         "./skills/hax-ubd-grasps",
         "./skills/hax-ubd-six-facets",
         "./skills/hax-ubd-unit-audit",
-        "./skills/grad-blooms"
+        "./skills/grad-blooms",
+        "./skills/hax-proficiency-scaffolding",
+        "./skills/hax-feedback-design",
+        "./skills/hax-practice-and-retrieval",
+        "./skills/hax-reflection-prompts"
       ],
       "author": {
         "name": "HAXTheWeb core team",
@@ -137,14 +141,18 @@
         "course-design",
         "assessment",
         "blooms",
-        "oer"
+        "oer",
+        "scaffolding",
+        "feedback",
+        "retrieval-practice",
+        "andragogy"
       ]
     },
     {
       "name": "hax-content-audits",
       "source": "./",
       "strict": false,
-      "description": "Read-only audits for HAX content: WCAG 2.0 AA accessibility, UDL 3.0, cognitive-load chunking, OER Schema, and content rating. Each audit ends with HAX-specific remediation.",
+      "description": "Read-only audits for HAX content: WCAG 2.0 AA accessibility, UDL 3.0, cognitive-load chunking, Gagn\u00e9's events of instruction, Mayer's multimedia principles, OER Schema, and content rating. Each audit ends with HAX-specific remediation.",
       "version": "0.1.0",
       "category": "quality",
       "skills": [
@@ -152,7 +160,9 @@
         "./skills/hax-udl-audit",
         "./skills/hax-content-chunking-audit",
         "./skills/oerschema-audit",
-        "./skills/haxcms-lrs-rater"
+        "./skills/haxcms-lrs-rater",
+        "./skills/hax-instructional-events-audit",
+        "./skills/hax-multimedia-principles-audit"
       ],
       "author": {
         "name": "HAXTheWeb core team",
@@ -168,7 +178,9 @@
         "udl",
         "audit",
         "oer-schema",
-        "content-rating"
+        "content-rating",
+        "gagne",
+        "multimedia-learning"
       ]
     },
     {

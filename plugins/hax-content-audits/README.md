@@ -1,6 +1,6 @@
 # hax-content-audits
 
-Read-only audits for HAX content: WCAG 2.0 AA accessibility, UDL 3.0, cognitive-load chunking, OER Schema, and content rating. Each audit ends with HAX-specific remediation.
+Read-only audits for HAX content: WCAG 2.0 AA accessibility, UDL 3.0, cognitive-load chunking, Gagné's events of instruction, Mayer's multimedia principles, OER Schema, and content rating. Each audit ends with HAX-specific remediation.
 
 **Who it is for:** You want to check existing HAX content for accessibility, learning design, and metadata quality.
 
@@ -20,6 +20,8 @@ Read-only audits for HAX content: WCAG 2.0 AA accessibility, UDL 3.0, cognitive-
 | `hax-content-chunking-audit` | Audit a page for cognitive load and chunking; recommend HAX remediation. |
 | `oerschema-audit` | Read-only OER Schema diagnostic of authored content. |
 | `haxcms-lrs-rater` | Content rating and minimum-age recommendation for a HAXcms site (BookLooky LRS). |
+| `hax-instructional-events-audit` | Read-only check of a lesson against Gagné's nine events and Merrill's First Principles. |
+| `hax-multimedia-principles-audit` | Read-only check of how a page combines words and media against Mayer's principles. |
 
 ## Where to start
 

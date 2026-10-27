@@ -286,6 +286,11 @@ Every rule has one of four scopes:
 - **Scope**: `haxcms`
 - **Content**: Reviewing whether a HAX site/page reaches all learners? Use the `hax-udl-audit` skill (UDL 3.0: multiple means of Engagement, Representation, Action & Expression). Bias toward flagging Action & Expression gaps — interactive assessment blocks are the empirically-confirmed gap across the HAX training corpus. Map every guideline to a real, HAX-authorable element — never invent tag names. Framework: CAST (2024), *UDL Guidelines 3.0*.
 
+### Learning-Science Design Matched to Learner Proficiency
+- **Rule ID**: `fc4153f1-90f0-4d22-a023-fec8f492b408`
+- **Scope**: `haxcms`
+- **Content**: Designing or reviewing HAX instruction for adults or mixed-experience learners? Profile the learners' stage (novice, advanced beginner, competent, proficient, expert) with the `hax-proficiency-scaffolding` skill before sequencing, and fade support as proficiency rises: heavy guidance helps novices but hurts experts (expertise reversal). Fill question feedback slots at the matching level (`hax-feedback-design`), schedule later retrieval for every key concept (`hax-practice-and-retrieval`), and add stage-matched reflection (`hax-reflection-prompts`). Audit lessons with `hax-instructional-events-audit` and media use with `hax-multimedia-principles-audit`. Map every recommendation to a real, HAX-authorable element — never invent tag names. Framework: Stanney, Skinner & Hughes (2023), *ELEVATE-XR*.
+
 
 ## 🗂️ Project-Specific Rules
 

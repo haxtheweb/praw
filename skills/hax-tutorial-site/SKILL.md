@@ -196,7 +196,10 @@ the published site URL, the local site path, and the copy blocks. If a step soft
      --title "<video title>" --captions <tmp-dir>/transcript.vtt \
      --tutorial https://<machine-name>.surge.sh
    ```
-   Leave out `--captions` if step 6 found no captions. The script writes
+   Leave out `--captions` if step 6 found no captions. When the tutorial covers one operation
+   of an element that has several walkthroughs (for example the HAX editor's outline or theme
+   change, or one app-hax screen), add `--topic <topic>` using the walkthrough's topic name
+   (`lib/<tag>.<topic>.motion.json`), so the video shows with that walkthrough. The script writes
    `elements/<element>/lib/<tag>.video.json` and `<tag>.captions.vtt` and refreshes
    `<tag>.docs.json`. Then run `yarn precheck`, commit only those files, push, and open a pull
    request titled `[<element>] Link video tutorial` that names the video, the tutorial URL and
@@ -230,7 +233,7 @@ the published site URL, the local site path, and the copy blocks. If a step soft
 - Video metadata: `node <skill-dir>/scripts/youtube-metadata.cjs <watch-url>` (yt-dlp, auto-provisioned venv; prints {title, author, thumbnail}; no curl/oEmbed, no interactive confirm)
 - UUID: `node -p "crypto.randomUUID()"`
 
-- Link to an element's docs: `node scripts/link-element-tutorial.mjs <element-folder> --video <watch-url> --title "<title>" [--captions <transcript.vtt>] [--tutorial <site-url>]` (run from a webcomponents checkout; re-running replaces the earlier link)
+- Link to an element's docs: `node scripts/link-element-tutorial.mjs <element-folder> --video <watch-url> --title "<title>" [--captions <transcript.vtt>] [--tutorial <site-url>] [--topic <topic>]` (run from a webcomponents checkout; re-running replaces the earlier link)
 
 ## How the in-page seeking works
 

@@ -20,7 +20,7 @@
       "type": "skill-md",
       "description": "\"Classify learning objectives and design assessments with Bloom's revised taxonomy (six cognitive levels). Use for writing objectives at a level, aligning assessment to goals, or checking a curriculum's cognitive balance.\"",
       "url": "grad-blooms/SKILL.md",
-      "digest": "sha256:a491bc50430fccf61d81f573164bac2e279f29c01824fe7d1ff3fcca8992dcd2",
+      "digest": "sha256:d012de38a205eb0defa30ccfd62732b18eb18d444be6de37ae88261e9cd70472",
       "files": [
         {
           "path": "examples/sample_scenario.md",
@@ -41,7 +41,7 @@
       "type": "skill-md",
       "description": "\"READ-ONLY WCAG 2.0 AA audit of authored HAX pages (alt text, headings, landmarks, contrast, captions, keyboard, ARIA) with HAX remediation. Use for \\\"is this accessible\\\" or \\\"audit for WCAG\\\". Diagnoses only; hands off to hax-site-building.\"",
       "url": "hax-a11y-audit/SKILL.md",
-      "digest": "sha256:3821d4fcc92f80cdf006c88ef5673dc39a4cc93c6e9b2f887b6a5951355d5dd1",
+      "digest": "sha256:9163ab87d5a8a127e3c008e4783266f9d06249fdd695c61b35c4039788859542",
       "files": [
         {
           "path": "evals/evals.json",
@@ -49,7 +49,7 @@
         },
         {
           "path": "references/a11y-element-map.md",
-          "digest": "sha256:69f545fab1096ba1d98dea141e46e6a09360192f8b092acaa95cab99c8b40a41"
+          "digest": "sha256:59d83b57aa8a21dea800290376c4ad9b34239f794d0d5e4f2da91686023bc1d8"
         }
       ]
     },
@@ -65,14 +65,14 @@
       "type": "skill-md",
       "description": "\"Author HAX page HTML with valid HAX-capable web components and DDD attributes. Use when writing or editing pages/, choosing input, icon, button or media components, or creating pages via the hax CLI. Keeps content portable and editable in the HAX editor.\"",
       "url": "hax-content-authoring/SKILL.md",
-      "digest": "sha256:842c367726e12544a70d9469f4f9d48de1bb58e29336fb781930938f5bfe05c2"
+      "digest": "sha256:9a734df03229cccad0a4459b0a75e7c3e924d60b2f762617e1c6a1743b28b0b5"
     },
     {
       "name": "hax-content-chunking-audit",
       "type": "skill-md",
       "description": "\"Audit a HAX page against cognitive-load and chunking standards and return HAX remediation. Use for \\\"wall of text\\\", overly long sections, list fatigue or \\\"make this page less overwhelming\\\".\"",
       "url": "hax-content-chunking-audit/SKILL.md",
-      "digest": "sha256:86e4c9f40f8b26415662090178582d8c722b5a57615b1928db25ee6b5ccc5f27"
+      "digest": "sha256:1176a4af285d02ed93406cca81ccfc429fdf751f9e0a32ae8915208e72258ce9"
     },
     {
       "name": "hax-design-system",
@@ -320,7 +320,7 @@
       "files": [
         {
           "path": "references/design-standards.md",
-          "digest": "sha256:da453f26b826529d8fd0aee7b025d141a21c0abf19b39ca7c675a1c128cbb110"
+          "digest": "sha256:f6641ca9c7809ca1bc497c20639da51d309ac5f9f73d660f8c065d80511e289b"
         },
         {
           "path": "references/manifest-schema.md",
@@ -376,7 +376,7 @@
       "type": "skill-md",
       "description": "\"UbD Stage 3: plan learning experiences with WHERETO, derived from Stages 1 and 2. Use for \\\"sequence this unit\\\" or \\\"plan the learning activities\\\"; points at Stage 2 evidence and never invents endpoints.\"",
       "url": "hax-ubd-stage3/SKILL.md",
-      "digest": "sha256:246feee6943ac299b36134d43c14274388faa5f292002d725ebe5dd5e8b1b745"
+      "digest": "sha256:957bcecac0d0644982e3a1dec6c67cdd64454bf9306bc933949d8082fc05aecc"
     },
     {
       "name": "hax-ubd-unit-audit",
@@ -390,11 +390,11 @@
       "type": "skill-md",
       "description": "\"READ-ONLY audit of a HAX page against UDL 3.0 (Engagement, Representation, Action & Expression) with HAX component remediation. Use for \\\"audit for UDL\\\" or \\\"does this page reach everyone\\\".\"",
       "url": "hax-udl-audit/SKILL.md",
-      "digest": "sha256:061420fe57cb0908e106e2c5496f513e1429b11962ee6f09c03e125db68296eb",
+      "digest": "sha256:68b7a96d722b4195fca0acfc5ee37e05d8e8642c55477c38da17a3061b047377",
       "files": [
         {
           "path": "references/udl-element-map.md",
-          "digest": "sha256:5f7544d11f511abeab9d142106a20936c97189bd37fd6a3de177987705cdd3aa"
+          "digest": "sha256:5c0f5d86282f481a8a949f79233a113a74076271d54834c0142af982982f3334"
         }
       ]
     },

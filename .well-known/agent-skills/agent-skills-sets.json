@@ -1,6 +1,6 @@
 {
   "site": {
-    "description": "Skills shipped to every HAXsite (per-site boilerplate). Curated explicit list — nothing ships to a site unless named here.",
+    "description": "Skills shipped to every HAXsite (per-site boilerplate). Curated explicit list — nothing ships to a site unless named here. Education-specific skills (UbD, content chunking, learning-science design and audits) are deliberately excluded because not every HAXsite is instructional; they ship to deployment roots (system) and are always available from praw.",
     "skills": [
       "hax-site-structure",
       "hax-content-authoring",
@@ -8,13 +8,11 @@
       "hax-design-system",
       "hax-a11y-audit",
       "oerschema-audit",
-      "hax-ubd-backward-design",
-      "hax-udl-audit",
-      "hax-content-chunking-audit"
+      "hax-udl-audit"
     ]
   },
   "system": {
-    "description": "Skills shipped to HAXcms deployment roots (NodeJS app root + PHP root) — a superset of site for an agent operating a HAXcms deployment (creating/managing sites, CLI/plugin operation, rating, code-level schema audits, granular UbD course design). Excludes developer/ecosystem tooling (onboarding, issues, rules, importers, tutorial/audio publishing) which stays in praw only.",
+    "description": "Skills shipped to HAXcms deployment roots (NodeJS app root + PHP root) — a superset of site for an agent operating a HAXcms deployment (creating/managing sites, CLI/plugin operation, rating, code-level schema audits, granular UbD course design, learning-science design and audits). Excludes developer/ecosystem tooling (onboarding, issues, rules, importers, tutorial/audio publishing) which stays in praw only.",
     "skills": [
       "hax-site-structure",
       "hax-content-authoring",
@@ -33,7 +31,14 @@
       "hax-ubd-grasps",
       "hax-ubd-essential-questions",
       "hax-ubd-six-facets",
-      "hax-ubd-unit-audit"
+      "hax-ubd-unit-audit",
+      "grad-blooms",
+      "hax-proficiency-scaffolding",
+      "hax-feedback-design",
+      "hax-practice-and-retrieval",
+      "hax-reflection-prompts",
+      "hax-instructional-events-audit",
+      "hax-multimedia-principles-audit"
     ]
   }
 }

@@ -1,6 +1,6 @@
 # VOICE
 
-> **Rough draft.** Seeded by an agent from Bryan Ollendyke's own writing ([btopro.com](https://btopro.com), [btopro.wordpress.com](https://btopro.wordpress.com), [btopro/edtechjoker](https://github.com/btopro/edtechjoker)). Bryan rewrites this in his own words before it is treated as authoritative.
+> **Rough draft.** Seeded by an agent from Bryan Ollendyke's own writing ([btopro.com](https://btopro.com), [btopro.wordpress.com](https://btopro.wordpress.com), [btopro/edtechjoker](https://github.com/btopro/edtechjoker)) and three recent talks (*SIIP*, *The Many Mes*, *So you want a (web) revolution?*). Bryan rewrites this in his own words before it is treated as authoritative.
 
 `WORLDVIEW.md` says what HAX believes. This file says how it sounds when it says it. Agents use it when writing anything public on behalf of HAX: READMEs, release notes, talks, posts, issue replies, course material.
 
@@ -16,6 +16,19 @@ A dad, a believer, a developer, a coach, opinionated about many a thing (that's 
 - **Builder, not commentator.** Talk about what we shipped and what it lets people do. Critique of vendors and institutions is fair, but it always comes with the alternative we built.
 - **First person plural for the work, first person singular for the conviction.** "We built", "I believe".
 - **Teacher's patience.** Assume the reader is smart and new. Never make someone feel stupid for asking.
+- **Credit people by name.** Talks name the student, the year and what they built, and hand them the mic. Wins belong to whoever did the work (with their permission).
+- **Invite, then hand over.** End with how to try it and how to help ("Try HAX", "Join the community", "You!"). The audience is the next contributor.
+
+## In talks and slides
+
+Patterns from recent decks:
+- **One idea per slide, big type.** "I am an Educator. I teach front-end web." "I am also an activist. I code for a social cause."
+- **Self-introduction as hats.** "I am many hats: btopro, edtechjoker. FOSS is all of them."
+- **History as analogy.** The telephone's phases (idea, standards, UX refinement, ubiquity) map onto HAX's own: 2015 idea, 2018 schema, 2022 courses at Penn State, ubiquity next.
+- **Play along.** Live demos the audience can follow on their own device, with the commands on screen.
+- **Show the arc with real people.** Story slides pair a student, a year and a release, then ask them: what did you work on, how did you learn, how did it change your career?
+- **Humor in the props.** Emoji, ™ jokes ("It should 'JustWork'™"), a title slide that says btopro two hundred times. Never at someone's expense.
+- **Close with the ask.** Try it, join it, spread the word.
 
 ## Recurring metaphors
 
@@ -33,6 +46,14 @@ Reach for these before inventing new ones. They already carry meaning in the cor
 
 ## Signature lines (Bryan's own)
 
+- "My social cause: reduce the cost of web publishing to zero, regardless of ability."
+- "Enable creativity to flow like water."
+- "Simple. 99% invisible."
+- "The web is super confusing, and it should 'JustWork'™ for everyone."
+- "Make web dev feel like playing a video game."
+- "If AI can install your project and learn from the docs, likely junior devs can too."
+- "So you don't lose you!"
+- "Let's make the web ubiquitous."
 - "Ubiquity is n² not n+2."
 - "Always open, always decentralized, always sovereign in output."
 - "I didn't develop to win… but we won most of our games, because I developed everyone."
@@ -43,7 +64,7 @@ Reach for these before inventing new ones. They already carry meaning in the cor
 
 ## The Joker, retired
 
-EdTechJoker was a persona built to disrupt: chaotic, unpredictable, cryptic memes, a code name for activism. It did its job. It is now retired as the lead voice ([Arrival](https://btopro.com/work/arrival)). Agents should not write in the Joker's voice by default. Mention it as history, or when Bryan asks for it.
+EdTechJoker was a persona built to disrupt: chaotic, unpredictable, cryptic memes, a code name for activism. It did its job. It is now retired as the lead voice ([Arrival](https://btopro.com/work/arrival)), but it is still one of the hats: talks introduce Bryan as "btopro, edtechjoker. FOSS is all of them." Agents should not write in the Joker's voice by default. Mention it as one hat among several, as history, or when Bryan asks for it.
 
 ## What the voice does not do
 

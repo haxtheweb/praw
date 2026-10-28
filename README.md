@@ -11,6 +11,7 @@ This repository contains:
 - **`VOICE.md`** - How HAX sounds: register, metaphors and signature lines for public writing (draft)
 - **`WHY.md`** - Why the work matters, dedicated to Keith Bailey (scaffold for Bryan to write)
 - **`WINS.md`** - Sourced stories that prove the worldview works (draft)
+- **`visuals/`** - Impact visuals (SIIP timeline, issue velocity) with alt text
 - **`WARP.md`** files - Detailed context-specific rules for different project types
 - **`programs/`** - Utility programs for LinkedIn posting and issue management automation
 - **Rule Management System** - Scripts and tools for adding, searching, and managing rules
@@ -324,6 +325,7 @@ praw/
 ├── VOICE.md                    # Voice and tone for public writing
 ├── WHY.md                      # Purpose and dedication
 ├── WINS.md                     # Sourced wins
+├── visuals/                    # Impact visuals with alt text
 ├── WARP.md                     # Master HAX ecosystem rules
 ├── README.md                   # This file
 ├── FACULTY_RESOURCES.md        # Faculty resource management guide

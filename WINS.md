@@ -1,6 +1,6 @@
 # WINS
 
-> **Rough draft.** Seeded by an agent from public writing in [btopro/blog](https://github.com/btopro/blog), [btopro.wordpress.com](https://btopro.wordpress.com) and [btopro/edtechjoker](https://github.com/btopro/edtechjoker). Every entry links its source. Items marked **verify** need a number or detail confirmed before anyone quotes them.
+> **Rough draft.** Seeded by an agent from public writing in [btopro/blog](https://github.com/btopro/blog), [btopro.wordpress.com](https://btopro.wordpress.com), [btopro/edtechjoker](https://github.com/btopro/edtechjoker) and three recent talks: *The Sustainable Impact and Innovation Pipeline (SIIP)*, *The Many Mes* and *So you want a (web) revolution?*. Every entry names its source. Items marked **verify** need a number or detail confirmed before anyone quotes them. Visuals live in [`visuals/`](visuals/README.md).
 
 Stories fade faster than code. This file keeps proof that the worldview works, so agents, contributors and future maintainers can point to it. A good win has a **person**, a **before/after**, and a **source**.
 
@@ -22,11 +22,35 @@ Stories fade faster than code. This file keeps proof that the worldview works, s
 - Why it matters: non-technical authors produce accessible, creative work (pillars 5 and 2).
 - Source: [Open Community Pedagogy](https://btopro.com/work/open-community-pedagogy)
 
-### Students straight into web careers
-- Who: students in Bryan's Penn State web development courses (IST 256 / IST 402, Project EdTechJoker).
-- Before → after: learning vanilla web + Lit on real HAX code; past students have gone directly into jobs implementing web components. **Verify:** names or counts.
-- Why it matters: learning by building in real systems (pillar 8).
-- Source: [edtechjoker README](https://github.com/btopro/edtechjoker)
+### From HAX Lab to industry
+- Who: former HAX Lab students and HAX contributors.
+- Before → after: they now work at **Red Hat, Adobe, IBM, Ford and PennDOT**, using web component skills in their daily work.
+- Why it matters: learning by building in real systems (pillar 8). Students leave with experience, not just a grade.
+- Source: Bryan Ollendyke; course context in [edtechjoker README](https://github.com/btopro/edtechjoker)
+
+### Site Dashboard, three generations of students (2022–2026)
+- Who: student teams across four years.
+- Before → after: **Jimmy Kane** built Dashboard 1.0 for HAX 9 (2022), inspired by Doodle Jump, from the challenge "make web dev feel like playing a video game". **Ashley Santana** prototyped and gathered requirements for 2.0 (2024); **Skyler Koba** and **Isabella Masso** designed and built it for HAX 25, the biggest release at the time (2025). **Chloe Martin** (a Google Docs-style sites dashboard and admin UI), **Alyssa Foran** (palettes and admin design thinking) and **Winston White** (sites become skeletons) built 3.0.
+- Why it matters: one real problem carried across student cohorts, each building on the last (pillars 6 and 8).
+- Source: *SIIP* talk
+
+### Students built the design system
+- Who: **Keith Charlton Jr** and **Zach Dodson** (2024).
+- Before → after: Keith applied the DDD design system across 60+ elements. Zach built a HAX + AI proof of concept and contributed the DDD audit to the CLI, outside of any class requirement.
+- Why it matters: DDD began as a class exercise in cloning Penn State designs; Bryan forked the best solutions, and it became the real design system. "We have PSU-esque designs by PSU."
+- Source: *SIIP* talk
+
+### Winston White: student to trainer
+- Who: Winston White.
+- Before → after: took IST 256 in spring 2024, made three themes in fall 2024, built much of the HAX CLI in 2025, and worked on the skeleton templating system in 2026, each as a one-semester project. He now improves the developer experience for, and trains, future students. He also built the International Student Portfolio with Dr. Jennifer Frank.
+- Why it matters: the pipeline produces mentors, not just contributors (pillar 8).
+- Source: *SIIP* talk
+
+### Student clubs: 30 security fixes
+- Who: the Cyber Security club (CCSO, two collaborations) and the User eXperience Professional Association.
+- Before → after: CCSO identified and resolved **30 security vulnerabilities**; four UXPA members contributed to UX design.
+- Why it matters: students bring their own passions; HAX provides the real problem space (pillars 6 and 8).
+- Source: *SIIP* talk
 
 ### 36 students, 18 fixes
 - Who: one semester's course cohort.
@@ -34,11 +58,11 @@ Stories fade faster than code. This file keeps proof that the worldview works, s
 - Why it matters: classroom work improves the real product (pillar 8).
 - Source: [The Climb](https://btopro.com/work/the-climb)
 
-### Dozens mentored through HAX Lab
-- Who: students in HAX Lab and the student HAX Club.
-- Before → after: a lab, a student club, and a faculty collaborator who secured a grant to fund student development. **Verify:** grant name and student count.
-- Why it matters: community is part of the architecture (pillar 6).
-- Source: [FOSSY25](https://btopro.com/work/fossy25), [About](https://btopro.com/about)
+### HAX Lab faculty grants
+- Who: faculty partners.
+- Before → after: **Dr. Jennifer Frank** funded the International Student Portfolio, so HAX grew into portfolios students can take with them. **Dr. David Fusco** funded Canvas AI analysis, where the student-built HAX CLI pulls a Canvas course through its API and works with AI to create a course.
+- Why it matters: faculty fund real student work that solves their own problems, and HAX gains capability (pillars 4, 6 and 8). **Verify:** grant names and amounts if they can be shared.
+- Source: *SIIP* talk, [FOSSY25](https://btopro.com/work/fossy25)
 
 ## Doing more with less
 
@@ -46,7 +70,40 @@ Stories fade faster than code. This file keeps proof that the worldview works, s
 - Who: the HAX core team.
 - Before → after: HAX went from a notepad idea (2015) to a proof of concept (2017) to four people part-time (2020) to one person (2023). Feature output still climbed sharply from 2024 because course assignments were redirected at real HAX problems.
 - Why it matters: the Sustainable Impact and Innovation Pipeline is reproducible at other institutions (pillars 7 and 8).
-- Source: [Sustainable Impact and Innovation Pipeline](https://btopro.com/hax/sustainable-impact-and-innovation-pipeline)
+- Source: [Sustainable Impact and Innovation Pipeline](https://btopro.com/hax/sustainable-impact-and-innovation-pipeline), *SIIP* talk
+
+![SIIP timeline 2008–2026](visuals/siip-timeline-2008-2026.png)
+
+Yearly counts from the timeline's bottom row, transcribed by icon. **Verify:** the icon legend before quoting any of these. `*` marks estimates (site counts for 2021–22) or projections (2025).
+
+| Year | Blue block | Stacked blocks | Purple person | Pink person | Green person | Coder at laptop | Teal person | Pink outline person |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2008 | | | 1 | | | | | |
+| 2015 | | | 3 | | | | | |
+| 2017 | 1 | | 3.5 | 1 | 17 | | | |
+| 2018 | 54 | | 3.5 | 1 | 10 | | | |
+| 2019 | 198 | 1 | 3.5 | | 29 | 39 | | 12 |
+| 2020 | 582 | 11 | 3.5 | 2 | 17 | 79 | 9,401 | 55 |
+| 2021 | 664 | 106* | 3.5 | 3 | 22 | 78 | 10,066 | 55 |
+| 2022 | 829 | 154* | 2.5 | 8 | 17 | 36 | 11,838 | 55 |
+| 2023 | 844 | 202 | 2.5 | 1 | 7 | 112 | 11,716 | 55 |
+| 2024 | 657 | 213 | 2.5 | 8 | 18 | 114 | 12,044 | 55 |
+| 2025 | 675 | 247 | 2 | 5 | 33 | 109* | 12,490* | 55 |
+
+### SIIP lessons learned
+- The biggest gains come **6–12 months after** students take the class.
+- The **top 5–10%** of a class often choose to go further.
+- The class works best as 40% skilling up, 20% a simple non-community project, 20% a larger, less-scaffolded project, and 20% an unscaffolded, internship-like project.
+- Open office hours three times a week now draw contributors who were never in HAX Lab.
+- Source: *SIIP* talk. The pedagogy is cognitive apprenticeship (modeling, scaffolding, fading, coaching), framed by Bill Rose.
+
+### Agents with context: 90% then 211%
+- Who: the HAX project, with agents primed by PRAW.
+- Before → after: versions 1–25 averaged about 33 closed issues per month. Version 25→26 reached about 64 per month (+90%). Version 26→26.7 reached about 104 per month (+211%). Using AI without context first cost about 3% efficiency.
+- Why it matters: the worldview, rules and skills in this repository are measurably what made agents useful.
+- Source: *The Many Mes* talk
+
+![Issue velocity by HAX version](visuals/hax-issue-velocity-by-version.png)
 
 ### Hundreds of thousands of lines removed
 - Who: ELMS:LN and everyone maintaining it.
@@ -70,7 +127,7 @@ Stories fade faster than code. This file keeps proof that the worldview works, s
 
 ### A $250 textbook becomes a $30 fee
 - Who: students in a course that dropped a commercial textbook.
-- Before → after: about $250 per student down to a $30 fee. **Verify:** which course and whether it used ELMS:LN / HAX.
+- Before → after: about $250 per student down to a $30 fee, delivered on ELMS:LN. **Verify:** which course.
 - Why it matters: open resources collapse the cost of knowledge (pillars 3 and 5).
 - Source: *Universities can't make software* on [btopro.wordpress.com](https://btopro.wordpress.com)
 
@@ -106,9 +163,8 @@ Stories fade faster than code. This file keeps proof that the worldview works, s
 ## Still to collect
 
 Numbers that would make these stories land. Fill in when known:
-- [ ] Sites and users on hax.psu.edu and other institutional deployments
+- [ ] Legend for the SIIP timeline counts (and what the 36 beside the ELMS:LN logo means)
+- [ ] 2026 counts for the SIIP timeline
 - [ ] npm downloads / CDN hits for `@haxtheweb` packages
-- [ ] Contributors (students, faculty, external) over time
 - [ ] Institutions using HAX outside Penn State
-- [ ] Students from EdTechJoker / HAX Lab now working in web development
 - [ ] Courses or programs that replaced paid materials with HAX-built OER

@@ -65,7 +65,7 @@
       "type": "skill-md",
       "description": "Author HAX page HTML with valid HAX-capable web components and DDD attributes. Use when writing or editing pages/, choosing input, icon, button or media components, or creating pages via the hax CLI. Keeps content portable and editable in the HAX editor.",
       "url": "hax-content-authoring/SKILL.md",
-      "digest": "sha256:402e860cdeec0796325cd4ab34820440dc486ab9e7016c25c7b407b297b8394e"
+      "digest": "sha256:cbec7f8049b1bdc9157a80c37cc700f9e75546f254cb41d38502a6b3a28171cb"
     },
     {
       "name": "hax-content-chunking-audit",
@@ -254,7 +254,7 @@
       "type": "skill-md",
       "description": "Prepare HAX changes for a maintainer release: verify locally, then write the handoff for the ubiquity build and publish steps an agent must never run. Use when work is done and heading to release, or when asked what happens next.",
       "url": "hax-release-prep/SKILL.md",
-      "digest": "sha256:b56d98ed9bfd77ced111cbb2fda618dbd2fa09d7a9ddf09678cfac58f55799bd"
+      "digest": "sha256:154cfd466dfd3e712fd99342dda9005c14a4578ee85ade248ad5c198730ef909"
     },
     {
       "name": "hax-rule-management",
@@ -268,7 +268,7 @@
       "type": "skill-md",
       "description": "Read and navigate an existing HAXcms site from its portable files: site.json, pages/, files/, theme, basePath, wc-registry.json. Load FIRST when an agent lands on any HAXsite or deployment.",
       "url": "hax-site-structure/SKILL.md",
-      "digest": "sha256:61c1d00d4d735c593c191b0a40e0df4e6f3f247d5a3c54c3e616ab087b3fbcd6"
+      "digest": "sha256:8a0d7420ca29db0fde61bcb4f14bca5ed51776fe1374528cc27787ee54a6faf2"
     },
     {
       "name": "hax-testing",

@@ -203,8 +203,8 @@ fs.writeFileSync(indexPath, indexJson);
 // Same index beside the skill folders. Entry urls are relative ("{name}/SKILL.md"),
 // so they resolve only where the index sits next to the skills: in the snapshots
 // copied to sites/deployments, and in praw/skills/. Remote agents (e.g. a HAXsite
-// pointing at the full catalog) fetch this copy from
-// https://raw.githubusercontent.com/haxtheweb/praw/main/skills/index.json
+// pointing at the full catalog) fetch this copy from the stable channel,
+// https://raw.githubusercontent.com/haxtheweb/praw/stable/skills/index.json
 fs.writeFileSync(skillsIndexPath, indexJson);
 
 console.log('Wrote ' + path.relative(prawRoot, indexPath) + ' and ' + path.relative(prawRoot, skillsIndexPath) + ' (' + skills.length + ' skills)');

@@ -1,0 +1,11 @@
+# Agent-facing content: every HAXsite's agents read the skill catalog from the
+# `stable` branch, so changes here need maintainer review before promotion.
+# Enforced only when the branch ruleset requires code owner review.
+/skills/                     @btopro
+/.well-known/agent-skills/   @btopro
+/.agents/                    @btopro
+/RULES.md                    @btopro
+/WARP.md                     @btopro
+/llms.txt                    @btopro
+/scripts/                    @btopro
+/.github/                    @btopro

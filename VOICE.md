@@ -64,4 +64,4 @@ Before publishing, ask:
 
 ## Sources
 
-- [About](https://btopro.com/about), [Our Values: Empowerment](https://btopro.com/work/our-values-empowerment), [Benevolent restrictions](https://btopro.com/hax/benevolent-restrictions), [I, Developed.](https://btopro.com/life/i-developed-), [No talk of Flying Cars](https://btopro.com/hax/no-talk-of-flying-cars), [The many me's](https://btopro.com/hax/the-many-me-s), [Efficiency as Activism](https://btopro.com/work/efficiency-as-activism), [Arrival](https://btopro.com/work/arrival)
+- [About](https://btopro.com/about), [Our Values: Empowerment](https://btopro.com/work/our-values-empowerment), [Benevolent restrictions](https://btopro.com/hax/benevolent-restrictions), [I, Developed.](https://btopro.com/life/i-developed-), [No talk of Flying Cars](https://btopro.com/hax/no-talk-of-flying-cars), [The many me's](https://btopro.com/hax/the-many-me-s), [Efficiency as Activism](https://btopro.com/work/efficiency-as-activism), [Reclaim the web](https://btopro.com/work/reclaim-the-web), [Arrival](https://btopro.com/work/arrival)

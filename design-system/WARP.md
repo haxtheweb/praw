@@ -36,7 +36,7 @@ Scoped rules for the HAX design systems: DDD (Design, Develop, Destroy — prima
 ```
 
 ## HAX UI (admin surfaces)
-HAX UI is the admin layer of DDD: denser and quieter than content (14px text, 32px rows and controls, one accent) so long lists and many settings fit. Every value maps to a DDD primitive. Full guide: [`hax-ui-admin.md`](https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/design-system/source/hax-ui-admin.md) (also the HAX UI section of the DDD Design System artifact).
+HAX UI is the admin layer of DDD: deliberately smaller, denser and quieter than content (admin UI no longer mirrors the content scale) (14px text, 32px rows and controls, one accent) so long lists and many settings fit. Every value maps to a DDD primitive. Full guide: [`hax-ui-admin.md`](https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/design-system/source/hax-ui-admin.md) (also the HAX UI section of the DDD Design System artifact).
 
 - **When**: if a site visitor can see it, use DDD content. If only a signed-in editor sees it and it changes settings or data, use HAX UI: site admin and every section in it, outline-designer, revisions, reports, system admin (next), and editor chrome (top bar, tray, element settings panel) as it is updated. Content previews inside admin keep DDD.
 - **How**: `import { HaxUiAdminTokens, HaxUiAdminPrimitives } from "@haxtheweb/hax-body/lib/hax-ui-styles.js"`, spread both into `static get styles()`, style with `--hax-ui-*` only. No raw hex, no `--ddd-font-size-*` content sizes, no SimpleColors in admin chrome. A missing value is added to `HaxUiAdminTokens` (mapped to DDD) before an element uses it.

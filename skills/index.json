@@ -79,7 +79,7 @@
       "type": "skill-md",
       "description": "Apply the DDD (Design, Develop, Destroy) design system and manage SimpleColors legacy usage. Use when styling components, auditing CSS for DDD compliance, migrating from SimpleColors, creating new themes, or building admin surfaces (site admin, outline-designer, system admin) with HAX UI, DDD's admin layer.",
       "url": "hax-design-system/SKILL.md",
-      "digest": "sha256:e373f40aee0d8f30e415cbec1b0d28a0d7e6c92eb89b7f670d77a714ac4b2ea8",
+      "digest": "sha256:99b63460c35cb577376a0ef6ec0fc46cdd260360a4ee95e78a0495c9d705ac55",
       "files": [
         {
           "path": "references/ddd-tokens.md",

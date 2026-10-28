@@ -69,7 +69,7 @@ Apply the DDD (Design, Develop, Destroy) design system and manage SimpleColors l
 
 ## Admin Surfaces (HAX UI)
 
-HAX UI is the admin layer of DDD. Decide first which layer a surface needs:
+HAX UI is the admin layer of DDD, deliberately smaller and denser than content: admin UI does not mirror the content font scale. Decide first which layer a surface needs:
 
 - **A site visitor can see it** (authored content, HAX blocks, themes, menus, footers): DDD content, as above.
 - **Only a signed-in editor sees it and it changes settings or data** (site admin and its sections, outline-designer, revisions, reports, system admin, editor chrome as it is updated): HAX UI.

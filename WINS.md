@@ -11,10 +11,20 @@ Stories fade faster than code. This file keeps proof that the worldview works, s
 - Who: the person or group it helped
 - Before → after: what changed, with a number if there is one
 - Why it matters: which WORLDVIEW pillar it proves
+- For partners / institutions: the outcome in their terms (optional)
 - Source: link
 ```
 
+Only list wins that have happened. Proposals and pilots in progress stay out until they land.
+
 ## People empowered
+
+### Learn to Flourish Hub: flourish.hhd.psu.edu
+- Who: faculty and students of the Learn to Flourish Hub (Prevention Research Center, College of Health and Human Development), working with the Office of Digital Learning in Arts and Architecture.
+- Before → after: Hub faculty built a polished, professional public site, the face of the Hub for donors, students and partners, on HAX, served from hax.psu.edu. **Verify:** lead faculty name and any numbers (launch date, visitors, enrollment or donor impact).
+- Why it matters: a partner outside the College of Arts and Architecture owns and runs its own web presence without a web team (pillars 1, 2 and 4). It also shows HAX works beyond courses.
+- For partners / institutions: a cross-college collaboration where HAX was the enabler and the Hub is the story.
+- Source: [flourish.hhd.psu.edu](https://flourish.hhd.psu.edu)
 
 ### The seven accent-cards
 - Who: an instructional design support specialist building a photography course.

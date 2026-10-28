@@ -1,8 +1,35 @@
 # VOICE
 
-> **Rough draft.** Seeded by an agent from Bryan Ollendyke's own writing ([btopro.com](https://btopro.com), [btopro.wordpress.com](https://btopro.wordpress.com), [btopro/edtechjoker](https://github.com/btopro/edtechjoker)) and three recent talks (*SIIP*, *The Many Mes*, *So you want a (web) revolution?*). Bryan rewrites this in his own words before it is treated as authoritative.
+> **Rough draft.** Seeded by an agent from Bryan Ollendyke's own writing ([btopro.com](https://btopro.com), [btopro.wordpress.com](https://btopro.wordpress.com), [btopro/edtechjoker](https://github.com/btopro/edtechjoker)), three recent talks (*SIIP*, *The Many Mes*, *So you want a (web) revolution?*) and partner-facing writing by HAX's product owner. Bryan and Bill rewrite this in their own words before it is treated as authoritative.
 
-`WORLDVIEW.md` says what HAX believes. This file says how it sounds when it says it. Agents use it when writing anything public on behalf of HAX: READMEs, release notes, talks, posts, issue replies, course material.
+`WORLDVIEW.md` says what HAX believes. This file says how it sounds when it says it. Agents use it when writing anything public on behalf of HAX: READMEs, release notes, talks, posts, issue replies, course material, proposals.
+
+## One message, many tellers
+
+The message has to hold up whoever tells it: Bryan at a FOSS conference, Bill in a proposal, a faculty partner to their dean, a student in a job interview, or an agent drafting a README. The core never changes. The framing fits the listener.
+
+**Core message:** *Anyone should be able to publish, teach and share on the web, at no cost and regardless of ability, and own what they make. HAX makes that possible, and the people who use it build it.*
+
+**Three proofs, in every telling:**
+1. **People empowered.** A real person made something they couldn't before (see `WINS.md`).
+2. **Students build it.** Learners become contributors and leave with careers (SIIP).
+3. **It lasts.** Open, portable, accessible and maintained, so the work outlives any one person or vendor.
+
+| Audience | Lead with | HAX's role | Words that land | Evidence they want |
+| --- | --- | --- | --- | --- |
+| Developers and open source | The cause and the code: ubiquity, standards, zero cost | The project | web components, sovereign, static, portable, contribute | Releases, repos, performance, the issue queue |
+| Faculty and partners | Their goal: their learners, their audience, their mission | Invisible: "made possible through HAX" | empowered, polished, accessible, their own | Their finished site or course, time saved |
+| Institutional leaders and funders | Mission and strategic goals (for Penn State, the land-grant mission) | A platform the institution owns and steers | interdisciplinary, experiential learning, sustainable, cost avoided | Measured outcomes, pre/post data, adoption, students employed |
+| Students | What they'll build and where it leads | Real software they help shape | portfolio, real users, career, community | Former students' paths (Red Hat, Adobe, IBM, Ford, PennDOT) |
+| Agents | All of the above, with `WORLDVIEW.md` as the source of truth | The context they work inside | — | Verified facts only; cite `WINS.md` |
+
+**Patterns from partner-facing writing:**
+- **The partner is the hero, HAX is the how.** Example: "Hub faculty built the polished site their donors expect, made possible through HAX." Their success first, the tool second.
+- **Students designing for students.** Name who builds and who benefits, and show they are the same community.
+- **Interdisciplinary power.** Say what each group brings and why none could do it alone.
+- **An outcome for every stakeholder.** List what students, partners, the college and the platform each gain.
+- **Name the evidence up front.** Say how success will be measured before claiming it.
+- **AI with discernment.** AI speeds production; human creativity and collaboration stay at the center.
 
 ## Who is speaking
 

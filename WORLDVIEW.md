@@ -86,6 +86,7 @@ Run these for any new feature, skill, plugin, integration or architectural decis
 | 8 | Learning by building | Could a student contribute to or learn from this (SIIP)? Is there a path from a course assignment to this code? |
 | A | Information altruism | Does it give capability away freely (open license, public docs, no lock-in) so others can build on it? |
 | B | Values encoded in tools | Does the default behavior embody the value, rather than relying on a policy or a setting people must find? |
+| C | Human creativity first | Does AI speed the work while people keep the creative and editorial decisions? Does the output stay open and portable rather than depending on a single AI service ("supplemented by AI, not forever powered by it")? |
 
 Agents should report the result as a short table or list in PR descriptions for non-trivial changes, alongside lint and test results.
 

@@ -6,6 +6,7 @@ Scoped rules for the HAX design systems: DDD (Design, Develop, Destroy — prima
 - **DDD Design System (Primary)** (`MLhl56jNSqHvnRiAW5A2GR`) — DDD lives at `elements/d-d-d`; use it for fonts, colors, padding, spacing, margins, consistency.
 - **SimpleColors (Legacy)** (`K0lV6BJOPrqP7iJMZkemUw`) — use only to fill DDD gaps in color shades; prefer DDD colors otherwise.
 - **DESIGN.md Compliance** (`c4f0b69d-9ed4-4b6d-bf52-6a3d9937c98f`) — `DESIGN.md` is the canonical source of truth for design decisions in this repo.
+- **HAX UI: Admin Surfaces Layer of DDD** (`1992902d74844c908ab446`) — admin chrome (site admin, outline-designer, system admin, editor chrome) uses `--hax-ui-*` from `HaxUiAdminTokens`, not DDD content sizes. See "HAX UI (admin surfaces)" below.
 - *(When auditing a specific component for DDD usage, see webcomponents-scoped rule `MT6HPJ9BDhA13jwSXjcmeA`.)*
 
 ## DDD implementation
@@ -33,6 +34,17 @@ Scoped rules for the HAX design systems: DDD (Design, Develop, Destroy — prima
   margin-bottom: var(--ddd-spacing-3);
 }
 ```
+
+## HAX UI (admin surfaces)
+HAX UI is the admin layer of DDD: denser and quieter than content (14px text, 32px rows and controls, one accent) so long lists and many settings fit. Every value maps to a DDD primitive. Full guide: [`hax-ui-admin.md`](https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/design-system/source/hax-ui-admin.md) (also the HAX UI section of the DDD Design System artifact).
+
+- **When**: if a site visitor can see it, use DDD content. If only a signed-in editor sees it and it changes settings or data, use HAX UI: site admin and every section in it, outline-designer, revisions, reports, system admin (next), and editor chrome (top bar, tray, element settings panel) as it is updated. Content previews inside admin keep DDD.
+- **How**: `import { HaxUiAdminTokens, HaxUiAdminPrimitives } from "@haxtheweb/hax-body/lib/hax-ui-styles.js"`, spread both into `static get styles()`, style with `--hax-ui-*` only. No raw hex, no `--ddd-font-size-*` content sizes, no SimpleColors in admin chrome. A missing value is added to `HaxUiAdminTokens` (mapped to DDD) before an element uses it.
+- **One admin dialog**: site (then system) admin sections render inside one shell: titlebar with breadcrumb, section rail, page header, optional toolbar, body, and an action bar the shell owns. A section never draws its own titlebar or Save button.
+- **Staged save**: edits wait for Save; Save is quiet until something changes, then becomes the primary fill with a count and changed-field dots; leaving with unsaved changes asks first (Stay / Discard and leave / Save and leave). Auto-save is later work.
+- **Patterns**: 32px buttons with words beside icons (one primary per bar; danger outline for a step, danger fill only for the final commit), segmented controls, filter chips, switches, `.hax-ui-pill`, `.hax-ui-kbd`, outline-designer's row states, field rows (label + help left, 40px control right), one-line callouts, empty states.
+- **Proposed tokens** (titlebar, sunken, primary, warning, info, field/titlebar/action-bar heights, rail width) are documentation until the editing update and the element settings panel adopt them; write the DDD value and name the proposed token in a comment.
+- **Audit**: `hax-pattern-library-audit` grades admin elements against `contract-admin-surface-tokens`, `contract-admin-action-bar` and `contract-admin-row-states`.
 
 ## Transitions & animations (standards)
 - Minimal interactions: `.3s ease-in-out` (hover, focus, color, small changes).

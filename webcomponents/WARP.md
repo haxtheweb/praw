@@ -8,6 +8,7 @@ Scoped rules for HAX web-component development in the `webcomponents` monorepo (
 - **Element Docs Setup** (`f3c7716773784e8f94254a`) — never pass `--no-docs` to `hax webcomponent` in the monorepo; rebuild an element after changing its API so `lib/<tag>.docs.json` stays current.
 - **HAX Schema Capability** (`rVsCTSDjae8lRmsJmPO3Mk`) — elements implement `haxProperties` (HAXSchema); use `demoSchema` for valid demos.
 - **DDD Usage Audit** (`MT6HPJ9BDhA13jwSXjcmeA`) — when working on a component, audit DDD token usage. (Token reference: `design-system/WARP.md`.)
+- *(Building or changing an admin surface — site admin, outline-designer, system admin, editor chrome? Use HAX UI, design-system rule `1992902d74844c908ab446`.)*
 - **Accessibility Audits** (`7CPveFErpSF0aZ8tKqxw0Y`) — when working on a component, audit for a11y enhancements without assuming issues exist.
 - **JavaScript — globalThis** (`CEHsAztyfB2vTCwtHGGnbk`) — use `globalThis`, not `window`.
 - **JavaScript — No optional chaining** (`nJF4SYUGdN5Wr5tEvaDtGY`) — no `?.` syntax (Polymer parser / toolchain issues).

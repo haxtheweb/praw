@@ -1,12 +1,6 @@
 {
   "version": 1,
   "skills": {
-    "grad-blooms": {
-      "source": "asgard-ai-platform/skills",
-      "sourceType": "github",
-      "skillPath": "grad-blooms/SKILL.md",
-      "computedHash": "88cc969bf2690b16c28c81c5285c932c56a075fa827fe35653a5e70c62864683"
-    },
     "hax-design-system": {
       "source": "haxtheweb/praw",
       "sourceType": "github",

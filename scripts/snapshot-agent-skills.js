@@ -4,8 +4,9 @@
  * .well-known/agent-skills/ directory, for the ubiquity build.
  *
  * Usage: node scripts/snapshot-agent-skills.js <setName> <destDir>
- *   <setName>  "site" (10 curated skills -> per-site boilerplate) or
- *              "system" (21 skills -> nodejs/php deployment roots)
+ *   <setName>  "site" (curated skills -> per-site boilerplate) or
+ *              "system" (superset -> nodejs/php deployment roots);
+ *              the lists live in agent-skills-sets.json
  *   <destDir>  absolute target directory, e.g.
  *              ~/haxtheweb/haxcms-nodejs/src/boilerplate/site/.well-known/agent-skills
  *

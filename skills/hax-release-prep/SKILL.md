@@ -23,6 +23,7 @@ it, then hand off clearly.
 - Runs release or publish commands: `npm run release` in haxcms-nodejs, `yarn release` in haxcms-php,
   `lerna publish` in webcomponents. These tag, push, and publish.
 - Merges its own PRs.
+- Promotes PRAW `main` to `stable`. That branch feeds the skill catalog every HAXsite points to.
 
 ## Agent does
 
@@ -50,7 +51,9 @@ ubiquity run, and downstream sites depend on it.
 - **What changed**, by repo, with PR links.
 - **Verified**: commands run and results; anything that could not run, and why.
 - **Registry impact**: added, renamed, or removed element tags, or "none".
-- **Maintainer steps**: run the ubiquity build, then release per repo, in that order.
+- **Maintainer steps**: run the ubiquity build, then release per repo, in that order. If PRAW skills
+  changed, promote PRAW `main` to `stable` (fast-forward only) when the release ships; every HAXsite's
+  agents read the skill catalog from `stable`.
 - **Not done**: anything left out on purpose.
 
 References: https://github.com/haxtheweb/praw/blob/main/skills/hax-managed-files/SKILL.md and

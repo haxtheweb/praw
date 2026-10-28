@@ -38,6 +38,7 @@ const prawRoot = path.resolve(__dirname, '..');
 const skillsDir = path.join(prawRoot, 'skills');
 const outDir = path.join(prawRoot, '.well-known', 'agent-skills');
 const indexPath = path.join(outDir, 'index.json');
+const skillsIndexPath = path.join(skillsDir, 'index.json');
 
 function sha256(buf) {
   return 'sha256:' + crypto.createHash('sha256').update(buf).digest('hex');
@@ -72,11 +73,25 @@ function parseFrontmatter(text) {
         out[key] = value;
         continue;
       }
-      out[key] = value.trim();
+      out[key] = unquoteScalar(value.trim());
     }
     i++;
   }
   return out;
+}
+
+/**
+ * Strip YAML flow-scalar quotes so "..." / '...' descriptions are stored as
+ * plain text (otherwise the quotes leak into the published index).
+ */
+function unquoteScalar(value) {
+  if (value.length >= 2 && value[0] === '"' && value[value.length - 1] === '"') {
+    return value.slice(1, -1).replace(/\\(["\\])/g, '$1');
+  }
+  if (value.length >= 2 && value[0] === "'" && value[value.length - 1] === "'") {
+    return value.slice(1, -1).replace(/''/g, "'");
+  }
+  return value;
 }
 
 /**
@@ -181,11 +196,18 @@ skills.sort(function (a, b) {
 });
 
 const index = { '$schema': SCHEMA_URI, skills: skills };
+const indexJson = JSON.stringify(index, null, 2) + '\n';
 
 fs.mkdirSync(outDir, { recursive: true });
-fs.writeFileSync(indexPath, JSON.stringify(index, null, 2) + '\n');
+fs.writeFileSync(indexPath, indexJson);
+// Same index beside the skill folders. Entry urls are relative ("{name}/SKILL.md"),
+// so they resolve only where the index sits next to the skills: in the snapshots
+// copied to sites/deployments, and in praw/skills/. Remote agents (e.g. a HAXsite
+// pointing at the full catalog) fetch this copy from the stable channel,
+// https://raw.githubusercontent.com/haxtheweb/praw/stable/skills/index.json
+fs.writeFileSync(skillsIndexPath, indexJson);
 
-console.log('Wrote ' + path.relative(prawRoot, indexPath) + ' (' + skills.length + ' skills)');
+console.log('Wrote ' + path.relative(prawRoot, indexPath) + ' and ' + path.relative(prawRoot, skillsIndexPath) + ' (' + skills.length + ' skills)');
 if (warnings.length > 0) {
   console.warn('\nWarnings:');
   warnings.forEach(function (w) {

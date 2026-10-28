@@ -29,7 +29,7 @@ hax skills install --all
 
 ## Workflow & Knowledge Skills (owned by PRAW)
 
-All skills below live in `skills/` in this repo. The machine-readable discovery index (names, descriptions, digests — agentskills.io discovery spec v0.2.0) is `.well-known/agent-skills/index.json`.
+All skills below live in `skills/` in this repo. The machine-readable discovery index (names, descriptions, digests — agentskills.io discovery spec v0.2.0) is `.well-known/agent-skills/index.json`. A copy at `skills/index.json` sits beside the skill folders, so its relative entry URLs resolve when fetched remotely: `https://raw.githubusercontent.com/haxtheweb/praw/main/skills/index.json` (this is the catalog HAXsites point agents to).
 
 - **audio-program-transcribe**: Transcribe and distill an owned audio/video program into a portable markdown staging tree
   - Path: `/skills/audio-program-transcribe/SKILL.md`

@@ -69,6 +69,26 @@ When generating recommendations aligned to this worldview:
 - Apply the Information Altruism four-factor diagnostic (currency, power flow, value system, flag) when proposing organizational or platform strategy.
 - Recommend approaches that encode values into tooling and service design, not just policy statements.
 - Prefer change strategies that are empowering and non-coercive while still structurally transformative.
+## Pillar checks
+> **Rough draft.** Each pillar above as yes/no questions an agent or reviewer can actually answer for a change. Refine with real failures as they happen.
+
+Run these for any new feature, skill, plugin, integration or architectural decision. A "no" is not an automatic block; it must be named in the PR description with the reason and a follow-up issue in https://github.com/haxtheweb/issues.
+
+| # | Pillar | Check (all should be "yes") |
+| --- | --- | --- |
+| 1 | Open, ownable, portable | Can a user export everything they made in an open format (HTML, JSON Outline Schema, files) and run it somewhere else without us? Does it avoid a new required proprietary service or account? |
+| 2 | Authoring decoupled from storage | Does the authoring experience work the same across backends (haxcms-nodejs, haxcms-php, static, desktop) or degrade gracefully? Is content stored as portable HAX-valid HTML rather than backend-specific markup? |
+| 3 | Education-led, not profit-led | Can you name the learner or educator outcome it improves? Does it avoid paywalls, upsells or tracking that serves someone other than the user? |
+| 4 | Distributed, not monoculture | Does it interoperate (standards, LTI, embeds, exports) rather than require people to move everything into HAX? Can an educator keep using the tools they already rely on? |
+| 5 | Accessibility and OER by default | Does it meet WCAG 2.0 AA without author effort (labels, contrast, keyboard, headings)? Is OER Schema / licensing metadata preserved? Did `hax-a11y-audit` or an equivalent check run? |
+| 6 | Community is architecture | Is the work tracked in the unified issue queue, documented, and approachable for a first-time contributor (clear README, "good first issue" where possible)? |
+| 7 | Sustainable | Could a regular practitioner (not the author) understand, maintain and deploy it? Does it remove or avoid complexity rather than add a new dependency or build step without reason? |
+| 8 | Learning by building | Could a student contribute to or learn from this (SIIP)? Is there a path from a course assignment to this code? |
+| A | Information altruism | Does it give capability away freely (open license, public docs, no lock-in) so others can build on it? |
+| B | Values encoded in tools | Does the default behavior embody the value, rather than relying on a policy or a setting people must find? |
+
+Agents should report the result as a short table or list in PR descriptions for non-trivial changes, alongside lint and test results.
+
 ## Representative source posts
 - `open-community-pedagogy-2` — `https://btopro.com/open-community-pedagogy-2` | `https://github.com/btopro/blog/blob/gh-pages/pages/item-e3d7d519-9549-4e44-9ab8-b9df805a3531/index.html`
 - `hax-apereo-piece-2` — `https://btopro.com/hax-apereo-piece-2` | `https://github.com/btopro/blog/blob/gh-pages/pages/item-79649f12-a6d2-98f5-3c0b-8b88f2a24457/index.html`

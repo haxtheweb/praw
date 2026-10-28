@@ -274,6 +274,11 @@ Every rule has one of four scopes:
 - **Scope**: `global`
 - **Content**: When looking for skills related to HAX itself (HAX-specific workflows, CLI operations, site building, web component development, the DDD design system, onboarding, issue analysis, rule management, UbD/UDL instructional design, etc.), look in the `praw` and `create` repositories rather than searching elsewhere. The canonical HAX skills live under `praw/.agents/skills/` (the authoritative registry) and `create/src/skills/` (a shipped subset that is built into `create/dist/skills/`). Check these locations first before assuming a needed HAX skill does not exist.
 
+### Worldview Pillar Checks
+- **Rule ID**: `1eaa87af-8025-4b7f-9a63-492bf0fac68a`
+- **Scope**: `global`
+- **Content**: For any non-trivial feature, skill, plugin, integration or architectural change in the HAX ecosystem, run the Pillar checks in https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#pillar-checks and report the results in the PR description. Any "no" must be named with its reason and a follow-up issue in https://github.com/haxtheweb/issues. Public-facing writing should also follow https://github.com/haxtheweb/praw/blob/main/VOICE.md.
+
 ## 🧠 Instructional Design
 
 ### HAX Course Units via Understanding by Design

@@ -1,6 +1,6 @@
 # WINS
 
-> **Rough draft.** Seeded by an agent from public writing in [btopro/blog](https://github.com/btopro/blog), [btopro.wordpress.com](https://btopro.wordpress.com), [btopro/edtechjoker](https://github.com/btopro/edtechjoker) and three recent talks: *The Sustainable Impact and Innovation Pipeline (SIIP)*, *The Many Mes* and *So you want a (web) revolution?*. Every entry names its source. Items marked **verify** need a number or detail confirmed before anyone quotes them. Visuals live in [`visuals/`](visuals/README.md).
+> **Living document.** Seeded by an agent from public writing in [btopro/blog](https://github.com/btopro/blog), [btopro.wordpress.com](https://btopro.wordpress.com), [btopro/edtechjoker](https://github.com/btopro/edtechjoker) and three recent talks: *The Sustainable Impact and Innovation Pipeline (SIIP)*, *The Many Mes* and *So you want a (web) revolution?*. Every entry names its source. Items marked **verify** need a number or detail confirmed before anyone quotes them. Visuals live in [`visuals/`](visuals/README.md).
 
 Stories fade faster than code. This file keeps proof that the worldview works, so agents, contributors and future maintainers can point to it. A good win has a **person**, a **before/after**, and a **source**.
 

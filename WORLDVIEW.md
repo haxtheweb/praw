@@ -109,7 +109,7 @@ At its core, a course has six branches:
 UbD crosses the branches at three points: desired results (pedagogy → outcomes), acceptable evidence (pedagogy → assessment) and learning experiences (pedagogy → instruction). PRAW's `hax-ubd-*`, `grad-blooms` and audit skills implement this ontology; new instructional features should say which branch they serve.
 
 ## Pillar checks
-> **Rough draft.** Each pillar above as yes/no questions an agent or reviewer can actually answer for a change. Refine with real failures as they happen.
+> Each pillar above as yes/no questions an agent or reviewer can actually answer for a change. Refine with real failures as they happen.
 
 Run these for any new feature, skill, plugin, integration or architectural decision. A "no" is not an automatic block; it must be named in the PR description with the reason and a follow-up issue in https://github.com/haxtheweb/issues.
 

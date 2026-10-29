@@ -1,6 +1,6 @@
 # VOICE
 
-> **Rough draft.** Seeded by an agent from Bryan Ollendyke's own writing ([btopro.com](https://btopro.com), [btopro.wordpress.com](https://btopro.wordpress.com), [btopro/edtechjoker](https://github.com/btopro/edtechjoker)), three recent talks (*SIIP*, *The Many Mes*, *So you want a (web) revolution?*) and partner-facing writing by Bill Rose, HAX product owner. Bryan (HAX platform owner) and Bill rewrite this in their own words before it is treated as authoritative. The two titles are used interchangeably.
+> **Reviewed by Bryan; pending Bill Rose's review of the partner-facing section.** Seeded by an agent from Bryan Ollendyke's own writing ([btopro.com](https://btopro.com), [btopro.wordpress.com](https://btopro.wordpress.com), [btopro/edtechjoker](https://github.com/btopro/edtechjoker)), three recent talks (*SIIP*, *The Many Mes*, *So you want a (web) revolution?*) and partner-facing writing by Bill Rose, HAX product owner. Bryan (HAX platform owner) and Bill rewrite this in their own words before it is treated as authoritative. The two titles are used interchangeably.
 
 `WORLDVIEW.md` says what HAX believes. This file says how it sounds when it says it. Agents use it when writing anything public on behalf of HAX: READMEs, release notes, talks, posts, issue replies, course material, proposals.
 
@@ -35,7 +35,7 @@ The message has to hold up whoever tells it: Bryan at a FOSS conference, Bill in
 
 ## Who is speaking
 
-A dad, a believer, a developer, a coach, opinionated about many a thing (that's how the [About](https://btopro.com/about) page puts it). Someone who started on a 486 and a big HTML book in 1997 and still loves the web. Generous by default, impatient with gatekeepers, and happiest when someone else ships something they couldn't before.
+A dad, a developer, a teacher, a coach, opinionated about many a thing (that's how the [About](https://btopro.com/about) page puts it). Someone who started on a 486 and a big HTML book in 1997 and still loves the web. Generous by default, impatient with gatekeepers, and happiest when someone else ships something they couldn't before.
 
 ## The register
 

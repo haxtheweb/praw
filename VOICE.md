@@ -1,6 +1,6 @@
 # VOICE
 
-> **Rough draft.** Seeded by an agent from Bryan Ollendyke's own writing ([btopro.com](https://btopro.com), [btopro.wordpress.com](https://btopro.wordpress.com), [btopro/edtechjoker](https://github.com/btopro/edtechjoker)), three recent talks (*SIIP*, *The Many Mes*, *So you want a (web) revolution?*) and partner-facing writing by HAX's product owner. Bryan and Bill rewrite this in their own words before it is treated as authoritative.
+> **Rough draft.** Seeded by an agent from Bryan Ollendyke's own writing ([btopro.com](https://btopro.com), [btopro.wordpress.com](https://btopro.wordpress.com), [btopro/edtechjoker](https://github.com/btopro/edtechjoker)), three recent talks (*SIIP*, *The Many Mes*, *So you want a (web) revolution?*) and partner-facing writing by Bill Rose, HAX product owner. Bryan (HAX platform owner) and Bill rewrite this in their own words before it is treated as authoritative. The two titles are used interchangeably.
 
 `WORLDVIEW.md` says what HAX believes. This file says how it sounds when it says it. Agents use it when writing anything public on behalf of HAX: READMEs, release notes, talks, posts, issue replies, course material, proposals.
 

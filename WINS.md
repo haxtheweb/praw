@@ -19,12 +19,12 @@ Only list wins that have happened. Proposals and pilots in progress stay out unt
 
 ## People empowered
 
-### Learn to Flourish Hub: flourish.hhd.psu.edu
-- Who: faculty and students of the Learn to Flourish Hub (Prevention Research Center, College of Health and Human Development), working with the Office of Digital Learning in Arts and Architecture.
-- Before → after: Hub faculty built a polished, professional public site, the face of the Hub for donors, students and partners, on HAX, served from hax.psu.edu. **Verify:** lead faculty name and any numbers (launch date, visitors, enrollment or donor impact).
+### Learn to Flourish Hub: flourish.hhd.psu.edu (2026)
+- Who: the Learn to Flourish Hub, led by Director **Dr. Blake Colaianne** (Assistant Professor, Human Development and Family Studies), with its faculty and students, working with the Office of Digital Learning in Arts and Architecture.
+- Before → after: Hub faculty built a polished, professional public site on HAX, the face of the Hub for donors, students and partners, served from hax.psu.edu. It launched in September 2026 to an enthusiastic response from faculty and donors.
 - Why it matters: a partner outside the College of Arts and Architecture owns and runs its own web presence without a web team (pillars 1, 2 and 4). It also shows HAX works beyond courses.
 - For partners / institutions: a cross-college collaboration where HAX was the enabler and the Hub is the story.
-- Source: [flourish.hhd.psu.edu](https://flourish.hhd.psu.edu)
+- Source: [flourish.hhd.psu.edu](https://flourish.hhd.psu.edu), [team](https://flourish.hhd.psu.edu/team)
 
 ### The seven accent-cards
 - Who: an instructional design support specialist building a photography course.

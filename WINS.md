@@ -42,25 +42,25 @@ Only list wins that have happened. Proposals and pilots in progress stay out unt
 - Who: student teams across four years.
 - Before → after: **Jimmy Kane** built Dashboard 1.0 for HAX 9 (2022), inspired by Doodle Jump, from the challenge "make web dev feel like playing a video game". **Ashley Santana** prototyped and gathered requirements for 2.0 (2024); **Skyler Koba** and **Isabella Masso** designed and built it for HAX 25, the biggest release at the time (2025). **Chloe Martin** (a Google Docs-style sites dashboard and admin UI), **Alyssa Foran** (palettes and admin design thinking) and **Winston White** (sites become skeletons) built 3.0.
 - Why it matters: one real problem carried across student cohorts, each building on the last (pillars 6 and 8).
-- Source: *SIIP* talk
+- Source: *SIIP* talk (live presentation)
 
 ### Students built the design system
 - Who: **Keith Charlton Jr** and **Zach Dodson** (2024).
 - Before → after: Keith applied the DDD design system across 60+ elements. Zach built a HAX + AI proof of concept and contributed the DDD audit to the CLI, outside of any class requirement.
 - Why it matters: DDD began as a class exercise in cloning Penn State designs; Bryan forked the best solutions, and it became the real design system. "We have PSU-esque designs by PSU."
-- Source: *SIIP* talk
+- Source: *SIIP* talk (live presentation)
 
 ### Winston White: student to trainer
 - Who: Winston White.
 - Before → after: took IST 256 in spring 2024, made three themes in fall 2024, built much of the HAX CLI in 2025, and worked on the skeleton templating system in 2026, each as a one-semester project. He now improves the developer experience for, and trains, future students. He also built the International Student Portfolio with Dr. Jennifer Frank.
 - Why it matters: the pipeline produces mentors, not just contributors (pillar 8).
-- Source: *SIIP* talk
+- Source: *SIIP* talk (live presentation)
 
 ### Student clubs: 30 security fixes
 - Who: the Cyber Security club (CCSO, two collaborations) and the User eXperience Professional Association.
 - Before → after: CCSO identified and resolved **30 security vulnerabilities**; four UXPA members contributed to UX design.
 - Why it matters: students bring their own passions; HAX provides the real problem space (pillars 6 and 8).
-- Source: *SIIP* talk
+- Source: *SIIP* talk (live presentation)
 
 ### 36 students, 18 fixes
 - Who: one semester's course cohort.
@@ -136,8 +136,8 @@ Yearly counts from the timeline's bottom row, transcribed by icon. **Verify:** t
 ## Cost and access
 
 ### A $250 textbook becomes a $30 fee
-- Who: students in a course that dropped a commercial textbook.
-- Before → after: about $250 per student down to a $30 fee, delivered on ELMS:LN. **Verify:** which course.
+- Who: students in ARTH 112 at Penn State.
+- Before → after: about $250 per student down to a $30 fee, delivered on ELMS:LN. This was the work that came before HAX and set up everything after it.
 - Why it matters: open resources collapse the cost of knowledge (pillars 3 and 5).
 - Source: *Universities can't make software* on [btopro.wordpress.com](https://btopro.wordpress.com)
 

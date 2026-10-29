@@ -7,7 +7,12 @@
 This repository contains:
 - **`RULES.md`** - Centralized registry of all HAX ecosystem rules with unique IDs and categorization
 - **`KNOWLEDGE.md`** - Log of emergent knowledge, decisions, and conventions that inform rule development
-- **`WORLDVIEW.md`** - Curated worldview synthesis from long-form ecosystem writing
+- **`WORLDVIEW.md`** - Curated worldview synthesis from long-form ecosystem writing, with pillar checks
+- **`VOICE.md`** - How HAX sounds: register, metaphors and signature lines for public writing (draft)
+- **`WHY.md`** - Why the work matters, in Bryan's words
+- **`WINS.md`** - Sourced stories that prove the worldview works (draft)
+- **`visuals/`** - Impact visuals (SIIP timeline, issue velocity) with alt text
+- **`talks/`** - Notes and recordings of talks that carry the worldview
 - **`WARP.md`** files - Detailed context-specific rules for different project types
 - **`programs/`** - Utility programs for LinkedIn posting and issue management automation
 - **Rule Management System** - Scripts and tools for adding, searching, and managing rules
@@ -317,7 +322,12 @@ This ensures project-specific needs take priority while maintaining ecosystem co
 praw/
 ├── RULES.md                    # Central registry of all rules
 ├── KNOWLEDGE.md                # Log of emergent knowledge and decisions
-├── WORLDVIEW.md                # Curated worldview profile and thematic priorities
+├── WORLDVIEW.md                # Curated worldview profile, thematic priorities, pillar checks
+├── VOICE.md                    # Voice and tone for public writing
+├── WHY.md                      # Purpose, in Bryan's words
+├── WINS.md                     # Sourced wins
+├── visuals/                    # Impact visuals with alt text
+├── talks/                      # Talk notes and recordings
 ├── WARP.md                     # Master HAX ecosystem rules
 ├── README.md                   # This file
 ├── FACULTY_RESOURCES.md        # Faculty resource management guide

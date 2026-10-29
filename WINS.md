@@ -129,18 +129,6 @@ In the talks, yellow marks events (courses, collaborations, HAX Camps, adoptions
 
 ![Issue velocity by HAX version](visuals/hax-issue-velocity-by-version.png)
 
-### Hundreds of thousands of lines removed
-- Who: ELMS:LN and everyone maintaining it.
-- Before → after: web components let the platform delete hundreds of thousands of lines of code and more than 50 modules in a year.
-- Why it matters: sustainable, maintainable systems (pillar 7).
-- Source: [The Climb](https://btopro.com/work/the-climb)
-
-### Live swap, thousands of students, about three tickets
-- Who: students in production courses.
-- Before → after: V1-spec web components replaced the old front end in live courses around March of that year, with only about three users reporting issues.
-- Why it matters: change can be safe and invisible to learners (pillars 5 and 7).
-- Source: [The Climb](https://btopro.com/work/the-climb)
-
 ### Twelve of me
 - Who: Bryan, with agents primed by PRAW.
 - Before → after: twelve agent copies working from `WORLDVIEW.md` and the indexed codebase did more in 24 hours than he could previously finish in six months.
@@ -167,12 +155,6 @@ In the talks, yellow marks events (courses, collaborations, HAX Camps, adoptions
 
 ## Cost and access
 
-### A $250 textbook becomes a $30 fee
-- Who: students in ARTH 112 at Penn State.
-- Before → after: about $250 per student down to a $30 fee, delivered on ELMS:LN. This was the work that came before HAX and set up everything after it.
-- Why it matters: open resources collapse the cost of knowledge (pillars 3 and 5).
-- Source: *Universities can't make software* on [btopro.wordpress.com](https://btopro.wordpress.com)
-
 ### Fast without a build step
 - Who: anyone publishing a HAX site.
 - Before → after: authors click through a CMS-style UI and get an offline-capable PWA with high performance scores, while shipping unbundled ES modules.
@@ -186,20 +168,9 @@ In the talks, yellow marks events (courses, collaborations, HAX Camps, adoptions
 - Source: [Benevolent restrictions](https://btopro.com/hax/benevolent-restrictions)
 
 ## Community
-### Where it started: the outline designer
-- Who: authors of Drupal sites worldwide.
-- Before → after: early in his Penn State career Bryan built the outline designer to make course structure fast to edit; as open source it has "empowered tens of thousands of people over the years that we'll never meet to build websites more quickly." Its successor in HAX is still mission-critical.
-- Source: [Nothing is intentional, until it is, Mar 2026](https://www.youtube.com/watch?v=wkdW2EjkwZ4)
-
-### Drupal at Penn State, by giving it away
-- Who: Penn State's web community.
-- Before → after: Bryan moved a Dreamweaver course to Drupal over one weekend, gave Drupal-based systems away to form a community, and contributed more than 100 Drupal modules. Penn State went from unfriendly to open source to Drupal as a de facto standard; this became the *Information Altruism* thesis.
-- Source: [HiTech Podcast ep. 168, Oct 2024](https://www.youtube.com/watch?v=fKeSEZm3khE)
-
 ### National Archives usability audit (2019)
 - Before → after: an audit with the National Archives produced better button names, stacking and accessibility fixes that still shape the editor.
 - Source: [Nothing is intentional, until it is, Mar 2026](https://www.youtube.com/watch?v=wkdW2EjkwZ4)
-
 
 ### First hax-camp, 40+ people
 - Who: developers, designers and educators, including the whole HAXTheWeb core team.
@@ -216,10 +187,41 @@ In the talks, yellow marks events (courses, collaborations, HAX Camps, adoptions
 - Before → after: by FOSSY 2025: HAX Lab, a student club, a security reporting pipeline, the HAX CLI, many themes and ten years of cumulative history across ELMS:LN and HAX.
 - Source: [FOSSY25](https://btopro.com/work/fossy25)
 
+## Foundations (before HAX)
+
+These come from the Drupal and ELMS:LN years. They are foundational to Bryan and to how HAX came to be, but they are legacy, not what HAX is today. Use them for origin stories; don't lead with them or present ELMS:LN as current technology.
+
+### Where it started: the outline designer
+- Who: authors of Drupal sites worldwide.
+- Before → after: early in his Penn State career Bryan built the outline designer to make course structure fast to edit; as open source it has "empowered tens of thousands of people over the years that we'll never meet to build websites more quickly." Its successor in HAX is still mission-critical.
+- Source: [Nothing is intentional, until it is, Mar 2026](https://www.youtube.com/watch?v=wkdW2EjkwZ4)
+
+### Drupal at Penn State, by giving it away
+- Who: Penn State's web community.
+- Before → after: Bryan moved a Dreamweaver course to Drupal over one weekend, gave Drupal-based systems away to form a community, and contributed more than 100 Drupal modules. Penn State went from unfriendly to open source to Drupal as a de facto standard; this became the *Information Altruism* thesis.
+- Source: [HiTech Podcast ep. 168, Oct 2024](https://www.youtube.com/watch?v=fKeSEZm3khE)
+
+### A $250 textbook becomes a $30 fee
+- Who: students in ARTH 112 at Penn State.
+- Before → after: about $250 per student down to a $30 fee, delivered on ELMS:LN. This was the work that came before HAX and set up everything after it.
+- Why it matters: open resources collapse the cost of knowledge (pillars 3 and 5).
+- Source: *Universities can't make software* on [btopro.wordpress.com](https://btopro.wordpress.com)
+
+### Hundreds of thousands of lines removed
+- Who: ELMS:LN and everyone maintaining it.
+- Before → after: web components let the platform delete hundreds of thousands of lines of code and more than 50 modules in a year.
+- Why it matters: sustainable, maintainable systems (pillar 7).
+- Source: [The Climb](https://btopro.com/work/the-climb)
+
+### Live swap, thousands of students, about three tickets
+- Who: students in production courses.
+- Before → after: V1-spec web components replaced the old front end in live courses around March of that year, with only about three users reporting issues.
+- Why it matters: change can be safe and invisible to learners (pillars 5 and 7).
+- Source: [The Climb](https://btopro.com/work/the-climb)
+
 ## Still to collect
 
 Numbers that would make these stories land. Fill in when known:
-- [ ] What the 36 beside the ELMS:LN logo on the timeline means
 - [ ] npm downloads / CDN hits for `@haxtheweb` packages
 - [ ] Institutions using HAX outside Penn State
 - [ ] Courses or programs that replaced paid materials with HAX-built OER

@@ -115,6 +115,8 @@ Reach for these before inventing new ones. They already carry meaning in the cor
 
 EdTechJoker was a persona: disruptive, chaotic, unpredictable, a means to an end. In Bryan's words, "It is who I had to be, not who I am. Now I can be who I am in all things." The persona is not part of the HAX story and agents should not use it, quote it or frame work through it. The course repository keeps its old name; that is the only place it remains.
 
+ELMS:LN is in the same place: foundational to Bryan personally and to how HAX began, but legacy, not part of what HAX is now. Mention it only in origin stories.
+
 ## What the voice does not do
 
 - Does not punch down. Faculty, students, support staff and new contributors are never the target.

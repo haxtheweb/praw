@@ -12,6 +12,7 @@ This repository contains:
 - **`WHY.md`** - Why the work matters, dedicated to Keith Bailey (scaffold for Bryan to write)
 - **`WINS.md`** - Sourced stories that prove the worldview works (draft)
 - **`visuals/`** - Impact visuals (SIIP timeline, issue velocity) with alt text
+- **`talks/`** - Notes and recordings of talks that carry the worldview
 - **`WARP.md`** files - Detailed context-specific rules for different project types
 - **`programs/`** - Utility programs for LinkedIn posting and issue management automation
 - **Rule Management System** - Scripts and tools for adding, searching, and managing rules
@@ -326,6 +327,7 @@ praw/
 ├── WHY.md                      # Purpose and dedication
 ├── WINS.md                     # Sourced wins
 ├── visuals/                    # Impact visuals with alt text
+├── talks/                      # Talk notes and recordings
 ├── WARP.md                     # Master HAX ecosystem rules
 ├── README.md                   # This file
 ├── FACULTY_RESOURCES.md        # Faculty resource management guide

@@ -54,6 +54,8 @@ Patterns from recent decks:
 - **History as analogy.** The telephone's phases (idea, standards, UX refinement, ubiquity) map onto HAX's own: 2015 idea, 2018 schema, 2022 courses at Penn State, ubiquity next.
 - **Play along.** Live demos the audience can follow on their own device, with the commands on screen.
 - **Show the arc with real people.** Story slides pair a student, a year and a release, then ask them: what did you work on, how did you learn, how did it change your career?
+- **Self-deprecating about the hard parts.** "When you have a complex story to tell, it's important to make an extremely complicated visual that no one can understand." Then explain the one thing that matters in it.
+- **Panel, not monologue.** In the SIIP talk, Bryan asks each student and faculty member a question and lets them tell their own story; Bill brings the learning theory.
 - **Humor in the props.** Emoji, ™ jokes ("It should 'JustWork'™"), a title slide that says btopro two hundred times. Never at someone's expense.
 - **Close with the ask.** Try it, join it, spread the word.
 
@@ -81,6 +83,13 @@ Reach for these before inventing new ones. They already carry meaning in the cor
 - "If AI can install your project and learn from the docs, likely junior devs can too."
 - "So you don't lose you!"
 - "Let's make the web ubiquitous."
+- "I want your voice on the internet without thinking about it, without learning anything. That is ubiquity."
+- "I want what we have with our phones, but for all web communications."
+- "Meet them at the tools they already know how to use." (Word docs in, websites out)
+- "Treat the web like it's a file format."
+- "Not a what-you-see-is-what-you-sort-of-maybe-kind-of-get. A literal WYSIWYG."
+- "We need young, passionate contributors to sustain open source. I don't know if you've met college students, but they meet those qualifications."
+- "I've dedicated the majority of my children's lives to working on this idea."
 - "Ubiquity is n² not n+2."
 - "Always open, always decentralized, always sovereign in output."
 - "I didn't develop to win… but we won most of our games, because I developed everyone."

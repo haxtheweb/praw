@@ -7,7 +7,7 @@ Impact visuals that back up `WINS.md`. Each one lists its source talk and alt te
 ![SIIP timeline: HAX and ELMS:LN milestones, feature launches and yearly counts from 2008 to 2026](siip-timeline-2008-2026.png)
 
 - **File:** `siip-timeline-2008-2026.png`
-- **Source:** *The Sustainable Impact and Innovation Pipeline (SIIP), a Conversation with HAX* (Ollendyke, Frank, Fusco, Rose)
+- **Source:** *The Sustainable Impact and Innovation Pipeline (SIIP), a Conversation with HAX* (Ollendyke, Frank, Fusco, Rose), [Apereo microconference recording, May 2026](https://www.youtube.com/watch?v=TNF0uzYi9Kk)
 - **Alt text:** Timeline from 2008 to 2026 of the HAX and ELMS:LN projects. Rockets mark major features (HAX editor, HAXcms PHP and Node.js, HAXiam, PSU CDN, HAX CLI, hax.cloud, HAX AI, DDD design system, security audit, dashboard UX). Palettes mark themes. Yellow badges mark community milestones (ELMS:LN open sourced, Apereo, web components standard, Red Hat collaboration, HAX Camp at Duke and Penn State, IST courses, HAX Lab, HAX Club, CCSO club collaboration). Yearly counts run along the bottom.
 - **Story:** in the talk version, blue circles mark work by core Penn State staff and red circles mark work with student involvement. Red dominates from 2022 on, after Bill Rose joined as product owner and the pipeline started.
 - **To do:** legend for the bottom-row icons (see `WINS.md`).

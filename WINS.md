@@ -34,33 +34,39 @@ Only list wins that have happened. Proposals and pilots in progress stay out unt
 
 ### From HAX Lab to industry
 - Who: former HAX Lab students and HAX contributors.
-- Before → after: they now work at **Red Hat, Adobe, IBM, Ford and PennDOT**, using web component skills in their daily work.
+- Before → after: they now work at **Red Hat, Adobe, IBM, Ford and PennDOT**, using web component skills in their daily work. Two in their own words: Jimmy Kane is now an iOS engineer at Ford Motor Credit and says the mobile-first constraints from HAX Lab still apply in Swift. Winston White interned at Comcast and NASA before an IBM site reliability role and calls HAX "one of the single most impactful things for my career."
 - Why it matters: learning by building in real systems (pillar 8). Students leave with experience, not just a grade.
-- Source: Bryan Ollendyke; course context in [edtechjoker README](https://github.com/btopro/edtechjoker)
+- Source: Bryan Ollendyke; [SIIP talk, Apereo microconference, May 2026](https://www.youtube.com/watch?v=TNF0uzYi9Kk); course context in [edtechjoker README](https://github.com/btopro/edtechjoker)
 
 ### Site Dashboard, three generations of students (2022–2026)
 - Who: student teams across four years.
-- Before → after: **Jimmy Kane** built Dashboard 1.0 for HAX 9 (2022), inspired by Doodle Jump, from the challenge "make web dev feel like playing a video game". **Ashley Santana** prototyped and gathered requirements for 2.0 (2024); **Skyler Koba** and **Isabella Masso** designed and built it for HAX 25, the biggest release at the time (2025). **Chloe Martin** (a Google Docs-style sites dashboard and admin UI), **Alyssa Foran** (palettes and admin design thinking) and **Winston White** (sites become skeletons) built 3.0.
-- Why it matters: one real problem carried across student cohorts, each building on the last (pillars 6 and 8).
-- Source: *SIIP* talk (live presentation)
+- Before → after: **Jimmy Kane** led a team of four that built Dashboard 1.0 for HAX 9 in one 16-week semester (spring 2022), from Figma sketch to working product, out of the challenge "make web dev feel like playing a video game". The 8-bit characters HAX still uses came from it. **Ashley Santana** prototyped and gathered requirements for 2.0 (2024); **Skyler Koba** and **Isabella Masso** designed and built it for HAX 25, the biggest release at the time (2025). **Chloe Martin** (a Google Docs-style sites dashboard and admin UI), **Alyssa Foran** (palettes and admin design thinking) and **Winston White** (sites become skeletons) built 3.0.
+- Why it matters: one real problem carried across student cohorts, each building on the last (pillars 6 and 8). Ashley came in with almost no coding experience and rated herself "drowning" on day one; she left confident enough to turn her designs into code. It changed who Bryan looks for: "empathetic design people that can think and code."
+- Source: [SIIP talk, Apereo microconference, May 2026](https://www.youtube.com/watch?v=TNF0uzYi9Kk)
 
 ### Students built the design system
 - Who: **Keith Charlton Jr** and **Zach Dodson** (2024).
-- Before → after: Keith applied the DDD design system across 60+ elements. Zach built a HAX + AI proof of concept and contributed the DDD audit to the CLI, outside of any class requirement.
+- Before → after: Keith turned a class project into the DDD design system and applied it across 60+ elements. Zach built a HAX + AI proof of concept, then on his own time sent a pull request adding a DDD compliance audit to the CLI. It became part of the class within weeks.
 - Why it matters: DDD began as a class exercise in cloning Penn State designs; Bryan forked the best solutions, and it became the real design system. "We have PSU-esque designs by PSU."
-- Source: *SIIP* talk (live presentation)
+- Source: [SIIP talk, Apereo microconference, May 2026](https://www.youtube.com/watch?v=TNF0uzYi9Kk)
 
 ### Winston White: student to trainer
 - Who: Winston White.
-- Before → after: took IST 256 in spring 2024, made three themes in fall 2024, built much of the HAX CLI in 2025, and worked on the skeleton templating system in 2026, each as a one-semester project. He now improves the developer experience for, and trains, future students. He also built the International Student Portfolio with Dr. Jennifer Frank.
+- Before → after: took IST 256 in spring 2024, made three themes in fall 2024, built much of the HAX CLI in 2025, and worked on the skeleton templating system in 2026, each as a one-semester project. He TA'd the class the semester after building the CLI and saw it change how new students start. Site skeletons came directly from a real need in the International Student Portfolio. He also built the International Student Portfolio with Dr. Jennifer Frank.
 - Why it matters: the pipeline produces mentors, not just contributors (pillar 8).
-- Source: *SIIP* talk (live presentation)
+- Source: [SIIP talk, Apereo microconference, May 2026](https://www.youtube.com/watch?v=TNF0uzYi9Kk)
 
 ### Student clubs: 30 security fixes
 - Who: the Cyber Security club (CCSO, two collaborations) and the User eXperience Professional Association.
-- Before → after: CCSO identified and resolved **30 security vulnerabilities**; four UXPA members contributed to UX design.
+- Before → after: CCSO ran two long-form audits of the HAX ecosystem and helped identify and resolve **30 security vulnerabilities** over two years; four UXPA members applied their UX training to HAX.
 - Why it matters: students bring their own passions; HAX provides the real problem space (pillars 6 and 8).
-- Source: *SIIP* talk (live presentation)
+- Source: [SIIP talk, Apereo microconference, May 2026](https://www.youtube.com/watch?v=TNF0uzYi9Kk)
+
+### 640+ open HTML tags, used across Penn State
+- Who: anyone publishing on the web.
+- Before → after: by May 2026, about 640 web components open sourced. HAX began for online courses in Arts and Architecture and now runs online courses in multiple colleges, portfolios, OER, and Penn State University Libraries' publishing of XML-based plays. A Pressbooks book or a Word file can be pulled in, edited, downloaded as a site, and published as static files or Markdown for AI in minutes.
+- Why it matters: the web treated as a file format (pillars 1, 2 and 4).
+- Source: [SIIP talk, Apereo microconference, May 2026](https://www.youtube.com/watch?v=TNF0uzYi9Kk)
 
 ### 36 students, 18 fixes
 - Who: one semester's course cohort.
@@ -70,21 +76,21 @@ Only list wins that have happened. Proposals and pilots in progress stay out unt
 
 ### HAX Lab faculty grants
 - Who: faculty partners.
-- Before → after: **Dr. Jennifer Frank** funded the International Student Portfolio, so HAX grew into portfolios students can take with them. **Dr. David Fusco** funded Canvas AI analysis, where the student-built HAX CLI pulls a Canvas course through its API and works with AI to create a course.
+- Before → after: **Dr. Jennifer Frank** funded the International Student Portfolio, so HAX grew into portfolios students can take with them. **Dr. David Fusco** funded Canvas AI analysis, built by seven or eight students through his grant and internships: the student-built HAX CLI pulls a Canvas course through its API, reports how AI-ready its assignments are and how easily AI could be used to cheat on them, and then launches a live HAX site from the result. Dr. Frank on working with student developers: because students build for other students, "I don't have to sit there and convince anybody that this is an important project."
 - Why it matters: faculty fund real student work that solves their own problems, and HAX gains capability (pillars 4, 6 and 8). **Verify:** grant names and amounts if they can be shared.
-- Source: *SIIP* talk, [FOSSY25](https://btopro.com/work/fossy25)
+- Source: [SIIP talk, Apereo microconference, May 2026](https://www.youtube.com/watch?v=TNF0uzYi9Kk), [FOSSY25](https://btopro.com/work/fossy25)
 
 ## Doing more with less
 
 ### One maintainer, more rockets (SIIP)
 - Who: the HAX core team.
-- Before → after: HAX went from a notepad idea (2015) to a proof of concept (2017) to four people part-time (2020) to one person (2023). Feature output still climbed sharply from 2024 because course assignments were redirected at real HAX problems.
+- Before → after: HAX went from a note card (2015) to a proof of concept (2017) to four full-time people at its peak, then lost developers to industry after the pandemic until one remained (2023). Feature output still climbed sharply from 2024 because Bryan turned his classroom into a contributor pipeline. HAX 26 launched the day before the May 2026 talk "as a result of the sustainable impact pipeline".
 - Why it matters: the Sustainable Impact and Innovation Pipeline is reproducible at other institutions (pillars 7 and 8).
-- Source: [Sustainable Impact and Innovation Pipeline](https://btopro.com/hax/sustainable-impact-and-innovation-pipeline), *SIIP* talk
+- Source: [Sustainable Impact and Innovation Pipeline](https://btopro.com/hax/sustainable-impact-and-innovation-pipeline), [SIIP talk, Apereo microconference, May 2026](https://www.youtube.com/watch?v=TNF0uzYi9Kk)
 
 ![SIIP timeline 2008–2026](visuals/siip-timeline-2008-2026.png)
 
-Yearly counts from the timeline's bottom row, transcribed by icon. **Verify:** the icon legend before quoting any of these. `*` marks estimates (site counts for 2021–22) or projections (2025).
+In the talk, yellow marks events (courses, collaborations, HAX Camps, adoptions) and rockets mark major shipped innovations; blue circles are Penn State staff effort and red are student contributions. Yearly counts from the bottom row are transcribed by icon below. **Verify:** the bottom-row icon legend before quoting any of these. `*` marks estimates (site counts for 2021–22) or projections (2025).
 
 | Year | Blue block | Stacked blocks | Purple person | Pink person | Green person | Coder at laptop | Teal person | Pink outline person |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -105,7 +111,9 @@ Yearly counts from the timeline's bottom row, transcribed by icon. **Verify:** t
 - The **top 5–10%** of a class often choose to go further.
 - The class works best as 40% skilling up, 20% a simple non-community project, 20% a larger, less-scaffolded project, and 20% an unscaffolded, internship-like project.
 - Open office hours three times a week now draw contributors who were never in HAX Lab.
-- Source: *SIIP* talk. The pedagogy is cognitive apprenticeship (modeling, scaffolding, fading, coaching), framed by Bill Rose.
+- HAX is the backdrop, not the subject: IST 256 teaches modern front-end development and happens to use HAX and DDD. A gap in the docs becomes a contribution, so fixing community docs is part of onboarding.
+- Students get visible credit: Bryan posts their work on LinkedIn and tags them.
+- Source: [SIIP talk, Apereo microconference, May 2026](https://www.youtube.com/watch?v=TNF0uzYi9Kk). The pedagogy is cognitive apprenticeship (modeling, scaffolding, fading, coaching), framed by Bill Rose.
 
 ### Agents with context: 90% then 211%
 - Who: the HAX project, with agents primed by PRAW.

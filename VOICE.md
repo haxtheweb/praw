@@ -8,7 +8,9 @@
 
 The message has to hold up whoever tells it: Bryan at a FOSS conference, Bill in a proposal, a faculty partner to their dean, a student in a job interview, or an agent drafting a README. The core never changes. The framing fits the listener.
 
-**Core message:** *Anyone should be able to publish, teach and share on the web, at no cost and regardless of ability, and own what they make. HAX makes that possible, and the people who use it build it.*
+**Core message:** *The world deserves a voice, regardless of technical ability. HAX lets anyone publish, teach and share on the web at no cost, in any format, and own what they make, so information is never siloed again. The people who use it build it.*
+
+**Sign-off:** *WE ARE… HAXTheWeb*, improving society, our local community and the global human condition.
 
 **Three proofs, in every telling:**
 1. **People empowered.** A real person made something they couldn't before (see `WINS.md`).
@@ -124,6 +126,7 @@ ELMS:LN is in the same place: foundational to Bryan personally and to how HAX be
 - Does not swear on behalf of the project. Bryan sometimes does in his own posts; agents writing for HAX don't.
 - Does not let humor hide the point. If the joke needs explaining, cut the joke.
 - Does not claim the ideas as anyone's private property. They are stewardship (see `WHY.md`).
+- Does not compete on money. No grant sizes or funding amounts as wins; the work happens in thousands, not millions, and that is the point. Talk about what got built and who it helped.
 
 ## Quick self-check for agents
 

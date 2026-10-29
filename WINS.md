@@ -83,7 +83,7 @@ Only list wins that have happened. Proposals and pilots in progress stay out unt
 ### HAX Lab faculty grants
 - Who: faculty partners.
 - Before → after: **Dr. Jennifer Frank** funded the International Student Portfolio, so HAX grew into portfolios students can take with them. **Dr. David Fusco** funded Canvas AI analysis, built by seven or eight students through his grant and internships: the student-built HAX CLI pulls a Canvas course through its API, reports how AI-ready its assignments are and how easily AI could be used to cheat on them, and then launches a live HAX site from the result. Dr. Frank on working with student developers: because students build for other students, "I don't have to sit there and convince anybody that this is an important project."
-- Why it matters: faculty fund real student work that solves their own problems, and HAX gains capability (pillars 4, 6 and 8). **Verify:** grant names and amounts if they can be shared.
+- Why it matters: faculty fund real student work that solves their own problems, and HAX gains capability (pillars 4, 6 and 8). Grant sizes are deliberately left out: it isn't a competition, and this work doesn't need much money.
 - Source: [SIIP talk, Apereo microconference, May 2026](https://www.youtube.com/watch?v=TNF0uzYi9Kk), [FOSSY25](https://btopro.com/work/fossy25)
 
 ## Doing more with less
@@ -203,7 +203,7 @@ These come from the Drupal and ELMS:LN years. They are foundational to Bryan and
 
 ### A $250 textbook becomes a $30 fee
 - Who: students in ARTH 112 at Penn State.
-- Before → after: about $250 per student down to a $30 fee, delivered on ELMS:LN. This was the work that came before HAX and set up everything after it.
+- Before → after: about $250 per student down to a $30 fee (a cost to students, not a funding figure), delivered on ELMS:LN. This was the work that came before HAX and set up everything after it.
 - Why it matters: open resources collapse the cost of knowledge (pillars 3 and 5).
 - Source: *Universities can't make software* on [btopro.wordpress.com](https://btopro.wordpress.com)
 

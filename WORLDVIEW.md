@@ -10,7 +10,7 @@ This document captures a normalized worldview profile derived from two aligned s
 - Explicit exclusion focus for this synthesis: hockey and family-centric material unless directly tied to educational technology strategy
 ## People who shaped it
 
-- **Keith Bailey** (1970–2020): mentor who hired Bryan into online learning at Penn State and championed the work that became ELMS (see `WHY.md`).
+- **Keith Bailey** (1970–2020): mentor who hired Bryan into online learning at Penn State and championed the online learning work that eventually led to HAX.
 - **Mike Potter**: one of Bryan's best friends; pointed him to the web component *standard* in 2016, which made HAX possible. Still works on web components, though not on HAX at present.
 - **Michael Collins**: faculty member who teaches with HAX tools and now develops his own flavor on top of HAX; recent admin dashboard UI and the updated outline designer come from him.
 - **Bill Rose**: HAX product owner; the course ontology, cognitive apprenticeship framing and partner-facing voice.
@@ -44,6 +44,11 @@ This document captures a normalized worldview profile derived from two aligned s
 - "Open but unmaintainable" is treated as a failure mode.
 - Preferred solutions are understandable, maintainable, and deployable by regular practitioners.
 - Long-term sustainability (including resource use and organizational resilience) is a design requirement.
+### 7b) Collapse cost structures
+- Working on the open web shouldn't require much money, and HAX shows it doesn't: the project runs in thousands, not millions.
+- Every contribution should make all past work on the web enhance all future work on the web, forever.
+- Measure success by what got built and who it helped, never by funding size.
+
 ### 8) Learning by building in real systems (SIIP pattern)
 - Coursework can be aligned to real project contribution pathways.
 - Student and faculty contributions can compound project velocity and educational outcomes simultaneously.

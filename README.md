@@ -9,7 +9,7 @@ This repository contains:
 - **`KNOWLEDGE.md`** - Log of emergent knowledge, decisions, and conventions that inform rule development
 - **`WORLDVIEW.md`** - Curated worldview synthesis from long-form ecosystem writing, with pillar checks
 - **`VOICE.md`** - How HAX sounds: register, metaphors and signature lines for public writing (draft)
-- **`WHY.md`** - Why the work matters, dedicated to Keith Bailey (scaffold for Bryan to write)
+- **`WHY.md`** - Why the work matters, in Bryan's words
 - **`WINS.md`** - Sourced stories that prove the worldview works (draft)
 - **`visuals/`** - Impact visuals (SIIP timeline, issue velocity) with alt text
 - **`talks/`** - Notes and recordings of talks that carry the worldview
@@ -324,7 +324,7 @@ praw/
 ├── KNOWLEDGE.md                # Log of emergent knowledge and decisions
 ├── WORLDVIEW.md                # Curated worldview profile, thematic priorities, pillar checks
 ├── VOICE.md                    # Voice and tone for public writing
-├── WHY.md                      # Purpose and dedication
+├── WHY.md                      # Purpose, in Bryan's words
 ├── WINS.md                     # Sourced wins
 ├── visuals/                    # Impact visuals with alt text
 ├── talks/                      # Talk notes and recordings

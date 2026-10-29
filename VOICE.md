@@ -18,7 +18,7 @@ The message has to hold up whoever tells it: Bryan at a FOSS conference, Bill in
 | Audience | Lead with | HAX's role | Words that land | Evidence they want |
 | --- | --- | --- | --- | --- |
 | Developers and open source | The cause and the code: ubiquity, standards, zero cost | The project | web components, sovereign, static, portable, contribute | Releases, repos, performance, the issue queue |
-| Faculty and partners | Their goal: their learners, their audience, their mission | Invisible: "made possible through HAX" | empowered, polished, accessible, their own | Their finished site or course, time saved |
+| Faculty, IDs and partners | Their goal: their learners, their audience, their mission. For instructional designers: prototype live with a subject expert in the meeting, fail faster, stop copy-pasting from Word | Invisible: "made possible through HAX" | empowered, polished, accessible, their own | Their finished site or course, time saved |
 | Institutional leaders and funders | Mission and strategic goals (for Penn State, the land-grant mission) | A platform the institution owns and steers | interdisciplinary, experiential learning, sustainable, cost avoided | Measured outcomes, pre/post data, adoption, students employed |
 | Students | What they'll build and where it leads | Real software they help shape | portfolio, real users, career, community | Former students' paths (Red Hat, Adobe, IBM, Ford, PennDOT) |
 | Agents | All of the above, with `WORLDVIEW.md` as the source of truth | The context they work inside | — | Verified facts only; cite `WINS.md` |
@@ -72,6 +72,11 @@ Reach for these before inventing new ones. They already carry meaning in the cor
 | Leaving the building | People don't leave learning; they leave the system that claimed to own it |
 | Flying cars, n+1 vs n² | Incremental improvement isn't enough; ubiquity is the goal |
 | Salk and the sun | Give the cure away; don't patent what everyone needs |
+| Telephone to smartphone | Idea → standards → UX refinement → ubiquity: the phone became a platform, and so does the web |
+| Building a hockey rink | 40 days of mess before it looks like anything; "nothing is intentional until it is," but the foundation decides everything |
+| Russian nesting dolls | Small tags inside bigger tags, all the way up to a whole site |
+| A box of kittens | Give something away and people now have to care for it; that care forms the community (from the thesis) |
+| Your painting on your wall | Your site is yours to take down and hang somewhere else; template builders are paint-by-number (an interviewer's line) |
 
 ## Signature lines (Bryan's own)
 
@@ -90,6 +95,14 @@ Reach for these before inventing new ones. They already carry meaning in the cor
 - "Not a what-you-see-is-what-you-sort-of-maybe-kind-of-get. A literal WYSIWYG."
 - "We need young, passionate contributors to sustain open source. I don't know if you've met college students, but they meet those qualifications."
 - "I've dedicated the majority of my children's lives to working on this idea."
+- "You should not need to know what the web is to do everything with it."
+- "Meet users where they are, not where we wish them to be."
+- "I don't want humanity to need to code in order to put themselves on the internet."
+- "It is unethical to pay hundreds of dollars for material that is publicly available." (IST 256 syllabus)
+- "The point of the academy is to push industry when it's stuck."
+- "Nothing is intentional, until it is."
+- "We have roughly three seconds." (If a user can't tell what it is in three seconds, ten years of work doesn't matter.)
+- "We were made to change the world."
 - "Ubiquity is n² not n+2."
 - "Always open, always decentralized, always sovereign in output."
 - "I didn't develop to win… but we won most of our games, because I developed everyone."

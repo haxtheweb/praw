@@ -2,6 +2,74 @@
 
 Recorded and presented talks that carry the HAX worldview, voice and evidence. Agents use these as source material for `WINS.md`, `VOICE.md` and `WORLDVIEW.md`. Notes summarize; quotes are short and attributed. Link the recording rather than copying it.
 
+| Date | Talk | Why it matters |
+| --- | --- | --- |
+| Oct 2023 | [HAX Ontology](https://www.youtube.com/watch?v=iF4UZKcAWmw) (Bill Rose) | The course model under every instructional feature (see `WORLDVIEW.md`) |
+| Oct 2023 | [HAX Horizon Report](https://www.youtube.com/watch?v=bX04I1Cw9FA) | Where HAX was and where it said it would go |
+| Oct 2024 | [HiTech Podcast ep. 168: Reclaiming the Internet](https://www.youtube.com/watch?v=fKeSEZm3khE) | The origin story in Bryan's words; instructional designers reacting to HAX |
+| Feb 2025 | [2025: State of HAX Community](https://www.youtube.com/watch?v=WGv94SY0cRM) | Year one of HAX Lab, the seven community pillars, the 2025 roadmap |
+| Mar 2026 | [Nothing is intentional, until it is](https://www.youtube.com/watch?v=wkdW2EjkwZ4) | Ten years of HAX told through ubiquity, the outline designer and SIIP |
+| May 2026 | [SIIP: a Conversation with HAX](https://www.youtube.com/watch?v=TNF0uzYi9Kk) (Apereo) | The pipeline, told by the students and faculty in it |
+
+## Then and now
+
+What the talks said was coming, checked against later talks and the codebase. **Verify** rows need Bryan's status.
+
+| Said | When | Status (Oct 2026) |
+| --- | --- | --- |
+| Themes that make HAX "more than courses": blog, resume, portfolio, docs | Oct 2023 | Delivered: 30+ themes by early 2026, portfolio themes (Polaris Flex, Clean Portfolio, Journey/Glossy) |
+| Start from a use case, not a theme ("recipes"); share site recipes | Feb 2025 | Delivered as skeletons (HAX 25), Dashboard 3.0 (HAX 26); sharing recipes: **verify** |
+| Migration formats: Word, Notion, GitBook, ELMS:LN, Drupal book, Pressbooks (beta) | Oct 2023 | Delivered; Pressbooks import demoed live in May 2026 |
+| Node.js backend, desktop app, command line | Oct 2023 | Delivered: HAXcms Node.js (about 2023), HAX Desktop (about 2024), HAX CLI (2024–25, largely student-built) |
+| hax.cloud: edit a downloaded site on your own computer | Oct 2023 | Delivered |
+| Web containers playground for trying HAX with no install | Feb 2025 | Delivered (playground.hax.cloud) |
+| DDD design system across all blocks; Penn State-styled themes | Feb 2025 | Delivered: DDD across 60+ elements; Polaris themes |
+| AI: sites from text, CLI wired to models, AI in the platform | Feb 2025 | Delivered in part: HAX AI (2025), Canvas AI analysis, agents with PRAW; digital tutors and tone-of-voice models: **verify** |
+| Localization | Feb 2025 | i18n tooling exists (`hax-i18n-translate`); coverage: **verify** |
+| Open APIs | Feb 2025 | OpenAPI infrastructure shipped 2024; `open-apis` microservice now phased out for on-premises routes |
+| Move ELMS:LN courses to hax.psu.edu with private spaces | Feb 2025 | **verify** |
+| Multi-user sites with edit/view/collaborate permissions | Oct 2023 | **verify** |
+| Headless authentication (Keycloak login tag) | Oct 2023 | **verify** (hax.psu.edu uses Azure login through HAXiam) |
+| Non-credit courses with payment | Oct 2023 | **verify** |
+| HAX editor inside WordPress and Drupal | Oct 2023 | **verify** (maintained, archived?) |
+| Bring your own backend | Oct 2023 | **verify** |
+| Dockerized HAXiam / HAXcms | Oct 2023 | **verify** |
+| Platform settings that switch features off, so authors can craft experiences for others | Mar 2026 | In progress as of March 2026: **verify** |
+
+## HiTech Podcast ep. 168: Reclaiming the Internet (Oct 2024)
+
+- **Hosts:** Josh Schwartz and Will Illingworth, both instructional designers; Will knew Bryan from Penn State Harrisburg
+- **Origin story:** Keith Bailey writing pagination JavaScript as director; Bryan's weekend Drupal course; ELMS; giving systems away to form a community ("if you give away a box of kittens, people now need to maintain kittens"); the thesis written in first and third person, with a Joker-like character; a 2015 napkin idea; Mike Potter pointing to the web component *standard* rather than a component library; three weeks off in 2017 to rewrite his career on a standard that didn't stabilize until 2019.
+- **Demo:** 515 tags at the time; a Word file becomes a site live; content switches between themes, including the table-based site Bryan made in college.
+- **How IDs heard it:** "the coolest thing I've seen all day"; being able to prototype a course live with a subject expert in the room; "stop copying from Word into the LMS"; template builders as paint-by-number versus "your painting on your wall."
+- **Lines:** "I don't want humanity to need to code in order to put themselves on the internet." "The point of the academy is to push industry when it's stuck."
+
+## HAX Ontology (Oct 2023, Bill Rose)
+
+The course model summarized in `WORLDVIEW.md`: outcomes, pedagogy, structure, instruction, content and assessment, crossed by Understanding by Design at three points. "It doesn't need to be ideal. It does need to be valid."
+
+## HAX Horizon Report (Oct 2023)
+
+- Where HAX was: hax.psu.edu as a hosted service; every site is a `site.json` (JSON Outline Schema) plus static HTML pages, with about six backend calls in total. "When we blow up the notion of a database… we can build anything."
+- Where it was going: see *Then and now* above. Penn State University Libraries' Beaumont and Fletcher plays site, built with HAX + 11ty in a containerized pipeline, was the model for scale.
+
+## 2025: State of HAX Community (Feb 2025)
+
+- HAX Lab founded; seven students working on the roadmap; College of Education faculty pursuing grants with HAX.
+- DDD named by a student: "design, develop, destroy," once it's well designed it destroys the competition.
+- The seven community pillars: accessible, efficient, extensible, free and open, platform agnostic, remixable, sustainable.
+- "Meet our users where they are, not where we wish them to be." "You should not need to know what the web is to do everything with it."
+- Goal for AI: "an ID and faculty BFF" for prototyping and growing rich online experiences.
+
+## Nothing is intentional, until it is (Mar 2026)
+
+- Opens with a hockey championship: ten years of work, three seconds of celebration. Users give you about three seconds.
+- The outline designer as the start of Bryan's career and of his mission, ubiquity.
+- HAX's UI from 2015 (talking to the screen, Kinect era) to 2026, and why every site since 2020 still works.
+- Platform settings that disable features, pushing HAX from tool to platform: authors crafting experiences for other authors.
+- SIIP as a spiral; 67,000 students served; themes from 14 to 30+.
+- Closes on building a hockey rink: 40 days of mess, then the thing. "Nothing is intentional, until it is."
+
 ## The Sustainable Impact and Innovation Pipeline (SIIP): a Conversation with HAX
 
 - **Recording:** [Apereo microconference, May 2026](https://www.youtube.com/watch?v=TNF0uzYi9Kk) (about 60 minutes)

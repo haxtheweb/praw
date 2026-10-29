@@ -90,9 +90,9 @@ Only list wins that have happened. Proposals and pilots in progress stay out unt
 
 ![SIIP timeline 2008–2026](visuals/siip-timeline-2008-2026.png)
 
-In the talk, yellow marks events (courses, collaborations, HAX Camps, adoptions) and rockets mark major shipped innovations; blue circles are Penn State staff effort and red are student contributions. Yearly counts from the bottom row are transcribed by icon below. **Verify:** the bottom-row icon legend before quoting any of these. `*` marks estimates (site counts for 2021–22) or projections (2025).
+In the talks, yellow marks events (courses, collaborations, HAX Camps, adoptions), rockets mark major shipped innovations and palettes mark themes; blue circles are Penn State staff effort and red are student contributions. The bottom row counts "how many bricks are in our ecosystem, how many sites there are, and how many people are working on this and impacted by it" ([Nothing is intentional, until it is, Mar 2026](https://www.youtube.com/watch?v=wkdW2EjkwZ4)). The teal row adds up to about 67,000, matching "67,000 students served in just a small percentage of courses", so it is likely students served each year. **Verify:** the remaining icons before quoting them. `*` marks estimates (site counts for 2021–22) or projections (2025).
 
-| Year | Blue block | Stacked blocks | Purple person | Pink person | Green person | Coder at laptop | Teal person | Pink outline person |
+| Year | Bricks (blue block) | Sites (stacked blocks) | Purple person | Pink person | Green person | Coder at laptop | Students served? (teal) | Pink outline person |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 2008 | | | 1 | | | | | |
 | 2015 | | | 3 | | | | | |
@@ -141,6 +141,24 @@ In the talk, yellow marks events (courses, collaborations, HAX Camps, adoptions)
 - Why it matters: the worldview scales beyond one person, which is the point of this repository.
 - Source: [The many me's](https://btopro.com/hax/the-many-me-s)
 
+### Every site since 2020 still works
+- Who: everyone who has ever published with HAX.
+- Before → after: because HAX saves HTML and ships the tag definitions separately, every site made since about 2020 still works; it just looks better and is easier to edit, because the definitions were upgraded underneath it. The 2018 save button and today's are the same asset.
+- Why it matters: content outlives the tool's redesigns (Sustainable, Platform agnostic).
+- Source: [Nothing is intentional, until it is, Mar 2026](https://www.youtube.com/watch?v=wkdW2EjkwZ4)
+
+### Reach by early 2026
+- Who: students and authors at Penn State and beyond.
+- Before → after: about 67,000 students served by HAX-built courses (counting only part of the courses using it); themes grew from 14 at the end of 2024 to more than 30; over 10,000 pages of unique content on hax.psu.edu by early 2025; external adopters such as the LaunchBox small-business training site, which built on hax.psu.edu and then downloaded its site to its own server.
+- Why it matters: scale without a vendor (Free and open, Platform agnostic).
+- Source: [Nothing is intentional, until it is, Mar 2026](https://www.youtube.com/watch?v=wkdW2EjkwZ4), [2025: State of HAX Community, Feb 2025](https://www.youtube.com/watch?v=WGv94SY0cRM)
+
+### Migrations in seconds, not months
+- Who: instructional design teams and faculty.
+- Before → after: ELMS:LN courses that took months or years to build with faculty were migrated to HAX by pointing at their URL. Word files with good heading structure become sites; Notion, GitBook, Drupal book (5 and later), Pressbooks and existing HAX sites can be imported. Bryan: a two-page nested site took about 20 minutes in WordPress and a 20-page outline about two minutes in HAX.
+- Why it matters: meet people where they are (Remixable, Platform agnostic).
+- Source: [HAX Horizon Report, Oct 2023](https://www.youtube.com/watch?v=bX04I1Cw9FA), [HiTech Podcast ep. 168, Oct 2024](https://www.youtube.com/watch?v=fKeSEZm3khE)
+
 ## Cost and access
 
 ### A $250 textbook becomes a $30 fee
@@ -162,6 +180,20 @@ In the talk, yellow marks events (courses, collaborations, HAX Camps, adoptions)
 - Source: [Benevolent restrictions](https://btopro.com/hax/benevolent-restrictions)
 
 ## Community
+### Where it started: the outline designer
+- Who: authors of Drupal sites worldwide.
+- Before → after: early in his Penn State career Bryan built the outline designer to make course structure fast to edit; as open source it has "empowered tens of thousands of people over the years that we'll never meet to build websites more quickly." Its successor in HAX is still mission-critical.
+- Source: [Nothing is intentional, until it is, Mar 2026](https://www.youtube.com/watch?v=wkdW2EjkwZ4)
+
+### Drupal at Penn State, by giving it away
+- Who: Penn State's web community.
+- Before → after: Bryan moved a Dreamweaver course to Drupal over one weekend, gave Drupal-based systems away to form a community, and contributed more than 100 Drupal modules. Penn State went from unfriendly to open source to Drupal as a de facto standard; this became the *Information Altruism* thesis.
+- Source: [HiTech Podcast ep. 168, Oct 2024](https://www.youtube.com/watch?v=fKeSEZm3khE)
+
+### National Archives usability audit (2019)
+- Before → after: an audit with the National Archives produced better button names, stacking and accessibility fixes that still shape the editor.
+- Source: [Nothing is intentional, until it is, Mar 2026](https://www.youtube.com/watch?v=wkdW2EjkwZ4)
+
 
 ### First hax-camp, 40+ people
 - Who: developers, designers and educators, including the whole HAXTheWeb core team.

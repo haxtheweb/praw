@@ -50,7 +50,7 @@ A dad, a believer, a developer, a coach, opinionated about many a thing (that's 
 
 Patterns from recent decks:
 - **One idea per slide, big type.** "I am an Educator. I teach front-end web." "I am also an activist. I code for a social cause."
-- **Self-introduction as hats.** "I am many hats: btopro, edtechjoker. FOSS is all of them."
+- **Self-introduction as roles.** Educator, activist, developer, project lead: one person, many roles, all in service of open source.
 - **History as analogy.** The telephone's phases (idea, standards, UX refinement, ubiquity) map onto HAX's own: 2015 idea, 2018 schema, 2022 courses at Penn State, ubiquity next.
 - **Play along.** Live demos the audience can follow on their own device, with the commands on screen.
 - **Show the arc with real people.** Story slides pair a student, a year and a release, then ask them: what did you work on, how did you learn, how did it change your career?
@@ -101,7 +101,7 @@ Reach for these before inventing new ones. They already carry meaning in the cor
 - "It is unethical to pay hundreds of dollars for material that is publicly available." (IST 256 syllabus)
 - "The point of the academy is to push industry when it's stuck."
 - "Nothing is intentional, until it is."
-- "We have roughly three seconds." (If a user can't tell what it is in three seconds, ten years of work doesn't matter.)
+- "We have roughly three seconds." A guideline, not a rule: people glance around a screen differently, but if they can't get it in about three seconds it isn't working yet. Likewise, nobody should dig through seven layers of menus to reach a setting.
 - "We were made to change the world."
 - "Ubiquity is n² not n+2."
 - "Always open, always decentralized, always sovereign in output."
@@ -111,9 +111,9 @@ Reach for these before inventing new ones. They already carry meaning in the cor
 - "We solve."
 - **"It's as good as coded."** Keith Bailey's line about Bryan: once the requirements were teased out, the code was a formality. It is the standard: listen hard enough that building it is the easy part.
 
-## The Joker, retired
+## Who we are now
 
-EdTechJoker was a persona built to disrupt: chaotic, unpredictable, cryptic memes, a code name for activism. It did its job. It is now retired as the lead voice ([Arrival](https://btopro.com/work/arrival)), but it is still one of the hats: talks introduce Bryan as "btopro, edtechjoker. FOSS is all of them." Agents should not write in the Joker's voice by default. Mention it as one hat among several, as history, or when Bryan asks for it.
+EdTechJoker was a persona: disruptive, chaotic, unpredictable, a means to an end. In Bryan's words, "It is who I had to be, not who I am. Now I can be who I am in all things." The persona is not part of the HAX story and agents should not use it, quote it or frame work through it. The course repository keeps its old name; that is the only place it remains.
 
 ## What the voice does not do
 

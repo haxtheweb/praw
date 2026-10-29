@@ -8,6 +8,13 @@ This document captures a normalized worldview profile derived from two aligned s
 - Inclusion focus: HAX, HAXcms, ELMS:LN, open web, instructional design, educational transformation, community development, sustainability, faculty/student empowerment
 - Thesis inclusion focus: Information Altruism, Actor-Network Theory, tempered radicalism, diffusion of innovation, do-ocracy, and institution change from within
 - Explicit exclusion focus for this synthesis: hockey and family-centric material unless directly tied to educational technology strategy
+## People who shaped it
+
+- **Keith Bailey** (1970–2020): mentor who hired Bryan into online learning at Penn State and championed the work that became ELMS (see `WHY.md`).
+- **Mike Potter**: one of Bryan's best friends; pointed him to the web component *standard* in 2016, which made HAX possible. Still works on web components, though not on HAX at present.
+- **Michael Collins**: faculty member who teaches with HAX tools and now develops his own flavor on top of HAX; recent admin dashboard UI and the updated outline designer come from him.
+- **Bill Rose**: HAX product owner; the course ontology, cognitive apprenticeship framing and partner-facing voice.
+
 ## Core worldview pillars
 ### 1) The web should remain open, ownable, and portable
 - Content and tooling should resist platform lock-in.
@@ -81,6 +88,8 @@ The worldview pillars above explain *why*; the community pillars are *what we ca
 
 HAX is general web authoring, but it was built in an instructional design shop, and its educational features follow a course ontology developed by Bill Rose (HAX product owner) in 2023 ([recording](https://www.youtube.com/watch?v=iF4UZKcAWmw)). It is *a* valid ontology, not *the* definitive one ("10 instructional designers would generate 10 ontologies with significant overlap"), and is expected to grow with the community.
 
+HAX's capabilities have moved well beyond this model, but it remains the pedagogical foundation of the worldview. As Bryan puts it: technology changes what is possible and how you teach, but the methodology of effective teaching is eternal. The same qualities apply to a web platform and to a lesson: multiple formats, accessible, fast. A good lesson is never only text, only video, only a game or only questions; it is a healthy chunking and mixing of all of them, so students learn and stay engaged. HAX's blocks exist to make that mix easy.
+
 At its core, a course has six branches:
 
 | Branch | What it holds | Notes |
@@ -112,7 +121,7 @@ Run these for any new feature, skill, plugin, integration or architectural decis
 | A | Information altruism | Free and open | Does it give capability away freely (open license, public docs, no lock-in) so others can build on it? |
 | B | Values encoded in tools | All | Does the default behavior embody the value, rather than relying on a policy or a setting people must find? |
 | C | Human creativity first | Free and open, Remixable | Does AI speed the work while people keep the creative and editorial decisions? Does the output stay open and portable rather than depending on a single AI service ("supplemented by AI, not forever powered by it")? |
-| D | Meet people where they are | Accessible, Efficient | Does it start from what people already have (a Word file, an existing site, Markdown, a URL) and ask them to know nothing about the web? Can a newcomer see what it is and succeed within about three seconds? |
+| D | Meet people where they are | Accessible, Efficient | Does it start from what people already have (a Word file, an existing site, Markdown, a URL) and ask them to know nothing about the web? Would a newcomer get what it is in about three seconds, without digging through layers of menus? (A guideline, not a blocker.) |
 | E | Works forever | Sustainable, Platform agnostic | Will content made today still render and edit years from now because it is saved as HTML whose tag definitions can be upgraded later? (Every HAX site made since about 2020 still works.) |
 
 Agents should report the result as a short table or list in PR descriptions for non-trivial changes, alongside lint and test results.

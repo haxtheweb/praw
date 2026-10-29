@@ -13,33 +13,33 @@ Recorded and presented talks that carry the HAX worldview, voice and evidence. A
 
 ## Then and now
 
-What the talks said was coming, checked against later talks and the codebase. **Verify** rows need Bryan's status.
+What the talks said was coming, with Bryan's status as of October 2026.
 
 | Said | When | Status (Oct 2026) |
 | --- | --- | --- |
 | Themes that make HAX "more than courses": blog, resume, portfolio, docs | Oct 2023 | Delivered: 30+ themes by early 2026, portfolio themes (Polaris Flex, Clean Portfolio, Journey/Glossy) |
-| Start from a use case, not a theme ("recipes"); share site recipes | Feb 2025 | Delivered as skeletons (HAX 25), Dashboard 3.0 (HAX 26); sharing recipes: **verify** |
+| Start from a use case, not a theme ("recipes"); share site recipes | Feb 2025 | Done: recipes became **skeletons** (HAX 25), Dashboard 3.0 (HAX 26) |
 | Migration formats: Word, Notion, GitBook, ELMS:LN, Drupal book, Pressbooks (beta) | Oct 2023 | Delivered; Pressbooks import demoed live in May 2026 |
 | Node.js backend, desktop app, command line | Oct 2023 | Delivered: HAXcms Node.js (about 2023), HAX Desktop (about 2024), HAX CLI (2024–25, largely student-built) |
 | hax.cloud: edit a downloaded site on your own computer | Oct 2023 | Delivered |
 | Web containers playground for trying HAX with no install | Feb 2025 | Delivered (playground.hax.cloud) |
 | DDD design system across all blocks; Penn State-styled themes | Feb 2025 | Delivered: DDD across 60+ elements; Polaris themes |
-| AI: sites from text, CLI wired to models, AI in the platform | Feb 2025 | Delivered in part: HAX AI (2025), Canvas AI analysis, agents with PRAW; digital tutors and tone-of-voice models: **verify** |
-| Localization | Feb 2025 | i18n tooling exists (`hax-i18n-translate`); coverage: **verify** |
+| AI: sites from text, CLI wired to models, AI in the platform | Feb 2025 | Delivered in part: HAX AI (2025), Canvas AI analysis, agents with PRAW; AI digital tutors in progress |
+| Localization | Feb 2025 | Done, and maintained by process through the i18n pipeline (`hax-i18n-translate`) |
 | Open APIs | Feb 2025 | OpenAPI infrastructure shipped 2024; `open-apis` microservice now phased out for on-premises routes |
-| Move ELMS:LN courses to hax.psu.edu with private spaces | Feb 2025 | **verify** |
-| Multi-user sites with edit/view/collaborate permissions | Oct 2023 | **verify** |
-| Headless authentication (Keycloak login tag) | Oct 2023 | **verify** (hax.psu.edu uses Azure login through HAXiam) |
-| Non-credit courses with payment | Oct 2023 | **verify** |
-| HAX editor inside WordPress and Drupal | Oct 2023 | **verify** (maintained, archived?) |
-| Bring your own backend | Oct 2023 | **verify** |
-| Dockerized HAXiam / HAXcms | Oct 2023 | **verify** |
-| Platform settings that switch features off, so authors can craft experiences for others | Mar 2026 | In progress as of March 2026: **verify** |
+| Move ELMS:LN courses to hax.psu.edu with private spaces | Feb 2025 | In progress |
+| Multi-user sites with edit/view/collaborate permissions | Oct 2023 | Still planned |
+| Headless authentication (Keycloak login tag) | Oct 2023 | Dropped (hax.psu.edu uses Azure login through HAXiam) |
+| Non-credit courses with payment | Oct 2023 | Planned (a payment wall) |
+| HAX editor inside WordPress and Drupal | Oct 2023 | Possible, but dropped as a direction |
+| Bring your own backend | Oct 2023 | Done in spirit: other systems are being morphed into HAX's own formats rather than HAX adapting to each backend |
+| Dockerized HAXiam / HAXcms | Oct 2023 | In progress |
+| Platform settings that switch features off, so authors can craft experiences for others | Mar 2026 | Done, as **Features** |
 
 ## HiTech Podcast ep. 168: Reclaiming the Internet (Oct 2024)
 
 - **Hosts:** Josh Schwartz and Will Illingworth, both instructional designers; Will knew Bryan from Penn State Harrisburg
-- **Origin story:** Keith Bailey writing pagination JavaScript as director; Bryan's weekend Drupal course; ELMS; giving systems away to form a community ("if you give away a box of kittens, people now need to maintain kittens"); the thesis written in first and third person, with a Joker-like character; a 2015 napkin idea; Mike Potter pointing to the web component *standard* rather than a component library; three weeks off in 2017 to rewrite his career on a standard that didn't stabilize until 2019.
+- **Origin story:** Keith Bailey writing pagination JavaScript as director; Bryan's weekend Drupal course; ELMS; giving systems away to form a community ("if you give away a box of kittens, people now need to maintain kittens"); the thesis written in first and third person; a 2015 napkin idea; Mike Potter pointing to the web component *standard* rather than a component library; three weeks off in 2017 to rewrite his career on a standard that didn't stabilize until 2019.
 - **Demo:** 515 tags at the time; a Word file becomes a site live; content switches between themes, including the table-based site Bryan made in college.
 - **How IDs heard it:** "the coolest thing I've seen all day"; being able to prototype a course live with a subject expert in the room; "stop copying from Word into the LMS"; template builders as paint-by-number versus "your painting on your wall."
 - **Lines:** "I don't want humanity to need to code in order to put themselves on the internet." "The point of the academy is to push industry when it's stuck."

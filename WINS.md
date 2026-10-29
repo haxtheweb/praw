@@ -68,6 +68,12 @@ Only list wins that have happened. Proposals and pilots in progress stay out unt
 - Why it matters: the web treated as a file format (pillars 1, 2 and 4).
 - Source: [SIIP talk, Apereo microconference, May 2026](https://www.youtube.com/watch?v=TNF0uzYi9Kk)
 
+### Faculty building on HAX: Michael Collins
+- Who: Michael Collins, faculty member teaching with HAX tools.
+- Before → after: from teaching with HAX to developing his own flavor on top of it; the recent admin dashboard UI and the updated outline designer are his, with multiple pull requests in the last month.
+- Why it matters: faculty become contributors, not just users (Extensible, Sustainable).
+- Source: Bryan Ollendyke (Oct 2026)
+
 ### 36 students, 18 fixes
 - Who: one semester's course cohort.
 - Before → after: 36 students produced 24 UX feedback items for HAX; 18 were resolved within the semester.
@@ -90,9 +96,9 @@ Only list wins that have happened. Proposals and pilots in progress stay out unt
 
 ![SIIP timeline 2008–2026](visuals/siip-timeline-2008-2026.png)
 
-In the talks, yellow marks events (courses, collaborations, HAX Camps, adoptions), rockets mark major shipped innovations and palettes mark themes; blue circles are Penn State staff effort and red are student contributions. The bottom row counts "how many bricks are in our ecosystem, how many sites there are, and how many people are working on this and impacted by it" ([Nothing is intentional, until it is, Mar 2026](https://www.youtube.com/watch?v=wkdW2EjkwZ4)). The teal row adds up to about 67,000, matching "67,000 students served in just a small percentage of courses", so it is likely students served each year. **Verify:** the remaining icons before quoting them. `*` marks estimates (site counts for 2021–22) or projections (2025).
+In the talks, yellow marks events (courses, collaborations, HAX Camps, adoptions), rockets mark major shipped innovations and palettes mark themes; blue circles are Penn State staff effort and red are student contributions. The bottom row counts "how many bricks are in our ecosystem, how many sites there are, and how many people are working on this and impacted by it" ([Nothing is intentional, until it is, Mar 2026](https://www.youtube.com/watch?v=wkdW2EjkwZ4)). Legend confirmed by Bryan. Teal is students educated that semester through HAX-based systems in Arts and Architecture only; the real reach is far higher. The pink outline is an estimate. `*` marks estimates (site counts for 2021–22) or projections (2025). 2026 can't be charted the same way: with 400+ pull requests a month, the project is enhancing everything at once.
 
-| Year | Bricks (blue block) | Sites (stacked blocks) | Purple person | Pink person | Green person | Coder at laptop | Students served? (teal) | Pink outline person |
+| Year | Bricks: web components (blue block) | Sites (stacked blocks) | Full-time Penn State staff (purple) | Student interns (pink) | Contributors at large, incl. staff and interns (green) | Students in Bryan's classes (coder) | Students educated in A&A via HAX (teal) | Faculty and staff using HAX, est. (pink outline) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 2008 | | | 1 | | | | | |
 | 2015 | | | 3 | | | | | |
@@ -117,9 +123,9 @@ In the talks, yellow marks events (courses, collaborations, HAX Camps, adoptions
 
 ### Agents with context: 90% then 211%
 - Who: the HAX project, with agents primed by PRAW.
-- Before → after: versions 1–25 averaged about 33 closed issues per month. Version 25→26 reached about 64 per month (+90%). Version 26→26.7 reached about 104 per month (+211%). Using AI without context first cost about 3% efficiency.
+- Before → after: versions 1–25 averaged about 33 closed issues per month. Version 25→26 reached about 64 per month (+90%). Version 26→26.7 reached about 104 per month (+211%). Using AI without context first cost about 3% efficiency. By late 2026 the project is merging 400+ pull requests a month.
 - Why it matters: the worldview, rules and skills in this repository are measurably what made agents useful.
-- Source: *The Many Mes* talk
+- Source: *The Many Mes* talk; Bryan Ollendyke (Oct 2026)
 
 ![Issue velocity by HAX version](visuals/hax-issue-velocity-by-version.png)
 
@@ -149,7 +155,7 @@ In the talks, yellow marks events (courses, collaborations, HAX Camps, adoptions
 
 ### Reach by early 2026
 - Who: students and authors at Penn State and beyond.
-- Before → after: about 67,000 students served by HAX-built courses (counting only part of the courses using it); themes grew from 14 at the end of 2024 to more than 30; over 10,000 pages of unique content on hax.psu.edu by early 2025; external adopters such as the LaunchBox small-business training site, which built on hax.psu.edu and then downloaded its site to its own server.
+- Before → after: about 67,000 students educated through HAX-based systems in the College of Arts and Architecture alone (the real number is far higher); themes grew from 14 at the end of 2024 to more than 30; over 10,000 pages of unique content on hax.psu.edu by early 2025; external adopters such as the LaunchBox small-business training site, which built on hax.psu.edu and then downloaded its site to its own server.
 - Why it matters: scale without a vendor (Free and open, Platform agnostic).
 - Source: [Nothing is intentional, until it is, Mar 2026](https://www.youtube.com/watch?v=wkdW2EjkwZ4), [2025: State of HAX Community, Feb 2025](https://www.youtube.com/watch?v=WGv94SY0cRM)
 
@@ -213,8 +219,7 @@ In the talks, yellow marks events (courses, collaborations, HAX Camps, adoptions
 ## Still to collect
 
 Numbers that would make these stories land. Fill in when known:
-- [ ] Legend for the SIIP timeline counts (and what the 36 beside the ELMS:LN logo means)
-- [ ] 2026 counts for the SIIP timeline
+- [ ] What the 36 beside the ELMS:LN logo on the timeline means
 - [ ] npm downloads / CDN hits for `@haxtheweb` packages
 - [ ] Institutions using HAX outside Penn State
 - [ ] Courses or programs that replaced paid materials with HAX-built OER

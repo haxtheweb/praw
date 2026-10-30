@@ -1,6 +1,6 @@
 # VOICE
 
-> **Reviewed by Bryan; pending Bill Rose's review of the partner-facing section.** Seeded by an agent from Bryan Ollendyke's own writing ([btopro.com](https://btopro.com), [btopro.wordpress.com](https://btopro.wordpress.com), [btopro/edtechjoker](https://github.com/btopro/edtechjoker)), three recent talks (*SIIP*, *The Many Mes*, *So you want a (web) revolution?*) and partner-facing writing by Bill Rose, HAX product owner. Bryan is the HAX platform owner; the two titles are used interchangeably.
+> **Reviewed by Bryan and Bill Rose.** Seeded by an agent from Bryan Ollendyke's own writing ([btopro.com](https://btopro.com), [btopro.wordpress.com](https://btopro.wordpress.com), [btopro/edtechjoker](https://github.com/btopro/edtechjoker)), three recent talks (*SIIP*, *The Many Mes*, *So you want a (web) revolution?*) and partner-facing writing by Bill Rose, HAX product owner. Bryan is the HAX platform owner; the two titles are used interchangeably.
 
 `WORLDVIEW.md` says what HAX believes. This file says how it sounds when it says it. Agents use it when writing anything public on behalf of HAX: READMEs, release notes, talks, posts, issue replies, course material, proposals.
 
@@ -19,10 +19,10 @@ The message has to hold up whoever tells it: Bryan at a FOSS conference, Bill in
 
 | Audience | Lead with | HAX's role | Words that land | Evidence they want |
 | --- | --- | --- | --- | --- |
-| Developers and open source | The cause and the code: ubiquity, standards, zero cost | The project | web components, sovereign, static, portable, contribute | Releases, repos, performance, the issue queue |
-| Faculty, IDs and partners | Their goal: their learners, their audience, their mission. For instructional designers: prototype live with a subject expert in the meeting, fail faster, stop copy-pasting from Word | Invisible: "made possible through HAX" | empowered, polished, accessible, their own | Their finished site or course, time saved |
-| Institutional leaders and funders | Mission and strategic goals (for Penn State, the land-grant mission) | A platform the institution owns and steers | interdisciplinary, experiential learning, sustainable, cost avoided | Measured outcomes, pre/post data, adoption, students employed |
-| Students | What they'll build and where it leads | Real software they help shape | portfolio, real users, career, community | Former students' paths (Red Hat, Adobe, IBM, Ford, PennDOT) |
+| Open source developers | The cause and the code: ubiquity, standards, zero cost | The project | web components, extensible, agent-ready, high-leverage, sovereign, static, portable, contribute | Releases, repos, performance, the issue queue |
+| Faculty, IDs and partners | Their goal: their learners, their audience, their mission. For instructional designers: prototype live with a subject expert in the meeting, fail faster, stop copy-pasting from Word | A truly transparent authoring tool; invisible: "made possible through HAX" | process efficiency, content import, page layout, interactive, flexibility, high remixability, fast authoring, free and forever, empowered, polished, accessible, their own | Course showcase, authoring demos, testimonials, tool comparison |
+| Institutional leaders and funders | Mission and strategic goals (for Penn State, the land-grant mission); competitive advantage | A platform the institution owns and steers | interdisciplinary, experiential learning, sustainable, cost savings, compliance, branding, publishing platform, product licensing | Measured outcomes, pre/post data, adoption, students employed, cost savings, institutional impact |
+| Students | What they'll build and where it leads | Real software they help shape | portfolio, real users, career, community, increased employability, authentic learning, apprenticeship | Former students' paths (Red Hat, Adobe, IBM, Ford, PennDOT) |
 | Agents | All of the above, with `WORLDVIEW.md` as the source of truth | The context they work inside | — | Verified facts only; cite `WINS.md` |
 
 **Patterns from partner-facing writing:**

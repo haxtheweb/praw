@@ -10,7 +10,10 @@ Plain-language terms, each tied to where it shows up. Source details live in the
 | **HAX editor** | The block-by-block WYSIWYG editor. Writes standards-based HTML built from web components. |
 | **JOS (JSON Outline Schema)** | The format of `site.json`: a flat list of items with `parent`, `order`, `indent`, `location`, and `slug` that forms the navigation tree. https://github.com/haxtheweb/json-outline-schema |
 | **Web component** | A custom HTML element built on browser standards. In HAX most are LitElement-based and live in the `webcomponents` monorepo. |
-| **HAXSchema / `haxProperties`** | The description that makes a component editable in the HAX editor: its settings, inputs, and sample content (`demoSchema`). |
+| **HAXSchema / `haxProperties`** | The description that makes a component editable in the HAX editor: its settings, inputs, and sample content (`demoSchema`). https://github.com/haxtheweb/hax-schema |
+| **HAXElementSchema** | The lightweight `{tag, properties, content, eventName}` virtual-DOM object HAX uses to insert, duplicate, and convert elements before they become real DOM nodes; `demoSchema` entries are HAXElementSchema objects. Companion to HAXSchema. https://github.com/haxtheweb/hax-element-schema |
+| **Merlin** | The universal command-palette / voice-assistant (`<super-daemon>`), opened with `Alt+Shift`, shared across HAXcms, the HAX body editor, and app-hax. Any part of the app registers searchable Option/Program commands into it. https://github.com/haxtheweb/merlin-schema |
+| **Appstore spec** | The schema for HAX's media/app browser: external media providers (`apps`), reusable content stacks (`stax`), and preloaded custom elements (`autoloader`). https://github.com/haxtheweb/appstore-spec |
 | **`wc-registry.json`** | A built map from every valid component tag to its module path. Read it to know which tags exist. Generated; never hand-edit. |
 | **Magic script / autoloader** | The page script that finds undefined custom elements, looks them up in the registry, and imports them on demand. |
 | **DDD** | The primary HAX design system (tokens such as `--ddd-*`). The repo's `hax-design-system` skill spells out the acronym. SimpleColors is the older layer it replaces. |

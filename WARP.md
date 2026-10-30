@@ -16,11 +16,17 @@ This file is the always-on Project Rule for the `praw` repo — a lean index to 
 - **`haxcms-php`** / **`haxcms-nodejs`** — HAXcms backends (content management, APIs, SSR). Keep feature/security parity between them.
 - **`desktop`** — Electron local dev environment.
 - **`hax11ty`** — HAX + Eleventy static-site integration.
-- **`json-outline-schema`** — JSON schema for HAXcms content structure/navigation.
-- **`hax-schema`** — HAX property schemas (HAXSchema) for editor integration.
 - **`open-apis`** — legacy microservice (open-apis.hax.cloud), phased out; route new work through on-premises `@system/`/`@site/` MFR namespaces (see `haxcms/WARP.md`).
 - **`docs`** — official HAX docs (a HAXcms site).
 - **`issues`** — unified issue tracker for the whole ecosystem.
+
+## Schema repos (documentation-only, not runtime code)
+Each documents the contract/data-shape for one HAX subsystem; the runtime that consumes it lives in `webcomponents` (mostly `elements/hax-body*`, `elements/haxcms-elements`, `elements/super-daemon`) unless noted.
+- **`json-outline-schema`** — `site.json`'s shape: the flat `items` list (`id`/`parent`/`order`/`indent`/`location`/`slug`) that forms a HAXsite's navigation tree, plus the Skeleton API that layers starter-site templates on top of it. Consumed by both HAXcms backends and `haxcms-site-store`.
+- **`hax-schema`** — `haxProperties` / HAXSchema: the contract that makes a web component editable in the HAX editor (gizmo metadata, `settings` form fields, `haxHooks` lifecycle integration, `demoSchema`). Read before adding or auditing HAX capability on an element.
+- **`hax-element-schema`** — `HAXElementSchema`, the lightweight `{tag, properties, content, eventName}` virtual-DOM object HAX passes around for insertion, duplication, and DOM↔schema conversion (`haxElementToNode`/`nodeToHaxElement`). Companion to `hax-schema`; `demoSchema` entries are `HAXElementSchema` objects.
+- **`merlin-schema`** — the Option/Program contract for Merlin, the universal command-palette and voice assistant (`<super-daemon>`, `Alt+Shift`) shared by HAXcms, the HAX body editor, and app-hax. Use when registering new palette commands.
+- **`appstore-spec`** — the schema for HAX's media/app browser: external media provider definitions (`apps`), reusable content stacks (`stax`), and preloaded custom elements (`autoloader`). Backs the `generateAppStore`-style endpoints that feed the HAX editor's media tray.
 
 ## Pillars (one-liners)
 Accessible (WCAG 2.0 AA, minimal knowledge to maintain) · Extensible (web standards + microservices) · Free & Open (5Rs of OER) · Efficient (web standards over heavy libs, lazy loading, offline) · Platform Agnostic · Remixable (modular, semantic content) · Sustainable (environmental, technical, community).

@@ -24,6 +24,7 @@ Reusable agent skills for the HAX (Headless Authoring eXperience) ecosystem. The
 | `haxcms-lrs-rater` | Run BookLooky's Looky Rating System (LRS) content rating and minimum-age recommendation on a HAXcms site's aggregated content | `npx skills add haxtheweb/praw --skill haxcms-lrs-rater` |
 | `hax-content-chunking-audit` | Audit a HAX page for cognitive load / chunking and recommend HAX remediation | `npx skills add haxtheweb/praw --skill hax-content-chunking-audit` |
 | `hax-ubd-unit-audit` | Read-only UbD review of an existing HAX unit with remediation handoff | `npx skills add haxtheweb/praw --skill hax-ubd-unit-audit` |
+| `siip-course-alignment` | Align a course with an open source project via the Sustainable Impact and Innovation Pipeline | `npx skills add haxtheweb/praw --skill siip-course-alignment` |
 | `hax-issue-research` | Research a HAX GitHub issue, draft a plan, and capture it as a "Plan Created" comment | `npx skills add haxtheweb/praw --skill hax-issue-research` |
 | `hax-ubd-backward-design` | Design HAX course units via UbD backward design; emits unit plan + HAX site skeleton | `npx skills add haxtheweb/praw --skill hax-ubd-backward-design` |
 | `hax-ubd-stage1` | UbD Stage 1 — unpack standards into big ideas, understandings, EQs, K/S, misconceptions | `npx skills add haxtheweb/praw --skill hax-ubd-stage1` |

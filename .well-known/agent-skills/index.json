@@ -295,7 +295,7 @@
       "type": "skill-md",
       "description": "Create a published HAXcms tutorial site from a YouTube video plus a DOCX transcript, then write LinkedIn / X posts and a YouTube SEO description. Use for \"hax tutorial skill\" or \"make a tutorial site from this video\". Bundled skeleton, portable.",
       "url": "hax-tutorial-site/SKILL.md",
-      "digest": "sha256:f508eaabae6e2c1b02325651b47e0702652e1349d4cab1b5c1dd73da47b3b948",
+      "digest": "sha256:d4dd2b1cfa0ddb94bc62a4e84f1f1676957db17fb3aec03d20a43ce041adc60e",
       "files": [
         {
           "path": "references/author-profile.json",
@@ -498,6 +498,13 @@
           "digest": "sha256:20f5db8011d483f16f1d98d81d8a71cc45527cb294bc0aa4f6f6391ed631a98d"
         }
       ]
+    },
+    {
+      "name": "siip-course-alignment",
+      "type": "skill-md",
+      "description": "Align a course with an open source project using the Sustainable Impact and Innovation Pipeline (SIIP): map course objectives to real contribution paths, shape a 40/20/20/20 term, and plan the lab, club and onboarding loop. Use for \"align my course with an open source project\", \"students contributing to OSS\", \"SIIP\" or \"turn class projects into real contributions\".",
+      "url": "siip-course-alignment/SKILL.md",
+      "digest": "sha256:b9d463dae8c7127c86bbbf3e01d46eb347ac1e036a076c4a6af4a41a59cab22f"
     },
     {
       "name": "youtube-vtt",

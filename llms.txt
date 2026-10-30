@@ -6,6 +6,17 @@
 
 The HAX (Headless Authoring eXperience) ecosystem is a comprehensive web development platform for rapid creation of accessible, performant web components and static sites. It consists of a monorepo with 250+ LitElement components, a HAXcms content management system, a DDD design system, and extensive tooling.
 
+## Worldview, Voice and Evidence
+
+Read these before writing anything public about HAX or making product decisions:
+
+- **WHY.md**: why HAX exists, in Bryan Ollendyke's words — https://github.com/haxtheweb/praw/blob/main/WHY.md
+- **WORLDVIEW.md**: what HAX believes; the seven community pillars, pillar checks for PRs, and the course ontology — https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md
+- **VOICE.md**: how HAX sounds; core message, audiences, signature lines, what the voice doesn't do — https://github.com/haxtheweb/praw/blob/main/VOICE.md
+- **WINS.md**: sourced impact stories to cite (never funding amounts) — https://github.com/haxtheweb/praw/blob/main/WINS.md
+- **impact/**: the data behind the wins (npm downloads, release velocity, merged PRs, SIIP timeline), refreshed with `node scripts/impact-stats.mjs` — https://github.com/haxtheweb/praw/tree/main/impact
+- **talks/**: notes and recordings of key talks — https://github.com/haxtheweb/praw/tree/main/talks
+
 ## Interface Skills (canonical source: `create`)
 
 The following interface skills are owned by the `create` repo (`@haxtheweb/create`, the `hax` CLI) and are version-locked to the CLI. They are NOT bundled in PRAW — install them from `create`:
@@ -79,6 +90,8 @@ All skills below live in `skills/` in this repo. The machine-readable discovery 
   - Path: `/skills/hax-ubd-stage3/SKILL.md`
 - **hax-ubd-unit-audit**: Read-only UbD review of an existing HAX unit with remediation handoff
   - Path: `/skills/hax-ubd-unit-audit/SKILL.md`
+- **siip-course-alignment**: Align a course with an open source project via the Sustainable Impact and Innovation Pipeline (term shape, contribution map, lab/club loop)
+  - Path: `/skills/siip-course-alignment/SKILL.md`
 - **hax-udl-audit**: Read-only UDL 3.0 audit (Engagement, Representation, Action & Expression) of a HAX page
   - Path: `/skills/hax-udl-audit/SKILL.md`
 - **haxcms-lrs-rater**: Run BookLooky's Looky Rating System (LRS) content rating and minimum-age recommendation on a HAXcms site's aggregated content

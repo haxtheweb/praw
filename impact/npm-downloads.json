@@ -1,0 +1,1744 @@
+{
+  "source": "npm registry search (registry.npmjs.org/-/v1/search)",
+  "retrieved": "2026-10-30",
+  "scope": "@haxtheweb",
+  "packages": 289,
+  "weekly": 9303,
+  "monthly": 49210,
+  "list": [
+    {
+      "name": "@haxtheweb/haxcms-nodejs",
+      "version": "26.8.1",
+      "weekly": 472,
+      "monthly": 2338
+    },
+    {
+      "name": "@haxtheweb/simple-icon",
+      "version": "26.8.0",
+      "weekly": 138,
+      "monthly": 1414
+    },
+    {
+      "name": "@haxtheweb/d-d-d",
+      "version": "26.8.0",
+      "weekly": 133,
+      "monthly": 1380
+    },
+    {
+      "name": "@haxtheweb/hax-iconset",
+      "version": "26.8.0",
+      "weekly": 131,
+      "monthly": 1369
+    },
+    {
+      "name": "@haxtheweb/simple-colors",
+      "version": "26.8.0",
+      "weekly": 137,
+      "monthly": 1328
+    },
+    {
+      "name": "@haxtheweb/simple-colors-shared-styles",
+      "version": "26.8.0",
+      "weekly": 135,
+      "monthly": 1320
+    },
+    {
+      "name": "@haxtheweb/simple-picker",
+      "version": "26.8.0",
+      "weekly": 117,
+      "monthly": 1122
+    },
+    {
+      "name": "@haxtheweb/simple-modal",
+      "version": "26.8.0",
+      "weekly": 126,
+      "monthly": 1119
+    },
+    {
+      "name": "@haxtheweb/intersection-element",
+      "version": "26.8.0",
+      "weekly": 116,
+      "monthly": 1099
+    },
+    {
+      "name": "@haxtheweb/a11y-utils",
+      "version": "26.8.0",
+      "weekly": 97,
+      "monthly": 1008
+    },
+    {
+      "name": "@haxtheweb/haxcms-elements",
+      "version": "26.8.0",
+      "weekly": 47,
+      "monthly": 782
+    },
+    {
+      "name": "@haxtheweb/utils",
+      "version": "26.8.0",
+      "weekly": 77,
+      "monthly": 759
+    },
+    {
+      "name": "@haxtheweb/i18n-manager",
+      "version": "26.8.0",
+      "weekly": 92,
+      "monthly": 746
+    },
+    {
+      "name": "@haxtheweb/md-extra-icons",
+      "version": "9.0.1",
+      "weekly": 405,
+      "monthly": 723
+    },
+    {
+      "name": "@haxtheweb/es-global-bridge",
+      "version": "26.8.0",
+      "weekly": 73,
+      "monthly": 674
+    },
+    {
+      "name": "@haxtheweb/json-outline-schema",
+      "version": "26.8.0",
+      "weekly": 70,
+      "monthly": 634
+    },
+    {
+      "name": "@haxtheweb/dynamic-import-registry",
+      "version": "26.8.0",
+      "weekly": 69,
+      "monthly": 611
+    },
+    {
+      "name": "@haxtheweb/editable-outline",
+      "version": "9.0.1",
+      "weekly": 308,
+      "monthly": 608
+    },
+    {
+      "name": "@haxtheweb/lrndesign-sidenote",
+      "version": "9.0.1",
+      "weekly": 305,
+      "monthly": 592
+    },
+    {
+      "name": "@haxtheweb/create",
+      "version": "26.8.1",
+      "weekly": 43,
+      "monthly": 576
+    },
+    {
+      "name": "@haxtheweb/json-editor",
+      "version": "9.0.1",
+      "weekly": 299,
+      "monthly": 530
+    },
+    {
+      "name": "@haxtheweb/lrndesign-avatar",
+      "version": "9.0.1",
+      "weekly": 278,
+      "monthly": 528
+    },
+    {
+      "name": "@haxtheweb/mdi-iconset-svg",
+      "version": "9.0.1",
+      "weekly": 298,
+      "monthly": 520
+    },
+    {
+      "name": "@haxtheweb/video-player",
+      "version": "26.8.0",
+      "weekly": 112,
+      "monthly": 467
+    },
+    {
+      "name": "@haxtheweb/simple-tooltip",
+      "version": "26.8.0",
+      "weekly": 74,
+      "monthly": 459
+    },
+    {
+      "name": "@haxtheweb/simple-blog-card",
+      "version": "9.0.1",
+      "weekly": 294,
+      "monthly": 432
+    },
+    {
+      "name": "@haxtheweb/a11y-menu-button",
+      "version": "26.8.0",
+      "weekly": 67,
+      "monthly": 410
+    },
+    {
+      "name": "@haxtheweb/absolute-position-behavior",
+      "version": "26.8.0",
+      "weekly": 71,
+      "monthly": 406
+    },
+    {
+      "name": "@haxtheweb/open-apis",
+      "version": "26.0.7",
+      "weekly": 268,
+      "monthly": 402
+    },
+    {
+      "name": "@haxtheweb/simple-toolbar",
+      "version": "26.8.0",
+      "weekly": 71,
+      "monthly": 398
+    },
+    {
+      "name": "@haxtheweb/radio-behaviors",
+      "version": "26.8.0",
+      "weekly": 67,
+      "monthly": 387
+    },
+    {
+      "name": "@haxtheweb/simple-popover",
+      "version": "26.8.0",
+      "weekly": 67,
+      "monthly": 356
+    },
+    {
+      "name": "@haxtheweb/rpg-character",
+      "version": "26.8.0",
+      "weekly": 46,
+      "monthly": 317
+    },
+    {
+      "name": "@haxtheweb/a11y-media-player",
+      "version": "26.8.0",
+      "weekly": 40,
+      "monthly": 300
+    },
+    {
+      "name": "@haxtheweb/schema-behaviors",
+      "version": "26.8.0",
+      "weekly": 44,
+      "monthly": 298
+    },
+    {
+      "name": "@haxtheweb/simple-fields",
+      "version": "26.8.0",
+      "weekly": 44,
+      "monthly": 292
+    },
+    {
+      "name": "@haxtheweb/code-editor",
+      "version": "26.8.0",
+      "weekly": 43,
+      "monthly": 266
+    },
+    {
+      "name": "@haxtheweb/responsive-utility",
+      "version": "26.8.0",
+      "weekly": 44,
+      "monthly": 260
+    },
+    {
+      "name": "@haxtheweb/voice-recorder",
+      "version": "26.8.0",
+      "weekly": 45,
+      "monthly": 258
+    },
+    {
+      "name": "@haxtheweb/media-behaviors",
+      "version": "26.8.0",
+      "weekly": 39,
+      "monthly": 258
+    },
+    {
+      "name": "@haxtheweb/scroll-button",
+      "version": "26.8.0",
+      "weekly": 39,
+      "monthly": 257
+    },
+    {
+      "name": "@haxtheweb/map-menu",
+      "version": "26.8.0",
+      "weekly": 55,
+      "monthly": 257
+    },
+    {
+      "name": "@haxtheweb/a11y-tabs",
+      "version": "26.8.0",
+      "weekly": 45,
+      "monthly": 254
+    },
+    {
+      "name": "@haxtheweb/simple-icon-picker",
+      "version": "26.8.0",
+      "weekly": 43,
+      "monthly": 253
+    },
+    {
+      "name": "@haxtheweb/grid-plate",
+      "version": "26.8.0",
+      "weekly": 42,
+      "monthly": 252
+    },
+    {
+      "name": "@haxtheweb/jwt-login",
+      "version": "26.8.0",
+      "weekly": 61,
+      "monthly": 251
+    },
+    {
+      "name": "@haxtheweb/iframe-loader",
+      "version": "26.8.0",
+      "weekly": 55,
+      "monthly": 251
+    },
+    {
+      "name": "@haxtheweb/hax-body-behaviors",
+      "version": "26.8.0",
+      "weekly": 44,
+      "monthly": 249
+    },
+    {
+      "name": "@haxtheweb/simple-progress",
+      "version": "26.8.0",
+      "weekly": 43,
+      "monthly": 248
+    },
+    {
+      "name": "@haxtheweb/simple-toast",
+      "version": "26.8.0",
+      "weekly": 43,
+      "monthly": 248
+    },
+    {
+      "name": "@haxtheweb/simple-login",
+      "version": "26.8.0",
+      "weekly": 41,
+      "monthly": 247
+    },
+    {
+      "name": "@haxtheweb/md-block",
+      "version": "26.8.0",
+      "weekly": 38,
+      "monthly": 245
+    },
+    {
+      "name": "@haxtheweb/lunr-search",
+      "version": "26.8.0",
+      "weekly": 39,
+      "monthly": 243
+    },
+    {
+      "name": "@haxtheweb/simple-range-input",
+      "version": "26.8.0",
+      "weekly": 57,
+      "monthly": 243
+    },
+    {
+      "name": "@haxtheweb/simple-search",
+      "version": "26.8.0",
+      "weekly": 67,
+      "monthly": 242
+    },
+    {
+      "name": "@haxtheweb/super-daemon",
+      "version": "26.8.0",
+      "weekly": 40,
+      "monthly": 241
+    },
+    {
+      "name": "@haxtheweb/image-inspector",
+      "version": "26.8.0",
+      "weekly": 40,
+      "monthly": 237
+    },
+    {
+      "name": "@haxtheweb/responsive-grid",
+      "version": "26.8.0",
+      "weekly": 45,
+      "monthly": 237
+    },
+    {
+      "name": "@haxtheweb/hax-body",
+      "version": "26.8.0",
+      "weekly": 39,
+      "monthly": 237
+    },
+    {
+      "name": "@haxtheweb/accent-card",
+      "version": "26.8.0",
+      "weekly": 39,
+      "monthly": 236
+    },
+    {
+      "name": "@haxtheweb/rich-text-editor",
+      "version": "26.8.0",
+      "weekly": 49,
+      "monthly": 236
+    },
+    {
+      "name": "@haxtheweb/hexagon-loader",
+      "version": "26.8.0",
+      "weekly": 35,
+      "monthly": 233
+    },
+    {
+      "name": "@haxtheweb/simple-cta",
+      "version": "26.8.0",
+      "weekly": 40,
+      "monthly": 232
+    },
+    {
+      "name": "@haxtheweb/course-design",
+      "version": "26.8.0",
+      "weekly": 40,
+      "monthly": 232
+    },
+    {
+      "name": "@haxtheweb/media-image",
+      "version": "26.8.0",
+      "weekly": 37,
+      "monthly": 232
+    },
+    {
+      "name": "@haxtheweb/a11y-collapse",
+      "version": "26.8.0",
+      "weekly": 39,
+      "monthly": 229
+    },
+    {
+      "name": "@haxtheweb/license-element",
+      "version": "26.8.0",
+      "weekly": 40,
+      "monthly": 229
+    },
+    {
+      "name": "@haxtheweb/future-terminal-text",
+      "version": "26.8.0",
+      "weekly": 38,
+      "monthly": 226
+    },
+    {
+      "name": "@haxtheweb/editable-table",
+      "version": "26.8.0",
+      "weekly": 38,
+      "monthly": 223
+    },
+    {
+      "name": "@haxtheweb/full-width-image",
+      "version": "26.8.0",
+      "weekly": 40,
+      "monthly": 223
+    },
+    {
+      "name": "@haxtheweb/haxor-slevin",
+      "version": "26.8.0",
+      "weekly": 43,
+      "monthly": 222
+    },
+    {
+      "name": "@haxtheweb/replace-tag",
+      "version": "26.8.0",
+      "weekly": 41,
+      "monthly": 221
+    },
+    {
+      "name": "@haxtheweb/page-flag",
+      "version": "26.8.0",
+      "weekly": 41,
+      "monthly": 221
+    },
+    {
+      "name": "@haxtheweb/collection-list",
+      "version": "26.8.0",
+      "weekly": 40,
+      "monthly": 220
+    },
+    {
+      "name": "@haxtheweb/code-sample",
+      "version": "26.8.0",
+      "weekly": 36,
+      "monthly": 220
+    },
+    {
+      "name": "@haxtheweb/h-a-x",
+      "version": "26.8.0",
+      "weekly": 37,
+      "monthly": 220
+    },
+    {
+      "name": "@haxtheweb/figure-label",
+      "version": "26.8.0",
+      "weekly": 40,
+      "monthly": 219
+    },
+    {
+      "name": "@haxtheweb/play-list",
+      "version": "26.8.0",
+      "weekly": 38,
+      "monthly": 218
+    },
+    {
+      "name": "@haxtheweb/hal-9000",
+      "version": "26.8.0",
+      "weekly": 37,
+      "monthly": 217
+    },
+    {
+      "name": "@haxtheweb/citation-element",
+      "version": "26.8.0",
+      "weekly": 39,
+      "monthly": 216
+    },
+    {
+      "name": "@haxtheweb/retro-card",
+      "version": "26.8.0",
+      "weekly": 39,
+      "monthly": 216
+    },
+    {
+      "name": "@haxtheweb/q-r",
+      "version": "26.8.0",
+      "weekly": 38,
+      "monthly": 215
+    },
+    {
+      "name": "@haxtheweb/product-card",
+      "version": "26.8.0",
+      "weekly": 37,
+      "monthly": 214
+    },
+    {
+      "name": "@haxtheweb/undo-manager",
+      "version": "26.8.0",
+      "weekly": 37,
+      "monthly": 213
+    },
+    {
+      "name": "@haxtheweb/page-contents-menu",
+      "version": "26.8.0",
+      "weekly": 37,
+      "monthly": 213
+    },
+    {
+      "name": "@haxtheweb/img-pan-zoom",
+      "version": "26.8.0",
+      "weekly": 38,
+      "monthly": 213
+    },
+    {
+      "name": "@haxtheweb/dl-behavior",
+      "version": "26.8.0",
+      "weekly": 40,
+      "monthly": 213
+    },
+    {
+      "name": "@haxtheweb/micro-frontend-registry",
+      "version": "26.8.0",
+      "weekly": 38,
+      "monthly": 212
+    },
+    {
+      "name": "@haxtheweb/outline-designer",
+      "version": "26.8.0",
+      "weekly": 38,
+      "monthly": 211
+    },
+    {
+      "name": "@haxtheweb/file-system-broker",
+      "version": "26.8.0",
+      "weekly": 39,
+      "monthly": 211
+    },
+    {
+      "name": "@haxtheweb/wc-autoload",
+      "version": "26.8.0",
+      "weekly": 40,
+      "monthly": 210
+    },
+    {
+      "name": "@haxtheweb/beaker-broker",
+      "version": "26.8.0",
+      "weekly": 38,
+      "monthly": 209
+    },
+    {
+      "name": "@haxtheweb/fullscreen-behaviors",
+      "version": "26.8.0",
+      "weekly": 38,
+      "monthly": 209
+    },
+    {
+      "name": "@haxtheweb/user-scaffold",
+      "version": "26.8.0",
+      "weekly": 34,
+      "monthly": 208
+    },
+    {
+      "name": "@haxtheweb/anchor-behaviors",
+      "version": "26.8.0",
+      "weekly": 40,
+      "monthly": 206
+    },
+    {
+      "name": "@haxtheweb/simple-datetime",
+      "version": "26.8.0",
+      "weekly": 38,
+      "monthly": 206
+    },
+    {
+      "name": "@haxtheweb/social-share-link",
+      "version": "26.8.0",
+      "weekly": 37,
+      "monthly": 205
+    },
+    {
+      "name": "@haxtheweb/hax-logo",
+      "version": "26.8.0",
+      "weekly": 38,
+      "monthly": 204
+    },
+    {
+      "name": "@haxtheweb/simple-filter",
+      "version": "26.8.0",
+      "weekly": 38,
+      "monthly": 203
+    },
+    {
+      "name": "@haxtheweb/git-corner",
+      "version": "26.8.0",
+      "weekly": 38,
+      "monthly": 202
+    },
+    {
+      "name": "@haxtheweb/portal-launcher",
+      "version": "26.8.0",
+      "weekly": 37,
+      "monthly": 198
+    },
+    {
+      "name": "@haxtheweb/lrn-math",
+      "version": "26.8.0",
+      "weekly": 29,
+      "monthly": 184
+    },
+    {
+      "name": "@haxtheweb/simple-img",
+      "version": "26.8.0",
+      "weekly": 38,
+      "monthly": 183
+    },
+    {
+      "name": "@haxtheweb/html-block",
+      "version": "26.8.0",
+      "weekly": 39,
+      "monthly": 181
+    },
+    {
+      "name": "@haxtheweb/runkit-embed",
+      "version": "26.8.0",
+      "weekly": 16,
+      "monthly": 172
+    },
+    {
+      "name": "@haxtheweb/multiple-choice",
+      "version": "26.8.0",
+      "weekly": 17,
+      "monthly": 152
+    },
+    {
+      "name": "@haxtheweb/clean-two",
+      "version": "26.8.0",
+      "weekly": 39,
+      "monthly": 135
+    },
+    {
+      "name": "@haxtheweb/paper-avatar",
+      "version": "9.0.1",
+      "weekly": 13,
+      "monthly": 122
+    },
+    {
+      "name": "@haxtheweb/chat-agent",
+      "version": "26.8.0",
+      "weekly": 40,
+      "monthly": 122
+    },
+    {
+      "name": "@haxtheweb/github-preview",
+      "version": "26.8.0",
+      "weekly": 26,
+      "monthly": 118
+    },
+    {
+      "name": "@haxtheweb/learn-two-theme",
+      "version": "26.8.0",
+      "weekly": 14,
+      "monthly": 118
+    },
+    {
+      "name": "@haxtheweb/lrn-icons",
+      "version": "9.0.1",
+      "weekly": 10,
+      "monthly": 111
+    },
+    {
+      "name": "@haxtheweb/lrndesign-chart",
+      "version": "26.8.0",
+      "weekly": 27,
+      "monthly": 109
+    },
+    {
+      "name": "@haxtheweb/type-writer",
+      "version": "26.8.0",
+      "weekly": 29,
+      "monthly": 105
+    },
+    {
+      "name": "@haxtheweb/lazy-image-helpers",
+      "version": "26.8.0",
+      "weekly": 14,
+      "monthly": 103
+    },
+    {
+      "name": "@haxtheweb/lrndesign-timeline",
+      "version": "26.8.0",
+      "weekly": 27,
+      "monthly": 100
+    },
+    {
+      "name": "@haxtheweb/stop-note",
+      "version": "26.8.0",
+      "weekly": 15,
+      "monthly": 97
+    },
+    {
+      "name": "@haxtheweb/clean-one",
+      "version": "26.8.0",
+      "weekly": 16,
+      "monthly": 93
+    },
+    {
+      "name": "@haxtheweb/un-sdg",
+      "version": "26.8.0",
+      "weekly": 19,
+      "monthly": 93
+    },
+    {
+      "name": "@haxtheweb/promise-progress",
+      "version": "26.8.0",
+      "weekly": 16,
+      "monthly": 91
+    },
+    {
+      "name": "@haxtheweb/self-check",
+      "version": "26.8.0",
+      "weekly": 13,
+      "monthly": 90
+    },
+    {
+      "name": "@haxtheweb/outline-player",
+      "version": "26.8.0",
+      "weekly": 14,
+      "monthly": 89
+    },
+    {
+      "name": "@haxtheweb/disqus-embed",
+      "version": "26.8.0",
+      "weekly": 41,
+      "monthly": 87
+    },
+    {
+      "name": "@haxtheweb/app-hax",
+      "version": "26.8.0",
+      "weekly": 14,
+      "monthly": 86
+    },
+    {
+      "name": "@haxtheweb/chartist-render",
+      "version": "26.8.0",
+      "weekly": 26,
+      "monthly": 86
+    },
+    {
+      "name": "@haxtheweb/user-action",
+      "version": "26.8.0",
+      "weekly": 13,
+      "monthly": 82
+    },
+    {
+      "name": "@haxtheweb/screen-recorder",
+      "version": "26.8.0",
+      "weekly": 28,
+      "monthly": 82
+    },
+    {
+      "name": "@haxtheweb/lrn-vocab",
+      "version": "26.8.0",
+      "weekly": 5,
+      "monthly": 80
+    },
+    {
+      "name": "@haxtheweb/audio-player",
+      "version": "26.8.0",
+      "weekly": 2,
+      "monthly": 77
+    },
+    {
+      "name": "@haxtheweb/a11y-behaviors",
+      "version": "26.8.0",
+      "weekly": 13,
+      "monthly": 77
+    },
+    {
+      "name": "@haxtheweb/page-section",
+      "version": "26.8.0",
+      "weekly": 12,
+      "monthly": 76
+    },
+    {
+      "name": "@haxtheweb/date-card",
+      "version": "26.8.0",
+      "weekly": 27,
+      "monthly": 75
+    },
+    {
+      "name": "@haxtheweb/tagging-question",
+      "version": "26.8.0",
+      "weekly": 32,
+      "monthly": 75
+    },
+    {
+      "name": "@haxtheweb/web-container",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 75
+    },
+    {
+      "name": "@haxtheweb/mark-the-words",
+      "version": "26.8.0",
+      "weekly": 8,
+      "monthly": 74
+    },
+    {
+      "name": "@haxtheweb/example-hax-element",
+      "version": "26.8.0",
+      "weekly": 22,
+      "monthly": 72
+    },
+    {
+      "name": "@haxtheweb/bootstrap-theme",
+      "version": "26.8.0",
+      "weekly": 29,
+      "monthly": 71
+    },
+    {
+      "name": "@haxtheweb/deduping-fix",
+      "version": "26.8.0",
+      "weekly": 5,
+      "monthly": 71
+    },
+    {
+      "name": "@haxtheweb/simple-blog",
+      "version": "26.8.0",
+      "weekly": 14,
+      "monthly": 68
+    },
+    {
+      "name": "@haxtheweb/meme-maker",
+      "version": "26.8.0",
+      "weekly": 6,
+      "monthly": 67
+    },
+    {
+      "name": "@haxtheweb/pdf-browser-viewer",
+      "version": "26.8.0",
+      "weekly": 26,
+      "monthly": 65
+    },
+    {
+      "name": "@haxtheweb/lrn-table",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 63
+    },
+    {
+      "name": "@haxtheweb/csv-render",
+      "version": "26.8.0",
+      "weekly": 21,
+      "monthly": 63
+    },
+    {
+      "name": "@haxtheweb/lrs-elements",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 60
+    },
+    {
+      "name": "@haxtheweb/example-haxcms-theme",
+      "version": "26.8.0",
+      "weekly": 8,
+      "monthly": 59
+    },
+    {
+      "name": "@haxtheweb/flash-card",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 58
+    },
+    {
+      "name": "@haxtheweb/wysiwyg-hax",
+      "version": "26.8.0",
+      "weekly": 14,
+      "monthly": 58
+    },
+    {
+      "name": "@haxtheweb/paper-input-flagged",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 53
+    },
+    {
+      "name": "@haxtheweb/d-d-docs",
+      "version": "26.8.0",
+      "weekly": 2,
+      "monthly": 53
+    },
+    {
+      "name": "@haxtheweb/image-compare-slider",
+      "version": "26.8.0",
+      "weekly": 6,
+      "monthly": 52
+    },
+    {
+      "name": "@haxtheweb/oer-schema",
+      "version": "26.8.0",
+      "weekly": 14,
+      "monthly": 51
+    },
+    {
+      "name": "@haxtheweb/cms-hax",
+      "version": "26.8.0",
+      "weekly": 6,
+      "monthly": 50
+    },
+    {
+      "name": "@haxtheweb/vocab-term",
+      "version": "26.8.0",
+      "weekly": 11,
+      "monthly": 50
+    },
+    {
+      "name": "@haxtheweb/place-holder",
+      "version": "26.8.0",
+      "weekly": 6,
+      "monthly": 49
+    },
+    {
+      "name": "@haxtheweb/a11y-gif-player",
+      "version": "26.8.0",
+      "weekly": 9,
+      "monthly": 47
+    },
+    {
+      "name": "@haxtheweb/h5p-element",
+      "version": "26.8.0",
+      "weekly": 2,
+      "monthly": 46
+    },
+    {
+      "name": "@haxtheweb/threaded-discussion",
+      "version": "9.0.1",
+      "weekly": 8,
+      "monthly": 45
+    },
+    {
+      "name": "@haxtheweb/a11y-details",
+      "version": "26.8.0",
+      "weekly": 2,
+      "monthly": 45
+    },
+    {
+      "name": "@haxtheweb/circle-progress",
+      "version": "9.0.1",
+      "weekly": 7,
+      "monthly": 44
+    },
+    {
+      "name": "@haxtheweb/relative-heading",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 44
+    },
+    {
+      "name": "@haxtheweb/lesson-overview",
+      "version": "11.0.5",
+      "weekly": 3,
+      "monthly": 44
+    },
+    {
+      "name": "@haxtheweb/wikipedia-query",
+      "version": "26.8.0",
+      "weekly": 5,
+      "monthly": 44
+    },
+    {
+      "name": "@haxtheweb/a11y-compare-image",
+      "version": "26.8.0",
+      "weekly": 6,
+      "monthly": 44
+    },
+    {
+      "name": "@haxtheweb/nav-card",
+      "version": "9.0.1",
+      "weekly": 8,
+      "monthly": 43
+    },
+    {
+      "name": "@haxtheweb/lrn-content",
+      "version": "9.0.1",
+      "weekly": 6,
+      "monthly": 43
+    },
+    {
+      "name": "@haxtheweb/inline-audio",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 43
+    },
+    {
+      "name": "@haxtheweb/lorem-data",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 43
+    },
+    {
+      "name": "@haxtheweb/lrn-markdown-editor",
+      "version": "9.0.1",
+      "weekly": 7,
+      "monthly": 43
+    },
+    {
+      "name": "@haxtheweb/mtz-marked-editor",
+      "version": "9.0.1",
+      "weekly": 6,
+      "monthly": 43
+    },
+    {
+      "name": "@haxtheweb/lrndesign-mapmenu",
+      "version": "9.0.1",
+      "weekly": 7,
+      "monthly": 42
+    },
+    {
+      "name": "@haxtheweb/awesome-explosion",
+      "version": "26.8.0",
+      "weekly": 5,
+      "monthly": 42
+    },
+    {
+      "name": "@haxtheweb/team-member",
+      "version": "9.0.1",
+      "weekly": 6,
+      "monthly": 41
+    },
+    {
+      "name": "@haxtheweb/topic-heading",
+      "version": "9.0.1",
+      "weekly": 7,
+      "monthly": 40
+    },
+    {
+      "name": "@haxtheweb/shadow-style",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 39
+    },
+    {
+      "name": "@haxtheweb/moment-element",
+      "version": "26.8.0",
+      "weekly": 5,
+      "monthly": 39
+    },
+    {
+      "name": "@haxtheweb/simple-autocomplete",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 38
+    },
+    {
+      "name": "@haxtheweb/person-testimonial",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 38
+    },
+    {
+      "name": "@haxtheweb/air-horn",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 38
+    },
+    {
+      "name": "@haxtheweb/aframe-player",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 37
+    },
+    {
+      "name": "@haxtheweb/media-quote",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 37
+    },
+    {
+      "name": "@haxtheweb/a11y-carousel",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 36
+    },
+    {
+      "name": "@haxtheweb/elmsln-loading",
+      "version": "26.8.0",
+      "weekly": 24,
+      "monthly": 36
+    },
+    {
+      "name": "@haxtheweb/polaris-theme",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 36
+    },
+    {
+      "name": "@haxtheweb/star-rating",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 36
+    },
+    {
+      "name": "@haxtheweb/merit-badge",
+      "version": "26.8.0",
+      "weekly": 5,
+      "monthly": 36
+    },
+    {
+      "name": "@haxtheweb/data-viz",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 35
+    },
+    {
+      "name": "@haxtheweb/progress-donut",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 35
+    },
+    {
+      "name": "@haxtheweb/course-model",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 33
+    },
+    {
+      "name": "@haxtheweb/barcode-reader",
+      "version": "25.0.0",
+      "weekly": 24,
+      "monthly": 32
+    },
+    {
+      "name": "@haxtheweb/count-up",
+      "version": "26.8.0",
+      "weekly": 5,
+      "monthly": 31
+    },
+    {
+      "name": "@haxtheweb/storybook-utilities",
+      "version": "11.0.5",
+      "weekly": 5,
+      "monthly": 31
+    },
+    {
+      "name": "@haxtheweb/word-count",
+      "version": "26.8.0",
+      "weekly": 5,
+      "monthly": 30
+    },
+    {
+      "name": "@haxtheweb/product-offering",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 29
+    },
+    {
+      "name": "@haxtheweb/hex-picker",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 29
+    },
+    {
+      "name": "@haxtheweb/evo-to-wc",
+      "version": "10.0.2",
+      "weekly": 21,
+      "monthly": 27
+    },
+    {
+      "name": "@haxtheweb/check-it-out",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 26
+    },
+    {
+      "name": "@haxtheweb/glossy-portfolio-theme",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 26
+    },
+    {
+      "name": "@haxtheweb/product-glance",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 25
+    },
+    {
+      "name": "@haxtheweb/opt-img",
+      "version": "9.0.18",
+      "weekly": 0,
+      "monthly": 25
+    },
+    {
+      "name": "@haxtheweb/grade-book",
+      "version": "26.8.0",
+      "weekly": 5,
+      "monthly": 24
+    },
+    {
+      "name": "@haxtheweb/lazy-import-discover",
+      "version": "26.8.0",
+      "weekly": 5,
+      "monthly": 24
+    },
+    {
+      "name": "@haxtheweb/hax-bookmarklet",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 24
+    },
+    {
+      "name": "@haxtheweb/journey-theme",
+      "version": "26.8.0",
+      "weekly": 2,
+      "monthly": 24
+    },
+    {
+      "name": "@haxtheweb/elmsln-studio",
+      "version": "9.0.0-alpha.0",
+      "weekly": 4,
+      "monthly": 23
+    },
+    {
+      "name": "@haxtheweb/lrnsys-layout",
+      "version": "9.0.0-alpha.0",
+      "weekly": 4,
+      "monthly": 23
+    },
+    {
+      "name": "@haxtheweb/lrnsys-progress",
+      "version": "9.0.0-alpha.0",
+      "weekly": 5,
+      "monthly": 23
+    },
+    {
+      "name": "@haxtheweb/simple-emoji",
+      "version": "26.8.0",
+      "weekly": 6,
+      "monthly": 22
+    },
+    {
+      "name": "@haxtheweb/lrnsys-randomimage",
+      "version": "9.0.0-alpha.0",
+      "weekly": 4,
+      "monthly": 22
+    },
+    {
+      "name": "@haxtheweb/lrnsys-chartjs",
+      "version": "9.0.0-alpha.0",
+      "weekly": 4,
+      "monthly": 22
+    },
+    {
+      "name": "@haxtheweb/la-tex",
+      "version": "26.8.0",
+      "weekly": 5,
+      "monthly": 20
+    },
+    {
+      "name": "@haxtheweb/terrible-themes",
+      "version": "26.8.0",
+      "weekly": 5,
+      "monthly": 20
+    },
+    {
+      "name": "@haxtheweb/unity-webgl",
+      "version": "26.8.0",
+      "weekly": 2,
+      "monthly": 19
+    },
+    {
+      "name": "@haxtheweb/discord-embed",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 19
+    },
+    {
+      "name": "@haxtheweb/a11y-figure",
+      "version": "26.8.0",
+      "weekly": 5,
+      "monthly": 19
+    },
+    {
+      "name": "@haxtheweb/enhanced-text",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 19
+    },
+    {
+      "name": "@haxtheweb/music-player",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 19
+    },
+    {
+      "name": "@haxtheweb/moar-sarcasm",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 19
+    },
+    {
+      "name": "@haxtheweb/lrndesign-imagemap",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 19
+    },
+    {
+      "name": "@haxtheweb/paper-fab-speed-dial",
+      "version": "9.0.1",
+      "weekly": 12,
+      "monthly": 19
+    },
+    {
+      "name": "@haxtheweb/matching-question",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 18
+    },
+    {
+      "name": "@haxtheweb/pouch-db",
+      "version": "26.8.0",
+      "weekly": 6,
+      "monthly": 18
+    },
+    {
+      "name": "@haxtheweb/post-card",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 18
+    },
+    {
+      "name": "@haxtheweb/slide-deck",
+      "version": "0.0.0",
+      "weekly": 3,
+      "monthly": 18
+    },
+    {
+      "name": "@haxtheweb/training-theme",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 17
+    },
+    {
+      "name": "@haxtheweb/event-badge",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 17
+    },
+    {
+      "name": "@haxtheweb/twitter-embed",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 17
+    },
+    {
+      "name": "@haxtheweb/mutation-observer-import-mixin",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 17
+    },
+    {
+      "name": "@haxtheweb/image-gallery",
+      "version": "26.8.0",
+      "weekly": 5,
+      "monthly": 17
+    },
+    {
+      "name": "@haxtheweb/haxma-theme",
+      "version": "26.8.0",
+      "weekly": 2,
+      "monthly": 17
+    },
+    {
+      "name": "@haxtheweb/lrn-shared-styles",
+      "version": "9.0.1",
+      "weekly": 3,
+      "monthly": 16
+    },
+    {
+      "name": "@haxtheweb/documentation-player",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 16
+    },
+    {
+      "name": "@haxtheweb/fluid-type",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 16
+    },
+    {
+      "name": "@haxtheweb/secure-request",
+      "version": "11.0.5",
+      "weekly": 8,
+      "monthly": 16
+    },
+    {
+      "name": "@haxtheweb/baseline-build-hax",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 16
+    },
+    {
+      "name": "@haxtheweb/resume-theme",
+      "version": "26.8.0",
+      "weekly": 2,
+      "monthly": 16
+    },
+    {
+      "name": "@haxtheweb/clean-portfolio-theme",
+      "version": "26.8.0",
+      "weekly": 2,
+      "monthly": 16
+    },
+    {
+      "name": "@haxtheweb/ai-usage-license",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 16
+    },
+    {
+      "name": "@haxtheweb/spotify-embed",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 15
+    },
+    {
+      "name": "@haxtheweb/sorting-question",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 15
+    },
+    {
+      "name": "@haxtheweb/b-r",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 15
+    },
+    {
+      "name": "@haxtheweb/tableau-embed",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 15
+    },
+    {
+      "name": "@haxtheweb/fill-in-the-blanks",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 15
+    },
+    {
+      "name": "@haxtheweb/parallax-image",
+      "version": "26.8.0",
+      "weekly": 2,
+      "monthly": 14
+    },
+    {
+      "name": "@haxtheweb/linkedin-embed",
+      "version": "26.8.0",
+      "weekly": 1,
+      "monthly": 14
+    },
+    {
+      "name": "@haxtheweb/hax-app-installer",
+      "version": "0.0.0",
+      "weekly": 2,
+      "monthly": 14
+    },
+    {
+      "name": "@haxtheweb/spacebook-theme",
+      "version": "26.8.0",
+      "weekly": 2,
+      "monthly": 14
+    },
+    {
+      "name": "@haxtheweb/link-card-theme",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 14
+    },
+    {
+      "name": "@haxtheweb/twenty-six-theme",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 14
+    },
+    {
+      "name": "@haxtheweb/filtered-image",
+      "version": "9.0.1",
+      "weekly": 2,
+      "monthly": 13
+    },
+    {
+      "name": "@haxtheweb/page-break",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 13
+    },
+    {
+      "name": "@haxtheweb/hax-cloud",
+      "version": "26.8.0",
+      "weekly": 4,
+      "monthly": 13
+    },
+    {
+      "name": "@haxtheweb/simple-wc",
+      "version": "26.8.0",
+      "weekly": 2,
+      "monthly": 13
+    },
+    {
+      "name": "@haxtheweb/drawing-icons",
+      "version": "9.0.1",
+      "weekly": 2,
+      "monthly": 13
+    },
+    {
+      "name": "@haxtheweb/item-overlay-ops",
+      "version": "9.0.1",
+      "weekly": 2,
+      "monthly": 13
+    },
+    {
+      "name": "@haxtheweb/demo-snippet",
+      "version": "26.8.0",
+      "weekly": 3,
+      "monthly": 13
+    },
+    {
+      "name": "@haxtheweb/img-view-modal",
+      "version": "26.8.0",
+      "weekly": 2,
+      "monthly": 12
+    },
+    {
+      "name": "@haxtheweb/paper-stepper",
+      "version": "26.0.0",
+      "weekly": 0,
+      "monthly": 12
+    },
+    {
+      "name": "@haxtheweb/page-scroll-position",
+      "version": "26.8.0",
+      "weekly": 5,
+      "monthly": 12
+    },
+    {
+      "name": "@haxtheweb/elmsln-apps",
+      "version": "9.0.0-alpha.0",
+      "weekly": 2,
+      "monthly": 11
+    },
+    {
+      "name": "@haxtheweb/lrn-gitgraph",
+      "version": "26.0.0",
+      "weekly": 1,
+      "monthly": 11
+    },
+    {
+      "name": "@haxtheweb/select-menu",
+      "version": "9.0.1",
+      "weekly": 1,
+      "monthly": 11
+    },
+    {
+      "name": "@haxtheweb/media-playlist",
+      "version": "26.8.0",
+      "weekly": 2,
+      "monthly": 11
+    },
+    {
+      "name": "@haxtheweb/simple-drawer",
+      "version": "9.0.1",
+      "weekly": 2,
+      "monthly": 10
+    },
+    {
+      "name": "@haxtheweb/lrn-icon",
+      "version": "9.0.1",
+      "weekly": 3,
+      "monthly": 10
+    },
+    {
+      "name": "@haxtheweb/micro-copy-heading",
+      "version": "9.0.18",
+      "weekly": 3,
+      "monthly": 10
+    },
+    {
+      "name": "@haxtheweb/editable-list",
+      "version": "9.0.1",
+      "weekly": 1,
+      "monthly": 9
+    },
+    {
+      "name": "@haxtheweb/lrn-assignment",
+      "version": "9.0.1",
+      "weekly": 0,
+      "monthly": 9
+    },
+    {
+      "name": "@haxtheweb/lrn-page",
+      "version": "9.0.1",
+      "weekly": 4,
+      "monthly": 9
+    },
+    {
+      "name": "@haxtheweb/simple-timer",
+      "version": "9.0.1",
+      "weekly": 2,
+      "monthly": 9
+    },
+    {
+      "name": "@haxtheweb/author-card",
+      "version": "26.8.0",
+      "weekly": 1,
+      "monthly": 9
+    },
+    {
+      "name": "@haxtheweb/lrn-button",
+      "version": "9.0.1",
+      "weekly": 2,
+      "monthly": 9
+    },
+    {
+      "name": "@haxtheweb/lrnsys-comment",
+      "version": "9.0.0-alpha.0",
+      "weekly": 0,
+      "monthly": 8
+    },
+    {
+      "name": "@haxtheweb/social-media-icons",
+      "version": "9.0.1",
+      "weekly": 0,
+      "monthly": 8
+    },
+    {
+      "name": "@haxtheweb/lrndesign-paperstack",
+      "version": "9.0.0-alpha.0",
+      "weekly": 0,
+      "monthly": 7
+    },
+    {
+      "name": "@haxtheweb/lrnsys-outline",
+      "version": "9.0.0-alpha.0",
+      "weekly": 0,
+      "monthly": 7
+    },
+    {
+      "name": "@haxtheweb/paper-search",
+      "version": "9.0.1",
+      "weekly": 0,
+      "monthly": 7
+    },
+    {
+      "name": "@haxtheweb/pie-menu",
+      "version": "9.0.1",
+      "weekly": 0,
+      "monthly": 7
+    },
+    {
+      "name": "@haxtheweb/lrnsys-render-html",
+      "version": "9.0.0-alpha.0",
+      "weekly": 0,
+      "monthly": 7
+    },
+    {
+      "name": "@haxtheweb/simple-pager",
+      "version": "26.8.0",
+      "weekly": 1,
+      "monthly": 7
+    },
+    {
+      "name": "@haxtheweb/lrndesign-contentblock",
+      "version": "9.0.1",
+      "weekly": 2,
+      "monthly": 6
+    },
+    {
+      "name": "@haxtheweb/haxschema-builder",
+      "version": "9.0.0-alpha.0",
+      "weekly": 0,
+      "monthly": 5
+    },
+    {
+      "name": "@haxtheweb/lrn-css-reset",
+      "version": "9.0.1",
+      "weekly": 1,
+      "monthly": 5
+    },
+    {
+      "name": "@haxtheweb/grafitto-filter",
+      "version": "9.0.0-alpha.0",
+      "weekly": 0,
+      "monthly": 5
+    },
+    {
+      "name": "@haxtheweb/lrnsys-button",
+      "version": "9.0.0-alpha.0",
+      "weekly": 0,
+      "monthly": 5
+    },
+    {
+      "name": "@haxtheweb/layout-builder",
+      "version": "9.0.1",
+      "weekly": 0,
+      "monthly": 4
+    },
+    {
+      "name": "@haxtheweb/app-editor-hax",
+      "version": "9.0.1",
+      "weekly": 0,
+      "monthly": 4
+    },
+    {
+      "name": "@haxtheweb/lrndesign-comment",
+      "version": "9.0.1",
+      "weekly": 0,
+      "monthly": 3
+    },
+    {
+      "name": "@haxtheweb/lrnsys-pdf",
+      "version": "9.0.0-alpha.0",
+      "weekly": 0,
+      "monthly": 3
+    },
+    {
+      "name": "@haxtheweb/sheet-music",
+      "version": "0.0.0",
+      "weekly": 0,
+      "monthly": 0
+    }
+  ]
+}

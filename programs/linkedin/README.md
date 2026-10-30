@@ -2,6 +2,8 @@
 
 This module provides comprehensive LinkedIn posting automation with support for both data-driven and custom content posting.
 
+Write posts in the HAX voice ([`VOICE.md`](../../VOICE.md)) and cite impact from [`WINS.md`](../../WINS.md) and [`impact/`](../../impact/) rather than retyping numbers.
+
 ## Features
 
 - **OAuth 2.0 Integration**: Secure LinkedIn API authentication

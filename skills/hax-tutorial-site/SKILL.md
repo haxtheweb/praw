@@ -205,7 +205,7 @@ the published site URL, the local site path, and the copy blocks. If a step soft
    request titled `[<element>] Link video tutorial` that names the video, the tutorial URL and
    the three files. Never merge it. In review mode, do this only after the user approves
    publishing, so the tutorial URL exists.
-10. **Generate promotional copy** — read `references/social-copy-templates.md` (the author
+10. **Generate promotional copy** — follow https://github.com/haxtheweb/praw/blob/main/VOICE.md for tone (core message, what the voice doesn't do), and read `references/social-copy-templates.md` (the author
    profile is already in `site.json` from step 7) and produce three ready-to-post pieces,
    each referencing both the YouTube URL and the tutorial site URL. Use the exact emoji +
    link format from the templates:

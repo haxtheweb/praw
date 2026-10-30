@@ -123,11 +123,13 @@ In the talks, yellow marks events (courses, collaborations, HAX Camps, adoptions
 
 ### Agents with context: 90% then 211%
 - Who: the HAX project, with agents primed by PRAW.
-- Before → after: versions 1–25 averaged about 33 closed issues per month. Version 25→26 reached about 64 per month (+90%). Version 26→26.7 reached about 104 per month (+211%). Using AI without context first cost about 3% efficiency. By late 2026 the project is merging 400+ pull requests a month.
+- Before → after: versions 1–25 averaged about 33 closed issues per month. Version 25→26 reached about 64 per month (+90%). Version 26→26.7 reached about 104 per month (+211%). Using AI without context first cost about 3% efficiency. Refreshed from GitHub in October 2026: releases v3 through v25 ran at about 14–53 closed issues a month; v25→v26 at 63.8, v26→26.8.1 at 77.0, and 26.8.1 to now at 84.5. Merged pull requests across the core repos reached 480 in October 2026; no earlier month topped 60.
 - Why it matters: the worldview, rules and skills in this repository are measurably what made agents useful.
-- Source: *The Many Mes* talk; Bryan Ollendyke (Oct 2026)
+- Source: *The Many Mes* talk; [`impact/release-velocity.csv`](impact/release-velocity.csv) and [`impact/merged-prs-by-month.csv`](impact/merged-prs-by-month.csv) (refresh with `node scripts/impact-stats.mjs`)
 
-![Issue velocity by HAX version](visuals/hax-issue-velocity-by-version.png)
+![Issues closed per month by HAX release](impact/release-velocity.svg)
+
+![Merged pull requests per month across core HAX repos](impact/merged-prs-by-month.svg)
 
 ### Twelve of me
 - Who: Bryan, with agents primed by PRAW.
@@ -140,6 +142,12 @@ In the talks, yellow marks events (courses, collaborations, HAX Camps, adoptions
 - Before → after: because HAX saves HTML and ships the tag definitions separately, every site made since about 2020 still works; it just looks better and is easier to edit, because the definitions were upgraded underneath it. The 2018 save button and today's are the same asset.
 - Why it matters: content outlives the tool's redesigns (Sustainable, Platform agnostic).
 - Source: [Nothing is intentional, until it is, Mar 2026](https://www.youtube.com/watch?v=wkdW2EjkwZ4)
+
+### 289 packages, about 49,000 downloads a month
+- Who: developers and sites pulling HAX web components from npm.
+- Before → after: 289 `@haxtheweb` packages on npm, downloaded about 49,000 times in the month to October 30, 2026 (about 9,300 a week). The most used are the HAXcms Node.js backend and the building blocks every site loads: `simple-icon`, the DDD design system, the HAX icon set and `simple-colors`.
+- Why it matters: HAX's pieces are reused on their own, not only inside HAX (Extensible, Platform agnostic). Counts include automated installs and exclude CDN traffic, so treat them as reach, not users.
+- Source: [`impact/npm-downloads.json`](impact/npm-downloads.json) (npm registry, refresh with `node scripts/impact-stats.mjs npm`)
 
 ### Reach by early 2026
 - Who: students and authors at Penn State and beyond.
@@ -222,6 +230,8 @@ These come from the Drupal and ELMS:LN years. They are foundational to Bryan and
 ## Still to collect
 
 Numbers that would make these stories land. Fill in when known:
-- [ ] npm downloads / CDN hits for `@haxtheweb` packages
+- [ ] CDN traffic (jsDelivr and the Penn State CDN); npm downloads are in [`impact/`](impact/)
 - [ ] Institutions using HAX outside Penn State
 - [ ] Courses or programs that replaced paid materials with HAX-built OER
+- [ ] Wins that never made it into a talk or post
+- [ ] Refresh `impact/` each semester and each major release (`node scripts/impact-stats.mjs`), and add the semester's wins

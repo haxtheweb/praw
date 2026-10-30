@@ -53,6 +53,32 @@ This document captures a normalized worldview profile derived from two aligned s
 - Coursework can be aligned to real project contribution pathways.
 - Student and faculty contributions can compound project velocity and educational outcomes simultaneously.
 - Real-world contribution loops create durable innovation pipelines for institutions.
+
+**The Sustainable Impact and Innovation Pipeline (SIIP)** is how HAX kept shipping with one full-time developer. It works at other institutions and for other open source projects; the `siip-course-alignment` skill helps set it up. ([Apereo talk, May 2026](https://www.youtube.com/watch?v=TNF0uzYi9Kk))
+
+*The loop:* students take a course that teaches real skills (for HAX, modern front-end web) → the best go on to independent studies, internships or student clubs that contribute to the project → those contributions come back into the course as examples and better tooling → the next cohort starts further ahead. A spiral that widens each semester; past students mentor future ones.
+
+*Why it works: cognitive apprenticeship* (framed by Bill Rose):
+
+| Traditional apprenticeship | What cognitive apprenticeship adds | In SIIP |
+| --- | --- | --- |
+| Modeling: watch the expert | Make expert *and* student thinking visible, not just the work | Lecture and live demos, videos, the real codebase and issue queue |
+| Scaffolding: expert support | Situate learning in real-world tasks so it's relevant | The course starts strongly scaffolded; assignments are real but start simple |
+| Fading: less support over time | Plan for transfer to new situations | Support fades through the course, rises again on entering the lab, then fades with expertise |
+| Coaching: guidance and challenge | Vary situations and name what they have in common | Many kinds of contribution (code, design, docs, security, UX); common patterns made explicit |
+
+*Course shape that works:* about 40% skilling up to contributor level (while meeting the course's own objectives), 20% a simple project that isn't community-related, 20% a larger project with less scaffolding, and 20% an unscaffolded, internship-like project. Whiteboards and collaboration make the difference. The project is the backdrop, not the subject: the course teaches its discipline and uses the project, and a gap in the project's docs becomes a contribution.
+
+*What to expect:* the biggest gains show up 6–12 months after the course; the top 5–10% of a class choose to go further; aligning with student clubs (security, UX) brings in passion the course alone can't; open office hours draw contributors who were never enrolled.
+
+*Incentives that matter to students:* real work experience, visible credit (posts that tag them), course credit through independent studies, internship hours (240 in Penn State IST), community roles.
+
+*Applying it elsewhere:*
+- Work with faculty to align courses or course projects with an open source project's needs.
+- Identify the underlying skills a great contributor needs and front-load them.
+- Write onboarding as if readers know nothing; if an AI agent can install the project and learn from the docs, a junior developer can too.
+- Treat students as junior developers and future contributors; label beginner issues.
+- Solve problems at your institution, in its context, by contributing to problem spaces larger than the institution.
 ## Information Altruism thesis lens (explicit additions)
 ### A) Information altruism is a practical strategy, not just an ethic
 - The donation of code, time, support, and knowledge can change institutional decision-making by changing the cost structure of innovation.

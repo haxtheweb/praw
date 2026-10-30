@@ -7,6 +7,7 @@ This file is the always-on Project Rule for the `praw` repo — a lean index to 
 - **`webcomponents/WARP.md`** — scoped rules for web-component development (read when editing webcomponents-path files).
 - **`haxcms/WARP.md`** — scoped rules for HAXcms sites/backends (read when editing haxcms-path files).
 - **`design-system/WARP.md`** — scoped rules for the DDD/SimpleColors design system (read when editing design-system-path files).
+- **`WHY.md` · `WORLDVIEW.md` · `VOICE.md` · `WINS.md`** — purpose, beliefs and pillar checks, voice, and sourced wins. Read `VOICE.md` and `WINS.md` before writing public copy (posts, release notes, READMEs, proposals); data behind the wins is in `impact/` (`node scripts/impact-stats.mjs`).
 - **Skills** — canonical HAX skills live under `praw/.agents/skills/` (authoritative registry) and `create/src/skills/` (shipped subset built into `create/dist/skills/`). Check there first before assuming a HAX skill does not exist.
 
 ## Ecosystem map

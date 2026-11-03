@@ -1,3 +1,9 @@
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Community Support](https://badgen.net/badge/support/community/cyan?icon=awesome)](/SUPPORT.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](/CODE_OF_CONDUCT.md)
+[![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/aCGxmRHEJP)
+[![X](https://img.shields.io/twitter/follow/haxtheweb.svg?style=social&label=Follow)](https://twitter.com/intent/follow?screen_name=haxtheweb)
+
 # PRAW - HAX Ecosystem Warp Rules
 
 **PRAW** (Warp spelled backwards) is a repository containing comprehensive Warp AI agent rules for the HAX ecosystem. These rules codify years of development experience, best practices, and conventions to help Warp users work more effectively with HAX projects.
@@ -358,6 +364,19 @@ Using these rules provides:
 - 📚 **Knowledge sharing** across the HAX community
 - 🔍 **Searchable rules** with unique IDs and categorization
 - 📊 **Rule analytics** and usage tracking
+
+## Get Help / Issues / Support
+
+- Discord Channel - https://discord.gg/aCGxmRHEJP
+- Unified issue queue - https://github.com/haxtheweb/issues/issues
+- Using Merlin directly in any HAX spaces and type "Issue" to jump start a report!
+- Security vulnerabilities: report privately, see [SECURITY.md](SECURITY.md)
+- More ways to get help: [SUPPORT.md](SUPPORT.md); how to contribute: [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## Watch and Learn more about HAX here:
+- Try Hax: https://hax.cloud
+- HAXCellence https://haxtheweb.org/what-is-hax
+- Youtube channel - https://www.youtube.com/@haxtheweb
 
 ## Maintenance
 

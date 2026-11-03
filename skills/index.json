@@ -500,6 +500,13 @@
       ]
     },
     {
+      "name": "reading-notes",
+      "type": "skill-md",
+      "description": "Draft paragraph-level Reading Notes for a book chapter or long reading: topic rows, page ranges, first…last word anchors and one-sentence paraphrases, for human review. Use for \"make reading notes\", \"paraphrase this chapter paragraph by paragraph\" or notes to pair with a converted reading.",
+      "url": "reading-notes/SKILL.md",
+      "digest": "sha256:11ca2d192a6dafe7b9f917a7af2cf363342a07bdf51fe806e94808df46a6ada6"
+    },
+    {
       "name": "siip-course-alignment",
       "type": "skill-md",
       "description": "Align a course with an open source project using the Sustainable Impact and Innovation Pipeline (SIIP): map course objectives to real contribution paths, shape a 40/20/20/20 term, and plan the lab, club and onboarding loop. Use for \"align my course with an open source project\", \"students contributing to OSS\", \"SIIP\" or \"turn class projects into real contributions\".",

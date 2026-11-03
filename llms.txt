@@ -124,6 +124,8 @@ All skills below live in `skills/` in this repo. The machine-readable discovery 
   - Path: `/skills/hax-practice-and-retrieval/SKILL.md`
 - **hax-reflection-prompts**: Write stage-matched reflection prompts (summarize, exemplify, relate, contradict, self-critique) for HAX pages
   - Path: `/skills/hax-reflection-prompts/SKILL.md`
+- **reading-notes**: Draft paragraph-level Reading Notes for a long reading (topic rows, page ranges, first…last word anchors, one-sentence paraphrases) for human review
+  - Path: `/skills/reading-notes/SKILL.md`
 - **hax-instructional-events-audit**: Read-only audit of a HAX lesson against Gagné's nine events and Merrill's First Principles
   - Path: `/skills/hax-instructional-events-audit/SKILL.md`
 - **hax-multimedia-principles-audit**: Read-only audit of how a HAX page combines words and media against Mayer's multimedia principles

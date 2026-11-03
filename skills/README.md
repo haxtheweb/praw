@@ -48,6 +48,7 @@ Reusable agent skills for the HAX (Headless Authoring eXperience) ecosystem. The
 | `hax-feedback-design` | Write and audit feedback, hints and evidence for HAX question elements at the right level for the learner | `npx skills add haxtheweb/praw --skill hax-feedback-design` |
 | `hax-practice-and-retrieval` | Plan retrieval practice, spacing, interleaving and deliberate practice across a HAX site | `npx skills add haxtheweb/praw --skill hax-practice-and-retrieval` |
 | `hax-reflection-prompts` | Write stage-matched reflection prompts (summarize, exemplify, relate, contradict, self-critique) for HAX pages | `npx skills add haxtheweb/praw --skill hax-reflection-prompts` |
+| `reading-notes` | Draft paragraph-level Reading Notes for a long reading (topic rows, page ranges, first…last word anchors, one-sentence paraphrases) for human review | `npx skills add haxtheweb/praw --skill reading-notes` |
 | `hax-instructional-events-audit` | Read-only audit of a HAX lesson against Gagné's nine events and Merrill's First Principles | `npx skills add haxtheweb/praw --skill hax-instructional-events-audit` |
 | `hax-multimedia-principles-audit` | Read-only audit of how a HAX page combines words and media against Mayer's multimedia principles | `npx skills add haxtheweb/praw --skill hax-multimedia-principles-audit` |
 | `hax-theme-builder` | Turn a screenshot into an accessible, dark-mode-ready HAXcms theme | `npx skills add haxtheweb/praw --skill hax-theme-builder` |

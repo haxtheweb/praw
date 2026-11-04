@@ -127,6 +127,11 @@ Every rule has one of four scopes:
 - **Scope**: `webcomponents`
 - **Content**: Whenever working on a specific webcomponent, perform a quick audit for potential accessibility enhancements without assuming issues exist, but ensure to look for them.
 
+### Color Vision — Opposing Actions Read Apart Without Color
+- **Rule ID**: `13a03330-483e-404e-9e48-b0d9f16432d3`
+- **Scope**: `webcomponents`
+- **Content**: Any pair of controls or states a person must tell apart (accept vs dismiss, save vs cancel, keep vs delete, on vs off, pressed vs not pressed) must stay distinguishable in greyscale (low-power and night modes, personal preference) and with red/green or blue/yellow color vision deficiencies. Hue alone never carries the difference: either the two fills differ by at least 3:1 in luminance, or a non-color cue does the work. Use the HAX UI conventions: fill weight shows which action is primary (filled, then outlined, then text); the diagonal hatch (`--hax-ui-danger-hatch`, `--hax-ui-danger-hatch-on-fill`) shows that an action throws work away; pressed and on states add a bar, border or knob position, not only a wash. When you add or change such a pair, declare it in `scripts/vision-pairs.json` in haxtheweb/webcomponents (with `evidence` for any non-color cue, so removing the cue later fails the check) and run `yarn lint:vision`; `yarn precheck` runs it blocking. Judge what the math can't see (icons, patterns, layout) with `yarn vision:gallery <url> --selector <css>`, or DevTools > Rendering > Emulate vision deficiencies. HAX's correct/incorrect convention (purple vs green, not red vs green) follows from the same rule. Tracking: <https://github.com/haxtheweb/issues/issues/3219>.
+
 ### JavaScript Standards — globalThis
 - **Rule ID**: `CEHsAztyfB2vTCwtHGGnbk`
 - **Scope**: `webcomponents`

@@ -1,7 +1,7 @@
 ---
 name: siip-course-alignment
 description: "Align a course with an open source project using the Sustainable Impact and Innovation Pipeline (SIIP): map course objectives to real contribution paths, shape a 40/20/20/20 term, and plan the lab, club and onboarding loop. Use for \"align my course with an open source project\", \"students contributing to OSS\", \"SIIP\" or \"turn class projects into real contributions\"."
-version: 1.0.0
+version: 1.1.0
 license: Apache-2.0
 metadata:
   author: PRAW
@@ -44,7 +44,8 @@ Ask for whatever is missing in one short round of questions, then proceed.
 4. **Make thinking visible (cognitive apprenticeship).** For each phase, say how the instructor will *model* (narrate decisions, not just steps), *scaffold*, *fade* support, and *coach* (task choice, hints, feedback, rising challenge). Plan collaboration and whiteboard time.
 5. **Build the loop beyond the course.** Name the paths for students who want more: independent study, internship (with hours), lab, and clubs whose interests match (security, UX, design). Plan regular open office hours. Plan how this term's best contributions become next term's examples and tooling.
 6. **Incentives and credit.** Real work experience, public credit (posts that tag students, with permission), course credit, internship hours, community roles. Never make contribution to a specific project a grading requirement students can't opt out of; offer an equivalent path.
-7. **Measure.** Track contributions merged, students continuing to the lab or club, onboarding stumbles fixed, and where students go next. Expect the biggest gains 6–12 months after the course, and the top 5–10% of a class to go further.
+7. **Spotlight people, with permission.** Plan one or two spotlights a term on students, alumni or faculty whose work moved the project. Use the permission checklist and template in `references/spotlight-template.md`: written opt-in, the person picks what is shared and approves the final text, and nothing comes from education records. Spotlights are the visible credit students care about and the evidence the next faculty partner needs.
+8. **Measure.** Track contributions merged, students continuing to the lab or club, onboarding stumbles fixed, and where students go next. Expect the biggest gains 6–12 months after the course, and the top 5–10% of a class to go further.
 
 ## Output
 
@@ -55,6 +56,7 @@ A plan with these sections:
 - **Term outline**: the four phases with weeks, deliverables and scaffolding level, plus modeling, scaffolding, fading and coaching notes for each.
 - **Beyond the course**: lab, internship, club and office-hour paths, and how contributions feed back into the next term.
 - **Credit and incentives**, including the opt-out path.
+- **Spotlights**: who could be featured, where, and the permission step (from `references/spotlight-template.md`).
 - **Measures** to track.
 
 ## Gotchas
@@ -67,6 +69,7 @@ A plan with these sections:
 ## References
 
 - Pillar 8 and the cognitive apprenticeship table: https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md
+- Spotlight permission checklist and template: `references/spotlight-template.md`
 - Evidence and stories: https://github.com/haxtheweb/praw/blob/main/WINS.md
 - Talk notes: https://github.com/haxtheweb/praw/blob/main/talks/README.md
 - Related skills: `hax-ubd-backward-design` (outcomes), `hax-proficiency-scaffolding` (learner stage), `hax-reflection-prompts` (reflection on contributions)

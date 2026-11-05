@@ -518,7 +518,13 @@
       "type": "skill-md",
       "description": "Align a course with an open source project using the Sustainable Impact and Innovation Pipeline (SIIP): map course objectives to real contribution paths, shape a 40/20/20/20 term, and plan the lab, club and onboarding loop. Use for \"align my course with an open source project\", \"students contributing to OSS\", \"SIIP\" or \"turn class projects into real contributions\".",
       "url": "siip-course-alignment/SKILL.md",
-      "digest": "sha256:b9d463dae8c7127c86bbbf3e01d46eb347ac1e036a076c4a6af4a41a59cab22f"
+      "digest": "sha256:5ccbaffa87e2df31de5c402cde9e0faf9facbf8d7e999fd69d9a1a827b141af7",
+      "files": [
+        {
+          "path": "references/spotlight-template.md",
+          "digest": "sha256:3a2695ac77598af51a958b1f38061d2b735bcdf425eea278e8cc3bf1e6d6621b"
+        }
+      ]
     },
     {
       "name": "youtube-vtt",

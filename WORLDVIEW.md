@@ -78,6 +78,7 @@ This document captures a normalized worldview profile derived from two aligned s
 - Identify the underlying skills a great contributor needs and front-load them.
 - Write onboarding as if readers know nothing; if an AI agent can install the project and learn from the docs, a junior developer can too.
 - Treat students as junior developers and future contributors; label beginner issues.
+- Spotlight students, alumni and faculty by name, with their permission ([template and checklist](skills/siip-course-alignment/references/spotlight-template.md)); HAX's are in [WINS.md](WINS.md).
 - Solve problems at your institution, in its context, by contributing to problem spaces larger than the institution.
 ## Information Altruism thesis lens (explicit additions)
 ### A) Information altruism is a practical strategy, not just an ethic

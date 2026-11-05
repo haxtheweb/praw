@@ -15,7 +15,7 @@ Stories fade faster than code. This file keeps proof that the worldview works, s
 - Source: link
 ```
 
-Naming a person? Get their permission first and add `- Permission: how and when they agreed`. Student and faculty spotlights follow the checklist and template in [`skills/siip-course-alignment/references/spotlight-template.md`](skills/siip-course-alignment/references/spotlight-template.md).
+Naming a person? Get their permission first and add `- Permission: how and when they agreed`. People already featured in HAX talks and media, many still active in the project, agreed through that work; their entries don't need the line. Student and faculty spotlights follow the checklist and template in [`skills/siip-course-alignment/references/spotlight-template.md`](skills/siip-course-alignment/references/spotlight-template.md).
 
 Only list wins that have happened. Proposals and pilots in progress stay out until they land.
 

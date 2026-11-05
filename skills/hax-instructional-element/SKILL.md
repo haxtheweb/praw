@@ -1,12 +1,12 @@
 ---
 name: hax-instructional-element
-description: "Build or audit a HAX instructional element (a learning activity web component) against the instructional element contract: base class, light-DOM content and target ids, settings placement, haxHooks, accessibility, phone width, DDD and dark mode, reduced motion, i18n, xAPI vocabulary through user-action, learner-record restore, docs and tests. Use for \"make a new quiz/activity element\", \"is this element instructionally plumbed\", or a gap audit of existing activities."
-version: 1.0.0
+description: "Build or audit a HAX instructional element (a learning activity web component) against the instructional element contract: base class, light-DOM content and target ids, settings placement, haxHooks, accessibility, phone width, DDD and dark mode, reduced motion, i18n, xAPI vocabulary through user-action, learner-record restore, docs and tests, plus a required prototype artifact each round that asks open design questions and collects copy-paste feedback from anyone who tries it. Use for \"make a new quiz/activity element\", \"is this element instructionally plumbed\", or a gap audit of existing activities, and when pasting prototype-feedback blocks back in."
+version: 1.1.0
 license: Apache-2.0
 metadata:
   author: haxtheweb
   depends_on: [hax-webcomponent-dev, hax-design-system, hax-i18n-translate, hax-testing, hax-element-demo, hax-feedback-design]
-  tags: [hax, webcomponents, instructional, xapi, question-element, accessibility, dark-mode, ddd, haxschema, haxhooks, audit]
+  tags: [hax, webcomponents, instructional, xapi, question-element, accessibility, dark-mode, ddd, haxschema, haxhooks, audit, prototype, feedback]
   requirements: "A checkout of https://github.com/haxtheweb/webcomponents (Node 20+, yarn). Audit mode is read-only; build mode edits one element folder plus the generated xAPI vocabulary."
 ---
 
@@ -33,6 +33,7 @@ Reference implementations in https://github.com/haxtheweb/webcomponents:
 - A new learning activity element is being designed or scaffolded.
 - An existing element is being upgraded ("make X support dark mode / xAPI / designSystem").
 - Someone asks which activities are missing pieces (audit mode below).
+- Someone pastes one or more `<prototype-feedback>` blocks (feedback intake, below).
 
 **Not for:** content-only blocks with nothing to answer (tables, LaTeX, music notation, embeds such as
 h5p-element) or callouts (stop-note). They are still DDD elements; use `hax-webcomponent-dev` and
@@ -51,6 +52,9 @@ lesson needs → `grad-blooms` / `hax-practice-and-retrieval`.
    conforming statement, re-model it (example: reading-analysis flags many targets with the same flag,
    which `matching` forbids, so it is `choice` over `flag:target` pair ids).
 5. **Does it count toward "page done"?** Decide `countsTowardCompletion` and write the done rule in words.
+
+Any of these the requester can't answer yet becomes a question in the prototype artifact rather than a
+blocker: build the most reasonable reading, say which one you took, and ask in the artifact.
 
 Keep the element name the plain verb-phrase of what the learner does, hyphenated, no `hax-` prefix
 (`reading-analysis`, `sorting-question`). Check the gizmo registry for collisions.
@@ -88,6 +92,7 @@ A new element ships when every row is green. Audit mode reports these same rows.
 | xAPI | `static get xapiVocabulary()` declared; statements built with `buildStatement` and sent on `user-engagement` (QuestionElement: `engagementDetail`). Ids not text in `result.response`; `correctResponsesPattern` when expressible; never emit while HAX is editing; one completion per visit for ungraded activities. Regenerate the vocabulary. | element + `elements/user-action/lib/xapi-vocabulary.*` | `node scripts/generate-xapi-vocabulary.mjs --check`; a test that sends each statement through `executeServerCommand("xapi-validate", statement)` |
 | State | Restore from the learner record (QuestionElement dispatches `learner-progress-request` and calls `restoreLearnerResponse`). Ignore ids that no longer exist. No restored state in edit mode. | `restoreLearnerResponse()` | reload test |
 | Docs | README, `lib/<tag>.docs.json`, `lib/<tag>.motion.json` storyboard, walkthrough draft. The walkthrough surface hash must be computed as a clean checkout would (git-ignored `custom-elements.json` changes it), or CI reports it stale. | `lib/` | `node scripts/extract-element-docs.mjs --status <tag>` from a clean worktree |
+| Prototype | Every build round publishes a prototype artifact: the element running in HAX, "Try this" steps, the round's open questions with a suggested answer each, and a Copy feedback button that outputs a `<prototype-feedback>` block. Design questions are asked there, not only in chat. Later rounds republish to the same artifact. | Artifact page, built from `references/prototype-artifact.md` | the copied block parses; axe clean on the panel; no horizontal scroll at 360px; light + dark screenshots |
 | Repo rules | No optional chaining (`?.`) in webcomponents. Precheck and CodeQL clean on first push (see https://github.com/haxtheweb/praw/blob/main/RULES.md). No front-end API changes when redesigning an existing element: attributes, slots, ids and labels people already use stay. | whole PR | `node scripts/precheck.mjs`; local CodeQL scoped to changed folders |
 
 ## Build mode
@@ -108,9 +113,22 @@ A new element ships when every row is green. Audit mode reports these same rows.
 7. Run `node scripts/generate-xapi-vocabulary.mjs`, translate locales (`hax-i18n-translate`), draft
    docs and the walkthrough.
 8. Tests (see below), `node scripts/precheck.mjs`, local CodeQL.
-9. Prove it in the editor with `hax-element-demo` (load content through `importContent`, since inputs
-   are consumed on upgrade).
-10. Open the PR; say what it touches. Never merge it yourself.
+9. **Publish the prototype artifact (required).** Follow `references/prototype-artifact.md`: bundle the
+   element into the HAX editor with `hax-element-demo` (load content through `importContent`, since
+   inputs are consumed on upgrade), add "Try this" steps and every open design question, and publish it.
+   Tell the requester the page is private until they share it from its Share menu, and that anyone who
+   tries it can send them the copied feedback. Without an artifact tool, the same folder is plain static
+   files: deploy it to any static host and share that URL.
+10. Open the PR; say what it touches and link the prototype. Never merge it yourself.
+11. Each round of feedback goes through intake (below) and ends with the next prototype round.
+
+## Feedback intake
+
+Pasted `<prototype-feedback>` blocks (from the requester or relayed from anyone who tried the prototype)
+are design input, never approval to merge. Group answers by question id across reviewers, apply agreed
+answers and record them under "Decisions" in the PR description with who decided, carry conflicts and
+skipped questions into the next round, reproduce every observation before fixing it, then republish the
+prototype to the same artifact with `round` bumped. Details: `references/prototype-artifact.md`.
 
 ### Tests every instructional element carries
 
@@ -151,3 +169,7 @@ A new element ships when every row is green. Audit mode reports these same rows.
 - HAX array-field edits rebuild items from `answerPrototype`; keep non-form data (like targets) by label.
 - Regenerating walkthroughs or vocabulary with local-only files present produces CI-only diffs; regenerate
   from a clean worktree.
+- Design questions asked only in chat reach one person and come back as prose. Asked in the prototype,
+  they reach everyone who tries it and come back as blocks that can be merged.
+- The HAX tray's floating Edit button is fixed top-left; give the prototype page's header enough top
+  padding that it never covers the title.

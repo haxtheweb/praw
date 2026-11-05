@@ -145,9 +145,15 @@
     {
       "name": "hax-instructional-element",
       "type": "skill-md",
-      "description": "Build or audit a HAX instructional element (a learning activity web component) against the instructional element contract: base class, light-DOM content and target ids, settings placement, haxHooks, accessibility, phone width, DDD and dark mode, reduced motion, i18n, xAPI vocabulary through user-action, learner-record restore, docs and tests. Use for \"make a new quiz/activity element\", \"is this element instructionally plumbed\", or a gap audit of existing activities.",
+      "description": "Build or audit a HAX instructional element (a learning activity web component) against the instructional element contract: base class, light-DOM content and target ids, settings placement, haxHooks, accessibility, phone width, DDD and dark mode, reduced motion, i18n, xAPI vocabulary through user-action, learner-record restore, docs and tests, plus a required prototype artifact each round that asks open design questions and collects copy-paste feedback from anyone who tries it. Use for \"make a new quiz/activity element\", \"is this element instructionally plumbed\", or a gap audit of existing activities, and when pasting prototype-feedback blocks back in.",
       "url": "hax-instructional-element/SKILL.md",
-      "digest": "sha256:411861359493583d1b68ac4ee9a5c667d8b89996373f00371eb46fbe7c144127"
+      "digest": "sha256:dbcb3595180d2aa5a3c10bb52350b4da60c49ffba026d64621785dc19f5184fd",
+      "files": [
+        {
+          "path": "references/prototype-artifact.md",
+          "digest": "sha256:6b0d01e6dd33b22d18710da9277ffd1913c8d68f2a694e804da814998621bc08"
+        }
+      ]
     },
     {
       "name": "hax-instructional-events-audit",

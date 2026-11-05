@@ -112,6 +112,8 @@ for (const item of list) {
     motion: has("motion.json") ? "y" : "-",
     optionalChaining: /\?\.[A-Za-z_$[(]/.test(code) ? "USES ?." : "",
     hexColors: (css.match(/#[0-9a-fA-F]{3,8}\b/g) || []).length,
+    // Title & caption gate: a block title must be authored, never rendered straight from alt
+    titleFromAlt: /ddd-block-title[^`]*?\$\{\s*this\.alt\s*\}|title:\s*this\.alt\b/.test(code) ? "ALT AS TITLE" : "",
     minWidthOver360: (css.match(/min-width:\s*(\d{3,})px/g) || []).filter((m) => parseInt(m.match(/\d+/)[0], 10) > 360).join(" "),
   });
 }

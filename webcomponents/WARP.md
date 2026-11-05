@@ -10,6 +10,7 @@ Scoped rules for HAX web-component development in the `webcomponents` monorepo (
 - **DDD Usage Audit** (`MT6HPJ9BDhA13jwSXjcmeA`) — when working on a component, audit DDD token usage. (Token reference: `design-system/WARP.md`.)
 - *(Building or changing an admin surface — site admin, outline-designer, system admin, editor chrome? Use HAX UI, design-system rule `1992902d74844c908ab446`.)*
 - **Accessibility Audits** (`7CPveFErpSF0aZ8tKqxw0Y`) — when working on a component, audit for a11y enhancements without assuming issues exist.
+- **Color Vision — Opposing Actions Read Apart Without Color** (`13a03330-483e-404e-9e48-b0d9f16432d3`) — accept/dismiss, keep/delete and on/off must differ by 3:1 luminance or a non-color cue (fill weight, the danger hatch, a bar/border/knob); declare new pairs in `scripts/vision-pairs.json` and run `yarn lint:vision` (part of `yarn precheck`).
 - **JavaScript — globalThis** (`CEHsAztyfB2vTCwtHGGnbk`) — use `globalThis`, not `window`.
 - **JavaScript — No optional chaining** (`nJF4SYUGdN5Wr5tEvaDtGY`) — no `?.` syntax (Polymer parser / toolchain issues).
 - **HAX Content Authoring** (`eis0l9w9l2jG1COFySmvdT`) — when writing HAX site content, use HAX-capable tags from the registry; leverage DDD attributes for heading/paragraph offset.

@@ -8,6 +8,7 @@ Scoped rules for the HAX design systems: DDD (Design, Develop, Destroy — prima
 - **DESIGN.md Compliance** (`c4f0b69d-9ed4-4b6d-bf52-6a3d9937c98f`) — `DESIGN.md` is the canonical source of truth for design decisions in this repo.
 - **HAX UI: Admin Surfaces Layer of DDD** (`1992902d74844c908ab446`) — admin chrome (site admin, outline-designer, system admin, editor chrome) uses `--hax-ui-*` from `HaxUiAdminTokens`, not DDD content sizes. See "HAX UI (admin surfaces)" below.
 - *(When auditing a specific component for DDD usage, see webcomponents-scoped rule `MT6HPJ9BDhA13jwSXjcmeA`.)*
+- *(Choosing colors for opposing actions or on/off states? They must read apart without color: webcomponents-scoped rule `13a03330-483e-404e-9e48-b0d9f16432d3`.)*
 
 ## DDD implementation
 - Always import DDD: `import "@haxtheweb/d-d-d/d-d-d.js"`. Extend `DDD` directly (never `DDD(LitElement)`); with mixins, `DDD` is the base class.

@@ -197,6 +197,7 @@
         "./skills/hax-pattern-library-audit",
         "./skills/oerschema-integration-finder",
         "./skills/hax-element-demo",
+        "./skills/hax-instructional-element",
         "./skills/hax-i18n-translate"
       ],
       "author": {

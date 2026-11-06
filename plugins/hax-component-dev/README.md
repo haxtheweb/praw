@@ -21,6 +21,7 @@ Build and maintain HAX web components: apply and sync DDD tokens, audit against 
 | `hax-pattern-library-audit` | Read-only audit of one web component against the DDD Atomic Design pattern library. |
 | `oerschema-integration-finder` | Scan code for surfaces that should emit or consume OER Schema but don't. |
 | `hax-element-demo` | Build a throwaway demo of an element inside the real HAX editor to check wiring. |
+| `haxcms-prototype` | Prototype HAXcms itself (whole sites, admin, multipage flows) on the real system and check it against the UI inventory. |
 | `hax-instructional-element` | Build or audit a learning-activity element against the instructional element contract; each round ships a feedback prototype. |
 | `hax-i18n-translate` | Scaffold and translate web component i18n locale files at scale. |
 

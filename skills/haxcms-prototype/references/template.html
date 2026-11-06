@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HAXcms Prototype</title>
+<!-- Copied unchanged from the inventory. Never retype token values. -->
+<link rel="stylesheet" href="tokens.css">
+<!-- The brief (references/brief.md), verbatim. The page renders from it. -->
+<script type="application/json" id="prototype-brief">
+{
+  "title": "REPLACE: proposal title",
+  "issue": "https://github.com/haxtheweb/issues/issues/0000",
+  "mode": "overlay",
+  "audience": "REPLACE",
+  "fixture": "inventory default",
+  "inventory": { "haxcmsNodejs": "REPLACE", "webcomponents": "REPLACE", "generatedAt": "REPLACE" },
+  "steps": [
+    { "state": "site-view", "title": "REPLACE", "what_exists": "REPLACE", "proposed": [] }
+  ],
+  "regions": [],
+  "newLabels": [],
+  "newComponents": [],
+  "newTokens": [],
+  "notShown": [],
+  "assumptions": []
+}
+</script>
+<style>
+/* chrome:start — the prototype's own controls. Only this block may use DDD tokens freely. */
+:root { color-scheme: light dark; }
+body { margin: 0; background: var(--ddd-theme-default-white); color: var(--ddd-theme-default-coalyGray); font-family: var(--ddd-font-navigation); }
+[data-prototype-chrome] { font-size: var(--ddd-font-size-4xs); }
+.proto-header { display: flex; flex-wrap: wrap; gap: var(--ddd-spacing-3); align-items: center; padding: var(--ddd-spacing-3) var(--ddd-spacing-4); border-bottom: var(--ddd-border-sm); }
+.proto-header h1 { font-size: var(--ddd-font-size-xs); margin: 0; }
+.proto-badge { padding: var(--ddd-spacing-1) var(--ddd-spacing-2); border-radius: var(--ddd-radius-rounded); border: var(--ddd-border-xs); }
+.proto-prov { flex-basis: 100%; font-family: var(--ddd-font-secondary); opacity: 0.8; }
+.proto-controls { display: flex; flex-wrap: wrap; gap: var(--ddd-spacing-2); padding: var(--ddd-spacing-3) var(--ddd-spacing-4); }
+.proto-controls button, .proto-steps button { font: inherit; padding: var(--ddd-spacing-1) var(--ddd-spacing-3); border: var(--ddd-border-xs); border-radius: var(--ddd-radius-sm); background: transparent; color: inherit; cursor: pointer; }
+.proto-controls button[aria-pressed="true"], .proto-steps button[aria-current="step"] { background: var(--ddd-theme-default-skyBlue); color: var(--ddd-theme-default-white); }
+.proto-steps { display: flex; flex-wrap: wrap; gap: var(--ddd-spacing-2); padding: 0 var(--ddd-spacing-4); list-style: none; margin: 0; }
+.proto-stage { padding: var(--ddd-spacing-4); overflow-x: auto; }
+.proto-frame { position: relative; display: inline-block; outline: var(--ddd-border-sm); }
+.proto-frame img.base { display: block; max-width: none; }
+body.show-proposed .proto-frame img.base { filter: saturate(0.2) opacity(0.6); }
+body.current [data-proposed] { display: none; }
+[data-proposed] { position: absolute; outline: 2px dashed var(--ddd-theme-default-accent, var(--ddd-accent-6)); outline-offset: 2px; }
+[data-proposed]::after { content: "Proposed"; position: absolute; top: -1.6em; left: 0; font: 600 11px/1.4 var(--ddd-font-navigation); padding: 0 var(--ddd-spacing-1); background: var(--ddd-theme-default-accent, var(--ddd-accent-6)); color: var(--ddd-theme-default-coalyGray); }
+.proto-panels { display: grid; gap: var(--ddd-spacing-4); grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); padding: var(--ddd-spacing-4); }
+.proto-panels section { border: var(--ddd-border-xs); border-radius: var(--ddd-radius-sm); padding: var(--ddd-spacing-3); }
+.proto-panels h2 { font-size: var(--ddd-font-size-4xs); margin: 0 0 var(--ddd-spacing-2); text-transform: uppercase; letter-spacing: 0.04em; }
+.proto-panels textarea, .proto-panels input { width: 100%; box-sizing: border-box; font: inherit; margin-bottom: var(--ddd-spacing-2); }
+pre.proto-report { white-space: pre-wrap; font-family: var(--ddd-font-secondary); margin: 0; }
+@media (prefers-color-scheme: dark) { body { background: var(--ddd-theme-default-coalyGray); color: var(--ddd-theme-default-white); } }
+/* chrome:end */
+
+/* Proposal styles: tokens only (HAX UI for admin and editor chrome, DDD for visitor-facing). */
+</style>
+</head>
+<body class="show-proposed">
+<header class="proto-header" data-prototype-chrome>
+  <h1 id="proto-title"></h1>
+  <span class="proto-badge" id="proto-mode"></span>
+  <!-- Static text (the fidelity check reads it): copy the values from the inventory manifest.json. -->
+  <div class="proto-prov" data-provenance>haxcms-nodejs REPLACE_SHA · webcomponents REPLACE_SOURCE · inventory REPLACE_YYYY-MM-DD · fixture: REPLACE · mode: overlay</div>
+</header>
+
+<nav data-prototype-chrome aria-label="Steps"><ol class="proto-steps" id="proto-steps"></ol></nav>
+
+<div class="proto-controls" data-prototype-chrome>
+  <button type="button" data-variant="desktop-light" aria-pressed="true">Desktop · light</button>
+  <button type="button" data-variant="desktop-dark" aria-pressed="false">Desktop · dark</button>
+  <button type="button" data-variant="mobile-light" aria-pressed="false">Mobile · light</button>
+  <button type="button" data-variant="mobile-dark" aria-pressed="false">Mobile · dark</button>
+  <button type="button" id="toggle-proposed" aria-pressed="true">Show proposed</button>
+  <button type="button" id="toggle-current" aria-pressed="false">Current</button>
+</div>
+
+<main class="proto-stage">
+  <!-- One <div data-step data-state> per brief step. Base images come from base/<state>/<variant>.png.
+       Proposed regions are positioned in CSS pixels of the capture and carry data-proposed="<region id>". -->
+  <div class="proto-frame" data-step="0" data-state="site-view">
+    <img class="base" alt="" src="base/site-view/desktop-light.png" data-base="site-view">
+  </div>
+</main>
+
+<div class="proto-panels" data-prototype-chrome>
+  <section><h2>Brief</h2><div id="proto-brief"></div></section>
+  <section><h2>Fidelity check</h2><pre class="proto-report" id="proto-report">REPLACE with fidelity-check.mjs output</pre></section>
+  <section>
+    <h2>Review</h2>
+    <label for="fb-name">Name</label><input id="fb-name">
+    <label for="fb-role">Role</label><input id="fb-role">
+    <label for="fb-real">Is anything here not how HAXcms works today? (step, what it shows, what is real)</label>
+    <textarea id="fb-real" rows="4"></textarea>
+    <label for="fb-notes">Other notes on the proposal</label>
+    <textarea id="fb-notes" rows="3"></textarea>
+    <button type="button" id="copy-feedback">Copy feedback</button>
+    <pre class="proto-report" id="fb-out" hidden></pre>
+  </section>
+</div>
+
+<script>
+(function () {
+  var brief = JSON.parse(document.getElementById("prototype-brief").textContent);
+  var variant = "desktop-light";
+  var step = 0;
+  function el(id) { return document.getElementById(id); }
+  el("proto-title").textContent = brief.title;
+  el("proto-mode").textContent = brief.mode === "branch" ? "Branch prototype" : brief.mode === "concept" ? "Concept, not the current UI" : "Overlay prototype";
+  var stepsOl = el("proto-steps");
+  brief.steps.forEach(function (s, i) {
+    var li = document.createElement("li");
+    var b = document.createElement("button");
+    b.type = "button";
+    b.textContent = (i + 1) + ". " + s.title;
+    b.addEventListener("click", function () { step = i; render(); });
+    li.appendChild(b);
+    stepsOl.appendChild(li);
+  });
+  var list = document.createElement("ul");
+  brief.steps.forEach(function (s, i) {
+    var li = document.createElement("li");
+    li.textContent = (i + 1) + ". " + s.title + " — exists today: " + s.what_exists + (s.proposed.length ? " — proposed: " + s.proposed.join(", ") : "");
+    list.appendChild(li);
+  });
+  ["newLabels", "newComponents", "newTokens", "notShown", "assumptions"].forEach(function (k) {
+    if (brief[k] && brief[k].length) {
+      var li = document.createElement("li");
+      li.textContent = k + ": " + brief[k].map(function (x) { return typeof x === "string" ? x : x.text || JSON.stringify(x); }).join("; ");
+      list.appendChild(li);
+    }
+  });
+  el("proto-brief").appendChild(list);
+  function render() {
+    document.querySelectorAll("[data-step]").forEach(function (f) {
+      f.hidden = Number(f.getAttribute("data-step")) !== step;
+    });
+    document.querySelectorAll("img[data-base]").forEach(function (img) {
+      var dir = brief.mode === "branch" && !document.body.classList.contains("current") ? "branch/" : "base/";
+      img.src = dir + img.getAttribute("data-base") + "/" + variant + ".png";
+    });
+    document.querySelectorAll("[data-proposed][data-variants]").forEach(function (r) {
+      r.hidden = r.getAttribute("data-variants").split(" ").indexOf(variant) === -1;
+    });
+    stepsOl.querySelectorAll("button").forEach(function (b, i) {
+      if (i === step) { b.setAttribute("aria-current", "step"); } else { b.removeAttribute("aria-current"); }
+    });
+  }
+  document.querySelectorAll("[data-variant]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      variant = b.getAttribute("data-variant");
+      document.querySelectorAll("[data-variant]").forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); });
+      render();
+    });
+  });
+  function toggle(id, cls) {
+    el(id).addEventListener("click", function () {
+      var on = document.body.classList.toggle(cls);
+      el(id).setAttribute("aria-pressed", String(on));
+      render();
+    });
+  }
+  toggle("toggle-proposed", "show-proposed");
+  toggle("toggle-current", "current");
+  var KEY = "haxcms-prototype-feedback:" + brief.title;
+  ["fb-name", "fb-role", "fb-real", "fb-notes"].forEach(function (id) {
+    try { var v = localStorage.getItem(KEY + id); if (v) { el(id).value = v; } } catch (e) { /* storage unavailable */ }
+    el(id).addEventListener("input", function () { try { localStorage.setItem(KEY + id, el(id).value); } catch (e) { /* ignore */ } });
+  });
+  function esc(s) { return String(s).replace(/"/g, "'"); }
+  el("copy-feedback").addEventListener("click", function () {
+    var lines = [
+      "Prototype feedback for " + brief.title + ". Use the haxcms-prototype skill's deviation intake.",
+      '<prototype-feedback prototype="' + esc(brief.title) + '" issue="' + esc(brief.issue) + '" date="' + new Date().toISOString().slice(0, 10) + '">',
+      '<reviewer name="' + esc(el("fb-name").value) + '" role="' + esc(el("fb-role").value) + '" />'
+    ];
+    el("fb-real").value.split("\n").filter(Boolean).forEach(function (l) { lines.push('<deviation step="' + (step + 1) + '" note="' + esc(l) + '" />'); });
+    if (el("fb-notes").value) { lines.push('<answer id="notes">' + el("fb-notes").value + "</answer>"); }
+    lines.push("</prototype-feedback>");
+    var text = lines.join("\n");
+    var out = el("fb-out");
+    function reveal() { out.hidden = false; out.textContent = text; var r = document.createRange(); r.selectNodeContents(out); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+    if (navigator.clipboard) { navigator.clipboard.writeText(text).then(function () { el("copy-feedback").textContent = "Copied"; }, reveal); } else { reveal(); }
+  });
+  render();
+})();
+</script>
+</body>
+</html>

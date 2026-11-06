@@ -114,6 +114,8 @@ All skills below live in `skills/` in this repo. The machine-readable discovery 
   - Path: `/skills/hax-release-prep/SKILL.md`
 - **hax-element-demo**: Build a throwaway demo of a HAX element inside the real HAX editor (h-a-x) as static files, to check app-store wiring and editability
   - Path: `/skills/hax-element-demo/SKILL.md`
+- **haxcms-prototype**: Prototype HAXcms itself (whole-site designs, the editor top bar, edit mode, menus, outline, admin, multipage flows) on the real running system, mark what is proposed, and check the rest against the generated UI inventory
+  - Path: `/skills/haxcms-prototype/SKILL.md`
 - **hax-instructional-element**: Build or audit a HAX learning-activity element against the instructional element contract (base class, settings, haxHooks, a11y, phone width, dark mode, motion, i18n, xAPI, restore, docs), with a prototype artifact each round that collects copy-paste feedback
   - Path: `/skills/hax-instructional-element/SKILL.md`
 - **grad-blooms**: Classify learning objectives and design assessments with Bloom's revised taxonomy

@@ -441,6 +441,27 @@
       ]
     },
     {
+      "name": "haxcms-prototype",
+      "type": "skill-md",
+      "description": "Build a prototype of HAXcms itself (whole-site designs, the editor top bar, edit mode, menus, outline, site or system admin, multipage flows) on the real running system, mark what is proposed, and check the rest against a generated UI inventory. Use for any HAXcms mockup, redesign or flow prototype; single elements use hax-element-demo.",
+      "url": "haxcms-prototype/SKILL.md",
+      "digest": "sha256:c7164e298baacc34a6d73523b24ed4cb59c9d5e74ee016a8f0b2d799b8001081",
+      "files": [
+        {
+          "path": "references/artifact.md",
+          "digest": "sha256:973e9634b84779114790f1310232bb03ecb4a607d03004e9e8d68e912b344cdb"
+        },
+        {
+          "path": "references/brief.md",
+          "digest": "sha256:57367c43a50f6c9d26e8c2f6e73a48ababe51a2dc944b75f2d390a68eff73dfd"
+        },
+        {
+          "path": "references/deviation-log.md",
+          "digest": "sha256:904f3d2d69a8f0cfb94e316138ba98282424ab45d213ba345c4e1483b5a6934c"
+        }
+      ]
+    },
+    {
       "name": "heosat",
       "type": "skill-md",
       "description": "Run the HEOSAT open source maturity assessment (9 sections, 47 questions, 0-5 scale) on a project and produce an evidence-backed scorecard. Use for \"run HEOSAT\", \"grade this open source project\" or a repo URL plus a health report request.",

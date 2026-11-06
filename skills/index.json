@@ -147,7 +147,7 @@
       "type": "skill-md",
       "description": "Build or audit a HAX instructional element (a learning activity web component) against the instructional element contract: base class, light-DOM content and target ids, settings placement, haxHooks, accessibility, phone width, DDD and dark mode, reduced motion, i18n, xAPI vocabulary through user-action, learner-record restore, docs and tests, plus a required prototype artifact each round that asks open design questions and collects copy-paste feedback from anyone who tries it. Use for \"make a new quiz/activity element\", \"is this element instructionally plumbed\", or a gap audit of existing activities, and when pasting prototype-feedback blocks back in.",
       "url": "hax-instructional-element/SKILL.md",
-      "digest": "sha256:dbcb3595180d2aa5a3c10bb52350b4da60c49ffba026d64621785dc19f5184fd",
+      "digest": "sha256:917436ce8ed3be991b2471f5a5c8d4796e49919b8547ac9b76d4185a9645b12b",
       "files": [
         {
           "path": "references/prototype-artifact.md",

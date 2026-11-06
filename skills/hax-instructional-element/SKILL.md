@@ -1,7 +1,7 @@
 ---
 name: hax-instructional-element
 description: "Build or audit a HAX instructional element (a learning activity web component) against the instructional element contract: base class, light-DOM content and target ids, settings placement, haxHooks, accessibility, phone width, DDD and dark mode, reduced motion, i18n, xAPI vocabulary through user-action, learner-record restore, docs and tests, plus a required prototype artifact each round that asks open design questions and collects copy-paste feedback from anyone who tries it. Use for \"make a new quiz/activity element\", \"is this element instructionally plumbed\", or a gap audit of existing activities, and when pasting prototype-feedback blocks back in."
-version: 1.1.0
+version: 1.2.0
 license: Apache-2.0
 metadata:
   author: haxtheweb
@@ -37,7 +37,9 @@ Reference implementations in https://github.com/haxtheweb/webcomponents:
 
 **Not for:** content-only blocks with nothing to answer (tables, LaTeX, music notation, embeds such as
 h5p-element) or callouts (stop-note). They are still DDD elements; use `hax-webcomponent-dev` and
-`hax-design-system`. Writing the feedback text itself → `hax-feedback-design`. Choosing which activity a
+`hax-design-system`. The **Title & caption** gate below still applies to them, and to any media
+(images, GIFs, video, figures) an activity carries, because learners read the title and caption to know
+what they are looking at. Writing the feedback text itself → `hax-feedback-design`. Choosing which activity a
 lesson needs → `grad-blooms` / `hax-practice-and-retrieval`.
 
 ## Ask these first (they pick the base class and the xAPI shape)
@@ -79,6 +81,7 @@ A new element ships when every row is green. Audit mode reports these same rows.
 |---|---|---|---|
 | Base class | Graded → `QuestionElement`; ungraded → DDD + I18NMixin. Don't re-implement attempts, stacks, feedback slots or restore. | class declaration | gate-audit `base` |
 | Shell | Graded: header (`renderDDDBlockHeader`) with ⓘ directions, sticky `.shell-action-bar` footer that carries the actions. Ungraded activities with actions use the same header and footer. | `render()` / `renderButtons()` | screenshot; gate-audit `shell` |
+| Title & caption | The block header title is an authored, visible title (`media-title` / `mediaTitle` for media blocks, the question for activities). Never derive it from `alt`: alt is the image's accessible name, so showing it again is a duplicate for screen readers and a poor title for sighted readers. Content made before a title existed may fall back to alt, with that copy `aria-hidden`. A caption goes in a `caption` slot rendered **below** the media and only when something is slotted (`has-caption`); images inside the caption are content, never adopted as the media source. Name the frame `role="group"` with label + title. Reference: video-player, a11y-gif-player (https://github.com/haxtheweb/issues/issues/3124). | `render()`, haxProperties (`mediaTitle` textfield + `caption` slot in configure, `anchorLabel: "mediaTitle"`) | gate-audit `titleFromAlt`; test that alt and title stay separate and the caption renders after the media |
 | Content | Light DOM only; saved markup identical after save → reload. Answer keys in light-DOM inputs are removed after load, so editor tools must import HTML rather than copy children. | `loadLightDomData`, `haxpreProcessNodeToContent` | round-trip test |
 | Targets | Hash ids; stale ids ignored; reorder-stable. | lib helper | unit test |
 | Settings | **configure** = what the activity is (question, mode, unit, options, slot). **advanced** = how strict (maxAttempts, collapsible, partial credit). **developer** = quizName, resource ids. `demoSchema` shows a real, small, working activity (no oversized images). Array items need sane `answerPrototype` defaults. | `lib/<tag>.haxProperties.json` | gate-audit `settings`, `demoSchema` |
@@ -147,6 +150,7 @@ prototype to the same artifact with `round` bumped. Details: `references/prototy
    checked out as a worktree). Columns: `base`, `shell`, `designSystem`, `settings`, `demoSchema`,
    `haxHooks`, `xapiVocabulary` (`inherited` = from the base), `restore`, `i18n`, `axeTest`,
    `xapiValidated` (`MISSING` = emits statements but no test validates them), `docs`, `motion`,
+   `titleFromAlt` (`ALT AS TITLE` = a block title rendered straight from `this.alt`),
    `optionalChaining`, `hexColors` (in `css` blocks), `minWidthOver360`.
 2. Runtime pass against the demos (`npx web-dev-server --node-resolve --root-dir . --port 8123`), with
    Playwright:
@@ -165,6 +169,9 @@ prototype to the same artifact with `round` bumped. Details: `references/prototy
   background left black text on a dark chip. Set color and background together.
 - Class names `.correct` / `.incorrect` collide with QuestionElement feedback styles.
 - Sticky footers silently stop sticking inside themes; always ship the fixed-position fallback and a test.
+- a11y-gif-player showed `alt` as its header title, so authors had no way to say what a GIF *was*
+  (haxtheweb/issues#3124) and screen readers heard the alt twice. Title, alt and caption are three
+  separate fields with three separate jobs.
 - A matching interaction cannot match one source twice; model repeatable labels as choice over pairs.
 - HAX array-field edits rebuild items from `answerPrototype`; keep non-form data (like targets) by label.
 - Regenerating walkthroughs or vocabulary with local-only files present produces CI-only diffs; regenerate

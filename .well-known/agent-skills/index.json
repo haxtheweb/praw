@@ -433,6 +433,13 @@
       ]
     },
     {
+      "name": "hax-ux-study",
+      "type": "skill-md",
+      "description": "Run and analyze an internal HAXcms UX study: record sessions with Merlin's >developer/ux-study, then turn the exported JSON into a findings report, a heatmap/replay review and confirmed issues in haxtheweb/issues. Use for \"ux study\", \"usability test\", \"analyze these recordings\", \"where do people get lost\", \"button visibility\".",
+      "url": "hax-ux-study/SKILL.md",
+      "digest": "sha256:bcd7ab66f289241a980e4cd36a8a974938069a06a23976153a805c02613cf260"
+    },
+    {
       "name": "haxcms-lrs-rater",
       "type": "skill-md",
       "description": "Run BookLooky's Looky Rating System content rating and minimum-age recommendation on a HAXcms site, local or live URL, using the agent's own reasoning. Use for \"rate this HAXcms site\" or \"run an LRS scan\". Reads the site's llms.txt manifest.",

@@ -54,6 +54,7 @@ Reusable agent skills for the HAX (Headless Authoring eXperience) ecosystem. The
 | `reading-notes` | Draft paragraph-level Reading Notes for a long reading (topic rows, page ranges, first…last word anchors, one-sentence paraphrases) for human review | `npx skills add haxtheweb/praw --skill reading-notes` |
 | `hax-instructional-events-audit` | Read-only audit of a HAX lesson against Gagné's nine events and Merrill's First Principles | `npx skills add haxtheweb/praw --skill hax-instructional-events-audit` |
 | `hax-multimedia-principles-audit` | Read-only audit of how a HAX page combines words and media against Mayer's multimedia principles | `npx skills add haxtheweb/praw --skill hax-multimedia-principles-audit` |
+| `hax-ux-study` | Run an internal HAXcms UX study (Merlin `>developer/ux-study` recordings), analyze exports into a findings report and heatmap/replay review, and file confirmed issues in haxtheweb/issues | `npx skills add haxtheweb/praw --skill hax-ux-study` |
 | `hax-theme-builder` | Turn a screenshot into an accessible, dark-mode-ready HAXcms theme | `npx skills add haxtheweb/praw --skill hax-theme-builder` |
 | `youtube-vtt` | Generate a WebVTT transcript from a YouTube URL with yt-dlp, no video download | `npx skills add haxtheweb/praw --skill youtube-vtt` |
 

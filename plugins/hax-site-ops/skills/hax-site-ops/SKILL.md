@@ -7,7 +7,7 @@ description: >-
   structure, add assessments, add interactive content, or use HAX web components.
   Triggers include: hax site, haxcms, add pages, create course, site operations,
   content authoring, HAX web components.
-allowed-tools: Bash, Read, Edit, Write, Glob, Grep
+allowed-tools: Bash(hax:*), Bash(cd:*), Bash(npm install --global @haxtheweb/create*), Read, Edit, Write, Glob, Grep
 ---
 
 # HAX CLI Assistant
@@ -78,16 +78,16 @@ When uncertain:
 4. Prefer discovery over guessing.
 5. Use the most specific HAX feature available.
 
-Never use `npx hax`.
+Never use `npx hax` or `npx @haxtheweb/create` — an unpinned `npx` run downloads and executes whatever is latest on the registry.
 
-Use one of these patterns instead:
+Use the installed `hax` command:
 
 ```bash
-npx @haxtheweb/create --help
-npx @haxtheweb/create site --help
+hax --help
+hax site --help
 ```
 
-If the user already has the HAX CLI installed globally, the `hax` command may be available. Prefer the project/user environment when it is already configured, but do not assume `npx hax` is correct.
+If `hax` is not on PATH, tell the user and (with their agreement) install it once with `npm install --global @haxtheweb/create` (pin a version with `@haxtheweb/create@<version>` when reproducibility matters), then continue with `hax`.
 
 ## HAX Component Usage
 
@@ -254,6 +254,8 @@ Before destructive operations:
 - publishing changes
 
 Explain the planned changes and request confirmation.
+
+Publishing has a stricter rule: before running any `hax site site:surge`, `site:netlify` or `site:vercel` command, stop and ask for an explicit confirmation in its own turn, naming the host and the exact domain/project. Wait for the user's answer. Earlier phrasing ("publish it", `--y`, a target named in the original request) does not count as that confirmation — only a reply to the confirmation question does.
 
 For non-destructive operations:
 

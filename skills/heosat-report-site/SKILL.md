@@ -53,12 +53,14 @@ The same rule applies to the social copy: no personal handles or signatures.
 
 ## Modes
 
-- **Publish mode (default)** — the full workflow runs end to end: assess (if needed), scaffold, convert, publish to surge, generate copy, report back.
-- **Review mode** — when the user's request implies oversight before publishing ("review before publishing", "let me look at it first", "don't publish yet"). Run through the convert step, then stop: report the local site directory and page file path, start `hax serve` from the site directory for in-browser review, and wait for the user's explicit go-ahead ("publish it") before the surge publish + copy steps. Stop the dev server before publishing.
+- **Publish mode (default)** — the full workflow runs end to end: assess (if needed), scaffold, convert, confirm, publish to surge, generate copy, report back.
+- **Review mode** — when the user's request implies oversight before publishing ("review before publishing", "let me look at it first", "don't publish yet"). Run through the convert step, then stop: report the local site directory and page file path, start `hax serve` from the site directory for in-browser review, and wait for the user's go-ahead before the surge publish + copy steps. Stop the dev server before publishing.
+
+**Deploy confirmation (both modes):** the surge publish is the one step that always gets its own confirmation turn. Right before step 7, state the exact domain (`<machine-name>.surge.sh`) and ask the user to confirm; wait for the answer. Prior phrasing — "publish it" in the original request, publish mode being the default, or a go-ahead given earlier in review mode — selects the mode but is not that confirmation.
 
 ## Execution style
 
-Run the whole workflow straight through with minimal narration. Only report once, at the end: the published site URL, the local site path, and the copy blocks. If a step soft-fails, note it in one line and continue.
+Run the whole workflow straight through with minimal narration, pausing only for the deploy confirmation before step 7. Only report once, at the end: the published site URL, the local site path, and the copy blocks. If a step soft-fails, note it in one line and continue.
 
 ## Workflow
 
@@ -93,7 +95,8 @@ Run the whole workflow straight through with minimal narration. Only report once
    ```
    `report-to-site.cjs` resolves the rubric from `../heosat/references/rubric.json` automatically and the project profile from `<scores-dir>/project-profile.json` (both overridable with `--rubric` / `--project-profile`).
    **Review-mode fork:** stop here; start `hax serve` from `<site-dir>`, report the local paths, and wait for the user's go-ahead before step 7.
-7. **Publish to surge** — the domain is `<machine-name>.surge.sh`:
+   **Deploy confirmation (always):** ask "Publish to `https://<machine-name>.surge.sh` now?" and wait for an explicit yes in the user's next turn. Do not run step 7 on the strength of earlier phrasing.
+7. **Publish to surge** — only after the confirmation above; the domain is `<machine-name>.surge.sh`:
    ```bash
    cd <site-dir> && hax site site:surge --domain <machine-name>.surge.sh \
      --y --no-i --auto --quiet
@@ -106,7 +109,7 @@ Run the whole workflow straight through with minimal narration. Only report once
 
 - Scaffold: `hax site <machine-name> --skeleton-file <skill-dir>/references/heosat-report.json --y --no-i --auto --skip --quiet`
 - Convert + finalize: `node <skill-dir>/scripts/report-to-site.cjs <scores-dir> <site-dir> [--project-profile <path>] [--rubric <path>] [--description "<text>"]`
-- Publish: `cd <site-dir> && hax site site:surge --domain <machine-name>.surge.sh --y --no-i --auto --quiet`
+- Publish (only after the explicit deploy confirmation turn): `cd <site-dir> && hax site site:surge --domain <machine-name>.surge.sh --y --no-i --auto --quiet`
 - Review-mode dev server: `cd <site-dir> && hax serve` (stop it before publishing)
 - Fresh assessment: run the `heosat` skill (its own SKILL.md governs that workflow)
 

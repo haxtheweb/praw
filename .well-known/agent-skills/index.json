@@ -308,7 +308,7 @@
       "type": "skill-md",
       "description": "Create a published HAXcms tutorial site from a YouTube video plus a DOCX transcript, then write LinkedIn / X posts and a YouTube SEO description. Use for \"hax tutorial skill\" or \"make a tutorial site from this video\". Bundled skeleton, portable.",
       "url": "hax-tutorial-site/SKILL.md",
-      "digest": "sha256:d4dd2b1cfa0ddb94bc62a4e84f1f1676957db17fb3aec03d20a43ce041adc60e",
+      "digest": "sha256:f3b04c720b0905512428a89afd1650d3e337cee0249673c6d79b397fd277e1eb",
       "files": [
         {
           "path": "references/author-profile.json",
@@ -483,7 +483,7 @@
       "type": "skill-md",
       "description": "Run a HEOSAT assessment and publish it as a single-page HAXcms report site on surge with scorecard, evidence and LinkedIn / X copy. Use for \"make a HEOSAT report site\". Companion to heosat.",
       "url": "heosat-report-site/SKILL.md",
-      "digest": "sha256:e69a36e94318327b0232712ad121cea93ddb7add724fe536de123c83e2970047",
+      "digest": "sha256:0b1550d5f396bbc375f902b88edcf7f886ca817c1827d169414ed804aaa9c354",
       "files": [
         {
           "path": "references/heosat-report.json",

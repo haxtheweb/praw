@@ -8,7 +8,7 @@ description: >-
   publish to surge/netlify/vercel/gh-pages, or otherwise run `hax` commands.
   Triggers include: hax, haxcms, haxsite, haxtheweb, web component, Lit element,
   DDD audit, "hax site", "hax webcomponent", onboarding, "set up HAX".
-allowed-tools: Bash, Read, Edit, Write, Glob, Grep
+allowed-tools: Bash(hax:*), Bash(cd:*), Bash(npm install --global @haxtheweb/create*), Bash(npm install), Bash(npm start), Bash(npm run build), Bash(git clone:*), Read, Edit, Write, Glob, Grep
 version: 1.0.0
 license: Apache-2.0
 metadata:
@@ -32,10 +32,12 @@ hax update                               # self-update the CLI
 hax --version                            # check installed version
 ```
 
-This plugin's SessionStart hook installs the CLI automatically if `hax` is
-missing. If it isn't on PATH, fall back to the global install above (or `npx
-@haxtheweb/create` / `npm init @haxtheweb` for a one-off run). Requires Node
-`>=18.20.3`.
+This plugin's SessionStart hook checks for `hax` and, only when the user has opted
+in with `HAX_PLUGIN_AUTOINSTALL=1`, installs the CLI. If `hax` isn't on PATH, run
+the global install above (pin a version with `@haxtheweb/create@<version>` when
+reproducibility matters). Do not fall back to `npx @haxtheweb/create` — an
+unpinned `npx` run fetches and executes whatever is latest on the registry.
+Requires Node `>=18.20.3`.
 
 If you have a local development checkout of
 [`create`](https://github.com/haxtheweb/create), set `HAX_DEV_PATH` to its path and
@@ -67,8 +69,8 @@ For developers setting up a full HAX development environment:
    a single workspace folder (ask the user where). Core repos: `webcomponents`, `create`,
    `haxcms-php`, `haxcms-nodejs`, `desktop`, `hax11ty`, `json-outline-schema`,
    `hax-schema`, `open-apis`, `docs`, and `issues`.
-2. **Install HAX CLI**: `npm install @haxtheweb/create --global` (or use the
-   auto-install hook). Update with `hax update`.
+2. **Install HAX CLI**: `npm install --global @haxtheweb/create` (or opt in to the
+   auto-install hook with `HAX_PLUGIN_AUTOINSTALL=1`). Update with `hax update`.
 3. **Install Agent Skills**: Run `hax skills install --all` to install bundled
    interface skills (site building, ClaudeHAX, web component dev, onboarding)
    into `~/.agents/skills/` so any agent can use them.
@@ -230,8 +232,12 @@ responsive, then report the local URL.
 
 ## Publish / deploy a HAXsite
 
-Run from the site root (or pass `--root ./mysite`). Deploying is outward-facing —
-confirm the target/domain before pushing unless the user already specified it.
+Run from the site root (or pass `--root ./mysite`). Deploying is outward-facing.
+**Always stop and get an explicit confirmation in its own turn before running any
+`site:surge`, `site:netlify` or `site:vercel` command** — state the host and the
+exact domain/project, then wait for the user to answer. Earlier phrasing such as
+"publish it", "--y", or a target named in the original request does not count as
+that confirmation; only a reply to the confirmation question does.
 
 ```bash
 hax site site:surge   --domain my-blog.surge.sh      # surge.sh

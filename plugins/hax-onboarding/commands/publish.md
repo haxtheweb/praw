@@ -19,8 +19,13 @@ Targets:
 
 Guidance:
 - Pick the target from the input; if it's ambiguous, ask which host.
-- Publishing to a third-party host is **outward-facing** — confirm the target and domain
-  with the user before deploying, unless they already specified it and asked you to proceed.
-- Add `--y` for automated deploys once the target is confirmed.
+- Publishing to a third-party host is **outward-facing**. Before running any `site:surge`,
+  `site:netlify` or `site:vercel` command, stop and ask for an explicit confirmation in its
+  own turn: name the host and the exact domain/project, then wait for the user's answer.
+  This applies regardless of prior phrasing — a target or `--y` in `$ARGUMENTS`, or
+  "publish it" in the original request, selects the target but is not the confirmation.
+- Only after the user confirms, run the command (add `--y` so the CLI itself does not prompt).
+- `setup:github-actions`, `setup:gitlab-ci` and `site:sync` write config or push to the site's
+  own git remote; describe what they will do before running them.
 
 Run the appropriate command and report the resulting URL or next steps.

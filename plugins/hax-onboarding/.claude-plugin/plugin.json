@@ -3,7 +3,7 @@
   "name": "hax-onboarding",
   "displayName": "HAX Onboarding",
   "version": "1.0.0",
-  "description": "Golden-path onboarding for HAX. Auto-installs the HAX CLI (@haxtheweb/create) on session start, ships a knowledge skill with the full command surface, and provides slash commands for the top workflows: quickstart (site -> serve -> live URL), site, webcomponent, audit, serve, and publish.",
+  "description": "Golden-path onboarding for HAX. A SessionStart hook checks for the HAX CLI (@haxtheweb/create) and installs it only when you opt in with HAX_PLUGIN_AUTOINSTALL=1; ships a knowledge skill with the full command surface and slash commands for the top workflows: quickstart (site -> serve -> live URL), site, webcomponent, audit, serve, and publish.",
   "author": {
     "name": "HAXTheWeb core team",
     "url": "https://hax.psu.edu/"

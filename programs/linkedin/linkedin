@@ -1,9 +1,22 @@
 #!/bin/bash
 
 # LinkedIn posting script for content automation
-# Usage: ./linkedin [--custom "content"] [--help]
+# Usage: ./linkedin [--post] [--custom "content"] [--help]
+#
+# Defaults to a dry run (generate and print the posts, publish nothing). Pass
+# --post to actually publish; anything sourced from issue text or an AI
+# conversation should be read by a person before that flag is added.
 
 cd "$(dirname "$0")"
+
+MODE_FLAG="--dry-run"
+PASS_ARGS=()
+for arg in "$@"; do
+    case "$arg" in
+        --post) MODE_FLAG="--post" ;;
+        *) PASS_ARGS+=("$arg") ;;
+    esac
+done
 
 echo "🚀 LinkedIn Content Poster"
 echo "=============================="
@@ -23,5 +36,8 @@ else
     echo "💡 No issue data available - custom content mode only"
 fi
 
-# Run the LinkedIn poster with any provided arguments
-node post-to-linkedin.js "$@"
+# Run the LinkedIn poster with any provided arguments (dry run unless --post)
+if [[ "$MODE_FLAG" == "--dry-run" ]]; then
+    echo "🧪 Dry run (default). Pass --post to publish."
+fi
+node post-to-linkedin.js "$MODE_FLAG" "${PASS_ARGS[@]}"

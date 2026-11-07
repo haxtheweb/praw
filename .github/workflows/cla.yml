@@ -7,7 +7,6 @@ on:
 
 # explicitly configure permissions, in case your GITHUB_TOKEN workflow permissions are set to read-only in repository settings
 permissions:
-  actions: write
   contents: read # this can be 'read' if the signatures are in remote repository
   pull-requests: write
   statuses: write
@@ -27,12 +26,15 @@ jobs:
           path-to-document: 'https://github.com/haxtheweb/cla/blob/main/CLA.md'
           # branch should not be protected
           branch: 'main'
-          # claude is the GitHub account behind commits authored as
-          # Claude <noreply@anthropic.com> (Claude Code) and Copilot /
-          # copilot-swe-agent[bot] are GitHub Copilot agents. Changes they
-          # issue on the maintainer's behalf are pre-authorized; bot* and
-          # *[bot] cover the remaining automation accounts.
-          allowlist: "*[bot],bot*,claude,copilot-swe-agent[bot],Copilot"
+          # Exact logins only (no prefix wildcards, which would also match
+          # any human account that happens to start with the same letters).
+          # These are the automation identities that have authored commits in
+          # this repo: `claude` is the GitHub account behind commits authored
+          # as Claude <noreply@anthropic.com> (Claude Code); `Copilot` and
+          # `copilot-swe-agent[bot]` are the GitHub Copilot coding agent.
+          # Changes they issue on the maintainer's behalf are pre-authorized.
+          # Add further bot accounts here by exact login when they are adopted.
+          allowlist: "claude,copilot-swe-agent[bot],Copilot"
           # the followings are the optional inputs - If the optional inputs are not given, then default values will be taken
           remote-organization-name: 'haxtheweb'
           remote-repository-name: 'cla'

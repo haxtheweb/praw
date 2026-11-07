@@ -79,7 +79,7 @@ Start with `hax-onboarding`, then add the plugin that matches what you do. Eleve
 
 Install any of them with `/plugin install <name>@haxtheweb`. The first three are described below; each newer plugin has its own README under [`plugins/`](plugins/).
 
-- **`hax-onboarding`** — Golden-path onboarding: auto-installs the HAX CLI via a SessionStart hook, ships a knowledge skill with the full command surface, and provides slash commands (`quickstart`, `site`, `webcomponent`, `audit`, `serve`, `publish`) to go from nothing to a live HAXsite in one pass.
+- **`hax-onboarding`** — Golden-path onboarding: a SessionStart hook checks for the HAX CLI and tells you how to install it (it installs the CLI itself only when you opt in with `HAX_PLUGIN_AUTOINSTALL=1`), ships a knowledge skill with the full command surface, and provides slash commands (`quickstart`, `site`, `webcomponent`, `audit`, `serve`, `publish`) to go from nothing to a live HAXsite in one pass.
 - **`hax-site-ops`** — Operate HAX sites from Claude Code using the HAX CLI and HAX web components: add pages, create courses, update content, inspect, validate, export, and publish. Ships a site-operations skill plus reference docs. (Renamed from the old `hax` plugin in claudehax — this resolves the name collision.)
 - **`openstax2hax`** — Prepare OpenStax books for conversion into HAX sites: inspect source files, extract content structure, and generate HAX handoff prompts.
 

@@ -9,6 +9,7 @@
 #     @haxtheweb/create globally with npm when explicitly opted in.
 #
 # Opt in to auto-install:  export HAX_PLUGIN_AUTOINSTALL=1
+# Override the pinned CLI release:  export HAX_CREATE_VERSION=<version>  (or "latest")
 # Override the local dev path:  export HAX_DEV_PATH=/path/to/create
 #
 # This hook is best-effort and always exits 0. Anything it prints on stdout is surfaced
@@ -17,7 +18,11 @@
 
 set -uo pipefail
 
-MANUAL_INSTALL="npm install --global @haxtheweb/create"
+# The CLI release this plugin installs when opted in. Pinned so a session-start
+# hook never pulls an unreviewed "latest" from the registry; bump deliberately
+# (keep in step with HAX_CREATE_VERSION in hax-onboarding.sh at the repo root).
+HAX_CREATE_VERSION="${HAX_CREATE_VERSION:-26.8.1}"
+MANUAL_INSTALL="npm install --global @haxtheweb/create@${HAX_CREATE_VERSION}"
 
 # Optional local development checkout of https://github.com/haxtheweb/create.
 # Unset by default; set HAX_DEV_PATH to opt in.
@@ -69,10 +74,10 @@ fi
 
 # --- Install globally (one-time). -------------------------------------------
 # Human-facing progress goes to stderr; the result line goes to stdout/context.
-echo "HAX CLI not found — installing @haxtheweb/create globally (one-time setup)…" 1>&2
-if npm install --global @haxtheweb/create >/dev/null 2>&1; then
+echo "HAX CLI not found — installing @haxtheweb/create@${HAX_CREATE_VERSION} globally (one-time setup)…" 1>&2
+if npm install --global "@haxtheweb/create@${HAX_CREATE_VERSION}" >/dev/null 2>&1; then
   ver="$(hax --version 2>/dev/null | head -n1 | tr -d '\r')"
-  echo "Installed HAX CLI (hax ${ver:-latest}). Use \`hax help\` or the /hax-onboarding:* slash commands."
+  echo "Installed HAX CLI (hax ${ver:-$HAX_CREATE_VERSION}). Use \`hax help\` or the /hax-onboarding:* slash commands."
 else
   echo "Could not auto-install the HAX CLI (global npm install failed — it may need elevated permissions). Install manually: ${MANUAL_INSTALL}"
 fi

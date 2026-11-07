@@ -19,6 +19,9 @@ NC='\033[0m' # No Color
 # Configuration
 DEFAULT_BASE_DIR="$HOME/Documents/git/haxtheweb"
 GITHUB_ORG="haxtheweb"
+# Pinned HAX CLI release installed by setup_hax_cli. Override with
+# HAX_CREATE_VERSION=<version> (or "latest") to install a different release.
+HAX_CREATE_VERSION="${HAX_CREATE_VERSION:-26.8.1}"
 
 # Repository list based on the training data analysis
 declare -A REPOSITORIES=(
@@ -237,9 +240,9 @@ clone_repositories() {
 setup_hax_cli() {
     print_header "Setting Up HAX CLI"
     
-    print_status "Installing @haxtheweb/create globally..."
+    print_status "Installing @haxtheweb/create@${HAX_CREATE_VERSION} globally..."
     
-    if npm install -g @haxtheweb/create; then
+    if npm install -g "@haxtheweb/create@${HAX_CREATE_VERSION}"; then
         print_success "HAX CLI installed successfully"
         
         # Test installation
@@ -251,7 +254,7 @@ setup_hax_cli() {
         fi
     else
         print_error "Failed to install HAX CLI"
-        print_status "You can install it manually later with: npm install -g @haxtheweb/create"
+        print_status "You can install it manually later with: npm install -g @haxtheweb/create@${HAX_CREATE_VERSION}"
     fi
 }
 

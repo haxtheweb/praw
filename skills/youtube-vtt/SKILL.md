@@ -29,9 +29,12 @@ along with the video.
 - `python3` — used only for the venv fallback when yt-dlp is not on PATH.
 - `yt-dlp` is **auto-provisioned**: the script checks PATH first, then a managed
   venv at `~/.hax-skills/yt-dlp-venv`; if neither exists it creates the venv and
-  `pip install`s yt-dlp there (venvs are exempt from Ubuntu's PEP 668
-  externally-managed lock; no sudo, no system packages touched). The venv is
-  reusable across runs.
+  `pip install`s a **pinned** `yt-dlp==2026.10.26` there (venvs are exempt from
+  Ubuntu's PEP 668 externally-managed lock; no sudo, no system packages touched).
+  The venv is reusable across runs and is shared with the `hax-tutorial-site`
+  skill. To use a different release set `YT_DLP_VERSION=<version>` before the
+  first run, or delete `~/.hax-skills/yt-dlp-venv` to re-provision. A `yt-dlp`
+  already on PATH is used as-is, whatever its version.
 
 ## Relationship to the `yt-dlp` CLI
 

@@ -76,16 +76,16 @@ The Anthropic document skills — `docx`, `pdf`, `pptx`, `xlsx` — are **not bu
 
 ```bash
 # Install all four document skills globally (into ~/.agents/skills/)
-npx skills add anthropics/skills --skill docx --skill pdf --skill pptx --skill xlsx -g -y
+npx skills add anthropics/skills --skill docx --skill pdf --skill pptx --skill xlsx -g
 
 # Or install individually
-npx skills add anthropics/skills@docx -g -y
-npx skills add anthropics/skills@pdf -g -y
-npx skills add anthropics/skills@pptx -g -y
-npx skills add anthropics/skills@xlsx -g -y
+npx skills add anthropics/skills@docx -g
+npx skills add anthropics/skills@pdf -g
+npx skills add anthropics/skills@pptx -g
+npx skills add anthropics/skills@xlsx -g
 ```
 
-Target a specific agent with `-a <agent>` (e.g. `-a warp`, `-a claude-code`); omit `-g` for a project-local install. Per Anthropic's README these skills are provided for demonstration/educational purposes — verify the license terms and your entitlement before relying on them.
+`skills add` prompts before writing anything: it shows which skills it resolved, where it will install them, and asks you to confirm. Read that prompt (it is the moment to catch a typo'd repo or an unexpected skill) rather than passing `-y`, which skips it. Target a specific agent with `-a <agent>` (e.g. `-a warp`, `-a claude-code`); omit `-g` for a project-local install. Per Anthropic's README these skills are provided for demonstration/educational purposes — verify the license terms and your entitlement before relying on them.
 
 ## What Are Agent Skills?
 

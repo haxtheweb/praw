@@ -33,7 +33,7 @@ Thumbs.db
 local-config.*
 
 # Anthropic document skills — source-available (not OSS), not bundled in this repo.
-# Install on your machine via: npx skills add anthropics/skills --skill <name> -g -y
+# Install on your machine via: npx skills add anthropics/skills --skill <name> -g
 .agents/skills/docx/
 .agents/skills/pdf/
 .agents/skills/pptx/

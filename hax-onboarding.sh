@@ -73,6 +73,25 @@ print_header() {
     echo -e "${PURPLE}================================${NC}\n"
 }
 
+# Read a line of user input from the controlling terminal, not stdin.
+# When this script is run as `curl ... | bash`, stdin is the script itself, so a
+# plain `read` would silently consume script text as answers. Reading from
+# /dev/tty keeps every prompt interactive; with no terminal at all we stop
+# instead of guessing.
+#   prompt_user VAR "Prompt text: " [extra read flags]
+prompt_user() {
+    local __var="$1" __prompt="$2"
+    shift 2
+    # `-r /dev/tty` is true whenever the device node exists, so actually try to
+    # open it: that fails when the process has no controlling terminal.
+    if ! { : < /dev/tty; } 2>/dev/null; then
+        print_error "No interactive terminal available to answer: ${__prompt}"
+        print_status "Clone the repo and run ./hax-onboarding.sh from a terminal instead of piping it into bash."
+        exit 1
+    fi
+    IFS= read -r "$@" -p "$__prompt" "$__var" < /dev/tty
+}
+
 # Function to check prerequisites
 check_prerequisites() {
     print_header "Checking Prerequisites"
@@ -80,7 +99,7 @@ check_prerequisites() {
     # Check if running in Warp
     if [[ -z "$WARP_SESSION" ]]; then
         print_warning "This script is optimized for Warp Terminal. Some features may not work optimally in other terminals."
-        read -p "Continue anyway? (y/N): " -n 1 -r
+        prompt_user REPLY "Continue anyway? (y/N): " -n 1
         echo
         if [[ ! $REPLY =~ ^[Yy]$ ]]; then
             exit 1
@@ -125,7 +144,7 @@ setup_directories() {
     # Get base directory from user
     echo "Where would you like to install the HAX ecosystem?"
     echo "Default: $DEFAULT_BASE_DIR"
-    read -p "Enter path (or press Enter for default): " BASE_DIR
+    prompt_user BASE_DIR "Enter path (or press Enter for default): "
     
     BASE_DIR=${BASE_DIR:-$DEFAULT_BASE_DIR}
     
@@ -176,7 +195,7 @@ clone_repositories() {
     echo "  '1,2,3' - Clone specific repositories by number"
     echo "  'skip' - Skip repository cloning"
     
-    read -p "Selection: " selection
+    prompt_user selection "Selection: "
     
     local repos_to_clone=()
     
@@ -261,11 +280,23 @@ setup_warp_config() {
     
     local warp_config_dir="$HOME/.warp"
     local rules_dir="$warp_config_dir/rules"
-    
+    local rules_file="$rules_dir/hax-development.md"
+
+    # Writing into ~/.warp changes what every Warp agent session loads as context,
+    # so ask first (and never silently overwrite an existing rules file).
+    echo "This step writes HAX development rules to: $rules_file"
+    if [[ -f "$rules_file" ]]; then
+        print_warning "$rules_file already exists and would be overwritten"
+    fi
+    local write_rules
+    prompt_user write_rules "Write Warp rules file? (y/N): "
+    if [[ ! "$write_rules" =~ ^[Yy]$ ]]; then
+        print_status "Skipping Warp rules file"
+    else
     mkdir -p "$rules_dir"
-    
+
     # Create HAX-specific Warp rules
-    cat > "$rules_dir/hax-development.md" << 'EOF'
+    cat > "$rules_file" << 'EOF'
 # HAX Ecosystem Development Rules
 
 ## Environment Setup
@@ -314,14 +345,23 @@ setup_warp_config() {
 EOF
 
     print_success "Created HAX development rules for Warp"
-    
-    # Create project-specific WARP.md files
+    fi
+
+    # Create project-specific WARP.md files, but only inside checkouts whose
+    # origin is a haxtheweb repository. Anything else under the base directory
+    # (unrelated projects, forks of other orgs) is left untouched.
     cd "$HAX_BASE_DIR"
-    
+
+    local origin_url
     for dir in */; do
         if [[ -d "$dir" && -d "$dir/.git" ]]; then
             local repo_name=$(basename "$dir")
-            
+            origin_url="$(git -C "$dir" remote get-url origin 2>/dev/null || true)"
+            if [[ ! "$origin_url" =~ ^(https://|ssh://git@|git@)github\.com[/:]haxtheweb/ ]]; then
+                print_status "Skipping $repo_name (origin is not a github.com/haxtheweb repository)"
+                continue
+            fi
+
             if [[ ! -f "$dir/WARP.md" ]]; then
                 print_status "Creating WARP.md for $repo_name"
                 
@@ -417,26 +457,40 @@ create_shortcuts() {
         return
     fi
     
+    local marker="# HAX Development Aliases (added by hax-onboarding.sh)"
+    if grep -qF "$marker" "$shell_config" 2>/dev/null; then
+        print_warning "HAX aliases already present in $shell_config, not adding them again"
+        print_status "Edit the block under '$marker' by hand if the base directory changed"
+        return
+    fi
+
     print_status "Adding HAX aliases to $shell_config"
-    
+
+    # Shell-quote the base directory once (printf %q) and export it; the aliases
+    # reference the variable instead of interpolating the raw path, so spaces,
+    # quotes or metacharacters in the chosen path cannot break out of them.
+    local qdir
+    qdir="$(printf '%q' "$HAX_BASE_DIR")"
+
     # Create HAX aliases section
     cat >> "$shell_config" << EOF
 
-# HAX Development Aliases (added by hax-onboarding.sh)
-alias haxdir='cd $HAX_BASE_DIR'
-alias haxwc='cd $HAX_BASE_DIR/webcomponents'
-alias haxcreate='cd $HAX_BASE_DIR/create'
-alias haxdocs='cd $HAX_BASE_DIR/docs'
-alias haxissues='cd $HAX_BASE_DIR/issues'
+$marker
+export HAX_BASE_DIR=$qdir
+alias haxdir='cd "\$HAX_BASE_DIR"'
+alias haxwc='cd "\$HAX_BASE_DIR/webcomponents"'
+alias haxcreate='cd "\$HAX_BASE_DIR/create"'
+alias haxdocs='cd "\$HAX_BASE_DIR/docs"'
+alias haxissues='cd "\$HAX_BASE_DIR/issues"'
 alias haxserve='hax serve --y --no-i --auto'
 alias haxaudit='hax audit'
 alias haxbuild='yarn run build'
 
 # HAX environment variable
-export HAX_DEV_PATH="$HAX_BASE_DIR"
+export HAX_DEV_PATH="\$HAX_BASE_DIR"
 
 EOF
-    
+
     print_success "HAX development aliases added to $shell_config"
     print_status "Run 'source $shell_config' or restart your terminal to use aliases"
 }
@@ -575,7 +629,7 @@ using Warp as your primary development interface.
 
 EOF
     
-    read -p "Press Enter to continue..."
+    prompt_user REPLY "Press Enter to continue..."
     
     # Run setup steps
     check_prerequisites

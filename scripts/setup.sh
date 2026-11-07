@@ -5,6 +5,25 @@
 
 set -e
 
+# Options
+#   --system   also create symlinks in /usr/local/bin (off by default; it is a
+#              machine-wide change and needs a writable /usr/local/bin)
+INSTALL_SYSTEM_SYMLINKS=0
+for arg in "$@"; do
+    case "$arg" in
+        --system) INSTALL_SYSTEM_SYMLINKS=1 ;;
+        -h|--help)
+            echo "Usage: $0 [--system]"
+            echo "  --system   also symlink the praw-* commands into /usr/local/bin"
+            exit 0
+            ;;
+        *)
+            echo "Unknown option: $arg (try --help)" >&2
+            exit 1
+            ;;
+    esac
+done
+
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -76,8 +95,13 @@ setup_aliases() {
     
     detect_shell
     
+    # The block is wrapped in start/end markers so a re-run can replace exactly
+    # this block and nothing else in the rc file.
+    local start_marker="# >>> HAX PRAW Rule Management System Aliases >>>"
+    local end_marker="# <<< HAX PRAW Rule Management System Aliases <<<"
+    local legacy_marker="# HAX PRAW Rule Management System Aliases"
     local aliases_content="
-# HAX PRAW Rule Management System Aliases
+$start_marker
 alias praw-add='$SCRIPT_DIR/add-rule.sh'
 alias praw-manage='$SCRIPT_DIR/manage-rules.sh'
 alias praw-list='$SCRIPT_DIR/manage-rules.sh list'
@@ -95,18 +119,34 @@ alias add-url-resource='$SCRIPT_DIR/add-url-resource.sh'
 
 # Quick navigation to PRAW directory
 alias cd-praw='cd $PRAW_DIR'
+$end_marker
 "
     
     # Check if aliases already exist
-    if grep -q "# HAX PRAW Rule Management System Aliases" "$SHELL_RC_FILE" 2>/dev/null; then
+    if grep -qF "$start_marker" "$SHELL_RC_FILE" 2>/dev/null; then
         print_warning "Aliases already exist in $SHELL_RC_FILE"
-        read -p "Update existing aliases? (y/N): " update_aliases
+        read -r -p "Update existing aliases? (y/N): " update_aliases
         if [[ "$update_aliases" == "y" || "$update_aliases" == "Y" ]]; then
-            # Remove old aliases and add new ones
-            sed -i '/# HAX PRAW Rule Management System Aliases/,/^$/d' "$SHELL_RC_FILE"
+            # Replace only the marked block (an earlier `sed` range delete ran
+            # from the header to the next blank line and could eat unrelated
+            # lines when the block had been edited).
+            local tmp
+            tmp="$(mktemp)"
+            START="$start_marker" END="$end_marker" awk '
+                index($0, ENVIRON["START"]) == 1 { skip = 1; next }
+                index($0, ENVIRON["END"]) == 1 && skip { skip = 0; next }
+                !skip { print }
+            ' "$SHELL_RC_FILE" > "$tmp"
+            cat "$tmp" > "$SHELL_RC_FILE"
+            rm -f "$tmp"
             echo "$aliases_content" >> "$SHELL_RC_FILE"
             print_success "Updated aliases in $SHELL_RC_FILE"
         fi
+    elif grep -qF "$legacy_marker" "$SHELL_RC_FILE" 2>/dev/null; then
+        # Block written by an older setup.sh without an end marker: do not guess
+        # where it stops; ask the user to remove it by hand.
+        print_warning "An older HAX PRAW alias block (no end marker) is in $SHELL_RC_FILE"
+        print_info "Remove the lines under '$legacy_marker' by hand, then re-run this script to install the marked block"
     else
         echo "$aliases_content" >> "$SHELL_RC_FILE"
         print_success "Added aliases to $SHELL_RC_FILE"
@@ -126,14 +166,21 @@ create_symlinks() {
         print_success "Created symlinks in ~/bin/"
     fi
     
-    # Create symlink in /usr/local/bin if writable
-    if [[ -w "/usr/local/bin" ]]; then
-        ln -sf "$SCRIPT_DIR/add-rule.sh" "/usr/local/bin/praw-add" 2>/dev/null || true
-        ln -sf "$SCRIPT_DIR/manage-rules.sh" "/usr/local/bin/praw-manage" 2>/dev/null || true
-        ln -sf "$SCRIPT_DIR/faculty-setup.sh" "/usr/local/bin/faculty-setup" 2>/dev/null || true
-        ln -sf "$SCRIPT_DIR/find-course-resources.sh" "/usr/local/bin/find-course" 2>/dev/null || true
-        ln -sf "$SCRIPT_DIR/add-url-resource.sh" "/usr/local/bin/add-url-resource" 2>/dev/null || true
-        print_success "Created system-wide symlinks in /usr/local/bin/"
+    # System-wide symlinks are opt-in (--system): they change every user's PATH
+    # on the machine, so they are never created just because the dir is writable.
+    if [[ "$INSTALL_SYSTEM_SYMLINKS" == "1" ]]; then
+        if [[ -w "/usr/local/bin" ]]; then
+            ln -sf "$SCRIPT_DIR/add-rule.sh" "/usr/local/bin/praw-add" 2>/dev/null || true
+            ln -sf "$SCRIPT_DIR/manage-rules.sh" "/usr/local/bin/praw-manage" 2>/dev/null || true
+            ln -sf "$SCRIPT_DIR/faculty-setup.sh" "/usr/local/bin/faculty-setup" 2>/dev/null || true
+            ln -sf "$SCRIPT_DIR/find-course-resources.sh" "/usr/local/bin/find-course" 2>/dev/null || true
+            ln -sf "$SCRIPT_DIR/add-url-resource.sh" "/usr/local/bin/add-url-resource" 2>/dev/null || true
+            print_success "Created system-wide symlinks in /usr/local/bin/"
+        else
+            print_warning "--system requested but /usr/local/bin is not writable; skipping system-wide symlinks"
+        fi
+    else
+        print_info "Skipping /usr/local/bin symlinks (pass --system to create them)"
     fi
 }
 

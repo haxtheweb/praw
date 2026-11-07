@@ -16,6 +16,7 @@ Read these before writing anything public about HAX or making product decisions:
 - **WINS.md**: sourced impact stories to cite (never funding amounts) — https://github.com/haxtheweb/praw/blob/main/WINS.md
 - **impact/**: the data behind the wins (npm downloads, release velocity, merged PRs, SIIP timeline), refreshed with `node scripts/impact-stats.mjs` — https://github.com/haxtheweb/praw/tree/main/impact
 - **talks/**: notes and recordings of key talks — https://github.com/haxtheweb/praw/tree/main/talks
+- **ecosystem/**: maps from the HAX ecosystem web to HEOSAT evidence (all 47 questions) and to the instructional design skills, their elements and pillars — https://github.com/haxtheweb/praw/tree/main/ecosystem
 
 ## Interface Skills (canonical source: `create`)
 

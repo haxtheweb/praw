@@ -20,6 +20,7 @@ This repository contains:
 - **`visuals/`** - Impact visuals (SIIP timeline, issue velocity) with alt text
 - **`talks/`** - Notes and recordings of talks that carry the worldview
 - **`impact/`** - Data behind the wins (npm downloads, release velocity, merged PRs, SIIP timeline); refresh with `node scripts/impact-stats.mjs`
+- **`ecosystem/`** - Maps from the ecosystem web to HEOSAT evidence and to the instructional design skills
 - **`WARP.md`** files - Detailed context-specific rules for different project types
 - **`programs/`** - Utility programs for LinkedIn posting and issue management automation
 - **Rule Management System** - Scripts and tools for adding, searching, and managing rules
@@ -336,6 +337,7 @@ praw/
 ├── visuals/                    # Impact visuals with alt text
 ├── talks/                      # Talk notes and recordings
 ├── impact/                     # Impact data and charts (scripts/impact-stats.mjs)
+├── ecosystem/                  # Ecosystem web maps: HEOSAT evidence, instructional design skills
 ├── WARP.md                     # Master HAX ecosystem rules
 ├── README.md                   # This file
 ├── FACULTY_RESOURCES.md        # Faculty resource management guide

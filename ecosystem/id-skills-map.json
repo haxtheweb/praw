@@ -1,0 +1,674 @@
+{
+  "description": "Maps PRAW's instructional design skills to the HAX elements they recommend or check, the pillars they uphold and the ecosystem web nodes they connect to. Elements come from what each skill's files actually reference (top 10 by mentions). Pillar links are proposed for review.",
+  "source": "Element references counted from skills/<name>/**/*.md and matched against the element folders in haxtheweb/webcomponents.",
+  "skills": [
+    {
+      "skill": "hax-ubd-backward-design",
+      "family": "Understanding by Design",
+      "summary": "Design HAX course units by Understanding by Design backward design, producing a UbD unit plan and a HAX site skeleton.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-backward-design/SKILL.md",
+      "elements": [
+        "editable-table",
+        "simple-fields",
+        "stop-note",
+        "self-check",
+        "a11y-collapse",
+        "progress-donut",
+        "oer-schema",
+        "multiple-choice",
+        "video-player",
+        "image-compare-slider"
+      ],
+      "pillars": [
+        "efficient",
+        "remixable"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "skeletons",
+        "oerschema"
+      ]
+    },
+    {
+      "skill": "hax-ubd-stage1",
+      "family": "Understanding by Design",
+      "summary": "UbD Stage 1: unpack standards into big ideas, enduring understandings, essential questions, knowledge/skills and misconceptions.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-stage1/SKILL.md",
+      "elements": [
+        "stop-note",
+        "self-check",
+        "oer-schema",
+        "multiple-choice",
+        "editable-table"
+      ],
+      "pillars": [
+        "efficient",
+        "remixable"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "skeletons",
+        "oerschema"
+      ]
+    },
+    {
+      "skill": "hax-ubd-stage2",
+      "family": "Understanding by Design",
+      "summary": "UbD Stage 2: build the evidence scrapbook, a GRASPS performance task, facet-mapped rubric and validity self-test.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-stage2/SKILL.md",
+      "elements": [
+        "editable-table",
+        "simple-fields",
+        "stop-note",
+        "progress-donut",
+        "simple-progress",
+        "promise-progress",
+        "grade-book",
+        "image-compare-slider",
+        "self-check",
+        "multiple-choice"
+      ],
+      "pillars": [
+        "efficient",
+        "remixable"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "skeletons",
+        "oerschema"
+      ]
+    },
+    {
+      "skill": "hax-ubd-stage3",
+      "family": "Understanding by Design",
+      "summary": "UbD Stage 3: plan learning experiences with WHERETO, derived from Stages 1 and 2.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-stage3/SKILL.md",
+      "elements": [
+        "a11y-collapse",
+        "self-check",
+        "a11y-tabs",
+        "stop-note",
+        "map-menu",
+        "flash-card",
+        "progress-donut",
+        "simple-progress",
+        "promise-progress",
+        "video-player"
+      ],
+      "pillars": [
+        "efficient",
+        "remixable"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "skeletons",
+        "oerschema"
+      ]
+    },
+    {
+      "skill": "hax-ubd-essential-questions",
+      "family": "Understanding by Design",
+      "summary": "Author UbD essential and entry questions from the six-facet starter bank, separating overarching from topical and essential from leading.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-essential-questions/SKILL.md",
+      "elements": [
+        "stop-note"
+      ],
+      "pillars": [
+        "efficient",
+        "remixable"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "skeletons",
+        "oerschema"
+      ]
+    },
+    {
+      "skill": "hax-ubd-grasps",
+      "family": "Understanding by Design",
+      "summary": "Frame UbD GRASPS performance tasks (Goal, Role, Audience, Situation, Performance/Product, Standards) and pick authentic-context HAX media.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-grasps/SKILL.md",
+      "elements": [
+        "simple-fields",
+        "editable-table",
+        "audio-player",
+        "media-playlist",
+        "video-player",
+        "image-compare-slider",
+        "a11y-compare-image",
+        "lrndesign-imagemap"
+      ],
+      "pillars": [
+        "efficient",
+        "remixable"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "skeletons",
+        "oerschema"
+      ]
+    },
+    {
+      "skill": "hax-ubd-six-facets",
+      "family": "Understanding by Design",
+      "summary": "Apply the UbD six facets of understanding to write understandings and facet-mapped rubric criteria.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-six-facets/SKILL.md",
+      "elements": [
+        "editable-table",
+        "simple-fields",
+        "stop-note",
+        "image-compare-slider",
+        "a11y-compare-image",
+        "self-check"
+      ],
+      "pillars": [
+        "efficient",
+        "remixable"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "skeletons",
+        "oerschema"
+      ]
+    },
+    {
+      "skill": "hax-ubd-unit-audit",
+      "family": "Understanding by Design",
+      "summary": "READ-ONLY review of an existing HAX unit against Understanding by Design with HAX remediation.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-unit-audit/SKILL.md",
+      "elements": [
+        "multiple-choice",
+        "stop-note",
+        "oer-schema",
+        "simple-fields",
+        "editable-table",
+        "flash-card",
+        "video-player",
+        "image-compare-slider",
+        "a11y-collapse",
+        "media-playlist"
+      ],
+      "pillars": [
+        "efficient",
+        "remixable"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "skeletons",
+        "oerschema"
+      ]
+    },
+    {
+      "skill": "grad-blooms",
+      "family": "Course alignment and cognitive level",
+      "summary": "Classify learning objectives and design assessments with Bloom's revised taxonomy (six cognitive levels).",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/grad-blooms/SKILL.md",
+      "elements": [
+        "multiple-choice",
+        "matching-question",
+        "sorting-question",
+        "self-check",
+        "editable-table",
+        "flash-card",
+        "fill-in-the-blanks",
+        "tagging-question",
+        "h5p-element",
+        "image-compare-slider"
+      ],
+      "pillars": [
+        "efficient",
+        "remixable"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "oerschema"
+      ]
+    },
+    {
+      "skill": "siip-course-alignment",
+      "family": "Course alignment and cognitive level",
+      "summary": "Align a course with an open source project using the Sustainable Impact and Innovation Pipeline (SIIP): map course objectives to real contribution paths, shape a 40/20/20/20 term, and plan the lab, club and onboarding loop.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/siip-course-alignment/SKILL.md",
+      "elements": [
+        "course-design"
+      ],
+      "pillars": [
+        "efficient",
+        "remixable"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "oerschema"
+      ]
+    },
+    {
+      "skill": "hax-instructional-events-audit",
+      "family": "Course alignment and cognitive level",
+      "summary": "READ-ONLY audit of a HAX lesson against Gagné's nine events of instruction and Merrill's First Principles, with HAX remediation.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-instructional-events-audit/SKILL.md",
+      "elements": [
+        "stop-note",
+        "self-check",
+        "media-image",
+        "video-player",
+        "oer-schema",
+        "flash-card",
+        "lrndesign-imagemap",
+        "lrndesign-sidenote",
+        "lrn-vocab",
+        "h5p-element"
+      ],
+      "pillars": [
+        "efficient",
+        "remixable"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "oerschema"
+      ]
+    },
+    {
+      "skill": "hax-udl-audit",
+      "family": "Universal design, accessibility and cognitive load",
+      "summary": "READ-ONLY audit of a HAX page against UDL 3.0 (Engagement, Representation, Action & Expression) with HAX component remediation.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-udl-audit/SKILL.md",
+      "elements": [
+        "stop-note",
+        "self-check",
+        "simple-fields",
+        "multiple-choice",
+        "oer-schema",
+        "video-player",
+        "a11y-collapse",
+        "editable-table",
+        "fill-in-the-blanks",
+        "media-image"
+      ],
+      "pillars": [
+        "accessible"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "design",
+        "testing"
+      ]
+    },
+    {
+      "skill": "hax-a11y-audit",
+      "family": "Universal design, accessibility and cognitive load",
+      "summary": "READ-ONLY WCAG 2.0 AA audit of authored HAX pages (alt text, headings, landmarks, contrast, captions, keyboard, ARIA) with HAX remediation.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-a11y-audit/SKILL.md",
+      "elements": [
+        "media-image",
+        "video-player",
+        "simple-fields",
+        "a11y-figure",
+        "audio-player",
+        "stop-note",
+        "a11y-collapse",
+        "media-playlist",
+        "editable-table",
+        "a11y-media-player"
+      ],
+      "pillars": [
+        "accessible"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "design",
+        "testing"
+      ]
+    },
+    {
+      "skill": "hax-content-chunking-audit",
+      "family": "Universal design, accessibility and cognitive load",
+      "summary": "Audit a HAX page against cognitive-load and chunking standards and return HAX remediation.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-content-chunking-audit/SKILL.md",
+      "elements": [
+        "a11y-collapse",
+        "stop-note",
+        "self-check",
+        "multiple-choice",
+        "media-playlist",
+        "audio-player",
+        "fill-in-the-blanks",
+        "a11y-tabs",
+        "video-player",
+        "flash-card"
+      ],
+      "pillars": [
+        "accessible"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "design",
+        "testing"
+      ]
+    },
+    {
+      "skill": "hax-multimedia-principles-audit",
+      "family": "Universal design, accessibility and cognitive load",
+      "summary": "READ-ONLY audit of how a HAX page combines words, images, audio and video against Mayer's multimedia principles, with HAX remediation.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-multimedia-principles-audit/SKILL.md",
+      "elements": [
+        "lrndesign-imagemap",
+        "media-image",
+        "video-player",
+        "lrn-vocab",
+        "audio-player",
+        "image-compare-slider",
+        "a11y-figure",
+        "self-check",
+        "flash-card",
+        "lrndesign-timeline"
+      ],
+      "pillars": [
+        "accessible"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "design",
+        "testing"
+      ]
+    },
+    {
+      "skill": "hax-feedback-design",
+      "family": "Learning science",
+      "summary": "Write and audit feedback, hints and evidence for HAX question elements, matched to the learner's stage (right/wrong → explanation → advice → strategy hint → delayed).",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-feedback-design/SKILL.md",
+      "elements": [
+        "multiple-choice",
+        "tagging-question",
+        "mark-the-words",
+        "sorting-question",
+        "matching-question",
+        "fill-in-the-blanks",
+        "self-check"
+      ],
+      "pillars": [
+        "accessible",
+        "efficient"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "xapi"
+      ]
+    },
+    {
+      "skill": "hax-practice-and-retrieval",
+      "family": "Learning science",
+      "summary": "Plan retrieval practice, spacing, interleaving and deliberate practice across a HAX site so learning lasts.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-practice-and-retrieval/SKILL.md",
+      "elements": [
+        "multiple-choice",
+        "flash-card",
+        "fill-in-the-blanks",
+        "self-check",
+        "self-reflective-nudge",
+        "matching-question",
+        "tagging-question",
+        "sorting-question",
+        "a11y-collapse"
+      ],
+      "pillars": [
+        "accessible",
+        "efficient"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "xapi"
+      ]
+    },
+    {
+      "skill": "hax-proficiency-scaffolding",
+      "family": "Learning science",
+      "summary": "Match a HAX unit's scaffolding to its learners' skill stage (novice to expert) using ELEVATE-XR: objectives, learning loop, stress, complexity, assistance, feedback and fidelity.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-proficiency-scaffolding/SKILL.md",
+      "elements": [
+        "a11y-collapse",
+        "stop-note",
+        "self-check",
+        "video-player",
+        "self-reflective-nudge",
+        "h5p-element",
+        "sorting-question",
+        "fill-in-the-blanks",
+        "lrndesign-imagemap",
+        "media-image"
+      ],
+      "pillars": [
+        "accessible",
+        "efficient"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "xapi"
+      ]
+    },
+    {
+      "skill": "hax-reflection-prompts",
+      "family": "Learning science",
+      "summary": "Write reflection prompts for HAX pages matched to the learner's stage (summarize → give an example → relate → find contradictions → self-critique).",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-reflection-prompts/SKILL.md",
+      "elements": [
+        "self-check",
+        "stop-note",
+        "self-reflective-nudge",
+        "a11y-collapse",
+        "editable-table"
+      ],
+      "pillars": [
+        "accessible",
+        "efficient"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "xapi"
+      ]
+    },
+    {
+      "skill": "oerschema-audit",
+      "family": "Open educational resources",
+      "summary": "READ-ONLY audit of authored content (HAX HTML, site.json, VitePress, JSON-LD, Docs export) against the OER Schema vocabulary, recommending class, properties and markup per finding.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/oerschema-audit/SKILL.md",
+      "elements": [
+        "oer-schema"
+      ],
+      "pillars": [
+        "remixable",
+        "open"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "oerschema",
+        "textbook"
+      ]
+    },
+    {
+      "skill": "oerschema-integration-finder",
+      "family": "Open educational resources",
+      "summary": "READ-ONLY scan of webcomponents, themes, CMS backends and plugins for pedagogical-content code that should emit or consume OER Schema but doesn't, with a per-file hit-list.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/oerschema-integration-finder/SKILL.md",
+      "elements": [
+        "oer-schema"
+      ],
+      "pillars": [
+        "remixable",
+        "open"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "oerschema",
+        "textbook"
+      ]
+    },
+    {
+      "skill": "reading-notes",
+      "family": "Reading and content rating",
+      "summary": "Draft paragraph-level Reading Notes for a book chapter or long reading: topic rows, page ranges, first…last word anchors and one-sentence paraphrases, for human review.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/reading-notes/SKILL.md",
+      "elements": [
+        "self-check"
+      ],
+      "pillars": [
+        "accessible"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "textbook"
+      ]
+    },
+    {
+      "skill": "haxcms-lrs-rater",
+      "family": "Reading and content rating",
+      "summary": "Run BookLooky's Looky Rating System content rating and minimum-age recommendation on a HAXcms site, local or live URL, using the agent's own reasoning.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/haxcms-lrs-rater/SKILL.md",
+      "elements": [],
+      "pillars": [
+        "accessible"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "course",
+        "textbook",
+        "apereo"
+      ]
+    },
+    {
+      "skill": "hax-instructional-element",
+      "family": "Building new instructional elements",
+      "summary": "Build or audit a HAX instructional element (a learning activity web component) against the instructional element contract: base class, light-DOM content and target ids, settings placement, haxHooks, accessibility, phone width, DDD and dark mode, reduced motion, i18n, xAPI vocabulary through user-action, learner-record restore, docs and tests, plus a required prototype artifact each round that asks open design questions and collects copy-paste feedback from anyone who tries it.",
+      "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-instructional-element/SKILL.md",
+      "elements": [
+        "reading-analysis",
+        "multiple-choice",
+        "sorting-question",
+        "a11y-gif-player",
+        "h-a-x",
+        "user-action",
+        "matching-question",
+        "tagging-question",
+        "mark-the-words",
+        "fill-in-the-blanks"
+      ],
+      "pillars": [
+        "extensible",
+        "accessible"
+      ],
+      "nodes": [
+        "agents",
+        "praw",
+        "components",
+        "ddd",
+        "xapi",
+        "haxschema"
+      ]
+    }
+  ],
+  "coverage": {
+    "elementsReferenced": [
+      "a11y-collapse",
+      "a11y-compare-image",
+      "a11y-figure",
+      "a11y-gif-player",
+      "a11y-media-player",
+      "a11y-tabs",
+      "audio-player",
+      "course-design",
+      "editable-table",
+      "fill-in-the-blanks",
+      "flash-card",
+      "grade-book",
+      "h-a-x",
+      "h5p-element",
+      "image-compare-slider",
+      "lrn-vocab",
+      "lrndesign-imagemap",
+      "lrndesign-sidenote",
+      "lrndesign-timeline",
+      "map-menu",
+      "mark-the-words",
+      "matching-question",
+      "media-image",
+      "media-playlist",
+      "multiple-choice",
+      "oer-schema",
+      "progress-donut",
+      "promise-progress",
+      "reading-analysis",
+      "self-check",
+      "self-reflective-nudge",
+      "simple-fields",
+      "simple-progress",
+      "sorting-question",
+      "stop-note",
+      "tagging-question",
+      "user-action",
+      "video-player"
+    ],
+    "elementsNoSkillCovers": [
+      {
+        "element": "course-model",
+        "note": "Course structure modeling; no skill recommends it."
+      },
+      {
+        "element": "vocab-term",
+        "note": "Overlaps lrn-vocab, which skills do cite; decide which one skills should recommend."
+      },
+      {
+        "element": "micro-game-base",
+        "note": "Base for learning games; no skill covers game-based practice."
+      },
+      {
+        "element": "bullet-check-list",
+        "note": "Checklist activity; could serve practice or reflection skills."
+      }
+    ],
+    "skillsWithNoElement": [
+      "haxcms-lrs-rater"
+    ]
+  }
+}

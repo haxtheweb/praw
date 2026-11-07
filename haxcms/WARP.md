@@ -10,6 +10,7 @@ Scoped rules for HAXcms sites and backends (`haxcms-nodejs`, `haxcms-php`, and a
 - **HAX Site Scaffolding** (`hax-site-scaffold`) — create HAXcms sites with `hax site`, not manually.
 - **HAXcms Theme Build** (`cfypZRDQLaJ6XsXtEaveWT`) — after theme changes to `HAXCMSLitElement` subclasses, run `yarn run build`; never hand-edit `custom-elements.json`.
 - **HAXcms Backend Security/Parity** (`a8bf4a47-3d4f-4f8e-a356-a04db66ce1ab`) — any audit/security issue must be resolved in BOTH `haxcms-nodejs` and `haxcms-php` for parity.
+- **Outline Designer Changes Run the Fuzzer** (`0cf20bb0-0afa-4c6a-9100-e76f76a5cc1a`, scoped webcomponents) — `saveOutline` changes in either backend also run haxcms-nodejs `npm run fuzz:outline` (with `--base-url` for haxcms-php).
 - **MFR Call Namespacing** (`82dc87fd-6bc1-4d20-9d68-5b077bb88b89`) — see full detail below.
 - **UbD course design** (`a1b2c3d4-e5f6-4789-9abc-def012345678`) — designing a unit for understanding → use `hax-ubd-backward-design` skill family; unit scope or larger; map constructs to real HAX elements.
 - **UDL audit** (`4ab69ab2-d295-4c01-a448-1ce1689c7366`) — reviewing site reach for all learners → use `hax-udl-audit` skill (UDL 3.0); bias toward Action & Expression gaps.

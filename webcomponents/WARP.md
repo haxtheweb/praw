@@ -21,6 +21,9 @@ Scoped rules for HAX web-component development in the `webcomponents` monorepo (
 - **Testing — Poll, Don't Sleep** (`932f6cd4-90a9-451c-98af-4fb577007f9d`) — poll for the condition with a bounded timeout instead of fixed sleeps in tests/e2e.
 - **Async Results Must Not Overwrite Newer State** (`35309388-b7be-40ca-88a9-539fe1dd4b0d`) — async lookups must not overwrite a property set while they were pending.
 - **Never Rely on querySelectorAll Across Elements That May Stub It** (`896ecfa1-8965-4c06-a3ab-31c7e7eb28bf`) — shared helpers use `Element.prototype.querySelectorAll.call(el, sel)` or walk `children` (elements like `video-player` stub `querySelectorAll`); tests assert the node is actually found/removed.
+- **Memory — Nothing Outlives a Removed Element** (`8e6a9af3-0301-4c48-b75f-fcff2fc928e6`) — no `autorun`/`reaction` in constructors, dispose `__disposer` on disconnect, unregister from responsive-utility, parse throwaway markup in an inert document; `haxtheweb-leaks/*` lint rules, `expectNoLeak(tag)`, `yarn test:leaks`.
+- **Perf Check Before Core Front-End PRs** (`13166db2-909f-4a34-87d1-1b697834eb4b`) — run haxcms-nodejs `npm run perf:memory -- --short` against the monorepo on master and the branch before PRs touching haxcms-elements core, menu, i18n or themes; report moved numbers.
+- **Outline Designer Changes Run the Fuzzer** (`0cf20bb0-0afa-4c6a-9100-e76f76a5cc1a`) — run haxcms-nodejs `npm run fuzz:outline` against the monorepo before PRs touching outline-designer, the outline save path or `saveOutline`; no unexplained failure merges.
 - **Monorepo Dependency Verification** (`4a7c9e2b-8d5f-4e1a-9c3b-7f2e6d5a4b3c`) — any new import/reference must be declared in the element's `package.json`.
 
 ## Component structure & standards

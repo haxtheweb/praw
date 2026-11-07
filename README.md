@@ -91,13 +91,21 @@ See [`plugins/`](plugins/) for the full plugin tree and [`plugins/hax-onboarding
 **🚀 For complete newcomers**, we've created an automated onboarding script that sets up your entire HAX development environment with Warp optimization:
 
 ```bash
-# Run the onboarding script from anywhere
-curl -fsSL https://raw.githubusercontent.com/haxtheweb/praw/main/hax-onboarding.sh | bash
-
-# Or if you've already cloned this repo:
+# 1. Get the script (clone the repo, or download one pinned revision of the file)
+git clone https://github.com/haxtheweb/praw.git
 cd praw
+
+# 2. Read it, then run it from your terminal
+less hax-onboarding.sh
 ./hax-onboarding.sh
 ```
+
+Prefer this two-step over piping `curl` into `bash`: you get to read what will run, and the
+script's prompts (install path, which repos to clone, whether to write Warp rules or shell
+aliases) work as intended. If you only want the one file, download it from a pinned commit
+rather than a moving branch, for example
+`curl -fsSLO https://raw.githubusercontent.com/haxtheweb/praw/e46918e2ccb2df0b4c48ce7b9ea1c8a7ac1c6f54/hax-onboarding.sh`,
+then review and run it the same way.
 
 This script will:
 - ✅ Clone all necessary HAX ecosystem repositories

@@ -108,19 +108,29 @@ raw="$(strip_url "$target")"
 slug=""
 clone_url=""
 
-if printf '%s' "$raw" | grep -Eq '^github\.com/([^/]+)/([^/]+)$'; then
+# GitHub owner/repo names: alphanumerics, dot, underscore, hyphen; never a
+# leading hyphen (so a segment can never look like a command-line option).
+gh_seg='[A-Za-z0-9_.][A-Za-z0-9_.-]*'
+if printf '%s' "$raw" | grep -Eq "^github\.com/${gh_seg}/${gh_seg}\$"; then
   slug="${raw#github.com/}"
   clone_url="https://github.com/${slug}.git"
-elif printf '%s' "$raw" | grep -Eq '^([^./]+)/([^/]+)$'; then
+elif printf '%s' "$raw" | grep -Eq "^${gh_seg}/${gh_seg}\$" && ! printf '%s' "$raw" | grep -q '\.'; then
   # owner/repo shorthand -> GitHub
   slug="$raw"
   clone_url="https://github.com/${slug}.git"
-elif printf '%s' "$raw" | grep -Eq '^([^./]+)$'; then
+elif printf '%s' "$raw" | grep -Eq "^[A-Za-z0-9_][A-Za-z0-9_-]*\$"; then
   # bare name (no slash, no dot): treat as a HAXtheweb ecosystem project
   slug="haxtheweb/$raw"
   clone_url="https://github.com/${slug}.git"
 else
   # Any other git host: clone as given; slug from the last two path segments.
+  # Only https:// and git@ (scp-style ssh) targets are accepted here. Anything
+  # else (ext::, file://, an option-looking string, a bare path that is not a
+  # directory) is refused rather than handed to git clone.
+  if ! printf '%s' "$target" | grep -Eq '^(https://|git@)'; then
+    echo "error: unsupported clone target (expected https://... or git@...): $target" >&2
+    exit 1
+  fi
   clone_url="$target"
   slug="$(printf '%s' "$raw" | awk -F/ '{ if (NF>=2) print $(NF-1) "/" $NF; else print $NF }')"
 fi
@@ -148,10 +158,11 @@ if [ -d "$repo_dir/.git" ]; then
   echo "REPO=$repo_dir"
   echo "REUSED=clone"
 else
+  # `--` ends option parsing so a URL can never be read as a git option.
   if [ "$depth" = "0" ]; then
-    git clone "$clone_url" "$repo_dir" --quiet
+    git clone --quiet -- "$clone_url" "$repo_dir"
   else
-    git clone "$clone_url" "$repo_dir" --quiet --depth "$depth"
+    git clone --quiet --depth "$depth" -- "$clone_url" "$repo_dir"
   fi
   echo "SCRATCH=$scratch"
   echo "REPO=$repo_dir"

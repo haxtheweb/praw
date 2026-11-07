@@ -308,7 +308,7 @@
       "type": "skill-md",
       "description": "Create a published HAXcms tutorial site from a YouTube video plus a DOCX transcript, then write LinkedIn / X posts and a YouTube SEO description. Use for \"hax tutorial skill\" or \"make a tutorial site from this video\". Bundled skeleton, portable.",
       "url": "hax-tutorial-site/SKILL.md",
-      "digest": "sha256:f3b04c720b0905512428a89afd1650d3e337cee0249673c6d79b397fd277e1eb",
+      "digest": "sha256:8e6c8ed77fe7d02e6009591b4adebe6beac62d3562493bf82b5b5f798cf1f451",
       "files": [
         {
           "path": "references/author-profile.json",
@@ -558,7 +558,7 @@
       "type": "skill-md",
       "description": "Generate a WebVTT transcript from a YouTube URL with yt-dlp, without downloading the video. Use for 'youtube to vtt', subtitles or captions for a video; auto-provisions yt-dlp in an isolated venv.",
       "url": "youtube-vtt/SKILL.md",
-      "digest": "sha256:a8d40de0dc391d5fdeff025ea885255bf549b4edb5458dbf59f3db09e5f7c7ef"
+      "digest": "sha256:e8fc2f24aaeda1987f2320dcd47881537c8b202ac2c071b47b61e7def3fee359"
     }
   ]
 }

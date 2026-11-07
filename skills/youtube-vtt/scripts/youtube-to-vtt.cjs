@@ -30,6 +30,11 @@ const path = require("path");
 const { execFileSync, spawnSync } = require("child_process");
 
 const VENV_DIR = path.join(os.homedir(), ".hax-skills", "yt-dlp-venv");
+// Pinned yt-dlp release installed into the managed venv. Pinned so an
+// auto-provisioning step never pulls an unreviewed "latest" from PyPI; bump
+// deliberately and keep this value identical in every HAX skill that shares the
+// venv (youtube-vtt, hax-tutorial-site). Override with YT_DLP_VERSION=<version>.
+const YT_DLP_VERSION = process.env.YT_DLP_VERSION || "2026.10.26";
 
 function parseFlags(argv) {
   const flags = { lang: "en" };
@@ -76,7 +81,9 @@ function provisionVenv() {
   execFileSync(venvPip, ["install", "--quiet", "--upgrade", "pip"], {
     stdio: "pipe",
   });
-  execFileSync(venvPip, ["install", "--quiet", "yt-dlp"], { stdio: "pipe" });
+  execFileSync(venvPip, ["install", "--quiet", `yt-dlp==${YT_DLP_VERSION}`], {
+    stdio: "pipe",
+  });
 }
 
 // Run yt-dlp with the given args (argv array after the binary); returns status.

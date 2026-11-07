@@ -1,5 +1,25 @@
 # Security Best Practices Report — praw
 
+> **Status: superseded (2026-11-06).** This is the original 2026-10-19 audit, kept for the record.
+> The following findings have since been fixed in `main` and re-verified against the code on
+> 2026-11-06:
+>
+> | Finding | Fix in the tree |
+> |---|---|
+> | **H1** command injection in the LinkedIn manual-post path | `programs/linkedin/post-to-linkedin.js` uses `execFileSync('xclip', […], { input })`, no shell |
+> | **M2** path traversal / SSRF in the LRS site extractor | `skills/haxcms-lrs-rater/scripts/extract-site-content.js`: `resolveRemoteUrl` is https + same-origin only; `urlToLocalPath` goes through `resolveInsideRoot` |
+> | **M4** unsanitized sed/grep in `add-rule.sh` | `scripts/add-rule.sh` builds the section with `awk` and passes text via `ENVIRON`, not interpolation |
+> | **L1** weak OAuth state / all-interface bind | `programs/linkedin/setup-linkedin.js`: `crypto.randomBytes(32)`, `server.listen(3000, '127.0.0.1')` |
+> | **L2** world-readable OAuth config | `setup-linkedin.js` writes with `mode: 0o600` and `chmodSync(…, 0o600)` |
+> | **L3** predictable `/tmp` paths | `post-to-linkedin.js` uses `mkdtempSync` + `0o600`/`wx`; `skills/heosat/scripts/clone-repo.sh` uses `mktemp -d` and validates `HEOSAT_SCRATCH` |
+> | **L6** SessionStart hook auto-installs by default | `plugins/hax-onboarding/hooks/scripts/ensure-hax.sh` installs only with `HAX_PLUGIN_AUTOINSTALL=1` (and, from the supply-chain PR, a pinned version) |
+> | **L7** unvalidated text written to `Web_Resources.txt` | `scripts/add-url-resource.sh` validates the URL (`https?://`, single line, no control chars) and bounds the description |
+>
+> **M1** (prompt-injection boundary in content-ingesting skills), **L4** (CLA allowlist/permissions)
+> and **M3** (unattended posting chain; `./linkedin` now defaults to `--dry-run`) are addressed by
+> the security PRs opened alongside this note. **L5** and **L8** remain open and are tracked for a
+> follow-up. Line numbers below refer to the 2026-10-19 tree and no longer match.
+
 **Date:** 2026-10-19 · **Scope:** `https://github.com/haxtheweb/praw` (full repo) · **Focus:** prompt injection into agent context, plus script/tooling security
 
 ## Executive summary

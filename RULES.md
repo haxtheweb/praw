@@ -328,6 +328,11 @@ Every rule has one of four scopes:
 - **Rule ID**: `759643a6db03433a9d742f`
 - **Content**: Recurring security audits cover create, haxcms-nodejs, webcomponents, haxcms-php, and HAXiam. Start every audit by reading that repo's SECURITY-AUDIT.md (read order, scope, commands, regression guards, reporting convention). The repo's undated security_best_practices_report.md is the canonical current state; dated security_best_practices_report_YYYY-MM-DD.md files are archived rounds. Cite findings with file:line and mark fixes with inline security comments referencing the finding ID. Report vulnerabilities via SECURITY.md private advisories, never public issues. Keep haxcms-php and haxcms-nodejs security/spec fixes mirrored in both backends.
 
+### Mascot Name: the Future Traveler
+- **Rule ID**: `7d6f9c3e-8d0c-4127-948e-e6260465fa95`
+- **Scope**: `global`
+- **Content**: HAX's official mascot, the little red-helmeted time traveler, is always called the **Future Traveler**: he traveled to the future to bring our ideas to life. Never call him the World Traveler, World Changer or any other variant in new copy, docs, alt text, captions, page titles or agent output; those names are retired. The art lives in <https://github.com/haxtheweb/art> under the `world-traveler/` folder, and that folder, its file names (e.g. `HAX.psu World changer-circle.png`), existing page slugs and the art manifest's `world_traveler` keys keep their old names because they are hotlinked or consumed by code. The Future Traveler will likely take Merlin's place in the future, but for now the omnibar / command palette is still called **Merlin**; don't rename Merlin in UI, code or docs.
+
 ## 📋 Rule Management System
 
 ### Adding New Rules

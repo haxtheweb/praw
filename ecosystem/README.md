@@ -6,6 +6,7 @@ Data that ties the HAX ecosystem web to the evidence and skills behind it. Each 
 | --- | --- |
 | [`heosat-evidence-map.json`](heosat-evidence-map.json) | Every HEOSAT question to the nodes and public files that answer it, with a status: evidenced, partial or gap. |
 | [`id-skills-map.json`](id-skills-map.json) | Each instructional design skill in `skills/` to the elements it recommends or checks, the pillars it upholds and its nodes. |
+| [`docs-inventory.json`](docs-inventory.json) · [`.md`](docs-inventory.md) | All 156 pages of haxtheweb/docs, each with a summary, its elements, stale-link flags and the web nodes it maps to, so nothing is lost when the ecosystem web replaces haxtheweb.org. |
 
 The JSON files are the source; this page summarizes them. Statuses and pillar links are a self-assessment for maintainer review, not a HEOSAT score.
 

@@ -1,0 +1,18 @@
+{
+  "name": "hax-url-migration-scripts",
+  "private": true,
+  "version": "2026.11.1",
+  "description": "Fingerprint a website, map its blocks to HAX elements, propose missing blocks and themes, and score accuracy across a trial set.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "analyze": "node analyze.mjs",
+    "trial": "node trial.mjs",
+    "validate": "node validate-maps.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "node-html-parser": "7.1.0"
+  }
+}

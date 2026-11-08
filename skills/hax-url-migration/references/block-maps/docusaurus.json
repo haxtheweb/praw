@@ -1,0 +1,108 @@
+{
+  "id": "docusaurus",
+  "label": "Docusaurus (MDX theme components)",
+  "source": "https://docusaurus.io/docs/markdown-features",
+  "contentSelectors": [
+    ".theme-doc-markdown",
+    "article .markdown",
+    "main article",
+    "main"
+  ],
+  "chromeSelectors": [
+    ".theme-doc-breadcrumbs",
+    ".pagination-nav",
+    ".theme-doc-toc-mobile",
+    ".theme-doc-footer",
+    ".table-of-contents",
+    ".theme-edit-this-page",
+    ".hash-link"
+  ],
+  "rules": [
+    {
+      "id": "admonition-warning",
+      "match": ".theme-admonition-warning, .theme-admonition-caution",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=warning",
+        "title": "[class*=admonitionHeading]@text"
+      },
+      "slots": {
+        "message": "[class*=admonitionContent]@html"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "admonition-danger",
+      "match": ".theme-admonition-danger",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=stop",
+        "title": "[class*=admonitionHeading]@text"
+      },
+      "slots": {
+        "message": "[class*=admonitionContent]@html"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "admonition-tip",
+      "match": ".theme-admonition-tip",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=success",
+        "title": "[class*=admonitionHeading]@text"
+      },
+      "slots": {
+        "message": "[class*=admonitionContent]@html"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "admonition",
+      "match": ".theme-admonition",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=info",
+        "title": "[class*=admonitionHeading]@text"
+      },
+      "slots": {
+        "message": "[class*=admonitionContent]@html"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "tabs",
+      "match": ".tabs-container",
+      "to": "a11y-tabs",
+      "children": {
+        "select": "[role=tabpanel]",
+        "to": "a11y-tab",
+        "attrs": {
+          "label": "@aria-labelledby"
+        },
+        "content": "@html"
+      },
+      "confidence": "low"
+    },
+    {
+      "id": "code",
+      "match": ".theme-code-block",
+      "to": "code-sample",
+      "attrs": {
+        "type": "@class~language-(\\w+)"
+      },
+      "content": "pre@raw-template",
+      "confidence": "high"
+    },
+    {
+      "id": "details",
+      "match": "details",
+      "to": "a11y-collapse",
+      "attrs": {
+        "heading": "summary@text"
+      },
+      "content": "@html-without:summary",
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": "mkdocs",
+  "label": "MkDocs / Material for MkDocs",
+  "contentSelectors": [
+    "article.md-content__inner",
+    ".md-content",
+    "[role=main]"
+  ],
+  "chromeSelectors": [
+    ".md-source-file",
+    ".md-content__button",
+    ".headerlink",
+    ".md-footer"
+  ],
+  "rules": [
+    {
+      "id": "admonition-warning",
+      "match": ".admonition.warning, .admonition.caution, details.warning",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=warning",
+        "title": ".admonition-title@text|summary@text"
+      },
+      "slots": {
+        "message": "@html-without:.admonition-title"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "admonition-danger",
+      "match": ".admonition.danger, .admonition.failure, .admonition.bug",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=stop",
+        "title": ".admonition-title@text"
+      },
+      "slots": {
+        "message": "@html-without:.admonition-title"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "admonition-tip",
+      "match": ".admonition.tip, .admonition.success",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=success",
+        "title": ".admonition-title@text"
+      },
+      "slots": {
+        "message": "@html-without:.admonition-title"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "admonition",
+      "match": ".admonition",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=info",
+        "title": ".admonition-title@text"
+      },
+      "slots": {
+        "message": "@html-without:.admonition-title"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "tabs",
+      "match": ".tabbed-set",
+      "to": "a11y-tabs",
+      "children": {
+        "select": ".tabbed-block",
+        "to": "a11y-tab",
+        "content": "@html"
+      },
+      "confidence": "low"
+    },
+    {
+      "id": "code",
+      "match": ".highlight:has(pre)",
+      "to": "code-sample",
+      "attrs": {
+        "type": "@class~language-(\\w+)"
+      },
+      "content": "pre@raw-template",
+      "confidence": "high"
+    }
+  ]
+}

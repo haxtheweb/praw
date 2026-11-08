@@ -1,0 +1,78 @@
+{
+  "$comment": "Labeled sites for the accuracy trial. platform is what we believe the site runs; labelConfidence says how sure we were when listing it (low = verify from the trial's evidence before counting a miss against the detector). layers and siteType are optional expectations. Never list live HAX deployments (oer.hax.psu.edu, courses.hax.psu.edu, haxtheweb.org): automated runs must not target them. Set skip: true to keep a site listed but out of runs.",
+  "version": "2026.11.1",
+  "sites": [
+    { "platform": "wordpress", "url": "https://wordpress.org/news/", "labelConfidence": "high", "layers": ["wordpress-gutenberg"], "siteType": "blog" },
+    { "platform": "wordpress", "url": "https://techcrunch.com/", "labelConfidence": "high", "siteType": "blog" },
+    { "platform": "wordpress", "url": "https://sites.psu.edu/", "labelConfidence": "high", "siteType": "psu-ddd" },
+    { "platform": "wordpress", "url": "https://www.whitehouse.gov/", "labelConfidence": "medium" },
+    { "platform": "wordpress", "url": "https://blog.ted.com/", "labelConfidence": "medium", "siteType": "blog" },
+    { "platform": "wordpress", "url": "https://elementor.com/", "labelConfidence": "high", "layers": ["elementor"] },
+    { "platform": "wordpress", "url": "https://www.elegantthemes.com/", "labelConfidence": "high", "layers": ["divi"] },
+    { "platform": "pressbooks", "url": "https://psu.pb.unizin.org/", "labelConfidence": "medium", "siteType": "course" },
+    { "platform": "pressbooks", "url": "https://open.lib.umn.edu/", "labelConfidence": "medium", "siteType": "course" },
+
+    { "platform": "drupal", "url": "https://www.drupal.org/", "labelConfidence": "high" },
+    { "platform": "drupal", "url": "https://www.psu.edu/", "labelConfidence": "medium", "siteType": "psu-ddd" },
+    { "platform": "drupal", "url": "https://www.ist.psu.edu/", "labelConfidence": "medium", "siteType": "psu-ddd" },
+    { "platform": "drupal", "url": "https://www.nih.gov/", "labelConfidence": "medium" },
+    { "platform": "drupal", "url": "https://www.princeton.edu/", "labelConfidence": "medium" },
+    { "platform": "drupal", "url": "https://www.ed.gov/", "labelConfidence": "low" },
+
+    { "platform": "grav", "url": "https://getgrav.org/", "labelConfidence": "high" },
+    { "platform": "grav", "url": "https://learn.getgrav.org/", "labelConfidence": "high", "siteType": "docs" },
+    { "platform": "grav", "url": "https://trilby.media/", "labelConfidence": "medium" },
+
+    { "platform": "astro", "url": "https://astro.build/", "labelConfidence": "high" },
+    { "platform": "astro", "url": "https://docs.astro.build/en/getting-started/", "labelConfidence": "high", "layers": ["starlight"], "siteType": "docs" },
+    { "platform": "astro", "url": "https://starlight.astro.build/", "labelConfidence": "high", "layers": ["starlight"], "siteType": "docs" },
+
+    { "platform": "emdash", "url": "https://emdashcms.com/", "labelConfidence": "low" },
+
+    { "platform": "eleventy", "url": "https://www.11ty.dev/", "labelConfidence": "high", "siteType": "docs" },
+    { "platform": "eleventy", "url": "https://www.zachleat.com/", "labelConfidence": "high", "siteType": "blog" },
+
+    { "platform": "hugo", "url": "https://gohugo.io/", "labelConfidence": "high", "siteType": "docs" },
+    { "platform": "hugo", "url": "https://kubernetes.io/docs/home/", "labelConfidence": "high", "siteType": "docs" },
+    { "platform": "hugo", "url": "https://letsencrypt.org/", "labelConfidence": "medium" },
+    { "platform": "hugo", "url": "https://docs.docker.com/", "labelConfidence": "medium", "siteType": "docs" },
+
+    { "platform": "jekyll", "url": "https://jekyllrb.com/", "labelConfidence": "high", "siteType": "docs" },
+    { "platform": "jekyll", "url": "https://pages.github.com/", "labelConfidence": "medium" },
+
+    { "platform": "docusaurus", "url": "https://docusaurus.io/docs", "labelConfidence": "high", "siteType": "docs" },
+    { "platform": "docusaurus", "url": "https://reactnative.dev/docs/getting-started", "labelConfidence": "high", "siteType": "docs" },
+    { "platform": "docusaurus", "url": "https://jestjs.io/docs/getting-started", "labelConfidence": "high", "siteType": "docs" },
+    { "platform": "docusaurus", "url": "https://redux.js.org/introduction/getting-started", "labelConfidence": "high", "siteType": "docs" },
+    { "platform": "docusaurus", "url": "https://prettier.io/docs/", "labelConfidence": "high", "siteType": "docs" },
+
+    { "platform": "vitepress", "url": "https://vitepress.dev/guide/what-is-vitepress", "labelConfidence": "high", "siteType": "docs" },
+    { "platform": "vitepress", "url": "https://vuejs.org/guide/introduction", "labelConfidence": "high", "siteType": "docs" },
+    { "platform": "vitepress", "url": "https://vitejs.dev/guide/", "labelConfidence": "high", "siteType": "docs" },
+    { "platform": "vitepress", "url": "https://vitest.dev/guide/", "labelConfidence": "high", "siteType": "docs" },
+
+    { "platform": "quarto", "url": "https://quarto.org/", "labelConfidence": "high", "siteType": "docs" },
+    { "platform": "quarto", "url": "https://r4ds.hadley.nz/", "labelConfidence": "high", "siteType": "course" },
+
+    { "platform": "mkdocs", "url": "https://squidfunk.github.io/mkdocs-material/", "labelConfidence": "high", "siteType": "docs" },
+    { "platform": "mkdocs", "url": "https://www.mkdocs.org/", "labelConfidence": "high", "siteType": "docs" },
+
+    { "platform": "nextjs", "url": "https://nextjs.org/", "labelConfidence": "high" },
+    { "platform": "gatsby", "url": "https://www.gatsbyjs.com/", "labelConfidence": "medium" },
+
+    { "platform": "webflow", "url": "https://webflow.com/", "labelConfidence": "high" },
+    { "platform": "webflow", "url": "https://www.relume.io/", "labelConfidence": "medium" },
+
+    { "platform": "squarespace", "url": "https://www.squarespace.com/", "labelConfidence": "low" },
+    { "platform": "wix", "url": "https://www.wix.com/", "labelConfidence": "low" },
+
+    { "platform": "joomla", "url": "https://www.joomla.org/", "labelConfidence": "high" },
+    { "platform": "concrete", "url": "https://www.concretecms.com/", "labelConfidence": "high" },
+    { "platform": "concrete", "url": "https://www.trinitystatecollege.org/", "labelConfidence": "high", "siteType": "general" },
+
+    { "platform": "ghost", "url": "https://ghost.org/blog/", "labelConfidence": "high", "siteType": "blog" },
+    { "platform": "ghost", "url": "https://www.troyhunt.com/", "labelConfidence": "medium", "siteType": "blog" },
+
+    { "platform": "plone", "url": "https://plone.org/", "labelConfidence": "high" }
+  ]
+}

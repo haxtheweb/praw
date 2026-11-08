@@ -1,0 +1,23 @@
+{
+  "$comment": "Traits used to recommend a HAXcms theme for an imported site. Theme ids come from haxcms-nodejs src/coreConfig/themes.json (visible, non-'terrible' themes). verified=false means the traits are a first guess and should be corrected by a maintainer; the trial report lists every recommendation so wrong guesses surface quickly. Traits: siteTypes the theme suits; nav = top | sidebar | mega | minimal; features it handles well.",
+  "themes": {
+    "clean-one":           { "siteTypes": ["course", "docs"], "nav": "sidebar", "features": ["prev-next", "deep-hierarchy", "reading"], "verified": true },
+    "clean-two":           { "siteTypes": ["course", "docs"], "nav": "sidebar", "features": ["prev-next", "deep-hierarchy", "reading"], "verified": true },
+    "learn-two-theme":     { "siteTypes": ["course", "docs"], "nav": "sidebar", "features": ["prev-next", "deep-hierarchy", "reading"], "verified": true },
+    "training-theme":      { "siteTypes": ["course"], "nav": "sidebar", "features": ["prev-next", "linear"], "verified": false },
+    "polaris-flex-theme":  { "siteTypes": ["psu-ddd", "general"], "nav": "mega", "features": ["hero", "mega-menu", "brand-header", "footer-columns", "video"], "verified": true },
+    "polaris-flex-sidebar":{ "siteTypes": ["psu-ddd", "general"], "nav": "mega", "features": ["hero", "mega-menu", "sidebar", "brand-header", "footer-columns"], "verified": true },
+    "polaris-invent-theme":{ "siteTypes": ["psu-ddd", "general"], "nav": "top", "features": ["hero", "brand-header", "landing"], "verified": true },
+    "polaris-theme":       { "siteTypes": ["psu-ddd"], "nav": "top", "features": ["brand-header"], "verified": false },
+    "bootstrap-theme":     { "siteTypes": ["general"], "nav": "top", "features": ["sidebar"], "verified": false },
+    "journey-theme":       { "siteTypes": ["general", "course"], "nav": "minimal", "features": ["linear", "landing"], "verified": false },
+    "link-card-theme":     { "siteTypes": ["general"], "nav": "minimal", "features": ["link-hub"], "verified": false },
+    "haxma-theme":         { "siteTypes": ["docs"], "nav": "sidebar", "features": ["design-docs"], "verified": false },
+    "clean-portfolio-theme":{ "siteTypes": ["portfolio"], "nav": "top", "features": ["gallery"], "verified": false },
+    "glossy-portfolio-theme":{ "siteTypes": ["portfolio"], "nav": "top", "features": ["gallery", "cards"], "verified": false },
+    "resume-theme":        { "siteTypes": ["general"], "nav": "minimal", "features": ["single-page", "tutorial"], "verified": true },
+    "spacebook-theme":     { "siteTypes": ["general"], "nav": "top", "features": [], "verified": false },
+    "twenty-six-theme":    { "siteTypes": ["general", "blog"], "nav": "top", "features": [], "verified": false },
+    "simple-blog":         { "siteTypes": ["blog"], "nav": "minimal", "features": ["dated-posts"], "verified": false }
+  }
+}

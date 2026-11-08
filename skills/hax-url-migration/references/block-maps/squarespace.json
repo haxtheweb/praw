@@ -1,0 +1,130 @@
+{
+  "id": "squarespace",
+  "label": "Squarespace blocks",
+  "$comment": "Squarespace 7.0 uses .sqs-block-<type>; 7.1 Fluid Engine adds .fe-block grid placement. Grid positions are not preserved; blocks become a single column.",
+  "contentSelectors": [
+    "#page article",
+    ".sqs-layout",
+    "main#page",
+    "#content"
+  ],
+  "chromeSelectors": [
+    "#header",
+    "header.header",
+    "#footer-sections",
+    ".sqs-announcement-bar",
+    ".sqs-cookie-banner-v2"
+  ],
+  "rules": [
+    {
+      "id": "layout",
+      "match": ".sqs-layout, .sqs-row, .sqs-col-12, .row.sqs-row > .col, .fe-block, .fluid-engine, .sqs-block-content, .content-wrapper",
+      "to": "unwrap",
+      "confidence": "medium"
+    },
+    {
+      "id": "html",
+      "match": ".sqs-block-html",
+      "to": "unwrap",
+      "confidence": "high"
+    },
+    {
+      "id": "image",
+      "match": ".sqs-block-image",
+      "to": "media-image",
+      "attrs": {
+        "source": "img@data-src|img@src",
+        "alt": "img@alt",
+        "caption": ".image-caption@text",
+        "link": "a@href"
+      },
+      "confidence": "high",
+      "asset": true
+    },
+    {
+      "id": "gallery",
+      "match": ".sqs-block-gallery, .gallery-grid, .gallery-masonry",
+      "to": "image-gallery",
+      "children": {
+        "select": "img",
+        "to": "media-image",
+        "attrs": {
+          "source": "@data-src|@src",
+          "alt": "@alt"
+        }
+      },
+      "confidence": "medium",
+      "asset": true
+    },
+    {
+      "id": "video",
+      "match": ".sqs-block-video",
+      "to": "video-player",
+      "attrs": {
+        "source": "@data-block-json#url|iframe@src"
+      },
+      "confidence": "medium"
+    },
+    {
+      "id": "button",
+      "match": ".sqs-block-button",
+      "to": "simple-cta",
+      "attrs": {
+        "link": "a@href",
+        "label": "a@text"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "quote",
+      "match": ".sqs-block-quote",
+      "to": "block-quote",
+      "attrs": {
+        "citation": "figcaption@text|.source@text"
+      },
+      "content": "blockquote@html",
+      "confidence": "high"
+    },
+    {
+      "id": "accordion",
+      "match": ".sqs-block-accordion",
+      "to": "a11y-collapse-group",
+      "children": {
+        "select": "li.accordion-item",
+        "to": "a11y-collapse",
+        "attrs": {
+          "heading": ".accordion-item__title@text"
+        },
+        "content": ".accordion-item__description@html"
+      },
+      "confidence": "medium"
+    },
+    {
+      "id": "spacer",
+      "match": ".sqs-block-spacer",
+      "to": "drop",
+      "confidence": "high"
+    },
+    {
+      "id": "form",
+      "match": ".sqs-block-form, .sqs-block-newsletter",
+      "to": "flag",
+      "flag": "form",
+      "confidence": "high"
+    },
+    {
+      "id": "summary",
+      "match": ".sqs-block-summary-v2, .sqs-block-archive",
+      "to": "flag",
+      "flag": "dynamic-listing",
+      "confidence": "high"
+    },
+    {
+      "id": "map",
+      "match": ".sqs-block-map",
+      "to": "flag",
+      "flag": "gap",
+      "confidence": "medium"
+    }
+  ]
+}

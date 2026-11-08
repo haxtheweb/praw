@@ -1,0 +1,85 @@
+{
+  "id": "concrete",
+  "label": "Concrete CMS (concrete5) blocks",
+  "$comment": "Built from the trinitystatecollege.org migration attempt. Thumbnails at /files/cache/<hash>_f<fileId>; originals via /index.php/download_file/view/<fileId>.",
+  "contentSelectors": [
+    "main",
+    ".ccm-page main",
+    "#main-content",
+    ".main-content",
+    "#content"
+  ],
+  "chromeSelectors": [
+    "header",
+    "footer",
+    ".ccm-block-autonav",
+    "nav",
+    ".ccm-block-page-list-pagination"
+  ],
+  "rules": [
+    {
+      "id": "image-slider",
+      "match": ".ccm-image-slider-container, .ccm-image-slider, ul.rslides",
+      "to": "image-gallery",
+      "children": {
+        "select": "img",
+        "to": "media-image",
+        "attrs": {
+          "source": "@src",
+          "alt": "@alt",
+          "caption": "@title"
+        }
+      },
+      "confidence": "medium",
+      "asset": true
+    },
+    {
+      "id": "layout",
+      "match": ".ccm-layout-column-wrapper, .ccm-layout-wrapper",
+      "to": "grid-plate",
+      "layout": "auto",
+      "children": {
+        "select": ".ccm-layout-column",
+        "slot": "col-{n}",
+        "content": "@html"
+      },
+      "confidence": "medium"
+    },
+    {
+      "id": "layout-column",
+      "match": ".ccm-layout-column, .ccm-layout-column-inner, .ccm-custom-style-container",
+      "to": "unwrap",
+      "confidence": "high"
+    },
+    {
+      "id": "file",
+      "match": "a[href*='download_file/view/']",
+      "to": "keep",
+      "asset": true,
+      "confidence": "high",
+      "note": "Download link; resolve the file id to the original before adding to the file map."
+    },
+    {
+      "id": "page-list",
+      "match": ".ccm-block-page-list-wrapper",
+      "to": "flag",
+      "flag": "dynamic-listing",
+      "confidence": "high"
+    },
+    {
+      "id": "calendar",
+      "match": ".ccm-block-calendar-wrapper, .ccm-block-calendar-event-list-wrapper",
+      "to": "flag",
+      "flag": "dynamic-listing",
+      "confidence": "high",
+      "note": "Rendered client-side; capture the source calendar instead."
+    },
+    {
+      "id": "form",
+      "match": ".ccm-block-express-form, form[action*='/ccm/']",
+      "to": "flag",
+      "flag": "form",
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": "vitepress",
+  "label": "VitePress default theme",
+  "$comment": "Prefer the existing repo-based VitePress importer when the source repo is public.",
+  "contentSelectors": [
+    ".vp-doc",
+    "main"
+  ],
+  "chromeSelectors": [
+    ".VPDocFooter",
+    ".VPDocAside",
+    ".edit-link",
+    ".prev-next",
+    ".header-anchor"
+  ],
+  "rules": [
+    {
+      "id": "tip",
+      "match": ".custom-block.tip",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=success",
+        "title": ".custom-block-title@text"
+      },
+      "slots": {
+        "message": "@html-without:.custom-block-title"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "warning",
+      "match": ".custom-block.warning",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=warning",
+        "title": ".custom-block-title@text"
+      },
+      "slots": {
+        "message": "@html-without:.custom-block-title"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "danger",
+      "match": ".custom-block.danger",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=stop",
+        "title": ".custom-block-title@text"
+      },
+      "slots": {
+        "message": "@html-without:.custom-block-title"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "info",
+      "match": ".custom-block.info, .custom-block.note",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=info",
+        "title": ".custom-block-title@text"
+      },
+      "slots": {
+        "message": "@html-without:.custom-block-title"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "details",
+      "match": "details.custom-block",
+      "to": "a11y-collapse",
+      "attrs": {
+        "heading": "summary@text"
+      },
+      "content": "@html-without:summary",
+      "confidence": "high"
+    },
+    {
+      "id": "code",
+      "match": "div[class*='language-']",
+      "to": "code-sample",
+      "attrs": {
+        "type": "@class~language-(\\w+)"
+      },
+      "content": "pre@raw-template",
+      "confidence": "high"
+    }
+  ]
+}

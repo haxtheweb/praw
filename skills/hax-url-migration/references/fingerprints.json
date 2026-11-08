@@ -1,0 +1,290 @@
+{
+  "$comment": "Platform fingerprints for hax-url-migration. Each signal adds its weight when it matches. A platform's score is the sum of matched signal weights; parents (e.g. wordpress for elementor) also receive the child's matched evidence. Weights: 10 = decisive on its own (generator tag, platform header, API probe), 4 = strong markup/asset pattern, 1 = weak hint. Kinds: cms, ssg (static/site generator), hosted (site builder), lms, layer (page builder or theme running on a parent platform). importer names the existing haxcms-nodejs converter (src/systemRoutes/v1/routes/imports) that can take over once the platform is known. Signal types: generator (regex on <meta name=generator> content), header (name + regex on a response header), html (regex on raw HTML), asset (regex on src/href URLs), host (regex on the hostname), cookie (regex on Set-Cookie names), probe (GET a same-origin path; expect status and optional json key or body regex).",
+  "version": "2026.11.1",
+  "platforms": [
+    {
+      "id": "wordpress", "label": "WordPress", "kind": "cms", "importer": "wordpress",
+      "signals": [
+        { "type": "generator", "match": "WordPress\\s*([\\d.]+)?", "weight": 10, "version": 1 },
+        { "type": "header", "name": "link", "match": "rel=\"https://api\\.w\\.org/\"", "weight": 10 },
+        { "type": "asset", "match": "/wp-content/(themes|plugins|uploads)/", "weight": 4 },
+        { "type": "asset", "match": "/wp-includes/", "weight": 4 },
+        { "type": "html", "match": "class=\"[^\"]*\\bwp-(block|image|caption)\\b", "weight": 1 },
+        { "type": "probe", "path": "/wp-json/", "expect": { "status": 200, "jsonKey": "namespaces" }, "weight": 10 }
+      ]
+    },
+    {
+      "id": "wordpress-gutenberg", "label": "Gutenberg blocks", "kind": "layer", "parent": "wordpress", "blockMap": "wordpress-gutenberg",
+      "signals": [
+        { "type": "html", "match": "class=\"[^\"]*\\bwp-block-(columns|group|image|button|cover|media-text|gallery|quote|embed|table|separator|heading)\\b", "weight": 4 },
+        { "type": "asset", "match": "/wp-includes/css/dist/block-library/", "weight": 4 }
+      ]
+    },
+    {
+      "id": "elementor", "label": "Elementor", "kind": "layer", "parent": "wordpress", "blockMap": "wordpress-elementor",
+      "signals": [
+        { "type": "generator", "match": "Elementor\\s*([\\d.]+)?", "weight": 10, "version": 1 },
+        { "type": "html", "match": "class=\"[^\"]*\\belementor-(element|widget|section|container)\\b", "weight": 4 },
+        { "type": "asset", "match": "/plugins/elementor(-pro)?/", "weight": 4 }
+      ]
+    },
+    {
+      "id": "divi", "label": "Divi", "kind": "layer", "parent": "wordpress", "blockMap": "wordpress-divi",
+      "signals": [
+        { "type": "html", "match": "class=\"[^\"]*\\bet_pb_(section|row|module|text)\\b", "weight": 4 },
+        { "type": "asset", "match": "/themes/Divi/", "weight": 4 }
+      ]
+    },
+    {
+      "id": "beaver-builder", "label": "Beaver Builder", "kind": "layer", "parent": "wordpress",
+      "signals": [ { "type": "html", "match": "class=\"[^\"]*\\bfl-builder-content\\b", "weight": 4 } ]
+    },
+    {
+      "id": "wpbakery", "label": "WPBakery", "kind": "layer", "parent": "wordpress",
+      "signals": [
+        { "type": "html", "match": "class=\"[^\"]*\\bvc_row\\b", "weight": 4 },
+        { "type": "asset", "match": "/plugins/js_composer/", "weight": 4 }
+      ]
+    },
+    {
+      "id": "pressbooks", "label": "Pressbooks", "kind": "cms", "parent": "wordpress", "importer": "pressbooks",
+      "signals": [
+        { "type": "generator", "match": "Pressbooks", "weight": 10 },
+        { "type": "asset", "match": "/plugins/pressbooks/", "weight": 4 },
+        { "type": "host", "match": "\\.pressbooks\\.(pub|com)$|\\.pb\\.unizin\\.org$", "weight": 4 }
+      ]
+    },
+    {
+      "id": "drupal", "label": "Drupal", "kind": "cms", "importer": "drupal", "blockMap": "drupal",
+      "signals": [
+        { "type": "header", "name": "x-generator", "match": "Drupal\\s*(\\d+)", "weight": 10, "version": 1 },
+        { "type": "generator", "match": "Drupal\\s*(\\d+)", "weight": 10, "version": 1 },
+        { "type": "header", "name": "x-drupal-cache|x-drupal-dynamic-cache", "match": ".", "weight": 10 },
+        { "type": "html", "match": "data-drupal-(selector|link-system-path|messages)|drupalSettings|Drupal\\.settings", "weight": 4 },
+        { "type": "asset", "match": "/sites/(default|all|[a-z0-9.-]+)/(files|themes|modules)/", "weight": 4 },
+        { "type": "asset", "match": "/core/(misc|themes|modules|assets)/|/misc/drupal\\.js", "weight": 4 },
+        { "type": "probe", "path": "/jsonapi", "expect": { "status": 200, "jsonKey": "links" }, "weight": 10 }
+      ]
+    },
+    {
+      "id": "drupal-layout-builder", "label": "Drupal Layout Builder", "kind": "layer", "parent": "drupal", "blockMap": "drupal",
+      "signals": [ { "type": "html", "match": "class=\"[^\"]*\\blayout--(onecol|twocol-section|threecol-section|fourcol-section)\\b", "weight": 4 } ]
+    },
+    {
+      "id": "drupal-paragraphs", "label": "Drupal Paragraphs", "kind": "layer", "parent": "drupal", "blockMap": "drupal",
+      "signals": [ { "type": "html", "match": "class=\"[^\"]*\\bparagraph--type--", "weight": 4 } ]
+    },
+    {
+      "id": "grav", "label": "Grav", "kind": "cms", "blockMap": "grav",
+      "signals": [
+        { "type": "generator", "match": "GravCMS", "weight": 10 },
+        { "type": "asset", "match": "/user/(themes|plugins|pages)/", "weight": 4 },
+        { "type": "cookie", "match": "^grav-site", "weight": 10 }
+      ]
+    },
+    {
+      "id": "astro", "label": "Astro", "kind": "ssg",
+      "signals": [
+        { "type": "generator", "match": "Astro\\s*v?([\\d.]+)", "weight": 10, "version": 1 },
+        { "type": "html", "match": "data-astro-cid-|<astro-island|data-astro-transition", "weight": 4 },
+        { "type": "asset", "match": "/_astro/", "weight": 4 }
+      ]
+    },
+    {
+      "id": "starlight", "label": "Starlight (Astro docs)", "kind": "layer", "parent": "astro", "blockMap": "astro-starlight",
+      "signals": [
+        { "type": "generator", "match": "Starlight\\s*v?([\\d.]+)", "weight": 10, "version": 1 },
+        { "type": "html", "match": "class=\"[^\"]*\\bsl-markdown-content\\b|starlight-aside", "weight": 4 }
+      ]
+    },
+    {
+      "id": "emdash", "label": "EmDash", "kind": "cms", "parent": "astro", "blockMap": "emdash",
+      "signals": [
+        { "type": "asset", "match": "/_emdash/", "weight": 10 },
+        { "type": "html", "match": "class=\"[^\"]*\\bemdash-(image|gallery|columns|column|cover|pullquote|embed|button|buttons|code|table|file|html-block|break|iframe|video)\\b", "weight": 4 }
+      ]
+    },
+    {
+      "id": "eleventy", "label": "Eleventy (11ty)", "kind": "ssg",
+      "notes": "Eleventy adds no markup of its own; the generator tag is the only reliable signal and is often removed. Undetected 11ty sites fall through to generic-html, which is the correct import path anyway.",
+      "signals": [ { "type": "generator", "match": "Eleventy\\s*v?([\\d.]+)", "weight": 10, "version": 1 } ]
+    },
+    {
+      "id": "hugo", "label": "Hugo", "kind": "ssg",
+      "signals": [ { "type": "generator", "match": "Hugo\\s*([\\d.]+)", "weight": 10, "version": 1 } ]
+    },
+    {
+      "id": "jekyll", "label": "Jekyll", "kind": "ssg",
+      "signals": [
+        { "type": "generator", "match": "Jekyll\\s*v?([\\d.]+)", "weight": 10, "version": 1 },
+        { "type": "html", "match": "<!-- Begin Jekyll SEO tag", "weight": 10 }
+      ]
+    },
+    {
+      "id": "docusaurus", "label": "Docusaurus", "kind": "ssg", "blockMap": "docusaurus",
+      "signals": [
+        { "type": "generator", "match": "Docusaurus\\s*v?([\\d.]+)", "weight": 10, "version": 1 },
+        { "type": "html", "match": "id=\"__docusaurus\"|class=\"[^\"]*\\btheme-doc-markdown\\b", "weight": 4 }
+      ]
+    },
+    {
+      "id": "vitepress", "label": "VitePress", "kind": "ssg", "importer": "vitepress", "blockMap": "vitepress",
+      "notes": "The existing importer reads the source repository, not the built site. Use it when the repo is public; otherwise crawl.",
+      "signals": [
+        { "type": "generator", "match": "VitePress\\s*v?([\\d.]+)", "weight": 10, "version": 1 },
+        { "type": "html", "match": "class=\"[^\"]*\\b(VPDoc|vp-doc|VPContent)\\b", "weight": 4 }
+      ]
+    },
+    {
+      "id": "quarto", "label": "Quarto", "kind": "ssg", "importer": "quarto",
+      "signals": [
+        { "type": "generator", "match": "quarto-([\\d.]+)", "weight": 10, "version": 1 },
+        { "type": "html", "match": "class=\"[^\"]*\\bquarto-(title|figure|container|section)", "weight": 4 }
+      ]
+    },
+    {
+      "id": "mkdocs", "label": "MkDocs", "kind": "ssg", "blockMap": "mkdocs",
+      "signals": [
+        { "type": "generator", "match": "mkdocs-([\\d.]+)", "weight": 10, "version": 1 },
+        { "type": "html", "match": "class=\"[^\"]*\\bmd-(content|typeset|header)\\b", "weight": 4 }
+      ]
+    },
+    {
+      "id": "gatsby", "label": "Gatsby", "kind": "ssg",
+      "signals": [
+        { "type": "generator", "match": "Gatsby\\s*([\\d.]+)", "weight": 10, "version": 1 },
+        { "type": "html", "match": "id=\"___gatsby\"", "weight": 10 }
+      ]
+    },
+    {
+      "id": "nextjs", "label": "Next.js", "kind": "ssg",
+      "signals": [
+        { "type": "html", "match": "id=\"__NEXT_DATA__\"|self\\.__next_f", "weight": 10 },
+        { "type": "asset", "match": "/_next/static/", "weight": 4 },
+        { "type": "header", "name": "x-powered-by", "match": "Next\\.js", "weight": 10 }
+      ]
+    },
+    {
+      "id": "nuxt", "label": "Nuxt", "kind": "ssg",
+      "signals": [
+        { "type": "html", "match": "window\\.__NUXT__|id=\"__nuxt\"", "weight": 10 },
+        { "type": "asset", "match": "/_nuxt/", "weight": 4 }
+      ]
+    },
+    {
+      "id": "gitbook", "label": "GitBook", "kind": "hosted", "importer": "gitbook",
+      "signals": [
+        { "type": "host", "match": "\\.gitbook\\.io$", "weight": 10 },
+        { "type": "asset", "match": "gitbook\\.com|gitbook-x-prod", "weight": 4 }
+      ]
+    },
+    {
+      "id": "squarespace", "label": "Squarespace", "kind": "hosted", "blockMap": "squarespace",
+      "signals": [
+        { "type": "html", "match": "Static\\.SQUARESPACE_CONTEXT|<!-- This is Squarespace\\. -->", "weight": 10 },
+        { "type": "asset", "match": "static1\\.squarespace\\.com|images\\.squarespace-cdn\\.com", "weight": 4 },
+        { "type": "html", "match": "class=\"[^\"]*\\bsqs-(block|layout|row)\\b", "weight": 4 }
+      ]
+    },
+    {
+      "id": "wix", "label": "Wix", "kind": "hosted",
+      "notes": "Wix renders most content from JSON at runtime; markup is deeply nested generated divs. Expect low content fidelity from crawling.",
+      "signals": [
+        { "type": "generator", "match": "Wix\\.com Website Builder", "weight": 10 },
+        { "type": "header", "name": "x-wix-request-id", "match": ".", "weight": 10 },
+        { "type": "asset", "match": "static\\.wixstatic\\.com|static\\.parastorage\\.com", "weight": 4 }
+      ]
+    },
+    {
+      "id": "webflow", "label": "Webflow", "kind": "hosted", "blockMap": "webflow",
+      "signals": [
+        { "type": "generator", "match": "Webflow", "weight": 10 },
+        { "type": "html", "match": "data-wf-(page|site)=", "weight": 10 },
+        { "type": "asset", "match": "website-files\\.com|assets\\.website-files\\.com", "weight": 4 }
+      ]
+    },
+    {
+      "id": "google-sites", "label": "Google Sites", "kind": "hosted",
+      "signals": [
+        { "type": "host", "match": "^sites\\.google\\.com$", "weight": 10 },
+        { "type": "asset", "match": "sites\\.google\\.com/u/|www\\.gstatic\\.com/_/atari/", "weight": 4 }
+      ]
+    },
+    {
+      "id": "joomla", "label": "Joomla", "kind": "cms",
+      "signals": [
+        { "type": "generator", "match": "Joomla!?\\s*-?\\s*([\\d.]+)?", "weight": 10 },
+        { "type": "asset", "match": "/media/(jui|system|templates)/|/components/com_|/templates/[a-z0-9_-]+/(css|js)/", "weight": 4 },
+        { "type": "html", "match": "class=\"[^\"]*\\b(item-page|com-content-article)\\b", "weight": 4 }
+      ]
+    },
+    {
+      "id": "concrete", "label": "Concrete CMS (concrete5)", "kind": "cms", "blockMap": "concrete",
+      "signals": [
+        { "type": "generator", "match": "concrete5|Concrete CMS", "weight": 10 },
+        { "type": "html", "match": "CCM_DISPATCHER_FILENAME|CCM_REL|class=\"[^\"]*\\bccm-(page|block|custom-style)", "weight": 10 },
+        { "type": "asset", "match": "/files/cache/[0-9a-f]{32}_f\\d+|/index\\.php/download_file/view/\\d+|/concrete/(js|css|images)/", "weight": 4 }
+      ]
+    },
+    {
+      "id": "ghost", "label": "Ghost", "kind": "cms", "blockMap": "ghost",
+      "signals": [
+        { "type": "generator", "match": "Ghost\\s*([\\d.]+)", "weight": 10, "version": 1 },
+        { "type": "html", "match": "class=\"[^\"]*\\bkg-(card|image-card|callout-card|toggle-card|bookmark-card)\\b", "weight": 4 },
+        { "type": "asset", "match": "/ghost/api/|/public/ghost\\.", "weight": 4 }
+      ]
+    },
+    {
+      "id": "plone", "label": "Plone", "kind": "cms", "importer": "plone",
+      "signals": [
+        { "type": "generator", "match": "Plone", "weight": 10 },
+        { "type": "asset", "match": "\\+\\+(resource|plone|theme)\\+\\+", "weight": 4 },
+        { "type": "html", "match": "class=\"[^\"]*\\b(portaltype-|plone-toolbar|documentFirstHeading)", "weight": 4 }
+      ]
+    },
+    {
+      "id": "haxcms", "label": "HAXcms", "kind": "cms", "importer": "haxcms",
+      "signals": [
+        { "type": "html", "match": "<haxcms-site-builder|<haxcms-site-router", "weight": 10 },
+        { "type": "asset", "match": "build/es6/node_modules/@haxtheweb/|wc-registry\\.json", "weight": 4 }
+      ]
+    },
+    {
+      "id": "canvas", "label": "Canvas LMS", "kind": "lms",
+      "signals": [
+        { "type": "host", "match": "\\.instructure\\.com$", "weight": 10 },
+        { "type": "asset", "match": "instructure-uploads|du11hjcvx0uqb\\.cloudfront\\.net", "weight": 4 }
+      ]
+    },
+    {
+      "id": "moodle", "label": "Moodle", "kind": "lms",
+      "signals": [
+        { "type": "cookie", "match": "^MoodleSession", "weight": 10 },
+        { "type": "html", "match": "M\\.cfg\\s*=|/theme/(yui_combo|styles)\\.php", "weight": 4 }
+      ]
+    },
+    {
+      "id": "shopify", "label": "Shopify", "kind": "hosted",
+      "signals": [
+        { "type": "asset", "match": "cdn\\.shopify\\.com", "weight": 10 },
+        { "type": "html", "match": "Shopify\\.theme", "weight": 4 }
+      ]
+    },
+    {
+      "id": "hubspot", "label": "HubSpot CMS", "kind": "hosted",
+      "signals": [
+        { "type": "generator", "match": "HubSpot", "weight": 10 },
+        { "type": "asset", "match": "hs-scripts\\.com|hubspotusercontent", "weight": 4 }
+      ]
+    }
+  ],
+  "hosting": [
+    { "id": "cloudflare", "signals": [ { "type": "header", "name": "cf-ray", "match": "." } ] },
+    { "id": "netlify", "signals": [ { "type": "header", "name": "server", "match": "Netlify" } ] },
+    { "id": "vercel", "signals": [ { "type": "header", "name": "x-vercel-id", "match": "." }, { "type": "header", "name": "server", "match": "Vercel" } ] },
+    { "id": "github-pages", "signals": [ { "type": "header", "name": "server", "match": "GitHub\\.com" } ] },
+    { "id": "pantheon", "signals": [ { "type": "header", "name": "x-pantheon-styx-hostname", "match": "." } ] },
+    { "id": "acquia", "signals": [ { "type": "header", "name": "x-ah-environment", "match": "." } ] },
+    { "id": "wp-engine", "signals": [ { "type": "header", "name": "x-powered-by", "match": "WP Engine" } ] }
+  ]
+}

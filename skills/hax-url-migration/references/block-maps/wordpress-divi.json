@@ -1,0 +1,21 @@
+{
+  "id": "wordpress-divi",
+  "label": "Divi modules",
+  "contentSelectors": ["#et-main-area .entry-content", ".et_builder_inner_content", "#main-content"],
+  "chromeSelectors": ["#main-header", "#main-footer", ".et_pb_menu", ".et_pb_search"],
+  "rules": [
+    { "id": "row-columns", "match": ".et_pb_row:has(> .et_pb_column ~ .et_pb_column)", "to": "grid-plate", "layout": "auto", "children": { "select": ".et_pb_column", "slot": "col-{n}", "content": "@html" }, "confidence": "medium" },
+    { "id": "structure", "match": ".et_pb_section, .et_pb_row, .et_pb_column, .et_pb_text, .et_pb_text_inner, .et_pb_module_inner", "to": "unwrap", "confidence": "high" },
+    { "id": "image", "match": ".et_pb_image", "to": "media-image", "attrs": { "source": "img@src", "alt": "img@alt", "link": "a@href" }, "confidence": "high", "asset": true },
+    { "id": "button", "match": ".et_pb_button_module_wrapper", "to": "simple-cta", "attrs": { "link": "a@href", "label": "a@text" }, "confidence": "high" },
+    { "id": "blurb", "match": ".et_pb_blurb", "to": "ddd-card", "attrs": { "src": "img@src", "alt": "img@alt", "title": ".et_pb_module_header@text" }, "content": ".et_pb_blurb_description@html", "confidence": "medium" },
+    { "id": "toggle", "match": ".et_pb_toggle", "to": "a11y-collapse", "attrs": { "heading": ".et_pb_toggle_title@text" }, "content": ".et_pb_toggle_content@html", "confidence": "high" },
+    { "id": "testimonial", "match": ".et_pb_testimonial", "to": "person-testimonial", "attrs": { "name": ".et_pb_testimonial_author@text", "position": ".et_pb_testimonial_position@text", "image": "img@src" }, "content": ".et_pb_testimonial_content@html", "confidence": "high" },
+    { "id": "video", "match": ".et_pb_video", "to": "video-player", "attrs": { "source": "iframe@src|video@src" }, "confidence": "high" },
+    { "id": "gallery", "match": ".et_pb_gallery", "to": "image-gallery", "children": { "select": "img", "to": "media-image", "attrs": { "source": "@src", "alt": "@alt" } }, "confidence": "high" },
+    { "id": "number-counter", "match": ".et_pb_number_counter", "to": "count-up", "attrs": { "end": "@data-number-value" }, "confidence": "medium" },
+    { "id": "cta", "match": ".et_pb_promo", "to": "flag", "flag": "gap", "confidence": "high" },
+    { "id": "contact-form", "match": ".et_pb_contact_form_container", "to": "flag", "flag": "form", "confidence": "high" },
+    { "id": "blog", "match": ".et_pb_blog_grid, .et_pb_posts", "to": "flag", "flag": "dynamic-listing", "confidence": "high" }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "id": "webflow",
+  "label": "Webflow elements",
+  "$comment": "Webflow class names are designer-chosen; only w-* framework classes are stable.",
+  "contentSelectors": [
+    "main",
+    ".main-wrapper",
+    ".page-wrapper",
+    "body"
+  ],
+  "chromeSelectors": [
+    ".w-nav",
+    ".navbar",
+    ".footer",
+    ".w-webflow-badge"
+  ],
+  "rules": [
+    {
+      "id": "row",
+      "match": ".w-row",
+      "to": "grid-plate",
+      "layout": "auto",
+      "children": {
+        "select": ".w-col",
+        "slot": "col-{n}",
+        "content": "@html"
+      },
+      "confidence": "medium"
+    },
+    {
+      "id": "layout-grid",
+      "match": ".w-layout-grid",
+      "to": "grid-plate",
+      "layout": "auto",
+      "children": {
+        "select": "*",
+        "slot": "col-{n}",
+        "content": "@outer-html"
+      },
+      "confidence": "low"
+    },
+    {
+      "id": "container",
+      "match": ".w-container, .w-layout-blockcontainer, .w-layout-vflex, .w-layout-hflex",
+      "to": "unwrap",
+      "confidence": "medium"
+    },
+    {
+      "id": "rich-text",
+      "match": ".w-richtext",
+      "to": "unwrap",
+      "confidence": "high"
+    },
+    {
+      "id": "button",
+      "match": "a.w-button",
+      "to": "simple-cta",
+      "attrs": {
+        "link": "@href",
+        "label": "@text"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "video",
+      "match": ".w-video, .w-embed:has(iframe[src*='youtube']), .w-embed:has(iframe[src*='vimeo'])",
+      "to": "video-player",
+      "attrs": {
+        "source": "iframe@src"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "tabs",
+      "match": ".w-tabs",
+      "to": "a11y-tabs",
+      "children": {
+        "select": ".w-tab-pane",
+        "to": "a11y-tab",
+        "attrs": {
+          "label": "@data-w-tab"
+        },
+        "content": "@html"
+      },
+      "confidence": "medium"
+    },
+    {
+      "id": "slider",
+      "match": ".w-slider",
+      "to": "image-gallery",
+      "children": {
+        "select": "img",
+        "to": "media-image",
+        "attrs": {
+          "source": "@src",
+          "alt": "@alt"
+        }
+      },
+      "confidence": "low"
+    },
+    {
+      "id": "lightbox",
+      "match": ".w-lightbox",
+      "to": "media-image",
+      "attrs": {
+        "source": "img@src",
+        "alt": "img@alt"
+      },
+      "confidence": "medium",
+      "asset": true
+    },
+    {
+      "id": "dyn-list",
+      "match": ".w-dyn-list",
+      "to": "flag",
+      "flag": "dynamic-listing",
+      "confidence": "high"
+    },
+    {
+      "id": "form",
+      "match": ".w-form",
+      "to": "flag",
+      "flag": "form",
+      "confidence": "high"
+    },
+    {
+      "id": "embed",
+      "match": ".w-embed",
+      "to": "flag",
+      "flag": "custom-html",
+      "confidence": "medium"
+    }
+  ]
+}

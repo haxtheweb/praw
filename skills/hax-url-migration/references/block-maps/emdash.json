@@ -1,0 +1,169 @@
+{
+  "id": "emdash",
+  "label": "EmDash Portable Text blocks",
+  "source": "https://github.com/emdash-cms/emdash/tree/main/packages/core/src/components",
+  "contentSelectors": [
+    "article",
+    "main"
+  ],
+  "chromeSelectors": [
+    ".emdash-comments",
+    ".emdash-comment-form"
+  ],
+  "rules": [
+    {
+      "id": "columns",
+      "match": ".emdash-columns",
+      "to": "grid-plate",
+      "layout": "auto",
+      "children": {
+        "select": ".emdash-column",
+        "slot": "col-{n}",
+        "content": "@html"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "gallery",
+      "match": ".emdash-gallery",
+      "to": "image-gallery",
+      "children": {
+        "select": ".emdash-gallery-item",
+        "to": "media-image",
+        "attrs": {
+          "source": "img@src",
+          "alt": "img@alt",
+          "caption": "figcaption@text"
+        }
+      },
+      "confidence": "high",
+      "asset": true
+    },
+    {
+      "id": "image",
+      "match": "figure.emdash-image",
+      "to": "media-image",
+      "attrs": {
+        "source": "img@src",
+        "alt": "img@alt",
+        "caption": "figcaption@text",
+        "link": "a@href"
+      },
+      "confidence": "high",
+      "asset": true
+    },
+    {
+      "id": "cover",
+      "match": ".emdash-cover",
+      "to": "page-section",
+      "attrs": {
+        "image": "img.emdash-cover__background@src"
+      },
+      "content": ".emdash-cover__content@html",
+      "confidence": "medium",
+      "asset": true
+    },
+    {
+      "id": "pullquote",
+      "match": "figure.emdash-pullquote",
+      "to": "block-quote",
+      "attrs": {
+        "citation": ".emdash-pullquote__citation@text"
+      },
+      "content": ".emdash-pullquote__text@html",
+      "confidence": "high"
+    },
+    {
+      "id": "embed-video",
+      "match": "figure.emdash-embed:has(iframe), figure.emdash-embed:has(video)",
+      "to": "video-player",
+      "attrs": {
+        "source": "iframe@src|video@src"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "embed-audio",
+      "match": "figure.emdash-embed:has(audio)",
+      "to": "audio-player",
+      "attrs": {
+        "source": "audio@src"
+      },
+      "confidence": "high",
+      "asset": true
+    },
+    {
+      "id": "video",
+      "match": "figure.emdash-video",
+      "to": "video-player",
+      "attrs": {
+        "source": "video@src|source@src",
+        "thumbnailSrc": "video@poster"
+      },
+      "confidence": "high",
+      "asset": true
+    },
+    {
+      "id": "buttons",
+      "match": ".emdash-buttons",
+      "to": "unwrap",
+      "confidence": "high"
+    },
+    {
+      "id": "button",
+      "match": "a.emdash-button",
+      "to": "simple-cta",
+      "attrs": {
+        "link": "@href",
+        "label": "@text"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "code",
+      "match": ".emdash-code",
+      "to": "code-sample",
+      "attrs": {
+        "type": "pre@class~language-(\\w+)"
+      },
+      "content": "pre@raw-template",
+      "confidence": "high"
+    },
+    {
+      "id": "table",
+      "match": ".emdash-table-wrapper",
+      "to": "unwrap",
+      "confidence": "high"
+    },
+    {
+      "id": "file",
+      "match": ".emdash-file",
+      "to": "keep",
+      "asset": true,
+      "confidence": "high"
+    },
+    {
+      "id": "break",
+      "match": ".emdash-break",
+      "to": "html",
+      "html": "<hr>",
+      "confidence": "high"
+    },
+    {
+      "id": "iframe",
+      "match": ".emdash-iframe",
+      "to": "iframe-loader",
+      "attrs": {
+        "source": "iframe@src|@src"
+      },
+      "confidence": "medium"
+    },
+    {
+      "id": "html-block",
+      "match": ".emdash-html-block",
+      "to": "flag",
+      "flag": "custom-html",
+      "confidence": "high"
+    }
+  ]
+}

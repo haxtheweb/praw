@@ -1,0 +1,1038 @@
+{
+ "$comment": "HAX blocks that block maps may target. Regenerate with scripts/build-hax-catalog.mjs, which reads haxProperties from https://github.com/haxtheweb/webcomponents (master). props lists configurable HAXSchema properties; slots lists named slots ('' = default slot).",
+ "source": "https://github.com/haxtheweb/webcomponents",
+ "blocks": {
+  "a11y-collapse": {
+   "title": "Collapsible container",
+   "props": [
+    "heading",
+    "expanded",
+    "headingButton",
+    "icon",
+    "iconExpanded",
+    "tooltip",
+    "tooltipExpanded"
+   ],
+   "slots": [
+    ""
+   ],
+   "handles": []
+  },
+  "a11y-collapse-group": {
+   "title": "Expand Collapse Group",
+   "props": [
+    "radio"
+   ],
+   "slots": [
+    ""
+   ],
+   "handles": []
+  },
+  "a11y-details": {
+   "title": "Accessible Details Button",
+   "props": [
+    "openText",
+    "closeText"
+   ],
+   "slots": [
+    "summary",
+    "details"
+   ],
+   "handles": []
+  },
+  "a11y-gif-player": {
+   "title": "GIF",
+   "props": [
+    "src",
+    "alt",
+    "mediaTitle",
+    "longdesc",
+    "srcWithoutAnimation"
+   ],
+   "slots": [
+    "caption"
+   ],
+   "handles": [
+    "gif",
+    "image"
+   ]
+  },
+  "a11y-tab": {
+   "title": "Tab",
+   "props": [
+    "label",
+    "icon",
+    "disabled",
+    "flag",
+    "flagIcon"
+   ],
+   "slots": [
+    ""
+   ],
+   "handles": []
+  },
+  "a11y-tabs": {
+   "title": "Tabs",
+   "props": [
+    "ariaLabel",
+    "disabled",
+    "hidden",
+    "sticky",
+    "layoutBreakpoint",
+    "iconBreakpoint",
+    "id"
+   ],
+   "slots": [
+    ""
+   ],
+   "handles": []
+  },
+  "accent-card": {
+   "title": "Card",
+   "props": [
+    "accentColor",
+    "accentHeading",
+    "horizontal",
+    "imageSrc",
+    "imageAlt",
+    "imageAlign",
+    "flat",
+    "noBorder"
+   ],
+   "slots": [
+    "heading",
+    "subheading",
+    "content",
+    "footer",
+    "corner"
+   ],
+   "handles": []
+  },
+  "activity-box": {
+   "title": "Activity Box",
+   "props": [
+    "icon",
+    "tag",
+    "nocolourize"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "audio-player": {
+   "title": "Audio",
+   "props": [
+    "source",
+    "mediaTitle",
+    "thumbnailSrc",
+    "track"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "author-card": {
+   "title": "Author Card",
+   "props": [
+    "name",
+    "image",
+    "title",
+    "description",
+    "profileUrl",
+    "socialLink",
+    "socialHandle"
+   ],
+   "slots": [],
+   "handles": [
+    "image"
+   ]
+  },
+  "block-quote": {
+   "title": "Block quote",
+   "props": [
+    "citation",
+    "alt",
+    "image"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "citation-element": {
+   "title": "Citation",
+   "props": [
+    "title",
+    "source",
+    "creator",
+    "date",
+    "license",
+    "scope"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "code-sample": {
+   "title": "Code sample",
+   "props": [
+    "type",
+    "copyClipboardButton",
+    "highlightStart",
+    "highlightEnd"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "collection-item": {
+   "title": "Collection item",
+   "props": [
+    "url",
+    "image",
+    "line1",
+    "line2",
+    "line3",
+    "icon",
+    "saturate",
+    "tags",
+    "accentColor",
+    "alt"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "collection-list": {
+   "title": "Collection",
+   "props": [],
+   "slots": [],
+   "handles": []
+  },
+  "count-up": {
+   "title": "Count Up",
+   "props": [
+    "end",
+    "start",
+    "duration",
+    "prefixtext",
+    "suffixtext",
+    "decimalplaces",
+    "separator",
+    "decimal",
+    "noeasing"
+   ],
+   "slots": [
+    "prefix",
+    "suffix"
+   ],
+   "handles": []
+  },
+  "date-card": {
+   "title": "Date",
+   "props": [
+    "month",
+    "date",
+    "day",
+    "title",
+    "location",
+    "startTime",
+    "endTime",
+    "accentColor"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "ddd-card": {
+   "title": "Card",
+   "props": [
+    "src",
+    "alt",
+    "title",
+    "href",
+    "label",
+    "noArrow"
+   ],
+   "slots": [
+    ""
+   ],
+   "handles": [
+    "image"
+   ]
+  },
+  "ddd-steps-list": {
+   "title": "Steps list",
+   "props": [],
+   "slots": [],
+   "handles": []
+  },
+  "ddd-steps-list-item": {
+   "title": "Steps item",
+   "props": [
+    "title"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "discord-embed": {
+   "title": "Discord",
+   "props": [
+    "source",
+    "height",
+    "width"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "editable-table": {
+   "title": "Table",
+   "props": [
+    "rowHeader",
+    "columnHeader",
+    "footer",
+    "sort",
+    "filter",
+    "numericStyles",
+    "responsive",
+    "rubricMode",
+    "rubricType",
+    "bordered",
+    "condensed",
+    "striped",
+    "downloadable",
+    "copyable",
+    "printable"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "fill-in-the-blanks": {
+   "title": "Fill in the blanks",
+   "props": [
+    "question",
+    "statement",
+    "gradingFormat",
+    "hasLearningObjective",
+    "forCourse",
+    "collapsible",
+    "collapsed"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "flash-card": {
+   "title": "Flash card",
+   "props": [
+    "imgSource",
+    "typeOfAction",
+    "hasLearningObjective",
+    "imgKeyword"
+   ],
+   "slots": [
+    "front",
+    "back"
+   ],
+   "handles": []
+  },
+  "full-width-image": {
+   "title": "Image section",
+   "props": [
+    "source",
+    "caption"
+   ],
+   "slots": [],
+   "handles": [
+    "image"
+   ]
+  },
+  "grid-plate": {
+   "title": "Column layout",
+   "props": [
+    "layout",
+    "itemPadding",
+    "itemMargin",
+    "disableResponsive"
+   ],
+   "slots": [
+    "col-1",
+    "col-2",
+    "col-3",
+    "col-4",
+    "col-5",
+    "col-6"
+   ],
+   "handles": []
+  },
+  "h5p-element": {
+   "title": "H5P",
+   "props": [
+    "source"
+   ],
+   "slots": [
+    ""
+   ],
+   "handles": []
+  },
+  "html-block": {
+   "title": "Html block",
+   "props": [],
+   "slots": [
+    ""
+   ],
+   "handles": []
+  },
+  "ics-render": {
+   "title": "Calendar",
+   "props": [
+    "dataSource",
+    "displayAs",
+    "caption"
+   ],
+   "slots": [],
+   "handles": [
+    "ics"
+   ]
+  },
+  "iframe-loader": {
+   "title": "Iframe",
+   "props": [
+    "source",
+    "height",
+    "width"
+   ],
+   "slots": [],
+   "handles": [
+    "link",
+    "pdf",
+    "document",
+    "html"
+   ]
+  },
+  "image-compare-slider": {
+   "title": "Image compare",
+   "props": [
+    "topSrc",
+    "topAlt",
+    "bottomSrc",
+    "bottomAlt",
+    "opacity",
+    "position"
+   ],
+   "slots": [],
+   "handles": [
+    "image"
+   ]
+  },
+  "image-gallery": {
+   "title": "Image Gallery",
+   "props": [
+    "mode",
+    "activeIndex"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "inline-audio": {
+   "title": "Inline audio",
+   "props": [
+    "source",
+    "shiny",
+    "accentColor"
+   ],
+   "slots": [],
+   "handles": [
+    "inline"
+   ]
+  },
+  "license-element": {
+   "title": "License",
+   "props": [
+    "license",
+    "title",
+    "creator",
+    "source",
+    "moreLink",
+    "moreLabel"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "linkedin-embed": {
+   "title": "LinkedIn embed",
+   "props": [
+    "vanityname",
+    "locale"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "lrn-math": {
+   "title": "Math",
+   "props": [
+    "mathtext"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "lrn-table": {
+   "title": "CSV table",
+   "props": [
+    "csvFile",
+    "title",
+    "description"
+   ],
+   "slots": [],
+   "handles": [
+    "csv"
+   ]
+  },
+  "lrndesign-imagemap": {
+   "title": "Image map",
+   "props": [
+    "label",
+    "hotspotDetails"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "lrndesign-sidenote": {
+   "title": "Side note",
+   "props": [
+    "label",
+    "icon",
+    "accentColor"
+   ],
+   "slots": [
+    ""
+   ],
+   "handles": []
+  },
+  "lrndesign-timeline": {
+   "title": "Timeline",
+   "props": [
+    "timelineTitle",
+    "events",
+    "accentColor"
+   ],
+   "slots": [
+    ""
+   ],
+   "handles": []
+  },
+  "mark-the-words": {
+   "title": "Mark the words",
+   "props": [
+    "question",
+    "statement",
+    "gradingFormat",
+    "hasLearningObjective",
+    "forCourse",
+    "answers",
+    "collapsible",
+    "collapsed"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "matching-question": {
+   "title": "Matching Question",
+   "props": [
+    "question",
+    "gradingFormat",
+    "hasLearningObjective",
+    "forCourse",
+    "answers",
+    "collapsible",
+    "collapsed"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "md-block": {
+   "title": "Markdown",
+   "props": [
+    "markdown",
+    "source"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "media-image": {
+   "title": "Enhanced Image",
+   "props": [
+    "alt",
+    "caption",
+    "citation",
+    "link",
+    "source",
+    "card",
+    "box",
+    "round",
+    "offset",
+    "figureLabelTitle",
+    "figureLabelDescription"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "media-playlist": {
+   "title": "Media Playlist",
+   "props": [
+    "activeIndex",
+    "forCourse"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "media-quote": {
+   "title": "Media quote",
+   "props": [
+    "src",
+    "alt"
+   ],
+   "slots": [
+    "quote",
+    "author",
+    "author-detail",
+    "caption"
+   ],
+   "handles": []
+  },
+  "multiple-choice": {
+   "title": "Multiple choice",
+   "props": [
+    "question",
+    "randomize",
+    "singleOption",
+    "gradingFormat",
+    "hasLearningObjective",
+    "forCourse",
+    "answers",
+    "collapsible",
+    "collapsed"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "oer-schema": {
+   "title": "Schema",
+   "props": [
+    "oerProperty",
+    "typeof",
+    "relatedResource"
+   ],
+   "slots": [
+    ""
+   ],
+   "handles": []
+  },
+  "page-break": {
+   "title": "Page details",
+   "props": [
+    "title",
+    "pageType",
+    "tags",
+    "linkUrl",
+    "linkTarget",
+    "published",
+    "locked",
+    "overridePathauto",
+    "slug",
+    "image",
+    "parent",
+    "noderefs"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "page-section": {
+   "title": "Page section",
+   "props": [
+    "preset",
+    "image",
+    "bg",
+    "scroller",
+    "fold",
+    "full",
+    "filter"
+   ],
+   "slots": [
+    "",
+    "entice",
+    "buttons"
+   ],
+   "handles": []
+  },
+  "pdf-browser-viewer": {
+   "title": "PDF Browser Viewer",
+   "props": [
+    "file",
+    "heading",
+    "card",
+    "downloadLabel",
+    "notSupportedMessage",
+    "notSupportedLinkMessage",
+    "width",
+    "height"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "person-testimonial": {
+   "title": "Image Blockquote",
+   "props": [
+    "image",
+    "name",
+    "position"
+   ],
+   "slots": [
+    ""
+   ],
+   "handles": [
+    "image"
+   ]
+  },
+  "place-holder": {
+   "title": "Placeholder",
+   "props": [
+    "text",
+    "type"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "play-list": {
+   "title": "Play list",
+   "props": [
+    "edit",
+    "navigation",
+    "pagination",
+    "orientation",
+    "slide",
+    "aspectRatio"
+   ],
+   "slots": [
+    ""
+   ],
+   "handles": []
+  },
+  "polaris-cta": {
+   "title": "Polaris CTA",
+   "props": [
+    "text",
+    "link",
+    "type",
+    "outlined",
+    "filled"
+   ],
+   "slots": [],
+   "handles": [
+    "link"
+   ]
+  },
+  "polaris-story-card": {
+   "title": "Polaris story card",
+   "props": [
+    "image",
+    "backgroundSize",
+    "backgroundAttachment",
+    "pillar",
+    "label",
+    "link"
+   ],
+   "slots": [],
+   "handles": [
+    "image",
+    "text",
+    "text",
+    "link"
+   ]
+  },
+  "polaris-tile": {
+   "title": "Polaris tile",
+   "props": [
+    "line1",
+    "line2",
+    "type",
+    "image",
+    "link"
+   ],
+   "slots": [],
+   "handles": [
+    "text",
+    "text",
+    "image",
+    "link"
+   ]
+  },
+  "product-glance": {
+   "title": "Product glance",
+   "props": [
+    "icon",
+    "title",
+    "subtitle",
+    "accentColor"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "q-r": {
+   "title": "QR Code",
+   "props": [
+    "data",
+    "title",
+    "modulesize",
+    "margin",
+    "format"
+   ],
+   "slots": [],
+   "handles": [
+    "video",
+    "image",
+    "link"
+   ]
+  },
+  "self-check": {
+   "title": "Self Check",
+   "props": [
+    "image",
+    "title",
+    "alt",
+    "hasLearningObjective",
+    "assessing",
+    "link"
+   ],
+   "slots": [
+    "question",
+    ""
+   ],
+   "handles": [
+    "image"
+   ]
+  },
+  "sheet-music": {
+   "title": "Sheet music",
+   "props": [
+    "source",
+    "audio",
+    "showDisplayOptions",
+    "showExport"
+   ],
+   "slots": [
+    ""
+   ],
+   "handles": [
+    "media"
+   ]
+  },
+  "short-answer-question": {
+   "title": "Short Answer Question",
+   "props": [
+    "question",
+    "answers",
+    "collapsible",
+    "collapsed"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "simple-cta": {
+   "title": "Call to action",
+   "props": [
+    "label",
+    "link",
+    "icon",
+    "hideIcon"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "simple-icon": {
+   "title": "Icon",
+   "props": [
+    "icon",
+    "accentColor"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "simple-img": {
+   "title": "Simple Image",
+   "props": [
+    "src",
+    "height",
+    "width",
+    "alt",
+    "quality",
+    "fetchpriority",
+    "decoding"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "simple-tags": {
+   "title": "Tags",
+   "props": [
+    "tags",
+    "autoAccentColor",
+    "accentColor"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "slide-deck": {
+   "title": "Slide deck",
+   "props": [
+    "source",
+    "deckId",
+    "downloadable"
+   ],
+   "slots": [],
+   "handles": [
+    "pptx"
+   ]
+  },
+  "sorting-question": {
+   "title": "Sorting Question",
+   "props": [
+    "question",
+    "gradingFormat",
+    "hasLearningObjective",
+    "forCourse",
+    "answers",
+    "collapsible",
+    "collapsed"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "spotify-embed": {
+   "title": "Spotify",
+   "props": [
+    "source",
+    "theme",
+    "size"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "stop-note": {
+   "title": "Stop Note",
+   "props": [
+    "title",
+    "url",
+    "status"
+   ],
+   "slots": [
+    "message"
+   ],
+   "handles": [
+    "text"
+   ]
+  },
+  "tableau-embed": {
+   "title": "Tableau",
+   "props": [
+    "src",
+    "height",
+    "width",
+    "toolbar",
+    "hideTabs",
+    "device"
+   ],
+   "slots": [],
+   "handles": [
+    "link"
+   ]
+  },
+  "tagging-question": {
+   "title": "Tagging Question",
+   "props": [
+    "question",
+    "gradingFormat",
+    "hasLearningObjective",
+    "forCourse",
+    "answers",
+    "collapsible",
+    "collapsed"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "true-false-question": {
+   "title": "True / False Question",
+   "props": [
+    "question",
+    "_tfanswer",
+    "collapsible",
+    "collapsed"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "twitter-embed": {
+   "title": "Twitter (X) embed",
+   "props": [
+    "tweet",
+    "dataTheme",
+    "noPopups"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "un-sdg": {
+   "title": "UN SDG",
+   "props": [
+    "goal",
+    "colorOnly"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "vcf-render": {
+   "title": "Contacts",
+   "props": [
+    "dataSource",
+    "displayAs",
+    "caption"
+   ],
+   "slots": [],
+   "handles": [
+    "vcf"
+   ]
+  },
+  "video-player": {
+   "title": "Video",
+   "props": [
+    "source",
+    "mediaTitle",
+    "thumbnailSrc",
+    "accentColor",
+    "startTime",
+    "endTime",
+    "tracks"
+   ],
+   "slots": [],
+   "handles": []
+  },
+  "vocab-term": {
+   "title": "Vocab",
+   "props": [
+    "term",
+    "information",
+    "popoverMode",
+    "links"
+   ],
+   "slots": [],
+   "handles": [
+    "inline"
+   ]
+  },
+  "wikipedia-query": {
+   "title": "Wikipedia",
+   "props": [
+    "search",
+    "hideTitle",
+    "language"
+   ],
+   "slots": [],
+   "handles": [
+    "wikipedia",
+    "content"
+   ]
+  }
+ }
+}

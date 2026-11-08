@@ -1,0 +1,155 @@
+{
+  "id": "astro-starlight",
+  "label": "Starlight components",
+  "source": "https://starlight.astro.build/components/using-components/",
+  "contentSelectors": [
+    ".sl-markdown-content",
+    "main"
+  ],
+  "chromeSelectors": [
+    "starlight-toc",
+    "mobile-starlight-toc",
+    ".pagination-links",
+    ".right-sidebar-container",
+    "site-search",
+    ".meta.sl-flex"
+  ],
+  "rules": [
+    {
+      "id": "aside-caution",
+      "match": "aside.starlight-aside--caution",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=warning",
+        "title": ".starlight-aside__title@text"
+      },
+      "slots": {
+        "message": ".starlight-aside__content@html"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "aside-danger",
+      "match": "aside.starlight-aside--danger",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=stop",
+        "title": ".starlight-aside__title@text"
+      },
+      "slots": {
+        "message": ".starlight-aside__content@html"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "aside-tip",
+      "match": "aside.starlight-aside--tip",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=success",
+        "title": ".starlight-aside__title@text"
+      },
+      "slots": {
+        "message": ".starlight-aside__content@html"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "aside-note",
+      "match": "aside.starlight-aside",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=info",
+        "title": ".starlight-aside__title@text"
+      },
+      "slots": {
+        "message": ".starlight-aside__content@html"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "tabs",
+      "match": "starlight-tabs",
+      "to": "a11y-tabs",
+      "children": {
+        "select": "[role=tabpanel]",
+        "to": "a11y-tab",
+        "attrs": {
+          "label": "@aria-label"
+        },
+        "content": "@html"
+      },
+      "confidence": "low",
+      "note": "Tab labels are in the tablist; check after conversion."
+    },
+    {
+      "id": "card-grid",
+      "match": ".card-grid",
+      "to": "grid-plate",
+      "layout": "auto",
+      "children": {
+        "select": "article.card, .sl-link-card",
+        "slot": "col-{n}",
+        "content": "@html"
+      },
+      "confidence": "medium"
+    },
+    {
+      "id": "card",
+      "match": "article.card",
+      "to": "accent-card",
+      "slots": {
+        "heading": ".title@text",
+        "content": ".body@html"
+      },
+      "confidence": "medium"
+    },
+    {
+      "id": "link-card",
+      "match": ".sl-link-card",
+      "to": "ddd-card",
+      "attrs": {
+        "title": "a@text",
+        "href": "a@href"
+      },
+      "content": ".description@html",
+      "confidence": "medium"
+    },
+    {
+      "id": "steps",
+      "match": ".sl-steps",
+      "to": "ddd-steps-list",
+      "children": {
+        "select": "li",
+        "to": "ddd-steps-list-item",
+        "attrs": {
+          "title": "> :first-child@text"
+        },
+        "content": "@html"
+      },
+      "confidence": "low"
+    },
+    {
+      "id": "code",
+      "match": ".expressive-code",
+      "to": "code-sample",
+      "attrs": {
+        "type": "pre@data-language"
+      },
+      "content": "pre@raw-template",
+      "confidence": "high"
+    },
+    {
+      "id": "file-tree",
+      "match": "starlight-file-tree",
+      "to": "keep",
+      "confidence": "medium"
+    },
+    {
+      "id": "badge",
+      "match": ".sl-badge",
+      "to": "unwrap",
+      "confidence": "medium"
+    }
+  ]
+}

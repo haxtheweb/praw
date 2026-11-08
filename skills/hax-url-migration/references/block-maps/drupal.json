@@ -1,0 +1,216 @@
+{
+  "id": "drupal",
+  "label": "Drupal core output, Layout Builder, Paragraphs and Media",
+  "$comment": "Drupal markup depends on the theme. These rules use core-generated classes (Layout Builder, Media, CKEditor 5, field wrappers) that survive most themes. Paragraph types are site-defined, so paragraph--type--* bundles that no rule covers surface as gaps with their bundle name.",
+  "contentSelectors": [
+    ".node__content",
+    "article.node",
+    ".layout-content",
+    "main .region-content",
+    "#block-mainpagecontent",
+    "main"
+  ],
+  "chromeSelectors": [
+    ".block-local-tasks-block",
+    ".tabs",
+    ".region-header",
+    ".region-footer",
+    ".region-breadcrumb",
+    ".block-system-breadcrumb-block",
+    ".contextual",
+    ".visually-hidden.focusable",
+    "#toolbar-administration",
+    ".node__links",
+    ".field--name-field-tags"
+  ],
+  "rules": [
+    {
+      "id": "layout-twocol",
+      "match": ".layout--twocol-section",
+      "to": "grid-plate",
+      "layout": "fromClass",
+      "layoutClassMap": {
+        "layout--twocol-section--50-50": "1-1",
+        "layout--twocol-section--33-67": "1-2",
+        "layout--twocol-section--67-33": "2-1",
+        "layout--twocol-section--25-75": "1-3",
+        "layout--twocol-section--75-25": "3-1"
+      },
+      "children": {
+        "select": ".layout__region",
+        "slot": "col-{n}",
+        "content": "@html"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "layout-threecol",
+      "match": ".layout--threecol-section",
+      "to": "grid-plate",
+      "layout": "fromClass",
+      "layoutClassMap": {
+        "layout--threecol-section--33-34-33": "1-1-1",
+        "layout--threecol-section--25-50-25": "1-2-1",
+        "layout--threecol-section--50-25-25": "2-1-1",
+        "layout--threecol-section--25-25-50": "1-1-2"
+      },
+      "children": {
+        "select": ".layout__region",
+        "slot": "col-{n}",
+        "content": "@html"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "layout-fourcol",
+      "match": ".layout--fourcol-section",
+      "to": "grid-plate",
+      "attrs": {
+        "layout": "=1-1-1-1"
+      },
+      "children": {
+        "select": ".layout__region",
+        "slot": "col-{n}",
+        "content": "@html"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "layout-onecol",
+      "match": ".layout--onecol, .layout__region, .layout-builder__section",
+      "to": "unwrap",
+      "confidence": "high"
+    },
+    {
+      "id": "media-image",
+      "match": ".media--type-image, article.media--image, drupal-media[data-entity-type=media]",
+      "to": "media-image",
+      "attrs": {
+        "source": "img@src",
+        "alt": "img@alt",
+        "caption": "figcaption@text|.field--name-field-caption@text"
+      },
+      "confidence": "high",
+      "asset": true
+    },
+    {
+      "id": "media-remote-video",
+      "match": ".media--type-remote-video, .media--remote-video",
+      "to": "video-player",
+      "attrs": {
+        "source": "iframe@src",
+        "mediaTitle": "iframe@title"
+      },
+      "confidence": "high",
+      "note": "Drupal oEmbed iframes point at /media/oembed?url=...; the converter should unwrap the url parameter."
+    },
+    {
+      "id": "media-video",
+      "match": ".media--type-video",
+      "to": "video-player",
+      "attrs": {
+        "source": "video@src|source@src"
+      },
+      "confidence": "high",
+      "asset": true
+    },
+    {
+      "id": "media-document",
+      "match": ".media--type-document, .file--application-pdf",
+      "to": "keep",
+      "asset": true,
+      "confidence": "high"
+    },
+    {
+      "id": "ckeditor-image",
+      "match": "img[data-entity-type=file]",
+      "to": "media-image",
+      "attrs": {
+        "source": "@src",
+        "alt": "@alt",
+        "caption": "@data-caption"
+      },
+      "confidence": "high",
+      "asset": true
+    },
+    {
+      "id": "views-listing",
+      "match": ".view, .views-element-container",
+      "to": "flag",
+      "flag": "dynamic-listing",
+      "confidence": "high",
+      "note": "Views output; becomes a HAX views/collection listing."
+    },
+    {
+      "id": "webform",
+      "match": ".webform-submission-form, form.webform",
+      "to": "flag",
+      "flag": "form",
+      "confidence": "high"
+    },
+    {
+      "id": "paragraph-accordion",
+      "match": ".paragraph--type--accordion, .paragraph--type--faq",
+      "to": "a11y-collapse-group",
+      "children": {
+        "select": ".paragraph--type--accordion-item, .paragraph--type--faq-item, details",
+        "to": "a11y-collapse",
+        "attrs": {
+          "heading": ".field--name-field-title@text|summary@text|h3@text"
+        },
+        "content": ".field--name-field-body@html|.field--name-field-text@html|@html-without:summary"
+      },
+      "confidence": "low",
+      "note": "Common bundle names; confirm per site."
+    },
+    {
+      "id": "paragraph-cta",
+      "match": ".paragraph--type--cta, .paragraph--type--call-to-action, .paragraph--type--button",
+      "to": "simple-cta",
+      "attrs": {
+        "link": "a@href",
+        "label": "a@text"
+      },
+      "confidence": "low"
+    },
+    {
+      "id": "paragraph-card",
+      "match": ".paragraph--type--card",
+      "to": "ddd-card",
+      "attrs": {
+        "src": "img@src",
+        "alt": "img@alt",
+        "title": "h2@text|h3@text",
+        "href": "a@href"
+      },
+      "content": ".field--name-field-body@html|.field--name-field-text@html",
+      "confidence": "low"
+    },
+    {
+      "id": "paragraph-quote",
+      "match": ".paragraph--type--quote, .paragraph--type--blockquote",
+      "to": "block-quote",
+      "attrs": {
+        "citation": ".field--name-field-attribution@text|cite@text"
+      },
+      "content": ".field--name-field-quote@html|blockquote@html",
+      "confidence": "low"
+    },
+    {
+      "id": "paragraph-other",
+      "match": "[class*='paragraph--type--']",
+      "to": "flag",
+      "flag": "gap",
+      "gapKey": "@class~paragraph--type--([a-z0-9-_]+)",
+      "confidence": "medium",
+      "note": "Unmapped Paragraphs bundle; the bundle name is the gap key."
+    },
+    {
+      "id": "field-wrappers",
+      "match": ".field, .field__item, .field__items, .clearfix.text-formatted, .block-field-block, .block-inline-block, .paragraph, .block-content, .block__content",
+      "to": "unwrap",
+      "confidence": "medium",
+      "note": "Field and block wrappers carry no meaning once content is flattened. Field labels (.field__label) are kept as text."
+    }
+  ]
+}

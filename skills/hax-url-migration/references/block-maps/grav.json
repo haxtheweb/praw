@@ -1,0 +1,96 @@
+{
+  "id": "grav",
+  "label": "Grav (Markdown + common plugins)",
+  "$comment": "Grav pages are Markdown, so most output is plain HTML handled by generic-html. These rules cover markdown-notices and shortcode-core output.",
+  "contentSelectors": [
+    "#body-inner",
+    "#start .container",
+    "#body-wrapper",
+    "main",
+    "#content"
+  ],
+  "chromeSelectors": [
+    "#sidebar",
+    "#header",
+    "#footer",
+    ".prev-next",
+    "#navigation",
+    "#top-github-link"
+  ],
+  "rules": [
+    {
+      "id": "notice-yellow",
+      "match": ".notices.yellow, .sc-notice.warning",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=warning"
+      },
+      "slots": {
+        "message": "@html"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "notice-red",
+      "match": ".notices.red, .sc-notice.danger",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=stop"
+      },
+      "slots": {
+        "message": "@html"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "notice-green",
+      "match": ".notices.green, .sc-notice.success",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=success"
+      },
+      "slots": {
+        "message": "@html"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "notice-blue",
+      "match": ".notices.blue, .sc-notice.info, .sc-notice",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=info"
+      },
+      "slots": {
+        "message": "@html"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "sc-columns",
+      "match": ".sc-columns, .columns:has(> .column ~ .column)",
+      "to": "grid-plate",
+      "layout": "auto",
+      "children": {
+        "select": ".column, .sc-column",
+        "slot": "col-{n}",
+        "content": "@html"
+      },
+      "confidence": "medium"
+    },
+    {
+      "id": "sc-tabs",
+      "match": ".sc-tabs",
+      "to": "a11y-tabs",
+      "children": {
+        "select": ".sc-tab, .tab-content > div",
+        "to": "a11y-tab",
+        "attrs": {
+          "label": "@data-title|@title"
+        },
+        "content": "@html"
+      },
+      "confidence": "low"
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "id": "ghost",
+  "label": "Ghost Koenig cards",
+  "source": "https://ghost.org/docs/themes/content/",
+  "contentSelectors": [
+    ".gh-content",
+    ".post-content",
+    ".article-content",
+    "article"
+  ],
+  "chromeSelectors": [
+    ".gh-post-upgrade-cta",
+    ".kg-signup-card",
+    ".gh-comments",
+    ".kg-share"
+  ],
+  "rules": [
+    {
+      "id": "image",
+      "match": "figure.kg-image-card",
+      "to": "media-image",
+      "attrs": {
+        "source": "img@src",
+        "alt": "img@alt",
+        "caption": "figcaption@text",
+        "link": "a@href"
+      },
+      "confidence": "high",
+      "asset": true
+    },
+    {
+      "id": "gallery",
+      "match": "figure.kg-gallery-card",
+      "to": "image-gallery",
+      "children": {
+        "select": ".kg-gallery-image",
+        "to": "media-image",
+        "attrs": {
+          "source": "img@src",
+          "alt": "img@alt"
+        }
+      },
+      "confidence": "high",
+      "asset": true
+    },
+    {
+      "id": "embed-video",
+      "match": "figure.kg-embed-card:has(iframe[src*='youtube']), figure.kg-embed-card:has(iframe[src*='vimeo'])",
+      "to": "video-player",
+      "attrs": {
+        "source": "iframe@src"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "video",
+      "match": "figure.kg-video-card",
+      "to": "video-player",
+      "attrs": {
+        "source": "video@src",
+        "thumbnailSrc": "video@poster"
+      },
+      "confidence": "high",
+      "asset": true
+    },
+    {
+      "id": "audio",
+      "match": ".kg-audio-card",
+      "to": "audio-player",
+      "attrs": {
+        "source": "audio@src",
+        "mediaTitle": ".kg-audio-title@text"
+      },
+      "confidence": "high",
+      "asset": true
+    },
+    {
+      "id": "callout",
+      "match": ".kg-callout-card",
+      "to": "stop-note",
+      "attrs": {
+        "status": "=info"
+      },
+      "slots": {
+        "message": ".kg-callout-text@html"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "toggle",
+      "match": ".kg-toggle-card",
+      "to": "a11y-collapse",
+      "attrs": {
+        "heading": ".kg-toggle-heading-text@text"
+      },
+      "content": ".kg-toggle-content@html",
+      "confidence": "high"
+    },
+    {
+      "id": "button",
+      "match": ".kg-button-card",
+      "to": "simple-cta",
+      "attrs": {
+        "link": "a@href",
+        "label": "a@text"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "bookmark",
+      "match": "figure.kg-bookmark-card",
+      "to": "ddd-card",
+      "attrs": {
+        "href": "a.kg-bookmark-container@href",
+        "title": ".kg-bookmark-title@text",
+        "src": ".kg-bookmark-thumbnail img@src"
+      },
+      "content": ".kg-bookmark-description@html",
+      "confidence": "medium"
+    },
+    {
+      "id": "header",
+      "match": ".kg-header-card",
+      "to": "page-section",
+      "content": "@html",
+      "confidence": "low"
+    },
+    {
+      "id": "product",
+      "match": ".kg-product-card",
+      "to": "flag",
+      "flag": "gap",
+      "confidence": "high"
+    },
+    {
+      "id": "file",
+      "match": ".kg-file-card",
+      "to": "keep",
+      "asset": true,
+      "confidence": "high"
+    },
+    {
+      "id": "code",
+      "match": "pre:has(> code)",
+      "to": "code-sample",
+      "attrs": {
+        "type": "code@class~language-(\\w+)"
+      },
+      "content": "code@raw-template",
+      "confidence": "high"
+    }
+  ]
+}

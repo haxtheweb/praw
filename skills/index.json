@@ -433,6 +433,107 @@
       ]
     },
     {
+      "name": "hax-url-migration",
+      "type": "skill-md",
+      "description": "Analyze a website from its address for migration into HAXcms: fingerprint the platform (WordPress, Elementor, Drupal, Grav, Astro, EmDash, 11ty, Hugo, Docusaurus, Squarespace, Webflow and more), convert sampled pages with block maps to HAX elements, classify the site (course, PSU/DDD, docs, blog, general), recommend a theme, and propose new blocks or a custom theme for what HAX lacks. Also scores accuracy across a labeled trial set. Use for \"migrate this site to HAX\", \"what is this site built with\", \"what would this look like in HAX\", or improving migration accuracy.",
+      "url": "hax-url-migration/SKILL.md",
+      "digest": "sha256:594cdcfd3633764a0d6001a40d235df8232df6fea614d2fa49452e33eefe5cd9",
+      "files": [
+        {
+          "path": "references/block-maps/astro-starlight.json",
+          "digest": "sha256:7af903934559486974e3666e47156e61f2f0b0efdb666a4439b3f66a9e1eb2b4"
+        },
+        {
+          "path": "references/block-maps/concrete.json",
+          "digest": "sha256:5626244724865fcf6a1c16e2a755684e378ee5622e5574600b97d093f17cb4f0"
+        },
+        {
+          "path": "references/block-maps/docusaurus.json",
+          "digest": "sha256:0bbb4e3c989191c45488c12dd97e1c5fb9964c81cbb19983f7d04251e2e414a8"
+        },
+        {
+          "path": "references/block-maps/drupal.json",
+          "digest": "sha256:1baf9b88141ec7548b731fecb24d68e0e2bee7b724677293fc5dfebb67f2f96a"
+        },
+        {
+          "path": "references/block-maps/emdash.json",
+          "digest": "sha256:7b17e59d90e454adc75592659dfd5de1eaeb5d8125034c79edcef6a7059e1033"
+        },
+        {
+          "path": "references/block-maps/generic-html.json",
+          "digest": "sha256:1fc31fd420ee88c901a1d8d60acbdc15ab011cf67ff6081e19797d4c2969e4a6"
+        },
+        {
+          "path": "references/block-maps/ghost.json",
+          "digest": "sha256:250735fc9b8d645fb73bc3f2fd1aa9c0cfa038eaf522256959ed89333c2fbac1"
+        },
+        {
+          "path": "references/block-maps/grav.json",
+          "digest": "sha256:48fb0029d81b01f910e59043212be65562b5e23b4c837f88f30cef273ae70c9a"
+        },
+        {
+          "path": "references/block-maps/mkdocs.json",
+          "digest": "sha256:b7b2dbf2d09db083b620754fa2d215dfd0284725969790a8a42becfb626283ae"
+        },
+        {
+          "path": "references/block-maps/README.md",
+          "digest": "sha256:8ff1322f9371404c6a4b0d7b4458efd24fd9f0ceb2205f98fde47d3b9972d74d"
+        },
+        {
+          "path": "references/block-maps/squarespace.json",
+          "digest": "sha256:0b765dc52b85074140cca755c322a35a77c84a1f1fdc39f26ba161f0fe46c8cc"
+        },
+        {
+          "path": "references/block-maps/vitepress.json",
+          "digest": "sha256:bec782a468688d7e345b2f49942da955223fc8fb0909ae242d22d3274908beed"
+        },
+        {
+          "path": "references/block-maps/webflow.json",
+          "digest": "sha256:34f2dd59d5821ff1444d503fdcfc0fc7132e737ffc0a54e712f4e494e040622c"
+        },
+        {
+          "path": "references/block-maps/wordpress-divi.json",
+          "digest": "sha256:95317ea5fe3009a5ac098874f5f132d3f3895a4301ab54eb9a45ce2831533193"
+        },
+        {
+          "path": "references/block-maps/wordpress-elementor.json",
+          "digest": "sha256:ccc7150b2a713f609031a24d74ad5af2a08fae95d4a1d179b11d7625a682ef39"
+        },
+        {
+          "path": "references/block-maps/wordpress-gutenberg.json",
+          "digest": "sha256:e61be7db6a1b9e9be6d3ef7831925c9078c4bc7add489eb5b329f397a3d21aa0"
+        },
+        {
+          "path": "references/ddd-palette.json",
+          "digest": "sha256:54227c0e0c7a1833b93671a1f078f9482ca2fc58c0479aca9843fb9629efbdab"
+        },
+        {
+          "path": "references/fingerprints.json",
+          "digest": "sha256:30f973054befe4fe92c76ea62c8117e7364f68bce5f90654fa6f39239836e6d7"
+        },
+        {
+          "path": "references/hax-blocks.json",
+          "digest": "sha256:2e7b18640c1451da876bab04843acd7fd2a444c6751904f4d31b5200618d4d96"
+        },
+        {
+          "path": "references/hax-themes.json",
+          "digest": "sha256:80c05c75d168753c9cbe3571f1be956124b5e219d30ea3df09cb0b7ebc385d7f"
+        },
+        {
+          "path": "references/trial-sites.json",
+          "digest": "sha256:a0c2e4241f13279a8f93850733f8e0f6481e135a62eee1edf52fb19f34d63c27"
+        },
+        {
+          "path": "scripts/package-lock.json",
+          "digest": "sha256:d66d35821ede40b0e64030bfdf005d114b67059f01a8633405638eb1dcee73b4"
+        },
+        {
+          "path": "scripts/package.json",
+          "digest": "sha256:af097f8d7b4189fb14a87592ca1bb5a246a9c0c3d4535032b18d6f8792a8c51a"
+        }
+      ]
+    },
+    {
       "name": "hax-ux-study",
       "type": "skill-md",
       "description": "Run and analyze an internal HAXcms UX study: record sessions with Merlin's >developer/ux-study, then turn the exported JSON into a findings report, a heatmap/replay review and confirmed issues in haxtheweb/issues. Use for \"ux study\", \"usability test\", \"analyze these recordings\", \"where do people get lost\", \"button visibility\".",

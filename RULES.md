@@ -189,6 +189,11 @@ Every rule has one of four scopes:
 - **Scope**: `webcomponents`
 - **Content**: Do not wait for asynchronous work in tests (or e2e flows) with a fixed `setTimeout`/sleep. Poll for the condition the test actually needs (a property, attribute, rendered node or dialog) with a bounded timeout, so a slow CI runner passes and a real failure still reports the real assertion. Use fixed waits only to prove that something does not happen.
 
+### Testing — Property Tests For Untrusted Input
+- **Rule ID**: `4e5b2533-8d87-4d77-b303-2d2907a78339`
+- **Scope**: `global`
+- **Content**: New or changed code that sanitizes, validates, parses or saves untrusted or bulk input (HTML/URL sanitizers, path and name validators, importers, `saveOutline`-style bulk writes) ships with a fast-check property test next to its example tests. Follow the HAX fuzz convention (<https://github.com/haxtheweb/issues/issues/3272>): read parameters through the repo's `fuzzConfig()` helper (`test/_helpers/fuzz-config.cjs` in `create` and `haxcms-nodejs`, `scripts/test-setup/fuzz-config.mjs` in `webcomponents`) with a fixed `defaultSeed`, never a bare `{ numRuns }` that draws a new random seed on every CI run; name the file `*-fuzz.test.js` so `test:fuzz` hunt mode picks it up (`.js`, not `.cjs`, where the repo allows it, because the OpenSSF Scorecard Fuzzing check only scans `.js`/`.jsx`); and when a hunt finds a failure, fix it and pin the shrunk counterexample as a fast-check `examples` entry or a plain test so the default run guards it. Replay a reported failure with `HAX_FUZZ_SEED=<seed> HAX_FUZZ_PATH=<path>`. Properties state what must always hold ("never throws", "never lets a `javascript:` URL through", "output equals the old implementation"), not one expected output.
+
 ### Async Results Must Not Overwrite Newer State
 - **Rule ID**: `35309388-b7be-40ca-88a9-539fe1dd4b0d`
 - **Scope**: `webcomponents`

@@ -1,7 +1,7 @@
 ---
 name: hax-i18n-translate
 description: "Scaffold and translate HAX web component i18n locale files: extract this.t strings or haxProperties text, stub ~100 languages, translate, validate. Use for \"translate <element>\", \"i18n my component\" or work on an element's locales/ folder."
-version: 1.2.0
+version: 1.3.0
 license: Apache-2.0
 metadata:
   author: haxtheweb
@@ -16,10 +16,25 @@ deterministic work (extract, stub, manifest, validate) is handled by bundled scr
 and translation uses the cheapest viable path — inline in one response for small
 string sets, parallel child agents only when an element has many strings.
 
+## In haxtheweb/webcomponents, translation is nightly
+
+Inside the webcomponents monorepo, feature work never touches translations. A pull request
+there changes English source strings only (`this.t`, `lib/<tag>.haxProperties.json`,
+`locales/*.en.json`). Its locale guard (`.github/workflows/locale-guard.yml`) fails any PR
+that adds, changes, renames or deletes another locale file. A nightly scheduled job runs this
+skill and puts the translations, including stubs for new elements, in one rolling PR on the
+`chore/nightly-translations` branch ([haxtheweb/issues#3262](https://github.com/haxtheweb/issues/issues/3262)).
+
+So in webcomponents, do not run this skill as part of a feature or new-element PR, and do not
+commit the non-English files it writes there. Run it only on the `chore/nightly-translations`
+branch, or when a maintainer asks for a dedicated translation PR. Outside webcomponents
+(a standalone element repo, another monorepo), use it as described below.
+
 ## The fast path: "Translate <element>"
 
 When the user says "Translate stop-note" (or any element), run Phases 1–3 below in
 order, fully, without stopping for confirmation. That phrase is the default invocation.
+In webcomponents, check the section above first.
 
 ## How HAX i18n works (the parts that matter)
 

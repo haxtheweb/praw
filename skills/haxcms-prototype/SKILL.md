@@ -132,12 +132,11 @@ anything you publish.
 
 ## Gotchas
 
-- A proposal that uses real HAX parts (DDD block anatomy, rpg-character, simple-icon) imports them
+- A proposal that uses real HAX parts (DDD block anatomy, existing elements, simple-icon) imports them
   from the haxcms-nodejs build of main (`src/public/build/es6/node_modules`), copied into the
   prototype as supporting files with their relative paths intact. Copy only what the page loads
-  (record the requests while exercising every state), plus every file a random choice could reach,
-  such as all of rpg-character's numbered trait art when the page reseeds characters. An artifact
-  publish takes at most 255 files.
+  (record the requests while exercising every state), plus every file an element could pick at
+  random. An artifact publish takes at most 255 files.
 
 - Labels carry their shortcut in the top bar ("Edit • Ctrl⇧E"); the inventory records them as users
   see them. Do not shorten them in a base region.

@@ -174,8 +174,8 @@ Same contract, same outline, slugs, file map, status codes and error strings.
    (`<platform>ImportDescription`, `<platform>ImportPrompt`, and a tooltip if the icon needs one) and a card
    in `getImportItems()` with `importKind: "url"`, `importType`, `callback`, `param: "repoUrl"`, `prompt`,
    `useCaseTitle`, `useCaseDescription`, `useCaseIcon`, `useCaseTag: ["Import", "<Name>"]`.
-4. `elements/app-hax/locales/app-hax-use-case-filter.<lang>.json`: the new keys in every locale file. Use
-   the `hax-i18n-translate` skill. Do not hand-edit around it.
+4. `elements/app-hax/locales/`: nothing. Only the English strings from step 3 go in this PR. The locale
+   guard blocks other locale files, and the nightly translation PR adds the new keys to every language.
 5. `elements/app-hax/test/app-hax-use-case-filter.test.js`: a card test next to the existing ones.
 6. `elements/haxcms-elements/lib/haxcms-api-codes.json`: the bundled copy of the API-code catalog (it is the
    stated source of truth; the backends mirror it). Apply the same regex additions as in the backends. The
@@ -267,7 +267,7 @@ A real repository is good for finding gaps, and only for that.
 
 - [ ] Converter follows the output contract and security posture, in Node and PHP.
 - [ ] Dispatcher, spec (path, platform list, `ImportData` note), and API codes updated in both backends.
-- [ ] Client service, chooser card, strings, and every locale updated.
+- [ ] Client service, chooser card and English strings updated (no non-English locale files; those come nightly).
 - [ ] Tests added in all four repos and passing, or the gap stated in the PR.
 - [ ] The source's license is resolved with the shared list, unrecognized or non-4.0 licenses are reported
       rather than guessed, and `warnings` carries the notices; both backends match.

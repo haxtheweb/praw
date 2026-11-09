@@ -59,8 +59,11 @@ about the product too.
   clipped after about four letters; officials were drawn holding flags.
 - **Real**: a seed sets the whole look, so set `shirt` / `pants` after `updateComplete`. `flag-text`
   only fits a few letters at small sizes. Hockey officials signal with a whistle and a raised arm,
-  never flags: use `pose="wave"`. The `hockey` preset forces one striped jersey for everyone; for two
-  teams, set `hat="hockey"`, `item="hockey-stick"`, `feet="skates"` and the shirts yourself.
+  never flags: use `pose="wave"`. For hockey players, use the three real team kits
+  (https://github.com/haxtheweb/webcomponents/pull/1189): presets `sparkle-selects` / `b-squad`,
+  `saber-cats` / `saber-cats-away`, `icers` / `icers-away` (home / away). Each sets the team helmet,
+  team stick, skates, sweater and crest; the seed only changes the face. Put the home team in its home
+  kit and the visitors in their away kit so every matchup has distinct sweaters.
 - **Look at**: `rpg-character/rpg-character.js` (`presets`, `willUpdate`).
 
 ### clean-one scrolls inside its own container

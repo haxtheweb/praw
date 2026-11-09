@@ -60,6 +60,15 @@ anything you publish.
    the run. A state the inventory does not cover yet is captured the same way: add it to
    `scripts/ui-inventory.js` in a haxcms-nodejs PR rather than describing it from memory.
 
+   **Something new on a page** (a new block, a new page layout): put the real page around it instead
+   of laying the proposal over unrelated content. Write the page's surrounding content to a file with
+   an empty slot where the proposal goes (`<div id="proposal-slot" style="height: 760px"></div>`),
+   then capture with `--page-title "<title>" --page-html <file> --measure "#proposal-slot"` and, when
+   the slot is below the fold, `--viewport-height <px>` (clean-one scrolls inside its own container,
+   so a full-page screenshot would not reach it). `manifest.json` records the fixture and the slot's
+   box per variant; position the proposed region from those numbers. Don't give the slot a custom
+   element tag: the inventory would record it as a real component.
+
 3. **Pick the mode.** Say which one at the top of the prototype.
 
    - **Branch prototype** (preferred whenever the change can be built). Make the change on a branch of
@@ -103,6 +112,11 @@ anything you publish.
    haxcms-nodejs) or the brief, or authored CSS uses a raw color or size instead of a token. Paste
    its report into the review panel.
 
+   The check reads the page's HTML. Text and styles a proposed element renders from JavaScript
+   (shadow DOM, CSS in the module) are outside its reach, so declare those labels in the brief anyway,
+   keep the module's CSS on tokens, and let the independent review (step 6) and an axe run on the
+   rendered page cover them.
+
 6. **Independent review** for anything going to a design decision: hand the prototype directory, the
    inventory and the brief to a separate agent that has not seen the build, ask it to list anything
    in the prototype that is not how HAXcms works today, and add its findings to the review panel.
@@ -117,6 +131,13 @@ anything you publish.
    the same mistake shows up twice). Read the deviation log before every new prototype.
 
 ## Gotchas
+
+- A proposal that uses real HAX parts (DDD block anatomy, rpg-character, simple-icon) imports them
+  from the haxcms-nodejs build of main (`src/public/build/es6/node_modules`), copied into the
+  prototype as supporting files with their relative paths intact. Copy only what the page loads
+  (record the requests while exercising every state), plus every file a random choice could reach,
+  such as all of rpg-character's numbered trait art when the page reseeds characters. An artifact
+  publish takes at most 255 files.
 
 - Labels carry their shortcut in the top bar ("Edit • Ctrl⇧E"); the inventory records them as users
   see them. Do not shorten them in a base region.

@@ -45,9 +45,37 @@ about the product too.
   gets a header row with status pills (Published, Unlocked, tags, path) and Page settings.
 - **Look at**: inventory state `edit-mode`.
 
+### The DDD block header does not wrap its actions
+
+- **Seen** (hockey-rules, 2026-11-09): a text action ("New players") in the block header at phone
+  width squeezed the title into a one-word column.
+- **Real**: `.ddd-block-header` keeps chip, text and actions on one row. At narrow widths, text
+  actions go icon-only (visible text moved to `.sr-only`), as the real players' headers do.
+- **Look at**: `d-d-d/lib/DDDBlock.js` in the build.
+
+### rpg-character: jerseys, flags and officials
+
+- **Seen** (hockey-rules, 2026-11-09): setting `shirt` with a `seed` had no effect; `flag-text`
+  clipped after about four letters; officials were drawn holding flags.
+- **Real**: a seed sets the whole look, so set `shirt` / `pants` after `updateComplete`. `flag-text`
+  only fits a few letters at small sizes. Hockey officials signal with a whistle and a raised arm,
+  never flags: use `pose="wave"`. The `hockey` preset forces one striped jersey for everyone; for two
+  teams, set `hat="hockey"`, `item="hockey-stick"`, `feet="skates"` and the shirts yourself.
+- **Look at**: `rpg-character/rpg-character.js` (`presets`, `willUpdate`).
+
+### clean-one scrolls inside its own container
+
+- **Seen** (hockey-rules, 2026-11-09): a full-page capture of a long clean-one page was still one
+  viewport tall.
+- **Real**: clean-one's content area scrolls itself. Use the inventory's `--viewport-height` to get
+  content below the fold in frame.
+
 ### Switching color scheme makes HAX respond
 
 - **Seen**: dark screenshots taken by flipping `prefers-color-scheme` on a loaded page, which shows a
   toast that a user loading the page in dark mode does not see.
 - **Real**: the inventory loads each variant fresh with the scheme already set. Do the same for any
   capture you take yourself.
+- **Also**: HAX saves the visitor's choice in localStorage (`app-hax-darkMode`), and a saved choice
+  wins over `prefers-color-scheme`. Inventories before https://github.com/haxtheweb/haxcms-nodejs/pull/205
+  produced dark `mobile-light` captures because of it; recapture anything made from those.

@@ -1,8 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Published as an Artifact, the page is wrapped in its own doctype, html, head and body, so this
+     file starts at <title> and never adds those tags. -->
 <title>HAXcms Prototype</title>
 <!-- Copied unchanged from the inventory. Never retype token values. -->
 <link rel="stylesheet" href="tokens.css">
@@ -51,13 +48,14 @@ body.current [data-proposed] { display: none; }
 .proto-panels h2 { font-size: var(--ddd-font-size-4xs); margin: 0 0 var(--ddd-spacing-2); text-transform: uppercase; letter-spacing: 0.04em; }
 .proto-panels textarea, .proto-panels input { width: 100%; box-sizing: border-box; font: inherit; margin-bottom: var(--ddd-spacing-2); }
 pre.proto-report { white-space: pre-wrap; font-family: var(--ddd-font-secondary); margin: 0; }
-@media (prefers-color-scheme: dark) { body { background: var(--ddd-theme-default-coalyGray); color: var(--ddd-theme-default-white); } }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: dark; } :root:not([data-theme="light"]) body { background: var(--ddd-theme-default-coalyGray); color: var(--ddd-theme-default-white); } }
+:root[data-theme="dark"] { color-scheme: dark; }
+:root[data-theme="dark"] body { background: var(--ddd-theme-default-coalyGray); color: var(--ddd-theme-default-white); }
+.proto-header, .proto-controls, .proto-stage, .proto-panels { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 /* chrome:end */
 
 /* Proposal styles: tokens only (HAX UI for admin and editor chrome, DDD for visitor-facing). */
 </style>
-</head>
-<body class="show-proposed">
 <header class="proto-header" data-prototype-chrome>
   <h1 id="proto-title"></h1>
   <span class="proto-badge" id="proto-mode"></span>
@@ -101,6 +99,7 @@ pre.proto-report { white-space: pre-wrap; font-family: var(--ddd-font-secondary)
 </div>
 
 <script>
+document.body.classList.add("show-proposed");
 (function () {
   var brief = JSON.parse(document.getElementById("prototype-brief").textContent);
   var variant = "desktop-light";
@@ -133,6 +132,7 @@ pre.proto-report { white-space: pre-wrap; font-family: var(--ddd-font-secondary)
   });
   el("proto-brief").appendChild(list);
   function render() {
+    document.body.setAttribute("data-variant", variant);
     document.querySelectorAll("[data-step]").forEach(function (f) {
       f.hidden = Number(f.getAttribute("data-step")) !== step;
     });
@@ -186,5 +186,3 @@ pre.proto-report { white-space: pre-wrap; font-family: var(--ddd-font-secondary)
   render();
 })();
 </script>
-</body>
-</html>

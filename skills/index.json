@@ -445,11 +445,11 @@
       "type": "skill-md",
       "description": "Build a prototype of HAXcms itself (whole-site designs, the editor top bar, edit mode, menus, outline, site or system admin, multipage flows) on the real running system, mark what is proposed, and check the rest against a generated UI inventory. Use for any HAXcms mockup, redesign or flow prototype; single elements use hax-element-demo.",
       "url": "haxcms-prototype/SKILL.md",
-      "digest": "sha256:c7164e298baacc34a6d73523b24ed4cb59c9d5e74ee016a8f0b2d799b8001081",
+      "digest": "sha256:e94a1551508dd65de58c88fe4045702f0a25d3ae4c254416d22ae892e84ab643",
       "files": [
         {
           "path": "references/artifact.md",
-          "digest": "sha256:973e9634b84779114790f1310232bb03ecb4a607d03004e9e8d68e912b344cdb"
+          "digest": "sha256:47601c0833d3a521d0f376fe286958b267d9c14e50cefe0e202878133a29a698"
         },
         {
           "path": "references/brief.md",
@@ -457,7 +457,7 @@
         },
         {
           "path": "references/deviation-log.md",
-          "digest": "sha256:904f3d2d69a8f0cfb94e316138ba98282424ab45d213ba345c4e1483b5a6934c"
+          "digest": "sha256:3e7d694722c22a9b0b6b3ee5074829e4c52bd17e3910b26886c16acab18bbf96"
         }
       ]
     },

@@ -1,0 +1,5760 @@
+[
+ {
+  "index": 0,
+  "id": "item-8a5bf844-d498-4f75-bf96-110eaedb42d9",
+  "title": "Welcome",
+  "slug": "welcome",
+  "order": 0,
+  "parent": null,
+  "parent_id": null,
+  "section": "Welcome",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-8a5bf844-d498-4f75-bf96-110eaedb42d9/index.html",
+  "words": 344,
+  "summary": "Landing page pitching HAX as simple create/share/remix web authoring, with HAX.cloud try-it, CLI install, and community links.",
+  "elements": [
+   "grid-plate",
+   "rpg-character",
+   "site-collection-list"
+  ],
+  "external_link_count": 8,
+  "suspect_links": [
+   "https://github.com/elmsln/issues/issues"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "haxcms",
+    "label": "HAXcms",
+    "new": false
+   },
+   {
+    "key": "cli",
+    "label": "HAX CLI",
+    "new": false
+   },
+   {
+    "key": "human",
+    "label": "Humans",
+    "new": false
+   }
+  ],
+  "flags": [
+   "links to old elmsln/issues queue"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 1,
+  "id": "item-4550bc1f-bef7-4891-85f0-58647624a26b",
+  "title": "Why HAX?",
+  "slug": "welcome/why-hax",
+  "order": 0,
+  "parent": "Welcome",
+  "parent_id": "item-8a5bf844-d498-4f75-bf96-110eaedb42d9",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-4550bc1f-bef7-4891-85f0-58647624a26b/index.html",
+  "words": 263,
+  "summary": "Argues HAX's 1:1 edit-what-you-see model beats WYSIWYG editors like CKEditor/TinyMCE and lists trade-offs.",
+  "elements": [],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "editor",
+    "label": "HAX editor",
+    "new": false
+   },
+   {
+    "key": "ubiquity",
+    "label": "Ubiquity",
+    "new": false
+   },
+   {
+    "key": "efficient",
+    "label": "Efficient",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 2,
+  "id": "item-e0580363-6b05-4092-8711-7413ae36a221",
+  "title": "Project roadmap",
+  "slug": "roadmap",
+  "order": 1,
+  "parent": "Welcome",
+  "parent_id": "item-8a5bf844-d498-4f75-bf96-110eaedb42d9",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-e0580363-6b05-4092-8711-7413ae36a221/index.html",
+  "words": 479,
+  "summary": "2025 vision roadmap: DDD palette/theme stabilization, use-case skeletons via CLI recipe files, and related platform goals as of Jan 2025.",
+  "elements": [],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "roadmap",
+    "label": "Roadmap",
+    "new": true
+   },
+   {
+    "key": "ddd",
+    "label": "DDD",
+    "new": false
+   },
+   {
+    "key": "skeletons",
+    "label": "Skeletons",
+    "new": false
+   }
+  ],
+  "flags": [
+   "dated: 2025 roadmap, needs refresh for 2026"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 3,
+  "id": "item-06108b56-48b5-4c50-b262-81659edc750e",
+  "title": "What is HAX?",
+  "slug": "what-is-hax",
+  "order": 2,
+  "parent": "Welcome",
+  "parent_id": "item-8a5bf844-d498-4f75-bf96-110eaedb42d9",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-06108b56-48b5-4c50-b262-81659edc750e/index.html",
+  "words": 590,
+  "summary": "Explains the ubiquity idea, what 'Headless Authoring eXperience' means, and shows an ecosystem diagram with an intro video.",
+  "elements": [
+   "media-image",
+   "video-player"
+  ],
+  "external_link_count": 2,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "ubiquity",
+    "label": "Ubiquity",
+    "new": false
+   },
+   {
+    "key": "haxcms",
+    "label": "HAXcms",
+    "new": false
+   },
+   {
+    "key": "wcstandard",
+    "label": "Web component standard",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 4,
+  "id": "item-f424af2a-f6a2-46fb-b052-ef69836a1e2e",
+  "title": "HAX Cloud",
+  "slug": "welcome/hax-cloud",
+  "order": 0,
+  "parent": "What is HAX?",
+  "parent_id": "item-06108b56-48b5-4c50-b262-81659edc750e",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-f424af2a-f6a2-46fb-b052-ef69836a1e2e/index.html",
+  "words": 179,
+  "summary": "Describes HAX.cloud public infrastructure: CDN/magic script, Open APIs, PDF service, secure feedback, AI endpoint.",
+  "elements": [],
+  "external_link_count": 5,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "haxcloud",
+    "label": "HAX.cloud, CDN and magic script",
+    "new": true
+   },
+   {
+    "key": "open",
+    "label": "Free and open",
+    "new": false
+   },
+   {
+    "key": "ai",
+    "label": "AI in HAX",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 5,
+  "id": "item-d131e688-d93c-4cbc-b32d-f0d052aeb8d0",
+  "title": "meme-maker",
+  "slug": "welcome/what-is-hax/meme-maker",
+  "order": 1,
+  "parent": "What is HAX?",
+  "parent_id": "item-06108b56-48b5-4c50-b262-81659edc750e",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-d131e688-d93c-4cbc-b32d-f0d052aeb8d0/index.html",
+  "words": 200,
+  "summary": "Teaches the HAX idea through the meme-maker web component: a custom tag that edits live and serializes to HTML.",
+  "elements": [
+   "code-sample",
+   "meme-maker"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "haxschema",
+    "label": "HAXSchema",
+    "new": false
+   },
+   {
+    "key": "wcstandard",
+    "label": "Web component standard",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 6,
+  "id": "item-d673110e-8d91-4294-b80f-74a38cf51533",
+  "title": "Terminology",
+  "slug": "welcome/terminology",
+  "order": 3,
+  "parent": "Welcome",
+  "parent_id": "item-8a5bf844-d498-4f75-bf96-110eaedb42d9",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-d673110e-8d91-4294-b80f-74a38cf51533/index.html",
+  "words": 297,
+  "summary": "Glossary of core terms: HAX/headless, web component, HAXcms, HAXsite, blocks and related vocabulary.",
+  "elements": [],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "wcstandard",
+    "label": "Web component standard",
+    "new": false
+   },
+   {
+    "key": "haxcms",
+    "label": "HAXcms",
+    "new": false
+   },
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 7,
+  "id": "item-68ecb822-ae89-466a-bce2-20b33332451a",
+  "title": "Community",
+  "slug": "community",
+  "order": 4,
+  "parent": "Welcome",
+  "parent_id": "item-8a5bf844-d498-4f75-bf96-110eaedb42d9",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-68ecb822-ae89-466a-bce2-20b33332451a/index.html",
+  "words": 132,
+  "summary": "Community hub: Discord, X, LinkedIn, issue queues, monthly meetups and hosting a HAX Camp; shows contributor RPG avatars.",
+  "elements": [
+   "github-rpg-contributors"
+  ],
+  "external_link_count": 6,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "community",
+    "label": "Community and contributing",
+    "new": true
+   },
+   {
+    "key": "haxcamp",
+    "label": "HAX Camp",
+    "new": false
+   },
+   {
+    "key": "issues",
+    "label": "Issue queue",
+    "new": false
+   }
+  ],
+  "flags": [
+   "hax.camp also linked via waxam.github.io mirror; verify which is canonical"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 8,
+  "id": "item-a13f6fde-9c55-4a1c-bd64-cf8498be649d",
+  "title": "Pillars",
+  "slug": "welcome/community/pillars",
+  "order": 0,
+  "parent": "Community",
+  "parent_id": "item-68ecb822-ae89-466a-bce2-20b33332451a",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-a13f6fde-9c55-4a1c-bd64-cf8498be649d/index.html",
+  "words": 86,
+  "summary": "Intro to the community pillars as the project's guiding values, listing child pillar pages.",
+  "elements": [
+   "site-collection-list"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "accessible",
+    "label": "Accessible",
+    "new": false
+   },
+   {
+    "key": "open",
+    "label": "Free and open",
+    "new": false
+   },
+   {
+    "key": "sustainable",
+    "label": "Sustainable",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 9,
+  "id": "item-d345a07f-c3ee-4d20-909f-ec7293bd83b3",
+  "title": "Accessible",
+  "slug": "community/pillars/accessibility",
+  "order": 0,
+  "parent": "Pillars",
+  "parent_id": "item-a13f6fde-9c55-4a1c-bd64-cf8498be649d",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-d345a07f-c3ee-4d20-909f-ec7293bd83b3/index.html",
+  "words": 200,
+  "summary": "Accessibility pillar: HAX output and editor aim for high a11y with less author knowledge needed; cites SimpleColors.",
+  "elements": [
+   "grid-plate"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [
+   "https://github.com/elmsln/issues/issues?q=label%3A%22Pillar%3A+Accessibility%22+is%3Aclosed",
+   "https://github.com/elmsln/issues/labels/Pillar%3A%20Accessibility"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "accessible",
+    "label": "Accessible",
+    "new": false
+   }
+  ],
+  "flags": [
+   "links to elmsln/issues labels (moved to haxtheweb/issues)",
+   "references Simple Colors (superseded by DDD)"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 10,
+  "id": "item-f826380c-963c-49ff-a558-9337edbc6245",
+  "title": "Extensible",
+  "slug": "welcome/community/pillars/extensibility",
+  "order": 1,
+  "parent": "Pillars",
+  "parent_id": "item-a13f6fde-9c55-4a1c-bd64-cf8498be649d",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-f826380c-963c-49ff-a558-9337edbc6245/index.html",
+  "words": 185,
+  "summary": "Extensibility pillar: built on the web component standard with VanillaJS/Lit, MobX, and an extensible theme engine.",
+  "elements": [],
+  "external_link_count": 6,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "extensible",
+    "label": "Extensible",
+    "new": false
+   },
+   {
+    "key": "wcstandard",
+    "label": "Web component standard",
+    "new": false
+   },
+   {
+    "key": "themes",
+    "label": "Themes",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 11,
+  "id": "item-86b505f8-dc95-4b86-8fdd-5104ecc4f02b",
+  "title": "Free and Open",
+  "slug": "welcome/community/pillars/free-and-open",
+  "order": 2,
+  "parent": "Pillars",
+  "parent_id": "item-a13f6fde-9c55-4a1c-bd64-cf8498be649d",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-86b505f8-dc95-4b86-8fdd-5104ecc4f02b/index.html",
+  "words": 188,
+  "summary": "Free and Open pillar: open community, 5Rs of OER, open docs/APIs, and equal footing for every hosting model.",
+  "elements": [],
+  "external_link_count": 7,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "open",
+    "label": "Free and open",
+    "new": false
+   },
+   {
+    "key": "remixable",
+    "label": "Remixable",
+    "new": false
+   },
+   {
+    "key": "oerschema",
+    "label": "OER Schema",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 12,
+  "id": "item-6cf36319-fe20-4a72-9cb3-97e44e80f8b9",
+  "title": "Efficient",
+  "slug": "welcome/community/pillars/performant",
+  "order": 3,
+  "parent": "Pillars",
+  "parent_id": "item-a13f6fde-9c55-4a1c-bd64-cf8498be649d",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-6cf36319-fe20-4a72-9cb3-97e44e80f8b9/index.html",
+  "words": 245,
+  "summary": "Efficiency/performance pillar: low-level APIs, micro-services, lazy loading, and performance as an access issue.",
+  "elements": [
+   "grid-plate",
+   "un-sdg"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "efficient",
+    "label": "Efficient",
+    "new": false
+   },
+   {
+    "key": "sustainable",
+    "label": "Sustainable",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 13,
+  "id": "item-52613cf2-1d34-47ed-9a53-dcc1d84dd5f4",
+  "title": "Platform Agnostic",
+  "slug": "welcome/community/pillars/platform-agnostic",
+  "order": 4,
+  "parent": "Pillars",
+  "parent_id": "item-a13f6fde-9c55-4a1c-bd64-cf8498be649d",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-52613cf2-1d34-47ed-9a53-dcc1d84dd5f4/index.html",
+  "words": 296,
+  "summary": "Platform agnostic pillar: HAX works standalone, in HAXcms/HAXiam, static pages, Drupal, WordPress, desktop, etc.",
+  "elements": [
+   "grid-plate"
+  ],
+  "external_link_count": 7,
+  "suspect_links": [
+   "https://github.com/elmsln/issues/issues?q=label%3A%22Pillar%3A+Platform+Agnostic%22+is%3Aclosed",
+   "https://github.com/elmsln/issues/labels/Pillar%3A%20Platform%20Agnostic"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "agnostic",
+    "label": "Platform agnostic",
+    "new": false
+   },
+   {
+    "key": "jos",
+    "label": "JSON Outline Schema",
+    "new": false
+   }
+  ],
+  "flags": [
+   "links to elmsln/issues labels (moved to haxtheweb/issues)"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 14,
+  "id": "item-ce9cfcf5-e94f-4fc7-bdce-bda88e477a7f",
+  "title": "Remixable",
+  "slug": "welcome/community/pillars/remixability",
+  "order": 5,
+  "parent": "Pillars",
+  "parent_id": "item-a13f6fde-9c55-4a1c-bd64-cf8498be649d",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-ce9cfcf5-e94f-4fc7-bdce-bda88e477a7f/index.html",
+  "words": 253,
+  "summary": "Remixability pillar: every HAX tool should let users remix and rapidly prototype solutions.",
+  "elements": [],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "remixable",
+    "label": "Remixable",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 15,
+  "id": "item-873f7ad0-8fdd-4c51-81e0-e8f55ea612a5",
+  "title": "Sustainable",
+  "slug": "welcome/community/pillars/sustainability",
+  "order": 6,
+  "parent": "Pillars",
+  "parent_id": "item-a13f6fde-9c55-4a1c-bd64-cf8498be649d",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-873f7ad0-8fdd-4c51-81e0-e8f55ea612a5/index.html",
+  "words": 317,
+  "summary": "Sustainability pillar across environmental, technological and project dimensions, including CDN unbundling and Apereo membership.",
+  "elements": [
+   "grid-plate",
+   "video-player"
+  ],
+  "external_link_count": 6,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "sustainable",
+    "label": "Sustainable",
+    "new": false
+   },
+   {
+    "key": "apereo",
+    "label": "Apereo Foundation",
+    "new": false
+   },
+   {
+    "key": "haxcloud",
+    "label": "HAX.cloud, CDN and magic script",
+    "new": true
+   }
+  ],
+  "flags": [
+   "mentions Project EdtechJoker pipeline (persona retired)"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 16,
+  "id": "item-bfe943ba-4746-494a-b184-932c63b60909",
+  "title": "User Personas",
+  "slug": "welcome/community/user-personas",
+  "order": 1,
+  "parent": "Community",
+  "parent_id": "item-68ecb822-ae89-466a-bce2-20b33332451a",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-bfe943ba-4746-494a-b184-932c63b60909/index.html",
+  "words": 366,
+  "summary": "User personas (Cat the author, Chuck the site builder, Sven the artist, and others) describing who HAX serves.",
+  "elements": [
+   "accent-card"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "human",
+    "label": "Humans",
+    "new": false
+   },
+   {
+    "key": "traveler",
+    "label": "HAX Future Traveler",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 17,
+  "id": "item-012ec894-f7a5-4d12-b0e5-f8e131d7c2b8",
+  "title": "Pledges",
+  "slug": "pledges",
+  "order": 2,
+  "parent": "Community",
+  "parent_id": "item-68ecb822-ae89-466a-bce2-20b33332451a",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-012ec894-f7a5-4d12-b0e5-f8e131d7c2b8/index.html",
+  "words": 61,
+  "summary": "Intro to the community pledges the project aspires to, with child pages listed.",
+  "elements": [
+   "site-collection-list"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "sustainable",
+    "label": "Sustainable",
+    "new": false
+   },
+   {
+    "key": "accessible",
+    "label": "Accessible",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 18,
+  "id": "item-edcd6f86-05b5-43a9-8766-8a56709451c8",
+  "title": "Environmental impact",
+  "slug": "pledges/environmental-impact",
+  "order": 0,
+  "parent": "Pledges",
+  "parent_id": "item-012ec894-f7a5-4d12-b0e5-f8e131d7c2b8",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-edcd6f86-05b5-43a9-8766-8a56709451c8/index.html",
+  "words": 110,
+  "summary": "Environmental-impact pledge: standards over libraries, offline PWAs, caching, databaseless design, on-demand micro-services.",
+  "elements": [],
+  "external_link_count": 1,
+  "suspect_links": [
+   "https://github.com/elmsln/issues/issues/new?assignees=&labels=energy&title=%5Bresource+usage+request%5D"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "sustainable",
+    "label": "Sustainable",
+    "new": false
+   },
+   {
+    "key": "efficient",
+    "label": "Efficient",
+    "new": false
+   }
+  ],
+  "flags": [
+   "issue-report link points to elmsln/issues (moved)"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 19,
+  "id": "item-d64f8a31-bd4c-499d-a0e0-e97ad1c9d1cb",
+  "title": "Accessibility and Empowerment",
+  "slug": "pledges/accessibility-empowerment",
+  "order": 1,
+  "parent": "Pledges",
+  "parent_id": "item-012ec894-f7a5-4d12-b0e5-f8e131d7c2b8",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-d64f8a31-bd4c-499d-a0e0-e97ad1c9d1cb/index.html",
+  "words": 148,
+  "summary": "Accessibility and empowerment pledge: broad definition of a11y, WCAG 2.0 AA, and auto-handling a11y concerns for authors.",
+  "elements": [],
+  "external_link_count": 1,
+  "suspect_links": [
+   "https://github.com/elmsln/issues/issues/new?assignees=&labels=a11y&title=%5Baccessibility+request%5D"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "accessible",
+    "label": "Accessible",
+    "new": false
+   }
+  ],
+  "flags": [
+   "issue-report link points to elmsln/issues (moved)"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 20,
+  "id": "item-ed0d786a-105e-46ac-b848-49073917809b",
+  "title": "History",
+  "slug": "welcome/community/history",
+  "order": 3,
+  "parent": "Community",
+  "parent_id": "item-68ecb822-ae89-466a-bce2-20b33332451a",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-ed0d786a-105e-46ac-b848-49073917809b/index.html",
+  "words": 527,
+  "summary": "Timeline of HAX origins from the 2007 e-Learning Institute and ELMS through HAX's first prototypes and later milestones.",
+  "elements": [],
+  "external_link_count": 3,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "elmsln",
+    "label": "ELMS:LN",
+    "new": false
+   },
+   {
+    "key": "bryan",
+    "label": "Bryan Ollendyke",
+    "new": false
+   },
+   {
+    "key": "billrose",
+    "label": "Bill Rose",
+    "new": false
+   }
+  ],
+  "flags": [
+   "references Project EdTechJoker; timeline may stop short of 2025-2026"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 21,
+  "id": "item-b1a951b6-6989-4c62-aca2-e446bdc17bc9",
+  "title": "Governance",
+  "slug": "welcome/community/governance",
+  "order": 4,
+  "parent": "Community",
+  "parent_id": "item-68ecb822-ae89-466a-bce2-20b33332451a",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-b1a951b6-6989-4c62-aca2-e446bdc17bc9/index.html",
+  "words": 100,
+  "summary": "Governance flowchart for what gets released, with exceptions for institutional security, keys, and PSU-branded assets.",
+  "elements": [
+   "media-image"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "psu",
+    "label": "Penn State",
+    "new": false
+   },
+   {
+    "key": "open",
+    "label": "Free and open",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 22,
+  "id": "item-6817087b-a94d-4314-95cf-e53c1404f24d",
+  "title": "Contributor guide",
+  "slug": "welcome/community/contributor-guide",
+  "order": 5,
+  "parent": "Community",
+  "parent_id": "item-68ecb822-ae89-466a-bce2-20b33332451a",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-6817087b-a94d-4314-95cf-e53c1404f24d/index.html",
+  "words": 269,
+  "summary": "Contributor guide pointing to developer onboarding, 'new here' issues, pillars, Discord, CLI, HAX Lab and grants.",
+  "elements": [],
+  "external_link_count": 8,
+  "suspect_links": [
+   "https://learn-hax-developer-onboarding.surge.sh"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "community",
+    "label": "Community and contributing",
+    "new": true
+   },
+   {
+    "key": "learnhax",
+    "label": "Learn HAX",
+    "new": false
+   },
+   {
+    "key": "issues",
+    "label": "Issue queue",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 23,
+  "id": "item-8991f223-d78f-42c3-a5f4-da79658ad80e",
+  "title": "Marketing",
+  "slug": "marketing",
+  "order": 5,
+  "parent": "Welcome",
+  "parent_id": "item-8a5bf844-d498-4f75-bf96-110eaedb42d9",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-8991f223-d78f-42c3-a5f4-da79658ad80e/index.html",
+  "words": 25,
+  "summary": "Marketing materials landing page embedding the HAX one-pager.",
+  "elements": [
+   "iframe-loader"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "presentations",
+    "label": "Presentations",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 24,
+  "id": "item-4b62f800-7fb9-4a42-b28a-eacefa7bb53c",
+  "title": "Art / Media",
+  "slug": "welcome/marketing/art-media",
+  "order": 0,
+  "parent": "Marketing",
+  "parent_id": "item-8991f223-d78f-42c3-a5f4-da79658ad80e",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-4b62f800-7fb9-4a42-b28a-eacefa7bb53c/index.html",
+  "words": 59,
+  "summary": "Art and media assets: World Changer art repo and rpg-character avatar component.",
+  "elements": [
+   "grid-plate",
+   "media-image",
+   "rpg-character"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "traveler",
+    "label": "HAX Future Traveler",
+    "new": false
+   },
+   {
+    "key": "presentations",
+    "label": "Presentations",
+    "new": false
+   },
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 25,
+  "id": "item-62df18a5-fe1c-416e-9429-8d3288e7afa7",
+  "title": "Testimonials",
+  "slug": "welcome/marketing/testimonials",
+  "order": 1,
+  "parent": "Marketing",
+  "parent_id": "item-8991f223-d78f-42c3-a5f4-da79658ad80e",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-62df18a5-fe1c-416e-9429-8d3288e7afa7/index.html",
+  "words": 174,
+  "summary": "Testimonials, chiefly the Customer Discovery 101 team describing building their course with HAX.",
+  "elements": [
+   "block-quote"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "presentations",
+    "label": "Presentations",
+    "new": false
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 26,
+  "id": "item-4b504f9b-4efd-46a1-81a6-ec67c349c835",
+  "title": "HiTech Podcast: HAX Explained and Shown",
+  "slug": "marketing/hitech-podcast-interview",
+  "order": 2,
+  "parent": "Marketing",
+  "parent_id": "item-8991f223-d78f-42c3-a5f4-da79658ad80e",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-4b504f9b-4efd-46a1-81a6-ec67c349c835/index.html",
+  "words": 590,
+  "summary": "Segmented HiTech podcast episode 168 (Oct 2024) where Bryan explains and demos HAX, with timestamped videos.",
+  "elements": [
+   "grid-plate",
+   "page-anchor",
+   "video-player"
+  ],
+  "external_link_count": 10,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "presentations",
+    "label": "Presentations",
+    "new": false
+   },
+   {
+    "key": "bryan",
+    "label": "Bryan Ollendyke",
+    "new": false
+   },
+   {
+    "key": "wcstandard",
+    "label": "Web component standard",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 27,
+  "id": "item-0842ac8e-9e65-4715-be25-e3ef4c0baf8b",
+  "title": "White papers",
+  "slug": "documentation/white-papers",
+  "order": 3,
+  "parent": "Marketing",
+  "parent_id": "item-8991f223-d78f-42c3-a5f4-da79658ad80e",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-0842ac8e-9e65-4715-be25-e3ef4c0baf8b/index.html",
+  "words": 60,
+  "summary": "List of white papers from HAX and ELMS:LN eras (2014, 2015, 2018).",
+  "elements": [],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "presentations",
+    "label": "Presentations",
+    "new": false
+   },
+   {
+    "key": "elmsln",
+    "label": "ELMS:LN",
+    "new": false
+   }
+  ],
+  "flags": [
+   "papers are 2014-2018; no links to the files in text"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 28,
+  "id": "item-6ecf99f9-5623-4892-a651-9472ec0c74a5",
+  "title": "I need help!",
+  "slug": "welcome/i-need-help",
+  "order": 6,
+  "parent": "Welcome",
+  "parent_id": "item-8a5bf844-d498-4f75-bf96-110eaedb42d9",
+  "section": "Welcome",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-6ecf99f9-5623-4892-a651-9472ec0c74a5/index.html",
+  "words": 60,
+  "summary": "Help page: file issues in the unified queue, chat on Discord, or type 'issues' in Merlin.",
+  "elements": [
+   "media-image"
+  ],
+  "external_link_count": 2,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "issues",
+    "label": "Issue queue",
+    "new": false
+   },
+   {
+    "key": "merlin",
+    "label": "Merlin",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 29,
+  "id": "item-af6cc6b8-3436-48fd-89c5-987cf0fa1e0b",
+  "title": "HAXElement Schema",
+  "slug": "documentation/developers/schema/haxelement-schema",
+  "order": 0,
+  "parent": "Schema",
+  "parent_id": "item-4277ed25-a0ca-414c-a4ca-62e7d093d2f8",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-af6cc6b8-3436-48fd-89c5-987cf0fa1e0b/index.html",
+  "words": 181,
+  "summary": "Documents HAXElement Schema, the JSON abstraction of HTML elements used for templates, demoSchema and sanitizing.",
+  "elements": [
+   "code-sample"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "haxschema",
+    "label": "HAXSchema",
+    "new": false
+   },
+   {
+    "key": "editor",
+    "label": "HAX editor",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 30,
+  "id": "item-5bcfc9da-de7b-4e0c-858d-1f7adde911a9",
+  "title": "Conversion tools",
+  "slug": "stand-alone-tools/conversion-tools",
+  "order": 0,
+  "parent": "Stand alone tools",
+  "parent_id": "item-0d30bca9-c852-4b30-ae4e-abc519262d31",
+  "section": "HAX Lab",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-5bcfc9da-de7b-4e0c-858d-1f7adde911a9/index.html",
+  "words": 65,
+  "summary": "Microservice-based converters: DOCX to HTML/PDF, Markdown to/from HTML, image compression, screenshots, secure feedback.",
+  "elements": [],
+  "external_link_count": 6,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "haxcloud",
+    "label": "HAX.cloud, CDN and magic script",
+    "new": true
+   },
+   {
+    "key": "importers",
+    "label": "Importers",
+    "new": false
+   },
+   {
+    "key": "standalone",
+    "label": "Stand-alone tools",
+    "new": true
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 31,
+  "id": "item-6516e05a-35ca-4e30-94c9-da8f32ed7ac8",
+  "title": "Instructional",
+  "slug": "tutorials/block-usage/instructional",
+  "order": 0,
+  "parent": "Block usage",
+  "parent_id": "item-50802aa4-f49e-4207-98d2-7ef3745568fc",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-6516e05a-35ca-4e30-94c9-da8f32ed7ac8/index.html",
+  "words": 11,
+  "summary": "Section stub introducing instructional blocks.",
+  "elements": [],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [
+   "near-empty section page"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 32,
+  "id": "item-7d7e9a33-1d6a-4b29-a442-35cef09ee666",
+  "title": "Math",
+  "slug": "tutorials/block-usage/instructional/math",
+  "order": 0,
+  "parent": "Instructional",
+  "parent_id": "item-6516e05a-35ca-4e30-94c9-da8f32ed7ac8",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-7d7e9a33-1d6a-4b29-a442-35cef09ee666/index.html",
+  "words": 64,
+  "summary": "Math block: inline LaTeX/MathML via lrn-math with an example and video.",
+  "elements": [
+   "grid-plate",
+   "lrn-math",
+   "media-image",
+   "video-player"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 33,
+  "id": "item-5931cf01-9b8d-4bdd-990b-6f4465174dcf",
+  "title": "Question types",
+  "slug": "tutorials/block-usage/question-types",
+  "order": 1,
+  "parent": "Instructional",
+  "parent_id": "item-6516e05a-35ca-4e30-94c9-da8f32ed7ac8",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-5931cf01-9b8d-4bdd-990b-6f4465174dcf/index.html",
+  "words": 10,
+  "summary": "Section stub listing formative assessment question-type blocks.",
+  "elements": [
+   "site-collection-list"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [
+   "near-empty section page"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 34,
+  "id": "item-3938a1cf-d097-473e-8e27-47d34c2e8e4b",
+  "title": "Fill in the blanks",
+  "slug": "tutorials/block-usage/instructional/question-types/fill-in-the-blanks",
+  "order": 0,
+  "parent": "Question types",
+  "parent_id": "item-5931cf01-9b8d-4bdd-990b-6f4465174dcf",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-3938a1cf-d097-473e-8e27-47d34c2e8e4b/index.html",
+  "words": 82,
+  "summary": "Fill-in-the-blanks question: bracket syntax for answers, alternates and select options; install/source links.",
+  "elements": [
+   "code-sample",
+   "fill-in-the-blanks"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 35,
+  "id": "item-82db2727-136d-4ee0-b965-9d847d8631c6",
+  "title": "Mark the Words",
+  "slug": "tutorials/block-usage/instructional/question-types/mark-the-words",
+  "order": 1,
+  "parent": "Question types",
+  "parent_id": "item-5931cf01-9b8d-4bdd-990b-6f4465174dcf",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-82db2727-136d-4ee0-b965-9d847d8631c6/index.html",
+  "words": 54,
+  "summary": "Mark-the-words question where users select words in a sentence, with per-word feedback.",
+  "elements": [
+   "code-sample",
+   "mark-the-words"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 36,
+  "id": "item-7c4e5edc-892b-4272-8513-248dd4d4efe5",
+  "title": "Matching / Drag and drop",
+  "slug": "tutorials/block-usage/instructional/question-types/matching-drag-and-drop",
+  "order": 2,
+  "parent": "Question types",
+  "parent_id": "item-5931cf01-9b8d-4bdd-990b-6f4465174dcf",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-7c4e5edc-892b-4272-8513-248dd4d4efe5/index.html",
+  "words": 58,
+  "summary": "Matching / drag-and-drop question with multi-answer targets and distractors.",
+  "elements": [
+   "code-sample",
+   "matching-question"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 37,
+  "id": "item-3c4f0dbd-ef6a-4c8d-acaa-27b295243948",
+  "title": "Multiple choice",
+  "slug": "tutorials/block-usage/instructional/question-types/multiple-choice",
+  "order": 3,
+  "parent": "Question types",
+  "parent_id": "item-5931cf01-9b8d-4bdd-990b-6f4465174dcf",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-3c4f0dbd-ef6a-4c8d-acaa-27b295243948/index.html",
+  "words": 66,
+  "summary": "Multiple choice comprehension check with example and video; no data stored.",
+  "elements": [
+   "code-sample",
+   "grid-plate",
+   "multiple-choice",
+   "video-player"
+  ],
+  "external_link_count": 4,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 38,
+  "id": "item-a92e0dfc-e26f-4a7c-aa1d-f0d977b27d8f",
+  "title": "Short Answer Question",
+  "slug": "tutorials/block-usage/instructional/question-types/short-answer-question",
+  "order": 4,
+  "parent": "Question types",
+  "parent_id": "item-5931cf01-9b8d-4bdd-990b-6f4465174dcf",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-a92e0dfc-e26f-4a7c-aa1d-f0d977b27d8f/index.html",
+  "words": 37,
+  "summary": "Short answer question allowing multiple accepted single-word answers.",
+  "elements": [
+   "code-sample",
+   "short-answer-question"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 39,
+  "id": "item-4622057f-76f3-40dd-962b-0b6e640e4058",
+  "title": "Sorting Question",
+  "slug": "tutorials/block-usage/instructional/question-types/sorting-question",
+  "order": 5,
+  "parent": "Question types",
+  "parent_id": "item-5931cf01-9b8d-4bdd-990b-6f4465174dcf",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-4622057f-76f3-40dd-962b-0b6e640e4058/index.html",
+  "words": 83,
+  "summary": "Sorting question for ordering items with randomized retries and feedback.",
+  "elements": [
+   "code-sample",
+   "sorting-question"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 40,
+  "id": "item-c7a62f87-28f5-4049-95ce-10b1ddb94201",
+  "title": "Tagging question",
+  "slug": "tutorials/block-usage/instructional/question-types/tagging-question",
+  "order": 6,
+  "parent": "Question types",
+  "parent_id": "item-5931cf01-9b8d-4bdd-990b-6f4465174dcf",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-c7a62f87-28f5-4049-95ce-10b1ddb94201/index.html",
+  "words": 51,
+  "summary": "Tagging question where users select only correct tags among distractors.",
+  "elements": [
+   "code-sample",
+   "tagging-question"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 41,
+  "id": "item-ca708b68-1af2-47b5-83d9-7cb94b42da91",
+  "title": "True false question",
+  "slug": "tutorials/block-usage/instructional/question-types/true-false-question",
+  "order": 7,
+  "parent": "Question types",
+  "parent_id": "item-5931cf01-9b8d-4bdd-990b-6f4465174dcf",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-ca708b68-1af2-47b5-83d9-7cb94b42da91/index.html",
+  "words": 40,
+  "summary": "True/false question block bundled in the multiple-choice package.",
+  "elements": [
+   "code-sample",
+   "true-false-question"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 42,
+  "id": "item-526ae84e-2f82-4007-a443-7dbe1115571c",
+  "title": "Self check",
+  "slug": "tutorials/block-usage/instructional/self-check",
+  "order": 2,
+  "parent": "Instructional",
+  "parent_id": "item-6516e05a-35ca-4e30-94c9-da8f32ed7ac8",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-526ae84e-2f82-4007-a443-7dbe1115571c/index.html",
+  "words": 82,
+  "summary": "Self-check block: image plus reflective question with click-to-reveal answer.",
+  "elements": [
+   "self-check",
+   "video-player"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 43,
+  "id": "item-f74ecc94-2b62-44c7-bb23-820e3d0cf9f3",
+  "title": "Stop note",
+  "slug": "tutorials/block-usage/instructional/stop-note",
+  "order": 3,
+  "parent": "Instructional",
+  "parent_id": "item-6516e05a-35ca-4e30-94c9-da8f32ed7ac8",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-f74ecc94-2b62-44c7-bb23-820e3d0cf9f3/index.html",
+  "words": 93,
+  "summary": "Stop-note block for emphasizing critical information, with video.",
+  "elements": [
+   "stop-note",
+   "video-player"
+  ],
+  "external_link_count": 2,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 44,
+  "id": "item-99c45cf5-0c3b-4911-83de-70886b9d0c0d",
+  "title": "Table",
+  "slug": "tutorials/block-usage/instructional/table",
+  "order": 4,
+  "parent": "Instructional",
+  "parent_id": "item-6516e05a-35ca-4e30-94c9-da8f32ed7ac8",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-99c45cf5-0c3b-4911-83de-70886b9d0c0d/index.html",
+  "words": 63,
+  "summary": "Editable table block for authoring tabular data without HTML knowledge.",
+  "elements": [
+   "editable-table",
+   "video-player"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "accessible",
+    "label": "Accessible",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 45,
+  "id": "item-af5ebc9a-83b4-48e6-9465-7f2e94f305b5",
+  "title": "Timeline",
+  "slug": "tutorials/block-usage/instructional/timeline",
+  "order": 5,
+  "parent": "Instructional",
+  "parent_id": "item-6516e05a-35ca-4e30-94c9-da8f32ed7ac8",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-af5ebc9a-83b4-48e6-9465-7f2e94f305b5/index.html",
+  "words": 42,
+  "summary": "Timeline block for presenting events in sequence.",
+  "elements": [
+   "lrndesign-timeline",
+   "video-player"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 46,
+  "id": "item-8dfd19ae-77ec-4737-9981-72e4d5880cb9",
+  "title": "BackdropCMS",
+  "slug": "documentation/integrations/backdropcms",
+  "order": 0,
+  "parent": "Integrations",
+  "parent_id": "item-3577db8a-6017-4df6-a2bb-8ecad1a2bbe7",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-8dfd19ae-77ec-4737-9981-72e4d5880cb9/index.html",
+  "words": 74,
+  "summary": "Steps to install HAX in BackdropCMS via the Web components and HAX modules.",
+  "elements": [],
+  "external_link_count": 2,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "cmsintegrations",
+    "label": "CMS integrations (Drupal, WordPress, Backdrop, Grav, ClassicPress)",
+    "new": true
+   },
+   {
+    "key": "agnostic",
+    "label": "Platform agnostic",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 47,
+  "id": "item-4d1a84b2-ddcb-4dbc-9b37-2d135442c32d",
+  "title": "3D Model",
+  "slug": "tutorials/block-usage/multimedia/3d-model",
+  "order": 0,
+  "parent": "Multimedia",
+  "parent_id": "item-2fdd27a1-190a-47c8-8192-910bc1afe0f5",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-4d1a84b2-ddcb-4dbc-9b37-2d135442c32d/index.html",
+  "words": 44,
+  "summary": "3D Model block using model-viewer, including AR display.",
+  "elements": [
+   "model-viewer",
+   "video-player"
+  ],
+  "external_link_count": 2,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 48,
+  "id": "item-a1b1587a-b40a-463f-ad4a-e5a05a98fd8c",
+  "title": "Planning the Lecture",
+  "slug": "planning-the-lecture",
+  "order": 0,
+  "parent": "In Brief: A Sound Process",
+  "parent_id": "item-e5e58d0e-aa0b-4749-a9cb-e791b08d4105",
+  "section": "Gallery of Online Excellence",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-a1b1587a-b40a-463f-ad4a-e5a05a98fd8c/index.html",
+  "words": 1558,
+  "summary": "Gallery guideline page on planning an educational lecture video: objectives, strategy fit, accessibility, copyright, citation.",
+  "elements": [
+   "block-quote",
+   "grid-plate"
+  ],
+  "external_link_count": 10,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "gallery",
+    "label": "Gallery of Online Excellence",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   },
+   {
+    "key": "design",
+    "label": "Design",
+    "new": false
+   }
+  ],
+  "flags": [
+   "Gallery content imported from iam.hax.psu.edu/bmr1/sites/haxcellence"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 49,
+  "id": "item-e730662d-1e5e-4519-b2cc-6689657eeced",
+  "title": "ELMS:LN",
+  "slug": "documentation/elmsln",
+  "order": 0,
+  "parent": "Deprecated",
+  "parent_id": "item-680a9a59-5691-424e-8f84-ee9019e39849",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-e730662d-1e5e-4519-b2cc-6689657eeced/index.html",
+  "words": 304,
+  "summary": "Deprecated ELMS:LN overview: still used internally, but HAX/HAXcms are its successors.",
+  "elements": [
+   "stop-note"
+  ],
+  "external_link_count": 2,
+  "suspect_links": [
+   "http://elmsln.org/",
+   "https://github.com/elmsln/elmsln"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "elmsln",
+    "label": "ELMS:LN",
+    "new": false
+   }
+  ],
+  "flags": [
+   "deprecated project page",
+   "elmsln.org http link may be dead"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 50,
+  "id": "item-0ae1c6fb-3f57-4917-8caa-91853eda4982",
+  "title": "Peter Aeschbacher Exhibit",
+  "slug": "peter-aeschbacher-exhibit",
+  "order": 0,
+  "parent": "Gallery Exhibits",
+  "parent_id": "item-d7a7736b-3262-4d0e-8df7-a9af7823a2b7",
+  "section": "Gallery of Online Excellence",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-0ae1c6fb-3f57-4917-8caa-91853eda4982/index.html",
+  "words": 1117,
+  "summary": "Gallery exhibit analyzing Peter Aeschbacher's AA 121 green-screen lecture videos against the guidelines.",
+  "elements": [
+   "a11y-collapse",
+   "block-quote",
+   "editable-table",
+   "grid-plate",
+   "media-image",
+   "page-anchor",
+   "video-player"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "gallery",
+    "label": "Gallery of Online Excellence",
+    "new": true
+   },
+   {
+    "key": "aa",
+    "label": "Arts and Architecture",
+    "new": false
+   }
+  ],
+  "flags": [
+   "contains 'Content goes here.' placeholder text"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 51,
+  "id": "item-7b57c34b-d8b4-4401-baed-01e39cc0cd77",
+  "title": "example-hax-element",
+  "slug": "documentation/developers/hax/example-hax-element",
+  "order": 0,
+  "parent": "HAXEditor",
+  "parent_id": "item-fbb47697-aa83-4b41-a3b4-ed8f9b2709c7",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-7b57c34b-d8b4-4401-baed-01e39cc0cd77/index.html",
+  "words": 305,
+  "summary": "Walks through the example-hax-element source to show haxProperties and DDD wiring for a block.",
+  "elements": [
+   "code-sample"
+  ],
+  "external_link_count": 4,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "haxschema",
+    "label": "HAXSchema",
+    "new": false
+   },
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "ddd",
+    "label": "DDD",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 52,
+  "id": "item-d090faf0-5374-4039-8aee-c6dad760c5e1",
+  "title": "apps",
+  "slug": "documentation/developers/hax/app-store-api/apps",
+  "order": 0,
+  "parent": "App store API",
+  "parent_id": "item-3be9e67a-53cb-4b3a-9f5b-dc0b40cda743",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-d090faf0-5374-4039-8aee-c6dad760c5e1/index.html",
+  "words": 459,
+  "summary": "Annotated App Store definition for the Flickr integration, explaining each field.",
+  "elements": [
+   "code-sample"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "appstore",
+    "label": "App Store schema",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 53,
+  "id": "item-90f04b0e-75f3-424d-9e6f-4841af66ab6c",
+  "title": "Desktop",
+  "slug": "solutions/desktop",
+  "order": 0,
+  "parent": "Solutions",
+  "parent_id": "item-e6b422fc-8920-45b1-9068-173399ca50b2",
+  "section": "Solutions",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-90f04b0e-75f3-424d-9e6f-4841af66ab6c/index.html",
+  "words": 41,
+  "summary": "HAX Desktop: Electron packaging of the Node version, currently Ubuntu-oriented.",
+  "elements": [],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "desktop",
+    "label": "HAX Desktop (Electron)",
+    "new": true
+   },
+   {
+    "key": "nodejs",
+    "label": "HAXcms Node.js",
+    "new": false
+   }
+  ],
+  "flags": [
+   "possibly stale; verify desktop repo is maintained"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 54,
+  "id": "item-22596832-8320-4c7f-b7ae-f403d1d9ca31",
+  "title": "First-time HAX User",
+  "slug": "tutorials/brand-new-user",
+  "order": 0,
+  "parent": "Tutorials",
+  "parent_id": "item-903151c6-bd94-4bbb-9335-4649de2f9445",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-22596832-8320-4c7f-b7ae-f403d1d9ca31/index.html",
+  "words": 39,
+  "summary": "First-time user tutorial video with a downloadable working document.",
+  "elements": [
+   "video-player"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "learnhax",
+    "label": "Learn HAX",
+    "new": false
+   },
+   {
+    "key": "editor",
+    "label": "HAX editor",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 55,
+  "id": "item-0d30bca9-c852-4b30-ae4e-abc519262d31",
+  "title": "Stand alone tools",
+  "slug": "stand-alone-tools",
+  "order": 0,
+  "parent": "The Future",
+  "parent_id": "item-f44c0f01-32e2-4e61-b965-3b24778abba0",
+  "section": "HAX Lab",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-0d30bca9-c852-4b30-ae4e-abc519262d31/index.html",
+  "words": 44,
+  "summary": "Section page for stand-alone tools spun off from HAX infrastructure.",
+  "elements": [],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "standalone",
+    "label": "Stand-alone tools",
+    "new": true
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 56,
+  "id": "item-39f2e47c-f0fb-4d87-9180-f0f8dedfbe44",
+  "title": "Local Save",
+  "slug": "the-future/stand-alone-tools/local-save",
+  "order": 1,
+  "parent": "Stand alone tools",
+  "parent_id": "item-0d30bca9-c852-4b30-ae4e-abc519262d31",
+  "section": "HAX Lab",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-39f2e47c-f0fb-4d87-9180-f0f8dedfbe44/index.html",
+  "words": 27,
+  "summary": "Stand-alone HAX page that reads/writes a local file (Chrome only).",
+  "elements": [],
+  "external_link_count": 1,
+  "suspect_links": [
+   "https://haxtheweb.org/assets/local-save.html"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "standalone",
+    "label": "Stand-alone tools",
+    "new": true
+   },
+   {
+    "key": "editor",
+    "label": "HAX editor",
+    "new": false
+   }
+  ],
+  "flags": [
+   "links haxtheweb.org/assets/local-save.html, which may disappear when the site is replaced"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 57,
+  "id": "item-635fe9b5-9bda-4658-a1af-3a366d123657",
+  "title": "Qualitative Rubric Prototype",
+  "slug": "stand-alone-tools/rubrics",
+  "order": 2,
+  "parent": "Stand alone tools",
+  "parent_id": "item-0d30bca9-c852-4b30-ae4e-abc519262d31",
+  "section": "HAX Lab",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-635fe9b5-9bda-4658-a1af-3a366d123657/index.html",
+  "words": 53,
+  "summary": "Qualitative rubric prototype for faster LMS feedback, derived from ELMS work.",
+  "elements": [],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "standalone",
+    "label": "Stand-alone tools",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   },
+   {
+    "key": "elmsln",
+    "label": "ELMS:LN",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 58,
+  "id": "item-14ee9de9-51d1-4a0d-9944-3ba6856ac053",
+  "title": "Course Model Player",
+  "slug": "page",
+  "order": 3,
+  "parent": "Stand alone tools",
+  "parent_id": "item-0d30bca9-c852-4b30-ae4e-abc519262d31",
+  "section": "HAX Lab",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-14ee9de9-51d1-4a0d-9944-3ba6856ac053/index.html",
+  "words": 277,
+  "summary": "Course Model Player demo showing a 3D Colt 1911 model with info hotspots and video.",
+  "elements": [
+   "course-model",
+   "media-image",
+   "model-info",
+   "video-player"
+  ],
+  "external_link_count": 6,
+  "suspect_links": [
+   "https://media.ed.science.psu.edu/h5p/embed/5783?entity_iframe=1",
+   "https://raw.githubusercontent.com/elmsln/lrnwebcomponents/master/elements/course-model/demo/models/guns/colt-1911/colt_1911_full.gltf",
+   "https://raw.githubusercontent.com/elmsln/lrnwebcomponents/master/elements/course-model/demo/models/guns/img/colt1911-1.jpeg",
+   "https://raw.githubusercontent.com/elmsln/lrnwebcomponents/master/elements/course-model/demo/models/guns/img/colt1911-2.png",
+   "https://raw.githubusercontent.com/elmsln/lrnwebcomponents/master/elements/course-model/demo/models/guns/img/colt1911-3.jpeg"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "standalone",
+    "label": "Stand-alone tools",
+    "new": true
+   },
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "eberly",
+    "label": "Eberly College of Science",
+    "new": false
+   }
+  ],
+  "flags": [
+   "assets hosted under elmsln/lrnwebcomponents raw URLs (repo renamed)",
+   "embeds media.ed.science.psu.edu H5P iframe"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 59,
+  "id": "item-e56349a0-bcf9-427b-8b68-e092ae15061f",
+  "title": "Keycloak authentication",
+  "slug": "stand-alone-tools/page",
+  "order": 4,
+  "parent": "Stand alone tools",
+  "parent_id": "item-0d30bca9-c852-4b30-ae4e-abc519262d31",
+  "section": "HAX Lab",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-e56349a0-bcf9-427b-8b68-e092ae15061f/index.html",
+  "words": 101,
+  "summary": "Headless Keycloak authentication service demo built by Andrew Maier.",
+  "elements": [],
+  "external_link_count": 3,
+  "suspect_links": [
+   "https://keycloak-login.vercel.app/"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "standalone",
+    "label": "Stand-alone tools",
+    "new": true
+   },
+   {
+    "key": "security",
+    "label": "Security",
+    "new": false
+   },
+   {
+    "key": "andrew",
+    "label": "Andrew Maier",
+    "new": false
+   }
+  ],
+  "flags": [
+   "demo on keycloak-login.vercel.app; repo under btopro personal account"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 60,
+  "id": "item-778bd19b-566a-422b-99d1-20f564f12489",
+  "title": "Collection List",
+  "slug": "tutorials/block-usage/layout/collection-list",
+  "order": 0,
+  "parent": "Layout",
+  "parent_id": "item-fd8d0496-8026-4f47-bd7f-8182e32cda98",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-778bd19b-566a-422b-99d1-20f564f12489/index.html",
+  "words": 30,
+  "summary": "Collection list block for presenting items as cards.",
+  "elements": [
+   "collection-item",
+   "collection-list"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 61,
+  "id": "item-4bb1088a-8d44-4c7c-bf7c-89abe3787458",
+  "title": "Design Documentation",
+  "slug": "documentation/ddd",
+  "order": 0,
+  "parent": "Frontend developers",
+  "parent_id": "item-59855d23-c026-4b44-9c9f-d5414cc80e55",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-4bb1088a-8d44-4c7c-bf7c-89abe3787458/index.html",
+  "words": 551,
+  "summary": "DDD design documentation: Develop/Design/Destroy philosophy and the in-progress design system docs element.",
+  "elements": [
+   "d-d-docs"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "ddd",
+    "label": "DDD",
+    "new": false
+   },
+   {
+    "key": "design",
+    "label": "Design",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 62,
+  "id": "item-b29033b8-b3a4-4025-8f6a-f869e044a1be",
+  "title": "HAX11ty",
+  "slug": "documentation/hax11ty",
+  "order": 0,
+  "parent": "Tools",
+  "parent_id": "item-76c7ae2d-0520-48f6-957c-f4ec9f623736",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-b29033b8-b3a4-4025-8f6a-f869e044a1be/index.html",
+  "words": 125,
+  "summary": "HAX11ty: editing Markdown locally, building with 11ty into a valid HAXcms site package.",
+  "elements": [],
+  "external_link_count": 4,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "hax11ty",
+    "label": "HAX11ty",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 63,
+  "id": "item-4c29eaf9-75db-4e33-8cd3-de1f4d64d6ca",
+  "title": "The Core",
+  "slug": "ontology/page-5",
+  "order": 0,
+  "parent": "HAX Ontology",
+  "parent_id": "item-b8f8fb5d-b05d-448d-814d-fac40fac14f6",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-4c29eaf9-75db-4e33-8cd3-de1f4d64d6ca/index.html",
+  "words": 70,
+  "summary": "Ontology core: the six branches Outcomes, Pedagogy, Structure, Instruction, Content, Assessment.",
+  "elements": [
+   "simple-tags",
+   "video-player"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "ontology",
+    "label": "HAX course ontology",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 64,
+  "id": "item-2a102879-1110-4db4-a6b8-3b687f0fd2b1",
+  "title": "HAXiam",
+  "slug": "documentation/developers/platforms/haxiam",
+  "order": 0,
+  "parent": "Platforms",
+  "parent_id": "item-0e12b64d-2eb5-4cea-8a85-829ec279cfc7",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-2a102879-1110-4db4-a6b8-3b687f0fd2b1/index.html",
+  "words": 528,
+  "summary": "HAXiam install scripts and organization-wide shared skeletons with resolution order and git workflow.",
+  "elements": [],
+  "external_link_count": 3,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "haxiam",
+    "label": "HAXiam",
+    "new": false
+   },
+   {
+    "key": "skeletons",
+    "label": "Skeletons",
+    "new": false
+   },
+   {
+    "key": "php",
+    "label": "HAXcms PHP",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 65,
+  "id": "item-0e12b64d-2eb5-4cea-8a85-829ec279cfc7",
+  "title": "Platforms",
+  "slug": "documentation/developers/platforms",
+  "order": 0,
+  "parent": "Developers",
+  "parent_id": "item-c835c36d-38f5-43ac-9296-0b1be7851ce6",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-0e12b64d-2eb5-4cea-8a85-829ec279cfc7/index.html",
+  "words": 10,
+  "summary": "Section stub for platform-level developer docs.",
+  "elements": [],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "haxcms",
+    "label": "HAXcms",
+    "new": false
+   }
+  ],
+  "flags": [
+   "near-empty section page"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 66,
+  "id": "item-41d063cb-b6b6-4c42-8a0e-6208a4f98a89",
+  "title": "HAXcms",
+  "slug": "documentation/developers/platforms/haxcms",
+  "order": 1,
+  "parent": "Platforms",
+  "parent_id": "item-0e12b64d-2eb5-4cea-8a85-829ec279cfc7",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-41d063cb-b6b6-4c42-8a0e-6208a4f98a89/index.html",
+  "words": 213,
+  "summary": "HAXcms as a UI-driven, static-output microsite generator, with key terminology.",
+  "elements": [
+   "media-image"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "haxcms",
+    "label": "HAXcms",
+    "new": false
+   },
+   {
+    "key": "php",
+    "label": "HAXcms PHP",
+    "new": false
+   },
+   {
+    "key": "nodejs",
+    "label": "HAXcms Node.js",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 67,
+  "id": "item-1fa59985-6bf9-4ac7-802b-bc52035f9323",
+  "title": "HAXsite",
+  "slug": "documentation/developers/platforms/haxsite",
+  "order": 2,
+  "parent": "Platforms",
+  "parent_id": "item-0e12b64d-2eb5-4cea-8a85-829ec279cfc7",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-1fa59985-6bf9-4ac7-802b-bc52035f9323/index.html",
+  "words": 454,
+  "summary": "HAXsite folder anatomy: site.json, pages/, files/, custom/, build.js magic script, SCORM ims files.",
+  "elements": [],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "haxcms",
+    "label": "HAXcms",
+    "new": false
+   },
+   {
+    "key": "jos",
+    "label": "JSON Outline Schema",
+    "new": false
+   },
+   {
+    "key": "staticpub",
+    "label": "Static export in core",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 68,
+  "id": "item-51b1acee-9e5c-4756-998e-d6f3ba97882c",
+  "title": "Effective Educational Video",
+  "slug": "effective-educational-video",
+  "order": 0,
+  "parent": "Gallery of Online Excellence",
+  "parent_id": "item-c8edb5fb-6fa9-4d47-b07f-e030d26c2a9f",
+  "section": "Gallery of Online Excellence",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-51b1acee-9e5c-4756-998e-d6f3ba97882c/index.html",
+  "words": 382,
+  "summary": "Introduction and recommended path through the Effective Educational Video exhibit.",
+  "elements": [
+   "grid-plate",
+   "video-player"
+  ],
+  "external_link_count": 5,
+  "suspect_links": [
+   "https://iam.hax.psu.edu/bmr1/sites/haxcellence/design-guidelines-and-principles",
+   "https://iam.hax.psu.edu/bmr1/sites/haxcellence/gallery-exhibits",
+   "https://iam.hax.psu.edu/bmr1/sites/haxcellence/in-short-a-sound-process",
+   "https://iam.hax.psu.edu/bmr1/sites/haxcellence/page-2/page/page-3"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "gallery",
+    "label": "Gallery of Online Excellence",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [
+   "internal links point to iam.hax.psu.edu/bmr1/sites/haxcellence (source site), not this site"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 69,
+  "id": "item-e115dd47-3a78-4e40-963e-46466a268290",
+  "title": "In Brief: Design Guidelines and Principles",
+  "slug": "design-guidelines-and-principles",
+  "order": 0,
+  "parent": "Effective Educational Video",
+  "parent_id": "item-51b1acee-9e5c-4756-998e-d6f3ba97882c",
+  "section": "Gallery of Online Excellence",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-e115dd47-3a78-4e40-963e-46466a268290/index.html",
+  "words": 1110,
+  "summary": "Summary of Brame's research on effective educational video: cognitive load, engagement, active learning.",
+  "elements": [
+   "block-quote",
+   "grid-plate",
+   "media-image"
+  ],
+  "external_link_count": 11,
+  "suspect_links": [
+   "https://iam.hax.psu.edu/bmr1/sites/haxcellence/foster-student-engagement",
+   "https://iam.hax.psu.edu/bmr1/sites/haxcellence/the-gallery-of-online-excellence/effective-educational-video/design-guidelines-and-principles/foster-student-engagement-copy",
+   "https://iam.hax.psu.edu/bmr1/sites/haxcellence/the-gallery-of-online-excellence/effective-educational-video/in-short-a-sound-process/planning-the-lecture-copy"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "gallery",
+    "label": "Gallery of Online Excellence",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [
+   "internal links point to iam.hax.psu.edu/bmr1 source site"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 70,
+  "id": "item-de9dbbb5-949b-49c0-95ad-dbbc84835db0",
+  "title": "Follow Cognitive Load Theory",
+  "slug": "the-gallery-of-online-excellence/effective-educational-video/in-short-a-sound-process/planning-the-lecture-copy",
+  "order": 0,
+  "parent": "In Brief: Design Guidelines and Principles",
+  "parent_id": "item-e115dd47-3a78-4e40-963e-46466a268290",
+  "section": "Gallery of Online Excellence",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-de9dbbb5-949b-49c0-95ad-dbbc84835db0/index.html",
+  "words": 716,
+  "summary": "Video guidelines grounded in cognitive load theory: signaling, segmenting, weeding, matching modalities.",
+  "elements": [
+   "block-quote"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "gallery",
+    "label": "Gallery of Online Excellence",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [
+   "slug '...planning-the-lecture-copy' does not match title"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 71,
+  "id": "item-3c1bf773-d9e2-4658-84f8-6ab5e3f42ab2",
+  "title": "Foster Student Engagement",
+  "slug": "foster-student-engagement",
+  "order": 1,
+  "parent": "In Brief: Design Guidelines and Principles",
+  "parent_id": "item-e115dd47-3a78-4e40-963e-46466a268290",
+  "section": "Gallery of Online Excellence",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-3c1bf773-d9e2-4658-84f8-6ab5e3f42ab2/index.html",
+  "words": 513,
+  "summary": "Video engagement guidelines: keep videos short, conversational, enthusiastic.",
+  "elements": [
+   "block-quote",
+   "grid-plate",
+   "media-image"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "gallery",
+    "label": "Gallery of Online Excellence",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [
+   "contains 'aaa bbb ccc' placeholder text"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 72,
+  "id": "item-a54cdc47-2f1c-4d82-8baf-fce180194a81",
+  "title": "Design for Active Learning",
+  "slug": "the-gallery-of-online-excellence/effective-educational-video/design-guidelines-and-principles/foster-student-engagement-copy",
+  "order": 2,
+  "parent": "In Brief: Design Guidelines and Principles",
+  "parent_id": "item-e115dd47-3a78-4e40-963e-46466a268290",
+  "section": "Gallery of Online Excellence",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-a54cdc47-2f1c-4d82-8baf-fce180194a81/index.html",
+  "words": 701,
+  "summary": "Active-learning guidelines: package video with interactive questions and guiding prompts.",
+  "elements": [
+   "block-quote"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "gallery",
+    "label": "Gallery of Online Excellence",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [
+   "slug '...foster-student-engagement-copy' does not match title"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 73,
+  "id": "item-e5e58d0e-aa0b-4749-a9cb-e791b08d4105",
+  "title": "In Brief: A Sound Process",
+  "slug": "in-short-a-sound-process",
+  "order": 1,
+  "parent": "Effective Educational Video",
+  "parent_id": "item-51b1acee-9e5c-4756-998e-d6f3ba97882c",
+  "section": "Gallery of Online Excellence",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-e5e58d0e-aa0b-4749-a9cb-e791b08d4105/index.html",
+  "words": 775,
+  "summary": "Summary of research guidelines for recording slide-based lectures, linking to planning/content/recording pages.",
+  "elements": [
+   "block-quote",
+   "grid-plate",
+   "media-image"
+  ],
+  "external_link_count": 5,
+  "suspect_links": [
+   "https://iam.hax.psu.edu/bmr1/sites/haxcellence/creating-content-and-slides",
+   "https://iam.hax.psu.edu/bmr1/sites/haxcellence/planning-the-lecture",
+   "https://iam.hax.psu.edu/bmr1/sites/haxcellence/recording-the-video"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "gallery",
+    "label": "Gallery of Online Excellence",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [
+   "internal links point to iam.hax.psu.edu/bmr1 source site"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 74,
+  "id": "item-d0e6ac0b-fc44-4be3-8e32-3647ddaeddd7",
+  "title": "Creating Content and Slides",
+  "slug": "creating-content-and-slides",
+  "order": 1,
+  "parent": "In Brief: A Sound Process",
+  "parent_id": "item-e5e58d0e-aa0b-4749-a9cb-e791b08d4105",
+  "section": "Gallery of Online Excellence",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-d0e6ac0b-fc44-4be3-8e32-3647ddaeddd7/index.html",
+  "words": 1081,
+  "summary": "Guidelines for creating lecture content and slides: compelling intros, visuals, pacing.",
+  "elements": [
+   "block-quote"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "gallery",
+    "label": "Gallery of Online Excellence",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   },
+   {
+    "key": "design",
+    "label": "Design",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 75,
+  "id": "item-adb4f6d7-5f7a-4620-ad3a-b0ff14343e60",
+  "title": "Recording the Video",
+  "slug": "recording-the-video",
+  "order": 2,
+  "parent": "In Brief: A Sound Process",
+  "parent_id": "item-e5e58d0e-aa0b-4749-a9cb-e791b08d4105",
+  "section": "Gallery of Online Excellence",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-adb4f6d7-5f7a-4620-ad3a-b0ff14343e60/index.html",
+  "words": 695,
+  "summary": "Guidelines for recording lecture video: voice, presence, audio quality, delivery.",
+  "elements": [
+   "block-quote"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "gallery",
+    "label": "Gallery of Online Excellence",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 76,
+  "id": "item-d7a7736b-3262-4d0e-8df7-a9af7823a2b7",
+  "title": "Gallery Exhibits",
+  "slug": "gallery-exhibits",
+  "order": 2,
+  "parent": "Effective Educational Video",
+  "parent_id": "item-51b1acee-9e5c-4756-998e-d6f3ba97882c",
+  "section": "Gallery of Online Excellence",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-d7a7736b-3262-4d0e-8df7-a9af7823a2b7/index.html",
+  "words": 180,
+  "summary": "Explains what a faculty exhibit contains and links to the three exhibits.",
+  "elements": [
+   "collection-item",
+   "grid-plate"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [
+   "https://iam.hax.psu.edu/bmr1/sites/haxcellence/ben-andrew-exhibit",
+   "https://iam.hax.psu.edu/bmr1/sites/haxcellence/bonj-szczygiel-exhibit",
+   "https://iam.hax.psu.edu/bmr1/sites/haxcellence/peter-aeschbacher-exhibit"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "gallery",
+    "label": "Gallery of Online Excellence",
+    "new": true
+   },
+   {
+    "key": "aa",
+    "label": "Arts and Architecture",
+    "new": false
+   }
+  ],
+  "flags": [
+   "exhibit links point to iam.hax.psu.edu/bmr1 source site"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 77,
+  "id": "item-73d866cd-ebd0-4124-ad99-b1b18455327d",
+  "title": "Bonj Szczygiel Exhibit",
+  "slug": "bonj-szczygiel-exhibit",
+  "order": 1,
+  "parent": "Gallery Exhibits",
+  "parent_id": "item-d7a7736b-3262-4d0e-8df7-a9af7823a2b7",
+  "section": "Gallery of Online Excellence",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-73d866cd-ebd0-4124-ad99-b1b18455327d/index.html",
+  "words": 908,
+  "summary": "Exhibit analyzing Bonj Szczygiel's LARCH 60 narrated PowerPoint lectures.",
+  "elements": [
+   "a11y-collapse",
+   "editable-table",
+   "grid-plate",
+   "media-image",
+   "page-anchor",
+   "stop-note",
+   "video-player"
+  ],
+  "external_link_count": 4,
+  "suspect_links": [
+   "https://media.aanda.psu.edu/entity_iframe/node/3305",
+   "https://media.aanda.psu.edu/entity_iframe/node/3345"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "gallery",
+    "label": "Gallery of Online Excellence",
+    "new": true
+   },
+   {
+    "key": "aa",
+    "label": "Arts and Architecture",
+    "new": false
+   }
+  ],
+  "flags": [
+   "embeds media.aanda.psu.edu entity_iframe (may require PSU access)"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 78,
+  "id": "item-c47bf439-54fa-4c41-8f39-a72dc0d40b60",
+  "title": "Ben Andrew Exhibit",
+  "slug": "ben-andrew-exhibit",
+  "order": 2,
+  "parent": "Gallery Exhibits",
+  "parent_id": "item-d7a7736b-3262-4d0e-8df7-a9af7823a2b7",
+  "section": "Gallery of Online Excellence",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-c47bf439-54fa-4c41-8f39-a72dc0d40b60/index.html",
+  "words": 946,
+  "summary": "Exhibit analyzing Ben Andrew's DART 100 FigJam-canvas video lectures.",
+  "elements": [
+   "a11y-collapse",
+   "grid-plate",
+   "media-image",
+   "page-anchor",
+   "video-player"
+  ],
+  "external_link_count": 2,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "gallery",
+    "label": "Gallery of Online Excellence",
+    "new": true
+   },
+   {
+    "key": "aa",
+    "label": "Arts and Architecture",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 79,
+  "id": "item-4b788e81-94f5-4699-b885-37b664eb8d7f",
+  "title": "Installing HAXcms",
+  "slug": "installation",
+  "order": 0,
+  "parent": "HAXcms",
+  "parent_id": "item-d4b650a4-47af-4734-b891-7a6db766ca3e",
+  "section": "Solutions",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-4b788e81-94f5-4699-b885-37b664eb8d7f/index.html",
+  "words": 118,
+  "summary": "How to install HAXcms via npx/CLI for Node and manual PHP or Reclaim Hosting.",
+  "elements": [
+   "code-sample",
+   "video-player"
+  ],
+  "external_link_count": 6,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "haxcms",
+    "label": "HAXcms",
+    "new": false
+   },
+   {
+    "key": "nodejs",
+    "label": "HAXcms Node.js",
+    "new": false
+   },
+   {
+    "key": "php",
+    "label": "HAXcms PHP",
+    "new": false
+   },
+   {
+    "key": "reclaim",
+    "label": "Reclaim Hosting",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 80,
+  "id": "item-59855d23-c026-4b44-9c9f-d5414cc80e55",
+  "title": "Frontend developers",
+  "slug": "documentation/hax-frontend-devs",
+  "order": 0,
+  "parent": "Documentation",
+  "parent_id": "item-0265920d-6055-404d-a0e6-1ae71c4ce258",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-59855d23-c026-4b44-9c9f-d5414cc80e55/index.html",
+  "words": 625,
+  "summary": "Front-end dev intro: magic script, CLI quick start, web component workshop, CodePen of h-a-x, HAXSchema pointers.",
+  "elements": [
+   "code-sample"
+  ],
+  "external_link_count": 11,
+  "suspect_links": [
+   "https://github.com/elmsln/lrnwebcomponents/blob/master/elements/hax-body-behaviors/lib/HAXWiring.js#L11",
+   "https://github.com/elmsln/lrnwebcomponents/blob/master/elements/video-player/video-player.js#L128",
+   "https://github.com/elmsln/wc-workshop",
+   "https://haxapi.vercel.app/",
+   "https://haxtheweb.org/documentation-1/hax-development/hax-app-store",
+   "https://haxtheweb.org/documentation-1/hax-development/hax-schema"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "cli",
+    "label": "HAX CLI",
+    "new": false
+   },
+   {
+    "key": "haxcloud",
+    "label": "HAX.cloud, CDN and magic script",
+    "new": true
+   }
+  ],
+  "flags": [
+   "links to elmsln/lrnwebcomponents (renamed to haxtheweb/webcomponents)",
+   "links to elmsln/wc-workshop",
+   "links to old haxtheweb.org/documentation-1/... paths",
+   "haxapi.vercel.app link may be stale"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 81,
+  "id": "item-cb3070a2-9525-41df-a6bb-91c2844c5ed5",
+  "title": "Implementing DDD",
+  "slug": "documentation/hax-frontend-devs/implementing-ddd",
+  "order": 1,
+  "parent": "Frontend developers",
+  "parent_id": "item-59855d23-c026-4b44-9c9f-d5414cc80e55",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-cb3070a2-9525-41df-a6bb-91c2844c5ed5/index.html",
+  "words": 358,
+  "summary": "How to install and extend DDD (d-d-d) as a Lit base class with global and local styles.",
+  "elements": [
+   "code-sample"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [
+   "https://github.com/elmsln/lrnwebcomponents/blob/master/elements/d-d-d/lib/DDDStyles.js"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "ddd",
+    "label": "DDD",
+    "new": false
+   },
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   }
+  ],
+  "flags": [
+   "DDDStyles link points to elmsln/lrnwebcomponents (renamed)"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 82,
+  "id": "item-15525242-f6e9-4201-bbb1-cdd8f29176f6",
+  "title": "Header",
+  "slug": "site-things/header",
+  "order": 0,
+  "parent": "Site things",
+  "parent_id": "item-861b84da-33c7-49e8-bf25-7aa8d9206d3b",
+  "section": "Site things",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-15525242-f6e9-4201-bbb1-cdd8f29176f6/index.html",
+  "words": 0,
+  "summary": "Site header graphic (PSU logo link); site chrome, not documentation.",
+  "elements": [
+   "media-image"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "themes",
+    "label": "Themes",
+    "new": false
+   },
+   {
+    "key": "psu",
+    "label": "Penn State",
+    "new": false
+   }
+  ],
+  "flags": [
+   "site chrome, zero words"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 83,
+  "id": "item-78385e2a-baae-49b6-bb0c-dcf565052a62",
+  "title": "Data store",
+  "slug": "documentation/developers/haxsite/data-store",
+  "order": 0,
+  "parent": "HAXSite",
+  "parent_id": "item-0e8a3894-a90b-450e-8d15-a5990ac65477",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-78385e2a-baae-49b6-bb0c-dcf565052a62/index.html",
+  "words": 1086,
+  "summary": "Documents the HAXsite/HAXeditor MobX stores and their observable/computed properties.",
+  "elements": [
+   "code-sample",
+   "simple-icon-lite",
+   "stop-note",
+   "true-false-question"
+  ],
+  "external_link_count": 2,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "haxcms",
+    "label": "HAXcms",
+    "new": false
+   },
+   {
+    "key": "editor",
+    "label": "HAX editor",
+    "new": false
+   },
+   {
+    "key": "themes",
+    "label": "Themes",
+    "new": false
+   }
+  ],
+  "flags": [
+   "self-described as possibly out of date"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 84,
+  "id": "item-7a54e617-a1cf-456d-866c-442b200d9e53",
+  "title": "HAX YouTube Channel",
+  "slug": "hax-lab/hax-youtube-channel",
+  "order": 0,
+  "parent": "HAX Lab",
+  "parent_id": "item-cd65aa07-4bab-4f8f-8ffc-c2184f49ce9a",
+  "section": "HAX Lab",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-7a54e617-a1cf-456d-866c-442b200d9e53/index.html",
+  "words": 38,
+  "summary": "Points to the official HAX YouTube channel and an embedded dev playlist.",
+  "elements": [
+   "iframe-loader"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "presentations",
+    "label": "Presentations",
+    "new": false
+   },
+   {
+    "key": "learnhax",
+    "label": "Learn HAX",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 85,
+  "id": "item-e320a3a9-37dd-4847-914c-49d2e84ec49b",
+  "title": "AI integration",
+  "slug": "ai-integration",
+  "order": 0,
+  "parent": null,
+  "parent_id": null,
+  "section": "AI integration",
+  "published": null,
+  "published_raw": null,
+  "hideInMenu": false,
+  "location": "pages/item-e320a3a9-37dd-4847-914c-49d2e84ec49b/index.html",
+  "words": 177,
+  "summary": "AI agent integration: installing hax skills or the PRAW Claude Code marketplace plugins and the golden path to a running site.",
+  "elements": [],
+  "external_link_count": 2,
+  "suspect_links": [
+   "http://localhost"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "agents",
+    "label": "Agent skills",
+    "new": false
+   },
+   {
+    "key": "ai",
+    "label": "AI in HAX",
+    "new": false
+   },
+   {
+    "key": "praw",
+    "label": "PRAW",
+    "new": false
+   },
+   {
+    "key": "cli",
+    "label": "HAX CLI",
+    "new": false
+   }
+  ],
+  "flags": [
+   "top-level page with no published metadata (published unset)"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 86,
+  "id": "item-14b2032a-5465-43dc-b1b3-122e9f09d5e4",
+  "title": "Footer",
+  "slug": "site-things/footer",
+  "order": 1,
+  "parent": "Site things",
+  "parent_id": "item-861b84da-33c7-49e8-bf25-7aa8d9206d3b",
+  "section": "Site things",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-14b2032a-5465-43dc-b1b3-122e9f09d5e4/index.html",
+  "words": 101,
+  "summary": "Site footer mission statement with PSU college logos; site chrome.",
+  "elements": [
+   "grid-plate"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "human",
+    "label": "Humans",
+    "new": false
+   },
+   {
+    "key": "psu",
+    "label": "Penn State",
+    "new": false
+   }
+  ],
+  "flags": [
+   "site chrome"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 87,
+  "id": "item-39d2b3f7-0ebc-43a6-88a3-5c1efd876b25",
+  "title": "Classicpress",
+  "slug": "documentation/integrations/classicpress",
+  "order": 1,
+  "parent": "Integrations",
+  "parent_id": "item-3577db8a-6017-4df6-a2bb-8ecad1a2bbe7",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-39d2b3f7-0ebc-43a6-88a3-5c1efd876b25/index.html",
+  "words": 57,
+  "summary": "Installing HAX into ClassicPress via the WordPress plugin, with video.",
+  "elements": [
+   "video-player"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "cmsintegrations",
+    "label": "CMS integrations (Drupal, WordPress, Backdrop, Grav, ClassicPress)",
+    "new": true
+   },
+   {
+    "key": "agnostic",
+    "label": "Platform agnostic",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 88,
+  "id": "item-d4b650a4-47af-4734-b891-7a6db766ca3e",
+  "title": "HAXcms",
+  "slug": "documentation/haxcms",
+  "order": 1,
+  "parent": "Solutions",
+  "parent_id": "item-e6b422fc-8920-45b1-9068-173399ca50b2",
+  "section": "Solutions",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-d4b650a4-47af-4734-b891-7a6db766ca3e/index.html",
+  "words": 91,
+  "summary": "HAXcms solution overview: databaseless site.json, themes, HAX editor, portable remixable sites.",
+  "elements": [],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "haxcms",
+    "label": "HAXcms",
+    "new": false
+   },
+   {
+    "key": "jos",
+    "label": "JSON Outline Schema",
+    "new": false
+   },
+   {
+    "key": "remixable",
+    "label": "Remixable",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 89,
+  "id": "item-348f69b5-8bbb-4cf8-8eda-26b4141fffa6",
+  "title": "Deploying HAXcms",
+  "slug": "documentation/deploying-haxcms",
+  "order": 1,
+  "parent": "HAXcms",
+  "parent_id": "item-d4b650a4-47af-4734-b891-7a6db766ca3e",
+  "section": "Solutions",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-348f69b5-8bbb-4cf8-8eda-26b4141fffa6/index.html",
+  "words": 612,
+  "summary": "Deploying HAXcms sites: static per save, magic script CDN fallback order, and serving assets locally.",
+  "elements": [],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "deploy",
+    "label": "Deploy targets",
+    "new": false
+   },
+   {
+    "key": "staticpub",
+    "label": "Static export in core",
+    "new": false
+   },
+   {
+    "key": "haxcloud",
+    "label": "HAX.cloud, CDN and magic script",
+    "new": true
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 90,
+  "id": "item-ac8baab4-f493-4fd9-9826-5f79e2e44c03",
+  "title": "Outcomes",
+  "slug": "ontology/page",
+  "order": 1,
+  "parent": "HAX Ontology",
+  "parent_id": "item-b8f8fb5d-b05d-448d-814d-fac40fac14f6",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-ac8baab4-f493-4fd9-9826-5f79e2e44c03/index.html",
+  "words": 53,
+  "summary": "Ontology Outcomes branch: course goals and objectives.",
+  "elements": [
+   "video-player"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "ontology",
+    "label": "HAX course ontology",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 91,
+  "id": "item-5d3a6d3d-fd0d-4075-b9da-4116eefdca0b",
+  "title": "Providing Quality Feedback",
+  "slug": "providing-quality-feedback",
+  "order": 1,
+  "parent": "Gallery of Online Excellence",
+  "parent_id": "item-c8edb5fb-6fa9-4d47-b07f-e030d26c2a9f",
+  "section": "Gallery of Online Excellence",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-5d3a6d3d-fd0d-4075-b9da-4116eefdca0b/index.html",
+  "words": 0,
+  "summary": "Empty Gallery placeholder for providing quality feedback.",
+  "elements": [],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "gallery",
+    "label": "Gallery of Online Excellence",
+    "new": true
+   }
+  ],
+  "flags": [
+   "empty page (0 words)"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 92,
+  "id": "item-54584e9b-9350-45aa-8b4f-cf92272cb53d",
+  "title": "WCFactory",
+  "slug": "documentation/wcfactory",
+  "order": 1,
+  "parent": "Deprecated",
+  "parent_id": "item-680a9a59-5691-424e-8f84-ee9019e39849",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-54584e9b-9350-45aa-8b4f-cf92272cb53d/index.html",
+  "words": 163,
+  "summary": "Deprecated WCFactory page: former monorepo tooling, superseded by the HAX CLI.",
+  "elements": [
+   "stop-note",
+   "video-player"
+  ],
+  "external_link_count": 8,
+  "suspect_links": [
+   "https://github.com/elmsln/lrnwebcomponents",
+   "https://github.com/elmsln/wcfactory",
+   "https://wcfactory.js.org/",
+   "https://webcomponents.org/",
+   "https://www.webcomponents.org/author/elmsln"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "cli",
+    "label": "HAX CLI",
+    "new": false
+   }
+  ],
+  "flags": [
+   "deprecated tooling",
+   "uses old 'npm init @haxtheweb'",
+   "links elmsln/wcfactory, elmsln/lrnwebcomponents, webcomponents.org (retired)",
+   "mentions Yarn/Lerna",
+   "WCFactory is deprecated by the create CLI; drop rather than migrate"
+  ],
+  "stale_or_deprecated": true,
+  "migration": "drop"
+ },
+ {
+  "index": 93,
+  "id": "item-c835c36d-38f5-43ac-9296-0b1be7851ce6",
+  "title": "Developers",
+  "slug": "documentation/developers",
+  "order": 1,
+  "parent": "Documentation",
+  "parent_id": "item-0265920d-6055-404d-a0e6-1ae71c4ce258",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-c835c36d-38f5-43ac-9296-0b1be7851ce6/index.html",
+  "words": 224,
+  "summary": "Developer hub: contributing to the webcomponents monorepo, CLI for new components, backend repos.",
+  "elements": [],
+  "external_link_count": 7,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "cli",
+    "label": "HAX CLI",
+    "new": false
+   },
+   {
+    "key": "github",
+    "label": "GitHub",
+    "new": false
+   }
+  ],
+  "flags": [
+   "yarn-based contribution steps may be outdated"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 94,
+  "id": "item-76c7ae2d-0520-48f6-957c-f4ec9f623736",
+  "title": "Tools",
+  "slug": "documentation/developers/tools",
+  "order": 1,
+  "parent": "Developers",
+  "parent_id": "item-c835c36d-38f5-43ac-9296-0b1be7851ce6",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-76c7ae2d-0520-48f6-957c-f4ec9f623736/index.html",
+  "words": 10,
+  "summary": "Section stub listing developer tools.",
+  "elements": [
+   "site-collection-list"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "cli",
+    "label": "HAX CLI",
+    "new": false
+   }
+  ],
+  "flags": [
+   "near-empty section page"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 95,
+  "id": "item-2ba3a0b9-8b5b-4e3f-bfed-a19c1a5edff3",
+  "title": "@haxtheweb/create",
+  "slug": "documentation/developers/tools/create",
+  "order": 1,
+  "parent": "Tools",
+  "parent_id": "item-76c7ae2d-0520-48f6-957c-f4ec9f623736",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-2ba3a0b9-8b5b-4e3f-bfed-a19c1a5edff3/index.html",
+  "words": 36,
+  "summary": "@haxtheweb/create (HAX CLI) intro with repo/npm links.",
+  "elements": [],
+  "external_link_count": 2,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "cli",
+    "label": "HAX CLI",
+    "new": false
+   },
+   {
+    "key": "npm",
+    "label": "npm",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 96,
+  "id": "item-ad71d26c-8288-4a47-9b38-7e93baa49c53",
+  "title": "WCFactory",
+  "slug": "documentation/developers/tools/wcfactory",
+  "order": 2,
+  "parent": "Tools",
+  "parent_id": "item-76c7ae2d-0520-48f6-957c-f4ec9f623736",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-ad71d26c-8288-4a47-9b38-7e93baa49c53/index.html",
+  "words": 83,
+  "summary": "Second WCFactory page under Tools, recommending the HAX CLI instead.",
+  "elements": [],
+  "external_link_count": 1,
+  "suspect_links": [
+   "https://github.com/haxtheweb/wcfactory"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "cli",
+    "label": "HAX CLI",
+    "new": false
+   }
+  ],
+  "flags": [
+   "duplicate of deprecated WCFactory content",
+   "links haxtheweb/wcfactory",
+   "WCFactory is deprecated by the create CLI; drop rather than migrate"
+  ],
+  "stale_or_deprecated": true,
+  "migration": "drop"
+ },
+ {
+  "index": 97,
+  "id": "item-178875ba-a955-48b5-855a-9e1435d5d840",
+  "title": "Data formats",
+  "slug": "documentation/data-formats",
+  "order": 2,
+  "parent": "Developers",
+  "parent_id": "item-c835c36d-38f5-43ac-9296-0b1be7851ce6",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-178875ba-a955-48b5-855a-9e1435d5d840/index.html",
+  "words": 437,
+  "summary": "Canonical list of authoring/import formats, accepted uploads, and alternate formats generated per save.",
+  "elements": [],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "importers",
+    "label": "Importers",
+    "new": false
+   },
+   {
+    "key": "staticpub",
+    "label": "Static export in core",
+    "new": false
+   },
+   {
+    "key": "haxcms",
+    "label": "HAXcms",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 98,
+  "id": "item-4277ed25-a0ca-414c-a4ca-62e7d093d2f8",
+  "title": "Schema",
+  "slug": "documentation/developers/schema",
+  "order": 3,
+  "parent": "Developers",
+  "parent_id": "item-c835c36d-38f5-43ac-9296-0b1be7851ce6",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-4277ed25-a0ca-414c-a4ca-62e7d093d2f8/index.html",
+  "words": 0,
+  "summary": "Empty Schema section page.",
+  "elements": [],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "haxschema",
+    "label": "HAXSchema",
+    "new": false
+   },
+   {
+    "key": "jos",
+    "label": "JSON Outline Schema",
+    "new": false
+   }
+  ],
+  "flags": [
+   "empty page (0 words)"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 99,
+  "id": "item-1d680323-87f4-4f28-bbd2-7268c9d4e172",
+  "title": "HAXSchema",
+  "slug": "documentation/developers/schema/haxschema",
+  "order": 1,
+  "parent": "Schema",
+  "parent_id": "item-4277ed25-a0ca-414c-a4ca-62e7d093d2f8",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-1d680323-87f4-4f28-bbd2-7268c9d4e172/index.html",
+  "words": 1094,
+  "summary": "Implementing haxProperties/HAXSchema: booleans, design-system flags, gizmo, settings and demoSchema.",
+  "elements": [
+   "code-sample"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "haxschema",
+    "label": "HAXSchema",
+    "new": false
+   },
+   {
+    "key": "editor",
+    "label": "HAX editor",
+    "new": false
+   },
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 100,
+  "id": "item-20addb32-74be-47bb-ab21-a8237d545b07",
+  "title": "JSON Outline Schema",
+  "slug": "documentation/developers/schema/json-outline-schema",
+  "order": 2,
+  "parent": "Schema",
+  "parent_id": "item-4277ed25-a0ca-414c-a4ca-62e7d093d2f8",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-20addb32-74be-47bb-ab21-a8237d545b07/index.html",
+  "words": 24,
+  "summary": "JSON Outline Schema page that renders the spec README from GitHub via md-block.",
+  "elements": [
+   "md-block"
+  ],
+  "external_link_count": 2,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "jos",
+    "label": "JSON Outline Schema",
+    "new": false
+   }
+  ],
+  "flags": [
+   "content depends on remote README render"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 101,
+  "id": "item-eddf89ce-60f6-417b-8295-c0525219c230",
+  "title": "OER Schema",
+  "slug": "documentation/oer-schema",
+  "order": 3,
+  "parent": "Schema",
+  "parent_id": "item-4277ed25-a0ca-414c-a4ca-62e7d093d2f8",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-eddf89ce-60f6-417b-8295-c0525219c230/index.html",
+  "words": 2508,
+  "summary": "Long OER Schema explainer: pedagogical vocabulary extending schema.org and how HAX blocks emit it.",
+  "elements": [],
+  "external_link_count": 19,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "oerschema",
+    "label": "OER Schema",
+    "new": false
+   }
+  ],
+  "flags": [
+   "many http:// namespace URIs (expected for RDF)"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 102,
+  "id": "item-73fd1ab6-ba79-472d-9cc2-7828277a8e27",
+  "title": "OpenAPI",
+  "slug": "documentation/developers/schema/openapi",
+  "order": 4,
+  "parent": "Schema",
+  "parent_id": "item-4277ed25-a0ca-414c-a4ca-62e7d093d2f8",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-73fd1ab6-ba79-472d-9cc2-7828277a8e27/index.html",
+  "words": 28,
+  "summary": "Points to the HAXcms OpenAPI spec in the haxcms-nodejs repo.",
+  "elements": [],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "openapi",
+    "label": "OpenAPI",
+    "new": false
+   },
+   {
+    "key": "nodejs",
+    "label": "HAXcms Node.js",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 103,
+  "id": "item-fbb47697-aa83-4b41-a3b4-ed8f9b2709c7",
+  "title": "HAXEditor",
+  "slug": "documentation/developers/hax",
+  "order": 4,
+  "parent": "Developers",
+  "parent_id": "item-c835c36d-38f5-43ac-9296-0b1be7851ce6",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-fbb47697-aa83-4b41-a3b4-ed8f9b2709c7/index.html",
+  "words": 104,
+  "summary": "HAXEditor developer section intro: i18n, haxProperties, hooks, app store.",
+  "elements": [
+   "site-collection-list"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "editor",
+    "label": "HAX editor",
+    "new": false
+   },
+   {
+    "key": "haxschema",
+    "label": "HAXSchema",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 104,
+  "id": "item-585825f8-7d6a-4cf3-80cd-8fbed78053e6",
+  "title": "haxHooks",
+  "slug": "documentation/developers/hax/haxhooks",
+  "order": 1,
+  "parent": "HAXEditor",
+  "parent_id": "item-fbb47697-aa83-4b41-a3b4-ed8f9b2709c7",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-585825f8-7d6a-4cf3-80cd-8fbed78053e6/index.html",
+  "words": 976,
+  "summary": "haxHooks lifecycle callbacks that let elements supply their own editing behavior, with code links.",
+  "elements": [
+   "code-sample"
+  ],
+  "external_link_count": 15,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "editor",
+    "label": "HAX editor",
+    "new": false
+   },
+   {
+    "key": "haxschema",
+    "label": "HAXSchema",
+    "new": false
+   },
+   {
+    "key": "extensible",
+    "label": "Extensible",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 105,
+  "id": "item-f3c9734c-89d9-41a9-b886-55d782c63114",
+  "title": "Internationalization - i18n",
+  "slug": "documentation/developers/hax/internationalization-i18n",
+  "order": 2,
+  "parent": "HAXEditor",
+  "parent_id": "item-fbb47697-aa83-4b41-a3b4-ed8f9b2709c7",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-f3c9734c-89d9-41a9-b886-55d782c63114/index.html",
+  "words": 286,
+  "summary": "Adding i18n to any web component using I18NMixin and locale JSON files.",
+  "elements": [
+   "code-sample"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "languages",
+    "label": "Languages",
+    "new": false
+   },
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 106,
+  "id": "item-3be9e67a-53cb-4b3a-9f5b-dc0b40cda743",
+  "title": "App store API",
+  "slug": "documentation/developers/hax/app-store-api",
+  "order": 3,
+  "parent": "HAXEditor",
+  "parent_id": "item-fbb47697-aa83-4b41-a3b4-ed8f9b2709c7",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-3be9e67a-53cb-4b3a-9f5b-dc0b40cda743/index.html",
+  "words": 183,
+  "summary": "App Store API overview: apps, stax, blox and autoloader sections.",
+  "elements": [],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "appstore",
+    "label": "App Store schema",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 107,
+  "id": "item-0af79ce5-d4ef-4602-8207-b67c711d8cc7",
+  "title": "stax",
+  "slug": "documentation/developers/hax/app-store-api/stax",
+  "order": 1,
+  "parent": "App store API",
+  "parent_id": "item-3be9e67a-53cb-4b3a-9f5b-dc0b40cda743",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-0af79ce5-d4ef-4602-8207-b67c711d8cc7/index.html",
+  "words": 718,
+  "summary": "Stax templates: sequences of HAXElement schema with a full example lesson.",
+  "elements": [
+   "code-sample"
+  ],
+  "external_link_count": 9,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "appstore",
+    "label": "App Store schema",
+    "new": false
+   },
+   {
+    "key": "haxschema",
+    "label": "HAXSchema",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 108,
+  "id": "item-e26fa70d-3b7b-4523-9779-909bc83b073d",
+  "title": "autoloader",
+  "slug": "documentation/developers/hax/app-store-api/autoloader",
+  "order": 2,
+  "parent": "App store API",
+  "parent_id": "item-3be9e67a-53cb-4b3a-9f5b-dc0b40cda743",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-e26fa70d-3b7b-4523-9779-909bc83b073d/index.html",
+  "words": 399,
+  "summary": "App store autoloader: how HAX loads element definitions after bootstrap.",
+  "elements": [
+   "code-sample"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "appstore",
+    "label": "App Store schema",
+    "new": false
+   },
+   {
+    "key": "editor",
+    "label": "HAX editor",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 109,
+  "id": "item-0e8a3894-a90b-450e-8d15-a5990ac65477",
+  "title": "HAXSite",
+  "slug": "documentation/developers/haxsite",
+  "order": 5,
+  "parent": "Developers",
+  "parent_id": "item-c835c36d-38f5-43ac-9296-0b1be7851ce6",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-0e8a3894-a90b-450e-8d15-a5990ac65477/index.html",
+  "words": 92,
+  "summary": "HAXsite developer section intro: site as a folder, editable when HAXcms is present.",
+  "elements": [
+   "site-collection-list"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "haxcms",
+    "label": "HAXcms",
+    "new": false
+   },
+   {
+    "key": "themes",
+    "label": "Themes",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 110,
+  "id": "item-051fed6a-5558-474b-ad8a-64e35dd9ce0d",
+  "title": "Custom theme development",
+  "slug": "documentation/developers/haxsite/custom-theme-development",
+  "order": 1,
+  "parent": "HAXSite",
+  "parent_id": "item-0e8a3894-a90b-450e-8d15-a5990ac65477",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-051fed6a-5558-474b-ad8a-64e35dd9ce0d/index.html",
+  "words": 806,
+  "summary": "Custom theme development with the HAX CLI, importmaps, and HAXCMSLitElementTheme.",
+  "elements": [
+   "code-sample"
+  ],
+  "external_link_count": 9,
+  "suspect_links": [
+   "https://hax-custom-theme-1.surge.sh/page"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "themes",
+    "label": "Themes",
+    "new": false
+   },
+   {
+    "key": "cli",
+    "label": "HAX CLI",
+    "new": false
+   }
+  ],
+  "flags": [
+   "example links to btopro personal repo and a surge demo"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 111,
+  "id": "item-dec72ecf-71ad-480d-bb4b-105c4c83b676",
+  "title": "Theme blocks",
+  "slug": "documentation/developers/theme-blocks",
+  "order": 2,
+  "parent": "HAXSite",
+  "parent_id": "item-0e8a3894-a90b-450e-8d15-a5990ac65477",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-dec72ecf-71ad-480d-bb4b-105c4c83b676/index.html",
+  "words": 933,
+  "summary": "Catalog of haxcms-elements theme building blocks (active item, menus, regions, query, magic).",
+  "elements": [
+   "code-sample",
+   "media-image"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "themes",
+    "label": "Themes",
+    "new": false
+   },
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 112,
+  "id": "item-680a9a59-5691-424e-8f84-ee9019e39849",
+  "title": "Deprecated",
+  "slug": "documentation/developers/legacy-projects",
+  "order": 6,
+  "parent": "Developers",
+  "parent_id": "item-c835c36d-38f5-43ac-9296-0b1be7851ce6",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-680a9a59-5691-424e-8f84-ee9019e39849/index.html",
+  "words": 0,
+  "summary": "Empty 'Deprecated' section parent (holds ELMS:LN and WCFactory).",
+  "elements": [],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "elmsln",
+    "label": "ELMS:LN",
+    "new": false
+   }
+  ],
+  "flags": [
+   "empty page (0 words)",
+   "WCFactory is deprecated by the create CLI; drop rather than migrate"
+  ],
+  "stale_or_deprecated": false,
+  "migration": "drop"
+ },
+ {
+  "index": 113,
+  "id": "item-76e43829-027c-481b-8b39-5d215b2b9670",
+  "title": "Column layout",
+  "slug": "tutorials/block-usage/layout/column-layout",
+  "order": 1,
+  "parent": "Layout",
+  "parent_id": "item-fd8d0496-8026-4f47-bd7f-8182e32cda98",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-76e43829-027c-481b-8b39-5d215b2b9670/index.html",
+  "words": 106,
+  "summary": "Column layout (grid-plate) block for side-by-side content.",
+  "elements": [
+   "grid-plate",
+   "media-image",
+   "video-player"
+  ],
+  "external_link_count": 2,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "ddd",
+    "label": "DDD",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 114,
+  "id": "item-50802aa4-f49e-4207-98d2-7ef3745568fc",
+  "title": "Block usage",
+  "slug": "tutorials/block-usage",
+  "order": 1,
+  "parent": "Tutorials",
+  "parent_id": "item-903151c6-bd94-4bbb-9335-4649de2f9445",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-50802aa4-f49e-4207-98d2-7ef3745568fc/index.html",
+  "words": 101,
+  "summary": "Block usage catalog grouping documented block tutorials by category.",
+  "elements": [],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "learnhax",
+    "label": "Learn HAX",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 115,
+  "id": "item-2fdd27a1-190a-47c8-8192-910bc1afe0f5",
+  "title": "Multimedia",
+  "slug": "tutorials/block-usage/multimedia",
+  "order": 1,
+  "parent": "Block usage",
+  "parent_id": "item-50802aa4-f49e-4207-98d2-7ef3745568fc",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-2fdd27a1-190a-47c8-8192-910bc1afe0f5/index.html",
+  "words": 10,
+  "summary": "Section stub for multimedia blocks.",
+  "elements": [],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   }
+  ],
+  "flags": [
+   "near-empty section page"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 116,
+  "id": "item-225b6f65-9b18-4960-9ae8-7dd9face20a7",
+  "title": "GIF player",
+  "slug": "tutorials/block-usage/multimedia/gif-player",
+  "order": 1,
+  "parent": "Multimedia",
+  "parent_id": "item-2fdd27a1-190a-47c8-8192-910bc1afe0f5",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-225b6f65-9b18-4960-9ae8-7dd9face20a7/index.html",
+  "words": 160,
+  "summary": "Accessible GIF player that stops auto-play to reduce motion issues.",
+  "elements": [
+   "a11y-gif-player",
+   "grid-plate"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "accessible",
+    "label": "Accessible",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 117,
+  "id": "item-8c122112-a265-4ef1-8968-1f12423da119",
+  "title": "Inline audio",
+  "slug": "tutorials/block-usage/multimedia/inline-audio",
+  "order": 2,
+  "parent": "Multimedia",
+  "parent_id": "item-2fdd27a1-190a-47c8-8192-910bc1afe0f5",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-8c122112-a265-4ef1-8968-1f12423da119/index.html",
+  "words": 102,
+  "summary": "Inline audio block that highlights text while audio plays.",
+  "elements": [
+   "inline-audio",
+   "video-player"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 118,
+  "id": "item-b1cf2586-d6a6-44b7-ba16-82fdfee99f01",
+  "title": "Video player",
+  "slug": "tutorials/block-usage/video-player",
+  "order": 3,
+  "parent": "Multimedia",
+  "parent_id": "item-2fdd27a1-190a-47c8-8192-910bc1afe0f5",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-b1cf2586-d6a6-44b7-ba16-82fdfee99f01/index.html",
+  "words": 61,
+  "summary": "Video player block: YouTube/Vimeo/mp4, VTT captions and transcripts, a11y colors.",
+  "elements": [
+   "video-player"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "accessible",
+    "label": "Accessible",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 119,
+  "id": "item-19d6c02e-bc9d-4ac1-9533-eead6694cb88",
+  "title": "Media playlist",
+  "slug": "tutorials/block-usage/multimedia/media-playlist",
+  "order": 4,
+  "parent": "Multimedia",
+  "parent_id": "item-2fdd27a1-190a-47c8-8192-910bc1afe0f5",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-19d6c02e-bc9d-4ac1-9533-eead6694cb88/index.html",
+  "words": 23,
+  "summary": "Media playlist container with sidebar for video and audio.",
+  "elements": [
+   "media-playlist",
+   "video-player"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 120,
+  "id": "item-903f8138-ab5a-4ef0-bf7a-7f23480f5223",
+  "title": "Image gallery",
+  "slug": "tutorials/block-usage/multimedia/image-gallery",
+  "order": 5,
+  "parent": "Multimedia",
+  "parent_id": "item-2fdd27a1-190a-47c8-8192-910bc1afe0f5",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-903f8138-ab5a-4ef0-bf7a-7f23480f5223/index.html",
+  "words": 24,
+  "summary": "Image gallery block with grid, masonry and lightbox layouts.",
+  "elements": [
+   "image-gallery"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 121,
+  "id": "item-fd8d0496-8026-4f47-bd7f-8182e32cda98",
+  "title": "Layout",
+  "slug": "tutorials/block-usage/layout",
+  "order": 2,
+  "parent": "Block usage",
+  "parent_id": "item-50802aa4-f49e-4207-98d2-7ef3745568fc",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-fd8d0496-8026-4f47-bd7f-8182e32cda98/index.html",
+  "words": 9,
+  "summary": "Section stub for layout blocks.",
+  "elements": [
+   "site-collection-list"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   }
+  ],
+  "flags": [
+   "near-empty section page"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 122,
+  "id": "item-ed31d08a-a26c-4357-a2a5-249705a63b81",
+  "title": "Learning Component",
+  "slug": "tutorials/block-usage/layout/page",
+  "order": 2,
+  "parent": "Layout",
+  "parent_id": "item-fd8d0496-8026-4f47-bd7f-8182e32cda98",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-ed31d08a-a26c-4357-a2a5-249705a63b81/index.html",
+  "words": 144,
+  "summary": "Learning Component block for flagging course activities (discussion, reading, etc.).",
+  "elements": [
+   "learning-component"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 123,
+  "id": "item-6527bda6-5e79-4530-a7b2-1c8885bcd89e",
+  "title": "Play list",
+  "slug": "tutorials/block-usage/layout/play-list",
+  "order": 3,
+  "parent": "Layout",
+  "parent_id": "item-fd8d0496-8026-4f47-bd7f-8182e32cda98",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-6527bda6-5e79-4530-a7b2-1c8885bcd89e/index.html",
+  "words": 20,
+  "summary": "Play list block: slider/slideshow of images and blocks.",
+  "elements": [
+   "play-list"
+  ],
+  "external_link_count": 2,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "components",
+    "label": "Web components",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 124,
+  "id": "item-903151c6-bd94-4bbb-9335-4649de2f9445",
+  "title": "Tutorials",
+  "slug": "tutorials",
+  "order": 1,
+  "parent": null,
+  "parent_id": null,
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-903151c6-bd94-4bbb-9335-4649de2f9445/index.html",
+  "words": 46,
+  "summary": "Tutorials landing page with a full YouTube tutorial playlist.",
+  "elements": [],
+  "external_link_count": 4,
+  "suspect_links": [
+   "https://github.com/elmsln/issues/issues"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "learnhax",
+    "label": "Learn HAX",
+    "new": false
+   },
+   {
+    "key": "flows",
+    "label": "Step by step",
+    "new": false
+   }
+  ],
+  "flags": [
+   "links to elmsln/issues (moved to haxtheweb/issues)"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 125,
+  "id": "item-aae73811-4bb1-44ba-9215-05c90b9f9007",
+  "title": "Migrate data to HAX",
+  "slug": "tutorials/migrate-data-to-hax",
+  "order": 2,
+  "parent": "Tutorials",
+  "parent_id": "item-903151c6-bd94-4bbb-9335-4649de2f9445",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-aae73811-4bb1-44ba-9215-05c90b9f9007/index.html",
+  "words": 538,
+  "summary": "Migration paths into HAX: DOCX, HAX-to-HAX, Notion, and other JOS-producing sources, with videos.",
+  "elements": [
+   "stop-note",
+   "video-player",
+   "worksheet-download"
+  ],
+  "external_link_count": 5,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "importers",
+    "label": "Importers",
+    "new": false
+   },
+   {
+    "key": "jos",
+    "label": "JSON Outline Schema",
+    "new": false
+   },
+   {
+    "key": "remixable",
+    "label": "Remixable",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 126,
+  "id": "item-3e882dd4-4f71-4035-9ea0-26d840853c29",
+  "title": "Managing Course Structure",
+  "slug": "tutorials/page-1",
+  "order": 3,
+  "parent": "Tutorials",
+  "parent_id": "item-903151c6-bd94-4bbb-9335-4649de2f9445",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-3e882dd4-4f71-4035-9ea0-26d840853c29/index.html",
+  "words": 33,
+  "summary": "Short description of the outline designer for bulk outline management.",
+  "elements": [],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "haxcms",
+    "label": "HAXcms",
+    "new": false
+   },
+   {
+    "key": "dashboard",
+    "label": "Site dashboard",
+    "new": false
+   },
+   {
+    "key": "outlinedesigner",
+    "label": "Outline designer",
+    "new": true
+   }
+  ],
+  "flags": [
+   "very thin for a mission-critical tool"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 127,
+  "id": "item-ca6807b1-e87c-4cb5-989c-cb4331b5d031",
+  "title": "Reports",
+  "slug": "tutorials/insights-dashboard",
+  "order": 4,
+  "parent": "Tutorials",
+  "parent_id": "item-903151c6-bd94-4bbb-9335-4649de2f9445",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-ca6807b1-e87c-4cb5-989c-cb4331b5d031/index.html",
+  "words": 24,
+  "summary": "Reports (beta) such as automated link checking, with video.",
+  "elements": [
+   "video-player"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "dashboard",
+    "label": "Site dashboard",
+    "new": false
+   }
+  ],
+  "flags": [
+   "labelled beta; verify current state"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 128,
+  "id": "item-a0df2b69-d4d1-4b7e-9f67-90c217be262e",
+  "title": "Changelog",
+  "slug": "tutorials/changelog",
+  "order": 5,
+  "parent": "Tutorials",
+  "parent_id": "item-903151c6-bd94-4bbb-9335-4649de2f9445",
+  "section": "Tutorials",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-a0df2b69-d4d1-4b7e-9f67-90c217be262e/index.html",
+  "words": 126,
+  "summary": "Changelog pointing to release feeds for each ecosystem repo.",
+  "elements": [],
+  "external_link_count": 6,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "github",
+    "label": "GitHub",
+    "new": false
+   },
+   {
+    "key": "npm",
+    "label": "npm",
+    "new": false
+   },
+   {
+    "key": "issues",
+    "label": "Issue queue",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 129,
+  "id": "item-fe822500-0630-46b5-98d3-ede409e5b063",
+  "title": "HAX The Whole Web",
+  "slug": "hax-the-whole-web",
+  "order": 1,
+  "parent": "HAX Lab",
+  "parent_id": "item-cd65aa07-4bab-4f8f-8ffc-c2184f49ce9a",
+  "section": "HAX Lab",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-fe822500-0630-46b5-98d3-ede409e5b063/index.html",
+  "words": 212,
+  "summary": "HAX The Whole Web: 5-step process for contributing use-case skeletons via tagged issues.",
+  "elements": [],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "skeletons",
+    "label": "Skeletons",
+    "new": false
+   },
+   {
+    "key": "issues",
+    "label": "Issue queue",
+    "new": false
+   },
+   {
+    "key": "community",
+    "label": "Community and contributing",
+    "new": true
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 130,
+  "id": "item-40583b55-32bf-40c7-8e81-99c054b9a764",
+  "title": "Pedagogy",
+  "slug": "ontology/new-item",
+  "order": 2,
+  "parent": "HAX Ontology",
+  "parent_id": "item-b8f8fb5d-b05d-448d-814d-fac40fac14f6",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-40583b55-32bf-40c7-8e81-99c054b9a764/index.html",
+  "words": 35,
+  "summary": "Ontology Pedagogy branch with intro video.",
+  "elements": [
+   "simple-tags",
+   "video-player"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "ontology",
+    "label": "HAX course ontology",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 131,
+  "id": "item-0265920d-6055-404d-a0e6-1ae71c4ce258",
+  "title": "Documentation",
+  "slug": "documentation",
+  "order": 2,
+  "parent": null,
+  "parent_id": null,
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-0265920d-6055-404d-a0e6-1ae71c4ce258/index.html",
+  "words": 70,
+  "summary": "Documentation landing page with section listing and request-for-improvements note.",
+  "elements": [
+   "site-collection-list",
+   "stop-note"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [
+   "https://wcfactory.js.org/"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "learnhax",
+    "label": "Learn HAX",
+    "new": false
+   }
+  ],
+  "flags": [
+   "mentions wcfactory.js.org (deprecated)"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 132,
+  "id": "item-3577db8a-6017-4df6-a2bb-8ecad1a2bbe7",
+  "title": "Integrations",
+  "slug": "documentation/haxcms/integrations",
+  "order": 2,
+  "parent": "Documentation",
+  "parent_id": "item-0265920d-6055-404d-a0e6-1ae71c4ce258",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-3577db8a-6017-4df6-a2bb-8ecad1a2bbe7/index.html",
+  "words": 493,
+  "summary": "Integration methodology via the magic script, unbundled-webcomponents, and a WordPress code sample.",
+  "elements": [
+   "code-sample"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [
+   "https://github.com/elmsln/hax-all-the-things"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "cmsintegrations",
+    "label": "CMS integrations (Drupal, WordPress, Backdrop, Grav, ClassicPress)",
+    "new": true
+   },
+   {
+    "key": "agnostic",
+    "label": "Platform agnostic",
+    "new": false
+   },
+   {
+    "key": "haxcloud",
+    "label": "HAX.cloud, CDN and magic script",
+    "new": true
+   }
+  ],
+  "flags": [
+   "links elmsln/hax-all-the-things (old org)"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 133,
+  "id": "item-8477c368-ebc7-403d-b576-5d1c450a629c",
+  "title": "Drupal",
+  "slug": "documentation/haxcms/integrations/drupal",
+  "order": 2,
+  "parent": "Integrations",
+  "parent_id": "item-3577db8a-6017-4df6-a2bb-8ecad1a2bbe7",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-8477c368-ebc7-403d-b576-5d1c450a629c/index.html",
+  "words": 269,
+  "summary": "Installing HAX in Drupal 6-9 including SimplyTest.me trial.",
+  "elements": [],
+  "external_link_count": 5,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "cmsintegrations",
+    "label": "CMS integrations (Drupal, WordPress, Backdrop, Grav, ClassicPress)",
+    "new": true
+   },
+   {
+    "key": "agnostic",
+    "label": "Platform agnostic",
+    "new": false
+   },
+   {
+    "key": "drupalcon",
+    "label": "DrupalCon",
+    "new": false
+   }
+  ],
+  "flags": [
+   "covers Drupal 6/7/8/9 only (EOL versions; no 10/11)"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 134,
+  "id": "item-12563166-de6a-42ed-baa6-9d9f694e8312",
+  "title": "GravCMS",
+  "slug": "documentation/integrations/gravcms",
+  "order": 3,
+  "parent": "Integrations",
+  "parent_id": "item-3577db8a-6017-4df6-a2bb-8ecad1a2bbe7",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-12563166-de6a-42ed-baa6-9d9f694e8312/index.html",
+  "words": 77,
+  "summary": "Installing HAX in GravCMS via web components and HAX plugins.",
+  "elements": [],
+  "external_link_count": 2,
+  "suspect_links": [
+   "https://github.com/elmsln/grav-plugin-hax",
+   "https://github.com/elmsln/grav-plugin-webcomponents"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "cmsintegrations",
+    "label": "CMS integrations (Drupal, WordPress, Backdrop, Grav, ClassicPress)",
+    "new": true
+   },
+   {
+    "key": "agnostic",
+    "label": "Platform agnostic",
+    "new": false
+   }
+  ],
+  "flags": [
+   "plugins under elmsln org (possibly unmaintained)"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 135,
+  "id": "item-9ffa23ac-c130-4a0c-92ee-481698e444a0",
+  "title": "Wordpress",
+  "slug": "documentation/integrations/wordpress",
+  "order": 4,
+  "parent": "Integrations",
+  "parent_id": "item-3577db8a-6017-4df6-a2bb-8ecad1a2bbe7",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-9ffa23ac-c130-4a0c-92ee-481698e444a0/index.html",
+  "words": 61,
+  "summary": "Installing HAX in WordPress with the Classic Editor plugin.",
+  "elements": [],
+  "external_link_count": 2,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "cmsintegrations",
+    "label": "CMS integrations (Drupal, WordPress, Backdrop, Grav, ClassicPress)",
+    "new": true
+   },
+   {
+    "key": "agnostic",
+    "label": "Platform agnostic",
+    "new": false
+   }
+  ],
+  "flags": [
+   "requires Classic Editor; verify plugin still current"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 136,
+  "id": "item-b8f8fb5d-b05d-448d-814d-fac40fac14f6",
+  "title": "HAX Ontology",
+  "slug": "ontology",
+  "order": 3,
+  "parent": "Documentation",
+  "parent_id": "item-0265920d-6055-404d-a0e6-1ae71c4ce258",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-b8f8fb5d-b05d-448d-814d-fac40fac14f6/index.html",
+  "words": 267,
+  "summary": "HAX course ontology overview with tour video and Mural board.",
+  "elements": [
+   "media-image",
+   "simple-tags",
+   "video-player"
+  ],
+  "external_link_count": 2,
+  "suspect_links": [
+   "https://app.mural.co/t/haxontologybrainstorming9982/m/haxontologybrainstorming9982/1684334263810/10186fdd1de1d49a815bb0d9b2ab038c8b1f0452?sender=u10618842d88862cf78977038"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "ontology",
+    "label": "HAX course ontology",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [
+   "Mural board link may require access"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 137,
+  "id": "item-42b47c5a-8ad2-4507-bef1-0488c65cc54a",
+  "title": "Structure",
+  "slug": "ontology/page-1",
+  "order": 3,
+  "parent": "HAX Ontology",
+  "parent_id": "item-b8f8fb5d-b05d-448d-814d-fac40fac14f6",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-42b47c5a-8ad2-4507-bef1-0488c65cc54a/index.html",
+  "words": 39,
+  "summary": "Ontology Structure branch: units, lessons, sub-lessons.",
+  "elements": [
+   "simple-tags",
+   "video-player"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "ontology",
+    "label": "HAX course ontology",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 138,
+  "id": "item-23eb212e-a523-4d7b-862a-0a00cb786321",
+  "title": "Instruction",
+  "slug": "ontology/page-3",
+  "order": 4,
+  "parent": "HAX Ontology",
+  "parent_id": "item-b8f8fb5d-b05d-448d-814d-fac40fac14f6",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-23eb212e-a523-4d7b-862a-0a00cb786321/index.html",
+  "words": 50,
+  "summary": "Ontology Instruction branch: Adler's modes and learning progression.",
+  "elements": [
+   "a11y-media-play-button",
+   "a11y-media-player",
+   "simple-tags",
+   "video-player"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "ontology",
+    "label": "HAX course ontology",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 139,
+  "id": "item-d57321c6-4106-45ec-89a4-8ebdf0af67f2",
+  "title": "Content",
+  "slug": "ontology/page-2",
+  "order": 5,
+  "parent": "HAX Ontology",
+  "parent_id": "item-b8f8fb5d-b05d-448d-814d-fac40fac14f6",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-d57321c6-4106-45ec-89a4-8ebdf0af67f2/index.html",
+  "words": 57,
+  "summary": "Ontology Content branch: classifying content by structure and learner progress.",
+  "elements": [
+   "simple-tags",
+   "video-player"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "ontology",
+    "label": "HAX course ontology",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 140,
+  "id": "item-f37eeda2-e9b9-4039-84d5-f983ece1a6e5",
+  "title": "Assessment",
+  "slug": "ontology/page-4",
+  "order": 6,
+  "parent": "HAX Ontology",
+  "parent_id": "item-b8f8fb5d-b05d-448d-814d-fac40fac14f6",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-f37eeda2-e9b9-4039-84d5-f983ece1a6e5/index.html",
+  "words": 34,
+  "summary": "Ontology Assessment branch by stakes level.",
+  "elements": [
+   "simple-tags",
+   "video-player"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "ontology",
+    "label": "HAX course ontology",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 141,
+  "id": "item-9cdc0d02-056e-4171-ac0a-207fb3dd6678",
+  "title": "Text Schema",
+  "slug": "documentation/ontology/text-schema",
+  "order": 7,
+  "parent": "HAX Ontology",
+  "parent_id": "item-b8f8fb5d-b05d-448d-814d-fac40fac14f6",
+  "section": "Documentation",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-9cdc0d02-056e-4171-ac0a-207fb3dd6678/index.html",
+  "words": 436,
+  "summary": "Text hierarchy of the ontology (UbD, WHERETO, six facets) for LLM use.",
+  "elements": [],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "ontology",
+    "label": "HAX course ontology",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   },
+   {
+    "key": "ai",
+    "label": "AI in HAX",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 142,
+  "id": "item-3af50499-d450-4068-b2d2-5893283d0e27",
+  "title": "Footer - bottom",
+  "slug": "site-things/footer-bottom",
+  "order": 2,
+  "parent": "Site things",
+  "parent_id": "item-861b84da-33c7-49e8-bf25-7aa8d9206d3b",
+  "section": "Site things",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-3af50499-d450-4068-b2d2-5893283d0e27/index.html",
+  "words": 13,
+  "summary": "Bottom footer with PSU copyright and policy links; site chrome.",
+  "elements": [],
+  "external_link_count": 6,
+  "suspect_links": [
+   "http://guru.psu.edu/policies/AD85.html",
+   "http://guru.psu.edu/policies/OHR/hr11.html"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "psu",
+    "label": "Penn State",
+    "new": false
+   }
+  ],
+  "flags": [
+   "site chrome",
+   "copyright 2024",
+   "http:// PSU policy links"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 143,
+  "id": "item-80c5b6c1-cbe0-4955-b80e-b2acccf7a3fe",
+  "title": "HAXiam",
+  "slug": "solutions/haxiam",
+  "order": 2,
+  "parent": "Solutions",
+  "parent_id": "item-e6b422fc-8920-45b1-9068-173399ca50b2",
+  "section": "Solutions",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-80c5b6c1-cbe0-4955-b80e-b2acccf7a3fe/index.html",
+  "words": 146,
+  "summary": "HAXiam solution overview: multi-user PaaS/SaaS on HAXcms PHP with enterprise login.",
+  "elements": [],
+  "external_link_count": 1,
+  "suspect_links": [
+   "https://github.com/elmsln/HAXiam/"
+  ],
+  "mapped_nodes": [
+   {
+    "key": "haxiam",
+    "label": "HAXiam",
+    "new": false
+   },
+   {
+    "key": "php",
+    "label": "HAXcms PHP",
+    "new": false
+   }
+  ],
+  "flags": [
+   "links github.com/elmsln/HAXiam (old org)"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 144,
+  "id": "item-2eccc2a9-90b2-4dab-a4cb-f36bc45bc0ff",
+  "title": "Study Guide Approaches",
+  "slug": "study-guide-approaches",
+  "order": 2,
+  "parent": "Gallery of Online Excellence",
+  "parent_id": "item-c8edb5fb-6fa9-4d47-b07f-e030d26c2a9f",
+  "section": "Gallery of Online Excellence",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-2eccc2a9-90b2-4dab-a4cb-f36bc45bc0ff/index.html",
+  "words": 0,
+  "summary": "Empty Gallery placeholder for study guide approaches.",
+  "elements": [],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "gallery",
+    "label": "Gallery of Online Excellence",
+    "new": true
+   }
+  ],
+  "flags": [
+   "empty page (0 words)"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 145,
+  "id": "item-e3d2082f-7243-4cc4-83c9-f08fe2857f43",
+  "title": "Student Innovation Pipeline",
+  "slug": "hax-lab/student-innovation-pipeline",
+  "order": 2,
+  "parent": "HAX Lab",
+  "parent_id": "item-cd65aa07-4bab-4f8f-8ffc-c2184f49ce9a",
+  "section": "HAX Lab",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-e3d2082f-7243-4cc4-83c9-f08fe2857f43/index.html",
+  "words": 244,
+  "summary": "Student innovation pipeline from IST 256 / HAX The Club into HAX Lab internships and PSU web work.",
+  "elements": [
+   "grid-plate",
+   "media-image"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "haxlab",
+    "label": "HAX Lab",
+    "new": false
+   },
+   {
+    "key": "ist256",
+    "label": "IST 256",
+    "new": false
+   },
+   {
+    "key": "ist",
+    "label": "IST",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 146,
+  "id": "item-b55b41d1-00b6-4add-9942-6d706a4fb14f",
+  "title": "HAX AI",
+  "slug": "hax-lab/hax-ai",
+  "order": 3,
+  "parent": "HAX Lab",
+  "parent_id": "item-cd65aa07-4bab-4f8f-8ffc-c2184f49ce9a",
+  "section": "HAX Lab",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-b55b41d1-00b6-4add-9942-6d706a4fb14f/index.html",
+  "words": 50,
+  "summary": "Penn State Data Summit 2025 talk on AI with HAX, including teaching Claude the HAX CLI.",
+  "elements": [
+   "iframe-loader"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "ai",
+    "label": "AI in HAX",
+    "new": false
+   },
+   {
+    "key": "agents",
+    "label": "Agent skills",
+    "new": false
+   },
+   {
+    "key": "fusco",
+    "label": "Dave Fusco",
+    "new": false
+   },
+   {
+    "key": "presentations",
+    "label": "Presentations",
+    "new": false
+   }
+  ],
+  "flags": [
+   "Kaltura embed (PSU-hosted)"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 147,
+  "id": "item-2b292b5e-6eb5-4031-9c82-7f3b7f87b236",
+  "title": "HAXSite",
+  "slug": "solutions/haxsite",
+  "order": 3,
+  "parent": "Solutions",
+  "parent_id": "item-e6b422fc-8920-45b1-9068-173399ca50b2",
+  "section": "Solutions",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-2b292b5e-6eb5-4031-9c82-7f3b7f87b236/index.html",
+  "words": 68,
+  "summary": "HAXsite as a standalone site and a starter repo, publishing via GitHub + StackBlitz.",
+  "elements": [
+   "video-player"
+  ],
+  "external_link_count": 3,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "haxcms",
+    "label": "HAXcms",
+    "new": false
+   },
+   {
+    "key": "deploy",
+    "label": "Deploy targets",
+    "new": false
+   },
+   {
+    "key": "github",
+    "label": "GitHub",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 148,
+  "id": "item-e6b422fc-8920-45b1-9068-173399ca50b2",
+  "title": "Solutions",
+  "slug": "solutions",
+  "order": 3,
+  "parent": null,
+  "parent_id": null,
+  "section": "Solutions",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-e6b422fc-8920-45b1-9068-173399ca50b2/index.html",
+  "words": 5,
+  "summary": "Solutions section landing page.",
+  "elements": [
+   "site-collection-list"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "ubiquity",
+    "label": "Ubiquity",
+    "new": false
+   }
+  ],
+  "flags": [
+   "near-empty section page"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 149,
+  "id": "item-a9fbc83f-b923-4af7-b998-5da6864a527a",
+  "title": "@haxtheweb/h-a-x",
+  "slug": "solutions/h-a-x",
+  "order": 4,
+  "parent": "Solutions",
+  "parent_id": "item-e6b422fc-8920-45b1-9068-173399ca50b2",
+  "section": "Solutions",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-a9fbc83f-b923-4af7-b998-5da6864a527a/index.html",
+  "words": 73,
+  "summary": "h-a-x standalone editor tag and its integrations/storybook.",
+  "elements": [
+   "code-sample"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "editor",
+    "label": "HAX editor",
+    "new": false
+   },
+   {
+    "key": "agnostic",
+    "label": "Platform agnostic",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 150,
+  "id": "item-7607700d-d318-4479-a588-837ea13ecd8b",
+  "title": "Guided Practice",
+  "slug": "guided-practice",
+  "order": 3,
+  "parent": "Gallery of Online Excellence",
+  "parent_id": "item-c8edb5fb-6fa9-4d47-b07f-e030d26c2a9f",
+  "section": "Gallery of Online Excellence",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-7607700d-d318-4479-a588-837ea13ecd8b/index.html",
+  "words": 0,
+  "summary": "Empty Gallery placeholder for guided practice.",
+  "elements": [],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "gallery",
+    "label": "Gallery of Online Excellence",
+    "new": true
+   }
+  ],
+  "flags": [
+   "empty page (0 words)"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 151,
+  "id": "item-f44c0f01-32e2-4e61-b965-3b24778abba0",
+  "title": "The Future",
+  "slug": "the-future",
+  "order": 4,
+  "parent": "HAX Lab",
+  "parent_id": "item-cd65aa07-4bab-4f8f-8ffc-c2184f49ce9a",
+  "section": "HAX Lab",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-f44c0f01-32e2-4e61-b965-3b24778abba0/index.html",
+  "words": 180,
+  "summary": "HAX Horizon Reports concept and the October 2023 horizon video.",
+  "elements": [
+   "media-image",
+   "video-player"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "traveler",
+    "label": "HAX Future Traveler",
+    "new": false
+   },
+   {
+    "key": "wcstandard",
+    "label": "Web component standard",
+    "new": false
+   },
+   {
+    "key": "presentations",
+    "label": "Presentations",
+    "new": false
+   }
+  ],
+  "flags": [
+   "latest horizon report is Oct 2023"
+  ],
+  "stale_or_deprecated": true
+ },
+ {
+  "index": 152,
+  "id": "item-8ec9cf78-ab0c-42ec-abee-7c906be0a487",
+  "title": "ODL Course Showcase",
+  "slug": "odl-course-showcase",
+  "order": 4,
+  "parent": "Gallery of Online Excellence",
+  "parent_id": "item-c8edb5fb-6fa9-4d47-b07f-e030d26c2a9f",
+  "section": "Gallery of Online Excellence",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-8ec9cf78-ab0c-42ec-abee-7c906be0a487/index.html",
+  "words": 0,
+  "summary": "Gallery placeholder holding only an ODL course showcase video.",
+  "elements": [
+   "video-player"
+  ],
+  "external_link_count": 1,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "gallery",
+    "label": "Gallery of Online Excellence",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [
+   "no text (0 words)"
+  ],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 153,
+  "id": "item-c8edb5fb-6fa9-4d47-b07f-e030d26c2a9f",
+  "title": "Gallery of Online Excellence",
+  "slug": "the-gallery-of-online-excellence",
+  "order": 4,
+  "parent": null,
+  "parent_id": null,
+  "section": "Gallery of Online Excellence",
+  "published": true,
+  "published_raw": "1",
+  "hideInMenu": false,
+  "location": "pages/item-c8edb5fb-6fa9-4d47-b07f-e030d26c2a9f/index.html",
+  "words": 76,
+  "summary": "Gallery of Online Excellence landing: research-based faculty resources shown through exemplars.",
+  "elements": [
+   "collection-item",
+   "collection-list"
+  ],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "gallery",
+    "label": "Gallery of Online Excellence",
+    "new": true
+   },
+   {
+    "key": "course",
+    "label": "Course",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 154,
+  "id": "item-cd65aa07-4bab-4f8f-8ffc-c2184f49ce9a",
+  "title": "HAX Lab",
+  "slug": "hax-lab",
+  "order": 5,
+  "parent": null,
+  "parent_id": null,
+  "section": "HAX Lab",
+  "published": true,
+  "published_raw": true,
+  "hideInMenu": false,
+  "location": "pages/item-cd65aa07-4bab-4f8f-8ffc-c2184f49ce9a/index.html",
+  "words": 671,
+  "summary": "HAX Lab: faculty sponsors, how students join, and student contributors.",
+  "elements": [
+   "github-rpg-contributors",
+   "grid-plate",
+   "rpg-character"
+  ],
+  "external_link_count": 62,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "haxlab",
+    "label": "HAX Lab",
+    "new": false
+   },
+   {
+    "key": "bryan",
+    "label": "Bryan Ollendyke",
+    "new": false
+   },
+   {
+    "key": "fusco",
+    "label": "Dave Fusco",
+    "new": false
+   }
+  ],
+  "flags": [],
+  "stale_or_deprecated": false
+ },
+ {
+  "index": 155,
+  "id": "item-861b84da-33c7-49e8-bf25-7aa8d9206d3b",
+  "title": "Site things",
+  "slug": "site-things",
+  "order": 6,
+  "parent": null,
+  "parent_id": null,
+  "section": "Site things",
+  "published": false,
+  "published_raw": false,
+  "hideInMenu": false,
+  "location": "pages/item-861b84da-33c7-49e8-bf25-7aa8d9206d3b/index.html",
+  "words": 0,
+  "summary": "Unpublished container for site chrome pages (header/footer).",
+  "elements": [],
+  "external_link_count": 0,
+  "suspect_links": [],
+  "mapped_nodes": [
+   {
+    "key": "themes",
+    "label": "Themes",
+    "new": false
+   }
+  ],
+  "flags": [
+   "unpublished",
+   "empty page (0 words)"
+  ],
+  "stale_or_deprecated": false
+ }
+]

@@ -5,6 +5,11 @@ header, stepper, variant switch, toggles, brief and review panels and renders fr
 the steps, base images and proposed regions are yours to write. The fidelity check reads the markers below, so use
 them exactly.
 
+`body` carries `data-variant` (`desktop-light`, `mobile-dark`, …). A proposal that must follow the
+selected variant rather than the viewer's own theme sets `color-scheme` from it, for example
+`body[data-variant$="dark"] .slot { color-scheme: dark; }`, so `light-dark()` inside the proposed
+element matches the base capture.
+
 ## Files
 
 ```

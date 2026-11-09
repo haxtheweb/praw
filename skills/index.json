@@ -286,9 +286,9 @@
     {
       "name": "hax-testing",
       "type": "skill-md",
-      "description": "Find and run the right tests per HAX repo and write the test for a new endpoint. Use before opening any PR in haxcms-nodejs, haxcms-php or webcomponents, or when asked how to test a backend or element change.",
+      "description": "Find and run the right tests per HAX repo, write the test for a new endpoint, and write or replay fuzz (fast-check property) tests. Use before opening any PR in haxcms-nodejs, haxcms-php, webcomponents or create, when asked how to test a backend or element change, or when fuzzing, property-based testing, seeds or test:fuzz come up.",
       "url": "hax-testing/SKILL.md",
-      "digest": "sha256:85a70a156a1b0674b137b30c1d99db51a069725959ff519ba96096825e2f7fc3"
+      "digest": "sha256:51b358a9baeb4001a54c8e13c6b7e5f54e34249fa6864fdee5bbc1dca2383340"
     },
     {
       "name": "hax-theme-builder",

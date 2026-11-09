@@ -1,12 +1,12 @@
 ---
 name: hax-testing
-description: "Find and run the right tests per HAX repo and write the test for a new endpoint. Use before opening any PR in haxcms-nodejs, haxcms-php or webcomponents, or when asked how to test a backend or element change."
-version: 1.0.0
+description: "Find and run the right tests per HAX repo, write the test for a new endpoint, and write or replay fuzz (fast-check property) tests. Use before opening any PR in haxcms-nodejs, haxcms-php, webcomponents or create, when asked how to test a backend or element change, or when fuzzing, property-based testing, seeds or test:fuzz come up."
+version: 1.1.0
 license: Apache-2.0
 metadata:
   author: haxtheweb
   depends_on: [hax-managed-files]
-  tags: [hax, testing, haxcms, nodejs, php, phpunit, conformance, e2e, ci]
+  tags: [hax, testing, haxcms, nodejs, php, phpunit, conformance, e2e, ci, fuzzing, fast-check, property-based]
 ---
 
 # HAX testing
@@ -78,6 +78,49 @@ Run these in the repo you changed, after your last edit, and again if you commit
    `system/backend/php/tests/`.
 5. Run `yarn test` in the PHP repo, then each repo's pre-submission check.
 6. Put the commands you ran and their results in the PR description.
+
+## Fuzz / property-based tests
+
+HAX uses [fast-check](https://fast-check.dev/) for property-based fuzzing in create, haxcms-nodejs and
+webcomponents, with one convention across all three (https://github.com/haxtheweb/issues/issues/3272).
+
+**When to write one.** Code that sanitizes, validates, parses or bulk-saves untrusted input: HTML and URL
+sanitizers, path and name validators, importers, `saveOutline`-style writes. State what must *always*
+hold, not one expected output: "never throws", "never lets a `javascript:` URL through", "the rewrite
+returns the same output as the old regex" (differential). Bias generators toward the dangerous shapes
+(`..`, `%2e`, `\0`, event-handler attributes, mixed-case protocols) instead of only `fc.string()`.
+
+**Where the parameters come from.** Never hardcode `{ numRuns }` without a seed; that draws a new random
+seed on every CI run, so a red build can't be reproduced. Use the repo's helper:
+
+| Repo | Helper | Example |
+|---|---|---|
+| create, haxcms-nodejs | `test/_helpers/fuzz-config.cjs` | `const RUNS = fuzzConfig({ defaultSeed: 20261109 });` |
+| webcomponents | `scripts/test-setup/fuzz-config.mjs` | `import { fuzzConfig } from "../../../scripts/test-setup/fuzz-config.mjs";` |
+
+Pass `RUNS` as the last argument to every `fc.assert`. Pick a new integer `defaultSeed` per file (today's
+date works). In webcomponents the test runner copies `HAX_FUZZ_*` into the browser page, so the same
+variables work for element tests.
+
+**Running.**
+
+| Goal | Command |
+|---|---|
+| Normal run (fixed seed, same inputs every time) | `npm test` / `yarn test` |
+| Hunt for new bugs (random seed, thousands of runs) | `npm run test:fuzz` (create, haxcms-nodejs); `yarn test:fuzz` at the webcomponents root |
+| Replay a reported failure | `HAX_FUZZ_SEED=<seed> HAX_FUZZ_PATH=<path> npm run test:unit` |
+| More depth on the fixed seed | `HAX_FUZZ_RUNS=5000 npm test` |
+
+A fast-check failure prints `{ seed, path }` and the shrunk counterexample; those two values are the replay.
+Bad values (`HAX_FUZZ_SEED=abc`) throw rather than silently changing the run. haxcms-nodejs still accepts
+the older `HAXCMS_FUZZ_*` names.
+
+**Naming.** End the file in `-fuzz.test.js` so `test:fuzz` picks it up. Prefer `.js` over `.cjs` where the
+repo's lint config allows it: the OpenSSF Scorecard Fuzzing check only scans `.js`/`.jsx` for fast-check.
+
+**When a hunt finds something.** Fix the code, then pin the counterexample: add it to that property's
+`examples` option or write a plain example-based test beside it, so the fixed-seed run guards it from
+then on. Say in the PR which seed found it.
 
 ## Rules of thumb
 

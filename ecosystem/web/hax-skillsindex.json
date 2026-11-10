@@ -117,10 +117,33 @@
     "file": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.well-known/agent-skills/index.json"
    },
    "status": "in-progress",
-   "note": "Out of step with PRAW (older than PRAW: hax-a11y-audit, hax-content-authoring). The next ubiquity build's snapshot step refreshes it.",
+   "note": "Out of step with PRAW (older than PRAW: hax-a11y-audit, hax-content-authoring; changed since the snapshot, so they no longer match their digests: hax-site-structure, hax-content-authoring, hax-managed-files, hax-design-system, hax-a11y-audit, oerschema-audit, hax-ubd-backward-design, hax-udl-audit, hax-content-chunking-audit, haxcms-lrs-rater, oerschema-integration-finder, hax-ubd-stage1, hax-ubd-stage2, hax-ubd-stage3, hax-ubd-grasps, hax-ubd-essential-questions, hax-ubd-six-facets, hax-ubd-unit-audit, grad-blooms, hax-proficiency-scaffolding, hax-feedback-design, hax-practice-and-retrieval, hax-reflection-prompts, hax-instructional-events-audit, hax-multimedia-principles-audit). The next ubiquity build's snapshot step refreshes it.",
    "stale": [
     "hax-a11y-audit",
-    "hax-content-authoring"
+    "hax-content-authoring",
+    "hax-site-structure",
+    "hax-managed-files",
+    "hax-design-system",
+    "oerschema-audit",
+    "hax-ubd-backward-design",
+    "hax-udl-audit",
+    "hax-content-chunking-audit",
+    "haxcms-lrs-rater",
+    "oerschema-integration-finder",
+    "hax-ubd-stage1",
+    "hax-ubd-stage2",
+    "hax-ubd-stage3",
+    "hax-ubd-grasps",
+    "hax-ubd-essential-questions",
+    "hax-ubd-six-facets",
+    "hax-ubd-unit-audit",
+    "grad-blooms",
+    "hax-proficiency-scaffolding",
+    "hax-feedback-design",
+    "hax-practice-and-retrieval",
+    "hax-reflection-prompts",
+    "hax-instructional-events-audit",
+    "hax-multimedia-principles-audit"
    ]
   },
   "php_site": {

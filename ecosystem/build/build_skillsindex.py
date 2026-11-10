@@ -3,9 +3,9 @@
 Generated from the files themselves: PRAW's canonical .well-known/agent-skills/index.json and agent-skills-sets.json,
 and every copy of the index in haxcms-nodejs and haxcms-php (deployment roots and the per-site boilerplate). Fields are
 read from the index entries, sets from agent-skills-sets.json, copies by walking the clones. Each copy is compared with
-PRAW skill by skill (digest and set membership); a copy that differs is marked stale, and drift.py reports it.
+PRAW skill by skill (digest and set membership) and its files with its own digests; a copy that differs is marked stale, and drift.py reports it.
 Details in hax-skillsindex.json."""
-import json, os, re
+import json, os, re, hashlib
 GH = "https://github.com/haxtheweb"
 PRAW = GH + "/praw/blob/main/"
 def S(c, *i): return {"caption": c, "nodes": list(i)}
@@ -52,7 +52,10 @@ for c in copies:
     c["missing"] = [n for n in want if n not in have]
     c["extra"] = [n for n in have if n not in want]
     c["old"] = [n for n in want if n in have and n in by_name and have[n].get("digest") != by_name[n].get("digest")]
-    c["stale"] = c["missing"] + c["extra"] + c["old"]
+    # bytes that no longer match the copy's own digest (a formatter or hand edit): agents that check digests refuse them
+    c["edited"] = [s["name"] for s in c["data"]["skills"] if os.path.exists(os.path.join(c["repo"], c["rel"], s["url"])) and
+                   "sha256:" + hashlib.sha256(open(os.path.join(c["repo"], c["rel"], s["url"]), "rb").read()).hexdigest() != s.get("digest")]
+    c["stale"] = list(dict.fromkeys(c["missing"] + c["extra"] + c["old"] + c["edited"]))
 stale = [c for c in copies if c["stale"]]
 
 SETIDS = {"all": "set_all", **{k: "set_" + slug(k) for k in SETS}}
@@ -120,6 +123,7 @@ for c in copies:
         if c["old"]: parts.append(f"older than PRAW: {', '.join(c['old'])}")
         if c["missing"]: parts.append(f"missing: {', '.join(c['missing'])}")
         if c["extra"]: parts.append(f"not in the {c['tier']} set: {', '.join(c['extra'])}")
+        if c["edited"]: parts.append(f"changed since the snapshot, so they no longer match their digests: {', '.join(c['edited'])}")
         d.update(status="in-progress", note="Out of step with PRAW (" + "; ".join(parts) + "). The next ubiquity build's snapshot step refreshes it.", stale=c["stale"])
     else: d["note"] = "In step with PRAW: every skill's digest matches."
     nodes[c["id"]] = d

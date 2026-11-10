@@ -1,0 +1,800 @@
+{
+ "meta": {
+  "name": "HEOSAT",
+  "parent": "main",
+  "noTimeline": true,
+  "sectionLabels": {
+   "section": "sections",
+   "evidenced": "evidenced",
+   "partial": "partly evidenced",
+   "gap": "gaps"
+  },
+  "about": "Apereo's Higher Education Open Source Assessment Toolkit as a standing self-assessment, generated from heosat-evidence-map.json. The tool's rubric (2026.07 enhanced guidance edition) scores 47 questions in 9 sections; each question links to the parts of HAX that answer it. 33 evidenced (green), 12 partial (amber, in progress) and 2 gaps (ghosted, dashed). A self-assessment for maintainer review, not a HEOSAT score.",
+  "kindLabels": {
+   "rel": "sections and questions",
+   "schema": "answered by",
+   "pillar": "pillars a section serves",
+   "org": "Apereo and PRAW"
+  },
+  "links": {
+   "map": "https://github.com/haxtheweb/praw/blob/main/ecosystem/heosat-evidence-map.json",
+   "heosat": "https://github.com/apereo/heosat",
+   "issue": "https://github.com/haxtheweb/issues/issues/3256"
+  }
+ },
+ "nodes": {
+  "heosat": {
+   "always": true
+  },
+  "s_heosat": {},
+  "hs_ll": {
+   "desc": "Legal & Licensing: 5 questions. 4 evidenced, 1 partial, 0 gaps.",
+   "kind": "section",
+   "source": {
+    "label": "heosat-evidence-map.json",
+    "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/heosat-evidence-map.json"
+   }
+  },
+  "hs_gv": {
+   "desc": "Governance & Decision-Making: 7 questions. 4 evidenced, 1 partial, 2 gaps.",
+   "kind": "section",
+   "source": {
+    "label": "heosat-evidence-map.json",
+    "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/heosat-evidence-map.json"
+   }
+  },
+  "hs_ce": {
+   "desc": "Community Engagement: 5 questions. 4 evidenced, 1 partial, 0 gaps.",
+   "kind": "section",
+   "source": {
+    "label": "heosat-evidence-map.json",
+    "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/heosat-evidence-map.json"
+   }
+  },
+  "hs_do": {
+   "desc": "Documentation & Onboarding: 5 questions. 2 evidenced, 3 partial, 0 gaps.",
+   "kind": "section",
+   "source": {
+    "label": "heosat-evidence-map.json",
+    "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/heosat-evidence-map.json"
+   }
+  },
+  "hs_po": {
+   "desc": "Project Operations & Roadmap: 5 questions. 3 evidenced, 2 partial, 0 gaps.",
+   "kind": "section",
+   "source": {
+    "label": "heosat-evidence-map.json",
+    "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/heosat-evidence-map.json"
+   }
+  },
+  "hs_sr": {
+   "desc": "Security & Risk Management: 5 questions. 5 evidenced, 0 partial, 0 gaps.",
+   "kind": "section",
+   "source": {
+    "label": "heosat-evidence-map.json",
+    "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/heosat-evidence-map.json"
+   }
+  },
+  "hs_as": {
+   "desc": "Accessibility, Standards & Interoperability: 5 questions. 5 evidenced, 0 partial, 0 gaps.",
+   "kind": "section",
+   "source": {
+    "label": "heosat-evidence-map.json",
+    "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/heosat-evidence-map.json"
+   }
+  },
+  "hs_ai": {
+   "desc": "Adoption, Impact & Institutional Fit: 5 questions. 2 evidenced, 3 partial, 0 gaps.",
+   "kind": "section",
+   "source": {
+    "label": "heosat-evidence-map.json",
+    "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/heosat-evidence-map.json"
+   }
+  },
+  "hs_fs": {
+   "desc": "Financial & Organizational Sustainability: 5 questions. 4 evidenced, 1 partial, 0 gaps.",
+   "kind": "section",
+   "source": {
+    "label": "heosat-evidence-map.json",
+    "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/heosat-evidence-map.json"
+   }
+  },
+  "hq_ll1": {
+   "desc": "The project is distributed with a clearly identified Open Source Initiative (OSI) Approved Open Source License ®.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Legal & Licensing.",
+   "links": {
+    "Apache-2.0 LICENSE (issues)": "https://github.com/haxtheweb/issues/blob/master/LICENSE",
+    "LICENSE (haxcms-php)": "https://github.com/haxtheweb/haxcms-php/blob/HEAD/LICENSE.md",
+    "LICENSE (haxcms-nodejs)": "https://github.com/haxtheweb/haxcms-nodejs/blob/HEAD/LICENSE.md",
+    "LICENSE (webcomponents)": "https://github.com/haxtheweb/webcomponents/blob/HEAD/LICENSE.md",
+    "LICENSE (create)": "https://github.com/haxtheweb/create/blob/HEAD/LICENSE.md"
+   }
+  },
+  "hq_ll2": {
+   "desc": "Every repository and distributed artifact includes license and copyright notices. License files ship in every core repo. Per-file headers are not checked yet; a weekly license compliance job that would check them is planned.",
+   "status": "in-progress",
+   "kind": "partial",
+   "note": "Partly evidenced. Section: Legal & Licensing.",
+   "links": {
+    "LICENSE (haxcms-php)": "https://github.com/haxtheweb/haxcms-php/blob/HEAD/LICENSE.md",
+    "LICENSE (haxcms-nodejs)": "https://github.com/haxtheweb/haxcms-nodejs/blob/HEAD/LICENSE.md",
+    "LICENSE (webcomponents)": "https://github.com/haxtheweb/webcomponents/blob/HEAD/LICENSE.md",
+    "LICENSE (create)": "https://github.com/haxtheweb/create/blob/HEAD/LICENSE.md"
+   }
+  },
+  "hq_ll3": {
+   "desc": "The project documents third-party dependencies and their licenses. A blocking PR-time dependency license check is planned, not yet in CI.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Legal & Licensing.",
+   "links": {
+    "SBOM workflow (webcomponents)": "https://github.com/haxtheweb/webcomponents/blob/HEAD/.github/workflows/sbom.yml",
+    "SBOM workflow (haxcms-php)": "https://github.com/haxtheweb/haxcms-php/blob/HEAD/.github/workflows/sbom.yml",
+    "Dual-license selections (webcomponents)": "https://github.com/haxtheweb/webcomponents/blob/HEAD/DUAL-LICENSE-SELECTIONS.md"
+   }
+  },
+  "hq_ll4": {
+   "desc": "The project has a documented contributor licensing or contribution agreement policy.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Legal & Licensing.",
+   "links": {
+    "CLA workflow (praw)": "https://github.com/haxtheweb/praw/blob/HEAD/.github/workflows/cla.yml",
+    "CLA workflow (haxcms-php)": "https://github.com/haxtheweb/haxcms-php/blob/HEAD/.github/workflows/cla.yml",
+    "CLA workflow (haxcms-nodejs)": "https://github.com/haxtheweb/haxcms-nodejs/blob/HEAD/.github/workflows/cla.yml",
+    "CLA workflow (webcomponents)": "https://github.com/haxtheweb/webcomponents/blob/HEAD/.github/workflows/cla.yml",
+    "CLA workflow (create)": "https://github.com/haxtheweb/create/blob/HEAD/.github/workflows/cla.yml"
+   }
+  },
+  "hq_ll5": {
+   "desc": "The project explains trademark, name, logo, and brand usage expectations.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Legal & Licensing.",
+   "links": {
+    "TRADEMARK.md": "https://github.com/haxtheweb/issues/blob/master/TRADEMARK.md"
+   }
+  },
+  "hq_gv1": {
+   "desc": "The project has a public governance model describing roles, authority, and decision-making processes.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Governance & Decision-Making.",
+   "links": {
+    "GOVERNANCE.md": "https://github.com/haxtheweb/issues/blob/master/GOVERNANCE.md"
+   }
+  },
+  "hq_gv2": {
+   "desc": "The project records significant technical and community decisions in public venues.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Governance & Decision-Making.",
+   "links": {
+    "Unified issue queue": "https://github.com/haxtheweb/issues/issues",
+    "Plan Created label": "https://github.com/haxtheweb/issues/labels/Plan%20Created"
+   }
+  },
+  "hq_gv3": {
+   "desc": "The project has a defined process for adding, reviewing, and removing maintainers or committers.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Governance & Decision-Making.",
+   "links": {
+    "GOVERNANCE.md: Maintainer lifecycle": "https://github.com/haxtheweb/issues/blob/master/GOVERNANCE.md#maintainer-lifecycle"
+   }
+  },
+  "hq_gv4": {
+   "desc": "The project has policies for conflicts of interest, vendor participation, and institutional influence.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Governance & Decision-Making.",
+   "links": {
+    "GOVERNANCE.md: Conflicts of interest and vendor participation": "https://github.com/haxtheweb/issues/blob/master/GOVERNANCE.md#conflicts-of-interest-and-vendor-participation"
+   }
+  },
+  "hq_gv5": {
+   "desc": "The project periodically reviews governance effectiveness and updates policies. The annual review is documented; no completed review is recorded yet.",
+   "status": "in-progress",
+   "kind": "partial",
+   "note": "Partly evidenced. Section: Governance & Decision-Making.",
+   "links": {
+    "GOVERNANCE.md: Governance review": "https://github.com/haxtheweb/issues/blob/master/GOVERNANCE.md#governance-review"
+   }
+  },
+  "hq_gv6": {
+   "desc": "The project documents and practices a standard voting procedure for decisions requiring formal approval. No documented voting procedure for decisions that need formal approval.",
+   "status": "planned",
+   "kind": "gap",
+   "note": "Gap: no evidence yet. Section: Governance & Decision-Making.",
+   "links": {}
+  },
+  "hq_gv7": {
+   "desc": "The project has an adopted, documented process for resolving community or governance disputes. The Code of Conduct covers conduct, but there is no process for resolving technical or governance disputes.",
+   "status": "planned",
+   "kind": "gap",
+   "note": "Gap: no evidence yet. Section: Governance & Decision-Making.",
+   "links": {
+    "CODE_OF_CONDUCT.md (conduct only)": "https://github.com/haxtheweb/issues/blob/master/CODE_OF_CONDUCT.md"
+   }
+  },
+  "hq_ce1": {
+   "desc": "The project identifies its target users, contributors, adopters, and stakeholder communities.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Community Engagement.",
+   "links": {
+    "PRAW README: Who PRAW is for": "https://github.com/haxtheweb/praw/blob/main/README.md#who-praw-is-for"
+   }
+  },
+  "hq_ce2": {
+   "desc": "The project provides welcoming contribution pathways for non-code and code contributors.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Community Engagement.",
+   "links": {
+    "CONTRIBUTING.md": "https://github.com/haxtheweb/issues/blob/master/CONTRIBUTING.md",
+    "praw CONTRIBUTING.md": "https://github.com/haxtheweb/praw/blob/main/CONTRIBUTING.md"
+   }
+  },
+  "hq_ce3": {
+   "desc": "The project has public communication channels with clear participation norms.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Community Engagement.",
+   "links": {
+    "SUPPORT.md": "https://github.com/haxtheweb/issues/blob/master/SUPPORT.md",
+    "CONTRIBUTING.md: Join the community": "https://github.com/haxtheweb/issues/blob/master/CONTRIBUTING.md#join-the-community"
+   }
+  },
+  "hq_ce4": {
+   "desc": "The project has a code of conduct and an incident response process.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Community Engagement.",
+   "links": {
+    "CODE_OF_CONDUCT.md (Contributor Covenant 2.1)": "https://github.com/haxtheweb/issues/blob/master/CODE_OF_CONDUCT.md",
+    "INCIDENT_RESPONSE.md": "https://github.com/haxtheweb/issues/blob/master/INCIDENT_RESPONSE.md"
+   }
+  },
+  "hq_ce5": {
+   "desc": "The project measures and responds to community health indicators. Activity is measured (merged PRs, npm downloads, release velocity). Community health indicators such as response times and contributor retention are not, and weekly issue triage is still planned.",
+   "status": "in-progress",
+   "kind": "partial",
+   "note": "Partly evidenced. Section: Community Engagement.",
+   "links": {
+    "impact/ data": "https://github.com/haxtheweb/praw/blob/main/impact/README.md"
+   }
+  },
+  "hq_do1": {
+   "desc": "The project has clear installation, configuration, and upgrade documentation. Install and setup are documented; upgrade documentation is thin while the docs site is being rebuilt.",
+   "status": "in-progress",
+   "kind": "partial",
+   "note": "Partly evidenced. Section: Documentation & Onboarding.",
+   "links": {
+    "CONTRIBUTING.md: Prerequisites": "https://github.com/haxtheweb/issues/blob/master/CONTRIBUTING.md#prerequisites"
+   }
+  },
+  "hq_do2": {
+   "desc": "The project provides end-user documentation appropriate to its primary audiences. End-user docs exist but are mid-rebuild; the ecosystem doc site and Learn HAX are the planned replacement.",
+   "status": "in-progress",
+   "kind": "partial",
+   "note": "Partly evidenced. Section: Documentation & Onboarding.",
+   "links": {
+    "haxtheweb/docs": "https://github.com/haxtheweb/docs"
+   }
+  },
+  "hq_do3": {
+   "desc": "The project documents contributor onboarding, development environment setup, and review workflows.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Documentation & Onboarding.",
+   "links": {
+    "CONTRIBUTING.md": "https://github.com/haxtheweb/issues/blob/master/CONTRIBUTING.md",
+    "hax-onboarding.sh": "https://github.com/haxtheweb/praw/blob/main/hax-onboarding.sh"
+   }
+  },
+  "hq_do4": {
+   "desc": "The project maintains architecture and integration documentation. The ecosystem web itself is the planned living architecture map.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Documentation & Onboarding.",
+   "links": {
+    "WARP.md ecosystem map and schema repos": "https://github.com/haxtheweb/praw/blob/main/WARP.md"
+   }
+  },
+  "hq_do5": {
+   "desc": "Documentation is maintained as part of the release and contribution process. A weekly docs drift pass is planned but not running yet.",
+   "status": "in-progress",
+   "kind": "partial",
+   "note": "Partly evidenced. Section: Documentation & Onboarding.",
+   "links": {
+    "Release notes workflow (haxcms-nodejs)": "https://github.com/haxtheweb/haxcms-nodejs/blob/HEAD/.github/workflows/release-notes.yml"
+   }
+  },
+  "hq_po1": {
+   "desc": "The project publishes a roadmap or planning process that communicates priorities and timelines. The roadmap names directions but not timelines.",
+   "status": "in-progress",
+   "kind": "partial",
+   "note": "Partly evidenced. Section: Project Operations & Roadmap.",
+   "links": {
+    "ROADMAP.md": "https://github.com/haxtheweb/issues/blob/master/ROADMAP.md"
+   }
+  },
+  "hq_po2": {
+   "desc": "The project uses a public issue tracker with triage, labels, and response expectations.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Project Operations & Roadmap.",
+   "links": {
+    "Unified issue queue": "https://github.com/haxtheweb/issues/issues",
+    "SECURITY.md: Response expectations": "https://github.com/haxtheweb/issues/blob/master/SECURITY.md#response-expectations"
+   }
+  },
+  "hq_po3": {
+   "desc": "The project follows a predictable release process with changelogs and versioning.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Project Operations & Roadmap.",
+   "links": {
+    "CHANGELOG (haxcms-php)": "https://github.com/haxtheweb/haxcms-php/blob/HEAD/CHANGELOG.md",
+    "CHANGELOG (haxcms-nodejs)": "https://github.com/haxtheweb/haxcms-nodejs/blob/HEAD/CHANGELOG.md",
+    "CHANGELOG (webcomponents)": "https://github.com/haxtheweb/webcomponents/blob/HEAD/CHANGELOG.md",
+    "CHANGELOG (create)": "https://github.com/haxtheweb/create/blob/HEAD/CHANGELOG.md",
+    "Release checksums workflow (haxcms-nodejs)": "https://github.com/haxtheweb/haxcms-nodejs/blob/HEAD/.github/workflows/release-checksums.yml"
+   }
+  },
+  "hq_po4": {
+   "desc": "The project has defined support channels and support boundaries.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Project Operations & Roadmap.",
+   "links": {
+    "SUPPORT.md": "https://github.com/haxtheweb/issues/blob/master/SUPPORT.md",
+    "SUSTAINABILITY.md: what free support covers": "https://github.com/haxtheweb/issues/blob/master/SUSTAINABILITY.md"
+   }
+  },
+  "hq_po5": {
+   "desc": "The project tracks maintainership capacity and bus factor risks. Succession is documented; maintainer capacity and bus factor are not tracked over time.",
+   "status": "in-progress",
+   "kind": "partial",
+   "note": "Partly evidenced. Section: Project Operations & Roadmap.",
+   "links": {
+    "GOVERNANCE.md: Succession": "https://github.com/haxtheweb/issues/blob/master/GOVERNANCE.md#succession"
+   }
+  },
+  "hq_sr1": {
+   "desc": "The project has a documented security policy and private vulnerability reporting process.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Security & Risk Management.",
+   "links": {
+    "SECURITY.md": "https://github.com/haxtheweb/issues/blob/master/SECURITY.md"
+   }
+  },
+  "hq_sr2": {
+   "desc": "The project uses automated testing, dependency scanning, and continuous integration.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Security & Risk Management.",
+   "links": {
+    "CodeQL (webcomponents)": "https://github.com/haxtheweb/webcomponents/blob/HEAD/.github/workflows/codeql-analysis.yml",
+    "Dependency audit (create)": "https://github.com/haxtheweb/create/blob/HEAD/.github/workflows/dependency-audit.yml",
+    "Tests (haxcms-php)": "https://github.com/haxtheweb/haxcms-php/blob/HEAD/.github/workflows/tests.yml",
+    "OSSF Scorecard (haxcms-php)": "https://github.com/haxtheweb/haxcms-php/blob/HEAD/.github/workflows/ossf_scorecard.yml"
+   }
+  },
+  "hq_sr3": {
+   "desc": "The project manages software supply chain integrity for releases. Confirm signed tags are in place in every core repo.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Security & Risk Management.",
+   "links": {
+    "SBOM workflow (create)": "https://github.com/haxtheweb/create/blob/HEAD/.github/workflows/sbom.yml",
+    "Release checksums (haxcms-nodejs)": "https://github.com/haxtheweb/haxcms-nodejs/blob/HEAD/.github/workflows/release-checksums.yml",
+    "Supply-chain issue #3092": "https://github.com/haxtheweb/issues/issues/3092"
+   }
+  },
+  "hq_sr4": {
+   "desc": "The project documents privacy, data handling, and compliance-relevant practices.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Security & Risk Management.",
+   "links": {
+    "PRIVACY.md (haxcms-php)": "https://github.com/haxtheweb/haxcms-php/blob/HEAD/PRIVACY.md",
+    "PRIVACY.md (haxcms-nodejs)": "https://github.com/haxtheweb/haxcms-nodejs/blob/HEAD/PRIVACY.md"
+   }
+  },
+  "hq_sr5": {
+   "desc": "The project has an incident response and post-incident learning process.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Security & Risk Management.",
+   "links": {
+    "INCIDENT_RESPONSE.md: Post-incident review": "https://github.com/haxtheweb/issues/blob/master/INCIDENT_RESPONSE.md#post-incident-review"
+   }
+  },
+  "hq_as1": {
+   "desc": "The project follows accessibility standards and includes accessibility in testing and release review. Element suites include axe checks; contrast, dark mode and reduced-motion gates are planned as blocking.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Accessibility, Standards & Interoperability.",
+   "links": {
+    "DDD token lint (webcomponents)": "https://github.com/haxtheweb/webcomponents/blob/HEAD/.github/workflows/ddd-token-lint.yml",
+    "hax-a11y-audit skill": "https://github.com/haxtheweb/praw/blob/main/skills/hax-a11y-audit/SKILL.md"
+   }
+  },
+  "hq_as2": {
+   "desc": "The project supports relevant education technology standards and documents interoperability.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Accessibility, Standards & Interoperability.",
+   "links": {
+    "OER Schema audit skill": "https://github.com/haxtheweb/praw/blob/main/skills/oerschema-audit/SKILL.md"
+   }
+  },
+  "hq_as3": {
+   "desc": "The project provides APIs, export options, or data portability mechanisms. Sites are plain files; import and export cover PDF, DOCX, PPTX, XLSX, HTML, Markdown and EPUB.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Accessibility, Standards & Interoperability.",
+   "links": {
+    "PRIVACY.md data portability (haxcms-php)": "https://github.com/haxtheweb/haxcms-php/blob/HEAD/PRIVACY.md"
+   }
+  },
+  "hq_as4": {
+   "desc": "The project supports localization, internationalization, or adaptation for diverse institutional contexts when relevant. Interface in more than 100 languages.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Accessibility, Standards & Interoperability.",
+   "links": {
+    "hax-i18n-translate skill": "https://github.com/haxtheweb/praw/blob/main/skills/hax-i18n-translate/SKILL.md"
+   }
+  },
+  "hq_as5": {
+   "desc": "The project documents supported platforms, browsers, devices, and deployment environments.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Accessibility, Standards & Interoperability.",
+   "links": {
+    "Browser support matrix (haxcms-php)": "https://github.com/haxtheweb/haxcms-php/blob/HEAD/BROWSER-SUPPORT-MATRIX.md",
+    "Browser support matrix (haxcms-nodejs)": "https://github.com/haxtheweb/haxcms-nodejs/blob/HEAD/BROWSER-SUPPORT-MATRIX.md",
+    "Browser support matrix (webcomponents)": "https://github.com/haxtheweb/webcomponents/blob/HEAD/BROWSER-SUPPORT-MATRIX.md",
+    "Browser support matrix (create)": "https://github.com/haxtheweb/create/blob/HEAD/BROWSER-SUPPORT-MATRIX.md"
+   }
+  },
+  "hq_ai1": {
+   "desc": "The project describes its value proposition and use cases for higher education stakeholders.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Adoption, Impact & Institutional Fit.",
+   "links": {
+    "what-is-hax.md": "https://github.com/haxtheweb/praw/blob/main/what-is-hax.md",
+    "WHY.md": "https://github.com/haxtheweb/praw/blob/main/WHY.md"
+   }
+  },
+  "hq_ai2": {
+   "desc": "The project provides evidence of adoption, deployments, or community use.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Adoption, Impact & Institutional Fit.",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md",
+    "impact/ data": "https://github.com/haxtheweb/praw/blob/main/impact/README.md"
+   }
+  },
+  "hq_ai3": {
+   "desc": "The project supports evaluation, pilots, and procurement due diligence. hax.cloud offers a no-install demo, but there are no HECVAT-style procurement answers or a pilot guide.",
+   "status": "in-progress",
+   "kind": "partial",
+   "note": "Partly evidenced. Section: Adoption, Impact & Institutional Fit.",
+   "links": {
+    "SECURITY-AUDIT.md (haxcms-php)": "https://github.com/haxtheweb/haxcms-php/blob/HEAD/SECURITY-AUDIT.md",
+    "HEOSAT follow-ups #3091": "https://github.com/haxtheweb/issues/issues/3091"
+   }
+  },
+  "hq_ai4": {
+   "desc": "The project documents implementation services, hosting options, or support partners when available. Hosting options exist (HAXiam, Reclaim Hosting, Docker images) but no single page lists hosting and support partners.",
+   "status": "in-progress",
+   "kind": "partial",
+   "note": "Partly evidenced. Section: Adoption, Impact & Institutional Fit.",
+   "links": {
+    "SUSTAINABILITY.md": "https://github.com/haxtheweb/issues/blob/master/SUSTAINABILITY.md"
+   }
+  },
+  "hq_ai5": {
+   "desc": "The project collects user feedback and uses it to improve product direction. Feedback arrives through issues and Merlin; a structured user study is planned.",
+   "status": "in-progress",
+   "kind": "partial",
+   "note": "Partly evidenced. Section: Adoption, Impact & Institutional Fit.",
+   "links": {
+    "Unified issue queue": "https://github.com/haxtheweb/issues/issues"
+   }
+  },
+  "hq_fs1": {
+   "desc": "The project identifies current and needed resources for maintenance, governance, support, and growth.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Financial & Organizational Sustainability.",
+   "links": {
+    "SUSTAINABILITY.md: Resource needs": "https://github.com/haxtheweb/issues/blob/master/SUSTAINABILITY.md#resource-needs"
+   }
+  },
+  "hq_fs2": {
+   "desc": "The project has a funding, membership, sponsorship, or institutional support model.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Financial & Organizational Sustainability.",
+   "links": {
+    "SUSTAINABILITY.md: Funding model": "https://github.com/haxtheweb/issues/blob/master/SUSTAINABILITY.md#funding-model"
+   }
+  },
+  "hq_fs3": {
+   "desc": "The project has a plan for post-grant or post-founder continuity.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Financial & Organizational Sustainability.",
+   "links": {
+    "GOVERNANCE.md: Succession": "https://github.com/haxtheweb/issues/blob/master/GOVERNANCE.md#succession",
+    "WHY.md": "https://github.com/haxtheweb/praw/blob/main/WHY.md"
+   }
+  },
+  "hq_fs4": {
+   "desc": "The project maintains transparent infrastructure ownership and operational dependencies.",
+   "status": "deployed",
+   "kind": "evidenced",
+   "note": "Evidenced. Section: Financial & Organizational Sustainability.",
+   "links": {
+    "SUSTAINABILITY.md: Infrastructure inventory": "https://github.com/haxtheweb/issues/blob/master/SUSTAINABILITY.md#infrastructure-inventory"
+   }
+  },
+  "hq_fs5": {
+   "desc": "The project periodically assesses sustainability risks and publishes improvement priorities. One assessment has been run (haxcms-php). There is no recurring reassessment or published improvement priority list yet.",
+   "status": "in-progress",
+   "kind": "partial",
+   "note": "Partly evidenced. Section: Financial & Organizational Sustainability.",
+   "links": {
+    "HEOSAT follow-ups #3091": "https://github.com/haxtheweb/issues/issues/3091"
+   }
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "heosat",
+   "label": "HEOSAT, question by question",
+   "kind": "story",
+   "message": "47 questions in 9 sections: 33 evidenced, 12 partial, 2 gaps.",
+   "scenes": [
+    {
+     "caption": "Apereo publishes HEOSAT. HAX runs it with AI through the heosat skill in PRAW, a process worked out with Apereo.",
+     "nodes": [
+      "heosat",
+      "apereo",
+      "s_heosat",
+      "praw",
+      "traveler"
+     ]
+    },
+    {
+     "caption": "Legal & Licensing.",
+     "nodes": [
+      "hs_ll",
+      "hq_ll1",
+      "hq_ll2",
+      "hq_ll3",
+      "hq_ll4",
+      "hq_ll5",
+      "github",
+      "npm",
+      "open",
+      "security",
+      "testing"
+     ]
+    },
+    {
+     "caption": "Governance & Decision-Making.",
+     "nodes": [
+      "hs_gv",
+      "hq_gv1",
+      "hq_gv2",
+      "hq_gv3",
+      "hq_gv4",
+      "hq_gv5",
+      "hq_gv6",
+      "hq_gv7",
+      "apereo",
+      "human",
+      "issues",
+      "psu"
+     ]
+    },
+    {
+     "caption": "Community Engagement.",
+     "nodes": [
+      "hs_ce",
+      "hq_ce1",
+      "hq_ce2",
+      "hq_ce3",
+      "hq_ce4",
+      "hq_ce5",
+      "github",
+      "haxlab",
+      "human",
+      "issues",
+      "ist256",
+      "praw",
+      "wins"
+     ]
+    },
+    {
+     "caption": "Documentation & Onboarding.",
+     "nodes": [
+      "hs_do",
+      "hq_do1",
+      "hq_do2",
+      "hq_do3",
+      "hq_do4",
+      "hq_do5",
+      "agents",
+      "cli",
+      "flows",
+      "haxcms",
+      "haxschema",
+      "jos",
+      "learnhax",
+      "openapi",
+      "praw",
+      "ubiquity"
+     ]
+    },
+    {
+     "caption": "Project Operations & Roadmap.",
+     "nodes": [
+      "hs_po",
+      "hq_po1",
+      "hq_po2",
+      "hq_po3",
+      "hq_po4",
+      "hq_po5",
+      "bryan",
+      "issues",
+      "npm",
+      "psu",
+      "ubiquity"
+     ]
+    },
+    {
+     "caption": "Security & Risk Management.",
+     "nodes": [
+      "hs_sr",
+      "hq_sr1",
+      "hq_sr2",
+      "hq_sr3",
+      "hq_sr4",
+      "hq_sr5",
+      "github",
+      "haxcms",
+      "npm",
+      "security",
+      "testing",
+      "ubiquity",
+      "xapi"
+     ]
+    },
+    {
+     "caption": "Accessibility, Standards & Interoperability.",
+     "nodes": [
+      "hs_as",
+      "hq_as1",
+      "hq_as2",
+      "hq_as3",
+      "hq_as4",
+      "hq_as5",
+      "accessible",
+      "agnostic",
+      "cli",
+      "ddd",
+      "deploy",
+      "design",
+      "importers",
+      "jos",
+      "languages",
+      "nodejs",
+      "oerschema",
+      "openapi",
+      "php",
+      "remixable",
+      "staticpub",
+      "testing",
+      "xapi"
+     ]
+    },
+    {
+     "caption": "Adoption, Impact & Institutional Fit.",
+     "nodes": [
+      "hs_ai",
+      "hq_ai1",
+      "hq_ai2",
+      "hq_ai3",
+      "hq_ai4",
+      "hq_ai5",
+      "apereo",
+      "course",
+      "deploy",
+      "dept",
+      "haxiam",
+      "haxpsu",
+      "issues",
+      "merlin",
+      "portfolio",
+      "psu",
+      "reclaim",
+      "security",
+      "textbook",
+      "wins"
+     ]
+    },
+    {
+     "caption": "Financial & Organizational Sustainability.",
+     "nodes": [
+      "hs_fs",
+      "hq_fs1",
+      "hq_fs2",
+      "hq_fs3",
+      "hq_fs4",
+      "hq_fs5",
+      "apereo",
+      "bryan",
+      "github",
+      "grants",
+      "haxpsu",
+      "npm",
+      "praw",
+      "psu",
+      "sustainable",
+      "wins"
+     ]
+    },
+    {
+     "caption": "Partly evidenced: mostly docs mid-rebuild, procurement answers, and reviews documented but not yet held.",
+     "nodes": [
+      "hq_ll2",
+      "hq_gv5",
+      "hq_ce5",
+      "hq_do1",
+      "hq_do2",
+      "hq_do5",
+      "hq_po1",
+      "hq_po5",
+      "hq_ai3",
+      "hq_ai4",
+      "hq_ai5",
+      "hq_fs5"
+     ]
+    },
+    {
+     "caption": "The gaps: GV6, The project documents and practices a standard voting procedure for decisions requiring formal approval; GV7, The project has an adopted, documented process for resolving community or governance disputes.",
+     "nodes": [
+      "hq_gv6",
+      "hq_gv7"
+     ]
+    },
+    {
+     "caption": "A win: HAX's HEOSAT work helped fellow project BookLooky go through Apereo incubation more accurately.",
+     "nodes": [
+      "booklooky",
+      "heosat",
+      "apereo",
+      "wins"
+     ]
+    },
+    {
+     "caption": "The whole assessment.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

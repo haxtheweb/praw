@@ -655,6 +655,22 @@
    },
    "always": true
   },
+  "heosat": {
+   "desc": "HEOSAT, Apereo's Higher Education Open Source Assessment Toolkit: 47 questions in 9 sections on licensing, governance, community, docs, operations, security, standards, adoption and sustainability. HAX runs it with AI through the heosat skill in PRAW, a process worked out with Apereo. Open it to see every question and what answers it.",
+   "links": {
+    "heosat": "https://github.com/apereo/heosat",
+    "map": "https://github.com/haxtheweb/praw/blob/main/ecosystem/heosat-evidence-map.json",
+    "issue": "https://github.com/haxtheweb/issues/issues/3256"
+   },
+   "always": true
+  },
+  "booklooky": {
+   "desc": "BookLooky, a fellow open source project. HAX's AI-run HEOSAT process helped it go through Apereo incubation more accurately, and PRAW's haxcms-lrs-rater skill runs its Looky Rating System.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/3256"
+   },
+   "always": true
+  },
   "contracts": {
    "desc": "Every data contract in one view: the schema files each HAX format is defined by, and who reads and writes them.",
    "always": true

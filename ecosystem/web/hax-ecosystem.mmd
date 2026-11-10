@@ -4,6 +4,7 @@
 %% Edges:  ==> pillar   -.-> schema contract   --o organization / ecosystem   --- person worked on   --> relationship
 %% Details (descriptions, links, versions, evidence, tours, timeline) live in hax-ecosystem.json.
 flowchart TB
+  %%@ layout rings=0,182,540,780,1010 sizes=92,62,50,46,40
   subgraph center ["People and their companion"]
     human(("Humans"))
     traveler(("HAX Future Traveler"))
@@ -64,6 +65,9 @@ flowchart TB
     presentations["Presentations"]
   end
   subgraph practices ["Practices and standards"]
+    wcag["WCAG"]
+    meaningchannels["Meaning channels standard"]
+    rules["Rules and guarantees"]
     heosat["HEOSAT"]
     wcstandard["Web component standard"]
     security["Security"]
@@ -349,6 +353,16 @@ flowchart TB
   ccso -->|audits| security
   uxdc --o|is a student organization in| ist
   uxdc -->|practices| design
+  wcag ==>|defines| accessible
+  components -.->|are tested against, with axe| wcag
+  ddd -.->|meets contrast in| wcag
+  testing -.->|checks| wcag
+  meaningchannels -.->|extends| wcag
+  meaningchannels -.->|will be defined in| ddd
+  meaningchannels ==>|serves| accessible
+  rules ==>|serve| accessible
+  rules -->|are enforced by| quality
+  praw -->|records| rules
   heosat --o|is published by| apereo
   praw -->|runs| heosat
   traveler -->|runs the assessment with AI| heosat
@@ -664,13 +678,13 @@ flowchart TB
 
   %%@ node human icon=social:people color=keystoneYellow motion=pulse
   %%@ node traveler image=world-traveler-15 color=original87Pink motion=tilt web=skills
-  %%@ node accessible icon=icons:accessibility color=nittanyNavy motion=pop
-  %%@ node efficient icon=image:flash-on color=nittanyNavy motion=strike
-  %%@ node extensible icon=hax:add-brick color=nittanyNavy motion=lift
-  %%@ node open icon=icons:lock-open color=nittanyNavy motion=wiggle
-  %%@ node agnostic icon=device:devices color=nittanyNavy motion=nudge
-  %%@ node remixable icon=hax:remix color=nittanyNavy motion=spin
-  %%@ node sustainable icon=image:nature color=nittanyNavy motion=pulse
+  %%@ node accessible icon=icons:accessibility color=beaverBlue motion=pop
+  %%@ node efficient icon=image:flash-on color=inventOrange motion=strike
+  %%@ node extensible icon=hax:add-brick color=creekTeal motion=lift
+  %%@ node open icon=icons:lock-open color=keystoneYellow motion=wiggle
+  %%@ node agnostic icon=device:devices color=skyBlue motion=nudge
+  %%@ node remixable icon=hax:remix color=original87Pink motion=spin
+  %%@ node sustainable icon=image:nature color=futureLime motion=pulse
   %%@ node haxcms icon=hax:site-map color=discoveryCoral motion=pop web=haxcms
   %%@ node editor icon=hax:page-edit color=opportunityGreen motion=wiggle
   %%@ node merlin icon=hax:wand color=wonderPurple motion=glow web=merlin
@@ -749,6 +763,9 @@ flowchart TB
   %%@ node uxdc mono=UXDC color=creekTeal motion=tilt
   %%@ node apereo mono=AP color=limestoneGray motion=pulse
   %%@ node booklooky mono=BL color=limestoneGray motion=pop
+  %%@ node wcag icon=icons:accessibility color=forestGreen motion=pulse
+  %%@ node meaningchannels icon=icons:report color=wonderPurple motion=glow
+  %%@ node rules icon=icons:gavel color=slateGray motion=strike web=rules
   %%@ node heosat icon=icons:verified-user color=beaverBlue motion=pop web=heosat
   %%@ node github mono=GH color=coalyGray motion=pop
   %%@ node npm mono=npm color=discoveryCoral motion=nudge

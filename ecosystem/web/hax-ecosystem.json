@@ -42,60 +42,61 @@
    "always": true
   },
   "accessible": {
-   "desc": "Meets WCAG 2.0 AA without extra author effort: labels, contrast, keyboard, headings.",
+   "desc": "Built for everyone, by everyone. Everything HAX makes meets accessibility standards by default, so authors don't need to be experts to publish work everyone can use. Blocks are tested for contrast, keyboard use and screen readers before they ship, and meaning never depends on color alone. HAX also reaches a global audience, with an interface in over 100 languages. And since you don't need to know what the web is to use it, anyone can contribute.",
    "source": {
-    "label": "PRAW WORLDVIEW.md: pillar checks",
-    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#pillar-checks"
+    "label": "PRAW ecosystem/build/data/pillars.json",
+    "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/pillars.json"
    },
    "always": true
   },
   "efficient": {
-   "desc": "Fast without a build step: offline-capable sites with high performance scores, shipped as unbundled ES modules.",
+   "desc": "Fast for the people who make it and the people who use it. Authors build sites in minutes, not weeks, and agents can handle the repetitive work. Pages load only what they need, so they're fast on any connection or device. The less time we spend waiting and trying to figure out how to use something, the more time we spend dreaming the future together.",
    "source": {
-    "label": "PRAW WORLDVIEW.md: pillar checks",
-    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#pillar-checks"
+    "label": "PRAW ecosystem/build/data/pillars.json",
+    "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/pillars.json"
    },
    "always": true
   },
   "extensible": {
-   "desc": "Interoperates through standards, embeds and exports; themes, blocks and plugins extend it without forking core.",
+   "desc": "If it's missing, anyone can build it. Every block and theme in HAX is a web component, so new ones follow the same rules as the ones we ship. Plugins add choices and integrations without changing the core. And because HAX can understand any block's settings, anything you build works in the editor right away.",
    "source": {
-    "label": "PRAW WORLDVIEW.md: pillar checks",
-    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#pillar-checks"
+    "label": "PRAW ecosystem/build/data/pillars.json",
+    "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/pillars.json"
    },
    "always": true
   },
   "open": {
-   "desc": "Apache-2.0 and built in public, with no paywalls, upsells or tracking that serves anyone but the user.",
+   "desc": "Open by design: built on standards, owned by you. HAX is free, open source under Apache 2.0, and built on open standards like web components, OpenAPI, WCAG and xAPI instead of a proprietary framework. Your site is plain HTML files you can take anywhere, with no lock-in and no subscription. What you make is yours to keep, change, share or move, however you see fit.",
    "source": {
-    "label": "PRAW WORLDVIEW.md: pillar checks",
-    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#pillar-checks"
+    "label": "PRAW ecosystem/build/data/pillars.json",
+    "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/pillars.json"
    },
    "always": true
   },
   "agnostic": {
-   "desc": "Works the same on haxcms-nodejs, haxcms-php, static hosts and the desktop, and exports in open formats so it runs without us.",
+   "desc": "Any format, any screen, any browser. Bring content in from Word, PDFs, old sites or other CMSs, and HAX turns it into clean web pages. Those pages work on phones, tablets, laptops and big screens, in light or dark mode. Run it on PHP, Node, the command line, the desktop app, or as a static site with no server at all.",
    "source": {
-    "label": "PRAW WORLDVIEW.md: pillar checks",
-    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#pillar-checks"
+    "label": "PRAW ecosystem/build/data/pillars.json",
+    "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/pillars.json"
    },
    "always": true
   },
   "remixable": {
-   "desc": "Everything exports in open formats (HTML, JSON Outline Schema, files) and keeps OER Schema and licensing metadata, so anyone can rework it.",
+   "desc": "Break it down, mix it up, make it new. Every page is made of blocks you can rearrange, reuse or pull into another site. Bring in PDF, DOCX, PPTX, XLSX, HTML or Markdown, and export to PDF, EPUB and other open formats. Change the theme any time and your content comes along untouched, and anything an agent makes stays fully editable by a person.",
    "source": {
-    "label": "PRAW WORLDVIEW.md: pillar checks",
-    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#pillar-checks"
+    "label": "PRAW ecosystem/build/data/pillars.json",
+    "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/pillars.json"
    },
    "always": true
   },
   "sustainable": {
-   "desc": "Understandable and maintainable by regular practitioners, tracked in one issue queue, and approachable for first-time contributors.",
+   "desc": "Built to last, light on the planet. Nearly every site built since 2020 still works today, and new features reach old sites through upgrades, without rebuilds. Sites are small, load only what they need, and can run as static files, which saves energy on every visit. And the project is built to outlast any one person, with its knowledge recorded so the community can carry it forward.",
    "source": {
-    "label": "PRAW WORLDVIEW.md: pillar checks",
-    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#pillar-checks"
+    "label": "PRAW ecosystem/build/data/pillars.json",
+    "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/pillars.json"
    },
-   "always": true
+   "always": true,
+   "note": "Draft: to be revisited later."
   },
   "haxcms": {
    "desc": "\"A hybrid static site generator, a new class of CMS\": a microsite generator and manager that doesn't need the command line.",
@@ -668,6 +669,29 @@
    "desc": "BookLooky, a fellow open source project. HAX's AI-run HEOSAT process helped it go through Apereo incubation more accurately, and PRAW's haxcms-lrs-rater skill runs its Looky Rating System.",
    "links": {
     "issue": "https://github.com/haxtheweb/issues/issues/3256"
+   },
+   "always": true
+  },
+  "wcag": {
+   "desc": "WCAG, the Web Content Accessibility Guidelines from the W3C. HAX elements are built to meet them by default; element test suites run axe accessibility checks where an element has tests, and the weekly accessibility sweep checks every demo.",
+   "links": {
+    "spec": "https://www.w3.org/WAI/standards-guidelines/wcag/"
+   },
+   "always": true
+  },
+  "meaningchannels": {
+   "desc": "The meaning channels standard: anything that carries meaning or a consequential decision (correct versus incorrect, confirm versus deny, saving or deleting permanently) is conveyed through five channels at once: a label on hover and focus, a distinct color (green for correct, purple for incorrect, not red), a focus state, a texture that survives grayscale, and an icon unique to that meaning. Written into PRAW RULES.md; not yet in the DDD docs, and no gate enforces it yet.",
+   "status": "in-progress",
+   "links": {
+    "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#meaning-channels--meaning-and-consequential-decisions-use-all-five",
+    "tracking": "https://github.com/haxtheweb/issues/issues/3262"
+   },
+   "always": true
+  },
+  "rules": {
+   "desc": "Rules and guarantees: every rule HAX keeps, generated from PRAW's RULES.md and each repo's AGENTS.md, linked up to the pillars it serves, across to the parts it touches and down to the checks that enforce it. A rule nothing enforces shows as a gap.",
+   "links": {
+    "rules": "https://github.com/haxtheweb/praw/blob/main/RULES.md"
    },
    "always": true
   },
@@ -3087,7 +3111,7 @@
    "message": "One short scene per pillar, for a talk that needs one focused angle.",
    "scenes": [
     {
-     "caption": "Accessible: Meets WCAG 2.0 AA without extra author effort: labels, contrast, keyboard, headings.",
+     "caption": "Accessible: Built for everyone, by everyone.",
      "nodes": [
       "accessible",
       "components",
@@ -3095,11 +3119,14 @@
       "design",
       "editor",
       "languages",
-      "psu"
+      "meaningchannels",
+      "psu",
+      "rules",
+      "wcag"
      ]
     },
     {
-     "caption": "Efficient: Fast without a build step: offline-capable sites with high performance scores, shipped as unbundled ES modules.",
+     "caption": "Efficient: Fast for the people who make it and the people who use it.",
      "nodes": [
       "efficient",
       "cli",
@@ -3110,7 +3137,7 @@
      ]
     },
     {
-     "caption": "Extensible: Interoperates through standards, embeds and exports; themes, blocks and plugins extend it without forking core.",
+     "caption": "Extensible: If it's missing, anyone can build it.",
      "nodes": [
       "extensible",
       "components",
@@ -3124,7 +3151,7 @@
      ]
     },
     {
-     "caption": "Open: Apache-2.0 and built in public, with no paywalls, upsells or tracking that serves anyone but the user.",
+     "caption": "Open: Open by design: built on standards, owned by you.",
      "nodes": [
       "open",
       "apereo",
@@ -3140,7 +3167,7 @@
      ]
     },
     {
-     "caption": "Agnostic: Works the same on haxcms-nodejs, haxcms-php, static hosts and the desktop, and exports in open formats so it runs without us.",
+     "caption": "Agnostic: Any format, any screen, any browser.",
      "nodes": [
       "agnostic",
       "deploy",
@@ -3154,7 +3181,7 @@
      ]
     },
     {
-     "caption": "Remixable: Everything exports in open formats (HTML, JSON Outline Schema, files) and keeps OER Schema and licensing metadata, so anyone can rework it.",
+     "caption": "Remixable: Break it down, mix it up, make it new.",
      "nodes": [
       "remixable",
       "appstore",
@@ -3167,7 +3194,7 @@
      ]
     },
     {
-     "caption": "Sustainable: Understandable and maintainable by regular practitioners, tracked in one issue queue, and approachable for first-time contributors.",
+     "caption": "Sustainable: Built to last, light on the planet.",
      "nodes": [
       "sustainable",
       "agents",

@@ -11,7 +11,7 @@
    "scheduled": "scheduled jobs",
    "task": "Claude scheduled tasks"
   },
-  "about": "Every safeguard on what enters HAX, generated from the workflow files on each repo's default branch, so only checks that are merged and running appear: 22 blocking gates, 5 advisory checks, 9 scheduled jobs and 7 Claude scheduled tasks. Planned tiles are open pull requests. Element test suites include axe accessibility tests where an element has them; whole-project accessibility is covered by the weekly sweep, not a blocking gate.",
+  "about": "Every safeguard on what enters HAX, generated from the workflow files on each repo's default branch, so only checks that are merged and running appear: 24 blocking gates, 5 advisory checks, 12 scheduled jobs and 7 Claude scheduled tasks. Planned tiles are open pull requests. Element test suites include axe accessibility tests where an element has them; whole-project accessibility is covered by the weekly sweep, not a blocking gate.",
   "kindLabels": {
    "rel": "kind of safeguard",
    "schema": "where it runs"
@@ -24,15 +24,15 @@
   },
   "testing": {},
   "qg_block": {
-   "desc": "22 checks that fail a pull request when they fail, in at least one repo; whether a failing check stops the merge is up to each repo's branch rules. Each is read from the repo's workflow files on its default branch, so only checks that are merged and running appear.",
+   "desc": "24 checks that fail a pull request when they fail, in at least one repo; whether a failing check stops the merge is up to each repo's branch rules. Each is read from the repo's workflow files on its default branch, so only checks that are merged and running appear.",
    "kind": "group"
   },
   "qg_adv": {
-   "desc": "5 checks that run on pull requests but don't stop a merge (continue-on-error, warning only or report only), plus 3 planned checks still in open pull requests. ESLint stays here until it blocks.",
+   "desc": "5 checks that run on pull requests but don't stop a merge (continue-on-error, warning only or report only), plus 0 planned checks still in open pull requests. ESLint stays here until it blocks.",
    "kind": "group"
   },
   "qg_sched": {
-   "desc": "9 GitHub Actions jobs on a schedule and 7 Claude scheduled tasks. Nothing auto-merges: every PR waits for review, and every flag lands in the unified issue queue.",
+   "desc": "12 GitHub Actions jobs on a schedule and 7 Claude scheduled tasks. Nothing auto-merges: every PR waits for review, and every flag lands in the unified issue queue.",
    "kind": "group",
    "links": {
     "tracking": "https://github.com/haxtheweb/issues/issues/3262"
@@ -81,8 +81,8 @@
    }
   },
   "q_lint": {
-   "desc": "Code follows the repo's lint rules, such as no optional chaining in webcomponents. Reports without failing the pull request in create, haxcms-nodejs, webcomponents.",
-   "kind": "advisory",
+   "desc": "Code follows the repo's lint rules, such as no optional chaining in webcomponents. Fails the pull request when it fails in create, haxcms-nodejs, webcomponents.",
+   "kind": "gate",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml",
@@ -118,6 +118,14 @@
     "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/codeql-analysis.yml",
     "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/codeql.yml",
     "workflow 4": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/codeql-analysis.yml"
+   }
+  },
+  "q_contrast": {
+   "desc": "Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/contrast.yml"
    }
   },
   "q_ddd_token_lint": {
@@ -224,12 +232,19 @@
    }
   },
   "q_e2e": {
-   "desc": "End-to-end flows in the real UI keep working. Reports without failing the pull request in haxcms-nodejs, haxcms-php.",
+   "desc": "End-to-end flows in the real UI keep working. Reports without failing the pull request in haxcms-nodejs.",
    "kind": "advisory",
    "status": "deployed",
    "links": {
-    "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/build.yml",
-    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/tests.yml"
+    "workflow": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/build.yml"
+   }
+  },
+  "q_performance_and_memory_budgets": {
+   "desc": "Memory, page load and outline save time stay inside the budgets in test/perf/budgets.json. Opt-in: runs on a pull request only when it is labeled perf, and then fails it when the check fails.",
+   "kind": "advisory",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/perf.yml"
    }
   },
   "q_phpstan": {
@@ -270,30 +285,6 @@
    "status": "deployed",
    "links": {
     "workflow": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml"
-   }
-  },
-  "qp_haxcms_nodejs_190": {
-   "desc": "In an open pull request, not running yet.",
-   "status": "planned",
-   "kind": "planned",
-   "links": {
-    "pr": "https://github.com/haxtheweb/haxcms-nodejs/pull/190"
-   }
-  },
-  "qp_create_123": {
-   "desc": "In an open pull request, not running yet. haxcms-nodejs and haxcms-php give the same results for the same operations.",
-   "status": "planned",
-   "kind": "planned",
-   "links": {
-    "pr": "https://github.com/haxtheweb/create/pull/123"
-   }
-  },
-  "qp_haxcms_nodejs_189": {
-   "desc": "In an open pull request, not running yet.",
-   "status": "planned",
-   "kind": "planned",
-   "links": {
-    "pr": "https://github.com/haxtheweb/haxcms-nodejs/pull/189"
    }
   },
   "q_build_and_tests": {
@@ -375,12 +366,36 @@
     "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/backend-parity.yml"
    }
   },
+  "q_performance_and_memory_budgets_sched": {
+   "desc": "Memory, page load and outline save time stay inside the budgets in test/perf/budgets.json. Runs weekly in haxcms-nodejs.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/perf.yml"
+   }
+  },
   "q_fresh_install_smoke_test": {
    "desc": "A fresh install can create a site, add a page and serve it. Runs nightly in create. create: last scheduled run 2026-11-10, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow": "https://github.com/haxtheweb/create/blob/main/.github/workflows/fresh-install-smoke.yml"
+   }
+  },
+  "q_old_sites_weekly": {
+   "desc": "Runs weekly in create.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/create/blob/main/.github/workflows/old-sites-weekly.yml"
+   }
+  },
+  "q_parity_harness_nodejs_php_cli": {
+   "desc": "The same seeded operations sent to haxcms-nodejs, haxcms-php and the HAX CLI write the same sites (report only). Runs nightly in create.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/create/blob/main/.github/workflows/parity-nightly.yml"
    }
   },
   "ct_translations": {
@@ -450,7 +465,7 @@
    "message": "Every safeguard on what enters HAX, read from the CI that actually runs.",
    "scenes": [
     {
-     "caption": "22 blocking gates: a pull request can't merge until these pass.",
+     "caption": "24 blocking gates: a pull request can't merge until these pass.",
      "nodes": [
       "qg_block",
       "q_element_api_snapshot",
@@ -458,9 +473,11 @@
       "q_stylelint",
       "q_test_all_elements",
       "q_format_check",
+      "q_lint",
       "q_gallery_build",
       "q_cla",
       "q_codeql",
+      "q_contrast",
       "q_ddd_token_lint",
       "q_audit",
       "q_pseudo_locale_and_rtl_layout",
@@ -481,19 +498,17 @@
      "caption": "5 advisory checks report on the pull request without stopping it.",
      "nodes": [
       "qg_adv",
-      "q_lint",
       "q_unused_code_knip",
       "q_locale_guard",
       "q_render_benchmarks",
-      "q_e2e"
+      "q_e2e",
+      "q_performance_and_memory_budgets"
      ]
     },
     {
-     "caption": "Planned checks, still in open pull requests.",
+     "caption": "No checks are waiting in open pull requests.",
      "nodes": [
-      "qp_haxcms_nodejs_190",
-      "qp_create_123",
-      "qp_haxcms_nodejs_189"
+      "qg_adv"
      ]
     },
     {
@@ -508,7 +523,10 @@
       "q_mutation_testing",
       "q_openssf_scorecard",
       "q_parity",
-      "q_fresh_install_smoke_test"
+      "q_performance_and_memory_budgets_sched",
+      "q_fresh_install_smoke_test",
+      "q_old_sites_weekly",
+      "q_parity_harness_nodejs_php_cli"
      ]
     },
     {

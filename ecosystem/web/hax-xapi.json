@@ -335,13 +335,13 @@
       "v_attempted",
       "v_progressed",
       "v_completed",
-      "x_concept_map_game",
-      "x_bullet_check_list",
-      "x_lrndesign_imagemap",
-      "x_slide_deck",
-      "x_a11y_media_player",
       "x_haxcms_page",
+      "x_slide_deck",
+      "x_bullet_check_list",
       "x_video_player",
+      "x_concept_map_game",
+      "x_a11y_media_player",
+      "x_lrndesign_imagemap",
       "x_audio_player"
      ]
     },
@@ -350,13 +350,13 @@
      "nodes": [
       "v_experienced",
       "v_interacted",
-      "x_vocab_term",
-      "x_image_compare_slider",
-      "x_lrs_emitter",
       "x_haxcms_page",
+      "x_image_compare_slider",
       "x_user_action",
-      "x_a11y_collapse",
-      "x_self_check"
+      "x_lrs_emitter",
+      "x_self_check",
+      "x_vocab_term",
+      "x_a11y_collapse"
      ]
     },
     {

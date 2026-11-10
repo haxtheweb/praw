@@ -231,6 +231,32 @@
 "b_simple_fields": "2026-11-09",
 "b_count_up": "2026-11-04"
 },
+"idskills": {
+"b_a11y_compare_image": "2026-11-03",
+"b_a11y_figure": "2026-11-04",
+"b_a11y_media_player": "2026-11-10",
+"b_a11y_tabs": "2026-11-10",
+"b_course_design": "2026-11-10",
+"b_editable_table": "2026-11-10",
+"b_grade_book": "2026-11-06",
+"b_h_a_x": "2026-11-10",
+"b_lrn_vocab": "2026-11-02",
+"b_lrndesign_imagemap": "2026-11-06",
+"b_lrndesign_sidenote": "2026-11-04",
+"b_map_menu": "2026-11-09",
+"b_oer_schema": "2026-11-02",
+"b_progress_donut": "2026-11-06",
+"b_promise_progress": "2026-11-09",
+"b_reading_analysis": "2026-11-06",
+"b_self_reflective_nudge": "2026-11-06",
+"b_simple_fields": "2026-11-09",
+"b_simple_progress": "2026-11-02",
+"b_user_action": "2026-11-10",
+"b_course_model": "2026-11-09",
+"b_vocab_term": "2026-11-06",
+"b_micro_game_base": "2026-11-10",
+"b_bullet_check_list": "2026-11-10"
+},
 "importers": {
 "p_wordpress": "2026-10-20",
 "p_drupal": "2026-10-22",
@@ -1034,6 +1060,81 @@
 "btopro"
 ],
 "b_count_up": [
+"btopro"
+]
+},
+"idskills": {
+"b_a11y_compare_image": [
+"btopro"
+],
+"b_a11y_figure": [
+"btopro"
+],
+"b_a11y_media_player": [
+"btopro"
+],
+"b_a11y_tabs": [
+"btopro"
+],
+"b_course_design": [
+"btopro"
+],
+"b_editable_table": [
+"btopro"
+],
+"b_grade_book": [
+"btopro"
+],
+"b_h_a_x": [
+"btopro"
+],
+"b_lrn_vocab": [
+"btopro"
+],
+"b_lrndesign_imagemap": [
+"btopro"
+],
+"b_lrndesign_sidenote": [
+"btopro"
+],
+"b_map_menu": [
+"btopro",
+"winstonwumbo"
+],
+"b_oer_schema": [
+"btopro"
+],
+"b_progress_donut": [
+"btopro"
+],
+"b_promise_progress": [
+"btopro"
+],
+"b_reading_analysis": [
+"btopro"
+],
+"b_self_reflective_nudge": [
+"btopro"
+],
+"b_simple_fields": [
+"btopro"
+],
+"b_simple_progress": [
+"btopro"
+],
+"b_user_action": [
+"btopro"
+],
+"b_course_model": [
+"btopro"
+],
+"b_vocab_term": [
+"btopro"
+],
+"b_micro_game_base": [
+"btopro"
+],
+"b_bullet_check_list": [
 "btopro"
 ]
 },

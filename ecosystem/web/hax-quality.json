@@ -28,7 +28,7 @@
    "kind": "group"
   },
   "qg_adv": {
-   "desc": "5 checks that run on pull requests but don't stop a merge (continue-on-error, warning only or report only), plus 3 planned checks still in open pull requests. ESLint stays here until it blocks.",
+   "desc": "5 checks that run on pull requests but don't stop a merge (continue-on-error, warning only or report only), plus 7 planned checks still in open pull requests. ESLint stays here until it blocks.",
    "kind": "group"
   },
   "qg_sched": {
@@ -287,6 +287,30 @@
     "workflow": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml"
    }
   },
+  "qp_webcomponents_1273": {
+   "desc": "In an open pull request, not running yet.",
+   "status": "planned",
+   "kind": "planned",
+   "links": {
+    "pr": "https://github.com/haxtheweb/webcomponents/pull/1273"
+   }
+  },
+  "qp_webcomponents_1269": {
+   "desc": "In an open pull request, not running yet.",
+   "status": "planned",
+   "kind": "planned",
+   "links": {
+    "pr": "https://github.com/haxtheweb/webcomponents/pull/1269"
+   }
+  },
+  "qp_haxcms_nodejs_241": {
+   "desc": "In an open pull request, not running yet.",
+   "status": "planned",
+   "kind": "planned",
+   "links": {
+    "pr": "https://github.com/haxtheweb/haxcms-nodejs/pull/241"
+   }
+  },
   "qp_haxcms_nodejs_240": {
    "desc": "In an open pull request, not running yet.",
    "status": "planned",
@@ -309,6 +333,14 @@
    "kind": "planned",
    "links": {
     "pr": "https://github.com/haxtheweb/create/pull/130"
+   }
+  },
+  "qp_issues_3301": {
+   "desc": "In an open pull request, not running yet.",
+   "status": "planned",
+   "kind": "planned",
+   "links": {
+    "pr": "https://github.com/haxtheweb/issues/pull/3301"
    }
   },
   "q_build_and_tests": {
@@ -532,9 +564,13 @@
     {
      "caption": "Planned checks, still in open pull requests.",
      "nodes": [
+      "qp_webcomponents_1273",
+      "qp_webcomponents_1269",
+      "qp_haxcms_nodejs_241",
       "qp_haxcms_nodejs_240",
       "qp_haxcms_php_779",
-      "qp_create_130"
+      "qp_create_130",
+      "qp_issues_3301"
      ]
     },
     {

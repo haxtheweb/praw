@@ -8,7 +8,7 @@
    "step": "steps that write and read them",
    "reader": "who reads them"
   },
-  "about": "The manifests HAX generates about its own elements, from the webcomponents source: wc-registry.json: 614 tags, 609 of them HAX packages; wc-registry-graph.json: 614 tags over 1167 module paths; custom-elements.json: 139 packages declare 274 elements; elements-catalog.json: 602 elements, 166 HAX can author; hax-elements-registry.json: 187 authorable tags; translation-manifest.json: 149 of 234 elements translated, 41,015 files, 104 languages; languages.json: 134 languages. Steps are read from the ubiquity build and each element's build script; readers are found by scanning the built packages and the backends.",
+  "about": "The manifests HAX generates about its own elements, from the webcomponents source: wc-registry.json: 614 tags, 609 of them HAX packages; wc-registry-graph.json: 614 tags over 1167 module paths; custom-elements.json: 138 packages declare 273 elements; elements-catalog.json: 602 elements, 166 HAX can author; hax-elements-registry.json: 187 authorable tags; translation-manifest.json: 149 of 234 elements translated, 41,015 files, 104 languages; languages.json: 134 languages. Steps are read from the ubiquity build and each element's build script; readers are found by scanning the built packages and the backends.",
   "kindLabels": {
    "rel": "writes and includes",
    "schema": "is read by"
@@ -38,7 +38,7 @@
    }
   },
   "m_cem": {
-   "desc": "The Custom Elements Manifest of a package: its elements' properties, attributes, events, slots and CSS parts, written by cem analyze. Today: 139 packages declare 274 elements.",
+   "desc": "The Custom Elements Manifest of a package: its elements' properties, attributes, events, slots and CSS parts, written by cem analyze. Today: 138 packages declare 273 elements.",
    "kind": "manifest",
    "links": {
     "example": "https://github.com/haxtheweb/webcomponents/blob/master/elements/a11y-collapse/custom-elements.json"
@@ -174,7 +174,7 @@
    }
   },
   "st_cem_analyze": {
-   "desc": "Run by the build script of 226 element packages; 139 commit the result. Writes custom-elements.json.",
+   "desc": "Run by the build script of 225 element packages; 138 commit the result. Writes custom-elements.json.",
    "kind": "step"
   },
   "nodejs": {

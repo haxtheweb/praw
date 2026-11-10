@@ -14,7 +14,7 @@
       "name": "hax-onboarding",
       "source": "./plugins/hax-onboarding",
       "description": "Golden-path onboarding for HAX: checks for the HAX CLI on session start (installs it only with HAX_PLUGIN_AUTOINSTALL=1 opt-in), ships a knowledge skill, and provides slash commands (quickstart, site, webcomponent, audit, serve, publish) to go from nothing to a live HAXsite in one pass.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "HAXTheWeb core team",
         "url": "https://hax.psu.edu/"
@@ -36,7 +36,7 @@
       "name": "hax-site-ops",
       "source": "./plugins/hax-site-ops",
       "description": "Operate HAX sites from Claude Code using the HAX CLI and HAX web components \u2014 add pages, create courses, update content, inspect, validate, and publish. Ships a site-operations skill plus reference docs.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "HAXTheWeb core team",
         "url": "https://hax.psu.edu/"

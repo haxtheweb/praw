@@ -79,7 +79,7 @@ for s in items:
         if p == "traveler": continue
         lines.append(f"  {i} -->|works on| {p}")
 lines += ["", "  %%@ group hub tier=0", "  %%@ group groups tier=1", "  %%@ group sa tier=2", "  %%@ group sb tier=3", "  %%@ group parts tier=4", "  %%@ node traveler portal"]
-for g, (lab, ic, col) in GROUPS.items(): lines.append(f"  %%@ node g_{g} icon={ic} color={col} motion=pop")
+for g, (lab, ic, col) in GROUPS.items(): lines.append(f"  %%@ node g_{g} icon={ic} color={col} motion=pop" + (" web=idskills" if g == "id" else ""))  # instructional design opens its own web (build_idskills.py)
 for s in items: lines.append(f"  %%@ node {sid(s['name'])} icon=hax:file-ai color={GROUPS[group(s['name'])][2]} motion=pulse")
 for p in ["praw", "cli"] + [p for p in portals if p not in ("praw", "cli", "traveler")]: lines.append(f"  %%@ node {p} portal")
 open("hax-skills.mmd", "w").write("\n".join(lines) + "\n")

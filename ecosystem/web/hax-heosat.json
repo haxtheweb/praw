@@ -205,14 +205,14 @@
   },
   "hq_gv6": {
    "desc": "The project documents and practices a standard voting procedure for decisions requiring formal approval. No documented voting procedure for decisions that need formal approval.",
-   "status": "planned",
+   "status": "gap",
    "kind": "gap",
    "note": "Gap: no evidence yet. Section: Governance & Decision-Making.",
    "links": {}
   },
   "hq_gv7": {
    "desc": "The project has an adopted, documented process for resolving community or governance disputes. The Code of Conduct covers conduct, but there is no process for resolving technical or governance disputes.",
-   "status": "planned",
+   "status": "gap",
    "kind": "gap",
    "note": "Gap: no evidence yet. Section: Governance & Decision-Making.",
    "links": {

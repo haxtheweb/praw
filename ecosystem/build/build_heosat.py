@@ -48,7 +48,7 @@ for n in evidence_nodes:
     if n not in CONTEXT: lines.append(f"  %%@ node {n} portal")
 open("hax-heosat.mmd", "w").write("\n".join(lines) + "\n")
 
-STATUS = {"evidenced": "deployed", "partial": "in-progress", "gap": "planned"}
+STATUS = {"evidenced": "deployed", "partial": "in-progress", "gap": "gap"}
 WORD = {"evidenced": "Evidenced", "partial": "Partly evidenced", "gap": "Gap: no evidence yet"}
 nodes = {"heosat": {"always": True}, "s_heosat": {}}
 for s in SECS:

@@ -66,14 +66,15 @@ anything you publish.
    ```
 
    This boots an isolated runtime, creates a site and walks the real states (dashboard, first visit,
-   site view, edit mode, outline, add page, user menu, every site admin section). Per state it writes
-   screenshots (desktop and mobile, light and dark), `dom.json` (every visible control and heading:
-   tag, host chain, label, text, icon, box, computed styles and the DDD / HAX UI tokens they resolve
-   to) and the ordered visible labels; plus `manifest.json`, `README.md` and `tokens.css` (every
-   `--ddd-*` / `--hax-ui-*` value as it resolved). Read `README.md` and the `dom.json` of every state
-   in the brief before drawing anything. Add `--sub` for admin sub-sections and `--states` to limit
-   the run. A state the inventory does not cover yet is captured the same way: add it to
-   `scripts/ui-inventory.js` in a haxcms-nodejs PR rather than describing it from memory.
+   site view, site view as a visitor who never logged in, edit mode, outline, add page, user menu,
+   every site admin section). Per state it writes screenshots (desktop and mobile, light and dark),
+   `dom.json` (every visible control and heading: tag, host chain, label, text, icon, box, computed
+   styles and the DDD / HAX UI tokens they resolve to) and the ordered visible labels; plus
+   `manifest.json`, `README.md` and `tokens.css` (every `--ddd-*` / `--hax-ui-*` value as it resolved).
+   Read `README.md` and the `dom.json` of every state in the brief before drawing anything. Add `--sub`
+   for admin sub-sections and `--states` to limit the run. A state the inventory does not cover yet is
+   captured the same way: add it to `scripts/ui-inventory.js` in a haxcms-nodejs PR rather than
+   describing it from memory.
 
    **Something new on a page** (a new block, a new page layout): put the real page around it instead
    of laying the proposal over unrelated content. Write the page's surrounding content to a file with

@@ -1,0 +1,3412 @@
+{
+ "meta": {
+  "name": "HAX ecosystem",
+  "updated": "2026-11-05",
+  "checked": "2026-11-09",
+  "about": "Details for hax-ecosystem.mmd. Structure lives in the Mermaid file; this file holds descriptions, links, releases, evidence, tours and timeline years. Run scripts/graph-drift.mjs after each release to refresh versions and flag what changed.",
+  "pairs": [
+   [
+    "php",
+    "nodejs",
+    "haxcms-php and haxcms-nodejs ship together and should carry the same version."
+   ]
+  ],
+  "statusLabels": {
+   "released": "Released",
+   "prerelease": "Pre-release",
+   "in-progress": "In progress",
+   "planned": "Planned",
+   "legacy": "Legacy",
+   "living": "Living document",
+   "deployed": "Deployed"
+  }
+ },
+ "nodes": {
+  "human": {
+   "desc": "People are the center of HAX: authors, students, faculty, staff and contributors. Every pillar exists for them.",
+   "source": {
+    "label": "PRAW WORLDVIEW.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md"
+   },
+   "always": true
+  },
+  "traveler": {
+   "desc": "The HAX mascot, a.k.a. World Changer: \"Dream it, remix it, have it, share it.\" Here he stands for your AI companion, working alongside people.",
+   "source": {
+    "label": "haxtheweb/art world-traveler",
+    "url": "https://github.com/haxtheweb/art/tree/main/world-traveler"
+   },
+   "links": {
+    "repo": "https://github.com/haxtheweb/art/tree/main/world-traveler"
+   },
+   "always": true
+  },
+  "accessible": {
+   "desc": "Meets WCAG 2.0 AA without extra author effort: labels, contrast, keyboard, headings.",
+   "source": {
+    "label": "PRAW WORLDVIEW.md: pillar checks",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#pillar-checks"
+   },
+   "always": true
+  },
+  "efficient": {
+   "desc": "Fast without a build step: offline-capable sites with high performance scores, shipped as unbundled ES modules.",
+   "source": {
+    "label": "PRAW WORLDVIEW.md: pillar checks",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#pillar-checks"
+   },
+   "always": true
+  },
+  "extensible": {
+   "desc": "Interoperates through standards, embeds and exports; themes, blocks and plugins extend it without forking core.",
+   "source": {
+    "label": "PRAW WORLDVIEW.md: pillar checks",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#pillar-checks"
+   },
+   "always": true
+  },
+  "open": {
+   "desc": "Apache-2.0 and built in public, with no paywalls, upsells or tracking that serves anyone but the user.",
+   "source": {
+    "label": "PRAW WORLDVIEW.md: pillar checks",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#pillar-checks"
+   },
+   "always": true
+  },
+  "agnostic": {
+   "desc": "Works the same on haxcms-nodejs, haxcms-php, static hosts and the desktop, and exports in open formats so it runs without us.",
+   "source": {
+    "label": "PRAW WORLDVIEW.md: pillar checks",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#pillar-checks"
+   },
+   "always": true
+  },
+  "remixable": {
+   "desc": "Everything exports in open formats (HTML, JSON Outline Schema, files) and keeps OER Schema and licensing metadata, so anyone can rework it.",
+   "source": {
+    "label": "PRAW WORLDVIEW.md: pillar checks",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#pillar-checks"
+   },
+   "always": true
+  },
+  "sustainable": {
+   "desc": "Understandable and maintainable by regular practitioners, tracked in one issue queue, and approachable for first-time contributors.",
+   "source": {
+    "label": "PRAW WORLDVIEW.md: pillar checks",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#pillar-checks"
+   },
+   "always": true
+  },
+  "haxcms": {
+   "desc": "\"A hybrid static site generator, a new class of CMS\": a microsite generator and manager that doesn't need the command line.",
+   "source": {
+    "label": "haxtheweb.org: Why HAXcms",
+    "url": "https://haxtheweb.org"
+   },
+   "links": {
+    "docs": "https://haxtheweb.org/documentation"
+   },
+   "status": "released",
+   "year": 2019,
+   "yearNote": "HAXcms announced at DrupalCon; the first site goes live",
+   "yearSource": {
+    "label": "WINS.md SIIP timeline",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
+   }
+  },
+  "editor": {
+   "desc": "HAX, the Headless Authoring eXperience: \"a WYSIWYG unlike any other. You extend your world by extending the web through the web component standard.\"",
+   "source": {
+    "label": "haxtheweb.org: What is HAX",
+    "url": "https://haxtheweb.org"
+   },
+   "links": {
+    "npm": "https://www.npmjs.com/package/@haxtheweb/hax-body",
+    "demo": "https://hax.cloud"
+   },
+   "release": "npm:@haxtheweb/hax-body",
+   "status": "released",
+   "year": 2017,
+   "yearNote": "HAX first presented at DrupalCon Baltimore by Bryan Ollendyke and Michael Potter",
+   "yearSource": {
+    "label": "DrupalCon Baltimore 2017 session",
+    "url": "https://events.drupal.org/baltimore2017/sessions/mad-scientist-road-show"
+   },
+   "version": "26.8.0"
+  },
+  "merlin": {
+   "desc": "HAX's command program, marked by the wand: search for and run actions while editing. HAX Tips will surface here.",
+   "source": {
+    "label": "haxtheweb/issues #3172",
+    "url": "https://github.com/haxtheweb/issues/issues/3172"
+   },
+   "status": "released"
+  },
+  "dashboard": {
+   "desc": "app-hax, where people create and manage sites. Three generations were built by student teams from 2022 to 2026.",
+   "source": {
+    "label": "WINS.md: Site Dashboard",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
+   },
+   "links": {
+    "npm": "https://www.npmjs.com/package/@haxtheweb/app-hax"
+   },
+   "release": "npm:@haxtheweb/app-hax",
+   "status": "released",
+   "year": 2022,
+   "yearNote": "Dashboard 1.0 built by a student team in one semester",
+   "yearSource": {
+    "label": "WINS.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
+   },
+   "version": "26.8.0"
+  },
+  "themes": {
+   "desc": "Ways to theme HAXcms matched to skill set: skin a site with CSS, or build a theme from web components. Themes grew from 14 at the end of 2024 to more than 30.",
+   "source": {
+    "label": "haxtheweb.org: Theming; WINS.md: Reach",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#reach-by-early-2026"
+   },
+   "links": {
+    "npm": "https://www.npmjs.com/package/@haxtheweb/haxcms-elements"
+   },
+   "release": "npm:@haxtheweb/haxcms-elements",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "php": {
+   "desc": "HAXcms on PHP. Kept in step with the Node.js backend through a shared OpenAPI contract; powers haxtheweb.org through HAXiam.",
+   "source": {
+    "label": "haxtheweb.org",
+    "url": "https://haxtheweb.org"
+   },
+   "links": {
+    "repo": "https://github.com/haxtheweb/haxcms-php"
+   },
+   "release": "git:haxtheweb/haxcms-php",
+   "status": "released",
+   "version": "26.8.2"
+  },
+  "nodejs": {
+   "desc": "HAXcms on Node.js, started with npx @haxtheweb/haxcms-nodejs. The most-downloaded @haxtheweb package.",
+   "source": {
+    "label": "haxtheweb.org; WINS.md: 289 packages",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#289-packages-about-49000-downloads-a-month"
+   },
+   "links": {
+    "repo": "https://github.com/haxtheweb/haxcms-nodejs",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/haxcms-nodejs"
+   },
+   "release": "npm:@haxtheweb/haxcms-nodejs",
+   "status": "released",
+   "version": "26.8.1"
+  },
+  "haxiam": {
+   "desc": "Makes HAXcms multi-tenant: hundreds of sites from one core behind institutional login. hax.psu.edu runs on it.",
+   "source": {
+    "label": "haxiam on GitHub",
+    "url": "https://github.com/haxtheweb/haxiam"
+   },
+   "links": {
+    "repo": "https://github.com/haxtheweb/haxiam"
+   },
+   "status": "deployed"
+  },
+  "haxpsu": {
+   "desc": "Penn State's HAXcms service, run on HAXiam behind Penn State login: 302 sites, 368 users and 17,100 pages. \"Free, open source, forever, transformative, unleashing creativity in a sustainable way.\" Open its web for courses by college.",
+   "source": {
+    "label": "hax.psu.edu",
+    "url": "https://hax.psu.edu"
+   },
+   "links": {
+    "site": "https://hax.psu.edu"
+   },
+   "status": "deployed",
+   "year": 2020,
+   "yearNote": "hax.psu.edu opens on HAXiam"
+  },
+  "ssr": {
+   "desc": "Lit server-side rendering so elements render for search engines and AI crawlers. Publish-time static SSR comes first; serving SSR live is parked until it is stable.",
+   "source": {
+    "label": "haxtheweb/issues #3170",
+    "url": "https://github.com/haxtheweb/issues/issues/3170"
+   },
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/3161",
+    "earlier": "https://github.com/haxtheweb/issues/issues/2082"
+   },
+   "status": "in-progress"
+  },
+  "hax11ty": {
+   "desc": "\"HAX + 11ty = HAX11ty! The best of SEO from 11ty while using the HAX editor and the HAXcms theme engine.\"",
+   "source": {
+    "label": "haxtheweb.org: HAX11ty",
+    "url": "https://haxtheweb.org"
+   },
+   "links": {
+    "repo": "https://github.com/haxtheweb/hax11ty",
+    "docs": "https://haxtheweb.github.io/hax11ty/"
+   },
+   "release": "git:haxtheweb/hax11ty",
+   "status": "released",
+   "version": "26.0.0"
+  },
+  "cli": {
+   "desc": "hax: install with npm install --global @haxtheweb/create, then run hax start. Creates sites and components, audits DDD and publishes. Needs Node 20+.",
+   "source": {
+    "label": "haxtheweb.org",
+    "url": "https://haxtheweb.org"
+   },
+   "links": {
+    "repo": "https://github.com/haxtheweb/create",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/create"
+   },
+   "release": "npm:@haxtheweb/create",
+   "status": "released",
+   "year": 2025,
+   "yearNote": "Winston White builds much of the HAX CLI",
+   "yearSource": {
+    "label": "WINS.md: Winston White",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#winston-white-student-to-trainer"
+   },
+   "version": "26.8.1"
+  },
+  "ubiquity": {
+   "desc": "The webcomponents release build that ships every element, as one tested set, to haxcms-nodejs and the other backends.",
+   "source": null,
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents"
+   },
+   "release": "git:haxtheweb/webcomponents",
+   "status": "released",
+   "version": "26.8.1"
+  },
+  "staticpub": {
+   "desc": "Static export and Lit SSR built into haxcms-nodejs, haxcms-php and the CLI, so any site publishes as static files from core; HAX11ty becomes a wrapper around it.",
+   "source": {
+    "label": "haxtheweb/issues #3162",
+    "url": "https://github.com/haxtheweb/issues/issues/3162"
+   },
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/3162"
+   },
+   "status": "planned",
+   "year": 2026,
+   "yearNote": "Static export moves into core"
+  },
+  "magiclink": {
+   "desc": "One-time login links issued from the CLI, so an admin can recover or hand out access without a password.",
+   "source": {
+    "label": "haxtheweb/issues #2854",
+    "url": "https://github.com/haxtheweb/issues/issues/2854"
+   },
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/2854"
+   },
+   "status": "planned",
+   "year": 2026,
+   "yearNote": "One-time login links"
+  },
+  "importers": {
+   "desc": "Every way content gets into HAX: whole sites from WordPress, Drupal, Plone, ELMS:LN, Notion, GitBook, VitePress, Quarto, Pressbooks, OpenStax or any HTML site; a site from one Word, PowerPoint, Excel, PDF or HTML file; and documents, media or links dropped into the page you are writing.",
+   "source": {
+    "label": "system-spec.yaml",
+    "url": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/openapi/system-spec.yaml"
+   },
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/tree/main/src/systemRoutes/v1/routes/imports"
+   },
+   "status": "released"
+  },
+  "flows": {
+   "desc": "Three paths through HAX in order: how a page loads, how a page is added, and how a site is restructured with the outline designer. Open it and press Play.",
+   "always": true
+  },
+  "learnhax": {
+   "desc": "Learn HAX: tutorials, reference and onboarding for the HAX ecosystem, at learn.haxtheweb.org. This web is meant to fold into it.",
+   "source": {
+    "label": "learn.haxtheweb.org",
+    "url": "https://learn.haxtheweb.org"
+   },
+   "links": {
+    "site": "https://learn.haxtheweb.org",
+    "repo": "https://github.com/haxtheweb/learn"
+   },
+   "status": "living"
+  },
+  "deploy": {
+   "desc": "Publish targets for HAX sites: surge, Netlify, Vercel and GitHub Pages, as static files.",
+   "status": "released"
+  },
+  "ai": {
+   "desc": "AI features inside HAX: Dave Fusco's AI integration from the AI and HAX grant, and Zach Dodson's AI chat agent.",
+   "status": "in-progress",
+   "year": 2025,
+   "yearNote": "AI arrives inside HAX"
+  },
+  "agents": {
+   "desc": "Agent skills for HAX, split between PRAW (community and administration) and create (using HAX). With PRAW's context, closed issues per month rose about 90%, then 211%.",
+   "source": {
+    "label": "WINS.md: Agents with context",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#agents-with-context-90-then-211"
+   },
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw"
+   },
+   "status": "released"
+  },
+  "mcp": {
+   "desc": "An MCP server so agents can work with HAXcms sites. It connects to the Node.js and PHP backends and the CLI; it is not enabled on HAXiam deployments.",
+   "source": {
+    "label": "haxtheweb/haxcms-mcp",
+    "url": "https://github.com/haxtheweb/haxcms-mcp"
+   },
+   "links": {
+    "repo": "https://github.com/haxtheweb/haxcms-mcp"
+   },
+   "release": "git:haxtheweb/haxcms-mcp",
+   "status": "prerelease"
+  },
+  "praw": {
+   "desc": "\"A repository containing comprehensive AI agent rules for the HAX ecosystem\": the worldview, voice, wins and skills that keep agents and contributors consistent.",
+   "source": {
+    "label": "PRAW README",
+    "url": "https://github.com/haxtheweb/praw"
+   },
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw"
+   },
+   "status": "living"
+  },
+  "issues": {
+   "desc": "The unified HAX issue queue for every project, including published security advisories.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/issues"
+   },
+   "status": "living"
+  },
+  "wins": {
+   "desc": "\"Sourced stories that prove the worldview works.\" A good win has a person, a before and after, and a source.",
+   "source": {
+    "label": "PRAW WINS.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
+   },
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
+   },
+   "status": "living"
+  },
+  "haxcamp": {
+   "desc": "Gatherings to learn web components. The first, hosted by Duke, drew over 40 people.",
+   "source": {
+    "label": "WINS.md: First hax-camp",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#first-hax-camp-40-people"
+   },
+   "year": 2019,
+   "yearNote": "HAX Camp at Duke",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   }
+  },
+  "components": {
+   "desc": "About 640 web components open sourced by May 2026; 289 @haxtheweb packages on npm, downloaded about 49,000 times a month. Open the Web components web to see the 60 blocks in the HAX app store.",
+   "source": {
+    "label": "WINS.md: 640+ open HTML tags",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#640-open-html-tags-used-across-penn-state"
+   },
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents"
+   },
+   "release": "git:haxtheweb/webcomponents",
+   "status": "released",
+   "year": 2017,
+   "yearNote": "The first web component brick",
+   "yearSource": {
+    "label": "WINS.md SIIP timeline",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
+   },
+   "version": "26.8.1"
+  },
+  "ddd": {
+   "desc": "DDD (Design, Develop, Deliver), the HAX design system. It began as Keith Charlton Jr's class project and now spans 60+ elements: \"PSU-esque designs by PSU.\"",
+   "source": {
+    "label": "WINS.md: Students built the design system",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#students-built-the-design-system"
+   },
+   "links": {
+    "npm": "https://www.npmjs.com/package/@haxtheweb/d-d-d",
+    "repo": "https://github.com/haxtheweb/webcomponents"
+   },
+   "release": "npm:@haxtheweb/d-d-d",
+   "status": "released",
+   "year": 2024,
+   "yearNote": "Keith Charlton creates DDD",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "version": "26.8.0"
+  },
+  "plugins": {
+   "desc": "A plugin architecture in progress: spec and examples in haxcms-plugin-examples, while core keeps the evolving baseline (SEO, accessibility, sitemaps).",
+   "source": {
+    "label": "haxtheweb/issues #3176",
+    "url": "https://github.com/haxtheweb/issues/issues/3176"
+   },
+   "links": {
+    "repo": "https://github.com/haxtheweb/haxcms-plugin-examples",
+    "issue": "https://github.com/haxtheweb/issues/issues/3176"
+   },
+   "status": "in-progress"
+  },
+  "languages": {
+   "desc": "Internationalization for any web component, plus a shared registry of 102 supported languages being built in phases.",
+   "source": {
+    "label": "haxtheweb/issues #3165",
+    "url": "https://github.com/haxtheweb/issues/issues/3165"
+   },
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/3165"
+   },
+   "status": "in-progress"
+  },
+  "insights": {
+   "desc": "A planned admin dashboard of stats computed from site content: content, broken links, accessibility and where to add activities.",
+   "source": {
+    "label": "haxtheweb/issues #3167",
+    "url": "https://github.com/haxtheweb/issues/issues/3167"
+   },
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/3167"
+   },
+   "status": "planned"
+  },
+  "presentations": {
+   "desc": "Talks, podcasts and webinars about HAX from 2017 to 2026. Open the Presentations web to see each one, who gave it, where and what it covered.",
+   "source": {
+    "label": "PRAW talks",
+    "url": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   },
+   "links": {
+    "notes": "https://github.com/haxtheweb/praw/blob/main/talks/README.md",
+    "playlist": "https://www.youtube.com/watch?v=q0IjUz2_IhA&list=PLJQupiji7J5eTqv8JFiW8SZpSeKouZACH"
+   },
+   "year": 2017,
+   "yearNote": "The first HAX talk, at DrupalCon Baltimore",
+   "yearSource": {
+    "label": "DrupalCon Baltimore 2017 session",
+    "url": "https://events.drupal.org/baltimore2017/sessions/mad-scientist-road-show"
+   }
+  },
+  "ist256": {
+   "desc": "Bryan's advanced web development course at Penn State: vanilla web components and Lit, ending in real contributions to HAX. Taught from fall 2019 to spring 2026; many class projects became HAX components. Open the IST 256 web for semesters and projects.",
+   "source": {
+    "label": "btopro/edtechjoker README",
+    "url": "https://github.com/btopro/edtechjoker"
+   },
+   "links": {
+    "repo": "https://github.com/btopro/edtechjoker"
+   },
+   "year": 2019,
+   "yearNote": "Bryan's first IST 256 semester"
+  },
+  "grants": {
+   "desc": "Faculty and unit grants that fund real student work on HAX. Grant sizes are left out on purpose: it isn't a competition, and this work doesn't need much money.",
+   "source": {
+    "label": "WINS.md: HAX Lab faculty grants",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#hax-lab-faculty-grants"
+   }
+  },
+  "g_fusco": {
+   "desc": "Dave Fusco's grant for AI and HAX: Canvas AI analysis built by students through the HAX CLI, reporting how AI-ready a course's assignments are and launching a live HAX site.",
+   "source": {
+    "label": "WINS.md: HAX Lab faculty grants",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#hax-lab-faculty-grants"
+   }
+  },
+  "g_frank": {
+   "desc": "Jennifer Frank's grant for the International Student Portfolio: Winston White's work on HAXcms and skeletons, so students get portfolios they can take with them.",
+   "source": {
+    "label": "WINS.md: HAX Lab faculty grants",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#hax-lab-faculty-grants"
+   }
+  },
+  "g_hhd": {
+   "desc": "With Health and Human Development: Bryan, Bill and Blake Colaianne, for making more games and improving web components and HAXcms."
+  },
+  "games": {
+   "desc": "Playful games and media built from HAX web components, like rpg-character games starring the Future Traveler.",
+   "source": {
+    "label": "haxtheweb/art",
+    "url": "https://github.com/haxtheweb/art"
+   }
+  },
+  "buttercups": {
+   "desc": "Buttercups Training, a UK training company that contributed to ELMS:LN and the HAX editor from 2019 to 2022: HAX content hooks, a TinCan (xAPI) bridge fix, H5P updates and MOOC content.",
+   "source": {
+    "label": "elmsln/elmsln pull requests from buttercupstraining",
+    "url": "https://github.com/elmsln/elmsln/pull/2698"
+   },
+   "links": {
+    "site": "https://github.com/buttercupstraining"
+   },
+   "year": 2019,
+   "yearNote": "Buttercups Training starts contributing to ELMS:LN",
+   "yearSource": {
+    "label": "elmsln commit history",
+    "url": "https://github.com/elmsln/elmsln"
+   }
+  },
+  "innovationhub": {
+   "desc": "The Eric J. Barron Innovation Hub, Penn State's coworking and collaboration space in downtown State College. Its earlier site was built on hax.psu.edu.",
+   "source": {
+    "label": "innovationhub.launchbox.psu.edu",
+    "url": "https://innovationhub.launchbox.psu.edu/about/"
+   },
+   "links": {
+    "site": "https://innovationhub.launchbox.psu.edu"
+   }
+  },
+  "wcstandard": {
+   "desc": "The browser-native component model HAX is built on: \"Web components effectively turn the HTML of a site into a consistent API.\"",
+   "source": {
+    "label": "haxtheweb.org F.A.Q.",
+    "url": "https://haxtheweb.org"
+   },
+   "year": 2016,
+   "yearNote": "Mike Potter points Bryan to the web component standard",
+   "yearSource": {
+    "label": "WORLDVIEW.md: People who shaped it",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md"
+   }
+  },
+  "security": {
+   "desc": "39 published advisories in the unified queue, many found by Penn State's CCSO students, who helped resolve 30 vulnerabilities over two years.",
+   "source": {
+    "label": "haxtheweb/issues security advisories",
+    "url": "https://github.com/haxtheweb/issues/security/advisories"
+   },
+   "links": {
+    "advisories": "https://github.com/haxtheweb/issues/security/advisories"
+   },
+   "year": 2025,
+   "yearNote": "CCSO's first audit; the first CVEs are published",
+   "yearSource": {
+    "label": "haxtheweb/issues advisories",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-vj5q-3jv2-cg5p"
+   }
+  },
+  "testing": {
+   "desc": "Automated tests that check human- and AI-made changes: Chromium on every pull request, full cross-browser runs outside CI."
+  },
+  "design": {
+   "desc": "The UX and visual design practice behind HAX UI and DDD, shaped by student UX groups and the 2019 National Archives usability audit.",
+   "source": {
+    "label": "WINS.md: National Archives usability audit",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#national-archives-usability-audit-2019"
+   }
+  },
+  "jos": {
+   "desc": "JSON Outline Schema: the site structure (site.json) HAXcms is built on, effectively one to one.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/json-outline-schema",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/json-outline-schema"
+   },
+   "release": "npm:@haxtheweb/json-outline-schema",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "haxschema": {
+   "desc": "\"For your element to talk to the HAX editor, you implement static get haxProperties()\": the schema that gives every block its editing form.",
+   "source": {
+    "label": "haxtheweb.org: HAX schema",
+    "url": "https://haxtheweb.org"
+   }
+  },
+  "appstore": {
+   "desc": "The app store spec: the autoloader \"loads all the elements that will be available to your users\", plus stax (templates) and blox (layouts).",
+   "source": {
+    "label": "haxtheweb.org: HAX app store",
+    "url": "https://haxtheweb.org"
+   }
+  },
+  "oerschema": {
+   "desc": "Metadata for open educational resources, kept with the content so it can be found, credited and remixed. Authored by Michael Collins.",
+   "links": {
+    "site": "https://oerschema.org",
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/oer-schema"
+   }
+  },
+  "openapi": {
+   "desc": "The shared contract that keeps haxcms-nodejs and haxcms-php input and output identical."
+  },
+  "community": {
+   "desc": "How HAX is run: roles and succession, how a decision is made in the open, the documents every repo keeps, and where people meet.",
+   "links": {
+    "governance": "https://github.com/haxtheweb/issues/blob/main/GOVERNANCE.md"
+   },
+   "always": true
+  },
+  "contracts": {
+   "desc": "Every data contract in one view: the schema files each HAX format is defined by, and who reads and writes them.",
+   "always": true
+  },
+  "anatomy": {
+   "desc": "What a HAX site is made of on disk: site.json, pages, files, theme, the registry and the files HAXcms generates.",
+   "always": true
+  },
+  "xapi": {
+   "desc": "Learner activity recorded as xAPI-style statements, ready to move from local storage to a learning record store.",
+   "year": 2016,
+   "yearNote": "Dave Fusco works on xAPI integration",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   }
+  },
+  "skeletons": {
+   "desc": "Full working starter sites anyone can export and hand to someone else, \"hundreds of clicks closer to done.\"",
+   "source": {
+    "label": "WINS.md: Skeletons and benevolent restrictions",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#skeletons-and-benevolent-restrictions-hax-25"
+   },
+   "year": 2025,
+   "yearNote": "Skeletons arrive in HAX 25",
+   "yearSource": {
+    "label": "WINS.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#skeletons-and-benevolent-restrictions-hax-25"
+   }
+  },
+  "course": {
+   "desc": "Online courses in multiple Penn State colleges; HAX began for online courses in Arts and Architecture. About 67,000 students educated through HAX-based systems in A&A alone.",
+   "source": {
+    "label": "WINS.md: Reach by early 2026",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#reach-by-early-2026"
+   }
+  },
+  "portfolio": {
+   "desc": "Portfolios students can take with them, starting with the International Student Portfolio and a set of student-built portfolio themes.",
+   "source": {
+    "label": "WINS.md: HAX Lab faculty grants",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#hax-lab-faculty-grants"
+   },
+   "year": 2025,
+   "yearNote": "Student-built portfolio themes",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   }
+  },
+  "dept": {
+   "desc": "Department and unit sites owned without a web team, like the Learn to Flourish Hub at flourish.hhd.psu.edu.",
+   "source": {
+    "label": "WINS.md: Learn to Flourish Hub",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
+   },
+   "links": {
+    "example": "https://flourish.hhd.psu.edu"
+   },
+   "year": 2026,
+   "yearNote": "flourish.hhd.psu.edu launches",
+   "yearSource": {
+    "label": "WINS.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
+   }
+  },
+  "textbook": {
+   "desc": "Open books from Pressbooks, OpenStax or Word, pulled in, edited and published as open sites in minutes.",
+   "source": {
+    "label": "WINS.md: Migrations in seconds",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#migrations-in-seconds-not-months"
+   }
+  },
+  "psu": {
+   "desc": "Where HAX was founded and is backed. \"HAX at Penn State is hosted and supported by a collaboration of several Penn State colleges and outside contributors.\"",
+   "source": {
+    "label": "hax.psu.edu",
+    "url": "https://hax.psu.edu"
+   },
+   "links": {
+    "site": "https://hax.psu.edu"
+   },
+   "year": 2015,
+   "yearNote": "HAX starts as a note card at Penn State",
+   "yearSource": {
+    "label": "WINS.md: One maintainer, more rockets",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
+   }
+  },
+  "aa": {
+   "desc": "The College of Arts and Architecture, where HAX began for online courses and where HAX Lab and the Office of Digital Learning work.",
+   "source": {
+    "label": "WINS.md: 640+ open HTML tags",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#640-open-html-tags-used-across-penn-state"
+   },
+   "year": 2015,
+   "yearNote": "HAX begins for online courses in Arts and Architecture",
+   "yearSource": {
+    "label": "WINS.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#640-open-html-tags-used-across-penn-state"
+   }
+  },
+  "ist": {
+   "desc": "The College of Information Sciences and Technology. IST 256 teaches modern front-end development with HAX; home of CCSO and UXDC.",
+   "source": {
+    "label": "WINS.md: SIIP lessons learned",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
+   }
+  },
+  "hhd": {
+   "desc": "Health and Human Development, home of the Learn to Flourish Hub.",
+   "source": {
+    "label": "WINS.md: Learn to Flourish Hub",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
+   },
+   "year": 2026
+  },
+  "eberly": {
+   "desc": "The Eberly College of Science: 14 courses on hax.psu.edu with 1,803 pages, from BIOL 110 and CHEM 110 to PHYS 211 and 212.",
+   "source": {
+    "label": "hax.psu.edu stats snapshot",
+    "url": "https://hax.psu.edu"
+   }
+  },
+  "libraries": {
+   "desc": "Penn State University Libraries publishes XML-based plays with HAX.",
+   "source": {
+    "label": "WINS.md: 640+ open HTML tags",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#640-open-html-tags-used-across-penn-state"
+   }
+  },
+  "haxlab": {
+   "desc": "Students and contributors working on HAX through courses, independent studies and internships; alumni now work at Red Hat, Adobe, IBM, Ford and PennDOT.",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "links": {
+    "repo": "https://github.com/haxtheweb/hax-lab",
+    "site": "https://haxtheweb.org/hax-lab"
+   },
+   "year": 2016,
+   "yearNote": "The first HAX Lab contribution (xAPI and AI integration)",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   }
+  },
+  "ccso": {
+   "desc": "Penn State's student cyber security club. Two long-form audits helped find and resolve 30 vulnerabilities over two years.",
+   "source": {
+    "label": "WINS.md: Student clubs",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#student-clubs-30-security-fixes"
+   },
+   "links": {
+    "site": "https://psuccso.org/"
+   },
+   "year": 2025,
+   "yearNote": "CCSO runs the 2025 HAX pentest",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   }
+  },
+  "uxdc": {
+   "desc": "A student UX and design organization in IST, formerly UXPA (same organization, new name). Four members applied their UX training to HAX.",
+   "source": {
+    "label": "WINS.md: Student clubs (listed as UXPA)",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#student-clubs-30-security-fixes"
+   },
+   "links": {
+    "site": "https://discover.psu.edu/organization/uxdc"
+   }
+  },
+  "apereo": {
+   "desc": "An open source foundation for higher education. The SIIP talk on how HAX ships with one maintainer was given at its microconference.",
+   "source": {
+    "label": "SIIP talk, Apereo microconference, May 2026",
+    "url": "https://www.youtube.com/watch?v=TNF0uzYi9Kk"
+   },
+   "links": {
+    "site": "https://www.apereo.org/"
+   },
+   "year": 2026,
+   "yearNote": "The SIIP talk at the Apereo microconference",
+   "yearSource": {
+    "label": "SIIP talk",
+    "url": "https://www.youtube.com/watch?v=TNF0uzYi9Kk"
+   }
+  },
+  "github": {
+   "desc": "Hosts every HAX repository, the issue queue and its security advisories.",
+   "links": {
+    "site": "https://github.com/haxtheweb"
+   }
+  },
+  "npm": {
+   "desc": "Distributes 289 @haxtheweb packages, about 49,000 downloads a month.",
+   "source": {
+    "label": "WINS.md: 289 packages",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#289-packages-about-49000-downloads-a-month"
+   },
+   "links": {
+    "site": "https://www.npmjs.com/org/haxtheweb"
+   }
+  },
+  "reclaim": {
+   "desc": "Reclaim Hosting, the hosting company that hosted HAX Camp at Duke; HAXcms installs on its hosting.",
+   "links": {
+    "site": "https://www.reclaimhosting.com/"
+   },
+   "year": 2019,
+   "yearNote": "Reclaim Hosting hosts HAX Camp at Duke"
+  },
+  "uvic": {
+   "desc": "University of Victoria, where Jennifer Frank is now.",
+   "links": {
+    "site": "https://www.uvic.ca/"
+   },
+   "year": 2026
+  },
+  "duke": {
+   "desc": "Hosted the first HAX Camp, which drew over 40 people to learn web components.",
+   "source": {
+    "label": "WINS.md: First hax-camp",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#first-hax-camp-40-people"
+   },
+   "year": 2019,
+   "yearNote": "HAX Camp at Duke",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   }
+  },
+  "drupalcon": {
+   "desc": "Where HAX was first shown: DrupalCon Baltimore 2017 (Bryan Ollendyke and Michael Potter), DrupalCon Nashville 2018, and HAXcms announced at DrupalCon Seattle with Red Hat.",
+   "source": {
+    "label": "DrupalCon Nashville 2018 session",
+    "url": "https://events.drupal.org/nashville2018/sessions/webcomponents-polymer-and-hax-decoupling-authoring-drupal-and-beyond"
+   },
+   "links": {
+    "site": "https://events.drupal.org/nashville2018/sessions/webcomponents-polymer-and-hax-decoupling-authoring-drupal-and-beyond"
+   },
+   "year": 2017,
+   "yearNote": "HAX first presented at DrupalCon Baltimore",
+   "yearSource": {
+    "label": "DrupalCon Baltimore 2017 session",
+    "url": "https://events.drupal.org/baltimore2017/sessions/mad-scientist-road-show"
+   }
+  },
+  "elmsln": {
+   "desc": "ELMS:LN, the platform before HAX. Legacy now, but it is where the outline designer, Penn State's Drupal community and the first live web components began.",
+   "source": {
+    "label": "WINS.md: Foundations",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#foundations-before-hax"
+   },
+   "links": {
+    "repo": "https://github.com/elmsln/elmsln"
+   },
+   "release": "git:elmsln/elmsln",
+   "status": "legacy",
+   "version": "1.7.0"
+  },
+  "bryan": {
+   "desc": "Creator of HAX and its lead; teaches IST 256 and runs HAX Lab. The rpg-character and the Future Traveler are caricatures of him.",
+   "role": "staff",
+   "links": {
+    "profile": "https://github.com/btopro"
+   },
+   "source": {
+    "label": "WORLDVIEW.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md"
+   },
+   "always": true,
+   "github": "btopro"
+  },
+  "billrose": {
+   "desc": "HAX product owner: the course ontology, cognitive apprenticeship framing and partner-facing voice.",
+   "role": "staff",
+   "source": {
+    "label": "WORLDVIEW.md: People who shaped it",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md"
+   }
+  },
+  "keithbailey": {
+   "desc": "Mentor who hired Bryan into online learning at Penn State and championed the work that led to HAX (1970–2020).",
+   "role": "staff",
+   "source": {
+    "label": "WORLDVIEW.md: People who shaped it",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md"
+   }
+  },
+  "mikepotter": {
+   "desc": "One of Bryan's best friends and a member of the ELMS:LN core team; pointed him to the web component standard in 2016 and co-presented the first HAX talks, starting at DrupalCon Baltimore 2017.",
+   "role": "community",
+   "source": {
+    "label": "WORLDVIEW.md: People who shaped it",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md"
+   },
+   "year": 2016,
+   "yearNote": "Mike Potter points Bryan to the web component standard",
+   "yearSource": {
+    "label": "WORLDVIEW.md: People who shaped it",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md"
+   },
+   "github": "heyMP"
+  },
+  "mcollins": {
+   "desc": "Faculty member in Arts and Architecture who taught with ELMS:LN and now HAX, and builds his own flavor on it: the admin dashboard UI and the updated outline designer.",
+   "role": "faculty",
+   "source": {
+    "label": "WINS.md: Michael Collins",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#faculty-building-on-hax-michael-collins"
+   },
+   "year": 2026,
+   "yearNote": "Michael Collins' admin dashboard and outline designer",
+   "yearSource": {
+    "label": "WINS.md: Michael Collins",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#faculty-building-on-hax-michael-collins"
+   },
+   "github": "michael-collins"
+  },
+  "fusco": {
+   "desc": "xAPI and AI integration (fall 2016); later funded Canvas AI analysis built by students through the HAX CLI.",
+   "role": "faculty",
+   "links": {
+    "profile": "https://github.com/djfusco"
+   },
+   "source": {
+    "label": "hax-lab README; WINS.md: faculty grants",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#hax-lab-faculty-grants"
+   },
+   "year": 2016,
+   "yearNote": "Dave Fusco: xAPI and AI integration",
+   "yearSource": {
+    "label": "hax-lab README; WINS.md: faculty grants",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#hax-lab-faculty-grants"
+   },
+   "github": "djfusco"
+  },
+  "jfrank": {
+   "desc": "Funded the International Student Portfolio, so HAX grew into portfolios students can take with them.",
+   "role": "faculty",
+   "source": {
+    "label": "WINS.md: HAX Lab faculty grants",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#hax-lab-faculty-grants"
+   }
+  },
+  "blake": {
+   "desc": "Director of the Learn to Flourish Hub; faculty and students built its public site on HAX.",
+   "role": "faculty",
+   "source": {
+    "label": "WINS.md: Learn to Flourish Hub",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
+   },
+   "year": 2026,
+   "yearNote": "Learn to Flourish Hub site launches",
+   "yearSource": {
+    "label": "WINS.md: Learn to Flourish Hub",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
+   }
+  },
+  "nikkimk": {
+   "desc": "The second-largest contributor to the webcomponents monorepo (1,885 commits); co-presented HAX at DrupalCon Nashville 2018.",
+   "role": "contributor",
+   "links": {
+    "profile": "https://github.com/nikkimk"
+   },
+   "source": {
+    "label": "webcomponents contributors",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   },
+   "github": "nikkimk"
+  },
+  "gh_cgldevel": {
+   "desc": "Chuck Lavera (@cgldevel), a contributor to webcomponents and haxcms-php.",
+   "role": "community",
+   "links": {
+    "profile": "https://github.com/cgldevel"
+   },
+   "source": {
+    "label": "GitHub contributors",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   },
+   "github": "cgldevel"
+  },
+  "gh_jalbert2": {
+   "desc": "Jonah Albert (@JAlbert2), a contributor to webcomponents.",
+   "role": "community",
+   "links": {
+    "profile": "https://github.com/JAlbert2"
+   },
+   "source": {
+    "label": "GitHub contributors",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   },
+   "github": "JAlbert2"
+  },
+  "gh_sanikaa3": {
+   "desc": "Sanika Ainchwar (@SanikaA3), a contributor to webcomponents, haxcms-php, haxcms-nodejs and create.",
+   "role": "community",
+   "links": {
+    "profile": "https://github.com/SanikaA3"
+   },
+   "source": {
+    "label": "GitHub contributors",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   },
+   "github": "SanikaA3"
+  },
+  "gh_christianmurphy": {
+   "desc": "Christian Murphy (@ChristianMurphy), a contributor to webcomponents and haxcms-php.",
+   "role": "community",
+   "links": {
+    "profile": "https://github.com/ChristianMurphy"
+   },
+   "source": {
+    "label": "GitHub contributors",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   },
+   "github": "ChristianMurphy"
+  },
+  "gh_aam198": {
+   "desc": "Allie Martz (@aam198), a contributor to webcomponents.",
+   "role": "community",
+   "links": {
+    "profile": "https://github.com/aam198"
+   },
+   "source": {
+    "label": "GitHub contributors",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   },
+   "github": "aam198"
+  },
+  "gh_firaol4": {
+   "desc": "Firaol Tulu (@firaol4), a contributor to webcomponents and haxcms-nodejs.",
+   "role": "community",
+   "links": {
+    "profile": "https://github.com/firaol4"
+   },
+   "source": {
+    "label": "GitHub contributors",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   },
+   "github": "firaol4"
+  },
+  "agearhart": {
+   "desc": "Works with HAX through Penn State University Libraries.",
+   "role": "partner",
+   "year": 2022,
+   "yearNote": "Andrew Gearhart and University Libraries",
+   "yearSource": null
+  },
+  "rhumphries": {
+   "desc": "Leads Buttercups Training, Jack Davis's boss, whose team contributed to ELMS:LN, the editor and xAPI.",
+   "role": "partner",
+   "year": 2019,
+   "yearNote": "Leads Buttercups Training, Jack Davis's boss, whose team contributed to ELMS:LN, the editor and xAPI.",
+   "yearSource": null
+  },
+  "jackdavis": {
+   "desc": "Buttercups Training developer; 59 commits to ELMS:LN from 2019 to 2022, including HAX content hooks and the TinCan bridge.",
+   "role": "community",
+   "links": {
+    "profile": "https://github.com/buttercupstraining"
+   },
+   "source": {
+    "label": "elmsln commit history",
+    "url": "https://github.com/elmsln/elmsln"
+   },
+   "year": 2019,
+   "yearNote": "Jack Davis (Buttercups) contributes to ELMS:LN",
+   "yearSource": {
+    "label": "elmsln commit history",
+    "url": "https://github.com/elmsln/elmsln"
+   },
+   "github": "JackWillDavis"
+  },
+  "mark": {
+   "desc": "Original ELMS:LN and Drupal student contributor (2017).",
+   "role": "student",
+   "links": {
+    "profile": "https://www.linkedin.com/in/mmilutinovic013/"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2017,
+   "yearNote": "Original ELMS:LN and Drupal student contributor (2017).",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   }
+  },
+  "tom": {
+   "desc": "HAX multimedia production, HAX Camp Duke planning committee and social media (2019).",
+   "role": "student",
+   "links": {
+    "profile": "https://www.linkedin.com/in/shiju-tom-varughese/"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2019,
+   "yearNote": "HAX multimedia production, HAX Camp Duke planning committee and social media (2019).",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   }
+  },
+  "tevin": {
+   "desc": "Pre-release HAX UX study (2020).",
+   "role": "student",
+   "links": {
+    "profile": "https://www.linkedin.com/in/tevin-julien-b5123a185/"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2020,
+   "yearNote": "Pre-release HAX UX study (2020).",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   }
+  },
+  "sara": {
+   "desc": "Media dashboard UX prototype (2020).",
+   "role": "student",
+   "links": {
+    "profile": "https://www.linkedin.com/in/saracunn/"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2020,
+   "yearNote": "Media dashboard UX prototype (2020).",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   }
+  },
+  "collin": {
+   "desc": "Bootstrap theme for HAXcms (spring 2021).",
+   "role": "student",
+   "links": {
+    "profile": "https://github.com/collinkleest"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2021,
+   "yearNote": "Bootstrap theme for HAXcms (spring 2021).",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "github": "collinkleest"
+  },
+  "hanna": {
+   "desc": "Built the vocab web component for presenting terms (2021); 15 commits to webcomponents as hvk5388.",
+   "role": "student",
+   "links": {
+    "profile": "https://www.linkedin.com/in/hannah-kern/"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2021,
+   "yearNote": "Built the vocab web component for presenting terms (2021); 15 commits to webcomponents as hvk5388.",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "github": "hvk5388"
+  },
+  "jimmykane": {
+   "desc": "Led the team that built Dashboard 1.0 and the 8-bit aesthetic HAX still uses (spring 2022); now an iOS engineer at Ford Motor Credit.",
+   "role": "student",
+   "links": {
+    "profile": "https://github.com/liljimmyk99"
+   },
+   "source": {
+    "label": "hax-lab README; WINS.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
+   },
+   "year": 2022,
+   "yearNote": "Led the team that built Dashboard 1.0 and the 8-bit aesthetic HAX still uses (spring 2022); now an iOS engineer at Ford Motor Credit.",
+   "yearSource": {
+    "label": "hax-lab README; WINS.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
+   },
+   "github": "liljimmyk99"
+  },
+  "drewronk": {
+   "desc": "8-bit video game aesthetic and site creation flow (spring 2022).",
+   "role": "student",
+   "links": {
+    "profile": "https://github.com/dronk6"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2022,
+   "yearNote": "8-bit video game aesthetic and site creation flow (spring 2022).",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   }
+  },
+  "edelor": {
+   "desc": "8-bit video game aesthetic and site creation flow (spring 2022).",
+   "role": "student",
+   "links": {
+    "profile": "https://github.com/elizabeth-delor"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2022,
+   "yearNote": "8-bit video game aesthetic and site creation flow (spring 2022).",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   }
+  },
+  "liz": {
+   "desc": "HAX Camp 2022 planning committee.",
+   "role": "student",
+   "links": {
+    "profile": "https://www.linkedin.com/in/lizblake17/"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2022,
+   "yearNote": "HAX Camp 2022 planning committee.",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   }
+  },
+  "taylor": {
+   "desc": "HAX Camp 2022 planning committee.",
+   "role": "student",
+   "links": {
+    "profile": "https://www.linkedin.com/in/taylor-bracone/"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2022,
+   "yearNote": "HAX Camp 2022 planning committee.",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   }
+  },
+  "andrew": {
+   "desc": "HAX Camp 2022 planning; JWT policy review and a headless login prototype (2023).",
+   "role": "student",
+   "links": {
+    "profile": "https://www.linkedin.com/in/maier-andrew/"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2022,
+   "yearNote": "HAX Camp 2022 planning; JWT policy review and a headless login prototype (2023).",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   }
+  },
+  "kcharlton": {
+   "desc": "Turned a class project into the DDD design system (spring 2024).",
+   "role": "student",
+   "links": {
+    "profile": "https://github.com/kchar601"
+   },
+   "source": {
+    "label": "hax-lab README; WINS.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#students-built-the-design-system"
+   },
+   "year": 2024,
+   "yearNote": "Turned a class project into the DDD design system (spring 2024).",
+   "yearSource": {
+    "label": "hax-lab README; WINS.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#students-built-the-design-system"
+   },
+   "github": "kchar601"
+  },
+  "zach": {
+   "desc": "AI chat agent (summer 2024); sent the pull request that added the DDD audit to the CLI.",
+   "role": "student",
+   "links": {
+    "profile": "https://github.com/zdodson21"
+   },
+   "source": {
+    "label": "hax-lab README; WINS.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#students-built-the-design-system"
+   },
+   "year": 2024,
+   "yearNote": "AI chat agent (summer 2024); sent the pull request that added the DDD audit to the CLI.",
+   "yearSource": {
+    "label": "hax-lab README; WINS.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#students-built-the-design-system"
+   },
+   "github": "zdodson21"
+  },
+  "kai": {
+   "desc": "Audited DDD usage and QA'd elements in the monorepo (fall 2024).",
+   "role": "student",
+   "links": {
+    "profile": "https://github.com/klh6157"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2024,
+   "yearNote": "Audited DDD usage and QA'd elements in the monorepo (fall 2024).",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "github": "klh6157"
+  },
+  "ashley": {
+   "desc": "Prototyped and gathered requirements for Dashboard 2.0 (2024), arriving with almost no coding experience.",
+   "role": "student",
+   "source": {
+    "label": "WINS.md: Site Dashboard",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
+   },
+   "year": 2024,
+   "yearNote": "Prototyped and gathered requirements for Dashboard 2.0 (2024), arriving with almost no coding experience.",
+   "yearSource": {
+    "label": "WINS.md: Site Dashboard",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
+   }
+  },
+  "winston": {
+   "desc": "Polaris themes (fall 2024), the theme CLI workflow and much of the HAX CLI (2025), skeleton templating (2026); TA'd the class after.",
+   "role": "student",
+   "links": {
+    "profile": "https://github.com/winstonwumbo"
+   },
+   "source": {
+    "label": "hax-lab README; WINS.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#winston-white-student-to-trainer"
+   },
+   "year": 2024,
+   "yearNote": "Polaris themes (fall 2024), the theme CLI workflow and much of the HAX CLI (2025), skeleton templating (2026); TA'd the class after.",
+   "yearSource": {
+    "label": "hax-lab README; WINS.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#winston-white-student-to-trainer"
+   },
+   "github": "winstonwumbo"
+  },
+  "skyler": {
+   "desc": "Start Journey screen (spring 2025); designed and built Dashboard 2.0 for HAX 25.",
+   "role": "student",
+   "links": {
+    "profile": "https://github.com/SkylerKoba88"
+   },
+   "source": {
+    "label": "hax-lab README; WINS.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
+   },
+   "year": 2025,
+   "yearNote": "Start Journey screen (spring 2025); designed and built Dashboard 2.0 for HAX 25.",
+   "yearSource": {
+    "label": "hax-lab README; WINS.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
+   },
+   "github": "SkylerKoba88"
+  },
+  "isabella": {
+   "desc": "Start Journey screen (spring 2025); designed and built Dashboard 2.0 for HAX 25.",
+   "role": "student",
+   "links": {
+    "profile": "https://github.com/izzabizz5"
+   },
+   "source": {
+    "label": "hax-lab README; WINS.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
+   },
+   "year": 2025,
+   "yearNote": "Start Journey screen (spring 2025); designed and built Dashboard 2.0 for HAX 25.",
+   "yearSource": {
+    "label": "hax-lab README; WINS.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
+   },
+   "github": "izzabizz5"
+  },
+  "josh": {
+   "desc": "Portfolio theme (spring 2025).",
+   "role": "student",
+   "links": {
+    "profile": "https://github.com/jno-de"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2025,
+   "yearNote": "Portfolio theme (spring 2025).",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "github": "jno-de"
+  },
+  "aarya": {
+   "desc": "Two portfolio themes for HAXcms (summer 2025).",
+   "role": "student",
+   "links": {
+    "profile": "https://www.linkedin.com/in/aarya-awasthy/"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2025,
+   "yearNote": "Two portfolio themes for HAXcms (summer 2025).",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "github": "aarya0804"
+  },
+  "nazman": {
+   "desc": "Glossy Portfolio theme for HAXcms (summer 2025).",
+   "role": "student",
+   "links": {
+    "profile": "https://www.linkedin.com/in/nazman-rosman/"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2025,
+   "yearNote": "Glossy Portfolio theme for HAXcms (summer 2025).",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "github": "NazmanRosman"
+  },
+  "chloe": {
+   "desc": "Dashboard 3.0: a Google Docs-style sites dashboard and admin UI.",
+   "role": "student",
+   "source": {
+    "label": "WINS.md: Site Dashboard",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
+   },
+   "year": 2026,
+   "yearNote": "Dashboard 3.0: a Google Docs-style sites dashboard and admin UI.",
+   "yearSource": {
+    "label": "WINS.md: Site Dashboard",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
+   },
+   "github": "chloemartin312"
+  },
+  "alyssa": {
+   "desc": "Palettes and admin design thinking for Dashboard 3.0.",
+   "role": "student",
+   "source": {
+    "label": "WINS.md: Site Dashboard",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
+   },
+   "year": 2026,
+   "yearNote": "Palettes and admin design thinking for Dashboard 3.0.",
+   "yearSource": {
+    "label": "WINS.md: Site Dashboard",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
+   }
+  },
+  "jskeete": {
+   "desc": "CCSO 2025 HAX pentest: Lead, discovery and reporting.",
+   "role": "student",
+   "links": {
+    "profile": "https://indigosec.dev/"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2025,
+   "yearNote": "CCSO's 2025 HAX pentest",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "github": "Indigo-10",
+   "note": "Advisory credits use the GitHub login Indigo-10."
+  },
+  "liam": {
+   "desc": "CCSO 2025 HAX pentest: Lead, discovery and reporting.",
+   "role": "student",
+   "links": {
+    "profile": "https://lfgberg.org"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2025,
+   "yearNote": "CCSO's 2025 HAX pentest",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "github": "lfgberg"
+  },
+  "asa": {
+   "desc": "CCSO 2025 HAX pentest: Discovery and reporting.",
+   "role": "student",
+   "links": {
+    "profile": "https://asareynolds.com/"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2025,
+   "yearNote": "CCSO's 2025 HAX pentest",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "github": "asareynolds"
+  },
+  "robert": {
+   "desc": "CCSO 2025 HAX pentest: Discovery and reporting.",
+   "role": "student",
+   "links": {
+    "profile": "https://github.com/userRPR"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2025,
+   "yearNote": "CCSO's 2025 HAX pentest",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "github": "userRPR"
+  },
+  "maguire": {
+   "desc": "CCSO 2025 HAX pentest: Discovery and reporting.",
+   "role": "student",
+   "links": {
+    "profile": "https://maguireyounes.com/"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2025,
+   "yearNote": "CCSO's 2025 HAX pentest",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "github": "23younesm",
+   "note": "Advisory credits use the GitHub login 23younesm."
+  },
+  "owen": {
+   "desc": "CCSO 2025 HAX pentest: Reporting.",
+   "role": "student",
+   "links": {
+    "profile": "https://www.linkedin.com/in/owendransfield/"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2025,
+   "yearNote": "CCSO's 2025 HAX pentest",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "github": "odransfield",
+   "note": "Advisory credits use the GitHub login odransfield."
+  },
+  "nicholas": {
+   "desc": "CCSO 2025 HAX pentest: Reporting.",
+   "role": "student",
+   "links": {
+    "profile": "https://www.linkedin.com/in/nicholas-thomas485/"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2025,
+   "yearNote": "CCSO's 2025 HAX pentest",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   }
+  },
+  "kekoa": {
+   "desc": "CCSO 2025 HAX pentest: Reporting.",
+   "role": "student",
+   "links": {
+    "profile": "https://www.linkedin.com/in/kekoa-merez/"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2025,
+   "yearNote": "CCSO's 2025 HAX pentest",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   }
+  },
+  "miles": {
+   "desc": "CCSO 2025 HAX pentest: Reporting.",
+   "role": "student",
+   "links": {
+    "profile": "https://www.linkedin.com/in/mileshandelman"
+   },
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   "year": 2025,
+   "yearNote": "CCSO's 2025 HAX pentest",
+   "yearSource": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   }
+  }
+ },
+ "evidence": {
+  "ccso>security": [
+   {
+    "label": "CVE-2025-32028: Insecure file upload leads to remote code execution",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-vj5q-3jv2-cg5p"
+   },
+   {
+    "label": "CVE-2025-49141: haxcms-php command injection",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-g4cf-pp4x-hqgw"
+   },
+   {
+    "label": "CVE-2025-49137: Stored cross-site scripting",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-2vc4-3hx7-v7v7"
+   },
+   {
+    "label": "CVE-2025-49138: Local file inclusion via saveOutline",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-hxrr-x32w-cg8g"
+   },
+   {
+    "label": "CVE-2025-49139: Iframe phishing",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-v3ph-2q5q-cg88"
+   },
+   {
+    "label": "CVE-2025-48996: Unauthenticated disclosure of site listings",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-fvx2-x7ff-fc56"
+   },
+   {
+    "label": "CVE-2025-53642: Improper session termination",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-g4f5-5w5j-p5jg"
+   },
+   {
+    "label": "CVE-2025-54127: Insecure default configuration",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-f38f-jvqj-mfg6"
+   },
+   {
+    "label": "CVE-2025-54128: Disabled CSP enables XSS",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-59g8-h59f-8hjp"
+   },
+   {
+    "label": "CVE-2025-54129: User enumeration",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-wh3h-vfcv-m5g5"
+   },
+   {
+    "label": "CVE-2025-54134: Improper error handling leads to DoS",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-pjj3-j5j6-qj27"
+   },
+   {
+    "label": "CVE-2025-54137: Default secrets",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-5fpv-5qvh-7cf3"
+   },
+   {
+    "label": "CVE-2025-54139: Clickjacking",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-54vw-f4xf-f92j"
+   },
+   {
+    "label": "CVE-2025-54378: Lack of authorization checks",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-9jr9-8ff3-m894"
+   },
+   {
+    "label": "CVE-2026-46392: Stored XSS via case-sensitivity mismatch",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-hg33-w4j2-95qp"
+   },
+   {
+    "label": "CVE-2026-46399: Authenticated RCE via file overwrite",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-q759-vxg8-vq5j"
+   },
+   {
+    "label": "GHSA-f9mm-pqx5-j36f: CDN fallback server exposes .git directory",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-f9mm-pqx5-j36f"
+   }
+  ],
+  "robert>security": [
+   {
+    "label": "CVE-2025-32028: Insecure file upload leads to remote code execution",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-vj5q-3jv2-cg5p"
+   },
+   {
+    "label": "CVE-2025-49141: haxcms-php command injection",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-g4cf-pp4x-hqgw"
+   }
+  ],
+  "liam>security": [
+   {
+    "label": "CVE-2025-49137: Stored cross-site scripting",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-2vc4-3hx7-v7v7"
+   },
+   {
+    "label": "CVE-2025-49139: Iframe phishing",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-v3ph-2q5q-cg88"
+   },
+   {
+    "label": "CVE-2025-53642: Improper session termination",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-g4f5-5w5j-p5jg"
+   },
+   {
+    "label": "CVE-2025-54129: User enumeration",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-wh3h-vfcv-m5g5"
+   },
+   {
+    "label": "CVE-2025-54137: Default secrets",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-5fpv-5qvh-7cf3"
+   },
+   {
+    "label": "CVE-2025-54139: Clickjacking",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-54vw-f4xf-f92j"
+   },
+   {
+    "label": "CVE-2025-54378: Lack of authorization checks",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-9jr9-8ff3-m894"
+   }
+  ],
+  "asa>security": [
+   {
+    "label": "CVE-2025-49137: Stored cross-site scripting",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-2vc4-3hx7-v7v7"
+   },
+   {
+    "label": "CVE-2025-54127: Insecure default configuration",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-f38f-jvqj-mfg6"
+   },
+   {
+    "label": "CVE-2025-54128: Disabled CSP enables XSS",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-59g8-h59f-8hjp"
+   },
+   {
+    "label": "CVE-2025-54134: Improper error handling leads to DoS",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-pjj3-j5j6-qj27"
+   },
+   {
+    "label": "CVE-2025-54137: Default secrets",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-5fpv-5qvh-7cf3"
+   },
+   {
+    "label": "CVE-2026-46399: Authenticated RCE via file overwrite",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-q759-vxg8-vq5j"
+   }
+  ],
+  "jskeete>security": [
+   {
+    "label": "CVE-2025-49138: Local file inclusion via saveOutline",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-hxrr-x32w-cg8g"
+   },
+   {
+    "label": "CVE-2026-46392: Stored XSS via case-sensitivity mismatch",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-hg33-w4j2-95qp"
+   },
+   {
+    "label": "GHSA-f9mm-pqx5-j36f: CDN fallback server exposes .git directory",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-f9mm-pqx5-j36f"
+   }
+  ],
+  "owen>security": [
+   {
+    "label": "CVE-2025-49139: Iframe phishing",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-v3ph-2q5q-cg88"
+   },
+   {
+    "label": "CVE-2025-54139: Clickjacking",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-54vw-f4xf-f92j"
+   }
+  ],
+  "maguire>security": [
+   {
+    "label": "CVE-2025-48996: Unauthenticated disclosure of site listings",
+    "url": "https://github.com/haxtheweb/issues/security/advisories/GHSA-fvx2-x7ff-fc56"
+   }
+  ],
+  "wins>ccso": [
+   {
+    "label": "WINS: Student clubs, 30 security fixes",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#student-clubs-30-security-fixes"
+   }
+  ],
+  "wins>uxdc": [
+   {
+    "label": "WINS: Student clubs (as UXPA)",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#student-clubs-30-security-fixes"
+   }
+  ],
+  "wins>security": [
+   {
+    "label": "WINS: Student clubs, 30 security fixes",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#student-clubs-30-security-fixes"
+   }
+  ],
+  "wins>hhd": [
+   {
+    "label": "WINS: Learn to Flourish Hub",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
+   }
+  ],
+  "wins>dept": [
+   {
+    "label": "WINS: Learn to Flourish Hub",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
+   }
+  ],
+  "hhd>dept": [
+   {
+    "label": "flourish.hhd.psu.edu",
+    "url": "https://flourish.hhd.psu.edu"
+   }
+  ],
+  "wins>haxlab": [
+   {
+    "label": "WINS: From HAX Lab to industry",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#from-hax-lab-to-industry"
+   }
+  ],
+  "wins>libraries": [
+   {
+    "label": "WINS: 640+ open HTML tags",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#640-open-html-tags-used-across-penn-state"
+   }
+  ],
+  "wins>apereo": [
+   {
+    "label": "SIIP talk, Apereo microconference",
+    "url": "https://www.youtube.com/watch?v=TNF0uzYi9Kk"
+   }
+  ],
+  "wins>npm": [
+   {
+    "label": "WINS: 289 packages",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#289-packages-about-49000-downloads-a-month"
+   }
+  ],
+  "wins>ddd": [
+   {
+    "label": "WINS: Students built the design system",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#students-built-the-design-system"
+   }
+  ],
+  "wins>cli": [
+   {
+    "label": "WINS: Winston White, student to trainer",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#winston-white-student-to-trainer"
+   }
+  ],
+  "wins>skeletons": [
+   {
+    "label": "WINS: Skeletons and benevolent restrictions",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#skeletons-and-benevolent-restrictions-hax-25"
+   }
+  ],
+  "wins>dashboard": [
+   {
+    "label": "WINS: Site Dashboard, three generations",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
+   }
+  ],
+  "wins>portfolio": [
+   {
+    "label": "WINS: HAX Lab faculty grants",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#hax-lab-faculty-grants"
+   }
+  ],
+  "psu>course": [
+   {
+    "label": "WINS: 640+ open HTML tags",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#640-open-html-tags-used-across-penn-state"
+   }
+  ],
+  "npm>components": [
+   {
+    "label": "WINS: 289 packages",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#289-packages-about-49000-downloads-a-month"
+   }
+  ],
+  "mikepotter>wcstandard": [
+   {
+    "label": "WORLDVIEW: People who shaped it",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#people-who-shaped-it"
+   }
+  ],
+  "kcharlton>ddd": [
+   {
+    "label": "WINS: Students built the design system",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#students-built-the-design-system"
+   }
+  ],
+  "zach>cli": [
+   {
+    "label": "WINS: Students built the design system",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#students-built-the-design-system"
+   },
+   {
+    "label": "create contributors: zdodson21",
+    "url": "https://github.com/haxtheweb/create/graphs/contributors"
+   }
+  ],
+  "jimmykane>dashboard": [
+   {
+    "label": "WINS: Site Dashboard",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
+   }
+  ],
+  "winston>cli": [
+   {
+    "label": "WINS: Winston White",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#winston-white-student-to-trainer"
+   },
+   {
+    "label": "create contributors: winstonwumbo",
+    "url": "https://github.com/haxtheweb/create/graphs/contributors"
+   }
+  ],
+  "winston>skeletons": [
+   {
+    "label": "WINS: Winston White",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#winston-white-student-to-trainer"
+   }
+  ],
+  "jfrank>portfolio": [
+   {
+    "label": "WINS: HAX Lab faculty grants",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#hax-lab-faculty-grants"
+   }
+  ],
+  "fusco>cli": [
+   {
+    "label": "WINS: HAX Lab faculty grants",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#hax-lab-faculty-grants"
+   }
+  ],
+  "mcollins>dashboard": [
+   {
+    "label": "WINS: Michael Collins",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#faculty-building-on-hax-michael-collins"
+   }
+  ],
+  "andrew>haxcms": [
+   {
+    "label": "Headless login prototype",
+    "url": "https://github.com/haxtheweb/issues/issues/1007"
+   }
+  ],
+  "hanna>components": [
+   {
+    "label": "Vocab web component",
+    "url": "https://github.com/haxtheweb/issues/issues/848"
+   },
+   {
+    "label": "webcomponents contributors: hvk5388",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "collin>themes": [
+   {
+    "label": "Bootstrap theme for HAXcms",
+    "url": "https://github.com/haxtheweb/issues/issues/212"
+   }
+  ],
+  "tevin>haxcms": [
+   {
+    "label": "Pre-release HAX UX study",
+    "url": "https://dev.to/techade1/haxcms-independent-study-pe2"
+   }
+  ],
+  "bryan>traveler": [
+   {
+    "label": "Future Traveler README",
+    "url": "https://github.com/haxtheweb/art/tree/main/world-traveler"
+   }
+  ],
+  "editor>drupalcon": [
+   {
+    "label": "DrupalCon Baltimore 2017: Mad Scientist Road show",
+    "url": "https://events.drupal.org/baltimore2017/sessions/mad-scientist-road-show"
+   },
+   {
+    "label": "DrupalCon Nashville 2018: Webcomponents, Polymer and HAX",
+    "url": "https://events.drupal.org/nashville2018/sessions/webcomponents-polymer-and-hax-decoupling-authoring-drupal-and-beyond"
+   },
+   {
+    "label": "Drupal GovCon 2018 (DC area): HAX session",
+    "url": "https://www.drupalgovcon.org/2018/program/sessions/hax-creating-best-drupal-authoring-experience-not-creating-it-drupal"
+   }
+  ],
+  "mikepotter>drupalcon": [
+   {
+    "label": "DrupalCon Baltimore 2017",
+    "url": "https://events.drupal.org/baltimore2017/sessions/mad-scientist-road-show"
+   }
+  ],
+  "mikepotter>editor": [
+   {
+    "label": "DrupalCon Baltimore 2017",
+    "url": "https://events.drupal.org/baltimore2017/sessions/mad-scientist-road-show"
+   }
+  ],
+  "mikepotter>elmsln": [
+   {
+    "label": "Listed as ELMS:LN core team, DrupalCon Baltimore 2017",
+    "url": "https://events.drupal.org/baltimore2017/sessions/mad-scientist-road-show"
+   }
+  ],
+  "haxcms>drupalcon": [
+   {
+    "label": "WINS: HAXcms announced at DrupalCon",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#haxcms-announced-at-drupalcon"
+   }
+  ],
+  "nikkimk>components": [
+   {
+    "label": "webcomponents contributors: nikkimk",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "traveler>components": [
+   {
+    "label": "webcomponents contributors: claude",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "zach>components": [
+   {
+    "label": "webcomponents contributors: zdodson21",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "winston>components": [
+   {
+    "label": "webcomponents contributors: winstonwumbo",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "mikepotter>components": [
+   {
+    "label": "webcomponents contributors: heyMP",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "collin>components": [
+   {
+    "label": "webcomponents contributors: collinkleest",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "nazman>components": [
+   {
+    "label": "webcomponents contributors: NazmanRosman",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "isabella>components": [
+   {
+    "label": "webcomponents contributors: izzabizz5",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "gh_cgldevel>components": [
+   {
+    "label": "webcomponents contributors: cgldevel",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "gh_jalbert2>components": [
+   {
+    "label": "webcomponents contributors: JAlbert2",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "kai>components": [
+   {
+    "label": "webcomponents contributors: klh6157",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "josh>components": [
+   {
+    "label": "webcomponents contributors: jno-de",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "jackdavis>components": [
+   {
+    "label": "webcomponents contributors: JackWillDavis",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "gh_aam198>components": [
+   {
+    "label": "webcomponents contributors: aam198",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "chloe>components": [
+   {
+    "label": "webcomponents contributors: chloemartin312",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "gh_christianmurphy>components": [
+   {
+    "label": "webcomponents contributors: ChristianMurphy",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "skyler>components": [
+   {
+    "label": "webcomponents contributors: SkylerKoba88",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "kcharlton>components": [
+   {
+    "label": "webcomponents contributors: kchar601",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "aarya>components": [
+   {
+    "label": "webcomponents contributors: aarya0804",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "jimmykane>components": [
+   {
+    "label": "webcomponents contributors: liljimmyk99",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "gh_firaol4>components": [
+   {
+    "label": "webcomponents contributors: firaol4",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "gh_sanikaa3>components": [
+   {
+    "label": "webcomponents contributors: SanikaA3",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "fusco>components": [
+   {
+    "label": "webcomponents contributors: djfusco",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "mcollins>components": [
+   {
+    "label": "webcomponents contributors: michael-collins",
+    "url": "https://github.com/haxtheweb/webcomponents/graphs/contributors"
+   }
+  ],
+  "traveler>nodejs": [
+   {
+    "label": "haxcms-nodejs contributors: claude",
+    "url": "https://github.com/haxtheweb/haxcms-nodejs/graphs/contributors"
+   }
+  ],
+  "winston>nodejs": [
+   {
+    "label": "haxcms-nodejs contributors: winstonwumbo",
+    "url": "https://github.com/haxtheweb/haxcms-nodejs/graphs/contributors"
+   }
+  ],
+  "gh_sanikaa3>nodejs": [
+   {
+    "label": "haxcms-nodejs contributors: SanikaA3",
+    "url": "https://github.com/haxtheweb/haxcms-nodejs/graphs/contributors"
+   }
+  ],
+  "mcollins>nodejs": [
+   {
+    "label": "haxcms-nodejs contributors: michael-collins",
+    "url": "https://github.com/haxtheweb/haxcms-nodejs/graphs/contributors"
+   }
+  ],
+  "gh_firaol4>nodejs": [
+   {
+    "label": "haxcms-nodejs contributors: firaol4",
+    "url": "https://github.com/haxtheweb/haxcms-nodejs/graphs/contributors"
+   }
+  ],
+  "traveler>php": [
+   {
+    "label": "haxcms-php contributors: claude",
+    "url": "https://github.com/haxtheweb/haxcms-php/graphs/contributors"
+   }
+  ],
+  "mikepotter>php": [
+   {
+    "label": "haxcms-php contributors: heyMP",
+    "url": "https://github.com/haxtheweb/haxcms-php/graphs/contributors"
+   }
+  ],
+  "collin>php": [
+   {
+    "label": "haxcms-php contributors: collinkleest",
+    "url": "https://github.com/haxtheweb/haxcms-php/graphs/contributors"
+   }
+  ],
+  "gh_cgldevel>php": [
+   {
+    "label": "haxcms-php contributors: cgldevel",
+    "url": "https://github.com/haxtheweb/haxcms-php/graphs/contributors"
+   }
+  ],
+  "gh_sanikaa3>php": [
+   {
+    "label": "haxcms-php contributors: SanikaA3",
+    "url": "https://github.com/haxtheweb/haxcms-php/graphs/contributors"
+   }
+  ],
+  "traveler>cli": [
+   {
+    "label": "create contributors: claude",
+    "url": "https://github.com/haxtheweb/create/graphs/contributors"
+   }
+  ],
+  "jimmykane>cli": [
+   {
+    "label": "create contributors: liljimmyk99",
+    "url": "https://github.com/haxtheweb/create/graphs/contributors"
+   }
+  ],
+  "traveler>praw": [
+   {
+    "label": "praw contributors: claude",
+    "url": "https://github.com/haxtheweb/praw/graphs/contributors"
+   }
+  ],
+  "buttercups>editor": [
+   {
+    "label": "PR #2698: HAX content hooks",
+    "url": "https://github.com/elmsln/elmsln/pull/2698"
+   }
+  ],
+  "buttercups>xapi": [
+   {
+    "label": "PR #2697: TinCan bridge fix",
+    "url": "https://github.com/elmsln/elmsln/pull/2697"
+   }
+  ],
+  "buttercups>elmsln": [
+   {
+    "label": "PR #2699: H5P 1.49 update",
+    "url": "https://github.com/elmsln/elmsln/pull/2699"
+   },
+   {
+    "label": "PR #2703: MOOC content fix",
+    "url": "https://github.com/elmsln/elmsln/pull/2703"
+   },
+   {
+    "label": "PR #2705: issue #956",
+    "url": "https://github.com/elmsln/elmsln/pull/2705"
+   }
+  ],
+  "wins>innovationhub": [
+   {
+    "label": "WINS: Reach by early 2026 (LaunchBox)",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#reach-by-early-2026"
+   }
+  ],
+  "grants>wins": [
+   {
+    "label": "WINS: HAX Lab faculty grants",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#hax-lab-faculty-grants"
+   }
+  ],
+  "fusco>g_fusco": [
+   {
+    "label": "WINS: HAX Lab faculty grants",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#hax-lab-faculty-grants"
+   }
+  ],
+  "jfrank>g_frank": [
+   {
+    "label": "WINS: HAX Lab faculty grants",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#hax-lab-faculty-grants"
+   }
+  ],
+  "winston>g_frank": [
+   {
+    "label": "WINS: Winston White",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#winston-white-student-to-trainer"
+   }
+  ],
+  "winston>ist256": [
+   {
+    "label": "WINS: Winston White (took IST 256 spring 2024)",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#winston-white-student-to-trainer"
+   }
+  ],
+  "kcharlton>ist256": [
+   {
+    "label": "WINS: Students built the design system",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#students-built-the-design-system"
+   }
+  ],
+  "haxcamp>duke": [
+   {
+    "label": "WINS: First hax-camp, 40+ people",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#first-hax-camp-40-people"
+   }
+  ]
+ },
+ "tours": [
+  {
+   "id": "everyone",
+   "label": "Everyone",
+   "message": "HAX in one pass: people at the center, the pillars they hold, and everything that connects to them.",
+   "scenes": [
+    {
+     "caption": "Humans are at the center of HAX.",
+     "nodes": [
+      "human"
+     ]
+    },
+    {
+     "caption": "People hold the seven pillars that make it powerful.",
+     "nodes": [
+      "accessible",
+      "efficient",
+      "extensible",
+      "open",
+      "agnostic",
+      "remixable",
+      "sustainable"
+     ]
+    },
+    {
+     "caption": "The Future Traveler is your AI companion, working alongside you.",
+     "nodes": [
+      "traveler"
+     ]
+    },
+    {
+     "caption": "It began at Penn State, with ELMS:LN and the people who built it.",
+     "nodes": [
+      "psu",
+      "elmsln",
+      "bryan",
+      "billrose",
+      "keithbailey"
+     ]
+    },
+    {
+     "caption": "Penn State backs the work through its colleges and University Libraries.",
+     "nodes": [
+      "aa",
+      "ist",
+      "hhd",
+      "eberly",
+      "libraries"
+     ]
+    },
+    {
+     "caption": "You build with HAXcms on PHP, Node.js, the CLI or HAX11ty.",
+     "nodes": [
+      "haxcms",
+      "php",
+      "nodejs",
+      "cli",
+      "haxiam",
+      "hax11ty"
+     ]
+    },
+    {
+     "caption": "Authoring happens in the editor, Merlin, themes and the dashboard; open HAXcms for every admin piece.",
+     "nodes": [
+      "editor",
+      "merlin",
+      "themes",
+      "dashboard",
+      "haxcms"
+     ]
+    },
+    {
+     "caption": "The building blocks rest on the web component standard.",
+     "nodes": [
+      "components",
+      "ddd",
+      "plugins",
+      "languages",
+      "wcstandard",
+      "mikepotter"
+     ]
+    },
+    {
+     "caption": "Schemas are the contracts that keep every part portable.",
+     "nodes": [
+      "jos",
+      "haxschema",
+      "appstore",
+      "oerschema",
+      "openapi",
+      "xapi"
+     ]
+    },
+    {
+     "caption": "Skeletons make courses, blogs, portfolios and department sites reusable.",
+     "nodes": [
+      "skeletons",
+      "course",
+      "portfolio",
+      "dept",
+      "textbook"
+     ]
+    },
+    {
+     "caption": "HAX Lab and student clubs bring design and security; HAX Camp and DrupalCon grow the community.",
+     "nodes": [
+      "haxlab",
+      "ccso",
+      "uxdc",
+      "design",
+      "security",
+      "haxcamp",
+      "duke",
+      "drupalcon"
+     ]
+    },
+    {
+     "caption": "Students and faculty built much of what you see.",
+     "nodes": [
+      "mcollins",
+      "fusco",
+      "jfrank",
+      "blake",
+      "mark",
+      "tom",
+      "tevin",
+      "sara",
+      "collin",
+      "hanna",
+      "jimmykane",
+      "drewronk",
+      "edelor",
+      "liz",
+      "taylor",
+      "andrew",
+      "kcharlton",
+      "zach",
+      "kai",
+      "ashley",
+      "winston",
+      "skyler",
+      "isabella",
+      "josh",
+      "aarya",
+      "nazman",
+      "chloe",
+      "alyssa",
+      "jskeete",
+      "liam",
+      "asa",
+      "robert",
+      "maguire",
+      "owen",
+      "nicholas",
+      "kekoa",
+      "miles"
+     ]
+    },
+    {
+     "caption": "The traveler learns from PRAW, skills, the MCP and the issue queue, checked by automated tests.",
+     "nodes": [
+      "praw",
+      "agents",
+      "mcp",
+      "issues",
+      "testing"
+     ]
+    },
+    {
+     "caption": "IST 256 turns students into contributors; grants fund the work.",
+     "nodes": [
+      "ist256",
+      "grants",
+      "g_fusco",
+      "g_frank",
+      "g_hhd",
+      "games"
+     ]
+    },
+    {
+     "caption": "Apereo, GitHub and npm connect HAX to the open source world; Buttercups Training contributed from the UK.",
+     "nodes": [
+      "apereo",
+      "github",
+      "npm",
+      "buttercups",
+      "jackdavis",
+      "innovationhub"
+     ]
+    },
+    {
+     "caption": "Ubiquity, Lit SSR and deploy targets ship it anywhere, fast.",
+     "nodes": [
+      "ubiquity",
+      "ssr",
+      "deploy"
+     ]
+    },
+    {
+     "caption": "WINS keeps the proof: the people and groups it helped.",
+     "nodes": [
+      "wins"
+     ]
+    },
+    {
+     "caption": "One web of connections. Every part makes every other part stronger.",
+     "nodes": []
+    }
+   ]
+  },
+  {
+   "id": "faculty",
+   "label": "Faculty",
+   "message": "Build a course, portfolio or department site yourself, keep it accessible by default, and own it for good.",
+   "scenes": [
+    {
+     "caption": "You are at the center, with the pillars that protect your work.",
+     "nodes": [
+      "human",
+      "accessible",
+      "remixable",
+      "open"
+     ]
+    },
+    {
+     "caption": "HAXcms and the editor: authoring without a web team or the command line.",
+     "nodes": [
+      "haxcms",
+      "editor",
+      "merlin",
+      "themes"
+     ]
+    },
+    {
+     "caption": "Start from a skeleton for a course, portfolio, textbook or department site.",
+     "nodes": [
+      "skeletons",
+      "course",
+      "portfolio",
+      "textbook",
+      "dept"
+     ]
+    },
+    {
+     "caption": "OER Schema and xAPI keep your content open and your learners' progress visible.",
+     "nodes": [
+      "oerschema",
+      "xapi",
+      "dashboard"
+     ]
+    },
+    {
+     "caption": "Faculty like you already build on it.",
+     "nodes": [
+      "mcollins",
+      "jfrank",
+      "blake",
+      "fusco",
+      "hhd",
+      "aa"
+     ]
+    },
+    {
+     "caption": "Penn State hosts it for you on hax.psu.edu.",
+     "nodes": [
+      "psu",
+      "haxpsu",
+      "haxiam",
+      "wins"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "students",
+   "label": "Students",
+   "message": "Learn modern front-end web by contributing to a real project. Your work ships, gets credited, and goes with you.",
+   "scenes": [
+    {
+     "caption": "It starts with people, including you.",
+     "nodes": [
+      "human",
+      "sustainable",
+      "open"
+     ]
+    },
+    {
+     "caption": "HAX Lab, IST and the student clubs are the way in.",
+     "nodes": [
+      "haxlab",
+      "ist",
+      "aa",
+      "ccso",
+      "uxdc"
+     ]
+    },
+    {
+     "caption": "Web components, DDD and the CLI are what you'll learn and build.",
+     "nodes": [
+      "wcstandard",
+      "components",
+      "ddd",
+      "cli",
+      "themes",
+      "dashboard"
+     ]
+    },
+    {
+     "caption": "Students built the dashboard, DDD, the CLI and skeletons.",
+     "nodes": [
+      "jimmykane",
+      "ashley",
+      "skyler",
+      "isabella",
+      "chloe",
+      "alyssa",
+      "kcharlton",
+      "zach",
+      "winston",
+      "kai",
+      "skeletons"
+     ]
+    },
+    {
+     "caption": "CCSO students found and fixed real vulnerabilities, with CVEs to show for it.",
+     "nodes": [
+      "security",
+      "jskeete",
+      "liam",
+      "asa",
+      "robert",
+      "maguire",
+      "owen",
+      "nicholas",
+      "kekoa",
+      "miles"
+     ]
+    },
+    {
+     "caption": "Your contributions go on GitHub and npm, and into WINS.",
+     "nodes": [
+      "github",
+      "npm",
+      "issues",
+      "wins"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "developers",
+   "label": "Developers",
+   "message": "Standards all the way down: web components, an OpenAPI contract, a CLI and agent tooling you can extend without forking.",
+   "scenes": [
+    {
+     "caption": "The web component standard is the foundation.",
+     "nodes": [
+      "wcstandard",
+      "efficient",
+      "agnostic"
+     ]
+    },
+    {
+     "caption": "Components, DDD and HAXSchema make every block editable by people and machines.",
+     "nodes": [
+      "components",
+      "ddd",
+      "haxschema",
+      "appstore",
+      "editor"
+     ]
+    },
+    {
+     "caption": "Two backends, one OpenAPI contract, plus the CLI and HAX11ty.",
+     "nodes": [
+      "haxcms",
+      "php",
+      "nodejs",
+      "openapi",
+      "cli",
+      "hax11ty",
+      "jos"
+     ]
+    },
+    {
+     "caption": "The MCP (pre-release), PRAW and skills let agents work the same way.",
+     "nodes": [
+      "traveler",
+      "mcp",
+      "praw",
+      "agents",
+      "extensible"
+     ]
+    },
+    {
+     "caption": "Ubiquity, SSR, tests and deploy targets ship it.",
+     "nodes": [
+      "ubiquity",
+      "ssr",
+      "testing",
+      "deploy",
+      "plugins"
+     ]
+    },
+    {
+     "caption": "Everything is on GitHub and npm, with one issue queue.",
+     "nodes": [
+      "github",
+      "npm",
+      "issues",
+      "security"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "partners",
+   "label": "Partners",
+   "message": "Free and open, backed by Penn State and the Apereo community, with sourced proof of what it does.",
+   "scenes": [
+    {
+     "caption": "People and the pillars come first.",
+     "nodes": [
+      "human",
+      "accessible",
+      "efficient",
+      "extensible",
+      "open",
+      "agnostic",
+      "remixable",
+      "sustainable"
+     ]
+    },
+    {
+     "caption": "Penn State backs HAX across its colleges and libraries.",
+     "nodes": [
+      "psu",
+      "aa",
+      "ist",
+      "hhd",
+      "eberly",
+      "libraries"
+     ]
+    },
+    {
+     "caption": "Open source homes: Apereo, DrupalCon, GitHub and npm.",
+     "nodes": [
+      "apereo",
+      "drupalcon",
+      "github",
+      "npm"
+     ]
+    },
+    {
+     "caption": "A pipeline of students keeps it moving.",
+     "nodes": [
+      "haxlab",
+      "ccso",
+      "uxdc",
+      "bryan",
+      "billrose"
+     ]
+    },
+    {
+     "caption": "WINS has the proof.",
+     "nodes": [
+      "wins",
+      "dept",
+      "course",
+      "portfolio"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "administrators",
+   "label": "Administrators",
+   "message": "Host it your way: PHP or Node.js, many sites with HAXiam, static publishing, and a public security record.",
+   "scenes": [
+    {
+     "caption": "Pick a backend: PHP or Node.js, kept identical by OpenAPI.",
+     "nodes": [
+      "php",
+      "nodejs",
+      "openapi",
+      "agnostic"
+     ]
+    },
+    {
+     "caption": "HAXiam runs hundreds of sites from one core behind your login.",
+     "nodes": [
+      "haxiam",
+      "haxcms",
+      "psu"
+     ]
+    },
+    {
+     "caption": "Security is audited in public, with student auditors and automated tests.",
+     "nodes": [
+      "security",
+      "ccso",
+      "testing",
+      "issues",
+      "sustainable"
+     ]
+    },
+    {
+     "caption": "Publish static sites anywhere.",
+     "nodes": [
+      "deploy",
+      "hax11ty",
+      "libraries",
+      "efficient"
+     ]
+    },
+    {
+     "caption": "The MCP is pre-release and not enabled on HAXiam.",
+     "nodes": [
+      "mcp"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "content",
+   "label": "Follow one piece of content",
+   "kind": "story",
+   "message": "What remixability means in practice: one page, from a person typing to a published, machine-readable site.",
+   "scenes": [
+    {
+     "caption": "A person writes a page in the HAX editor.",
+     "nodes": [
+      "human",
+      "editor",
+      "components"
+     ]
+    },
+    {
+     "caption": "The page is saved as HTML in a site described by JSON Outline Schema, tagged with OER Schema.",
+     "nodes": [
+      "jos",
+      "oerschema",
+      "haxschema"
+     ]
+    },
+    {
+     "caption": "HAXcms on PHP or Node.js stores and serves it, both keeping the same OpenAPI contract.",
+     "nodes": [
+      "haxcms",
+      "php",
+      "nodejs",
+      "openapi"
+     ]
+    },
+    {
+     "caption": "It leaves as a static publish or server-rendered for search engines and AI.",
+     "nodes": [
+      "deploy",
+      "hax11ty",
+      "ssr",
+      "remixable"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sustainable",
+   "label": "Why we're sustainable",
+   "kind": "story",
+   "message": "For funders, administrators and leadership: institutional backing plus open infrastructure means the project lasts.",
+   "scenes": [
+    {
+     "caption": "Penn State backs HAX.",
+     "nodes": [
+      "psu",
+      "haxpsu"
+     ]
+    },
+    {
+     "caption": "Five colleges and units teach and publish with it.",
+     "nodes": [
+      "aa",
+      "ist",
+      "hhd",
+      "eberly",
+      "libraries"
+     ]
+    },
+    {
+     "caption": "Students audit its security through CCSO.",
+     "nodes": [
+      "ccso",
+      "security"
+     ]
+    },
+    {
+     "caption": "The Apereo Foundation supports it beyond one university.",
+     "nodes": [
+      "apereo"
+     ]
+    },
+    {
+     "caption": "GitHub and npm carry it as open infrastructure.",
+     "nodes": [
+      "github",
+      "npm",
+      "open"
+     ]
+    },
+    {
+     "caption": "WINS keeps the evidence.",
+     "nodes": [
+      "wins",
+      "sustainable"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "contribution",
+   "label": "Your first contribution",
+   "kind": "story",
+   "message": "For students and new contributors: the path from coursework to real contributions.",
+   "scenes": [
+    {
+     "caption": "A class project in IST 256.",
+     "nodes": [
+      "ist256"
+     ]
+    },
+    {
+     "caption": "Becomes a HAX component.",
+     "nodes": [
+      "components",
+      "wcstandard",
+      "ddd"
+     ]
+    },
+    {
+     "caption": "PRAW and its agent skills show you the conventions.",
+     "nodes": [
+      "praw",
+      "agents",
+      "issues"
+     ]
+    },
+    {
+     "caption": "The HAX CLI scaffolds, audits and ships it.",
+     "nodes": [
+      "cli",
+      "testing",
+      "ubiquity"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pillars",
+   "label": "Pick your pillar",
+   "kind": "story",
+   "message": "One short scene per pillar, for a talk that needs one focused angle.",
+   "scenes": [
+    {
+     "caption": "Accessible: Meets WCAG 2.0 AA without extra author effort: labels, contrast, keyboard, headings.",
+     "nodes": [
+      "accessible",
+      "components",
+      "ddd",
+      "design",
+      "editor",
+      "languages",
+      "psu"
+     ]
+    },
+    {
+     "caption": "Efficient: Fast without a build step: offline-capable sites with high performance scores, shipped as unbundled ES modules.",
+     "nodes": [
+      "efficient",
+      "cli",
+      "deploy",
+      "ssr",
+      "ubiquity",
+      "wcstandard"
+     ]
+    },
+    {
+     "caption": "Extensible: Interoperates through standards, embeds and exports; themes, blocks and plugins extend it without forking core.",
+     "nodes": [
+      "extensible",
+      "components",
+      "github",
+      "haxschema",
+      "mcp",
+      "npm",
+      "openapi",
+      "plugins",
+      "themes"
+     ]
+    },
+    {
+     "caption": "Open: Apache-2.0 and built in public, with no paywalls, upsells or tracking that serves anyone but the user.",
+     "nodes": [
+      "open",
+      "apereo",
+      "ccso",
+      "github",
+      "haxcamp",
+      "issues",
+      "npm",
+      "oerschema",
+      "praw",
+      "psu",
+      "textbook"
+     ]
+    },
+    {
+     "caption": "Agnostic: Works the same on haxcms-nodejs, haxcms-php, static hosts and the desktop, and exports in open formats so it runs without us.",
+     "nodes": [
+      "agnostic",
+      "deploy",
+      "importers",
+      "jos",
+      "libraries",
+      "nodejs",
+      "openapi",
+      "php",
+      "wcstandard"
+     ]
+    },
+    {
+     "caption": "Remixable: Everything exports in open formats (HTML, JSON Outline Schema, files) and keeps OER Schema and licensing metadata, so anyone can rework it.",
+     "nodes": [
+      "remixable",
+      "appstore",
+      "editor",
+      "importers",
+      "jos",
+      "oerschema",
+      "psu",
+      "skeletons"
+     ]
+    },
+    {
+     "caption": "Sustainable: Understandable and maintainable by regular practitioners, tracked in one issue queue, and approachable for first-time contributors.",
+     "nodes": [
+      "sustainable",
+      "agents",
+      "ccso",
+      "github",
+      "haxcamp",
+      "issues",
+      "libraries",
+      "npm",
+      "praw",
+      "psu",
+      "ubiquity"
+     ]
+    },
+    {
+     "caption": "All seven pillars, held by people.",
+     "nodes": [
+      "human",
+      "accessible",
+      "efficient",
+      "extensible",
+      "open",
+      "agnostic",
+      "remixable",
+      "sustainable"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "companion",
+   "label": "The AI companion",
+   "kind": "story",
+   "message": "HAX's AI-forward direction: humans and AI remixing each other's work in a standards-compliant, accessible way.",
+   "scenes": [
+    {
+     "caption": "A person.",
+     "nodes": [
+      "human"
+     ]
+    },
+    {
+     "caption": "Works alongside the Future Traveler.",
+     "nodes": [
+      "traveler",
+      "bryan"
+     ]
+    },
+    {
+     "caption": "Who learns the conventions from PRAW and its agent skills.",
+     "nodes": [
+      "praw",
+      "agents"
+     ]
+    },
+    {
+     "caption": "And reaches HAXcms through the MCP (pre-release), the same OpenAPI contract people use.",
+     "nodes": [
+      "mcp",
+      "openapi"
+     ]
+    },
+    {
+     "caption": "The HAX CLI is how both get work done.",
+     "nodes": [
+      "cli",
+      "accessible"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "origins",
+   "label": "Where it came from",
+   "kind": "story",
+   "message": "The human story behind the project. The Over time tour has the full year-by-year version.",
+   "scenes": [
+    {
+     "caption": "ELMS:LN at Penn State, a learning network built from many small apps.",
+     "nodes": [
+      "elmsln",
+      "psu"
+     ]
+    },
+    {
+     "caption": "Keith Bailey championed it; Bill Rose and Bryan Ollendyke built it.",
+     "nodes": [
+      "keithbailey",
+      "billrose",
+      "bryan"
+     ]
+    },
+    {
+     "caption": "Mike Potter pointed Bryan to the web component standard.",
+     "nodes": [
+      "mikepotter",
+      "wcstandard"
+     ]
+    },
+    {
+     "caption": "The HAX editor came first, then HAXcms on PHP, then Node.js, the CLI and the MCP.",
+     "nodes": [
+      "editor",
+      "haxcms",
+      "php",
+      "nodejs",
+      "cli",
+      "mcp"
+     ]
+    },
+    {
+     "caption": "Now the Future Traveler works alongside everyone.",
+     "nodes": [
+      "traveler",
+      "human"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "course",
+   "label": "Build a course in five minutes",
+   "kind": "story",
+   "message": "For faculty and instructional designers: a quick, use-case-driven path.",
+   "scenes": [
+    {
+     "caption": "Start from the course skeleton.",
+     "nodes": [
+      "skeletons",
+      "course"
+     ]
+    },
+    {
+     "caption": "Pick a theme.",
+     "nodes": [
+      "themes",
+      "ddd"
+     ]
+    },
+    {
+     "caption": "Drop in instructional blocks.",
+     "nodes": [
+      "components",
+      "editor",
+      "oerschema"
+     ]
+    },
+    {
+     "caption": "Watch how it is used from the dashboard, with Insights on the way.",
+     "nodes": [
+      "dashboard",
+      "xapi",
+      "haxcms"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "migrate",
+   "label": "Migrate your site",
+   "kind": "story",
+   "message": "For people stuck on a legacy CMS: a clear way out.",
+   "scenes": [
+    {
+     "caption": "Your site lives in WordPress, Drupal, Plone, Notion or somewhere else.",
+     "nodes": [
+      "importers"
+     ]
+    },
+    {
+     "caption": "The importers bring it in as a HAX site; open Importers for every platform and file type.",
+     "nodes": [
+      "importers",
+      "haxcms",
+      "jos"
+     ]
+    },
+    {
+     "caption": "Pick a theme and the DDD blocks do the rest.",
+     "nodes": [
+      "themes",
+      "ddd",
+      "components"
+     ]
+    },
+    {
+     "caption": "Or start from a skeleton and import into it.",
+     "nodes": [
+      "skeletons"
+     ]
+    },
+    {
+     "caption": "A working HAXcms site, yours to publish anywhere.",
+     "nodes": [
+      "haxcms",
+      "deploy",
+      "agnostic"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "roadmap",
+   "label": "What's coming",
+   "kind": "story",
+   "message": "The Future Traveler is from the future. Planned parts show as ghosted tiles, each tied to its issue in the unified queue.",
+   "scenes": [
+    {
+     "caption": "Static export and Lit SSR move into core; HAX11ty becomes a wrapper.",
+     "nodes": [
+      "staticpub",
+      "ssr",
+      "php",
+      "nodejs",
+      "cli",
+      "hax11ty"
+     ]
+    },
+    {
+     "caption": "A plugin architecture, from HAXiam system plugins down to site plugins.",
+     "nodes": [
+      "plugins",
+      "haxiam",
+      "haxcms"
+     ]
+    },
+    {
+     "caption": "One-time login links from the CLI.",
+     "nodes": [
+      "magiclink",
+      "cli"
+     ]
+    },
+    {
+     "caption": "Insights lands in the dashboard: stats computed from site content. What's New and Tips join it; open HAXcms for them.",
+     "nodes": [
+      "insights",
+      "dashboard",
+      "haxcms"
+     ]
+    },
+    {
+     "caption": "AI inside HAX and the MCP leave pre-release.",
+     "nodes": [
+      "ai",
+      "mcp",
+      "agents"
+     ]
+    },
+    {
+     "caption": "Everything planned, at once.",
+     "nodes": [
+      "staticpub",
+      "plugins",
+      "magiclink",
+      "insights",
+      "ssr",
+      "ai",
+      "mcp"
+     ]
+    }
+   ]
+  }
+ ]
+}

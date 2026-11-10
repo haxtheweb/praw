@@ -1,0 +1,539 @@
+{
+ "meta": {
+  "name": "OER Schema",
+  "parent": "contracts",
+  "noTimeline": true,
+  "sectionLabels": {
+   "group": "what it describes",
+   "class": "classes",
+   "sorg": "schema.org types"
+  },
+  "about": "OER Schema 1.2.0, generated from the oer-schema element's vocabulary: 48 classes for describing open educational resources, grouped by what they describe, with every schema.org type they extend and where OER Schema shows up in HAX. schema.org mirror types (Thing, Text, Date and so on) are left out.",
+  "kindLabels": {
+   "rel": "group, class, kind of",
+   "schema": "extends schema.org or Creative Commons",
+   "org": "standards it builds on"
+  }
+ },
+ "nodes": {
+  "oerschema": {
+   "always": true
+  },
+  "schemaorg": {
+   "desc": "schema.org, the shared vocabulary search engines read. OER Schema extends it: an OER Course is a schema.org Course, a CourseSection a CourseInstance, a LearningComponent a CreativeWork, and an Assessment or Task a schema.org Action.",
+   "links": {
+    "site": "https://schema.org"
+   }
+  },
+  "ccrel": {
+   "desc": "Creative Commons Rights Expression Language: every OER Resource is also a cc:Work, so licensing travels with the content.",
+   "links": {
+    "site": "https://creativecommons.org/ns"
+   }
+  },
+  "og_structure": {
+   "desc": "Courses, sections, syllabi, topics, objectives and tables of contents. 9 classes.",
+   "kind": "group"
+  },
+  "og_patterns": {
+   "desc": "How learning is assembled: lessons, units, modules, tasks, activities, projects, practice and assessments. 12 classes.",
+   "kind": "group"
+  },
+  "og_materials": {
+   "desc": "Materials attached to instruction: supporting, supplemental and referenced. 4 classes.",
+   "kind": "group"
+  },
+  "og_grading": {
+   "desc": "How work is graded: point, letter, percent and completion formats, and rubrics with criteria, scales and levels. 9 classes.",
+   "kind": "group"
+  },
+  "og_actions": {
+   "desc": "What a learner does: reading, writing, making, researching, listening, watching, reflecting, discussing, observing, presenting, assessing. 12 classes.",
+   "kind": "group"
+  },
+  "og_format": {
+   "desc": "Delivery formats, such as face to face. 2 classes.",
+   "kind": "group"
+  },
+  "oc_resource": {
+   "desc": "A general component that all open educational resources are based from. Properties: parentOf, childOf, forCourse, mainContent, forTopic.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Resource"
+   }
+  },
+  "oc_tableofcontents": {
+   "desc": "oer:TableOfContents. Properties: entry, childOf, forCourse.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/TableOfContents"
+   }
+  },
+  "oc_tableofcontentsentry": {
+   "desc": "oer:TableOfContentsEntry. Properties: title, forComponent.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/TableOfContentsEntry"
+   }
+  },
+  "oc_course": {
+   "desc": "An instructional course. Properties: courseIdentifier, coursePrerequisites, institution, department, program, syllabus, deliveryFormat, enrollmentSize, section, termOffered.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Course"
+   }
+  },
+  "oc_coursesection": {
+   "desc": "A specific instance of a course offered during a specific term. Properties: sectionIdentifier, primaryInstructor, syllabus, forCourse, termOffered, enrollmentSize, deliveryFormat.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/CourseSection"
+   }
+  },
+  "oc_coursesyllabus": {
+   "desc": "oer:CourseSyllabus. Properties: section, associatedMedia, forCourse.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/CourseSyllabus"
+   }
+  },
+  "oc_topic": {
+   "desc": "The context of a LearningComponent. Properties: material.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Topic"
+   }
+  },
+  "oc_classstanding": {
+   "desc": "oer:ClassStanding.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/ClassStanding"
+   }
+  },
+  "oc_learningcomponent": {
+   "desc": "A generic component as a base to learning content. Properties: forCourse, forComponent, hasComponent, doTask, hasLearningObjective, deliveryFormat.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/LearningComponent"
+   }
+  },
+  "oc_learningobjective": {
+   "desc": "An expected outcome or skill gained by application of a LearningComponent. Properties: forCourse, forComponent, coursePrerequisites.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/LearningObjective"
+   }
+  },
+  "oc_associatedmaterial": {
+   "desc": "Material that is associated with the course.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/AssociatedMaterial"
+   }
+  },
+  "oc_supportingmaterial": {
+   "desc": "Material associated with an instructional component that teaches the learning objectives of that component.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/SupportingMaterial"
+   }
+  },
+  "oc_supplementalmaterial": {
+   "desc": "Material associated with an instructional component that provides additional information about that component. Examples include Curriculum guides, Family course guides Student study guides.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/SupplementalMaterial"
+   }
+  },
+  "oc_referencedmaterial": {
+   "desc": "Material associated with an instructional component that is referenced by that component. Examples include primary sources analysed in activities or assessments, material studied in Courses, raw material used in activities or assessments.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/ReferencedMaterial"
+   }
+  },
+  "oc_instructionalpattern": {
+   "desc": "An assembly of learning components arranged to deliver a learning experience. Properties: hasLearningObjective.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/InstructionalPattern"
+   }
+  },
+  "oc_lesson": {
+   "desc": "oer:Lesson.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Lesson"
+   }
+  },
+  "oc_unit": {
+   "desc": "oer:Unit.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Unit"
+   }
+  },
+  "oc_module": {
+   "desc": "oer:Module.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Module"
+   }
+  },
+  "oc_assessment": {
+   "desc": "An assessment of a student's activity. Properties: material, assessing, gradingFormat, rubric.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Assessment"
+   }
+  },
+  "oc_quiz": {
+   "desc": "A quiz assessment.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Quiz"
+   }
+  },
+  "oc_submission": {
+   "desc": "An assessment on material provided by a Student.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Submission"
+   }
+  },
+  "oc_rubric": {
+   "desc": "A scoring guide with criteria and performance levels used to evaluate work. Properties: hasCriterion, rubricScale, rubricType.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Rubric"
+   }
+  },
+  "oc_rubriccriterion": {
+   "desc": "A criterion inside a rubric with optional weighting. Properties: criterionWeight.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/RubricCriterion"
+   }
+  },
+  "oc_rubricscale": {
+   "desc": "A scale of performance levels used by a rubric. Properties: hasLevel, pointsRequired.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/RubricScale"
+   }
+  },
+  "oc_rubriclevel": {
+   "desc": "A performance level on a rubric scale. Properties: levelOrdinal, levelPoints.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/RubricLevel"
+   }
+  },
+  "oc_task": {
+   "desc": "A task given to a student. Properties: material, aiUsageConstraint.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Task"
+   }
+  },
+  "oc_activity": {
+   "desc": "An activity performed by students which can be assessed and graded. Properties: assessedBy, gradingFormat, rubric.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Activity"
+   }
+  },
+  "oc_project": {
+   "desc": "A collection of activities, each of which test a particular skill, demonstrating proficiency across a range of skills.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Project"
+   }
+  },
+  "oc_practice": {
+   "desc": "oer:Practice.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Practice"
+   }
+  },
+  "oc_format": {
+   "desc": "The format of the resource.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Format"
+   }
+  },
+  "oc_facetofaceformat": {
+   "desc": "An in-person format where participants are physically present.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/FaceToFaceFormat"
+   }
+  },
+  "oc_gradeformat": {
+   "desc": "The grading format used in activities and assessments.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/GradeFormat"
+   }
+  },
+  "oc_pointgradeformat": {
+   "desc": "A grading format using numerical points.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/PointGradeFormat"
+   }
+  },
+  "oc_lettergradeformat": {
+   "desc": "A grading format using a letter value.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/LetterGradeFormat"
+   }
+  },
+  "oc_percentgradeformat": {
+   "desc": "A grading format using a percentage value.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/PercentGradeFormat"
+   }
+  },
+  "oc_completiongradeformat": {
+   "desc": "A boolean grading format determining if the activity had been completed.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/CompletionGradeFormat"
+   }
+  },
+  "oc_actiontype": {
+   "desc": "A datatype declaring the type of action taken.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/ActionType"
+   }
+  },
+  "oc_writing": {
+   "desc": "The act of producing text or other written content.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Writing"
+   }
+  },
+  "oc_reading": {
+   "desc": "The act of interpreting written text.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Reading"
+   }
+  },
+  "oc_making": {
+   "desc": "The act of creating or constructing something.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Making"
+   }
+  },
+  "oc_researching": {
+   "desc": "The act of investigating systematically.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Researching"
+   }
+  },
+  "oc_listening": {
+   "desc": "The act of paying attention to sound.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Listening"
+   }
+  },
+  "oc_watching": {
+   "desc": "The act of observing something visually.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Watching"
+   }
+  },
+  "oc_reflecting": {
+   "desc": "The act of thinking deeply or carefully about something.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Reflecting"
+   }
+  },
+  "oc_discussing": {
+   "desc": "The act of talking about something with another person or people.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Discussing"
+   }
+  },
+  "oc_observing": {
+   "desc": "The act of noticing or perceiving something.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Observing"
+   }
+  },
+  "oc_presenting": {
+   "desc": "The act of showing or offering something for others to scrutinize or consider.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Presenting"
+   }
+  },
+  "oc_assess": {
+   "desc": "The act of evaluating or estimating the nature, ability, or quality of something.",
+   "kind": "class",
+   "links": {
+    "term": "http://oerschema.org/Assess"
+   }
+  },
+  "so_action": {
+   "desc": "schema.org/Action, extended by OER Schema.",
+   "links": {
+    "term": "https://schema.org/Action"
+   },
+   "kind": "sorg"
+  },
+  "so_alignmentobject": {
+   "desc": "schema.org/AlignmentObject, extended by OER Schema.",
+   "links": {
+    "term": "https://schema.org/AlignmentObject"
+   },
+   "kind": "sorg"
+  },
+  "so_course": {
+   "desc": "schema.org/Course, extended by OER Schema.",
+   "links": {
+    "term": "https://schema.org/Course"
+   },
+   "kind": "sorg"
+  },
+  "so_courseinstance": {
+   "desc": "schema.org/CourseInstance, extended by OER Schema.",
+   "links": {
+    "term": "https://schema.org/CourseInstance"
+   },
+   "kind": "sorg"
+  },
+  "so_creativework": {
+   "desc": "schema.org/CreativeWork, extended by OER Schema.",
+   "links": {
+    "term": "https://schema.org/CreativeWork"
+   },
+   "kind": "sorg"
+  },
+  "so_thing": {
+   "desc": "schema.org/Thing, extended by OER Schema.",
+   "links": {
+    "term": "https://schema.org/Thing"
+   },
+   "kind": "sorg"
+  },
+  "b_oer_schema": {
+   "desc": "The oer-schema element: wraps content and marks it up with an OER Schema type and properties.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/oer-schema"
+   }
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "oerschema",
+   "label": "Describing learning",
+   "message": "OER Schema 1.2.0: 48 classes in six groups, built on schema.org and Creative Commons, authored by Michael Collins.",
+   "scenes": [
+    {
+     "caption": "OER Schema extends schema.org and Creative Commons, so search engines and licenses understand learning content.",
+     "nodes": [
+      "oerschema",
+      "schemaorg",
+      "ccrel",
+      "mcollins"
+     ]
+    },
+    {
+     "caption": "It describes six things.",
+     "nodes": [
+      "og_structure",
+      "og_patterns",
+      "og_materials",
+      "og_grading",
+      "og_actions",
+      "og_format"
+     ]
+    },
+    {
+     "caption": "Course structure: courses, sections, syllabi, topics and objectives.",
+     "nodes": [
+      "og_structure",
+      "oc_resource",
+      "oc_tableofcontents",
+      "oc_tableofcontentsentry",
+      "oc_course",
+      "oc_coursesection",
+      "oc_coursesyllabus",
+      "oc_topic",
+      "oc_classstanding",
+      "oc_learningobjective"
+     ]
+    },
+    {
+     "caption": "Instructional patterns: lessons, units, modules, tasks, activities and assessments.",
+     "nodes": [
+      "og_patterns",
+      "oc_learningcomponent",
+      "oc_instructionalpattern",
+      "oc_lesson",
+      "oc_unit",
+      "oc_module",
+      "oc_assessment",
+      "oc_quiz",
+      "oc_submission",
+      "oc_task",
+      "oc_activity",
+      "oc_project",
+      "oc_practice"
+     ]
+    },
+    {
+     "caption": "Materials, grading and rubrics, learner actions, formats.",
+     "nodes": [
+      "og_materials",
+      "og_grading",
+      "og_actions",
+      "og_format"
+     ]
+    },
+    {
+     "caption": "Each one maps onto a schema.org type.",
+     "nodes": [
+      "so_action",
+      "so_alignmentobject",
+      "so_course",
+      "so_courseinstance",
+      "so_creativework",
+      "so_thing"
+     ]
+    },
+    {
+     "caption": "In HAX, the oer-schema element tags content in courses and textbooks.",
+     "nodes": [
+      "b_oer_schema",
+      "course",
+      "textbook",
+      "editor"
+     ]
+    },
+    {
+     "caption": "All of OER Schema.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

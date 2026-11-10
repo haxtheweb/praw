@@ -1,0 +1,403 @@
+{
+ "meta": {
+  "name": "HAX presentations",
+  "parent": "main",
+  "timelineTier": 1,
+  "about": "Talks, podcasts and webinars about HAX. Portals (shared ids) link back to hax-ecosystem.json for details.",
+  "links": {
+   "playlist": "https://www.youtube.com/watch?v=q0IjUz2_IhA&list=PLJQupiji7J5eTqv8JFiW8SZpSeKouZACH",
+   "notes": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+  }
+ },
+ "nodes": {
+  "t17balt": {
+   "desc": "DrupalCon Baltimore. The ELMS:LN core team on web components, Polymer and \"what HAX is (and how far along we are with it).\" The first HAX talk.",
+   "links": {
+    "session": "https://events.drupal.org/baltimore2017/sessions/mad-scientist-road-show"
+   },
+   "source": {
+    "label": "DrupalCon Baltimore 2017 session",
+    "url": "https://events.drupal.org/baltimore2017/sessions/mad-scientist-road-show"
+   },
+   "kind": "talk",
+   "year": 2017,
+   "yearNote": "Mad Scientist Road show"
+  },
+  "t18nash": {
+   "desc": "DrupalCon Nashville: decoupling authoring for Drupal and beyond. \"This isn't tied to Drupal; we've integrated it into Drupal which means it can integrate anywhere else easily.\"",
+   "links": {
+    "session": "https://events.drupal.org/nashville2018/sessions/webcomponents-polymer-and-hax-decoupling-authoring-drupal-and-beyond"
+   },
+   "source": {
+    "label": "DrupalCon Nashville 2018 session",
+    "url": "https://events.drupal.org/nashville2018/sessions/webcomponents-polymer-and-hax-decoupling-authoring-drupal-and-beyond"
+   },
+   "kind": "talk",
+   "year": 2018,
+   "yearNote": "Webcomponents, Polymer and HAX"
+  },
+  "t18gov": {
+   "desc": "Drupal GovCon 2018, in the DC area.",
+   "links": {
+    "session": "https://www.drupalgovcon.org/2018/program/sessions/hax-creating-best-drupal-authoring-experience-not-creating-it-drupal"
+   },
+   "source": {
+    "label": "Drupal GovCon 2018 session",
+    "url": "https://www.drupalgovcon.org/2018/program/sessions/hax-creating-best-drupal-authoring-experience-not-creating-it-drupal"
+   },
+   "kind": "talk",
+   "year": 2018,
+   "yearNote": "HAX: the best Drupal authoring experience, by not making it for Drupal"
+  },
+  "t19seattle": {
+   "desc": "Co-presented web components with Red Hat and announced HAXcms with an early prototype.",
+   "links": {
+    "notes": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
+   },
+   "source": {
+    "label": "WINS.md: HAXcms announced at DrupalCon",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
+   },
+   "kind": "talk",
+   "year": 2019,
+   "yearNote": "HAXcms announced at DrupalCon Seattle"
+  },
+  "t19gov": {
+   "desc": "Drupal GovCon 2019.",
+   "links": {
+    "session": "https://www.drupalgovcon.org/2019/program/sessions/future-proofing-design-work-web-components"
+   },
+   "source": {
+    "label": "Drupal GovCon 2019 session",
+    "url": "https://www.drupalgovcon.org/2019/program/sessions/future-proofing-design-work-web-components"
+   },
+   "kind": "talk",
+   "year": 2019,
+   "yearNote": "Future proofing design work with web components"
+  },
+  "t19apereo": {
+   "desc": "HAX and HAXcms for the Apereo higher-education open source community.",
+   "links": {
+    "slides": "https://www.slideshare.net/slideshow/haxtheweb-apereo-19/148822203"
+   },
+   "source": {
+    "label": "Slides on SlideShare",
+    "url": "https://www.slideshare.net/slideshow/haxtheweb-apereo-19/148822203"
+   },
+   "kind": "talk",
+   "year": 2019,
+   "yearNote": "HAXTheWeb @ Apereo 19"
+  },
+  "t23njcamp": {
+   "desc": "DrupalCamp NJ 2023.",
+   "links": {
+    "session": "https://2023.drupalcampnj.org/sessions/hax-decoupling-authoring-experience-drupal-use-anywhere"
+   },
+   "source": {
+    "label": "DrupalCamp NJ 2023 session",
+    "url": "https://2023.drupalcampnj.org/sessions/hax-decoupling-authoring-experience-drupal-use-anywhere"
+   },
+   "kind": "talk",
+   "year": 2023,
+   "yearNote": "HAX: decoupling authoring from Drupal to use anywhere"
+  },
+  "t23ontology": {
+   "desc": "The course model under every instructional feature: outcomes, pedagogy, structure, instruction, content and assessment. \"It doesn't need to be ideal. It does need to be valid.\"",
+   "links": {
+    "recording": "https://www.youtube.com/watch?v=iF4UZKcAWmw"
+   },
+   "source": {
+    "label": "PRAW talks",
+    "url": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   },
+   "kind": "talk",
+   "year": 2023,
+   "yearNote": "HAX Ontology"
+  },
+  "t23horizon": {
+   "desc": "Where HAX was and where it said it would go: every site is a site.json plus static HTML. \"When we blow up the notion of a database… we can build anything.\"",
+   "links": {
+    "recording": "https://www.youtube.com/watch?v=bX04I1Cw9FA"
+   },
+   "source": {
+    "label": "PRAW talks",
+    "url": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   },
+   "kind": "talk",
+   "year": 2023,
+   "yearNote": "HAX Horizon Report"
+  },
+  "t24hitech": {
+   "desc": "The origin story in Bryan's words, with instructional designers reacting live. \"I don't want humanity to need to code in order to put themselves on the internet.\"",
+   "links": {
+    "recording": "https://www.youtube.com/watch?v=fKeSEZm3khE"
+   },
+   "source": {
+    "label": "PRAW talks",
+    "url": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   },
+   "kind": "talk",
+   "year": 2024,
+   "yearNote": "HiTech Podcast ep. 168: Reclaiming the Internet"
+  },
+  "t24fossy": {
+   "desc": "A conference talk introducing HAX: \"My social cause: reduce the cost of web publishing to zero, regardless of ability.\"",
+   "links": {
+    "session": "https://f.sfconservancy.org/Conservancy/2024.fossy.us/raw/branch/main/schedule/presentation/198/index.html"
+   },
+   "source": {
+    "label": "PRAW talks",
+    "url": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   },
+   "kind": "talk",
+   "year": 2024,
+   "yearNote": "So you want a (web) revolution?"
+  },
+  "t25state": {
+   "desc": "Year one of HAX Lab, the seven community pillars and the 2025 roadmap. \"Meet our users where they are, not where we wish them to be.\"",
+   "links": {
+    "recording": "https://www.youtube.com/watch?v=WGv94SY0cRM"
+   },
+   "source": {
+    "label": "PRAW talks",
+    "url": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   },
+   "kind": "talk",
+   "year": 2025,
+   "yearNote": "2025: State of HAX Community"
+  },
+  "t25fossy": {
+   "desc": "HAX Lab, a student club, a security reporting pipeline, the HAX CLI and ten years of history.",
+   "links": {
+    "notes": "https://btopro.com/work/fossy25"
+   },
+   "source": {
+    "label": "btopro.com: FOSSY25",
+    "url": "https://btopro.com/work/fossy25"
+   },
+   "kind": "talk",
+   "year": 2025,
+   "yearNote": "FOSSY 2025: ten years from a notepad"
+  },
+  "t26nothing": {
+   "desc": "Ten years of HAX through ubiquity, the outline designer and SIIP; why every site since 2020 still works.",
+   "links": {
+    "recording": "https://www.youtube.com/watch?v=wkdW2EjkwZ4"
+   },
+   "source": {
+    "label": "PRAW talks",
+    "url": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   },
+   "kind": "talk",
+   "year": 2026,
+   "yearNote": "Nothing is intentional, until it is"
+  },
+  "t26siip": {
+   "desc": "The pipeline, told by the students and faculty in it, with live demos of skeletons, Pressbooks import and Canvas AI analysis.",
+   "links": {
+    "recording": "https://www.youtube.com/watch?v=TNF0uzYi9Kk"
+   },
+   "source": {
+    "label": "PRAW talks",
+    "url": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   },
+   "kind": "talk",
+   "year": 2026,
+   "yearNote": "SIIP: a Conversation with HAX"
+  },
+  "tmanymes": {
+   "desc": "A workshop for instructional and learning design staff: build a digital \"you\" from context, skills, inputs, rules and outputs. PRAW is the worked example.",
+   "links": {
+    "notes": "https://btopro.com/hax/the-many-me-s"
+   },
+   "source": {
+    "label": "PRAW talks",
+    "url": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   },
+   "kind": "talk"
+  },
+  "tperf": {
+   "desc": "Offline-capable sites with high performance scores while shipping unbundled ES modules.",
+   "links": {
+    "notes": "https://btopro.com/work/the-web-components-high-performance-video"
+   },
+   "source": {
+    "label": "WINS.md: Fast without a build step",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
+   },
+   "kind": "talk"
+  },
+  "tgov4": {
+   "desc": "A Drupal4Gov webinar series session on HAX.",
+   "links": {
+    "session": "https://groups.drupal.org/node/527046"
+   },
+   "source": {
+    "label": "groups.drupal.org",
+    "url": "https://groups.drupal.org/node/527046"
+   },
+   "kind": "talk",
+   "note": "No speaker recorded yet."
+  },
+  "govcon": {
+   "desc": "A Drupal conference in the Washington, DC area.",
+   "links": {
+    "site": "https://www.drupalgovcon.org/author/btopro"
+   }
+  },
+  "drupalcampnj": {
+   "desc": "A regional Drupal camp in New Jersey.",
+   "links": {
+    "site": "https://2023.drupalcampnj.org/sessions/hax-decoupling-authoring-experience-drupal-use-anywhere"
+   }
+  },
+  "fossy": {
+   "desc": "Free and Open Source Software Yearly, run by Software Freedom Conservancy.",
+   "links": {}
+  },
+  "hitech": {
+   "desc": "A podcast hosted by instructional designers Josh Schwartz and Will Illingworth.",
+   "links": {
+    "site": "https://www.youtube.com/watch?v=fKeSEZm3khE"
+   }
+  },
+  "drupal4gov": {
+   "desc": "A webinar series for Drupal in government.",
+   "links": {
+    "site": "https://groups.drupal.org/node/527046"
+   }
+  },
+  "zane": {
+   "desc": "Co-presented at DrupalCamp NJ 2023.",
+   "role": "community"
+  },
+  "presentations": {
+   "always": true
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "story",
+   "label": "The story in talks",
+   "message": "Ten years of HAX told through the talks that introduced it, from the ELMS:LN core team at DrupalCon to the SIIP conversation at Apereo.",
+   "scenes": [
+    {
+     "caption": "Every talk hangs off one hub.",
+     "nodes": [
+      "presentations"
+     ]
+    },
+    {
+     "caption": "2017: the ELMS:LN core team shows HAX for the first time at DrupalCon Baltimore.",
+     "nodes": [
+      "t17balt",
+      "bryan",
+      "mikepotter",
+      "drupalcon",
+      "elmsln",
+      "editor",
+      "wcstandard",
+      "components"
+     ]
+    },
+    {
+     "caption": "2018: Nashville and Drupal GovCon take HAX beyond Drupal.",
+     "nodes": [
+      "t18nash",
+      "nikkimk",
+      "t18gov",
+      "govcon"
+     ]
+    },
+    {
+     "caption": "2019: HAXcms is announced in Seattle; Apereo and GovCon follow.",
+     "nodes": [
+      "t19seattle",
+      "haxcms",
+      "t19gov",
+      "design",
+      "t19apereo",
+      "apereo"
+     ]
+    },
+    {
+     "caption": "2023: the course ontology, the Horizon Report and DrupalCamp NJ.",
+     "nodes": [
+      "t23ontology",
+      "billrose",
+      "course",
+      "t23horizon",
+      "jos",
+      "hax11ty",
+      "libraries",
+      "themes",
+      "t23njcamp",
+      "zane",
+      "drupalcampnj"
+     ]
+    },
+    {
+     "caption": "2024: the origin story on a podcast, and the revolution at FOSSY.",
+     "nodes": [
+      "t24hitech",
+      "hitech",
+      "keithbailey",
+      "t24fossy",
+      "fossy",
+      "open"
+     ]
+    },
+    {
+     "caption": "2025: the State of HAX Community names the seven pillars; FOSSY gets ten years in one talk.",
+     "nodes": [
+      "t25state",
+      "haxlab",
+      "ddd",
+      "agents",
+      "accessible",
+      "efficient",
+      "extensible",
+      "agnostic",
+      "remixable",
+      "sustainable",
+      "t25fossy",
+      "cli",
+      "security"
+     ]
+    },
+    {
+     "caption": "2026: Nothing is intentional, until it is; then SIIP at Apereo with the students and faculty themselves.",
+     "nodes": [
+      "t26nothing",
+      "ubiquity",
+      "wins",
+      "t26siip",
+      "jfrank",
+      "fusco",
+      "winston",
+      "jimmykane",
+      "ashley",
+      "alyssa",
+      "skeletons",
+      "textbook"
+     ]
+    },
+    {
+     "caption": "Still to date: workshops and videos that need a year.",
+     "nodes": [
+      "tmanymes",
+      "praw",
+      "tperf",
+      "tgov4",
+      "drupal4gov"
+     ]
+    },
+    {
+     "caption": "Every talk points back into the ecosystem web.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

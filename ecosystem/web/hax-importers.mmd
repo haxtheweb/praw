@@ -1,0 +1,123 @@
+%% Importers sub-web: every way content gets into HAX, generated from haxcms-nodejs and the site editor.
+%% Portals: ids from hax-ecosystem.mmd, hax-mcptools.mmd and hax-openapi.mmd. Details in hax-importers.json.
+flowchart TB
+  %%@ layout rings=0,230,500,780 sizes=92,70,56,52
+  subgraph hub ["Importers"]
+    importers["importers"]
+  end
+  subgraph ways ["Three ways in"]
+    w_platform["A whole site from another platform"]
+    w_file["A site from one file"]
+    w_page["Content into a page"]
+  end
+  subgraph sources ["Platforms and file formats"]
+    p_wordpress[["WordPress"]]
+    p_drupal[["Drupal"]]
+    p_plone[["Plone"]]
+    p_elmsln[["ELMS:LN"]]
+    p_haxcms[["HAXcms"]]
+    p_notion[["Notion"]]
+    p_gitbook[["GitBook"]]
+    p_vitepress[["VitePress"]]
+    p_quarto[["Quarto"]]
+    p_pressbooks[["Pressbooks"]]
+    p_openstax[["OpenStax"]]
+    p_html[["Any HTML site"]]
+    f_docx["DOCX"]
+    f_pptx["PPTX"]
+    f_pdf["PDF"]
+    f_xlsx["XLSX"]
+    f_html["HTML"]
+    f_md["Markdown"]
+    f_media["Images, audio, video"]
+    f_url["A URL"]
+    f_jos["JOS items (site.json)"]
+  end
+  subgraph entry ["Where you start an import"]
+    dashboard["dashboard"]
+    editor["editor"]
+    merlin["merlin"]
+    cli["cli"]
+    mcp["mcp"]
+    tag_actions["tag_actions"]
+    elmsln["elmsln"]
+  end
+
+  importers -->|offers| w_platform
+  importers -->|offers| w_file
+  importers -->|offers| w_page
+  w_platform -->|imports from| p_wordpress
+  w_platform -->|imports from| p_drupal
+  w_platform -->|imports from| p_plone
+  w_platform -->|imports from| p_elmsln
+  w_platform -->|imports from| p_haxcms
+  w_platform -->|imports from| p_notion
+  w_platform -->|imports from| p_gitbook
+  w_platform -->|imports from| p_vitepress
+  w_platform -->|imports from| p_quarto
+  w_platform -->|imports from| p_pressbooks
+  w_platform -->|imports from| p_openstax
+  w_platform -->|imports from| p_html
+  w_file -->|builds a site from| f_docx
+  w_page -->|accepts| f_docx
+  w_file -->|builds a site from| f_pptx
+  w_page -->|accepts| f_pptx
+  w_file -->|builds a site from| f_pdf
+  w_page -->|accepts| f_pdf
+  w_file -->|builds a site from| f_xlsx
+  w_page -->|accepts| f_xlsx
+  w_file -->|builds a site from| f_html
+  w_page -->|accepts| f_html
+  w_page -->|accepts| f_md
+  w_page -->|accepts| f_media
+  w_page -->|accepts| f_url
+  w_platform -->|also accepts| f_jos
+  p_elmsln --o|is| elmsln
+  dashboard -->|starts| w_platform
+  dashboard -->|starts| w_file
+  editor -->|starts| w_page
+  merlin -->|starts| w_page
+  merlin -->|starts| w_file
+  cli -->|starts| w_platform
+  cli -->|imports| f_jos
+  mcp -->|starts| w_platform
+  mcp -->|starts| w_file
+  tag_actions -.->|serves| w_file
+  tag_actions -.->|serves| w_page
+
+  %%@ group hub tier=0
+  %%@ group ways tier=1
+  %%@ group sources tier=2
+  %%@ group entry tier=3
+  %%@ node importers portal
+  %%@ node w_platform icon=icons:cloud-upload color=inventOrange motion=pop
+  %%@ node w_file icon=icons:cloud-upload color=inventOrange motion=pop
+  %%@ node w_page icon=icons:cloud-upload color=inventOrange motion=pop
+  %%@ node p_wordpress mono=WP color=wonderPurple motion=lift
+  %%@ node p_drupal mono=DRPL color=wonderPurple motion=lift
+  %%@ node p_plone mono=PLON color=wonderPurple motion=lift
+  %%@ node p_elmsln mono=ELMS color=wonderPurple motion=lift
+  %%@ node p_haxcms mono=HAX color=wonderPurple motion=lift
+  %%@ node p_notion mono=NOTN color=skyBlue motion=lift
+  %%@ node p_gitbook mono=GITB color=skyBlue motion=lift
+  %%@ node p_vitepress mono=VITE color=skyBlue motion=lift
+  %%@ node p_quarto mono=QRTO color=skyBlue motion=lift
+  %%@ node p_pressbooks mono=PRBK color=forestGreen motion=lift
+  %%@ node p_openstax mono=OSTX color=forestGreen motion=lift
+  %%@ node p_html mono=HTML color=wonderPurple motion=lift
+  %%@ node f_docx mono=DOCX color=roarGolden motion=nudge
+  %%@ node f_pptx mono=PPTX color=roarGolden motion=nudge
+  %%@ node f_pdf mono=PDF color=roarGolden motion=nudge
+  %%@ node f_xlsx mono=XLSX color=roarGolden motion=nudge
+  %%@ node f_html mono=HTML color=roarGolden motion=nudge
+  %%@ node f_md mono=MD color=roarGolden motion=nudge
+  %%@ node f_media mono=MEDIA color=roarGolden motion=nudge
+  %%@ node f_url mono=URL color=roarGolden motion=nudge
+  %%@ node f_jos mono=JOS color=roarGolden motion=nudge
+  %%@ node dashboard portal
+  %%@ node editor portal
+  %%@ node merlin portal
+  %%@ node cli portal
+  %%@ node mcp portal=mcptools
+  %%@ node tag_actions portal=openapi
+  %%@ node elmsln portal

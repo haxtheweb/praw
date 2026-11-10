@@ -1,0 +1,121 @@
+%% Community and governance sub-web: how HAX is run, generated from the governance files in haxtheweb/issues, its labels and issue templates, and each repo's community files.
+flowchart TB
+  %%@ layout rings=0,240,480,740 sizes=92,64,56,50
+  subgraph hub ["Community and governance"]
+    community["community"]
+  end
+  subgraph rolesg ["Roles"]
+    billrose["billrose"]
+    bryan["bryan"]
+    psu["psu"]
+    cg_contributors(("Contributors"))
+  end
+  subgraph decide ["How a decision is made"]
+    cg_d1>"1. Open an issue"]
+    cg_d2>"2. Discuss and plan"]
+    cg_d3>"3. Pull request"]
+    cg_d4>"4. Record it"]
+  end
+  subgraph docsg ["The rules, in writing"]
+    cg_governance[("GOVERNANCE.md")]
+    cg_contributing[("CONTRIBUTING.md")]
+    cg_conduct[("CODE_OF_CONDUCT.md")]
+    cg_security[("SECURITY.md")]
+    cg_support[("SUPPORT.md")]
+    cg_sustain[("SUSTAINABILITY.md")]
+    cg_trademark[("TRADEMARK.md")]
+    cg_agents[("AGENTS.md")]
+    cg_cla[("CLA")]
+  end
+  subgraph chan ["Where people meet"]
+    cg_discord["Discord"]
+    learnhax["learnhax"]
+    haxcamp["haxcamp"]
+    issues["issues"]
+    cg_t_bug_report_yml["bug report"]
+    cg_t_feature_request_yml["feature request"]
+    cg_l_community["Community"]
+    cg_l_design_challenge["Design Challenge"]
+    cg_l_documentation["Documentation"]
+    cg_l_good_first_issue["Good first issue"]
+    cg_l_help_wanted["Help Wanted"]
+    cg_l_pillars_values["Pillars / Values"]
+    cg_l_plan_created["Plan Created"]
+    cg_l_research_ideas["Research / Ideas"]
+  end
+  community -->|is run by| billrose
+  community -->|is run by| bryan
+  community -->|is run by| psu
+  community -->|is open to| cg_contributors
+  bryan -->|names a backup in CODEOWNERS| billrose
+  psu -->|stewards| community
+  community -->|decides in| cg_d1
+  cg_d1 -->|then| cg_d2
+  cg_d2 -->|then| cg_d3
+  cg_d3 -->|then| cg_d4
+  cg_d1 -.->|happens in| issues
+  cg_d2 -.->|is labeled| cg_l_plan_created
+  cg_d3 -.->|requires| cg_cla
+  cg_d3 -.->|follows| cg_contributing
+  cg_d3 -.->|follows| cg_agents
+  community -->|is written down in| cg_governance
+  cg_governance -->|links to| cg_contributing
+  cg_governance -->|links to| cg_conduct
+  cg_governance -->|links to| cg_security
+  cg_governance -->|links to| cg_support
+  cg_governance -->|links to| cg_sustain
+  cg_governance -->|links to| cg_trademark
+  cg_governance -->|links to| cg_agents
+  cg_governance -->|links to| cg_cla
+  cg_support -->|points to| cg_discord
+  cg_support -->|points to| learnhax
+  cg_support -->|points to| issues
+  cg_contributors -->|meet at| haxcamp
+  cg_contributors -->|follow| cg_conduct
+  issues -->|offers| cg_t_bug_report_yml
+  issues -->|offers| cg_t_feature_request_yml
+  issues -->|is sorted by| cg_l_community
+  issues -->|is sorted by| cg_l_design_challenge
+  issues -->|is sorted by| cg_l_documentation
+  issues -->|is sorted by| cg_l_good_first_issue
+  issues -->|is sorted by| cg_l_help_wanted
+  issues -->|is sorted by| cg_l_pillars_values
+  issues -->|is sorted by| cg_l_plan_created
+  issues -->|is sorted by| cg_l_research_ideas
+  %%@ group hub tier=0
+  %%@ group rolesg tier=1
+  %%@ group decide tier=1
+  %%@ group docsg tier=2
+  %%@ group chan tier=3
+  %%@ node community portal
+  %%@ node cg_contributors icon=social:people color=skyBlue motion=pulse
+  %%@ node billrose portal
+  %%@ node bryan portal
+  %%@ node psu portal
+  %%@ node learnhax portal
+  %%@ node haxcamp portal
+  %%@ node issues portal
+  %%@ node cg_d1 mono=1 color=futureLime motion=nudge
+  %%@ node cg_d2 mono=2 color=futureLime motion=nudge
+  %%@ node cg_d3 mono=3 color=futureLime motion=nudge
+  %%@ node cg_d4 mono=4 color=futureLime motion=nudge
+  %%@ node cg_governance icon=icons:gavel color=beaverBlue motion=nudge
+  %%@ node cg_contributing icon=icons:book color=beaverBlue motion=nudge
+  %%@ node cg_conduct icon=icons:book color=beaverBlue motion=nudge
+  %%@ node cg_security icon=icons:verified-user color=beaverBlue motion=nudge
+  %%@ node cg_support icon=icons:book color=beaverBlue motion=nudge
+  %%@ node cg_sustain icon=icons:book color=beaverBlue motion=nudge
+  %%@ node cg_trademark icon=icons:gavel color=beaverBlue motion=nudge
+  %%@ node cg_agents icon=icons:book color=beaverBlue motion=nudge
+  %%@ node cg_cla icon=icons:gavel color=beaverBlue motion=nudge
+  %%@ node cg_discord mono=DISC color=wonderPurple motion=wiggle
+  %%@ node cg_t_bug_report_yml icon=icons:bug-report color=futureLime motion=nudge
+  %%@ node cg_t_feature_request_yml icon=icons:lightbulb-outline color=futureLime motion=nudge
+  %%@ node cg_l_community icon=icons:bookmark color=limestoneGray motion=nudge
+  %%@ node cg_l_design_challenge icon=icons:bookmark color=limestoneGray motion=nudge
+  %%@ node cg_l_documentation icon=icons:bookmark color=limestoneGray motion=nudge
+  %%@ node cg_l_good_first_issue icon=icons:bookmark color=limestoneGray motion=nudge
+  %%@ node cg_l_help_wanted icon=icons:bookmark color=limestoneGray motion=nudge
+  %%@ node cg_l_pillars_values icon=icons:bookmark color=limestoneGray motion=nudge
+  %%@ node cg_l_plan_created icon=icons:bookmark color=limestoneGray motion=nudge
+  %%@ node cg_l_research_ideas icon=icons:bookmark color=limestoneGray motion=nudge

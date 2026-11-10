@@ -1,0 +1,17 @@
+{"run": "2026-11-09", "source": {"label": "haxtheweb/issues #3292", "url": "https://github.com/haxtheweb/issues/issues/3292"},
+ "features": {
+  "openapi": {"api": "match", "why": ["Both backends are tested against the same OpenAPI specs."]},
+  "haxcms": {"api": "gap", "cli": "gap", "agent": "gap", "why": [
+    "Slug rule: nodejs turns \"C++ & C#\" into c-c-, PHP into c-c.",
+    "createSite writes metadata.theme.regions in nodejs only.",
+    "CLI site creation doesn't follow the API's createSite defaults.",
+    "A parent change with no order doesn't move the page to the end of its siblings.",
+    "Skills don't document node:edit, node:delete, site:theme, --item-id or --parent=null."]},
+  "editor": {"label": "content save", "api": "gap", "cli": "gap", "agent": "gap", "why": [
+    "nodejs builds the description from the whole body and re-sorts items; PHP doesn't.",
+    "CLI node:edit doesn't regenerate description, read time, files, images or videos."]},
+  "themes": {"api": "match", "cli": "gap", "agent": "gap", "why": [
+    "CLI site:theme writes extra theme variables instead of using the appearance operation.",
+    "site:theme is undocumented in the skills."]}},
+ "surfaces": ["php", "nodejs", "cli", "agents"],
+ "planned": ["staticpub", "magiclink"]}

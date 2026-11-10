@@ -1,0 +1,276 @@
+#!/bin/bash
+
+# deep breath..e
+
+## STEP 0 publish all current assets
+cd ~/haxtheweb/webcomponents
+#lerna run build --concurrency=1
+git add -A
+git commit -m "ubiquity publish"
+# start in webcomponents w/ the biggy that needs human intervention
+#lerna publish --concurrency=1
+
+## STEP 1 RUN BUILD ROUTINE FOR ALL WEBCOMPONENTS
+# run new build routine in webcomponents
+cd ~/haxtheweb/webcomponents
+# this makes a new build available
+yarn run ubiquity
+
+# normalize internal wc-registry.json copies
+# (gulpfile generates these, but ensure they stay in sync for demos)
+cp ~/haxtheweb/webcomponents/wc-registry.json ~/haxtheweb/webcomponents/elements/replace-tag/demo/wc-registry.json
+# normalize the graph artifact into the same demo roots so local demos match
+# the CMS backends (gulpfile also writes these; keep in sync)
+cp ~/haxtheweb/webcomponents/wc-registry-graph.json ~/haxtheweb/webcomponents/elements/replace-tag/demo/wc-registry-graph.json
+
+## STEP 1.5 AGENT SKILLS DISCOVERY (.well-known/agent-skills)
+# praw is the canonical source for HAX agent skills. Build the index, then snapshot
+# curated sets into the per-site boilerplate and deployment roots. The site set is
+# copied into the nodejs boilerplate; STEP 4 mirrors the whole nodejs boilerplate
+# into haxcms-php, so PHP sites get it automatically. The system set goes to both
+# deployment roots explicitly (they are not part of the boilerplate mirror).
+cd ~/haxtheweb/praw
+node scripts/build-agent-skills-index.js
+node scripts/snapshot-agent-skills.js site ~/haxtheweb/haxcms-nodejs/src/boilerplate/site/.well-known/agent-skills
+node scripts/snapshot-agent-skills.js system ~/haxtheweb/haxcms-nodejs/.well-known/agent-skills
+node scripts/snapshot-agent-skills.js system ~/haxtheweb/haxcms-php/.well-known/agent-skills
+
+## STEP 2 NORMALIZE ACROSS ALL PROJECTS
+# hax11ty
+rm -rf ~/haxtheweb/hax11ty/app/build
+cp -R ~/haxtheweb/webcomponents/build ~/haxtheweb/hax11ty/app/build
+
+cp ~/haxtheweb/webcomponents/build.js ~/haxtheweb/hax11ty/app/build.js
+cp ~/haxtheweb/webcomponents/build-haxcms.js ~/haxtheweb/hax11ty/app/build-haxcms.js
+cp ~/haxtheweb/webcomponents/wc-registry.json ~/haxtheweb/hax11ty/app/wc-registry.json
+cp ~/haxtheweb/webcomponents/wc-registry-graph.json ~/haxtheweb/hax11ty/app/wc-registry-graph.json
+
+# haxcms-php
+# normalize build build.js build-haxcms.js wc-registry.json and .version
+rm -rf ~/haxtheweb/haxcms-php/build
+cp -R ~/haxtheweb/webcomponents/build ~/haxtheweb/haxcms-php/build
+
+cp ~/haxtheweb/webcomponents/build.js ~/haxtheweb/haxcms-php/build.js
+cp ~/haxtheweb/webcomponents/build-haxcms.js ~/haxtheweb/haxcms-php/build-haxcms.js
+cp ~/haxtheweb/webcomponents/wc-registry.json ~/haxtheweb/haxcms-php/wc-registry.json
+cp ~/haxtheweb/webcomponents/wc-registry-graph.json ~/haxtheweb/haxcms-php/wc-registry-graph.json
+cp ~/haxtheweb/webcomponents/.version ~/haxtheweb/haxcms-php/.version
+
+# haxcms-nodejs
+# normalize build build.js build-haxcms.js wc-registry.json and .version
+rm -rf ~/haxtheweb/haxcms-nodejs/src/public/build
+cp -R ~/haxtheweb/webcomponents/build ~/haxtheweb/haxcms-nodejs/src/public/build
+
+cp ~/haxtheweb/webcomponents/build.js ~/haxtheweb/haxcms-nodejs/src/public/build.js
+cp ~/haxtheweb/webcomponents/build-haxcms.js ~/haxtheweb/haxcms-nodejs/src/public/build-haxcms.js
+cp ~/haxtheweb/webcomponents/wc-registry.json ~/haxtheweb/haxcms-nodejs/src/public/wc-registry.json
+cp ~/haxtheweb/webcomponents/wc-registry-graph.json ~/haxtheweb/haxcms-nodejs/src/public/wc-registry-graph.json
+cp ~/haxtheweb/webcomponents/.version ~/haxtheweb/haxcms-nodejs/src/.version
+
+## build and build-haxcms live in site which gets boilerplate stamped
+cp ~/haxtheweb/webcomponents/build.js ~/haxtheweb/haxcms-nodejs/src/boilerplate/site/build.js
+cp ~/haxtheweb/webcomponents/build-haxcms.js ~/haxtheweb/haxcms-nodejs/src/boilerplate/site/build-haxcms.js
+
+# haxsite
+# normalize build.js build-haxcms.js wc-registry.json and .version
+cp ~/haxtheweb/webcomponents/build.js ~/haxtheweb/haxsite/build.js
+cp ~/haxtheweb/webcomponents/build-haxcms.js ~/haxtheweb/haxsite/build-haxcms.js
+cp ~/haxtheweb/webcomponents/wc-registry.json ~/haxtheweb/haxsite/wc-registry.json
+cp ~/haxtheweb/webcomponents/wc-registry-graph.json ~/haxtheweb/haxsite/wc-registry-graph.json
+cp ~/haxtheweb/webcomponents/.version ~/haxtheweb/haxsite/.version
+
+# haxiam
+# mirror ecosystem version so the HAXiam upgrade runner auto-applies
+# any scripts/upgrade/system/*.sh between the deployment's SYSTEM_VERSION
+# and this version on the next haxiam-bash-upgrade.sh run
+cp ~/haxtheweb/webcomponents/.version ~/haxtheweb/HAXiam/.version
+cp ~/haxtheweb/webcomponents/.version ~/haxtheweb/HAXiam/VERSION.txt
+
+# psucdn
+# normalize build build.js build-haxcms.js wc-registry.json
+rm -rf ~/haxtheweb/psucdn/cdn/build
+cp -R ~/haxtheweb/webcomponents/build ~/haxtheweb/psucdn/cdn/build
+
+cp ~/haxtheweb/webcomponents/build.js ~/haxtheweb/psucdn/cdn/build.js
+cp ~/haxtheweb/webcomponents/build-haxcms.js ~/haxtheweb/psucdn/cdn/build-haxcms.js
+cp ~/haxtheweb/webcomponents/wc-registry.json ~/haxtheweb/psucdn/cdn/wc-registry.json
+cp ~/haxtheweb/webcomponents/wc-registry-graph.json ~/haxtheweb/psucdn/cdn/wc-registry-graph.json
+
+# we also have a haxcms path in case these would ever diverge; they haven't and probably won't
+rm -rf ~/haxtheweb/psucdn/haxcms/build
+cp -R ~/haxtheweb/webcomponents/build ~/haxtheweb/psucdn/haxcms/build
+
+cp ~/haxtheweb/webcomponents/build.js ~/haxtheweb/psucdn/haxcms/build.js
+cp ~/haxtheweb/webcomponents/build-haxcms.js ~/haxtheweb/psucdn/haxcms/build-haxcms.js
+cp ~/haxtheweb/webcomponents/wc-registry.json ~/haxtheweb/psucdn/haxcms/wc-registry.json
+cp ~/haxtheweb/webcomponents/wc-registry-graph.json ~/haxtheweb/psucdn/haxcms/wc-registry-graph.json
+
+# waxam mirror
+rm -rf ~/Documents/git/waxam/cdn/build
+cp -R ~/haxtheweb/webcomponents/build ~/Documents/git/waxam/cdn/build
+
+cp ~/haxtheweb/webcomponents/build.js ~/Documents/git/waxam/cdn/build.js
+cp ~/haxtheweb/webcomponents/build-haxcms.js ~/Documents/git/waxam/cdn/build-haxcms.js
+cp ~/haxtheweb/webcomponents/wc-registry.json ~/Documents/git/waxam/cdn/wc-registry.json
+cp ~/haxtheweb/webcomponents/wc-registry-graph.json ~/Documents/git/waxam/cdn/wc-registry-graph.json
+
+# elmsln
+# normalize build but need to copy in the legacy assets that we stopped supporting in core
+rm -rf ~/elmsln/core/dslmcode/cores/haxcms-1/build
+rm ~/elmsln/core/dslmcode/cores/haxcms-1/wc-registry.json
+rm ~/elmsln/core/webcomponents/wc-registry.json
+cp -r ~/haxtheweb/webcomponents/build/ ~/elmsln/core/dslmcode/cores/haxcms-1/build
+# we have a special registry which should be close enough to reality of known paths at the point of 9.x.x
+cp ~/Documents/git/elmsln/ELMSLN-JS-FILES-FINAL/wc-registry.json ~/elmsln/core/dslmcode/cores/haxcms-1/wc-registry.json
+cp ~/Documents/git/elmsln/ELMSLN-JS-FILES-FINAL/wc-registry.json ~/elmsln/core/webcomponents/wc-registry.json
+
+cp -R ~/Documents/git/elmsln/ELMSLN-JS-FILES-FINAL/build/es6/node_modules/@lrnwebcomponents/materializecss-styles ~/elmsln/core/dslmcode/cores/haxcms-1/build/es6/node_modules/@haxtheweb/materializecss-styles
+cp -R ~/Documents/git/elmsln/ELMSLN-JS-FILES-FINAL/build/es6/node_modules/@lrnwebcomponents/dropdown-select ~/elmsln/core/dslmcode/cores/haxcms-1/build/es6/node_modules/@haxtheweb/dropdown-select
+cp -R ~/Documents/git/elmsln/ELMSLN-JS-FILES-FINAL/build/es6/node_modules/@lrnwebcomponents/threaded-discussion ~/elmsln/core/dslmcode/cores/haxcms-1/build/es6/node_modules/@haxtheweb/threaded-discussion
+cp -R ~/Documents/git/elmsln/ELMSLN-JS-FILES-FINAL/build/es6/node_modules/@lrnwebcomponents/nav-card ~/elmsln/core/dslmcode/cores/haxcms-1/build/es6/node_modules/@haxtheweb/nav-card
+cp -R ~/Documents/git/elmsln/ELMSLN-JS-FILES-FINAL/build/es6/node_modules/@lrnwebcomponents/simple-drawer ~/elmsln/core/dslmcode/cores/haxcms-1/build/es6/node_modules/@haxtheweb/simple-drawer
+
+cp -R ~/Documents/git/elmsln/ELMSLN-JS-FILES-FINAL/build/es6/node_modules/@polymer/* ~/elmsln/core/dslmcode/cores/haxcms-1/build/es6/node_modules/@polymer/
+cp -R ~/Documents/git/elmsln/ELMSLN-JS-FILES-FINAL/build/es6/node_modules/@lrnwebcomponents/elmsln* ~/elmsln/core/dslmcode/cores/haxcms-1/build/es6/node_modules/@haxtheweb/
+cp -R ~/Documents/git/elmsln/ELMSLN-JS-FILES-FINAL/build/es6/node_modules/@lrnwebcomponents/lrn* ~/elmsln/core/dslmcode/cores/haxcms-1/build/es6/node_modules/@haxtheweb/
+
+## STEP 3 SYNC THEMES.JSON FROM WEBCOMPONENTS TO BOTH PLATFORMS
+# Copy themes.json from webcomponents monorepo to both HAXcms platforms
+cp ~/haxtheweb/webcomponents/elements/haxcms-elements/lib/themes.json ~/haxtheweb/haxcms-nodejs/src/coreConfig/themes.json
+cp ~/haxtheweb/webcomponents/elements/haxcms-elements/lib/themes.json ~/haxtheweb/haxcms-php/system/coreConfig/themes.json
+
+## STEP 3.5 OUTLINE-DESIGNER -> SAVEOUTLINE CONTRACT FIXTURE
+# Both backends replay real outline-designer output through their saveOutline
+# in a contract test. Recapture that output from the designer in this monorepo
+# so the test always checks what the designer actually sends. The fixture is
+# only rewritten when the sessions change; STEP 5 commits it with the rest.
+cd ~/haxtheweb/webcomponents
+node scripts/outline-designer-contract-fixture.mjs --nodejs ~/haxtheweb/haxcms-nodejs --php ~/haxtheweb/haxcms-php || echo "WARNING: outline-designer contract fixture not refreshed"
+
+## STEP 4 NODEJS IS BOILERPLATE AND CORECONFIG FOR PHP VERSION
+rm -rf ~/haxtheweb/haxcms-php/system/boilerplate
+cp -R ~/haxtheweb/haxcms-nodejs/src/boilerplate ~/haxtheweb/haxcms-php/system/boilerplate
+rm -rf ~/haxtheweb/haxcms-php/system/coreConfig
+cp -R ~/haxtheweb/haxcms-nodejs/src/coreConfig ~/haxtheweb/haxcms-php/system/coreConfig
+
+# create cli needs wc-reg for validation purposes
+cp ~/haxtheweb/webcomponents/wc-registry.json ~/haxtheweb/create/src/lib/wc-registry.json
+
+
+## STEP 4 COMPONENT GALLERY NEEDS REBUILT FOR CDN PUBLISHING
+cd ~/haxtheweb/webcomponents
+yarn run build-gallery
+
+
+## STEP 5 VERSION CONTROL ALL THE THINGS AND TAG
+# read in version from file
+version=$(cat ~/haxtheweb/webcomponents/.version 2>/dev/null || cat ~/haxtheweb/webcomponents/VERSION.txt)
+
+cd ~/elmsln/
+git pull origin master
+git add -A
+git commit -m "ubiquity publish" --no-verify
+git push --follow-tags origin master
+
+cd ~/haxtheweb/webcomponents
+git pull origin master
+git add -A
+git commit -m "ubiquity publish"
+git push --follow-tags origin master
+
+cd ~/haxtheweb/hax11ty/
+git pull origin master
+git add -A
+git commit -m "ubiquity publish"
+./node_modules/.bin/commit-and-tag-version --release-as $version
+git push --follow-tags origin master
+
+cd ~/haxtheweb/haxcms-php/
+git pull origin master
+git add -A
+git commit -m "ubiquity publish"
+./node_modules/.bin/commit-and-tag-version --release-as $version
+git push --follow-tags origin master
+
+cd ~/haxtheweb/haxcms-nodejs/
+git pull origin main
+git add -A
+git commit -m "ubiquity publish"
+npm run build
+./node_modules/.bin/commit-and-tag-version --release-as $version
+git push --follow-tags origin main
+npm publish
+
+cd ~/haxtheweb/haxsite/
+git pull origin main
+# haxsite is a standalone example site, not part of CI. Regenerate its managed files
+# (index.html, manifest, .htaccess, .well-known/agent-skills, sitemap/feeds/llms.txt, ...)
+# from the haxcms-nodejs core built above, so it always reflects this release.
+# Authored content (site.json, pages/, files/, theme/, custom/) is never touched.
+# This must stay AFTER the haxcms-nodejs build/publish block: it reads that build's
+# boilerplate, and runs in a scratch config so nothing leaks into haxcms-nodejs dist/.
+# Set HAXSITE_DOMAIN (or site.json metadata.site.domain) to refresh domain-bound files.
+node ~/haxtheweb/webcomponents/scripts/refresh-haxsite.mjs --haxsite ~/haxtheweb/haxsite --haxcms ~/haxtheweb/haxcms-nodejs || echo "WARNING: haxsite refresh failed; pushing build artifacts only"
+git add -A
+git commit -m "ubiquity publish"
+git push --follow-tags origin main
+
+cd ~/haxtheweb/HAXiam/
+git pull origin master
+git add -A
+git commit -m "ubiquity publish"
+git push --follow-tags origin master
+
+cd ~/haxtheweb/psucdn/
+git pull origin master
+git add -A
+git commit -m "ubiquity publish"
+./node_modules/.bin/commit-and-tag-version --release-as $version
+git push --follow-tags origin master
+
+# STEP 5.5 SCHEMA / SPEC PACKAGES
+# validators used by `hax audit schema` (create) and by agents; versioned with
+# the ecosystem so every package shares one version number
+for spec in json-outline-schema:master hax-schema:main hax-element-schema:master merlin-schema:main appstore-spec:master; do
+  repo=${spec%%:*}
+  branch=${spec#*:}
+  cd ~/haxtheweb/$repo
+  git pull origin $branch
+  git add -A
+  git commit -m "ubiquity publish"
+  npm test
+  ./node_modules/.bin/commit-and-tag-version --release-as $version
+  git push --follow-tags origin $branch
+  npm publish
+done
+
+# STEP 6 THESE NEED THEIR PACKAGE UPDATED FOR NODEJS VERSION INTERNALLY
+
+cd ~/haxtheweb/open-apis
+git pull origin main
+git add -A
+git commit -m "ubiquity publish"
+./node_modules/.bin/commit-and-tag-version --release-as $version
+git push --follow-tags origin main
+npm publish
+
+cd ~/haxtheweb/desktop/
+git pull origin master
+npm update @haxtheweb/haxcms-nodejs --save
+git add -A
+git commit -m "ubiquity publish"
+npm run build
+./node_modules/.bin/commit-and-tag-version --release-as $version
+git push --follow-tags origin master
+
+
+cd ~/haxtheweb/create/
+git pull origin main
+npm update @haxtheweb/haxcms-nodejs --save
+npm update @haxtheweb/open-apis --save
+git add -A
+git commit -m "ubiquity publish"
+npm run build
+./node_modules/.bin/commit-and-tag-version --release-as $version
+git push --follow-tags origin main
+npm publish

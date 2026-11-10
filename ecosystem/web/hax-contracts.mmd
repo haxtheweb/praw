@@ -1,0 +1,128 @@
+%% Data contracts sub-web: the schemas HAX runs on, the files that conform to them, and what reads and writes each.
+%% Portals: ids from hax-ecosystem.mmd and hax-haxcms.mmd. Details in hax-contracts.json.
+flowchart TB
+  %%@ layout rings=0,220,470,760 sizes=92,64,58,52
+  subgraph hub ["Data contracts"]
+    contracts[("Data contracts")]
+  end
+  subgraph schemas ["Schemas"]
+    jos[("jos")]
+    haxschema[("haxschema")]
+    appstore[("appstore")]
+    merlin[("merlin")]
+    oerschema[("oerschema")]
+    xapi[("xapi")]
+    openapi[("openapi")]
+  end
+  subgraph files ["Files that conform"]
+    sitejson[("site.json")]
+    josspec[("json-outline-schema-spec")]
+    haxprops[("<tag>.haxProperties.json")]
+    haxpropsschema[("haxProperties.schema.json")]
+    localeoverlay[("<tag>.<lang>.haxProperties.json")]
+    appstorejson[("app store manifest")]
+    sitespec[("site-spec.yaml")]
+    systemspec[("system-spec.yaml")]
+    xapivocab[("xapi-vocabulary.json")]
+    merlinoption[("Merlin options")]
+    oervocab[("oerschema.org vocabulary")]
+  end
+  subgraph rw ["Readers and writers"]
+    outline["outline"]
+    haxcms["haxcms"]
+    cli["cli"]
+    skeletons["skeletons"]
+    hax11ty["hax11ty"]
+    editor["editor"]
+    components["components"]
+    languages["languages"]
+    mcp["mcp"]
+    php["php"]
+    nodejs["nodejs"]
+    insights["insights"]
+    course["course"]
+    mcollins["mcollins"]
+  end
+
+  contracts -.->|includes| jos
+  contracts -.->|includes| haxschema
+  contracts -.->|includes| appstore
+  contracts -.->|includes| merlin
+  contracts -.->|includes| oerschema
+  contracts -.->|includes| xapi
+  contracts -.->|includes| openapi
+  sitejson -.->|conforms to| jos
+  josspec -.->|conforms to| jos
+  haxprops -.->|conforms to| haxschema
+  haxpropsschema -.->|conforms to| haxschema
+  localeoverlay -.->|conforms to| haxschema
+  appstorejson -.->|conforms to| appstore
+  sitespec -.->|conforms to| openapi
+  systemspec -.->|conforms to| openapi
+  xapivocab -.->|conforms to| xapi
+  merlinoption -.->|conforms to| merlin
+  oervocab -.->|conforms to| oerschema
+  outline -->|writes| sitejson
+  haxcms -->|reads| sitejson
+  haxcms -->|serves| appstorejson
+  haxcms -->|implements| sitespec
+  haxcms -->|implements| systemspec
+  cli -->|validates| sitejson
+  cli -->|audits against| haxpropsschema
+  cli -->|generates| appstorejson
+  skeletons -->|bundle a| sitejson
+  hax11ty -->|reads| sitejson
+  editor -->|builds forms from| haxprops
+  editor -->|loads blocks from| appstorejson
+  components -->|declare| haxprops
+  components -->|carry| localeoverlay
+  components -->|emit statements from| xapivocab
+  components -->|tag content with| oervocab
+  languages -->|produce| localeoverlay
+  mcp -->|reads| sitespec
+  mcp -->|reads| systemspec
+  php -->|implements| sitespec
+  php -->|implements| systemspec
+  nodejs -->|implements| sitespec
+  nodejs -->|implements| systemspec
+  insights -->|consumes| xapivocab
+  course -->|is described by| oervocab
+  mcollins -->|authored| oervocab
+
+  %%@ group hub tier=0
+  %%@ group schemas tier=1
+  %%@ group files tier=2
+  %%@ group rw tier=3
+  %%@ node contracts icon=hax:code-json color=creekTeal motion=pulse
+  %%@ node jos portal
+  %%@ node haxschema portal
+  %%@ node appstore portal
+  %%@ node merlin portal
+  %%@ node oerschema portal
+  %%@ node xapi portal
+  %%@ node openapi portal
+  %%@ node sitejson icon=hax:code-json color=creekTeal motion=nudge
+  %%@ node josspec icon=hax:code-json color=creekTeal motion=nudge
+  %%@ node haxprops icon=hax:code-json color=creekTeal motion=nudge
+  %%@ node haxpropsschema icon=hax:code-json color=creekTeal motion=nudge
+  %%@ node localeoverlay icon=hax:code-json color=creekTeal motion=nudge
+  %%@ node appstorejson icon=hax:code-json color=creekTeal motion=nudge
+  %%@ node sitespec icon=hax:code-json color=creekTeal motion=nudge
+  %%@ node systemspec icon=hax:code-json color=creekTeal motion=nudge
+  %%@ node xapivocab icon=hax:code-json color=creekTeal motion=nudge
+  %%@ node merlinoption icon=hax:code-json color=creekTeal motion=nudge
+  %%@ node oervocab icon=hax:code-json color=creekTeal motion=nudge
+  %%@ node outline portal=haxcms
+  %%@ node haxcms portal
+  %%@ node cli portal
+  %%@ node skeletons portal
+  %%@ node hax11ty portal
+  %%@ node editor portal
+  %%@ node components portal
+  %%@ node languages portal
+  %%@ node mcp portal
+  %%@ node php portal
+  %%@ node nodejs portal
+  %%@ node insights portal=haxcms
+  %%@ node course portal
+  %%@ node mcollins portal

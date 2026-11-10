@@ -1,0 +1,226 @@
+%% Sites on hax.psu.edu (HAXiam): courses deduplicated by course code, grouped by college. Sized by page count.
+%% Portals: ids from hax-ecosystem.mmd. Details in hax-sites.json. Source: hax.psu.edu stats snapshot.
+flowchart TB
+  %%@ layout rings=0,260,560,800,980 sizes=92,56,40,40,46
+  subgraph hub ["hax.psu.edu"]
+    haxpsu["hax.psu.edu"]
+  end
+  subgraph colleges ["Colleges"]
+    aa[["aa"]]
+    ist[["ist"]]
+    eberly[["eberly"]]
+  end
+  subgraph coursesA ["Courses"]
+    c_aa_121["AA 121"]
+    c_arth_250["ARTH 250"]
+    c_music_7["MUSIC 7"]
+    c_music_4["MUSIC 4"]
+    c_arth_111["ARTH 111"]
+    c_music_11["MUSIC 11"]
+    c_music_9["MUSIC 9"]
+    c_inart_1["INART 1"]
+    c_art_10["ART 10"]
+    c_dmd_100["DMD 100"]
+    c_artsa_403["ARTSA 403"]
+    c_art_30["ART 30"]
+    c_gd_100["GD 100"]
+    c_aa_113n["AA 113N"]
+    c_arth_101["ARTH 101"]
+    c_dart_206["DART 206"]
+    c_larch_65["LARCH 65"]
+    c_art_1["ART 1"]
+    c_aa_1["AA 1"]
+    c_ist_402["IST 402"]
+    c_ist_584["IST 584"]
+    c_ist_110["IST 110"]
+    c_biol_110["BIOL 110"]
+    c_bisc_4["BISC 4"]
+    c_bisc_2["BISC 2"]
+    c_phys_211["PHYS 211"]
+    c_astro_130["ASTRO 130"]
+    c_chem_210["CHEM 210"]
+    c_chem_212["CHEM 212"]
+  end
+  subgraph coursesB ["Courses"]
+    c_larch_60["LARCH 60"]
+    c_music_207["MUSIC 207"]
+    c_arth_112["ARTH 112"]
+    c_music_109["MUSIC 109"]
+    c_arth_280["ARTH 280"]
+    c_art_20["ART 20"]
+    c_game_220["GAME 220"]
+    c_music_209["MUSIC 209"]
+    c_shop_safety["Shop safety"]
+    c_aa_103["AA 103"]
+    c_artsa_301["ARTSA 301"]
+    c_inart_125["INART 125"]
+    c_inart_116["INART 116"]
+    c_aa_100["AA 100"]
+    c_art_211y["ART 211Y"]
+    c_arch_100["ARCH 100"]
+    c_dart_202["DART 202"]
+    c_aa_122["AA 122"]
+    c_aa_120["AA 120"]
+    c_ist_210["IST 210"]
+    c_ai_285["AI 285"]
+    c_micrb_106["MICRB 106"]
+    c_chem_110["CHEM 110"]
+    c_chem_5["CHEM 5"]
+    c_phys_212["PHYS 212"]
+    c_chem_202["CHEM 202"]
+    c_biol_230["BIOL 230"]
+    c_math_for_physical_chemistry["Math for physical chemistry"]
+  end
+  subgraph named ["Named sites and use cases"]
+    site_htw["haxtheweb.org"]
+    site_flourish["Learn to Flourish Hub"]
+    docs(["docs"])
+    dept(["dept"])
+    course(["course"])
+    hhd[["hhd"]]
+    ist256["ist256"]
+  end
+
+  haxpsu -->|hosts courses from| aa
+  haxpsu -->|hosts courses from| ist
+  haxpsu -->|hosts courses from| eberly
+  c_aa_121 --o|is taught in| aa
+  c_larch_60 --o|is taught in| aa
+  c_arth_250 --o|is taught in| aa
+  c_music_207 --o|is taught in| aa
+  c_music_7 --o|is taught in| aa
+  c_arth_112 --o|is taught in| aa
+  c_music_4 --o|is taught in| aa
+  c_music_109 --o|is taught in| aa
+  c_arth_111 --o|is taught in| aa
+  c_arth_280 --o|is taught in| aa
+  c_music_11 --o|is taught in| aa
+  c_art_20 --o|is taught in| aa
+  c_music_9 --o|is taught in| aa
+  c_game_220 --o|is taught in| aa
+  c_inart_1 --o|is taught in| aa
+  c_music_209 --o|is taught in| aa
+  c_art_10 --o|is taught in| aa
+  c_shop_safety --o|is taught in| aa
+  c_dmd_100 --o|is taught in| aa
+  c_aa_103 --o|is taught in| aa
+  c_artsa_403 --o|is taught in| aa
+  c_artsa_301 --o|is taught in| aa
+  c_art_30 --o|is taught in| aa
+  c_inart_125 --o|is taught in| aa
+  c_gd_100 --o|is taught in| aa
+  c_inart_116 --o|is taught in| aa
+  c_aa_113n --o|is taught in| aa
+  c_aa_100 --o|is taught in| aa
+  c_arth_101 --o|is taught in| aa
+  c_art_211y --o|is taught in| aa
+  c_dart_206 --o|is taught in| aa
+  c_arch_100 --o|is taught in| aa
+  c_larch_65 --o|is taught in| aa
+  c_dart_202 --o|is taught in| aa
+  c_art_1 --o|is taught in| aa
+  c_aa_122 --o|is taught in| aa
+  c_aa_1 --o|is taught in| aa
+  c_aa_120 --o|is taught in| aa
+  c_ist_402 --o|is taught in| ist
+  c_ist_210 --o|is taught in| ist
+  c_ist_584 --o|is taught in| ist
+  c_ist_110 --o|is taught in| ist
+  c_ai_285 --o|is taught in| ist
+  c_biol_110 --o|is taught in| eberly
+  c_micrb_106 --o|is taught in| eberly
+  c_bisc_4 --o|is taught in| eberly
+  c_chem_110 --o|is taught in| eberly
+  c_bisc_2 --o|is taught in| eberly
+  c_chem_5 --o|is taught in| eberly
+  c_phys_211 --o|is taught in| eberly
+  c_phys_212 --o|is taught in| eberly
+  c_astro_130 --o|is taught in| eberly
+  c_chem_202 --o|is taught in| eberly
+  c_chem_210 --o|is taught in| eberly
+  c_biol_230 --o|is taught in| eberly
+  c_chem_212 --o|is taught in| eberly
+  c_math_for_physical_chemistry --o|is taught in| eberly
+  ist256 --o|is taught in| ist
+  haxpsu -->|hosts| site_htw
+  haxpsu -->|hosts| site_flourish
+  site_htw -->|is the| docs
+  site_flourish -->|is a| dept
+  site_flourish --o|belongs to| hhd
+  course -->|is the use case of| aa
+  course -->|is the use case of| ist
+  course -->|is the use case of| eberly
+
+  %%@ group hub tier=0
+  %%@ group colleges tier=1
+  %%@ group coursesA tier=2
+  %%@ group coursesB tier=3
+  %%@ group named tier=4
+  %%@ node haxpsu portal
+  %%@ node aa portal
+  %%@ node ist portal
+  %%@ node eberly portal
+  %%@ node dept portal
+  %%@ node course portal
+  %%@ node hhd portal
+  %%@ node ist256 portal
+  %%@ node docs portal=skeletons
+  %%@ node c_aa_121 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_larch_60 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_arth_250 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_music_207 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_music_7 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_arth_112 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_music_4 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_music_109 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_arth_111 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_arth_280 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_music_11 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_art_20 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_music_9 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_game_220 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_inart_1 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_music_209 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_art_10 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_shop_safety icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_dmd_100 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_aa_103 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_artsa_403 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_artsa_301 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_art_30 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_inart_125 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_gd_100 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_inart_116 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_aa_113n icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_aa_100 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_arth_101 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_art_211y icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_dart_206 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_arch_100 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_larch_65 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_dart_202 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_art_1 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_aa_122 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_aa_1 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_aa_120 icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node c_ist_402 icon=hax:lesson color=skyBlue motion=lift
+  %%@ node c_ist_210 icon=hax:lesson color=skyBlue motion=lift
+  %%@ node c_ist_584 icon=hax:lesson color=skyBlue motion=lift
+  %%@ node c_ist_110 icon=hax:lesson color=skyBlue motion=lift
+  %%@ node c_ai_285 icon=hax:lesson color=skyBlue motion=lift
+  %%@ node c_biol_110 icon=hax:lesson color=opportunityGreen motion=lift
+  %%@ node c_micrb_106 icon=hax:lesson color=opportunityGreen motion=lift
+  %%@ node c_bisc_4 icon=hax:lesson color=opportunityGreen motion=lift
+  %%@ node c_chem_110 icon=hax:lesson color=opportunityGreen motion=lift
+  %%@ node c_bisc_2 icon=hax:lesson color=opportunityGreen motion=lift
+  %%@ node c_chem_5 icon=hax:lesson color=opportunityGreen motion=lift
+  %%@ node c_phys_211 icon=hax:lesson color=opportunityGreen motion=lift
+  %%@ node c_phys_212 icon=hax:lesson color=opportunityGreen motion=lift
+  %%@ node c_astro_130 icon=hax:lesson color=opportunityGreen motion=lift
+  %%@ node c_chem_202 icon=hax:lesson color=opportunityGreen motion=lift
+  %%@ node c_chem_210 icon=hax:lesson color=opportunityGreen motion=lift
+  %%@ node c_biol_230 icon=hax:lesson color=opportunityGreen motion=lift
+  %%@ node c_chem_212 icon=hax:lesson color=opportunityGreen motion=lift
+  %%@ node c_math_for_physical_chemistry icon=hax:lesson color=opportunityGreen motion=lift
+  %%@ node site_htw icon=hax:site-map color=discoveryCoral motion=pop
+  %%@ node site_flourish icon=hax:site-map color=beaverBlue motion=pop

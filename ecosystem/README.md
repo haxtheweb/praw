@@ -10,6 +10,36 @@ Data that ties the HAX ecosystem web to the evidence and skills behind it. Each 
 
 The JSON files are the source; this page summarizes them. Statuses and pillar links are a self-assessment for maintainer review, not a HEOSAT score.
 
+## The web
+
+The ecosystem web itself lives here too: every sub-web's structure and details, the generators that build them from source, and the player that turns them into one page.
+
+| Folder | What's in it |
+| --- | --- |
+| [`web/`](web) | One `.mmd` and `.json` pair per sub-web (`hax-ecosystem` is the main web), plus `gap-answers.json`, the answers that filled the main web's gaps. These are the source of truth. |
+| [`build/`](build) | The generators (`build_*.py`), `drift.py`, `graph-drift.mjs`, `assemble.py`, `sources.sh` and `run.sh`. |
+| [`build/data/`](build/data) | Extracts the generators read that don't come from a repo checkout: MCP tools, xAPI verbs, field and Merlin usage, OER Schema, the release script, the HAX Lab README, layer data and a hax.psu.edu snapshot with site owners removed. |
+| [`player/`](player) | The page template and the icons, image and mascot it embeds. |
+| [`test/`](test) | `parse-check.js` (every web parses with no errors) and `layout-check.js` (no overflow at desktop and phone widths). Both need Playwright. |
+
+### Data format
+
+- **Structure (`.mmd`)**: a plain Mermaid flowchart that renders on GitHub, plus `%%@` lines the player reads: `layout rings=… sizes=…`, `group <subgraph> tier=N`, `node <id> icon=<set:name> color=<DDD color> motion=<name>`, `node <id> portal` (the same node in another web; `portal=<web>` when that web isn't the main one) and `web=<id>` (the tile opens that sub-web).
+- **Details (`.json`)**: `{meta, nodes, evidence, tours}`. `meta.parent` names the web a sub-web opens from, for the breadcrumbs. A node holds `desc`, `status`, `kind`, `links` and `release` (`npm:@haxtheweb/…` or `git:haxtheweb/…`, read by `graph-drift.mjs`). Statuses: released, prerelease, in-progress, planned, legacy, living, deployed. Planned tiles render ghosted with dashed lines and link to their issue. A tour is `{id, label, message, scenes: [{caption, nodes}]}`.
+
+### Build it
+
+```bash
+ecosystem/build/run.sh                  # fetch sources, rerun every generator, report drift, assemble the page
+ecosystem/build/run.sh build_json.py    # rerun one generator (the main web), then assemble
+ecosystem/build/run.sh --assemble       # assemble only, from web/ as it stands
+node ecosystem/test/parse-check.js ecosystem/.work/hax-area-icons.html
+```
+
+Everything runs in `ecosystem/.work` (ignored), where `sources.sh` clones the repos the generators read and unpacks the published packages they need. Generators write straight back into `web/` and `build/data/`, so `git diff` after a run is the drift. `drift.py` also writes a report listing tiles that appeared or disappeared (CLI commands, API endpoints, MCP tools, field types, skeletons, importers, tutorials, languages, release steps) and every released part's version against npm and GitHub tags. `drift.py --accept` takes new versions and MCP tools into the saved data, and `--strict` exits non-zero when anything drifted.
+
+Which webs are generated from source and which are curated by hand is in each `.mmd` header; the generated ones are listed in `drift.py`. Edit a curated web through its generator (`build_<web>.py`), not the `.mmd`/`.json` directly, or the next run will put it back.
+
 ## HEOSAT evidence
 
 The [heosat skill](../skills/heosat/SKILL.md) scores **47 questions in 9 sections** (rubric 2026.07 enhanced guidance edition). Apereo's sources disagree on how many criteria HEOSAT has: the HEOSAT README lists 7 assessment areas, the Apereo incubation page lists 8, and the assessment tool's rubric (used here and by the heosat skill) scores 47 questions in 9 sections. This map follows the tool's 9 sections.

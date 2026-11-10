@@ -1,0 +1,91 @@
+{
+ "meta": {
+  "name": "Penn State",
+  "parent": "main",
+  "noTimeline": true,
+  "about": "Where HAX is built and used at Penn State: the colleges and units, what runs there (hax.psu.edu, HAXiam, IST 256, HAX Camp, grants) and the people, generated from the ecosystem web's own connections among Penn State tiles.",
+  "kindLabels": {
+   "rel": "how the units and work connect",
+   "org": "units and memberships",
+   "contrib": "people",
+   "pillar": "pillars",
+   "schema": "contracts"
+  }
+ },
+ "nodes": {
+  "psu": {
+   "always": true
+  },
+  "sites_hub": {
+   "desc": "Snapshot of hax.psu.edu: 302 sites, 368 users, 17,100 pages. Courses are deduplicated by course code (largest copy counts) and grouped by college; blogs, tests and general sites are left out. Open the hax.psu.edu web for every college and course.",
+   "kind": "work"
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "psu",
+   "label": "HAX at Penn State",
+   "message": "Where HAX is built and used at Penn State, from the ecosystem web's own connections.",
+   "scenes": [
+    {
+     "caption": "Penn State backs HAX: it employs the maintainer and keeps the infrastructure going.",
+     "nodes": [
+      "psu",
+      "bryan"
+     ]
+    },
+    {
+     "caption": "The colleges and units that use and build it.",
+     "nodes": [
+      "aa",
+      "ist",
+      "hhd",
+      "eberly",
+      "libraries",
+      "innovationhub",
+      "ccso",
+      "uxdc",
+      "haxlab"
+     ]
+    },
+    {
+     "caption": "hax.psu.edu and HAXiam run sites for courses and departments.",
+     "nodes": [
+      "haxpsu",
+      "haxiam",
+      "sites_hub",
+      "course",
+      "dept"
+     ]
+    },
+    {
+     "caption": "Where it came from and where it is taught: ELMS:LN, IST 256, HAX Camp and the HAX Lab.",
+     "nodes": [
+      "elmsln",
+      "ist256",
+      "haxcamp",
+      "haxlab"
+     ]
+    },
+    {
+     "caption": "The people.",
+     "nodes": [
+      "bryan",
+      "billrose",
+      "keithbailey",
+      "mcollins",
+      "fusco",
+      "jfrank",
+      "blake",
+      "agearhart"
+     ]
+    },
+    {
+     "caption": "All of HAX at Penn State.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

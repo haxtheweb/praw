@@ -1,0 +1,151 @@
+{
+ "meta": {
+  "name": "Web component stack",
+  "parent": "main",
+  "noTimeline": true,
+  "about": "The standard way a HAX web component is made: HTML, CSS and JavaScript, the four web component standards, Lit, then the HAX layer, with the tools that build and ship one and the places people learn it.",
+  "kindLabels": {
+   "rel": "what builds on what",
+   "schema": "contracts an element carries"
+  }
+ },
+ "nodes": {
+  "wcstandard": {
+   "always": true
+  },
+  "html": {
+   "desc": "The document: every HAX element is an HTML tag, and its content stays HTML in light DOM so it works without the element.",
+   "links": {
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+   }
+  },
+  "css": {
+   "desc": "Styling, scoped per element by shadow DOM and shared through DDD custom properties.",
+   "links": {
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+   }
+  },
+  "js": {
+   "desc": "Behavior as plain ES2020+ JavaScript; no TypeScript and no optional chaining in the monorepo.",
+   "links": {
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+   }
+  },
+  "customel": {
+   "desc": "customElements.define(tag, class): a new tag the browser treats as a first-class element.",
+   "links": {
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements"
+   }
+  },
+  "shadow": {
+   "desc": "An element's own DOM and styles, isolated from the page; slots let authored light DOM content show through.",
+   "links": {
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM"
+   }
+  },
+  "slots": {
+   "desc": "<template> and <slot>: how an element renders authored content in place.",
+   "links": {
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots"
+   }
+  },
+  "esm": {
+   "desc": "import and export; one module per element, loaded on demand by the autoloader with no bundler.",
+   "links": {
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules"
+   }
+  },
+  "lit": {
+   "desc": "The small library HAX elements extend: LitElement, html`` and css`` templates, reactive properties and lifecycle.",
+   "links": {
+    "site": "https://lit.dev",
+    "npm": "https://www.npmjs.com/package/lit"
+   }
+  },
+  "simpleicon": {
+   "desc": "The icon elements and iconsets HAX elements draw from, including the hax: set used in this web.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/simple-icon",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/simple-icon"
+   }
+  },
+  "schemabeh": {
+   "desc": "The mixin that gives an element schema.org metadata so content is machine-readable.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/schema-behaviors",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/schema-behaviors"
+   }
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "stack",
+   "label": "How a HAX element is built",
+   "message": "From the web platform to the HAX layer: what you need to know to make a web component for HAX.",
+   "scenes": [
+    {
+     "caption": "Everything starts from the web component standard.",
+     "nodes": [
+      "wcstandard"
+     ]
+    },
+    {
+     "caption": "Which is written in the three languages every browser speaks.",
+     "nodes": [
+      "html",
+      "css",
+      "js"
+     ]
+    },
+    {
+     "caption": "Four standards make a tag reusable: custom elements, shadow DOM, templates and slots, ES modules.",
+     "nodes": [
+      "customel",
+      "shadow",
+      "slots",
+      "esm"
+     ]
+    },
+    {
+     "caption": "Lit is the small library HAX elements extend.",
+     "nodes": [
+      "lit"
+     ]
+    },
+    {
+     "caption": "The HAX layer: DDD for style, HAXSchema for editing, i18n for languages, simple-icon and SchemaBehaviors.",
+     "nodes": [
+      "ddd",
+      "haxschema",
+      "languages",
+      "simpleicon",
+      "schemabeh"
+     ]
+    },
+    {
+     "caption": "The CLI scaffolds and audits one; tests, Ubiquity and SSR check and ship it.",
+     "nodes": [
+      "cli",
+      "testing",
+      "ubiquity",
+      "ssr",
+      "components"
+     ]
+    },
+    {
+     "caption": "IST 256, HAX Camp and the docs are where people learn this.",
+     "nodes": [
+      "ist256",
+      "haxcamp",
+      "docs"
+     ]
+    },
+    {
+     "caption": "The whole stack.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

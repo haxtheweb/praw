@@ -1,0 +1,86 @@
+%% App Store spec sub-web: what the editor is told it may place: apps, stax and the autoloader list
+%% Generated from HAXAppStoreService.js and generateAppStore.js. Details in the matching .json.
+flowchart TB
+  %%@ layout rings=0,220,460,700 sizes=92,64,54,50
+  subgraph hub ["App Store spec"]
+    appstore[("appstore")]
+  end
+  subgraph partsg ["Parts of the manifest"]
+    as_apps["apps"]
+    as_stax["stax"]
+    as_autoloader["autoloader"]
+    as_conn["app connection"]
+    as_gizmo["app result gizmo"]
+    as_allowed["allowed blocks"]
+  end
+  subgraph appsg ["Built-in apps"]
+    ap_youtube[["Youtube"]]
+    ap_vimeo[["Vimeo"]]
+    ap_giphy[["Giphy"]]
+    ap_unsplash[["Unsplash"]]
+    ap_flickr[["Flickr"]]
+    ap_nasa[["NASA"]]
+    ap_sketchfab[["Sketchfab"]]
+    ap_dailymotion[["Dailymotion"]]
+    ap_wikipedia[["Wikipedia"]]
+    ap_cc_mixter[["CC Mixter"]]
+  end
+  subgraph who ["Who uses it"]
+    editor["editor"]
+    haxcms["haxcms"]
+    plugins["plugins"]
+    op_generateappstore["op_generateappstore"]
+    settings["settings"]
+    contracts["contracts"]
+  end
+
+  appstore -->|has| as_apps
+  appstore -->|has| as_stax
+  appstore -->|has| as_autoloader
+  as_apps -->|each has a| as_conn
+  as_conn -->|maps results to a| as_gizmo
+  as_autoloader -->|is filtered by| as_allowed
+  as_apps -->|includes| ap_youtube
+  as_apps -->|includes| ap_vimeo
+  as_apps -->|includes| ap_giphy
+  as_apps -->|includes| ap_unsplash
+  as_apps -->|includes| ap_flickr
+  as_apps -->|includes| ap_nasa
+  as_apps -->|includes| ap_sketchfab
+  as_apps -->|includes| ap_dailymotion
+  as_apps -->|includes| ap_wikipedia
+  as_apps -->|includes| ap_cc_mixter
+  haxcms -->|serves| appstore
+  op_generateappstore -.->|returns| appstore
+  editor -->|reads| appstore
+  plugins -->|will extend| as_autoloader
+  settings -->|sets| as_allowed
+  contracts -.->|includes| appstore
+
+  %%@ group hub tier=0
+  %%@ group partsg tier=1
+  %%@ group appsg tier=2
+  %%@ group who tier=3
+  %%@ node appstore portal
+  %%@ node as_apps icon=hax:code-json color=pughBlue motion=nudge
+  %%@ node as_stax icon=hax:code-json color=pughBlue motion=nudge
+  %%@ node as_autoloader icon=hax:code-json color=pughBlue motion=nudge
+  %%@ node as_conn icon=hax:code-json color=pughBlue motion=nudge
+  %%@ node as_gizmo icon=hax:code-json color=pughBlue motion=nudge
+  %%@ node as_allowed icon=hax:code-json color=pughBlue motion=nudge
+  %%@ node ap_youtube mono=YOUT color=slateGray motion=lift
+  %%@ node ap_vimeo mono=VIME color=slateGray motion=lift
+  %%@ node ap_giphy mono=GIPH color=slateGray motion=lift
+  %%@ node ap_unsplash mono=UNSP color=slateGray motion=lift
+  %%@ node ap_flickr mono=FLIC color=slateGray motion=lift
+  %%@ node ap_nasa mono=NASA color=slateGray motion=lift
+  %%@ node ap_sketchfab mono=SKET color=slateGray motion=lift
+  %%@ node ap_dailymotion mono=DAIL color=slateGray motion=lift
+  %%@ node ap_wikipedia mono=WIKI color=slateGray motion=lift
+  %%@ node ap_cc_mixter mono=CC M color=slateGray motion=lift
+  %%@ node editor portal
+  %%@ node haxcms portal
+  %%@ node plugins portal
+  %%@ node op_generateappstore portal=openapi
+  %%@ node settings portal=haxcms
+  %%@ node contracts portal=contracts

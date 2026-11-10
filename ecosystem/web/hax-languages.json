@@ -1,0 +1,679 @@
+{
+ "meta": {
+  "name": "Languages",
+  "parent": "main",
+  "noTimeline": true,
+  "sectionLabels": {
+   "band": "coverage",
+   "dir": "writing direction",
+   "language": "languages",
+   "element": "elements"
+  },
+  "about": "Which elements speak which languages, generated from the built packages: 148 of 229 packages ship translations, almost all in 101 languages, from 40,604 translation files. The rest either have strings ready to translate or show no text.",
+  "kindLabels": {
+   "rel": "tooling, coverage and languages",
+   "schema": "files and schemas"
+  }
+ },
+ "nodes": {
+  "languages": {
+   "always": true
+  },
+  "lg_manager": {
+   "desc": "i18n-manager: the singleton every element registers with. It knows the reader's language, loads each element's translation file on demand and tells elements when the language changes.",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/i18n-manager"
+   }
+  },
+  "lg_mixin": {
+   "desc": "I18NMixin: what an element extends to get a this.t object of English strings and have it swapped for the reader's language.",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/i18n-manager/lib/I18NMixin.js"
+   }
+  },
+  "lg_registry": {
+   "desc": "languages.json: the canonical registry. 102 languages with English and native names and writing direction, plus 32 regional variants that resolve to their parent.",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/i18n-manager/lib/languages.json"
+   }
+  },
+  "lg_manifest": {
+   "desc": "translation-manifest.json: built by scanning the elements. 231 elements scanned, 148 with translations, 40,604 translation files.",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/i18n-manager/lib/translation-manifest.json"
+   }
+  },
+  "lg_files": {
+   "desc": "Each element keeps locales/<tag>.<lang>.json for its own strings and locales/<tag>.haxProperties.<lang>.json for its editor labels."
+  },
+  "lg_picker": {
+   "desc": "haxcms-language-picker: the site setting that chooses a site's language, which the editor and every element on the page follow."
+  },
+  "lg_full": {
+   "desc": "147 packages are translated into 100 or more languages.",
+   "kind": "band"
+  },
+  "lg_partial": {
+   "desc": "1 packages have some translation files: example-hax-element.",
+   "kind": "band"
+  },
+  "lg_ready": {
+   "desc": "3 packages already keep their strings in this.t but have no translation files yet, so they are the next to translate.",
+   "kind": "band"
+  },
+  "lg_none": {
+   "desc": "78 packages show no text of their own (behaviors, utilities, wrappers), so there is nothing to translate.",
+   "kind": "band"
+  },
+  "lg_ltr": {
+   "desc": "93 languages written left to right.",
+   "kind": "dir"
+  },
+  "lg_rtl": {
+   "desc": "8 languages written right to left: Arabic, Hebrew, Pashto, Persian, Sindhi, Urdu, Western Punjabi, Yiddish. Elements flip their layout for these.",
+   "kind": "dir"
+  },
+  "lg_variants": {
+   "desc": "32 regional variants, such as ar-SA, ca-ES, cs-CZ, da-DK, de-DE, el-GR, resolve to their parent language's files.",
+   "kind": "dir"
+  },
+  "b_clean_two": {
+   "desc": "@haxtheweb/clean-two: keeps its strings in this.t; no translation files yet.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/clean-two"
+   },
+   "kind": "element"
+  },
+  "b_simple_icon_picker": {
+   "desc": "@haxtheweb/simple-icon-picker: keeps its strings in this.t; no translation files yet.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/simple-icon-picker"
+   },
+   "kind": "element"
+  },
+  "b_terrible_themes": {
+   "desc": "@haxtheweb/terrible-themes: keeps its strings in this.t; no translation files yet.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/terrible-themes"
+   },
+   "kind": "element"
+  },
+  "lang_af": {
+   "desc": "Afrikaans (Afrikaans), locale af, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_sq": {
+   "desc": "Albanian (Shqip), locale sq, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_am": {
+   "desc": "Amharic (አማርኛ), locale am, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_ar": {
+   "desc": "Arabic (العربية), locale ar, right to left. 148 packages translated.",
+   "kind": "language"
+  },
+  "lang_hy": {
+   "desc": "Armenian (Հայերեն), locale hy, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_az": {
+   "desc": "Azerbaijani (Azərbaycan), locale az, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_eu": {
+   "desc": "Basque (Euskara), locale eu, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_be": {
+   "desc": "Belarusian (Беларуская), locale be, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_bn": {
+   "desc": "Bengali (বাংলা), locale bn, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_bs": {
+   "desc": "Bosnian (Bosanski), locale bs, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_bg": {
+   "desc": "Bulgarian (Български), locale bg, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_my": {
+   "desc": "Burmese (မြန်မာ), locale my, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_ca": {
+   "desc": "Catalan (Català), locale ca, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_ny": {
+   "desc": "Chichewa (Chichewa), locale ny, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_co": {
+   "desc": "Corsican (Corsu), locale co, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_hr": {
+   "desc": "Croatian (Hrvatski), locale hr, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_cs": {
+   "desc": "Czech (Čeština), locale cs, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_da": {
+   "desc": "Danish (Dansk), locale da, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_nl": {
+   "desc": "Dutch (Nederlands), locale nl, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_en": {
+   "desc": "English (English), locale en, left to right. 104 packages translated.",
+   "kind": "language"
+  },
+  "lang_eo": {
+   "desc": "Esperanto (Esperanto), locale eo, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_et": {
+   "desc": "Estonian (Eesti), locale et, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_fo": {
+   "desc": "Faroese (Føroyskt), locale fo, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_tl": {
+   "desc": "Filipino (Filipino), locale tl, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_fi": {
+   "desc": "Finnish (Suomi), locale fi, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_fr": {
+   "desc": "French (Français), locale fr, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_gl": {
+   "desc": "Galician (Galego), locale gl, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_ka": {
+   "desc": "Georgian (ქართული), locale ka, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_de": {
+   "desc": "German (Deutsch), locale de, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_el": {
+   "desc": "Greek (Ελληνικά), locale el, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_gn": {
+   "desc": "Guarani (Avañe'ẽ), locale gn, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_gu": {
+   "desc": "Gujarati (ગુજરાતી), locale gu, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_ha": {
+   "desc": "Hausa (Hausa), locale ha, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_haw": {
+   "desc": "Hawaiian (ʻŌlelo Hawaiʻi), locale haw, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_he": {
+   "desc": "Hebrew (עברית), locale he, right to left. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_hi": {
+   "desc": "Hindi (हिन्दी), locale hi, left to right. 148 packages translated.",
+   "kind": "language"
+  },
+  "lang_hu": {
+   "desc": "Hungarian (Magyar), locale hu, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_is": {
+   "desc": "Icelandic (Íslenska), locale is, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_ig": {
+   "desc": "Igbo (Igbo), locale ig, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_id": {
+   "desc": "Indonesian (Bahasa Indonesia), locale id, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_ga": {
+   "desc": "Irish (Gaeilge), locale ga, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_it": {
+   "desc": "Italian (Italiano), locale it, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_ja": {
+   "desc": "Japanese (日本語), locale ja, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_jv": {
+   "desc": "Javanese (Basa Jawa), locale jv, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_kn": {
+   "desc": "Kannada (ಕನ್ನಡ), locale kn, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_kk": {
+   "desc": "Kazakh (Қазақ), locale kk, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_km": {
+   "desc": "Khmer (ខ្មែរ), locale km, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_ko": {
+   "desc": "Korean (한국어), locale ko, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_ku": {
+   "desc": "Kurdish (Kurdî), locale ku, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_ky": {
+   "desc": "Kyrgyz (Кыргызча), locale ky, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_lo": {
+   "desc": "Lao (ລາວ), locale lo, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_lv": {
+   "desc": "Latvian (Latviešu), locale lv, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_lt": {
+   "desc": "Lithuanian (Lietuvių), locale lt, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_lb": {
+   "desc": "Luxembourgish (Lëtzebuergesch), locale lb, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_mk": {
+   "desc": "Macedonian (Македонски), locale mk, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_ms": {
+   "desc": "Malay (Bahasa Melayu), locale ms, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_ml": {
+   "desc": "Malayalam (മലയാളം), locale ml, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_mt": {
+   "desc": "Maltese (Malti), locale mt, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_mr": {
+   "desc": "Marathi (मराठी), locale mr, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_mn": {
+   "desc": "Mongolian (Монгол), locale mn, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_mi": {
+   "desc": "Māori (Māori), locale mi, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_ne": {
+   "desc": "Nepali (नेपाली), locale ne, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_nb": {
+   "desc": "Norwegian Bokmål (Norsk Bokmål), locale nb, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_om": {
+   "desc": "Oromo (Oromoo), locale om, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_ps": {
+   "desc": "Pashto (پښتو), locale ps, right to left. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_fa": {
+   "desc": "Persian (فارسی), locale fa, right to left. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_pl": {
+   "desc": "Polish (Polski), locale pl, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_pt": {
+   "desc": "Portuguese (Português), locale pt, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_pa": {
+   "desc": "Punjabi (ਪੰਜਾਬੀ), locale pa, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_qu": {
+   "desc": "Quechua (Runa Simi), locale qu, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_ro": {
+   "desc": "Romanian (Română), locale ro, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_ru": {
+   "desc": "Russian (Русский), locale ru, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_sr": {
+   "desc": "Serbian (Српски), locale sr, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_sn": {
+   "desc": "Shona (ChiShona), locale sn, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_sd": {
+   "desc": "Sindhi (سنڌي), locale sd, right to left. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_si": {
+   "desc": "Sinhala (සිංහල), locale si, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_sk": {
+   "desc": "Slovak (Slovenčina), locale sk, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_sl": {
+   "desc": "Slovenian (Slovenščina), locale sl, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_so": {
+   "desc": "Somali (Soomaali), locale so, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_es": {
+   "desc": "Spanish (Español), locale es, left to right. 148 packages translated.",
+   "kind": "language"
+  },
+  "lang_sw": {
+   "desc": "Swahili (Kiswahili), locale sw, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_sv": {
+   "desc": "Swedish (Svenska), locale sv, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_tg": {
+   "desc": "Tajik (Тоҷикӣ), locale tg, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_ta": {
+   "desc": "Tamil (தமிழ்), locale ta, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_tt": {
+   "desc": "Tatar (Татар), locale tt, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_te": {
+   "desc": "Telugu (తెలుగు), locale te, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_th": {
+   "desc": "Thai (ไทย), locale th, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_tr": {
+   "desc": "Turkish (Türkçe), locale tr, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_tk": {
+   "desc": "Turkmen (Türkmen), locale tk, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_uk": {
+   "desc": "Ukrainian (Українська), locale uk, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_ur": {
+   "desc": "Urdu (اردو), locale ur, right to left. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_uz": {
+   "desc": "Uzbek (O'zbek), locale uz, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_vi": {
+   "desc": "Vietnamese (Tiếng Việt), locale vi, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_cy": {
+   "desc": "Welsh (Cymraeg), locale cy, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_fy": {
+   "desc": "Western Frisian (Frysk), locale fy, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_pnb": {
+   "desc": "Western Punjabi (پنجابی), locale pnb, right to left. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_wuu": {
+   "desc": "Wu Chinese (吴语), locale wuu, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_xh": {
+   "desc": "Xhosa (isiXhosa), locale xh, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_yi": {
+   "desc": "Yiddish (ייִדיש), locale yi, right to left. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_yo": {
+   "desc": "Yoruba (Yorùbá), locale yo, left to right. 147 packages translated.",
+   "kind": "language"
+  },
+  "lang_zu": {
+   "desc": "Zulu (isiZulu), locale zu, left to right. 147 packages translated.",
+   "kind": "language"
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "languages",
+   "label": "Every element, every language",
+   "message": "148 packages translated into 101 languages, and how it works.",
+   "scenes": [
+    {
+     "caption": "Elements extend I18NMixin and register with i18n-manager.",
+     "nodes": [
+      "lg_manager",
+      "lg_mixin"
+     ]
+    },
+    {
+     "caption": "Translations live next to each element, indexed by a manifest and a shared language registry.",
+     "nodes": [
+      "lg_files",
+      "lg_registry",
+      "lg_manifest",
+      "hslocale"
+     ]
+    },
+    {
+     "caption": "The hax-i18n-translate skill writes them; the site's language picker chooses one.",
+     "nodes": [
+      "s_hax_i18n_translate",
+      "lg_picker"
+     ]
+    },
+    {
+     "caption": "How much is translated.",
+     "nodes": [
+      "lg_full",
+      "lg_partial",
+      "lg_ready",
+      "lg_none"
+     ]
+    },
+    {
+     "caption": "Next to translate.",
+     "nodes": [
+      "lg_ready",
+      "b_clean_two",
+      "b_simple_icon_picker",
+      "b_terrible_themes"
+     ]
+    },
+    {
+     "caption": "Right to left languages flip the layout.",
+     "nodes": [
+      "lg_rtl",
+      "lang_ar",
+      "lang_he",
+      "lang_ps",
+      "lang_fa",
+      "lang_sd",
+      "lang_ur",
+      "lang_pnb",
+      "lang_yi"
+     ]
+    },
+    {
+     "caption": "All 101 languages.",
+     "nodes": [
+      "lg_ltr",
+      "lg_rtl",
+      "lang_af",
+      "lang_sq",
+      "lang_am",
+      "lang_ar",
+      "lang_hy",
+      "lang_az",
+      "lang_eu",
+      "lang_be",
+      "lang_bn",
+      "lang_bs",
+      "lang_bg",
+      "lang_my",
+      "lang_ca",
+      "lang_ny",
+      "lang_co",
+      "lang_hr",
+      "lang_cs",
+      "lang_da",
+      "lang_nl",
+      "lang_en",
+      "lang_eo",
+      "lang_et",
+      "lang_fo",
+      "lang_tl",
+      "lang_fi",
+      "lang_fr",
+      "lang_gl",
+      "lang_ka",
+      "lang_de",
+      "lang_el",
+      "lang_gn",
+      "lang_gu",
+      "lang_ha",
+      "lang_haw",
+      "lang_he",
+      "lang_hi",
+      "lang_hu",
+      "lang_is",
+      "lang_ig",
+      "lang_id",
+      "lang_ga",
+      "lang_it",
+      "lang_ja",
+      "lang_jv",
+      "lang_kn",
+      "lang_kk",
+      "lang_km",
+      "lang_ko",
+      "lang_ku",
+      "lang_ky",
+      "lang_lo",
+      "lang_lv",
+      "lang_lt",
+      "lang_lb",
+      "lang_mk",
+      "lang_ms",
+      "lang_ml",
+      "lang_mt",
+      "lang_mr",
+      "lang_mn",
+      "lang_mi",
+      "lang_ne",
+      "lang_nb",
+      "lang_om",
+      "lang_ps",
+      "lang_fa",
+      "lang_pl",
+      "lang_pt",
+      "lang_pa",
+      "lang_qu",
+      "lang_ro",
+      "lang_ru",
+      "lang_sr",
+      "lang_sn",
+      "lang_sd",
+      "lang_si",
+      "lang_sk",
+      "lang_sl",
+      "lang_so",
+      "lang_es",
+      "lang_sw",
+      "lang_sv",
+      "lang_tg",
+      "lang_ta",
+      "lang_tt",
+      "lang_te",
+      "lang_th",
+      "lang_tr",
+      "lang_tk",
+      "lang_uk",
+      "lang_ur",
+      "lang_uz",
+      "lang_vi",
+      "lang_cy",
+      "lang_fy",
+      "lang_pnb",
+      "lang_wuu",
+      "lang_xh",
+      "lang_yi",
+      "lang_yo",
+      "lang_zu"
+     ]
+    }
+   ]
+  }
+ ]
+}

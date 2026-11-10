@@ -1,0 +1,37 @@
+{
+ "files": {
+  "desc": "",
+  "status": "released"
+ },
+ "whatsnew": {
+  "desc": "A What's New dialog on the dashboard that tells people about new features, read by the CLI and agents too.",
+  "source": {
+   "label": "haxtheweb/issues #3172",
+   "url": "https://github.com/haxtheweb/issues/issues/3172"
+  },
+  "links": {
+   "issue": "https://github.com/haxtheweb/issues/issues/3172"
+  },
+  "status": "in-progress"
+ },
+ "tips": {
+  "desc": "HAX Tips, including a tip of the day, surfaced in Merlin and sharing the What's New system.",
+  "source": {
+   "label": "haxtheweb/issues #3172",
+   "url": "https://github.com/haxtheweb/issues/issues/3172"
+  },
+  "links": {
+   "issue": "https://github.com/haxtheweb/issues/issues/3172"
+  },
+  "status": "in-progress"
+ },
+ "blog": {
+  "desc": ""
+ },
+ "docs": {
+  "desc": "Project documentation, being rebuilt as Learn HAX.",
+  "links": {
+   "site": "https://haxtheweb.org/documentation"
+  }
+ }
+}

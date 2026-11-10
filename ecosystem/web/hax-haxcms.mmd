@@ -1,0 +1,60 @@
+%% HAXcms sub-web: the pieces of HAXcms a site owner touches, from the editor to the dashboard.
+%% Portals: ids from hax-ecosystem.mmd. Details in hax-haxcms.json.
+flowchart TB
+  %%@ layout rings=0,260,520 sizes=92,64,56
+  subgraph hub ["HAXcms"]
+    haxcms["haxcms"]
+  end
+  subgraph auth ["Authoring"]
+    editor["HAX editor"]
+    merlin["Merlin"]
+    outline["Outline designer"]
+    files["Admin files"]
+    themes["Themes"]
+  end
+  subgraph admin ["Site administration"]
+    dashboard["Dashboard"]
+    settings["Site settings"]
+    insights["Insights"]
+    whatsnew["What's New"]
+    tips["HAX Tips"]
+    deploy["Publishing"]
+    jos["JSON Outline Schema"]
+    xapi["xAPI"]
+  end
+
+  haxcms -->|edits pages with| editor
+  merlin -->|works inside| editor
+  haxcms -->|restructures sites with| outline
+  outline -.->|saves| jos
+  haxcms -->|stores uploads in| files
+  editor -->|inserts media from| files
+  haxcms -->|renders with| themes
+  settings -->|picks a theme from| themes
+  haxcms -->|is managed from| dashboard
+  dashboard -->|opens| settings
+  dashboard -->|opens| outline
+  insights -->|reports in| dashboard
+  xapi -.->|feeds| insights
+  whatsnew -->|appears in| dashboard
+  tips -->|appears in| merlin
+  tips -->|shares a system with| whatsnew
+  dashboard -->|publishes through| deploy
+
+  %%@ group hub tier=0
+  %%@ group auth tier=1
+  %%@ group admin tier=2
+  %%@ node haxcms portal
+  %%@ node editor portal
+  %%@ node merlin portal
+  %%@ node dashboard portal
+  %%@ node outline icon=hax:outline-designer-indent color=opportunityGreen motion=nudge
+  %%@ node files icon=icons:folder-open color=slateGray motion=lift
+  %%@ node settings icon=icons:build color=slateGray motion=nudge
+  %%@ node insights icon=hax:graph color=discoveryCoral motion=pulse
+  %%@ node whatsnew icon=icons:announcement color=forestGreen motion=wiggle
+  %%@ node tips icon=icons:lightbulb-outline color=beaverBlue motion=glow
+  %%@ node themes portal
+  %%@ node deploy portal
+  %%@ node jos portal
+  %%@ node xapi portal

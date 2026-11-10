@@ -1,0 +1,132 @@
+{
+ "meta": {
+  "name": "HAXcms",
+  "parent": "main",
+  "noTimeline": true,
+  "about": "The parts of HAXcms a site owner works in: the editor, Merlin, the outline designer, files, settings, the dashboard and the pieces that report back.",
+  "kindLabels": {
+   "rel": "which piece opens or feeds which",
+   "schema": "data contracts"
+  }
+ },
+ "nodes": {
+  "haxcms": {
+   "always": true
+  },
+  "outline": {
+   "desc": "Bulk structure editing for a whole site: add, move, nest, rename and delete pages in one view, saved back to site.json in one operation.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/outline-designer",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/outline-designer"
+   },
+   "status": "released"
+  },
+  "files": {
+   "desc": "Upload and manage a site's images, documents and media from the HAXcms admin; files stay in the site's files/ folder.",
+   "status": "released"
+  },
+  "settings": {
+   "desc": "Site-level settings: title, description, theme and theme options, authoring defaults, publishing and integrations, edited from the dashboard.",
+   "status": "released"
+  },
+  "insights": {
+   "desc": "A planned admin dashboard of stats computed from site content: content, broken links, accessibility and where to add activities.",
+   "source": {
+    "label": "haxtheweb/issues #3167",
+    "url": "https://github.com/haxtheweb/issues/issues/3167"
+   },
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/3167"
+   },
+   "status": "planned"
+  },
+  "whatsnew": {
+   "desc": "A What's New dialog on the dashboard that tells people about new features, read by the CLI and agents too.",
+   "source": {
+    "label": "haxtheweb/issues #3172",
+    "url": "https://github.com/haxtheweb/issues/issues/3172"
+   },
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/3172"
+   },
+   "status": "in-progress"
+  },
+  "tips": {
+   "desc": "HAX Tips, including a tip of the day, surfaced in Merlin and sharing the What's New system.",
+   "source": {
+    "label": "haxtheweb/issues #3172",
+    "url": "https://github.com/haxtheweb/issues/issues/3172"
+   },
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/3172"
+   },
+   "status": "in-progress"
+  }
+ },
+ "evidence": {
+  "whatsnew>dashboard": [
+   {
+    "label": "Issue #3172: What's New and Tips",
+    "url": "https://github.com/haxtheweb/issues/issues/3172"
+   }
+  ],
+  "tips>merlin": [
+   {
+    "label": "Issue #3172: What's New and Tips",
+    "url": "https://github.com/haxtheweb/issues/issues/3172"
+   }
+  ]
+ },
+ "tours": [
+  {
+   "id": "haxcms",
+   "label": "Around a HAXcms site",
+   "message": "The pieces of HAXcms a site owner touches, from writing a page to publishing the site.",
+   "scenes": [
+    {
+     "caption": "A HAXcms site is edited, managed and published from a few pieces.",
+     "nodes": [
+      "haxcms"
+     ]
+    },
+    {
+     "caption": "Writing happens in the HAX editor, with Merlin for commands and the files area for media.",
+     "nodes": [
+      "editor",
+      "merlin",
+      "files"
+     ]
+    },
+    {
+     "caption": "The outline designer restructures a whole site at once and saves it as JSON Outline Schema.",
+     "nodes": [
+      "outline",
+      "jos"
+     ]
+    },
+    {
+     "caption": "The dashboard holds settings, themes and publishing.",
+     "nodes": [
+      "dashboard",
+      "settings",
+      "themes",
+      "deploy"
+     ]
+    },
+    {
+     "caption": "Insights, What's New and Tips close the loop back to people.",
+     "nodes": [
+      "insights",
+      "whatsnew",
+      "tips",
+      "xapi"
+     ]
+    },
+    {
+     "caption": "All of HAXcms, in one view.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

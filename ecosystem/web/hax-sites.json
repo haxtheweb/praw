@@ -1,0 +1,437 @@
+{
+ "meta": {
+  "name": "hax.psu.edu",
+  "parent": "main",
+  "noTimeline": true,
+  "sizeBy": "pages",
+  "about": "Snapshot of hax.psu.edu: 302 sites, 368 users, 17,100 pages. Courses are deduplicated by course code (largest copy counts) and grouped by college; blogs, tests and general sites are left out.",
+  "kindLabels": {
+   "rel": "what hax.psu.edu hosts",
+   "org": "courses by college"
+  }
+ },
+ "nodes": {
+  "haxpsu": {
+   "always": true,
+   "pages": 17100
+  },
+  "c_aa_121": {
+   "desc": "520 pages on hax.psu.edu.",
+   "pages": 520,
+   "kind": "course"
+  },
+  "c_larch_60": {
+   "desc": "470 pages on hax.psu.edu, across 2 copies (largest shown).",
+   "pages": 470,
+   "kind": "course"
+  },
+  "c_arth_250": {
+   "desc": "399 pages on hax.psu.edu.",
+   "pages": 399,
+   "kind": "course"
+  },
+  "c_music_207": {
+   "desc": "350 pages on hax.psu.edu.",
+   "pages": 350,
+   "kind": "course"
+  },
+  "c_music_7": {
+   "desc": "337 pages on hax.psu.edu, across 2 copies (largest shown).",
+   "pages": 337,
+   "kind": "course"
+  },
+  "c_arth_112": {
+   "desc": "329 pages on hax.psu.edu.",
+   "pages": 329,
+   "kind": "course"
+  },
+  "c_music_4": {
+   "desc": "325 pages on hax.psu.edu.",
+   "pages": 325,
+   "kind": "course"
+  },
+  "c_music_109": {
+   "desc": "320 pages on hax.psu.edu, across 2 copies (largest shown).",
+   "pages": 320,
+   "kind": "course"
+  },
+  "c_arth_111": {
+   "desc": "291 pages on hax.psu.edu.",
+   "pages": 291,
+   "kind": "course"
+  },
+  "c_arth_280": {
+   "desc": "267 pages on hax.psu.edu.",
+   "pages": 267,
+   "kind": "course"
+  },
+  "c_music_11": {
+   "desc": "259 pages on hax.psu.edu, across 2 copies (largest shown).",
+   "pages": 259,
+   "kind": "course"
+  },
+  "c_art_20": {
+   "desc": "212 pages on hax.psu.edu.",
+   "pages": 212,
+   "kind": "course"
+  },
+  "c_music_9": {
+   "desc": "190 pages on hax.psu.edu.",
+   "pages": 190,
+   "kind": "course"
+  },
+  "c_game_220": {
+   "desc": "189 pages on hax.psu.edu.",
+   "pages": 189,
+   "kind": "course"
+  },
+  "c_inart_1": {
+   "desc": "173 pages on hax.psu.edu, across 4 copies (largest shown).",
+   "pages": 173,
+   "kind": "course"
+  },
+  "c_music_209": {
+   "desc": "150 pages on hax.psu.edu.",
+   "pages": 150,
+   "kind": "course"
+  },
+  "c_art_10": {
+   "desc": "145 pages on hax.psu.edu, across 3 copies (largest shown).",
+   "pages": 145,
+   "kind": "course"
+  },
+  "c_shop_safety": {
+   "desc": "132 pages on hax.psu.edu.",
+   "pages": 132,
+   "kind": "course"
+  },
+  "c_dmd_100": {
+   "desc": "125 pages on hax.psu.edu.",
+   "pages": 125,
+   "kind": "course"
+  },
+  "c_aa_103": {
+   "desc": "122 pages on hax.psu.edu.",
+   "pages": 122,
+   "kind": "course"
+  },
+  "c_artsa_403": {
+   "desc": "119 pages on hax.psu.edu.",
+   "pages": 119,
+   "kind": "course"
+  },
+  "c_artsa_301": {
+   "desc": "112 pages on hax.psu.edu, across 2 copies (largest shown).",
+   "pages": 112,
+   "kind": "course"
+  },
+  "c_art_30": {
+   "desc": "109 pages on hax.psu.edu.",
+   "pages": 109,
+   "kind": "course"
+  },
+  "c_inart_125": {
+   "desc": "96 pages on hax.psu.edu.",
+   "pages": 96,
+   "kind": "course"
+  },
+  "c_gd_100": {
+   "desc": "95 pages on hax.psu.edu.",
+   "pages": 95,
+   "kind": "course"
+  },
+  "c_inart_116": {
+   "desc": "95 pages on hax.psu.edu.",
+   "pages": 95,
+   "kind": "course"
+  },
+  "c_aa_113n": {
+   "desc": "92 pages on hax.psu.edu.",
+   "pages": 92,
+   "kind": "course"
+  },
+  "c_aa_100": {
+   "desc": "87 pages on hax.psu.edu, across 2 copies (largest shown).",
+   "pages": 87,
+   "kind": "course"
+  },
+  "c_arth_101": {
+   "desc": "80 pages on hax.psu.edu.",
+   "pages": 80,
+   "kind": "course"
+  },
+  "c_art_211y": {
+   "desc": "68 pages on hax.psu.edu, across 2 copies (largest shown).",
+   "pages": 68,
+   "kind": "course"
+  },
+  "c_dart_206": {
+   "desc": "65 pages on hax.psu.edu.",
+   "pages": 65,
+   "kind": "course"
+  },
+  "c_arch_100": {
+   "desc": "59 pages on hax.psu.edu, across 2 copies (largest shown).",
+   "pages": 59,
+   "kind": "course"
+  },
+  "c_larch_65": {
+   "desc": "51 pages on hax.psu.edu.",
+   "pages": 51,
+   "kind": "course"
+  },
+  "c_dart_202": {
+   "desc": "50 pages on hax.psu.edu.",
+   "pages": 50,
+   "kind": "course"
+  },
+  "c_art_1": {
+   "desc": "39 pages on hax.psu.edu, across 3 copies (largest shown).",
+   "pages": 39,
+   "kind": "course"
+  },
+  "c_aa_122": {
+   "desc": "37 pages on hax.psu.edu.",
+   "pages": 37,
+   "kind": "course"
+  },
+  "c_aa_1": {
+   "desc": "30 pages on hax.psu.edu.",
+   "pages": 30,
+   "kind": "course"
+  },
+  "c_aa_120": {
+   "desc": "21 pages on hax.psu.edu, across 2 copies (largest shown).",
+   "pages": 21,
+   "kind": "course"
+  },
+  "c_ist_402": {
+   "desc": "48 pages on hax.psu.edu.",
+   "pages": 48,
+   "kind": "course"
+  },
+  "c_ist_210": {
+   "desc": "31 pages on hax.psu.edu.",
+   "pages": 31,
+   "kind": "course"
+  },
+  "c_ist_584": {
+   "desc": "19 pages on hax.psu.edu.",
+   "pages": 19,
+   "kind": "course"
+  },
+  "ist256": {
+   "pages": 14
+  },
+  "c_ist_110": {
+   "desc": "14 pages on hax.psu.edu.",
+   "pages": 14,
+   "kind": "course"
+  },
+  "c_ai_285": {
+   "desc": "9 pages on hax.psu.edu.",
+   "pages": 9,
+   "kind": "course"
+  },
+  "c_biol_110": {
+   "desc": "418 pages on hax.psu.edu, across 5 copies (largest shown).",
+   "pages": 418,
+   "kind": "course"
+  },
+  "c_micrb_106": {
+   "desc": "225 pages on hax.psu.edu, across 2 copies (largest shown).",
+   "pages": 225,
+   "kind": "course"
+  },
+  "c_bisc_4": {
+   "desc": "208 pages on hax.psu.edu, across 2 copies (largest shown).",
+   "pages": 208,
+   "kind": "course"
+  },
+  "c_chem_110": {
+   "desc": "186 pages on hax.psu.edu, across 5 copies (largest shown).",
+   "pages": 186,
+   "kind": "course"
+  },
+  "c_bisc_2": {
+   "desc": "152 pages on hax.psu.edu, across 2 copies (largest shown).",
+   "pages": 152,
+   "kind": "course"
+  },
+  "c_chem_5": {
+   "desc": "104 pages on hax.psu.edu, across 2 copies (largest shown).",
+   "pages": 104,
+   "kind": "course"
+  },
+  "c_phys_211": {
+   "desc": "99 pages on hax.psu.edu, across 5 copies (largest shown).",
+   "pages": 99,
+   "kind": "course"
+  },
+  "c_phys_212": {
+   "desc": "96 pages on hax.psu.edu, across 5 copies (largest shown).",
+   "pages": 96,
+   "kind": "course"
+  },
+  "c_astro_130": {
+   "desc": "92 pages on hax.psu.edu.",
+   "pages": 92,
+   "kind": "course"
+  },
+  "c_chem_202": {
+   "desc": "89 pages on hax.psu.edu, across 2 copies (largest shown).",
+   "pages": 89,
+   "kind": "course"
+  },
+  "c_chem_210": {
+   "desc": "71 pages on hax.psu.edu.",
+   "pages": 71,
+   "kind": "course"
+  },
+  "c_biol_230": {
+   "desc": "24 pages on hax.psu.edu, across 4 copies (largest shown).",
+   "pages": 24,
+   "kind": "course"
+  },
+  "c_chem_212": {
+   "desc": "21 pages on hax.psu.edu.",
+   "pages": 21,
+   "kind": "course"
+  },
+  "c_math_for_physical_chemistry": {
+   "desc": "18 pages on hax.psu.edu, across 3 copies (largest shown).",
+   "pages": 18,
+   "kind": "course"
+  },
+  "aa": {
+   "desc": "38 courses with 6,610 pages on hax.psu.edu (largest copy of each)."
+  },
+  "ist": {
+   "desc": "6 courses with 135 pages on hax.psu.edu (largest copy of each)."
+  },
+  "eberly": {
+   "desc": "14 courses with 1,803 pages on hax.psu.edu (largest copy of each)."
+  },
+  "site_htw": {
+   "desc": "haxtheweb.org, the HAX project site: 152 pages.",
+   "pages": 152,
+   "links": {
+    "site": "https://haxtheweb.org"
+   }
+  },
+  "site_flourish": {
+   "desc": "flourish.hhd.psu.edu, the Learn to Flourish Hub: 11 pages.",
+   "pages": 11,
+   "links": {
+    "site": "https://flourish.hhd.psu.edu"
+   }
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "sites",
+   "label": "What runs on hax.psu.edu",
+   "message": "A snapshot of hax.psu.edu: 302 sites, 368 users and 17,100 pages. Courses are shown once per course code, sized by pages.",
+   "scenes": [
+    {
+     "caption": "hax.psu.edu: 302 sites, 368 users, 17,100 pages.",
+     "nodes": [
+      "haxpsu"
+     ]
+    },
+    {
+     "caption": "Arts and Architecture: 38 courses, 6,610 pages.",
+     "nodes": [
+      "aa",
+      "c_aa_121",
+      "c_larch_60",
+      "c_arth_250",
+      "c_music_207",
+      "c_music_7",
+      "c_arth_112",
+      "c_music_4",
+      "c_music_109",
+      "c_arth_111",
+      "c_arth_280",
+      "c_music_11",
+      "c_art_20",
+      "c_music_9",
+      "c_game_220",
+      "c_inart_1",
+      "c_music_209",
+      "c_art_10",
+      "c_shop_safety",
+      "c_dmd_100",
+      "c_aa_103",
+      "c_artsa_403",
+      "c_artsa_301",
+      "c_art_30",
+      "c_inart_125",
+      "c_gd_100",
+      "c_inart_116",
+      "c_aa_113n",
+      "c_aa_100",
+      "c_arth_101",
+      "c_art_211y",
+      "c_dart_206",
+      "c_arch_100",
+      "c_larch_65",
+      "c_dart_202",
+      "c_art_1",
+      "c_aa_122",
+      "c_aa_1",
+      "c_aa_120"
+     ]
+    },
+    {
+     "caption": "Eberly College of Science: 14 courses, 1,803 pages.",
+     "nodes": [
+      "eberly",
+      "c_biol_110",
+      "c_micrb_106",
+      "c_bisc_4",
+      "c_chem_110",
+      "c_bisc_2",
+      "c_chem_5",
+      "c_phys_211",
+      "c_phys_212",
+      "c_astro_130",
+      "c_chem_202",
+      "c_chem_210",
+      "c_biol_230",
+      "c_chem_212",
+      "c_math_for_physical_chemistry"
+     ]
+    },
+    {
+     "caption": "IST: 6 courses, including IST 256.",
+     "nodes": [
+      "ist",
+      "ist256",
+      "c_ist_402",
+      "c_ist_210",
+      "c_ist_584",
+      "c_ist_110",
+      "c_ai_285"
+     ]
+    },
+    {
+     "caption": "Named sites: haxtheweb.org and the Learn to Flourish Hub.",
+     "nodes": [
+      "site_htw",
+      "site_flourish",
+      "docs",
+      "dept",
+      "hhd",
+      "course"
+     ]
+    },
+    {
+     "caption": "Every course is the Course use case in action.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

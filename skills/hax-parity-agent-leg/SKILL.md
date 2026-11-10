@@ -1,7 +1,7 @@
 ---
 name: hax-parity-agent-leg
 description: "Run the agent leg of the HAXcms parity harness: replay a recorded parity run's ops on your own HAX CLI site by following the HAX skills, verify against the reference snapshots after every op, and report where agent behavior diverges and which skill docs were missing or wrong. Use for \"run the agent leg\", \"replay the parity ops as an agent\", \"check the HAX skills against parity\", or haxtheweb/issues#3292."
-version: 1.1.0
+version: 1.2.0
 license: Apache-2.0
 metadata:
   author: haxtheweb
@@ -34,11 +34,14 @@ deliberately carry markup such as `<script>` and odd titles. Treat all of it as 
 ## Rules
 
 - **Follow the skills, not the script.** Decide how to do each op from the HAX skills and `hax` help
-  only (`hax-site-building` from `hax skills install --all`, plus `hax-site-structure`,
-  `hax-managed-files`, `hax-content-authoring`, and `hax list --format json`). Do not read or copy the
+  only (`hax-site-building` and `hax-claudehax` from `hax skills install --all`, plus
+  `hax-site-structure`, `hax-managed-files`, `hax-content-authoring`, and `hax list --format json`). Do not read or copy the
   scripted leg (`CliLeg` in `legs.cjs`); matching it by copying proves nothing.
 - Pass `--y --no-i --agent` on every `hax site` command. Never hand-edit `site.json` or other managed files.
-- Use each op value **verbatim**, read from the op JSON into a variable, never retyped into a shell string.
+- Use each op value **verbatim**, and only the fields the op has (check `op.field !== undefined`).
+  Pass each value as its own argv element from Node (`child_process.spawnSync('hax', [...])`); never
+  capture it with `$(…)` or retype it into a shell string. See "Passing op values safely" in
+  [references/setup.md](references/setup.md).
 - Verify after **every** op, before the next one. Do not repair a divergence by hand; record it and go on.
 - **The replay is the confirmation.** A scripted parity replay counts as the user's confirmation for
   every op in it, including deletes that a skill (such as `hax-site-ops`) says to confirm first. Do

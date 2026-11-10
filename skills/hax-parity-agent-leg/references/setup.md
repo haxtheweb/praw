@@ -54,22 +54,35 @@ pull request, or a nightly built from the default branch), read `src/skills/*` f
 checkout instead (for example `src/skills/hax-site-building/SKILL.md`), since those are the docs of
 the build under test; the released ones may describe older options.
 
-Read `hax-site-building`, and from [PRAW](https://github.com/haxtheweb/praw/tree/main/skills)
+Read `hax-site-building` and `hax-claudehax`, and from [PRAW](https://github.com/haxtheweb/praw/tree/main/skills)
 `hax-site-structure`, `hax-managed-files` and `hax-content-authoring`. `hax list --format json` and
 `hax site --help` describe every action and option.
 
 ## Create the site and initialize verify
 
 ```bash
-meta=parity-results/A/meta.json
-site_name="$(node -p "require('./$meta').siteName")"
-site_description="$(node -p "require('./$meta').siteDescription")"
-state_dir=parity-agent-state      # outside parity-results/
-mkdir -p agent-sites && cd agent-sites
-hax site "$site_name" --description="$site_description" --y --no-i --agent
-cd ..
+mkdir -p agent-sites
+node -e '
+  const fs = require("fs");
+  const { spawnSync } = require("child_process");
+  const [metaPath, parent] = process.argv.slice(1);
+  const meta = JSON.parse(fs.readFileSync(metaPath, "utf8"));
+  // runs recorded before siteDescription was added used this description
+  const description =
+    meta.siteDescription !== undefined ? meta.siteDescription : "Parity test site";
+  const args = ["site", meta.siteName, "--description=" + description, "--y", "--no-i", "--agent"];
+  const r = spawnSync("hax", args, { cwd: parent, stdio: "inherit" });
+  console.log("site directory: " + parent + "/" + meta.siteName);
+  process.exit(r.status === null ? 1 : r.status);
+' parity-results/A/meta.json agent-sites
+```
+
+Then, with `site_dir` set to the printed site directory (the generated name is plain ASCII, such as
+`agent-sites/paritya…`) and `state_dir` set to a directory outside `parity-results/`:
+
+```bash
 node create/test/parity/verify.cjs --results parity-results/A \
-  --site "agent-sites/$site_name" --state "$state_dir" --op 0
+  --site "$site_dir" --state "$state_dir" --op 0
 ```
 
 Every leg of the run created its site with that name and description (older runs without
@@ -83,18 +96,37 @@ call. `verify.cjs` keeps `state.json` (logical key to page id) there and appends
 recorded. Use a new state directory (and a new site) for each attempt, and `--json` for
 machine-readable output.
 
-## Reading one op safely
+## Passing op values safely
+
+Op values are deliberately hostile to shells: quotes, `&`, `<b>`, leading and trailing spaces,
+trailing newlines, unicode, and values that start with `-`. Two rules:
+
+- **Never capture a value with `$(…)`.** Command substitution strips trailing newlines, and
+  `node -p "…title"` prints the literal `undefined` for a field the op does not have.
+- **Use only the fields the op has.** Optional fields (`parent`, `slug`, `description`, `tags` on
+  `addPage`) are absent when unused; check `op.field !== undefined` before passing a flag, and never
+  pass a flag for a missing field.
+
+Pass each value as its own argv element from Node, with no shell in between. Which command and
+flags an op needs comes from the skills; this only shows how to hand the values over. For example,
+for an op that changes a title:
 
 ```bash
 n=7
 node -e '
   const fs = require("fs");
-  const op = fs.readFileSync(process.argv[1], "utf8").split("\n").filter(Boolean)
-    .map((l) => JSON.parse(l)).find((o) => o.i === Number(process.argv[2]));
-  fs.writeFileSync("op.json", JSON.stringify(op, null, 2));
-' parity-results/A/ops.jsonl "$n"
-title="$(node -p "require('./op.json').title")"
+  const { spawnSync } = require("child_process");
+  const [opsPath, n, statePath, siteDir] = process.argv.slice(1);
+  const op = fs.readFileSync(opsPath, "utf8").split("\n").filter(Boolean)
+    .map((l) => JSON.parse(l)).find((o) => o.i === Number(n));
+  const ids = JSON.parse(fs.readFileSync(statePath, "utf8")).keyToId;
+  const args = ["site", "node:edit", "--item-id=" + ids[op.key]];
+  if (op.title !== undefined) args.push("--title=" + op.title);
+  args.push("--y", "--no-i", "--agent");
+  const r = spawnSync("hax", args, { cwd: siteDir, stdio: "inherit" });
+  process.exit(r.status === null ? 1 : r.status);
+' parity-results/A/ops.jsonl "$n" "$state_dir/state.json" "$site_dir"
 ```
 
-Read each field into a shell variable like this and pass `"$title"` quoted, so quotes, `&`, `<b>` and
-leading spaces reach the CLI unchanged. Look page ids up the same way from `$state_dir/state.json`.
+Use the `--flag=value` form so a value that starts with `-` is not read as another flag. The
+argument values `$n`, `$state_dir` and `$site_dir` are your own paths and numbers, never op values.

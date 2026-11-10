@@ -9,7 +9,7 @@ description: >-
   Triggers include: hax, haxcms, haxsite, haxtheweb, web component, Lit element,
   DDD audit, "hax site", "hax webcomponent", onboarding, "set up HAX".
 allowed-tools: Bash(hax:*), Bash(cd:*), Bash(npm install --global @haxtheweb/create*), Bash(npm install), Bash(npm start), Bash(npm run build), Bash(git clone:*), Read, Edit, Write, Glob, Grep
-version: 1.1.0
+version: 1.2.0
 license: Apache-2.0
 metadata:
   author: haxtheweb
@@ -155,7 +155,9 @@ site root.
 ## Work with an existing HAXsite
 
 Run site sub-commands from inside the site folder, or target it with
-`--root ./mysite`.
+`--root ./mysite`. As an agent, add `--agent` to every `hax site` command (or set
+`HAX_ACTOR=agent`); the examples below that change a site include it. A person running them by hand
+can leave it off.
 
 ### Content / node operations
 
@@ -167,19 +169,19 @@ starts with `-` must use that form.
 ```bash
 # Add a page (the output includes the new item id)
 hax site node:add --title="My summer vacation" \
-  --content="<p>An awesome blog post.</p>" --y --no-i
+  --content="<p>An awesome blog post.</p>" --y --no-i --agent
 
 # Edit a page by id or slug: any field flags, applied together
-hax site node:edit --item-id=<id> --title="New title" --y --no-i
-hax site node:edit --item-id=<id> --content="<p>New content</p>" --y --no-i
-hax site node:edit --item-id=<id> --parent=<parent-id> --y --no-i   # move under a page
-hax site node:edit --item-id=<id> --parent=null --y --no-i          # move to the top level
+hax site node:edit --item-id=<id> --title="New title" --y --no-i --agent
+hax site node:edit --item-id=<id> --content="<p>New content</p>" --y --no-i --agent
+hax site node:edit --item-id=<id> --parent=<parent-id> --y --no-i --agent   # move under a page
+hax site node:edit --item-id=<id> --parent=null --y --no-i --agent          # move to the top level
 
 # Delete a page (--y skips the confirmation)
-hax site node:delete --item-id=<id> --y --no-i
+hax site node:delete --item-id=<id> --y --no-i --agent
 
 # Change the whole site's theme
-hax site site:theme --theme=clean-two --y --no-i
+hax site site:theme --theme=clean-two --y --no-i --agent
 
 hax site node:stats                       # interactive node inspector
 ```
@@ -191,7 +193,7 @@ edit through the API or the HAX editor would. Field flags:
 |------|-----------------|
 | `--title=<text>` | Title (the slug follows it unless the slug was set by hand) |
 | `--slug=<path>` | Slug, marked as set by hand |
-| `--content=<file, URL or HTML>` | Page body; description and reading time are regenerated |
+| `--content=<file, URL or HTML>` | Page body; description and reading time are regenerated (see below for how the input is detected) |
 | `--description=<text>` | Description |
 | `--tags=<a,b>` | Tags |
 | `--published=true\|false` | Published state |
@@ -208,6 +210,10 @@ Interactive `--node-op` (without field flags) picks one field to edit: `title`, 
 `published`, `tags`, `parent`, `order`, `theme` or `hideInMenu`. `description` is a flag, not a
 node-op.
 
+`--content` takes a file path, a URL or inline HTML. How the CLI tells them apart, and how to set
+the format (`--content-format`), is documented in the `hax-site-building` skill (linked below);
+follow it rather than guessing.
+
 Page-creation flags for `node:add`: `--title`, `--content`, `--slug`, `--description`,
 `--published`, `--tags`, `--parent`, `--order`, `--theme`, `--hide-in-menu`.
 
@@ -220,11 +226,11 @@ Full, version-matched docs: the `hax-site-building` skill
 ```bash
 hax site site:stats                                  # site stats
 hax site site:items --to-file export-items.json      # list nodes -> file
-hax site site:items-import --items-import items.json  # import nodes from file
+hax site site:items-import --items-import items.json --y --no-i --agent  # import nodes
 hax site site:list-files                             # uploaded files
 hax site site:search --search "lesson"               # full-text search
 hax site site:search --search "video-player[src]" --search-selector  # HTML selector search
-hax site site:theme --theme=clean-two --y --no-i    # change theme
+hax site site:theme --theme=clean-two --y --no-i --agent  # change theme
 hax site site:html   --to-file output.html           # export site as HTML
 hax site site:md     --to-file output.md             # export site as Markdown
 hax site site:schema --to-file schema.json           # export HAXSchema (vdom)
@@ -244,7 +250,7 @@ hax site site:skeleton-install --skeleton-file ./template.json \
 
 ```bash
 hax site recipe:read                          # print the recipe used to build the site
-hax site recipe:play --recipe my.recipe --y   # replay a recipe (scripted)
+hax site recipe:play --recipe my.recipe --y --no-i --agent  # replay a recipe (scripted)
 ```
 
 ## Import & migrate content
@@ -328,7 +334,7 @@ Bundled interface skills (version-locked to the CLI, shipped via npm in
 - **New component:** `hax webcomponent my-thing --writeHaxProperties --y` → `cd` →
   `npm install` → `npm start` → edit → `hax audit`.
 - **New site:** `hax site mysite --y` → `cd mysite` → `hax serve` → add pages with
-  `hax site node:add ... --y --no-i` → publish with `hax site site:vercel --y`.
+  `hax site node:add ... --y --no-i --agent` → publish with `hax site site:vercel --y`.
 - **Migrate a site:** `hax site newsite --import-site <url> --import-structure
   <method> --y` → review → `hax serve`.
 

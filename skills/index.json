@@ -65,7 +65,7 @@
       "type": "skill-md",
       "description": "Author HAX page HTML with valid HAX-capable web components and DDD attributes. Use when writing or editing pages/, choosing input, icon, button or media components, or creating pages via the hax CLI. Keeps content portable and editable in the HAX editor.",
       "url": "hax-content-authoring/SKILL.md",
-      "digest": "sha256:cbec7f8049b1bdc9157a80c37cc700f9e75546f254cb41d38502a6b3a28171cb"
+      "digest": "sha256:ca74968daaafc832d36d4d055a63f3417df9aeefebd7e32f7c2e6c86ce19f008"
     },
     {
       "name": "hax-content-chunking-audit",
@@ -223,7 +223,7 @@
       "type": "skill-md",
       "description": "Run the agent leg of the HAXcms parity harness: replay a recorded parity run's ops on your own HAX CLI site by following the HAX skills, verify against the reference snapshots after every op, and report where agent behavior diverges and which skill docs were missing or wrong. Use for \"run the agent leg\", \"replay the parity ops as an agent\", \"check the HAX skills against parity\", or haxtheweb/issues#3292.",
       "url": "hax-parity-agent-leg/SKILL.md",
-      "digest": "sha256:f713d0aec302f11eb7e164edcc9cb462968702e1c5cff0353e1ddf487a364f87",
+      "digest": "sha256:5e8e3e4d964dc5f6c250fc16a7afe1180f179adc35bce6be82637a038fc35012",
       "files": [
         {
           "path": "references/divergence-classes.md",
@@ -231,11 +231,11 @@
         },
         {
           "path": "references/ops.md",
-          "digest": "sha256:b3ee193e20030f6dd0302aca9203ad12bab4695b3adf8d2810a0edc9d313e7c9"
+          "digest": "sha256:65bfcdfd61d194ed9f2f22848095d05a63f651684c9fb56a5671963c76a5b447"
         },
         {
           "path": "references/setup.md",
-          "digest": "sha256:92915b9b715cffa273b351ed913be45b84a8a477e7f97c5749440c621d708ef4"
+          "digest": "sha256:7e39a2f1f656405e0adf4ca5a9358d64db394cd8d243f3af2b1d193a217d7bb8"
         }
       ]
     },

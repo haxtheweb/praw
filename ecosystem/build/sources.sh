@@ -27,6 +27,8 @@ else
     '/elements/d-d-d/design-system/' '/elements/d-d-d/tokens/' '/elements/d-d-d/lib/' '/.github/workflows/'
   git -C wcrepo checkout -q
 fi
+# the token export reads the SimpleColors source too (build_tokens.py runs its --check); add these to older clones as well
+git -C wcrepo sparse-checkout add '/elements/simple-colors/simple-colors.js' '/elements/simple-colors-shared-styles/'
 # praw is this repo
 [ -e prawrepo ] || ln -s "$(cd "$ECO/.." && pwd)" prawrepo
 

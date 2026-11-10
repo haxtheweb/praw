@@ -725,6 +725,13 @@
     "registry": "https://github.com/haxtheweb/webcomponents/blob/master/wc-registry.json"
    }
   },
+  "dtcg": {
+   "desc": "DDD and SimpleColors exported as W3C Design Tokens Community Group JSON, generated from the element source, so Figma (through Tokens Studio), Style Dictionary and Penpot see the same tokens the elements use. CI fails a pull request when the export falls out of date.",
+   "links": {
+    "tokens": "https://github.com/haxtheweb/webcomponents/tree/master/elements/d-d-d/tokens",
+    "DTCG": "https://www.designtokens.org/"
+   }
+  },
   "skeletons": {
    "desc": "Full working starter sites anyone can export and hand to someone else, \"hundreds of clicks closer to done.\"",
    "source": {

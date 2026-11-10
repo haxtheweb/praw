@@ -1,0 +1,399 @@
+{
+ "meta": {
+  "name": "DDD token export",
+  "parent": "main",
+  "noTimeline": true,
+  "sectionLabels": {
+   "file": "token files",
+   "group": "token groups",
+   "type": "DTCG types",
+   "tool": "written from and checked by",
+   "reader": "read by"
+  },
+  "about": "The DDD design system as W3C Design Tokens Community Group JSON, generated from elements/d-d-d/tokens: 820 tokens in 29 groups, 256 dark-mode overrides, 10 types. In step with the element source: build-tokens.js --check passes.",
+  "kindLabels": {
+   "rel": "files, groups and types",
+   "schema": "is read by"
+  },
+  "links": {
+   "tokens": "https://github.com/haxtheweb/webcomponents/tree/master/elements/d-d-d/tokens",
+   "export": "https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/design-system/build-tokens.js"
+  }
+ },
+ "nodes": {
+  "dtcg": {
+   "always": true,
+   "desc": "DDD and SimpleColors as W3C DTCG design tokens, generated from the element source so design tools see exactly what the elements use: 820 tokens (312 of them aliases of another token), 256 dark-mode overrides, 2 themes. In step with the element source: build-tokens.js --check passes.",
+   "links": {
+    "tokens": "https://github.com/haxtheweb/webcomponents/tree/master/elements/d-d-d/tokens",
+    "DTCG": "https://www.designtokens.org/"
+   }
+  },
+  "f_metadata_json": {
+   "desc": "The set order for Tokens Studio's multi-file sync: ddd.tokens, ddd.dark.tokens.",
+   "kind": "file",
+   "links": {
+    "file": "https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/tokens/$metadata.json"
+   }
+  },
+  "f_themes_json": {
+   "desc": "The themes for Tokens Studio: Light (ddd.tokens), Dark (ddd.tokens, ddd.dark.tokens).",
+   "kind": "file",
+   "links": {
+    "file": "https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/tokens/$themes.json"
+   }
+  },
+  "f_ddd_dark_tokens_json": {
+   "desc": "Only what changes in dark mode: 256 overrides. Apply it on top of ddd.tokens.json.",
+   "kind": "file",
+   "links": {
+    "file": "https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/tokens/ddd.dark.tokens.json"
+   }
+  },
+  "f_ddd_tokens_json": {
+   "desc": "Every token with its light value: 820 in 29 groups. Each carries its CSS custom property in $extensions so tools can map back to var(--ddd-*).",
+   "kind": "file",
+   "links": {
+    "file": "https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/tokens/ddd.tokens.json"
+   }
+  },
+  "g_ddd_color": {
+   "desc": "101 tokens, 26 aliases. Types: color 93, untyped 8. For example --ddd-theme-default-beaverBlue.",
+   "kind": "group"
+  },
+  "g_ddd_font": {
+   "desc": "34 tokens, 7 aliases. Types: dimension 25, fontWeight 5, fontFamily 4. For example --ddd-font-primary.",
+   "kind": "group"
+  },
+  "g_ddd_letterspacing": {
+   "desc": "26 tokens. Types: dimension 26. For example --ddd-ls-16-sm.",
+   "kind": "group"
+  },
+  "g_ddd_lineheight": {
+   "desc": "4 tokens. Types: number 4. For example --ddd-lh-120.",
+   "kind": "group"
+  },
+  "g_ddd_spacing": {
+   "desc": "31 tokens. Types: dimension 31. For example --ddd-spacing-0.",
+   "kind": "group"
+  },
+  "g_ddd_border": {
+   "desc": "8 tokens. Types: border 4, dimension 4. For example --ddd-border-xs.",
+   "kind": "group"
+  },
+  "g_ddd_headerborder": {
+   "desc": "16 tokens, 2 aliases. Types: dimension 11, untyped 5. For example --ddd-theme-header-border-thickness-0.",
+   "kind": "group"
+  },
+  "g_ddd_dropzone": {
+   "desc": "6 tokens, 3 aliases. Types: dimension 3, color 2, untyped 1. For example --ddd-drop-zone-outline-color.",
+   "kind": "group"
+  },
+  "g_ddd_shadow": {
+   "desc": "5 tokens, 4 change in dark mode. Types: shadow 5. For example --ddd-boxShadow-0.",
+   "kind": "group"
+  },
+  "g_ddd_breakpoint": {
+   "desc": "4 tokens. Types: dimension 4. For example --ddd-breakpoint-sm.",
+   "kind": "group"
+  },
+  "g_ddd_layout": {
+   "desc": "19 tokens, 8 aliases. Types: dimension 15, untyped 4. For example --ddd-content-width-sm.",
+   "kind": "group"
+  },
+  "g_ddd_radius": {
+   "desc": "8 tokens. Types: dimension 7, untyped 1. For example --ddd-radius-0.",
+   "kind": "group"
+  },
+  "g_ddd_icon": {
+   "desc": "11 tokens. Types: dimension 11. For example --ddd-icon-4xs.",
+   "kind": "group"
+  },
+  "g_ddd_zindex": {
+   "desc": "6 tokens. Types: number 6. For example --ddd-z-base.",
+   "kind": "group"
+  },
+  "g_ddd_opacity": {
+   "desc": "6 tokens. Types: number 6. For example --ddd-opacity-0.",
+   "kind": "group"
+  },
+  "g_ddd_duration": {
+   "desc": "4 tokens. Types: duration 4. For example --ddd-duration-fast.",
+   "kind": "group"
+  },
+  "g_ddd_easing": {
+   "desc": "5 tokens. Types: cubicBezier 4, untyped 1. For example --ddd-timing-ease.",
+   "kind": "group"
+  },
+  "g_ddd_focus": {
+   "desc": "2 tokens. Types: border 1, dimension 1. For example --ddd-focus-ring.",
+   "kind": "group"
+  },
+  "g_ddd_textfieldheight": {
+   "desc": "3 tokens. Types: dimension 3. For example --ddd-textfield-height-sm.",
+   "kind": "group"
+  },
+  "g_ddd_controlheight": {
+   "desc": "4 tokens. Types: dimension 4. For example --ddd-control-height-xs.",
+   "kind": "group"
+  },
+  "g_ddd_targetsize": {
+   "desc": "2 tokens. Types: dimension 2. For example --ddd-target-min.",
+   "kind": "group"
+  },
+  "g_ddd_mediacontrol": {
+   "desc": "8 tokens, 6 aliases. Types: color 3, dimension 2, border 2, untyped 1. For example --ddd-media-control-size.",
+   "kind": "group"
+  },
+  "g_ddd_state": {
+   "desc": "5 tokens. Types: number 5. For example --ddd-state-hover-opacity.",
+   "kind": "group"
+  },
+  "g_ddd_eyebrow": {
+   "desc": "9 tokens, 7 aliases, 1 change in dark mode. Types: untyped 4, dimension 2, color 2, fontWeight 1. For example --ddd-eyebrow-font-family.",
+   "kind": "group"
+  },
+  "g_ddd_aspectratio": {
+   "desc": "3 tokens. Types: untyped 3. For example --ddd-aspect-video.",
+   "kind": "group"
+  },
+  "g_ddd_skeleton": {
+   "desc": "5 tokens, 3 aliases, 2 change in dark mode. Types: color 2, dimension 2, duration 1. For example --ddd-skeleton-base.",
+   "kind": "group"
+  },
+  "g_ddd_status": {
+   "desc": "29 tokens, 22 aliases, 21 change in dark mode. Types: color 22, untyped 7. For example --ddd-status-default-signal.",
+   "kind": "group"
+  },
+  "g_simple_colors_fixed": {
+   "desc": "228 tokens. Types: color 228. For example --simple-colors-fixed-theme-grey-1.",
+   "kind": "group"
+  },
+  "g_simple_colors_default": {
+   "desc": "228 tokens, 228 aliases, 228 change in dark mode. Types: color 228. For example --simple-colors-default-theme-grey-1.",
+   "kind": "group"
+  },
+  "ty_color": {
+   "desc": "580 tokens are color.",
+   "kind": "type"
+  },
+  "ty_untyped": {
+   "desc": "35 tokens carry no $type of their own or from their group.",
+   "kind": "type"
+  },
+  "ty_fontfamily": {
+   "desc": "4 tokens are fontFamily.",
+   "kind": "type"
+  },
+  "ty_fontweight": {
+   "desc": "6 tokens are fontWeight.",
+   "kind": "type"
+  },
+  "ty_dimension": {
+   "desc": "153 tokens are dimension.",
+   "kind": "type"
+  },
+  "ty_number": {
+   "desc": "21 tokens are number.",
+   "kind": "type"
+  },
+  "ty_border": {
+   "desc": "7 tokens are border.",
+   "kind": "type"
+  },
+  "ty_shadow": {
+   "desc": "5 tokens are shadow.",
+   "kind": "type"
+  },
+  "ty_duration": {
+   "desc": "5 tokens are duration.",
+   "kind": "type"
+  },
+  "ty_cubicbezier": {
+   "desc": "4 tokens are cubicBezier.",
+   "kind": "type"
+  },
+  "t_build": {
+   "desc": "Exports DDD and SimpleColors as DTCG from the element source; --check fails CI when the committed files are stale. Last check here: checked 4 files in elements/d-d-d/tokens: 820 tokens, 256 dark overrides; not exported (RGB channel triplets and component defaults): 35.",
+   "kind": "tool",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/design-system/build-tokens.js"
+   }
+  },
+  "s_dddstyles_js": {
+   "desc": "Element source the export reads: elements/d-d-d/lib/DDDStyles.js.",
+   "kind": "tool",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/lib/DDDStyles.js"
+   }
+  },
+  "s_dddstatustokens_js": {
+   "desc": "Element source the export reads: elements/d-d-d/lib/DDDStatusTokens.js.",
+   "kind": "tool",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/lib/DDDStatusTokens.js"
+   }
+  },
+  "s_simple_colors_shared_styles_js": {
+   "desc": "Element source the export reads: elements/simple-colors-shared-styles/simple-colors-shared-styles.js.",
+   "kind": "tool",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/blob/master/elements/simple-colors-shared-styles/simple-colors-shared-styles.js"
+   }
+  },
+  "s_simple_colors_js": {
+   "desc": "Element source the export reads: elements/simple-colors/simple-colors.js.",
+   "kind": "tool",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/blob/master/elements/simple-colors/simple-colors.js"
+   }
+  },
+  "s_dddlayout_js": {
+   "desc": "Element source the export reads: elements/d-d-d/lib/DDDLayout.js.",
+   "kind": "tool",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/lib/DDDLayout.js"
+   }
+  },
+  "ci_0": {
+   "desc": "A step of the ddd-token-lint workflow, which fails a webcomponents pull request: node scripts/ddd-token-lint.js",
+   "kind": "tool",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/ddd-token-lint.yml"
+   }
+  },
+  "ci_1": {
+   "desc": "A step of the ddd-token-lint workflow, which fails a webcomponents pull request: node elements/d-d-d/design-system/build-tokens.js --check",
+   "kind": "tool",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/ddd-token-lint.yml"
+   }
+  },
+  "r_figma_via_tokens_studio": {
+   "desc": "Named in the tokens README as a tool that reads DTCG: Figma via Tokens Studio.",
+   "kind": "reader",
+   "links": {
+    "README": "https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/tokens/README.md"
+   }
+  },
+  "r_style_dictionary": {
+   "desc": "Named in the tokens README as a tool that reads DTCG: Style Dictionary.",
+   "kind": "reader",
+   "links": {
+    "README": "https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/tokens/README.md"
+   }
+  },
+  "r_penpot": {
+   "desc": "Named in the tokens README as a tool that reads DTCG: Penpot.",
+   "kind": "reader",
+   "links": {
+    "README": "https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/tokens/README.md"
+   }
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "tokens",
+   "label": "DDD as design tokens",
+   "kind": "story",
+   "message": "820 tokens in 29 groups, 256 dark-mode overrides, generated from the element source.",
+   "scenes": [
+    {
+     "caption": "DDD lives in the elements' CSS. The export turns it into DTCG JSON that design tools read.",
+     "nodes": [
+      "dtcg",
+      "ddd",
+      "f_metadata_json",
+      "f_themes_json",
+      "f_ddd_dark_tokens_json",
+      "f_ddd_tokens_json"
+     ]
+    },
+    {
+     "caption": "The groups, named after the CSS custom properties.",
+     "nodes": [
+      "g_ddd_color",
+      "g_ddd_font",
+      "g_ddd_letterspacing",
+      "g_ddd_lineheight",
+      "g_ddd_spacing",
+      "g_ddd_border",
+      "g_ddd_headerborder",
+      "g_ddd_dropzone",
+      "g_ddd_shadow",
+      "g_ddd_breakpoint",
+      "g_ddd_layout",
+      "g_ddd_radius",
+      "g_ddd_icon",
+      "g_ddd_zindex",
+      "g_ddd_opacity",
+      "g_ddd_duration",
+      "g_ddd_easing",
+      "g_ddd_focus",
+      "g_ddd_textfieldheight",
+      "g_ddd_controlheight",
+      "g_ddd_targetsize",
+      "g_ddd_mediacontrol",
+      "g_ddd_state",
+      "g_ddd_eyebrow",
+      "g_ddd_aspectratio",
+      "g_ddd_skeleton",
+      "g_ddd_status"
+     ]
+    },
+    {
+     "caption": "SimpleColors comes along, fixed and default; the default palette flips in dark mode.",
+     "nodes": [
+      "g_simple_colors_fixed",
+      "g_simple_colors_default",
+      "f_ddd_dark_tokens_json"
+     ]
+    },
+    {
+     "caption": "Every token has a DTCG type.",
+     "nodes": [
+      "ty_color",
+      "ty_untyped",
+      "ty_fontfamily",
+      "ty_fontweight",
+      "ty_dimension",
+      "ty_number",
+      "ty_border",
+      "ty_shadow",
+      "ty_duration",
+      "ty_cubicbezier"
+     ]
+    },
+    {
+     "caption": "build-tokens.js reads the element source and writes the files; CI fails a pull request when they fall out of date.",
+     "nodes": [
+      "t_build",
+      "s_dddstyles_js",
+      "s_dddstatustokens_js",
+      "s_simple_colors_shared_styles_js",
+      "s_simple_colors_js",
+      "s_dddlayout_js",
+      "ci_0",
+      "ci_1",
+      "q_ddd_token_lint"
+     ]
+    },
+    {
+     "caption": "Design tools read them.",
+     "nodes": [
+      "r_figma_via_tokens_studio",
+      "r_style_dictionary",
+      "r_penpot",
+      "f_themes_json",
+      "f_ddd_tokens_json"
+     ]
+    },
+    {
+     "caption": "The whole export.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

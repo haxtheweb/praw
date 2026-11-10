@@ -84,6 +84,7 @@ flowchart TB
     xapi[("xAPI statements")]
     skillsindex[("Agent skills index")]
     registry[("Registry and manifests")]
+    dtcg[("DDD token export (DTCG)")]
     contracts[("All data contracts")]
     anatomy[("Site anatomy")]
   end
@@ -260,6 +261,9 @@ flowchart TB
   contracts -.->|gathers| xapi
   contracts -.->|gathers| skillsindex
   contracts -.->|gathers| registry
+  contracts -.->|gathers| dtcg
+  ddd -->|is exported as| dtcg
+  dtcg -.->|carries into design tools| design
   ubiquity -->|writes| registry
   registry -.->|describes| components
   registry -.->|ships with| php
@@ -333,6 +337,7 @@ flowchart TB
   openapi ==>|keeps it| extensible
   skillsindex ==>|keeps it| open
   registry ==>|keeps it| efficient
+  dtcg ==>|keeps it| agnostic
   deploy ==>|keep it| agnostic
   oerschema ==>|keeps it| remixable
   skeletons ==>|keep it| remixable
@@ -754,6 +759,7 @@ flowchart TB
   %%@ node xapi icon=hax:clipboard-pulse color=roarGolden motion=pulse web=xapi
   %%@ node skillsindex icon=icons:extension color=creekTeal motion=nudge web=skillsindex
   %%@ node registry icon=hax:apps color=creekTeal motion=nudge web=registry
+  %%@ node dtcg icon=lrn:palette color=creekTeal motion=nudge web=tokens
   %%@ node contracts icon=hax:code-json color=slateGray motion=nudge web=contracts
   %%@ node anatomy icon=hax:site-map color=slateGray motion=nudge web=anatomy
   %%@ node skeletons icon=hax:templates color=original87Pink motion=lift web=skeletons

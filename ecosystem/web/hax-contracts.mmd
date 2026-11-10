@@ -14,6 +14,7 @@ flowchart TB
     xapi[("xapi")]
     openapi[("openapi")]
     skillsindex[("skillsindex")]
+    registry[("registry")]
   end
   subgraph files ["Files that conform"]
     sitejson[("site.json")]
@@ -27,6 +28,9 @@ flowchart TB
     xapivocab[("xapi-vocabulary.json")]
     merlinoption[("Merlin options")]
     skillsjson[(".well-known/agent-skills/index.json")]
+    wcregjson[("wc-registry.json")]
+    cemjson[("custom-elements.json")]
+    translationsjson[("translation-manifest.json")]
     oervocab[("oerschema.org vocabulary")]
   end
   subgraph rw ["Readers and writers"]
@@ -38,6 +42,7 @@ flowchart TB
     editor["editor"]
     components["components"]
     languages["languages"]
+    ubiquity["ubiquity"]
     mcp["mcp"]
     php["php"]
     nodejs["nodejs"]
@@ -56,6 +61,7 @@ flowchart TB
   contracts -.->|includes| xapi
   contracts -.->|includes| openapi
   contracts -.->|includes| skillsindex
+  contracts -.->|includes| registry
   sitejson -.->|conforms to| jos
   josspec -.->|conforms to| jos
   haxprops -.->|conforms to| haxschema
@@ -67,8 +73,12 @@ flowchart TB
   xapivocab -.->|conforms to| xapi
   merlinoption -.->|conforms to| merlin
   skillsjson -.->|conforms to| skillsindex
+  wcregjson -.->|conforms to| registry
+  cemjson -.->|conforms to| registry
+  translationsjson -.->|conforms to| registry
   oervocab -.->|conforms to| oerschema
   outline -->|writes| sitejson
+  haxcms -->|loads elements through| wcregjson
   haxcms -->|reads| sitejson
   haxcms -->|serves| appstorejson
   haxcms -->|implements| sitespec
@@ -80,11 +90,15 @@ flowchart TB
   hax11ty -->|reads| sitejson
   editor -->|builds forms from| haxprops
   editor -->|loads blocks from| appstorejson
+  components -->|describe themselves in| cemjson
   components -->|declare| haxprops
   components -->|carry| localeoverlay
   components -->|emit statements from| xapivocab
   components -->|tag content with| oervocab
   languages -->|produce| localeoverlay
+  languages -->|are counted in| translationsjson
+  ubiquity -->|writes| wcregjson
+  ubiquity -->|writes| translationsjson
   mcp -->|reads| sitespec
   mcp -->|reads| systemspec
   php -->|implements| sitespec
@@ -112,6 +126,7 @@ flowchart TB
   %%@ node xapi portal
   %%@ node openapi portal
   %%@ node skillsindex portal
+  %%@ node registry portal
   %%@ node sitejson icon=hax:code-json color=creekTeal motion=nudge
   %%@ node josspec icon=hax:code-json color=creekTeal motion=nudge
   %%@ node haxprops icon=hax:code-json color=creekTeal motion=nudge
@@ -123,6 +138,9 @@ flowchart TB
   %%@ node xapivocab icon=hax:code-json color=creekTeal motion=nudge
   %%@ node merlinoption icon=hax:code-json color=creekTeal motion=nudge
   %%@ node skillsjson icon=hax:code-json color=creekTeal motion=nudge
+  %%@ node wcregjson icon=hax:code-json color=creekTeal motion=nudge
+  %%@ node cemjson icon=hax:code-json color=creekTeal motion=nudge
+  %%@ node translationsjson icon=hax:code-json color=creekTeal motion=nudge
   %%@ node oervocab icon=hax:code-json color=creekTeal motion=nudge
   %%@ node outline portal=haxcms
   %%@ node haxcms portal
@@ -132,6 +150,7 @@ flowchart TB
   %%@ node editor portal
   %%@ node components portal
   %%@ node languages portal
+  %%@ node ubiquity portal
   %%@ node mcp portal
   %%@ node php portal
   %%@ node nodejs portal

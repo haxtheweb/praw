@@ -18,6 +18,15 @@ clone haxtheweb/haxcms-mcp mcprepo
 clone haxtheweb/hax-schema hs
 clone haxtheweb/json-outline-schema josrepo
 clone haxtheweb/learn learnrepo
+# webcomponents is large: a blobless, sparse clone of just the files the registry and token generators read
+if [ -d wcrepo/.git ]; then git -C wcrepo pull -q --ff-only || true
+else
+  git clone -q --filter=blob:none --no-checkout https://github.com/haxtheweb/webcomponents wcrepo
+  git -C wcrepo sparse-checkout set --no-cone '/package.json' '/gulpfile.mjs' '/scripts/' '/wc-registry.json' '/wc-registry-graph.json' \
+    '/elements-catalog.json' '/hax-elements-registry.json' '/elements/i18n-manager/lib/*.json' '/elements/*/package.json' '/elements/*/custom-elements.json' \
+    '/elements/d-d-d/design-system/' '/elements/d-d-d/tokens/' '/elements/d-d-d/lib/' '/.github/workflows/'
+  git -C wcrepo checkout -q
+fi
 # praw is this repo
 [ -e prawrepo ] || ln -s "$(cd "$ECO/.." && pwd)" prawrepo
 

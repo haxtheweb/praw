@@ -719,6 +719,12 @@
     "spec": "https://github.com/cloudflare/agent-skills-discovery-rfc"
    }
   },
+  "registry": {
+   "desc": "The manifests HAX generates about its own elements: wc-registry.json (where every tag loads from), each package's custom-elements.json, the elements catalog, and the language and translation manifests. The ubiquity build writes them; the autoloader, both backends and the CLI read them.",
+   "links": {
+    "registry": "https://github.com/haxtheweb/webcomponents/blob/master/wc-registry.json"
+   }
+  },
   "skeletons": {
    "desc": "Full working starter sites anyone can export and hand to someone else, \"hundreds of clicks closer to done.\"",
    "source": {

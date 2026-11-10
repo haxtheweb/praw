@@ -130,6 +130,7 @@ flowchart TB
     ct_fuzz["ct_fuzz"]
     q_audit["q_audit"]
     q_codeql["q_codeql"]
+    q_color_contrast_light_and_dark["q_color_contrast_light_and_dark"]
     q_ddd_token_lint["q_ddd_token_lint"]
     q_dependency_licenses["q_dependency_licenses"]
     q_element_api_snapshot["q_element_api_snapshot"]
@@ -224,6 +225,7 @@ flowchart TB
   r_rvsctsdjae8lrmsjmpo3mk -.->|applies to| haxschema
   r_rvsctsdjae8lrmsjmpo3mk -.->|applies to| components
   rg_web_component_development -->|includes| r_7cpveferpsf0az8tkqxw0y
+  q_color_contrast_light_and_dark -->|enforces| r_7cpveferpsf0az8tkqxw0y
   q_test_all_elements -->|enforces| r_7cpveferpsf0az8tkqxw0y
   ct_a11y -->|enforces| r_7cpveferpsf0az8tkqxw0y
   r_7cpveferpsf0az8tkqxw0y ==>|serves| accessible
@@ -593,6 +595,7 @@ flowchart TB
   %%@ node ct_fuzz portal=quality
   %%@ node q_audit portal=quality
   %%@ node q_codeql portal=quality
+  %%@ node q_color_contrast_light_and_dark portal=quality
   %%@ node q_ddd_token_lint portal=quality
   %%@ node q_dependency_licenses portal=quality
   %%@ node q_element_api_snapshot portal=quality

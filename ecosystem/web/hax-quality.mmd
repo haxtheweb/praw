@@ -15,6 +15,7 @@ flowchart TB
     q_build["Build"]
     q_cla["CLA"]
     q_codeql["CodeQL"]
+    q_color_contrast_light_and_dark["Color contrast (light and dark)"]
     q_ddd_token_lint["DDD token lint"]
     q_audit["Dependency audit"]
     q_dependency_licenses["Dependency licenses"]
@@ -35,7 +36,6 @@ flowchart TB
     q_unit_and_api_conformance_tests["Unit and API conformance tests"]
     q_unit_tests["Unit tests"]
     q_walkthrough_status["Walkthrough status"]
-    q_contrast["contrast"]
   end
   subgraph advg ["Advisory checks and planned"]
     q_e2e["E2E UI tests"]
@@ -52,11 +52,11 @@ flowchart TB
     q_fresh_install_smoke_test["Fresh-install smoke test, nightly"]
     q_mutation_testing["Mutation testing, weekly"]
     q_build_and_tests["Nightly build and tests"]
+    q_old_site_compatibility["Old-site compatibility, weekly"]
     q_openssf_scorecard["OpenSSF Scorecard, weekly"]
     q_parity_harness_nodejs_php_cli["Parity harness (nodejs, PHP, CLI), nightly"]
     q_performance_and_memory_budgets_sched["Performance and memory budgets, weekly"]
     q_unused_code_knip_sched["Unused code (knip), weekly"]
-    q_old_sites_weekly["old-sites-weekly, weekly"]
     ct_translations["Nightly translations"]
     ct_docs["Documentation pass"]
     ct_whatsnew["What's New candidates"]
@@ -109,8 +109,8 @@ flowchart TB
   q_codeql -.->|fails PRs in| nodejs
   q_codeql -.->|fails PRs in| php
   q_codeql -.->|fails PRs in| cli
-  qg_block -->|includes| q_contrast
-  q_contrast -.->|fails PRs in| components
+  qg_block -->|includes| q_color_contrast_light_and_dark
+  q_color_contrast_light_and_dark -.->|fails PRs in| components
   qg_block -->|includes| q_ddd_token_lint
   q_ddd_token_lint -.->|fails PRs in| components
   qg_block -->|includes| q_audit
@@ -191,8 +191,8 @@ flowchart TB
   q_performance_and_memory_budgets_sched -.->|runs weekly in| nodejs
   qg_sched -->|includes| q_fresh_install_smoke_test
   q_fresh_install_smoke_test -.->|runs nightly in| cli
-  qg_sched -->|includes| q_old_sites_weekly
-  q_old_sites_weekly -.->|runs weekly in| cli
+  qg_sched -->|includes| q_old_site_compatibility
+  q_old_site_compatibility -.->|runs weekly in| cli
   qg_sched -->|includes| q_parity_harness_nodejs_php_cli
   q_parity_harness_nodejs_php_cli -.->|runs nightly in| cli
   qg_sched -->|includes| ct_translations
@@ -238,7 +238,7 @@ flowchart TB
   %%@ node q_gallery_build icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_cla icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_codeql icon=icons:check-circle color=forestGreen motion=nudge
-  %%@ node q_contrast icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_color_contrast_light_and_dark icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_ddd_token_lint icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_audit icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_pseudo_locale_and_rtl_layout icon=icons:check-circle color=forestGreen motion=nudge
@@ -268,7 +268,7 @@ flowchart TB
   %%@ node q_parity icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_performance_and_memory_budgets_sched icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_fresh_install_smoke_test icon=hax:timeline color=beaverBlue motion=nudge
-  %%@ node q_old_sites_weekly icon=hax:timeline color=beaverBlue motion=nudge
+  %%@ node q_old_site_compatibility icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_parity_harness_nodejs_php_cli icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node ct_translations icon=hax:wand color=limestoneGray motion=nudge
   %%@ node ct_docs icon=hax:wand color=limestoneGray motion=nudge

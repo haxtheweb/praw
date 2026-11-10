@@ -1,0 +1,73 @@
+{
+ "about": "The seven pillars: one-word name, phrase, the description shown when a pillar is clicked, icon and DDD color. Drafted in the Why layer of the HAX Scheduled Background Jobs Plan; this file is now their source.",
+ "source": {
+  "label": "PRAW ecosystem/build/data/pillars.json",
+  "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/pillars.json"
+ },
+ "center": "Ubiquity: HAX is ubiquitous web publishing, and the seven pillars are what make something ubiquitous.",
+ "pillars": [
+  {
+   "id": "accessible",
+   "label": "Accessible",
+   "phrase": "Built for everyone, by everyone.",
+   "desc": "Everything HAX makes meets accessibility standards by default, so authors don't need to be experts to publish work everyone can use. Blocks are tested for contrast, keyboard use and screen readers before they ship, and meaning never depends on color alone. HAX also reaches a global audience, with an interface in over 100 languages. And since you don't need to know what the web is to use it, anyone can contribute.",
+   "icon": "icons:accessibility",
+   "color": "beaverBlue",
+   "note": ""
+  },
+  {
+   "id": "efficient",
+   "label": "Efficient",
+   "phrase": "Fast for the people who make it and the people who use it.",
+   "desc": "Authors build sites in minutes, not weeks, and agents can handle the repetitive work. Pages load only what they need, so they're fast on any connection or device. The less time we spend waiting and trying to figure out how to use something, the more time we spend dreaming the future together.",
+   "icon": "image:flash-on",
+   "color": "inventOrange",
+   "note": ""
+  },
+  {
+   "id": "extensible",
+   "label": "Extensible",
+   "phrase": "If it's missing, anyone can build it.",
+   "desc": "Every block and theme in HAX is a web component, so new ones follow the same rules as the ones we ship. Plugins add choices and integrations without changing the core. And because HAX can understand any block's settings, anything you build works in the editor right away.",
+   "icon": "hax:add-brick",
+   "color": "creekTeal",
+   "note": ""
+  },
+  {
+   "id": "open",
+   "label": "Free and open",
+   "phrase": "Open by design: built on standards, owned by you.",
+   "desc": "HAX is free, open source under Apache 2.0, and built on open standards like web components, OpenAPI, WCAG and xAPI instead of a proprietary framework. Your site is plain HTML files you can take anywhere, with no lock-in and no subscription. What you make is yours to keep, change, share or move, however you see fit.",
+   "icon": "icons:lock-open",
+   "color": "keystoneYellow",
+   "note": ""
+  },
+  {
+   "id": "agnostic",
+   "label": "Platform agnostic",
+   "phrase": "Any format, any screen, any browser.",
+   "desc": "Bring content in from Word, PDFs, old sites or other CMSs, and HAX turns it into clean web pages. Those pages work on phones, tablets, laptops and big screens, in light or dark mode. Run it on PHP, Node, the command line, the desktop app, or as a static site with no server at all.",
+   "icon": "device:devices",
+   "color": "skyBlue",
+   "note": ""
+  },
+  {
+   "id": "remixable",
+   "label": "Remixable",
+   "phrase": "Break it down, mix it up, make it new.",
+   "desc": "Every page is made of blocks you can rearrange, reuse or pull into another site. Bring in PDF, DOCX, PPTX, XLSX, HTML or Markdown, and export to PDF, EPUB and other open formats. Change the theme any time and your content comes along untouched, and anything an agent makes stays fully editable by a person.",
+   "icon": "hax:remix",
+   "color": "original87Pink",
+   "note": ""
+  },
+  {
+   "id": "sustainable",
+   "label": "Sustainable",
+   "phrase": "Built to last, light on the planet.",
+   "desc": "Nearly every site built since 2020 still works today, and new features reach old sites through upgrades, without rebuilds. Sites are small, load only what they need, and can run as static files, which saves energy on every visit. And the project is built to outlast any one person, with its knowledge recorded so the community can carry it forward.",
+   "icon": "image:nature",
+   "color": "futureLime",
+   "note": "Draft: to be revisited later."
+  }
+ ]
+}

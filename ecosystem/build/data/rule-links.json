@@ -1,0 +1,457 @@
+{
+ "about": "What enforces each rule, which pillars it serves and which parts it touches. Keyed by RULES.md Rule ID, by agents:<AGENTS.md key>, or by candidate:<id> for rules proposed in the HAX Scheduled Background Jobs Plan that aren't written into RULES.md or AGENTS.md yet. enforced_by names tiles in the Quality control web; build_rules.py drops any that no longer exist there, so a rule whose check goes away turns back into a gap. Every enforcement link here was checked against the workflow or lint config that does it.",
+ "aliases": {
+  "agents:Global References": "CEHsAz",
+  "agents:DDD System": "MLhl56",
+  "agents:HAX Properties": "rVsCTS"
+ },
+ "rules": {
+  "nJF4SY": {
+   "enforced_by": [
+    "q_lint"
+   ],
+   "pillars": [
+    "agnostic"
+   ],
+   "touches": [
+    "components"
+   ],
+   "how": "ESLint no-restricted-syntax (ChainExpression) in webcomponents; advisory in CI, blocking in yarn precheck before push."
+  },
+  "CEHsAz": {
+   "enforced_by": [
+    "q_lint"
+   ],
+   "touches": [
+    "components"
+   ],
+   "how": "ESLint no-restricted-globals (window) in webcomponents; advisory in CI, blocking in yarn precheck."
+  },
+  "MLhl56": {
+   "enforced_by": [
+    "q_ddd_token_lint"
+   ],
+   "pillars": [
+    "accessible",
+    "sustainable"
+   ],
+   "touches": [
+    "ddd",
+    "components"
+   ]
+  },
+  "MT6HPJ": {
+   "enforced_by": [
+    "q_ddd_token_lint"
+   ],
+   "pillars": [
+    "accessible"
+   ],
+   "touches": [
+    "ddd",
+    "components"
+   ]
+  },
+  "7CPveF": {
+   "enforced_by": [
+    "q_test_all_elements",
+    "ct_a11y"
+   ],
+   "pillars": [
+    "accessible"
+   ],
+   "touches": [
+    "components"
+   ],
+   "how": "Element test suites include axe checks where an element has tests; the weekly sweep checks every demo. Project-wide accessibility is not a blocking gate."
+  },
+  "13a033": {
+   "pillars": [
+    "accessible"
+   ],
+   "touches": [
+    "components",
+    "ddd",
+    "meaningchannels"
+   ]
+  },
+  "a8bf4a": {
+   "enforced_by": [
+    "q_parity"
+   ],
+   "pillars": [
+    "agnostic"
+   ],
+   "touches": [
+    "php",
+    "nodejs"
+   ],
+   "how": "Nightly backend parity run (report only)."
+  },
+  "8e6a9a": {
+   "enforced_by": [
+    "q_memory_leaks"
+   ],
+   "pillars": [
+    "efficient",
+    "sustainable"
+   ],
+   "touches": [
+    "components"
+   ]
+  },
+  "13166d": {
+   "enforced_by": [
+    "q_render_benchmarks"
+   ],
+   "pillars": [
+    "efficient"
+   ],
+   "touches": [
+    "components"
+   ],
+   "how": "Render benchmarks run on PRs and report without failing."
+  },
+  "0cf20b": {
+   "enforced_by": [
+    "q_mutation_testing",
+    "ct_fuzz"
+   ],
+   "pillars": [
+    "sustainable"
+   ],
+   "touches": [
+    "haxcms",
+    "nodejs",
+    "php"
+   ]
+  },
+  "4e5b25": {
+   "enforced_by": [
+    "ct_fuzz"
+   ],
+   "pillars": [
+    "sustainable"
+   ],
+   "touches": [
+    "cli",
+    "nodejs",
+    "components"
+   ]
+  },
+  "cd0800": {
+   "enforced_by": [
+    "q_codeql"
+   ],
+   "pillars": [
+    "sustainable"
+   ],
+   "touches": [
+    "components",
+    "nodejs",
+    "php",
+    "cli"
+   ]
+  },
+  "4a7c9e": {
+   "enforced_by": [
+    "q_unused_code_knip"
+   ],
+   "touches": [
+    "components"
+   ],
+   "how": "knip reports unlisted and unused dependencies (report only)."
+  },
+  "7d6f9c": {
+   "pillars": [
+    "open"
+   ],
+   "touches": [
+    "traveler"
+   ]
+  },
+  "bAKMWC": {
+   "pillars": [
+    "agnostic",
+    "open"
+   ],
+   "touches": [
+    "praw",
+    "agents"
+   ]
+  },
+  "tJnuFV": {
+   "pillars": [
+    "sustainable"
+   ],
+   "touches": [
+    "issues"
+   ]
+  },
+  "c3Xjsq": {
+   "pillars": [
+    "remixable"
+   ],
+   "touches": [
+    "oerschema",
+    "components"
+   ]
+  },
+  "rVsCTS": {
+   "pillars": [
+    "extensible"
+   ],
+   "touches": [
+    "haxschema",
+    "components"
+   ]
+  },
+  "199290": {
+   "pillars": [
+    "accessible",
+    "efficient"
+   ],
+   "touches": [
+    "ddd",
+    "haxcms"
+   ]
+  },
+  "1eaa87": {
+   "pillars": [
+    "accessible",
+    "efficient",
+    "extensible",
+    "open",
+    "agnostic",
+    "remixable",
+    "sustainable"
+   ],
+   "touches": [
+    "praw"
+   ]
+  },
+  "agents:Formatting": {
+   "enforced_by": [
+    "q_format_check"
+   ],
+   "touches": [
+    "components",
+    "cli"
+   ],
+   "how": "Prettier format check: fails the PR in create and haxcms-nodejs, reports only in webcomponents."
+  },
+  "agents:Feature PRs change English source strings only": {
+   "enforced_by": [
+    "q_locale_guard"
+   ],
+   "pillars": [
+    "accessible"
+   ],
+   "touches": [
+    "components",
+    "languages"
+   ],
+   "how": "locale-guard workflow, warning only."
+  },
+  "agents:Dependencies": {
+   "enforced_by": [
+    "q_audit"
+   ],
+   "pillars": [
+    "sustainable"
+   ],
+   "touches": [
+    "components",
+    "nodejs",
+    "php",
+    "cli"
+   ]
+  },
+  "agents:Library Security": {
+   "enforced_by": [
+    "q_audit",
+    "q_dependency_licenses"
+   ],
+   "pillars": [
+    "sustainable",
+    "open"
+   ],
+   "touches": [
+    "components",
+    "nodejs",
+    "php",
+    "cli"
+   ]
+  },
+  "agents:Component Security": {
+   "enforced_by": [
+    "q_codeql"
+   ],
+   "pillars": [
+    "sustainable"
+   ],
+   "touches": [
+    "components"
+   ],
+   "how": "CodeQL flags unsanitized input flowing into the DOM."
+  },
+  "candidate:content_contract": {
+   "enforced_by": [
+    "q_element_api_snapshot"
+   ],
+   "pillars": [
+    "sustainable",
+    "remixable",
+    "open"
+   ],
+   "touches": [
+    "components"
+   ]
+  },
+  "candidate:content_no_ddd": {
+   "pillars": [
+    "extensible",
+    "agnostic"
+   ],
+   "touches": [
+    "components",
+    "ddd"
+   ]
+  },
+  "candidate:user_links": {
+   "pillars": [
+    "open"
+   ],
+   "touches": [
+    "editor"
+   ]
+  },
+  "candidate:version_hidden": {
+   "enforced_by": [
+    "qp_haxcms_nodejs_189"
+   ],
+   "pillars": [
+    "sustainable"
+   ],
+   "touches": [
+    "nodejs",
+    "php",
+    "haxiam"
+   ]
+  },
+  "candidate:no_native_dialogs": {
+   "pillars": [
+    "accessible"
+   ],
+   "touches": [
+    "components",
+    "haxcms"
+   ]
+  },
+  "candidate:explicit_js": {
+   "pillars": [
+    "agnostic"
+   ],
+   "touches": [
+    "components"
+   ]
+  },
+  "candidate:ddd_layers": {
+   "pillars": [
+    "accessible",
+    "efficient"
+   ],
+   "touches": [
+    "ddd",
+    "haxcms",
+    "components"
+   ]
+  },
+  "candidate:xapi": {
+   "pillars": [
+    "remixable"
+   ],
+   "touches": [
+    "xapi",
+    "components"
+   ]
+  },
+  "candidate:correct_colors": {
+   "pillars": [
+    "accessible"
+   ],
+   "touches": [
+    "ddd",
+    "components",
+    "meaningchannels"
+   ]
+  },
+  "8d0c033b": {
+   "pillars": [
+    "accessible"
+   ],
+   "touches": [
+    "meaningchannels",
+    "ddd",
+    "components"
+   ],
+   "how": ""
+  }
+ },
+ "candidates": [
+  {
+   "id": "content_contract",
+   "title": "Element front-end APIs never change",
+   "group": "Content contract",
+   "text": "Attributes, usage and existing labels of authorable elements never change, so all content ever made keeps working. Visual and language-support improvements are fine."
+  },
+  {
+   "id": "content_no_ddd",
+   "title": "Content elements don't require the full DDD stack",
+   "group": "Content contract",
+   "text": "Content-level elements work without loading the whole DDD design system."
+  },
+  {
+   "id": "user_links",
+   "title": "User-authored links are always respected",
+   "group": "Content contract",
+   "text": "Links an author writes (http included) are kept as written."
+  },
+  {
+   "id": "version_hidden",
+   "title": "The HAX version is never shown to unauthenticated users",
+   "group": "Platform rules",
+   "text": "No version number reaches anyone who isn't logged in."
+  },
+  {
+   "id": "no_native_dialogs",
+   "title": "No native prompt or confirm dialogs",
+   "group": "Platform rules",
+   "text": "Confirmation steps are built into the page, never the browser's prompt(), confirm() or alert()."
+  },
+  {
+   "id": "explicit_js",
+   "title": "HAX imports use explicit .js paths",
+   "group": "Platform rules",
+   "text": "Our own elements are imported with the full .js file path, since the server can't load extensionless paths."
+  },
+  {
+   "id": "ddd_layers",
+   "title": "DDD layers: content scale, HAX UI admin style, instructional element blueprint",
+   "group": "DDD layers",
+   "text": "Each surface uses its DDD layer: content scale for what readers see, the denser HAX UI style for admin surfaces, and the instructional element blueprint for activities."
+  },
+  {
+   "id": "xapi",
+   "title": "xAPI conformance and stable answer keys",
+   "group": "Learning data",
+   "text": "Learning activities send conformant xAPI statements, and answer keys stay stable so results stay comparable."
+  },
+  {
+   "id": "correct_colors",
+   "title": "Green for correct, purple for incorrect",
+   "group": "Conventions",
+   "text": "Correct is green and incorrect is purple, never red, for decisions with consequences."
+  }
+ ]
+}

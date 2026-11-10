@@ -48,17 +48,11 @@ def N(id, **kw):
 # ---- center and pillars
 N("human", desc="People are the center of HAX: authors, students, faculty, staff and contributors. Every pillar exists for them.", source=L("PRAW WORLDVIEW.md", WORLDVIEW), always=True)
 N("traveler", desc="The HAX mascot, a.k.a. World Changer: \"Dream it, remix it, have it, share it.\" Here he stands for your AI companion, working alongside people.", source=L("haxtheweb/art world-traveler", ART), links={"repo": ART}, always=True)
-P = {
- "accessible": "Meets WCAG 2.0 AA without extra author effort: labels, contrast, keyboard, headings.",
- "efficient": "Fast without a build step: offline-capable sites with high performance scores, shipped as unbundled ES modules.",
- "extensible": "Interoperates through standards, embeds and exports; themes, blocks and plugins extend it without forking core.",
- "open": "Apache-2.0 and built in public, with no paywalls, upsells or tracking that serves anyone but the user.",
- "agnostic": "Works the same on haxcms-nodejs, haxcms-php, static hosts and the desktop, and exports in open formats so it runs without us.",
- "remixable": "Everything exports in open formats (HTML, JSON Outline Schema, files) and keeps OER Schema and licensing metadata, so anyone can rework it.",
- "sustainable": "Understandable and maintainable by regular practitioners, tracked in one issue queue, and approachable for first-time contributors.",
-}
-for k, v in P.items():
-    N(k, desc=v, source=L("PRAW WORLDVIEW.md: pillar checks", WORLDVIEW + "#pillar-checks"), always=True)
+# the seven pillars: phrase, description, icon and color live in build/data/pillars.json (the Why layer)
+_PD = json.load(open("ext/pillars.json"))
+P = {p["id"]: p["phrase"] for p in _PD["pillars"]}
+for p in _PD["pillars"]:
+    N(p["id"], desc=p["phrase"] + " " + p["desc"], source=L(_PD["source"]["label"], _PD["source"]["url"]), always=True, **({"note": p["note"]} if p["note"] else {}))
 
 # ---- core platform
 N("haxcms", desc="\"A hybrid static site generator, a new class of CMS\": a microsite generator and manager that doesn't need the command line.", source=L("haxtheweb.org: Why HAXcms", HTW), links={"docs": HTW + "/documentation"}, status="released", year=2019, yearNote="HAXcms announced at DrupalCon; the first site goes live", yearSource=L("WINS.md SIIP timeline", WINS))
@@ -129,6 +123,9 @@ N("community", desc="How HAX is run: roles and succession, how a decision is mad
 N("quality", desc="Every safeguard on what enters HAX: blocking pull request gates, advisory checks, and nightly and weekly jobs, generated from the CI that actually runs.", links={"tracking": "https://github.com/haxtheweb/issues/issues/3262"}, always=True)
 N("heosat", desc="HEOSAT, Apereo's Higher Education Open Source Assessment Toolkit: 47 questions in 9 sections on licensing, governance, community, docs, operations, security, standards, adoption and sustainability. HAX runs it with AI through the heosat skill in PRAW, a process worked out with Apereo. Open it to see every question and what answers it.", links={"heosat": "https://github.com/apereo/heosat", "map": "https://github.com/haxtheweb/praw/blob/main/ecosystem/heosat-evidence-map.json", "issue": "https://github.com/haxtheweb/issues/issues/3256"}, always=True)
 N("booklooky", desc="BookLooky, a fellow open source project. HAX's AI-run HEOSAT process helped it go through Apereo incubation more accurately, and PRAW's haxcms-lrs-rater skill runs its Looky Rating System.", links={"issue": "https://github.com/haxtheweb/issues/issues/3256"}, always=True)
+N("wcag", desc="WCAG, the Web Content Accessibility Guidelines from the W3C. HAX elements are built to meet them by default; element test suites run axe accessibility checks where an element has tests, and the weekly accessibility sweep checks every demo.", links={"spec": "https://www.w3.org/WAI/standards-guidelines/wcag/"}, always=True)
+N("meaningchannels", desc="The meaning channels standard: anything that carries meaning or a consequential decision (correct versus incorrect, confirm versus deny, saving or deleting permanently) is conveyed through five channels at once: a label on hover and focus, a distinct color (green for correct, purple for incorrect, not red), a focus state, a texture that survives grayscale, and an icon unique to that meaning. Written into PRAW RULES.md; not yet in the DDD docs, and no gate enforces it yet.", status="in-progress", links={"rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#meaning-channels--meaning-and-consequential-decisions-use-all-five", "tracking": "https://github.com/haxtheweb/issues/issues/3262"}, always=True)
+N("rules", desc="Rules and guarantees: every rule HAX keeps, generated from PRAW's RULES.md and each repo's AGENTS.md, linked up to the pillars it serves, across to the parts it touches and down to the checks that enforce it. A rule nothing enforces shows as a gap.", links={"rules": "https://github.com/haxtheweb/praw/blob/main/RULES.md"}, always=True)
 N("contracts", desc="Every data contract in one view: the schema files each HAX format is defined by, and who reads and writes them.", always=True)
 N("anatomy", desc="What a HAX site is made of on disk: site.json, pages, files, theme, the registry and the files HAXcms generates.", always=True)
 N("xapi", desc="Learner activity recorded as xAPI-style statements, ready to move from local storage to a learning record store.", year=2016, yearNote="Dave Fusco works on xAPI integration", yearSource=L("hax-lab README", HAXLAB))

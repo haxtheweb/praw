@@ -19,7 +19,7 @@ CLONES = ["haxcms-nodejs", "haxcms-php", "createrepo", "mcprepo", "hs", "josrepo
 # builder -> webs it writes; every one of these reads its source directly
 BUILDERS = [("build_generated.py", ["openapi", "mcptools", "xapi", "cli"]), ("build_schemas.py", ["haxschema", "jos", "appstore", "merlin", "oerschema"]),
             ("build_importers.py", ["importers"]), ("build_tutorials.py", ["tutorials"]), ("build_skeletons.py", ["skeletons"]),
-            ("build_languages.py", ["languages"]), ("build_more.py", ["release", "community", "psu", "haxlab"]), ("build_heosat.py", ["heosat"]), ("build_idskills.py", ["idskills"]), ("build_quality.py", ["quality"]), ("build_layers.py", [])]
+            ("build_languages.py", ["languages"]), ("build_more.py", ["release", "community", "psu", "haxlab"]), ("build_heosat.py", ["heosat"]), ("build_idskills.py", ["idskills"]), ("build_rules.py", ["rules"]), ("build_quality.py", ["quality"]), ("build_layers.py", [])]
 WEBS = [w for _, ws in BUILDERS for w in ws]
 def run(cmd, **kw):
     r = subprocess.run(cmd, capture_output=True, text=True, **kw)

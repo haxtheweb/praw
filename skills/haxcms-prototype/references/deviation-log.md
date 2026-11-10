@@ -9,12 +9,14 @@ about the product too.
 
 ## Entries
 
-### Outline opens inside Site Settings, not as its own dialog
+### Outline is part of Site Settings, not its own top bar button
 
-- **Seen**: prototypes drawing Outline as a separate modal or page.
-- **Real** (inventory, 2026-11-06): the top bar's Outline control opens the one Site Settings dialog
-  at **Structure** (breadcrumb "Site Settings / Structure"), with the admin rail on the left.
-- **Look at**: inventory state `outline`.
+- **Seen**: prototypes drawing Outline as a separate modal or page, or as its own top bar button.
+- **Real** (source, webcomponents master `6a933ca7fc`, 2026-11-10): since
+  https://github.com/haxtheweb/webcomponents/pull/1149 the top bar has no Outline button. Site
+  Settings is a menu (Dashboard, Content, Structure, Files, Appearance, ...) and Structure opens the
+  one Site Settings dialog there, with the admin rail on the left. Ctrl⇧6 opens the outline actions.
+- **Look at**: inventory states `site-view` and `outline`.
 
 ### The site admin is one dialog with a section rail
 
@@ -28,22 +30,45 @@ about the product too.
   never draw their own titlebar or Save button (HAX UI rule).
 - **Look at**: inventory states `site-admin-*` (add `--sub` for sub-sections).
 
-### Top bar labels include their shortcut
+### The top bar is three groups, and its shortcuts have moved
 
-- **Seen**: "Edit", "Outline", "Site Settings" as bare labels.
-- **Real** (inventory, 2026-11-06): "Edit • Ctrl⇧E", "Add page • Ctrl⇧1", "Outline • Ctrl⇧2",
-  "Site Settings • Ctrl⇧3"; Merlin uses the `hax:wand` icon.
+- **Seen**: the pre-#1149 bar ("Outline • Ctrl⇧2", "Site Settings • Ctrl⇧3"), or labels without their
+  shortcut.
+- **Real** (source, webcomponents master `6a933ca7fc`, 2026-11-10):
+  - Left: the account menu (Ctrl⇧1; the way back to your sites lives in it), a thin divider, the Site
+    Settings menu (house icon, Ctrl⇧2), "Add page • Ctrl⇧3", another divider and "Edit • Ctrl⇧E".
+  - Center: Merlin as a search field ("Filter commands"), not a lone wand button.
+  - Right: "Preview • Ctrl⇧8" (eye icon), then the HAX mark (World Traveler). The mark is decorative,
+    not a link.
+  - Every label carries its shortcut.
+- **Phone width** (600px and below): the left group's dividers and the HAX mark are hidden, and the
+  right group drops its gaps, so Edit still fits.
+- **Shortcuts move**: they were renumbered in #1149. Read them from the capture or the source on the
+  day you draw, never from an older prototype.
 - **Look at**: inventory state `site-view`, `dom.json` labels and icons.
 
 ### Edit mode replaces the top bar's controls
 
 - **Seen**: edit mode drawn as the site-view top bar plus a Save button.
-- **Real** (inventory, 2026-11-06): in edit mode the left of the bar becomes the editing toolbar:
-  "Source • Ctrl⇧1", "Structure • Ctrl⇧2", "Blocks • Ctrl⇧3", "Configure • Ctrl⇧4", "Undo • Ctrl Z",
-  "Redo • Ctrl⇧Z", "Cancel • Ctrl⇧/", "Save • Ctrl⇧S" (Edit becomes Save). Add page, Outline and Site
-  Settings stay on the right but are dimmed. The Configure panel opens on the left, and the edited page
-  gets a header row with status pills (Published, Unlocked, tags, path) and Page settings.
+- **Real** (source, webcomponents master `6a933ca7fc`, 2026-11-10): in edit mode Site Settings and
+  Add page are hidden. The left group becomes the editing toolbar: "Source • Ctrl⇧2", "Structure •
+  Ctrl⇧3" (the page outline), "Blocks • Ctrl⇧4", "Configure • Ctrl⇧5", "Undo • Ctrl Z", "Redo • Ctrl⇧Z",
+  "Cancel • Ctrl⇧/", and Edit becomes "Save • Ctrl⇧S". The right group stays, including Preview. The
+  Configure panel opens on the left, and the edited page gets a header row with status pills
+  (Published, Unlocked, tags, path) and Page settings.
 - **Look at**: inventory state `edit-mode`.
+
+### What a visitor sees is its own capture, not a cropped logged-in one
+
+- **Seen**: a visitor view drawn by cutting the top bar off a logged-in capture. The theme
+  still drew its logged-in extras (page pencils, unpublished pages) because themes key them on
+  `is-logged-in`.
+- **Real**: use inventory state `site-view-visitor`, which loads the site in a browser context that
+  never logged in. Since https://github.com/haxtheweb/webcomponents/pull/1210 the editor also has
+  Preview (Ctrl⇧8). It keeps you logged in but turns `is-logged-in` off for the theme and folds the
+  bar into a flag at the top right. A prototype of something seen while previewing starts from that
+  state, not from the visitor capture.
+- **Look at**: inventory state `site-view-visitor`.
 
 ### The DDD block header does not wrap its actions
 

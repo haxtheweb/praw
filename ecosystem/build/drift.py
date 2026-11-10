@@ -111,6 +111,10 @@ for w, v in report["webs"].items():
         md += [f"- new: `{k}` {lab}" for k, lab in v["added"].items()] + [f"- gone: `{k}` {lab}" for k, lab in v["gone"].items()] + [""]
 for k, v in report["inventories"].items():
     if v["added"] or v["gone"]:
+        if k.endswith("copies out of step"):
+            md.append(f"## {k}")
+            md += [f"- `{x}`" for x in v["added"]] + [""]
+            continue
         md.append(f"## {k} (saved extract vs source)")
         md += [f"- in source, not in the extract: `{x}`" for x in v["added"]] + [f"- in the extract, gone from source: `{x}`" for x in v["gone"]] + [""]
 bad = {b: s for b, s in report["builders"].items() if s != "ok"}

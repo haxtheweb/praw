@@ -1,7 +1,7 @@
 ---
 name: haxcms-prototype
 description: "Build a prototype of HAXcms itself (whole-site designs, the editor top bar, edit mode, menus, outline, site or system admin, multipage flows) on the real running system, mark what is proposed, and check the rest against a generated UI inventory. Use for any HAXcms mockup, redesign or flow prototype; single elements use hax-element-demo."
-version: 1.0.1
+version: 1.1.0
 license: Apache-2.0
 metadata:
   author: haxtheweb
@@ -84,6 +84,14 @@ anything you publish.
    so a full-page screenshot would not reach it). `manifest.json` records the fixture and the slot's
    box per variant; position the proposed region from those numbers. Don't give the slot a custom
    element tag: the inventory would record it as a real component.
+
+   **One change across several themes**: run the inventory once per theme (`--theme <element>`,
+   same fixture and flags), then combine the runs with
+   `node <skill-dir>/scripts/fidelity-check.mjs merge <dir>/main-all <dir>/main/<theme>...` (and the
+   same for the branch runs). State ids become `<theme>/<state>`, which is what the brief's steps use,
+   and `check` and `compare` read the merged folder like any other inventory. Themes whose front page
+   is a listing (journey-theme, haxor-slevin, simple-blog) need `--page-script` to open the page
+   before capture; make that script fail when the page's content is not on screen.
 
 3. **Pick the mode.** Say which one at the top of the prototype.
 

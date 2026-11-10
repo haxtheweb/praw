@@ -5,11 +5,16 @@
  *
  *   node fidelity-check.mjs check <prototype-dir> <inventory-dir> [--registry <wc-registry.json>] [--json]
  *   node fidelity-check.mjs compare <main-inventory-dir> <branch-inventory-dir> [--json]
+ *   node fidelity-check.mjs merge <out-dir> <inventory-dir>...
  *
  * check   validates a prototype against the inventory it claims to be built on.
  *         Exit 1 on any error, 0 otherwise (warnings do not fail).
  * compare lists per-state label and component differences between two
  *         inventories (main vs a branch), for branch prototypes.
+ * merge   combines inventories captured separately (one per theme with
+ *         ui:inventory --theme) into one inventory that check and compare can
+ *         read. State ids become "<theme>/<state>"; files are copied unchanged so
+ *         screenshot hashes still match the original captures.
  */
 import crypto from "node:crypto";
 import fs from "node:fs";
@@ -376,6 +381,70 @@ function compare(mainDir, branchDir) {
   return { main: a.manifest.source, branch: b.manifest.source, changes: out };
 }
 
+// --- merge ------------------------------------------------------------------
+
+function merge(outDir, invDirs) {
+  if (invDirs.length < 2) {
+    throw new Error("merge needs at least two inventory dirs");
+  }
+  const manifests = invDirs.map((dir) => {
+    const file = path.join(dir, "manifest.json");
+    if (!fs.existsSync(file)) {
+      throw new Error("no manifest.json in " + dir + " (run npm run ui:inventory)");
+    }
+    return { dir, manifest: readJson(file) };
+  });
+  // a prototype names one haxcms-nodejs commit in its provenance
+  const shas = new Set(manifests.map((m) => (m.manifest.source || {}).haxcmsNodejs || ""));
+  if (shas.size !== 1) {
+    throw new Error("inventories come from different haxcms-nodejs commits: " + [...shas].join(", "));
+  }
+  const names = manifests.map((m) => m.manifest.theme || path.basename(path.resolve(m.dir)));
+  if (new Set(names).size !== names.length) {
+    throw new Error("each inventory needs a distinct theme (or folder name): " + names.join(", "));
+  }
+  if (fs.existsSync(outDir) && fs.readdirSync(outDir).length) {
+    throw new Error("out dir is not empty: " + outDir);
+  }
+  fs.mkdirSync(path.join(outDir, "states"), { recursive: true });
+  const first = manifests[0].manifest;
+  const merged = Object.assign({}, first, { theme: null, states: [], mergedFrom: [] });
+  fs.copyFileSync(path.join(manifests[0].dir, "tokens.css"), path.join(outDir, "tokens.css"));
+  const warnings = [];
+  const tokenDiffs = [];
+  manifests.forEach((m, i) => {
+    const ns = names[i];
+    merged.mergedFrom.push({ theme: ns, generatedAt: m.manifest.generatedAt, fixture: m.manifest.fixture, source: m.manifest.source });
+    if (i > 0 && sha256(path.join(m.dir, "tokens.css")) !== sha256(path.join(outDir, "tokens.css"))) {
+      tokenDiffs.push(ns);
+    }
+    for (const state of m.manifest.states) {
+      const destRel = path.join("states", ns, state.id);
+      fs.mkdirSync(path.join(outDir, destRel), { recursive: true });
+      const next = Object.assign({}, state, { id: ns + "/" + state.id, screenshots: {} });
+      for (const variant of Object.keys(state.screenshots)) {
+        const rel = path.join(destRel, path.basename(state.screenshots[variant]));
+        fs.copyFileSync(path.join(m.dir, state.screenshots[variant]), path.join(outDir, rel));
+        next.screenshots[variant] = rel;
+      }
+      if (state.dom) {
+        const rel = path.join(destRel, path.basename(state.dom));
+        fs.copyFileSync(path.join(m.dir, state.dom), path.join(outDir, rel));
+        next.dom = rel;
+      }
+      merged.states.push(next);
+    }
+  });
+  if (tokenDiffs.length) {
+    // tokens resolve per theme; the prototype page's own chrome links one copy
+    warnings.push("tokens.css resolves differently in " + tokenDiffs.join(", ") + "; the merged inventory keeps " + names[0] + "'s for the page to link");
+  }
+  // the newest capture date, so provenance shows when the set was finished
+  merged.generatedAt = manifests.map((m) => m.manifest.generatedAt || "").sort().pop();
+  fs.writeFileSync(path.join(outDir, "manifest.json"), JSON.stringify(merged, null, 2));
+  return { states: merged.states.length, inventories: names, warnings };
+}
+
 // --- cli --------------------------------------------------------------------
 
 function main() {
@@ -413,7 +482,19 @@ function main() {
     }
     process.exit(0);
   }
-  console.error("usage:\n  fidelity-check.mjs check <prototype-dir> <inventory-dir> [--registry <file>] [--json]\n  fidelity-check.mjs compare <main-inventory> <branch-inventory> [--json]");
+  if (cmd === "merge" && one && two) {
+    let r;
+    try {
+      r = merge(path.resolve(one), pos.slice(2).map((d) => path.resolve(d)));
+    } catch (e) {
+      console.error("merge: " + e.message);
+      process.exit(2);
+    }
+    console.log("merged " + r.states + " states from " + r.inventories.join(", ") + " into " + path.resolve(one));
+    for (const w of r.warnings) console.log("  warn   " + w);
+    process.exit(0);
+  }
+  console.error("usage:\n  fidelity-check.mjs check <prototype-dir> <inventory-dir> [--registry <file>] [--json]\n  fidelity-check.mjs compare <main-inventory> <branch-inventory> [--json]\n  fidelity-check.mjs merge <out-dir> <inventory-dir>...");
   process.exit(2);
 }
 

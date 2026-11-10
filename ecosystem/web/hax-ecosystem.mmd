@@ -66,6 +66,7 @@ flowchart TB
   subgraph practices ["Practices and standards"]
     wcstandard["Web component standard"]
     security["Security"]
+    quality["Quality control"]
     testing["Automated testing"]
     design["Design"]
   end
@@ -374,6 +375,11 @@ flowchart TB
   wcstandard ==>|keeps it| agnostic
   design -->|shapes| ddd
   design ==>|keeps it| accessible
+  testing -->|is part of| quality
+  quality -->|guards| components
+  quality -->|guards| nodejs
+  quality -->|guards| php
+  quality -->|guards| cli
   testing -->|checks work from| traveler
   testing --o|runs on| github
   testing -->|guards| security
@@ -721,7 +727,8 @@ flowchart TB
   %%@ node wins icon=icons:stars color=roarGolden motion=pop
   %%@ node wcstandard icon=hax:html-code color=inventOrange motion=nudge web=stack
   %%@ node security icon=icons:lock color=slateGray motion=pulse
-  %%@ node testing icon=icons:assignment-turned-in color=forestGreen motion=pop web=quality
+  %%@ node quality icon=icons:verified-user color=forestGreen motion=pop web=quality
+  %%@ node testing icon=icons:assignment-turned-in color=forestGreen motion=pop
   %%@ node design icon=image:brush color=athertonViolet motion=tilt
   %%@ node psu mono=PSU color=nittanyNavy motion=pulse web=psu
   %%@ node aa mono=A&A color=beaverBlue motion=lift

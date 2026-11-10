@@ -1,0 +1,5 @@
+{"about": "Open PRs that add checks inside an existing workflow, so build_quality.py can't find them from new workflow files. Each is shown as a planned tile while it is open; merged or closed ones drop out on the next run. PRs that add a new workflow file are found automatically.",
+ "prs": [
+  {"pr": "haxtheweb/haxcms-nodejs#189", "label": "Version leak and OpenAPI contract tests", "repo": "nodejs"},
+  {"pr": "haxtheweb/haxcms-php#744", "label": "Version leak and OpenAPI contract tests", "repo": "php"}
+ ]}

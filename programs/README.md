@@ -36,10 +36,13 @@ The LinkedIn module allows agents to help users automate content posting to Link
 
 **A) Automatic Issue-Based Posts**
 ```bash
-# Simple weekly productivity update
+# Simple weekly productivity update — dry run by default (prints, never posts)
 ./linkedin
 
-# Or directly call the script
+# Actually publish (only after a person has read the generated text)
+./linkedin --post
+
+# Or directly call the script (prompts y/N before posting)
 node post-to-linkedin.js
 ```
 
@@ -54,9 +57,13 @@ echo "Summary of our accessibility discussion" | node post-to-linkedin.js --stdi
 
 **C) Dry Run Mode**
 ```bash
-# Generate content without posting (useful for review)
+# Generate content without posting: no prompt, nothing published
 node post-to-linkedin.js --dry-run
 ```
+
+The `./linkedin` wrapper always runs this way unless you pass `--post`, so a cron'd or
+agent-driven invocation cannot publish issue-derived or AI-generated text without a person
+opting in.
 
 #### For Agents: LinkedIn Integration Tips
 

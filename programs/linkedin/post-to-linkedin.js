@@ -6,10 +6,12 @@ const os = require('os');
 const { execFileSync } = require('child_process');
 
 class LinkedInPoster {
-  constructor() {
+  constructor(options) {
     this.config = this.loadConfig();
     this.issuesData = this.loadIssuesData();
     this.manualMode = !this.config;
+    // Dry run: generate and print the posts, never prompt, never post.
+    this.dryRun = !!(options && options.dryRun);
   }
 
   loadConfig() {
@@ -360,6 +362,11 @@ Building sustainable #WebComponents!
       console.log(twitterPost);
       console.log('─'.repeat(30));
       
+      if (this.dryRun) {
+        console.log('\n🧪 Dry run: nothing was posted. Re-run with --post to publish.');
+        return;
+      }
+      
       // Ask for confirmation
       const readline = require('readline').createInterface({
         input: process.stdin,
@@ -402,7 +409,7 @@ Building sustainable #WebComponents!
           console.log(`\n📊 Stats and posts ${modeText}, saved to post-history.json`);
         }
       } else {
-        console.log('📋 Posts generated but not posted. Use --dry-run flag to skip confirmation.');
+        console.log('📋 Posts generated but not posted.');
       }
       
     } catch (error) {
@@ -426,7 +433,8 @@ Usage:
 Options:
   --custom "text"  Post custom content instead of issues summary
   --stdin          Read content from stdin (pipe mode)
-  --dry-run        Generate posts without posting
+  --dry-run        Generate and print the posts; never prompt, never post
+  --post           Explicitly allow posting (the ./linkedin wrapper defaults to --dry-run)
   --help, -h       Show this help message
 
 Examples:
@@ -448,7 +456,9 @@ Setup required:
 }
 
 async function main() {
-  const poster = new LinkedInPoster();
+  // --dry-run wins over --post so a wrapper default cannot be overridden by accident.
+  const dryRun = args.includes('--dry-run');
+  const poster = new LinkedInPoster({ dryRun });
   
   // Handle custom content modes
   if (args.includes('--custom')) {

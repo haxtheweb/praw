@@ -13,7 +13,7 @@
     {
       "name": "hax-onboarding",
       "source": "./plugins/hax-onboarding",
-      "description": "Golden-path onboarding for HAX: auto-installs the HAX CLI, ships a knowledge skill, and provides slash commands (quickstart, site, webcomponent, audit, serve, publish) to go from nothing to a live HAXsite in one pass.",
+      "description": "Golden-path onboarding for HAX: checks for the HAX CLI on session start (installs it only with HAX_PLUGIN_AUTOINSTALL=1 opt-in), ships a knowledge skill, and provides slash commands (quickstart, site, webcomponent, audit, serve, publish) to go from nothing to a live HAXsite in one pass.",
       "version": "1.0.0",
       "author": {
         "name": "HAXTheWeb core team",

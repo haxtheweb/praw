@@ -41,4 +41,6 @@ local-config.*
 
 # yt-dlp skill — vendored from a third-party repo with no license declared; not redistributed here.
 .agents/skills/yt-dlp/
-skills/hax-i18n-translate/scripts/__pycache__/
+# Python bytecode caches (any skill's scripts/)
+__pycache__/
+*.pyc

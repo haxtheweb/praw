@@ -14,7 +14,7 @@
       "name": "hax-onboarding",
       "source": "./plugins/hax-onboarding",
       "description": "Golden-path onboarding for HAX: checks for the HAX CLI on session start (installs it only with HAX_PLUGIN_AUTOINSTALL=1 opt-in), ships a knowledge skill, and provides slash commands (quickstart, site, webcomponent, audit, serve, publish) to go from nothing to a live HAXsite in one pass.",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "author": {
         "name": "HAXTheWeb core team",
         "url": "https://hax.psu.edu/"
@@ -36,7 +36,7 @@
       "name": "hax-site-ops",
       "source": "./plugins/hax-site-ops",
       "description": "Operate HAX sites from Claude Code using the HAX CLI and HAX web components \u2014 add pages, create courses, update content, inspect, validate, and publish. Ships a site-operations skill plus reference docs.",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "author": {
         "name": "HAXTheWeb core team",
         "url": "https://hax.psu.edu/"
@@ -79,7 +79,7 @@
       "source": "./",
       "strict": false,
       "description": "Author and maintain HAXcms sites: understand the portable file structure, write content with the right components, avoid hand-editing generated files, theme a site, and publish tutorials.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "category": "authoring",
       "skills": [
         "./skills/hax-mental-model",
@@ -223,7 +223,7 @@
       "source": "./",
       "strict": false,
       "description": "Platform development for HAXcms: keep the Node and PHP backends in step, build site importers, run the right tests per repo, and prepare maintainer release handoffs without running publish steps.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "category": "development",
       "skills": [
         "./skills/hax-backend-dev",

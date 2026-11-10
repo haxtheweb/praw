@@ -2,7 +2,7 @@
   "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
   "name": "hax-onboarding",
   "displayName": "HAX Onboarding",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Golden-path onboarding for HAX. A SessionStart hook checks for the HAX CLI (@haxtheweb/create) and installs it only when you opt in with HAX_PLUGIN_AUTOINSTALL=1; ships a knowledge skill with the full command surface and slash commands for the top workflows: quickstart (site -> serve -> live URL), site, webcomponent, audit, serve, and publish.",
   "author": {
     "name": "HAXTheWeb core team",

@@ -8,7 +8,7 @@ description: >-
   Triggers include: hax site, haxcms, add pages, create course, site operations,
   content authoring, HAX web components.
 allowed-tools: Bash(hax:*), Bash(cd:*), Bash(npm install --global @haxtheweb/create*), Read, Edit, Write, Glob, Grep
-version: 1.1.0
+version: 1.2.0
 license: Apache-2.0
 ---
 
@@ -96,6 +96,10 @@ no `--order`, the page goes after the last of its siblings (highest order + 1, s
 `published`, `tags`, `parent`, `order`, `theme` and `hideInMenu`; `description` is a flag, not a
 node-op.
 
+`--content` takes a file path, a URL or inline HTML. How the CLI tells them apart, and how to set
+the format (`--content-format`), is in the `hax-site-building` skill
+(https://github.com/haxtheweb/create/blob/main/src/skills/hax-site-building/SKILL.md); follow that rather than guessing.
+
 ## Automatic Discovery
 
 When uncertain:
@@ -106,16 +110,19 @@ When uncertain:
 4. Prefer discovery over guessing.
 5. Use the most specific HAX feature available.
 
-Never use `npx hax` or `npx @haxtheweb/create` — an unpinned `npx` run downloads and executes whatever is latest on the registry.
-
-Use the installed `hax` command:
+Use the `hax` already on PATH. In a parity run or any test of a create branch, that is the build
+under test, so never swap in another copy:
 
 ```bash
 hax --help
 hax site --help
 ```
 
-If `hax` is not on PATH, tell the user and (with their agreement) install it once with `npm install --global @haxtheweb/create` (pin a version with `@haxtheweb/create@<version>` when reproducibility matters), then continue with `hax`.
+Only when no `hax` is installed, fall back to `npx @haxtheweb/create` with a pinned version
+(`npx @haxtheweb/create@<version> site --help`), or, with the user's agreement, install it once with
+`npm install --global @haxtheweb/create` and continue with `hax`. Never use `npx hax` (a different
+npm package) or an unpinned `npx @haxtheweb/create`, which downloads and runs whatever is latest on
+the registry.
 
 ## HAX Component Usage
 

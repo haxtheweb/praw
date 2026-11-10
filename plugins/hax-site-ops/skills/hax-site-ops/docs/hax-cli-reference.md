@@ -8,7 +8,7 @@ Command source:
 npx @haxtheweb/create
 ```
 
-Important: never use `npx hax`; it resolves to the wrong npm package. Use `npx @haxtheweb/create` or a globally installed `hax` command from `@haxtheweb/create`.
+Important: use the `hax` command already on PATH (from `@haxtheweb/create`; in a parity run, the build under test). Only when none is installed, fall back to `npx @haxtheweb/create@<version>` with a pinned version. Never use `npx hax`; it resolves to the wrong npm package. This reference is a snapshot of `--help` output; `hax site --help` for the installed CLI wins, and `--content` handling is described in the `hax-site-building` skill (https://github.com/haxtheweb/create/blob/main/src/skills/hax-site-building/SKILL.md).
 
 ## @haxtheweb/create --help
 
@@ -343,9 +343,9 @@ Options:
 ## Common safe examples
 
 ```bash
-npx @haxtheweb/create site --root . site:items
-npx @haxtheweb/create site --root . node:add --title "Page Title" --content "<h1>Page Title</h1><p>Starter content.</p>" --y
-npx @haxtheweb/create site --root . site:search --search "keyword"
-npx @haxtheweb/create site --root . site:html
-npx @haxtheweb/create site --root . site:md
+hax site --root . site:items
+hax site --root . node:add --title="Page Title" --content="<h1>Page Title</h1><p>Starter content.</p>" --y --no-i --agent
+hax site --root . site:search --search "keyword"
+hax site --root . site:html
+hax site --root . site:md
 ```

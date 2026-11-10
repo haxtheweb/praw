@@ -255,6 +255,27 @@ listPluginSkillFiles().forEach(function (f) {
   if (boundary) warnings.push(boundary);
 });
 
+// The HAX CLI pin lives in two .version files: the repo root (read by
+// hax-onboarding.sh) and the hax-onboarding plugin (read by its SessionStart
+// hook; the plugin cache only holds the plugin directory). The ecosystem release
+// (ubiquity) writes both before running this script, so they must agree.
+(function checkCliVersionPins() {
+  const pins = ['.version', 'plugins/hax-onboarding/.version'].map(function (rel) {
+    const abs = path.join(prawRoot, rel);
+    return { rel: rel, value: fs.existsSync(abs) ? fs.readFileSync(abs, 'utf8').trim() : null };
+  });
+  pins.forEach(function (pin) {
+    if (pin.value === null) {
+      warnings.push(pin.rel + ' is missing; the HAX CLI install would fall back to "latest"');
+    } else if (!/^\d+\.\d+\.\d+$/.test(pin.value)) {
+      warnings.push(pin.rel + ' is "' + pin.value + '", expected an exact x.y.z release');
+    }
+  });
+  if (pins[0].value !== null && pins[1].value !== null && pins[0].value !== pins[1].value) {
+    warnings.push('.version (' + pins[0].value + ') and plugins/hax-onboarding/.version (' + pins[1].value + ') disagree');
+  }
+})();
+
 const index = { '$schema': SCHEMA_URI, skills: skills };
 const indexJson = JSON.stringify(index, null, 2) + '\n';
 

@@ -19,9 +19,15 @@ NC='\033[0m' # No Color
 # Configuration
 DEFAULT_BASE_DIR="$HOME/Documents/git/haxtheweb"
 GITHUB_ORG="haxtheweb"
-# Pinned HAX CLI release installed by setup_hax_cli. Override with
-# HAX_CREATE_VERSION=<version> (or "latest") to install a different release.
-HAX_CREATE_VERSION="${HAX_CREATE_VERSION:-26.8.1}"
+# Pinned HAX CLI release installed by setup_hax_cli. The pin lives in .version
+# next to this script, which the ecosystem release (ubiquity) rewrites to the
+# release it just published, so it moves with every release without a manual
+# bump. Override with HAX_CREATE_VERSION=<version> (or "latest").
+HAX_ONBOARDING_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" 2>/dev/null && pwd)"
+if [ -z "${HAX_CREATE_VERSION:-}" ] && [ -r "$HAX_ONBOARDING_DIR/.version" ]; then
+    HAX_CREATE_VERSION="$(tr -d '[:space:]' < "$HAX_ONBOARDING_DIR/.version")"
+fi
+HAX_CREATE_VERSION="${HAX_CREATE_VERSION:-latest}"
 
 # Repository list based on the training data analysis
 declare -A REPOSITORIES=(

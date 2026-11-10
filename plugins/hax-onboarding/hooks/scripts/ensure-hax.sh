@@ -19,9 +19,14 @@
 set -uo pipefail
 
 # The CLI release this plugin installs when opted in. Pinned so a session-start
-# hook never pulls an unreviewed "latest" from the registry; bump deliberately
-# (keep in step with HAX_CREATE_VERSION in hax-onboarding.sh at the repo root).
-HAX_CREATE_VERSION="${HAX_CREATE_VERSION:-26.8.1}"
+# hook never pulls an unreviewed "latest" from the registry. The pin lives in the
+# plugin's own .version (the plugin cache only holds this plugin directory), which
+# the ecosystem release (ubiquity) rewrites to the release it just published.
+PLUGIN_DIR="${CLAUDE_PLUGIN_ROOT:-$(cd "$(dirname "$0")/../.." 2>/dev/null && pwd)}"
+if [ -z "${HAX_CREATE_VERSION:-}" ] && [ -r "$PLUGIN_DIR/.version" ]; then
+  HAX_CREATE_VERSION="$(tr -d '[:space:]' < "$PLUGIN_DIR/.version")"
+fi
+HAX_CREATE_VERSION="${HAX_CREATE_VERSION:-latest}"
 MANUAL_INSTALL="npm install --global @haxtheweb/create@${HAX_CREATE_VERSION}"
 
 # Optional local development checkout of https://github.com/haxtheweb/create.

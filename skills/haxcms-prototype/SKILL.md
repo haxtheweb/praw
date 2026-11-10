@@ -1,7 +1,7 @@
 ---
 name: haxcms-prototype
 description: "Build a prototype of HAXcms itself (whole-site designs, the editor top bar, edit mode, menus, outline, site or system admin, multipage flows) on the real running system, mark what is proposed, and check the rest against a generated UI inventory. Use for any HAXcms mockup, redesign or flow prototype; single elements use hax-element-demo."
-version: 1.0.0
+version: 1.0.1
 license: Apache-2.0
 metadata:
   author: haxtheweb

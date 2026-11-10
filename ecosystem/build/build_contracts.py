@@ -7,7 +7,7 @@ NODE = GH + "/haxcms-nodejs/blob/main/"
 PHP = GH + "/haxcms-php/blob/master/"
 def L(a, b): return {"label": a, "url": b}
 
-SCHEMAS = ["jos", "haxschema", "appstore", "merlin", "oerschema", "xapi", "openapi", "skillsindex"]  # portals to main
+SCHEMAS = ["jos", "haxschema", "appstore", "merlin", "oerschema", "xapi", "openapi", "skillsindex", "registry"]  # portals to main
 # id, label, which schema, desc, links
 FILES = [
  ("sitejson", "site.json", "jos", "One per site: title, metadata, theme and the items tree (id, parent, order, slug, location). The single source of truth for structure and navigation.", {"spec": GH + "/json-outline-schema"}),
@@ -21,18 +21,22 @@ FILES = [
  ("xapivocab", "xapi-vocabulary.json", "xapi", "The shared xAPI verbs and objects HAX elements use, with buildStatement to shape a statement the same way everywhere.", {"code": WC + "user-action/lib"}),
  ("merlinoption", "Merlin options", "merlin", "Every Merlin command is one defineOption() call: title, icon, tags, value, eventName, path, context, priority and more. HAXcms, the dashboard and the editor define them.", {"code": WC + "super-daemon/super-daemon.js"}),
  ("skillsjson", ".well-known/agent-skills/index.json", "skillsindex", "The agentskills.io discovery index: which skills a place offers, where to read each and its digest. PRAW keeps the full one; deployments and sites carry a copy of their set.", {"index": GH + "/praw/blob/main/.well-known/agent-skills/index.json"}),
+ ("wcregjson", "wc-registry.json", "registry", "Every tag the autoloader can load, mapped to its module. Written by the ubiquity build, copied into each HAXcms build and site.", {"file": GH + "/webcomponents/blob/master/wc-registry.json"}),
+ ("cemjson", "custom-elements.json", "registry", "One per package: the Custom Elements Manifest of its elements (properties, attributes, events, slots), written by cem analyze.", {"example": GH + "/webcomponents/blob/master/elements/a11y-collapse/custom-elements.json"}),
+ ("translationsjson", "translation-manifest.json", "registry", "Which elements ship which locale files, scanned by the ubiquity build; i18n-manager reads it to load translations.", {"file": GH + "/webcomponents/blob/master/elements/i18n-manager/lib/translation-manifest.json"}),
  ("oervocab", "oerschema.org vocabulary", "oerschema", "The OER Schema terms (course, lesson, learning objective, assessment) as linked data, authored by Michael Collins.", {"site": "https://oerschema.org"}),
 ]
 # readers and writers: portal id -> (web or None for main, [(verb, file)])
 RW = {
  "outline": ("haxcms", [("writes", "sitejson")]),
- "haxcms": (None, [("reads", "sitejson"), ("serves", "appstorejson"), ("implements", "sitespec"), ("implements", "systemspec")]),
+ "haxcms": (None, [("loads elements through", "wcregjson"), ("reads", "sitejson"), ("serves", "appstorejson"), ("implements", "sitespec"), ("implements", "systemspec")]),
  "cli": (None, [("validates", "sitejson"), ("audits against", "haxpropsschema"), ("generates", "appstorejson")]),
  "skeletons": (None, [("bundle a", "sitejson")]),
  "hax11ty": (None, [("reads", "sitejson")]),
  "editor": (None, [("builds forms from", "haxprops"), ("loads blocks from", "appstorejson")]),
- "components": (None, [("declare", "haxprops"), ("carry", "localeoverlay"), ("emit statements from", "xapivocab"), ("tag content with", "oervocab")]),
- "languages": (None, [("produce", "localeoverlay")]),
+ "components": (None, [("describe themselves in", "cemjson"), ("declare", "haxprops"), ("carry", "localeoverlay"), ("emit statements from", "xapivocab"), ("tag content with", "oervocab")]),
+ "languages": (None, [("produce", "localeoverlay"), ("are counted in", "translationsjson")]),
+ "ubiquity": (None, [("writes", "wcregjson"), ("writes", "translationsjson")]),
  "mcp": (None, [("reads", "sitespec"), ("reads", "systemspec")]),
  "php": (None, [("implements", "sitespec"), ("implements", "systemspec"), ("serves", "skillsjson")]),
  "nodejs": (None, [("implements", "sitespec"), ("implements", "systemspec"), ("serves", "skillsjson")]),
@@ -63,7 +67,7 @@ for id, label, s, *_ in FILES: lines.append(f"  %%@ node {id} icon=hax:code-json
 for p, (web, acts) in RW.items(): lines.append(f"  %%@ node {p} portal" + (f"={web}" if web else ""))
 open("hax-contracts.mmd", "w").write("\n".join(lines) + "\n")
 
-nodes = {"contracts": {"always": True, "desc": f"{len(SCHEMAS)} schemas carry HAX: what a site is, what an element can do, what a site may place, what Merlin can do, what learning content is, what a learner did, what the backends promise, and which skills an agent can use. Each has files that conform to it and tools that read or write them."}}
+nodes = {"contracts": {"always": True, "desc": f"{len(SCHEMAS)} schemas carry HAX: what a site is, what an element can do, what a site may place, what Merlin can do, what learning content is, what a learner did, what the backends promise, which elements exist and where they load from, and which skills an agent can use. Each has files that conform to it and tools that read or write them."}}
 for id, label, s, desc, links in FILES: nodes[id] = {"desc": desc, "links": links}
 def S(c, *i): return {"caption": c, "nodes": list(i)}
 tours = [{"id": "contracts", "label": "Follow the data", "message": "The schemas HAX runs on, the files that conform to them, and what reads and writes each.", "scenes": [
@@ -73,11 +77,12 @@ tours = [{"id": "contracts", "label": "Follow the data", "message": "The schemas
     S("The app store manifest tells the editor which blocks a site may place.", "appstore", "appstorejson", "editor", "cli"),
     S("Two OpenAPI specs are the promise both backends and the MCP keep.", "openapi", "sitespec", "systemspec", "php", "nodejs", "mcp"),
     S("xAPI and OER Schema describe what learners did and what content is.", "xapi", "xapivocab", "insights", "oerschema", "oervocab", "course", "mcollins"),
+    S("The registry and manifests: where every element loads from, what it declares and which languages it speaks.", "registry", "wcregjson", "cemjson", "translationsjson", "ubiquity", "haxcms", "components", "languages"),
     S("The agent skills index tells any agent which skills a place offers.", "skillsindex", "skillsjson", "praw", "php", "nodejs", "traveler"),
     S("All the contracts at once."),
 ]}]
 meta = {"name": "Data contracts", "parent": "main", "noTimeline": True,
-        "about": f"The {len(SCHEMAS)} schemas HAX runs on (JSON Outline Schema, HAXSchema, the app store spec, Merlin options, OER Schema, xAPI, OpenAPI, the agent skills index), the files that conform to each, and the tools that read or write them.",
+        "about": f"The {len(SCHEMAS)} schemas HAX runs on (JSON Outline Schema, HAXSchema, the app store spec, Merlin options, OER Schema, xAPI, OpenAPI, the agent skills index, the element registry and manifests), the files that conform to each, and the tools that read or write them.",
         "kindLabels": {"schema": "conforms to", "rel": "reads or writes"}}
 json.dump({"meta": meta, "nodes": nodes, "evidence": {}, "tours": tours}, open("hax-contracts.json", "w"), indent=1, ensure_ascii=False)
 print(len(FILES), "files;", len(SCHEMAS) + len(RW), "portals")

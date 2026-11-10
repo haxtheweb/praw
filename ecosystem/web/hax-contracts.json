@@ -3,7 +3,7 @@
   "name": "Data contracts",
   "parent": "main",
   "noTimeline": true,
-  "about": "The 8 schemas HAX runs on (JSON Outline Schema, HAXSchema, the app store spec, Merlin options, OER Schema, xAPI, OpenAPI, the agent skills index), the files that conform to each, and the tools that read or write them.",
+  "about": "The 9 schemas HAX runs on (JSON Outline Schema, HAXSchema, the app store spec, Merlin options, OER Schema, xAPI, OpenAPI, the agent skills index, the element registry and manifests), the files that conform to each, and the tools that read or write them.",
   "kindLabels": {
    "schema": "conforms to",
    "rel": "reads or writes"
@@ -12,7 +12,7 @@
  "nodes": {
   "contracts": {
    "always": true,
-   "desc": "8 schemas carry HAX: what a site is, what an element can do, what a site may place, what Merlin can do, what learning content is, what a learner did, what the backends promise, and which skills an agent can use. Each has files that conform to it and tools that read or write them."
+   "desc": "9 schemas carry HAX: what a site is, what an element can do, what a site may place, what Merlin can do, what learning content is, what a learner did, what the backends promise, which elements exist and where they load from, and which skills an agent can use. Each has files that conform to it and tools that read or write them."
   },
   "sitejson": {
    "desc": "One per site: title, metadata, theme and the items tree (id, parent, order, slug, location). The single source of truth for structure and navigation.",
@@ -83,6 +83,24 @@
     "index": "https://github.com/haxtheweb/praw/blob/main/.well-known/agent-skills/index.json"
    }
   },
+  "wcregjson": {
+   "desc": "Every tag the autoloader can load, mapped to its module. Written by the ubiquity build, copied into each HAXcms build and site.",
+   "links": {
+    "file": "https://github.com/haxtheweb/webcomponents/blob/master/wc-registry.json"
+   }
+  },
+  "cemjson": {
+   "desc": "One per package: the Custom Elements Manifest of its elements (properties, attributes, events, slots), written by cem analyze.",
+   "links": {
+    "example": "https://github.com/haxtheweb/webcomponents/blob/master/elements/a11y-collapse/custom-elements.json"
+   }
+  },
+  "translationsjson": {
+   "desc": "Which elements ship which locale files, scanned by the ubiquity build; i18n-manager reads it to load translations.",
+   "links": {
+    "file": "https://github.com/haxtheweb/webcomponents/blob/master/elements/i18n-manager/lib/translation-manifest.json"
+   }
+  },
   "oervocab": {
    "desc": "The OER Schema terms (course, lesson, learning objective, assessment) as linked data, authored by Michael Collins.",
    "links": {
@@ -98,7 +116,7 @@
    "message": "The schemas HAX runs on, the files that conform to them, and what reads and writes each.",
    "scenes": [
     {
-     "caption": "HAX is held together by 8 schemas.",
+     "caption": "HAX is held together by 9 schemas.",
      "nodes": [
       "contracts",
       "jos",
@@ -108,7 +126,8 @@
       "oerschema",
       "xapi",
       "openapi",
-      "skillsindex"
+      "skillsindex",
+      "registry"
      ]
     },
     {
@@ -166,6 +185,19 @@
       "oervocab",
       "course",
       "mcollins"
+     ]
+    },
+    {
+     "caption": "The registry and manifests: where every element loads from, what it declares and which languages it speaks.",
+     "nodes": [
+      "registry",
+      "wcregjson",
+      "cemjson",
+      "translationsjson",
+      "ubiquity",
+      "haxcms",
+      "components",
+      "languages"
      ]
     },
     {

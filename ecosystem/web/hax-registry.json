@@ -1,0 +1,282 @@
+{
+ "meta": {
+  "name": "Registry and manifests",
+  "parent": "main",
+  "noTimeline": true,
+  "sectionLabels": {
+   "manifest": "manifests",
+   "step": "steps that write and read them",
+   "reader": "who reads them"
+  },
+  "about": "The manifests HAX generates about its own elements, from the webcomponents source: wc-registry.json: 614 tags, 609 of them HAX packages; wc-registry-graph.json: 614 tags over 1167 module paths; custom-elements.json: 139 packages declare 274 elements; elements-catalog.json: 602 elements, 166 HAX can author; hax-elements-registry.json: 187 authorable tags; translation-manifest.json: 149 of 234 elements translated, 41,015 files, 104 languages; languages.json: 134 languages. Steps are read from the ubiquity build and each element's build script; readers are found by scanning the built packages and the backends.",
+  "kindLabels": {
+   "rel": "writes and includes",
+   "schema": "is read by"
+  },
+  "links": {
+   "package.json": "https://github.com/haxtheweb/webcomponents/blob/master/package.json",
+   "gulpfile": "https://github.com/haxtheweb/webcomponents/blob/master/gulpfile.mjs"
+  }
+ },
+ "nodes": {
+  "registry": {
+   "always": true,
+   "desc": "The generated files that tell HAX which elements exist, where each loads from, what each declares and which languages each speaks: 7 kinds of manifest, written by the ubiquity build and the cem analyzer, read by 6 packages and tools."
+  },
+  "m_wcregistry": {
+   "desc": "Every tag the autoloader can load, mapped to the module that defines it. Copied into each HAXcms build and site. Today: 614 tags, 609 of them HAX packages.",
+   "kind": "manifest",
+   "links": {
+    "file": "https://github.com/haxtheweb/webcomponents/blob/master/wc-registry.json"
+   }
+  },
+  "m_wcgraph": {
+   "desc": "The import graph behind the registry, so a page can preload what a tag will pull in. Today: 614 tags over 1167 module paths.",
+   "kind": "manifest",
+   "links": {
+    "file": "https://github.com/haxtheweb/webcomponents/blob/master/wc-registry-graph.json"
+   }
+  },
+  "m_cem": {
+   "desc": "The Custom Elements Manifest of a package: its elements' properties, attributes, events, slots and CSS parts, written by cem analyze. Today: 139 packages declare 274 elements.",
+   "kind": "manifest",
+   "links": {
+    "example": "https://github.com/haxtheweb/webcomponents/blob/master/elements/a11y-collapse/custom-elements.json"
+   }
+  },
+  "m_catalog": {
+   "desc": "One entry per element (tag, title, package, import, whether HAX can author it) for search: hax wc --search. Today: 602 elements, 166 HAX can author.",
+   "kind": "manifest",
+   "links": {
+    "file": "https://github.com/haxtheweb/webcomponents/blob/master/elements-catalog.json"
+   }
+  },
+  "m_haxreg": {
+   "desc": "The tags HAX can author, with their display titles. Today: 187 authorable tags.",
+   "kind": "manifest",
+   "links": {
+    "file": "https://github.com/haxtheweb/webcomponents/blob/master/hax-elements-registry.json"
+   }
+  },
+  "m_translations": {
+   "desc": "Which elements ship which locale files, scanned from every element's locales folder. Today: 149 of 234 elements translated, 41,015 files, 104 languages.",
+   "kind": "manifest",
+   "links": {
+    "file": "https://github.com/haxtheweb/webcomponents/blob/master/elements/i18n-manager/lib/translation-manifest.json"
+   }
+  },
+  "m_languages": {
+   "desc": "The languages HAX offers, with their names and direction; kept in sync wherever it is copied. Today: 134 languages.",
+   "kind": "manifest",
+   "links": {
+    "file": "https://github.com/haxtheweb/webcomponents/blob/master/elements/i18n-manager/lib/languages.json"
+   },
+   "note": "Kept by hand at its source; language-registry-sync copies it out."
+  },
+  "st_wc_autoloader": {
+   "desc": "Step 6 of the ubiquity build. Writes wc-registry.json, wc-registry-graph.json.",
+   "kind": "step",
+   "links": {
+    "gulpfile.mjs": "https://github.com/haxtheweb/webcomponents/blob/master/gulpfile.mjs"
+   }
+  },
+  "st_language_registry_sync": {
+   "desc": "Step 8 of the ubiquity build. Copies languages.json into the backends and the CLI.",
+   "kind": "step",
+   "links": {
+    "sync-language-registry.js": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/sync-language-registry.js"
+   }
+  },
+  "st_hax_elements_discovery": {
+   "desc": "Step 9 of the ubiquity build. Writes hax-elements-registry.json.",
+   "kind": "step",
+   "links": {
+    "gulpfile.mjs": "https://github.com/haxtheweb/webcomponents/blob/master/gulpfile.mjs",
+    "hax-elements-discovery.mjs": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/hax-elements-discovery.mjs"
+   }
+  },
+  "st_elements_catalog": {
+   "desc": "Step 10 of the ubiquity build. Writes elements-catalog.json. Reads custom-elements.json, hax-elements-registry.json.",
+   "kind": "step",
+   "links": {
+    "build-elements-catalog.mjs": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/build-elements-catalog.mjs"
+   }
+  },
+  "st_hax_elements_demo_page": {
+   "desc": "Step 11 of the ubiquity build. Reads wc-registry.json, hax-elements-registry.json.",
+   "kind": "step",
+   "links": {
+    "gulpfile.mjs": "https://github.com/haxtheweb/webcomponents/blob/master/gulpfile.mjs",
+    "hax-elements-demo-page.mjs": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/hax-elements-demo-page.mjs"
+   }
+  },
+  "st_translation_manifest": {
+   "desc": "Step 13 of the ubiquity build. Writes translation-manifest.json.",
+   "kind": "step",
+   "links": {
+    "generate-translation-manifest.js": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/generate-translation-manifest.js"
+   }
+  },
+  "st_language_registry_report": {
+   "desc": "Step 14 of the ubiquity build. Reads translation-manifest.json, languages.json.",
+   "kind": "step",
+   "links": {
+    "validate-language-registry.js": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/validate-language-registry.js"
+   }
+  },
+  "sc_api_snapshot": {
+   "desc": "A script outside the ubiquity build. Reads custom-elements.json, hax-elements-registry.json.",
+   "kind": "step",
+   "links": {
+    "api-snapshot.mjs": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/api-snapshot.mjs"
+   }
+  },
+  "sc_build_component_gallery": {
+   "desc": "A script outside the ubiquity build. Reads wc-registry.json.",
+   "kind": "step",
+   "links": {
+    "build-component-gallery.js": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/build-component-gallery.js"
+   }
+  },
+  "sc_extract_element_docs": {
+   "desc": "A script outside the ubiquity build. Reads custom-elements.json.",
+   "kind": "step",
+   "links": {
+    "extract-element-docs.mjs": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/extract-element-docs.mjs"
+   }
+  },
+  "sc_gallery_dev_server": {
+   "desc": "A script outside the ubiquity build. Reads wc-registry.json.",
+   "kind": "step",
+   "links": {
+    "gallery-dev-server.js": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/gallery-dev-server.js"
+   }
+  },
+  "sc_i18n_layout_check": {
+   "desc": "A script outside the ubiquity build. Reads hax-elements-registry.json.",
+   "kind": "step",
+   "links": {
+    "i18n-layout-check.mjs": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/i18n-layout-check.mjs"
+   }
+  },
+  "sc_knip_report": {
+   "desc": "A script outside the ubiquity build. Reads wc-registry.json.",
+   "kind": "step",
+   "links": {
+    "knip-report.mjs": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/knip-report.mjs"
+   }
+  },
+  "sc_leak_check": {
+   "desc": "A script outside the ubiquity build. Reads hax-elements-registry.json.",
+   "kind": "step",
+   "links": {
+    "leak-check.mjs": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/leak-check.mjs"
+   }
+  },
+  "st_cem_analyze": {
+   "desc": "Run by the build script of 226 element packages; 139 commit the result. Writes custom-elements.json.",
+   "kind": "step"
+  },
+  "nodejs": {
+   "desc": "Reads wc-registry.json in app.js, lib/HAXCMS.js, lib/linearText.js and more; wc-registry-graph.json in app.js, lib/HAXCMS.js; languages.json in lib/languageRegistry.js.",
+   "kind": "reader"
+  },
+  "php": {
+   "desc": "Reads languages.json in php/lib/LanguageRegistry.php, php/lib/LocalizationSettingsService.php, php/lib/operations/languages.php; wc-registry.json in php/lib/HAXCMS.php, php/lib/HAXCMSSite.php, php/lib/operations/downloadSite.php and more; wc-registry-graph.json in php/lib/HAXCMS.php, php/lib/HAXCMSSite.php.",
+   "kind": "reader"
+  },
+  "cli": {
+   "desc": "Reads wc-registry.json in create.js, lib/programs/audit-ssr.js, lib/programs/site.js and more; languages.json in lib/language-registry.js; custom-elements.json in lib/programs/site.js, lib/programs/webcomponent.js; elements-catalog.json in lib/programs/webcomponent.js.",
+   "kind": "reader"
+  },
+  "pk_haxcms_elements": {
+   "desc": "Reads wc-registry.json in lib/core/haxcms-site-builder.js; wc-registry-graph.json in lib/core/haxcms-site-builder.js.",
+   "kind": "reader",
+   "links": {
+    "package": "https://github.com/haxtheweb/webcomponents/tree/master/elements/haxcms-elements"
+   }
+  },
+  "pk_i18n_manager": {
+   "desc": "Reads translation-manifest.json in i18n-manager.js; languages.json in lib/LanguageRegistry.js.",
+   "kind": "reader",
+   "links": {
+    "package": "https://github.com/haxtheweb/webcomponents/tree/master/elements/i18n-manager"
+   }
+  },
+  "pk_web_container": {
+   "desc": "Reads wc-registry.json in lib/web-container-wc-registry-docs.js; custom-elements.json in lib/web-container-doc-player.js.",
+   "kind": "reader",
+   "links": {
+    "package": "https://github.com/haxtheweb/webcomponents/tree/master/elements/web-container"
+   }
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "registry",
+   "label": "How HAX knows its own elements",
+   "kind": "story",
+   "message": "7 manifests, 7 ubiquity steps that touch them, 6 readers.",
+   "scenes": [
+    {
+     "caption": "The registry: where every tag loads from, and the import graph behind it.",
+     "nodes": [
+      "m_wcregistry",
+      "m_wcgraph",
+      "nodejs",
+      "php",
+      "cli",
+      "pk_haxcms_elements",
+      "pk_web_container"
+     ]
+    },
+    {
+     "caption": "Each package describes its elements in a Custom Elements Manifest; the catalog and HAX's registry are built from them.",
+     "nodes": [
+      "m_cem",
+      "m_catalog",
+      "m_haxreg",
+      "st_hax_elements_discovery",
+      "st_elements_catalog",
+      "st_hax_elements_demo_page",
+      "sc_api_snapshot",
+      "sc_extract_element_docs",
+      "sc_i18n_layout_check",
+      "sc_leak_check",
+      "st_cem_analyze"
+     ]
+    },
+    {
+     "caption": "Translations: which languages exist and which elements speak them.",
+     "nodes": [
+      "m_languages",
+      "m_translations",
+      "nodejs",
+      "php",
+      "cli",
+      "pk_i18n_manager",
+      "languages"
+     ]
+    },
+    {
+     "caption": "The ubiquity build writes them in order.",
+     "nodes": [
+      "ubiquity",
+      "st_wc_autoloader",
+      "st_language_registry_sync",
+      "st_hax_elements_discovery",
+      "st_elements_catalog",
+      "st_hax_elements_demo_page",
+      "st_translation_manifest",
+      "st_language_registry_report"
+     ]
+    },
+    {
+     "caption": "Everything at once.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

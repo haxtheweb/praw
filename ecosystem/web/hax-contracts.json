@@ -3,7 +3,7 @@
   "name": "Data contracts",
   "parent": "main",
   "noTimeline": true,
-  "about": "The six schemas HAX runs on (JSON Outline Schema, HAXSchema, the app store spec, OER Schema, xAPI, OpenAPI), the files that conform to each, and the tools that read or write them.",
+  "about": "The 8 schemas HAX runs on (JSON Outline Schema, HAXSchema, the app store spec, Merlin options, OER Schema, xAPI, OpenAPI, the agent skills index), the files that conform to each, and the tools that read or write them.",
   "kindLabels": {
    "schema": "conforms to",
    "rel": "reads or writes"
@@ -12,7 +12,7 @@
  "nodes": {
   "contracts": {
    "always": true,
-   "desc": "Six schemas carry HAX: what a site is, what an element can do, what a site may place, what learning content is, what a learner did, and what the backends promise. Each has files that conform to it and tools that read or write them."
+   "desc": "8 schemas carry HAX: what a site is, what an element can do, what a site may place, what Merlin can do, what learning content is, what a learner did, what the backends promise, and which skills an agent can use. Each has files that conform to it and tools that read or write them."
   },
   "sitejson": {
    "desc": "One per site: title, metadata, theme and the items tree (id, parent, order, slug, location). The single source of truth for structure and navigation.",
@@ -77,6 +77,12 @@
     "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/super-daemon/super-daemon.js"
    }
   },
+  "skillsjson": {
+   "desc": "The agentskills.io discovery index: which skills a place offers, where to read each and its digest. PRAW keeps the full one; deployments and sites carry a copy of their set.",
+   "links": {
+    "index": "https://github.com/haxtheweb/praw/blob/main/.well-known/agent-skills/index.json"
+   }
+  },
   "oervocab": {
    "desc": "The OER Schema terms (course, lesson, learning objective, assessment) as linked data, authored by Michael Collins.",
    "links": {
@@ -92,7 +98,7 @@
    "message": "The schemas HAX runs on, the files that conform to them, and what reads and writes each.",
    "scenes": [
     {
-     "caption": "HAX is held together by six schemas.",
+     "caption": "HAX is held together by 8 schemas.",
      "nodes": [
       "contracts",
       "jos",
@@ -101,7 +107,8 @@
       "merlin",
       "oerschema",
       "xapi",
-      "openapi"
+      "openapi",
+      "skillsindex"
      ]
     },
     {
@@ -159,6 +166,17 @@
       "oervocab",
       "course",
       "mcollins"
+     ]
+    },
+    {
+     "caption": "The agent skills index tells any agent which skills a place offers.",
+     "nodes": [
+      "skillsindex",
+      "skillsjson",
+      "praw",
+      "php",
+      "nodejs",
+      "traveler"
      ]
     },
     {

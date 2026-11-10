@@ -3,7 +3,8 @@
 Pulls the latest source, reruns every builder that is generated from source, and reports what changed:
 tiles added or gone in each generated web (commands, endpoints, MCP tools, field types, schema parts,
 skeletons, importers, tutorials, languages, release steps, HAX Lab entries) plus inventories that a
-builder reads from a saved extract (MCP tools, xAPI verbs). The ecosystem web's versions are checked
+builder reads from a saved extract (MCP tools, xAPI verbs), and copies a builder found out of step with their
+source (agent skills index copies older than PRAW's). The ecosystem web's versions are checked
 by graph-drift.mjs.
 
   python3 -I drift.py            pull, rebuild, report
@@ -20,7 +21,8 @@ CLONES = ["haxcms-nodejs", "haxcms-php", "createrepo", "mcprepo", "hs", "josrepo
 # order matters: rules link to Quality control checks, so build_quality.py runs before build_rules.py
 BUILDERS = [("build_generated.py", ["openapi", "mcptools", "xapi", "cli"]), ("build_schemas.py", ["haxschema", "jos", "appstore", "merlin", "oerschema"]),
             ("build_importers.py", ["importers"]), ("build_tutorials.py", ["tutorials"]), ("build_skeletons.py", ["skeletons"]),
-            ("build_languages.py", ["languages"]), ("build_more.py", ["release", "community", "psu", "haxlab"]), ("build_heosat.py", ["heosat"]), ("build_idskills.py", ["idskills"]), ("build_quality.py", ["quality"]), ("build_rules.py", ["rules"]), ("build_layers.py", [])]
+            ("build_languages.py", ["languages"]), ("build_more.py", ["release", "community", "psu", "haxlab"]), ("build_heosat.py", ["heosat"]), ("build_idskills.py", ["idskills"]), ("build_quality.py", ["quality"]), ("build_rules.py", ["rules"]),
+            ("build_skillsindex.py", ["skillsindex"]), ("build_layers.py", [])]
 WEBS = [w for _, ws in BUILDERS for w in ws]
 def run(cmd, **kw):
     r = subprocess.run(cmd, capture_output=True, text=True, **kw)
@@ -71,6 +73,12 @@ for w in WEBS:
     add = {k: b[k] for k in b if k not in a}; gone = {k: a[k] for k in a if k not in b}
     if add or gone: drift = True
     report["webs"][w] = {"added": add, "gone": gone, "tiles": len(b)}
+# copies a generator found out of step with their source (a node carries "stale": [names]), e.g. an agent skills index older than PRAW's
+for w in WEBS:
+    try: N = json.load(open(f"hax-{w}.json"))["nodes"]
+    except FileNotFoundError: continue
+    out = sorted(f"{i}: {', '.join(n['stale'])}" for i, n in N.items() if n.get("stale"))
+    if out: report["inventories"][f"{w} copies out of step"] = {"added": out, "gone": []}
 for k, v in report["inventories"].items():
     if v["added"] or v["gone"]: drift = True
 ACCEPT = "--accept" in ARGS

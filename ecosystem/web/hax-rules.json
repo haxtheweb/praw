@@ -226,7 +226,7 @@
    }
   },
   "r_7cpveferpsf0az8tkqxw0y": {
-   "desc": "Whenever working on a specific webcomponent, perform a quick audit for potential accessibility enhancements without assuming issues exist, but ensure to look for them. In PRAW RULES.md (scope: webcomponents). Enforced by Test all elements, Accessibility sweep. Element test suites include axe checks where an element has tests; the weekly sweep checks every demo. Project-wide accessibility is not a blocking gate.",
+   "desc": "Whenever working on a specific webcomponent, perform a quick audit for potential accessibility enhancements without assuming issues exist, but ensure to look for them. In PRAW RULES.md (scope: webcomponents). Enforced by Color contrast (light and dark), Test all elements, Accessibility sweep. The color-contrast gate fails a PR when a touched element's demo falls below WCAG AA contrast in light or dark mode; element test suites include axe checks where an element has tests; the weekly sweep checks every demo. Other accessibility checks are not a blocking gate.",
    "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#accessibility-audits"
@@ -893,6 +893,7 @@
       "ct_fuzz",
       "q_audit",
       "q_codeql",
+      "q_color_contrast_light_and_dark",
       "q_ddd_token_lint",
       "q_dependency_licenses",
       "q_element_api_snapshot",

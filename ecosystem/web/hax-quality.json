@@ -120,8 +120,8 @@
     "workflow 4": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/codeql-analysis.yml"
    }
   },
-  "q_contrast": {
-   "desc": "Fails the pull request when it fails in webcomponents.",
+  "q_color_contrast_light_and_dark": {
+   "desc": "Text in the demos of the elements a pull request touches meets WCAG AA contrast in light and dark mode. Known failures are baselined, and the baseline can only shrink. Fails the pull request when it fails in webcomponents.",
    "kind": "gate",
    "status": "deployed",
    "links": {
@@ -382,8 +382,8 @@
     "workflow": "https://github.com/haxtheweb/create/blob/main/.github/workflows/fresh-install-smoke.yml"
    }
   },
-  "q_old_sites_weekly": {
-   "desc": "Runs weekly in create.",
+  "q_old_site_compatibility": {
+   "desc": "Sites made from 2021 on keep working: one fixture site per year is upgraded to the latest code and edited the way an author would. Runs weekly in create.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -477,7 +477,7 @@
       "q_gallery_build",
       "q_cla",
       "q_codeql",
-      "q_contrast",
+      "q_color_contrast_light_and_dark",
       "q_ddd_token_lint",
       "q_audit",
       "q_pseudo_locale_and_rtl_layout",
@@ -525,7 +525,7 @@
       "q_parity",
       "q_performance_and_memory_budgets_sched",
       "q_fresh_install_smoke_test",
-      "q_old_sites_weekly",
+      "q_old_site_compatibility",
       "q_parity_harness_nodejs_php_cli"
      ]
     },

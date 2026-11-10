@@ -54,6 +54,7 @@
   },
   "7CPveF": {
    "enforced_by": [
+    "q_color_contrast_light_and_dark",
     "q_test_all_elements",
     "ct_a11y"
    ],
@@ -63,7 +64,7 @@
    "touches": [
     "components"
    ],
-   "how": "Element test suites include axe checks where an element has tests; the weekly sweep checks every demo. Project-wide accessibility is not a blocking gate."
+   "how": "The color-contrast gate fails a PR when a touched element's demo falls below WCAG AA contrast in light or dark mode; element test suites include axe checks where an element has tests; the weekly sweep checks every demo. Other accessibility checks are not a blocking gate."
   },
   "13a033": {
    "pillars": [

@@ -17,6 +17,8 @@ def slug(s): return re.sub(r"[^a-z0-9]+", "_", s.lower()).strip("_")
 
 # ---------- what each kind of check guards (matched on the check's name) ----------
 GUARDS = [
+ (r"color contrast", "Text in the demos of the elements a pull request touches meets WCAG AA contrast in light and dark mode. Known failures are baselined, and the baseline can only shrink."),
+ (r"old-site", "Sites made from 2021 on keep working: one fixture site per year is upgraded to the latest code and edited the way an author would."),
  (r"codeql", "Code with known vulnerability patterns doesn't merge."),
  (r"licen", "No dependency under an incompatible license enters the repo, and the project stays Apache-2.0."),
  (r"dependency audit|composer audit", "Dependencies with known security advisories are caught."),
@@ -61,7 +63,7 @@ PRETTY = {"codeql": "CodeQL", "license-check": "Dependency licenses", "license c
           "mutation testing (outline-designer)": "Mutation testing", "knip": "Unused code (knip)", "ddd-token-lint": "DDD token lint", "template-lint": "Template lint",
           "api-snapshot": "Element API snapshot", "i18n-layout": "Pseudo-locale and RTL layout", "leak-check": "Memory leaks", "locale-guard": "Locale guard",
           "walkthrough-status": "Walkthrough status", "render-bench": "Render benchmarks", "phpstan": "PHPStan", "ossf scorecard": "OpenSSF Scorecard",
-          "cla assistant": "CLA", "backend parity": "Backend parity", "build": "Build and tests", "tests": "Build and tests", "sbom": "SBOM", "perf": "Performance and memory budgets", "parity-nightly": "Parity harness (nodejs, PHP, CLI)"}
+          "cla assistant": "CLA", "backend parity": "Backend parity", "build": "Build and tests", "tests": "Build and tests", "sbom": "SBOM", "perf": "Performance and memory budgets", "parity-nightly": "Parity harness (nodejs, PHP, CLI)", "contrast": "Color contrast (light and dark)", "old-sites-weekly": "Old-site compatibility"}
 STEP = [(r"^prettier format check|^format check", "Format check"), (r"^eslint$|^lint$", "ESLint"), (r"^security lint", "Security lint"),
         (r"^stylelint", "Stylelint"), (r"^audit production dependencies|^dependency audit|^composer audit", "Dependency audit"),
         (r"^run phpunit", "PHPUnit"), (r"^unit \+ api conformance", "Unit and API conformance tests"), (r"^e2e", "E2E UI tests"),

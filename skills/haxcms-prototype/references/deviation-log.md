@@ -94,3 +94,14 @@ about the product too.
 - **Also**: HAX saves the visitor's choice in localStorage (`app-hax-darkMode`), and a saved choice
   wins over `prefers-color-scheme`. Inventories before https://github.com/haxtheweb/haxcms-nodejs/pull/205
   produced dark `mobile-light` captures because of it; recapture anything made from those.
+
+### Some themes open on a listing, not the page
+
+- **Seen** (2026-11-09): `site-view-visitor` captures of journey-theme and haxor-slevin showed the
+  blog / timeline listing and simple-blog showed an empty front page, so the fixture page's content
+  was never in frame. A page script that routed by a guessed URL slug then captured "Page not found".
+- **Real**: these themes show a listing at the site root. Open the page the way a reader does (click
+  its link, or route to the item's real `slug` from the site store) in `--page-script`, and have the
+  script throw when the page's content is not visible so a wrong capture fails instead of passing.
+- **Look at**: the theme's front page in the inventory screenshots before building on them.
+

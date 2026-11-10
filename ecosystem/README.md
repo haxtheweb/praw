@@ -25,7 +25,7 @@ The ecosystem web itself lives here too: every sub-web's structure and details, 
 ### Data format
 
 - **Structure (`.mmd`)**: a plain Mermaid flowchart that renders on GitHub, plus `%%@` lines the player reads: `layout rings=… sizes=…`, `group <subgraph> tier=N`, `node <id> icon=<set:name> color=<DDD color> motion=<name>`, `node <id> portal` (the same node in another web; `portal=<web>` when that web isn't the main one) and `web=<id>` (the tile opens that sub-web).
-- **Details (`.json`)**: `{meta, nodes, evidence, tours}`. `meta.parent` names the web a sub-web opens from, for the breadcrumbs. A node holds `desc`, `status`, `kind`, `links` and `release` (`npm:@haxtheweb/…` or `git:haxtheweb/…`, read by `graph-drift.mjs`). Statuses: released, prerelease, in-progress, planned, legacy, living, deployed. Planned tiles render ghosted with dashed lines and link to their issue. A tour is `{id, label, message, scenes: [{caption, nodes}]}`.
+- **Details (`.json`)**: `{meta, nodes, evidence, tours}`. `meta.parent` names the web a sub-web opens from, for the breadcrumbs. A node holds `desc`, `status`, `kind`, `links` and `release` (`npm:@haxtheweb/…` or `git:haxtheweb/…`, read by `graph-drift.mjs`). Statuses: released, prerelease, in-progress, planned, legacy, living, deployed and gap. Planned tiles render ghosted with dashed lines and link to their issue; gap tiles (something an evidence or coverage map says is missing) render ghosted with a dotted line and a "Gap" label. A tour is `{id, label, message, scenes: [{caption, nodes}]}`.
 
 ### Build it
 

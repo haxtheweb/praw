@@ -18,6 +18,7 @@ Platform development for HAXcms: keep the Node and PHP backends in step, build s
 | `hax-backend-dev` | Keep haxcms-nodejs and haxcms-php in step: mirror routes and OpenAPI specs. |
 | `hax-importer-dev` | Build a site importer end to end: converters, dispatcher, spec, client, tests. |
 | `hax-testing` | Find and run the right tests per HAX repo; write the test for a new endpoint. |
+| `hax-parity-agent-leg` | Replay a parity run's ops as an agent from the HAX skills, verify each op, report divergences and skill-doc gaps. |
 | `hax-release-prep` | Verify locally and write the maintainer handoff for ubiquity build and publish steps. |
 
 ## Where to start

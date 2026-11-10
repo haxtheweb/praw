@@ -146,8 +146,8 @@ tours = [{"id": "xapi", "label": "What learners generate", "message": f"Six verb
     S("Every HAX activity speaks xAPI through one shared vocabulary.", "xapi"),
     S("Six verbs cover everything an element reports.", *[f"v_{vb}" for vb in verbs]),
     S("Answered: the question elements.", "v_answered", *[f"x_{slug(t)}" for t in verbs["answered"]]),
-    S("Attempted, progressed, completed: media, games and multi-step activities.", "v_attempted", "v_progressed", "v_completed", *[f"x_{slug(t)}" for t in set(verbs["completed"]) - set(verbs["answered"])]),
-    S("Experienced and interacted: things a learner opened or touched.", "v_experienced", "v_interacted", *[f"x_{slug(t)}" for t in set(verbs["experienced"]) | set(verbs["interacted"])]),
+    S("Attempted, progressed, completed: media, games and multi-step activities.", "v_attempted", "v_progressed", "v_completed", *[f"x_{slug(t)}" for t in sorted(set(verbs["completed"]) - set(verbs["answered"]))]),
+    S("Experienced and interacted: things a learner opened or touched.", "v_experienced", "v_interacted", *[f"x_{slug(t)}" for t in sorted(set(verbs["experienced"]) | set(verbs["interacted"]))]),
     S("Statements feed Insights and describe learning in a course.", "insights", "course"),
     S("The whole vocabulary."),
 ]}]

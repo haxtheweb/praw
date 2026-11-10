@@ -43,6 +43,9 @@ flowchart TB
     q_performance_and_memory_budgets["Performance and memory budgets"]
     q_render_benchmarks["Render benchmarks"]
     q_unused_code_knip["Unused code (knip)"]
+    qp_haxcms_nodejs_240["Nightly check of compiled ubiquity assets"]
+    qp_haxcms_php_779["Nightly check of compiled ubiquity assets"]
+    qp_create_130["ci: nightly fuzz hunt with a replayable seed"]
   end
   subgraph schedg ["Scheduled"]
     q_parity["Backend parity, nightly"]
@@ -156,6 +159,12 @@ flowchart TB
   q_e2e -.->|advises on PRs in| nodejs
   qg_adv -->|includes| q_performance_and_memory_budgets
   q_performance_and_memory_budgets -.->|advises on PRs in| nodejs
+  qg_adv -->|planned| qp_haxcms_nodejs_240
+  qp_haxcms_nodejs_240 -.->|would run in| nodejs
+  qg_adv -->|planned| qp_haxcms_php_779
+  qp_haxcms_php_779 -.->|would run in| php
+  qg_adv -->|planned| qp_create_130
+  qp_create_130 -.->|would run in| cli
   qg_sched -->|includes| q_build_and_tests
   q_build_and_tests -.->|runs nightly in| components
   q_build_and_tests -.->|runs nightly in| nodejs
@@ -258,6 +267,9 @@ flowchart TB
   %%@ node q_render_benchmarks icon=icons:report color=roarGolden motion=nudge
   %%@ node q_e2e icon=icons:report color=roarGolden motion=nudge
   %%@ node q_performance_and_memory_budgets icon=icons:report color=roarGolden motion=nudge
+  %%@ node qp_haxcms_nodejs_240 icon=icons:build color=athertonViolet motion=nudge
+  %%@ node qp_haxcms_php_779 icon=icons:build color=athertonViolet motion=nudge
+  %%@ node qp_create_130 icon=icons:build color=athertonViolet motion=nudge
   %%@ node q_build_and_tests icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_codeql_sched icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_audit_sched icon=hax:timeline color=beaverBlue motion=nudge

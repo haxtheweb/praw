@@ -66,6 +66,8 @@ flowchart TB
     op_replacecontent["PATCH /x/api/v1/content"]
     op_getcontentbyidorslug["GET /x/api/v1/content/{idOrSlug}"]
     op_updatecontentbyidorslug["PATCH /x/api/v1/content/{idOrSlug}"]
+    op_listcontentblocks["GET /x/api/v1/content/{idOrSlug}/blocks"]
+    op_updatecontentblocks["PATCH /x/api/v1/content/{idOrSlug}/blocks"]
     op_listfiles["GET /x/api/v1/files"]
     op_createfile["POST /x/api/v1/files"]
     op_getfilebyuuid["GET /x/api/v1/files/{fileUuid}"]
@@ -247,6 +249,8 @@ flowchart TB
   tag_content -->|offers| op_replacecontent
   tag_content -->|offers| op_getcontentbyidorslug
   tag_content -->|offers| op_updatecontentbyidorslug
+  tag_content -->|offers| op_listcontentblocks
+  tag_content -->|offers| op_updatecontentblocks
   tag_files -->|offers| op_listfiles
   tag_files -->|offers| op_createfile
   tag_files -->|offers| op_getfilebyuuid
@@ -431,6 +435,8 @@ flowchart TB
   %%@ node op_replacecontent mono=PATCH color=roarGolden motion=nudge
   %%@ node op_getcontentbyidorslug mono=GET color=skyBlue motion=nudge
   %%@ node op_updatecontentbyidorslug mono=PATCH color=roarGolden motion=nudge
+  %%@ node op_listcontentblocks mono=GET color=skyBlue motion=nudge
+  %%@ node op_updatecontentblocks mono=PATCH color=roarGolden motion=nudge
   %%@ node op_listfiles mono=GET color=skyBlue motion=nudge
   %%@ node op_createfile mono=POST color=opportunityGreen motion=nudge
   %%@ node op_getfilebyuuid mono=GET color=skyBlue motion=nudge

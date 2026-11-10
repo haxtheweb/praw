@@ -9,7 +9,7 @@
    "language": "languages",
    "element": "elements"
   },
-  "about": "Which elements speak which languages, generated from the built packages: 148 of 229 packages ship translations, almost all in 101 languages, from 40,604 translation files. The rest either have strings ready to translate or show no text.",
+  "about": "Which elements speak which languages, generated from the built packages: 149 of 231 packages ship translations, almost all in 101 languages, from 41,015 translation files. The rest either have strings ready to translate or show no text.",
   "kindLabels": {
    "rel": "tooling, coverage and languages",
    "schema": "files and schemas"
@@ -38,7 +38,7 @@
    }
   },
   "lg_manifest": {
-   "desc": "translation-manifest.json: built by scanning the elements. 231 elements scanned, 148 with translations, 40,604 translation files.",
+   "desc": "translation-manifest.json: built by scanning the elements. 233 elements scanned, 149 with translations, 41,015 translation files.",
    "links": {
     "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/i18n-manager/lib/translation-manifest.json"
    }
@@ -50,7 +50,7 @@
    "desc": "haxcms-language-picker: the site setting that chooses a site's language, which the editor and every element on the page follow."
   },
   "lg_full": {
-   "desc": "147 packages are translated into 100 or more languages.",
+   "desc": "148 packages are translated into 100 or more languages.",
    "kind": "band"
   },
   "lg_partial": {
@@ -58,7 +58,7 @@
    "kind": "band"
   },
   "lg_ready": {
-   "desc": "3 packages already keep their strings in this.t but have no translation files yet, so they are the next to translate.",
+   "desc": "4 packages already keep their strings in this.t but have no translation files yet, so they are the next to translate.",
    "kind": "band"
   },
   "lg_none": {
@@ -84,6 +84,13 @@
    },
    "kind": "element"
   },
+  "b_instructional_cadence": {
+   "desc": "@haxtheweb/instructional-cadence: keeps its strings in this.t; no translation files yet.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/instructional-cadence"
+   },
+   "kind": "element"
+  },
   "b_simple_icon_picker": {
    "desc": "@haxtheweb/simple-icon-picker: keeps its strings in this.t; no translation files yet.",
    "links": {
@@ -99,407 +106,407 @@
    "kind": "element"
   },
   "lang_af": {
-   "desc": "Afrikaans (Afrikaans), locale af, left to right. 147 packages translated.",
+   "desc": "Afrikaans (Afrikaans), locale af, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_sq": {
-   "desc": "Albanian (Shqip), locale sq, left to right. 147 packages translated.",
+   "desc": "Albanian (Shqip), locale sq, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_am": {
-   "desc": "Amharic (አማርኛ), locale am, left to right. 147 packages translated.",
+   "desc": "Amharic (አማርኛ), locale am, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_ar": {
-   "desc": "Arabic (العربية), locale ar, right to left. 148 packages translated.",
+   "desc": "Arabic (العربية), locale ar, right to left. 149 packages translated.",
    "kind": "language"
   },
   "lang_hy": {
-   "desc": "Armenian (Հայերեն), locale hy, left to right. 147 packages translated.",
+   "desc": "Armenian (Հայերեն), locale hy, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_az": {
-   "desc": "Azerbaijani (Azərbaycan), locale az, left to right. 147 packages translated.",
+   "desc": "Azerbaijani (Azərbaycan), locale az, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_eu": {
-   "desc": "Basque (Euskara), locale eu, left to right. 147 packages translated.",
+   "desc": "Basque (Euskara), locale eu, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_be": {
-   "desc": "Belarusian (Беларуская), locale be, left to right. 147 packages translated.",
+   "desc": "Belarusian (Беларуская), locale be, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_bn": {
-   "desc": "Bengali (বাংলা), locale bn, left to right. 147 packages translated.",
+   "desc": "Bengali (বাংলা), locale bn, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_bs": {
-   "desc": "Bosnian (Bosanski), locale bs, left to right. 147 packages translated.",
+   "desc": "Bosnian (Bosanski), locale bs, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_bg": {
-   "desc": "Bulgarian (Български), locale bg, left to right. 147 packages translated.",
+   "desc": "Bulgarian (Български), locale bg, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_my": {
-   "desc": "Burmese (မြန်မာ), locale my, left to right. 147 packages translated.",
+   "desc": "Burmese (မြန်မာ), locale my, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_ca": {
-   "desc": "Catalan (Català), locale ca, left to right. 147 packages translated.",
+   "desc": "Catalan (Català), locale ca, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_ny": {
-   "desc": "Chichewa (Chichewa), locale ny, left to right. 147 packages translated.",
+   "desc": "Chichewa (Chichewa), locale ny, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_co": {
-   "desc": "Corsican (Corsu), locale co, left to right. 147 packages translated.",
+   "desc": "Corsican (Corsu), locale co, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_hr": {
-   "desc": "Croatian (Hrvatski), locale hr, left to right. 147 packages translated.",
+   "desc": "Croatian (Hrvatski), locale hr, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_cs": {
-   "desc": "Czech (Čeština), locale cs, left to right. 147 packages translated.",
+   "desc": "Czech (Čeština), locale cs, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_da": {
-   "desc": "Danish (Dansk), locale da, left to right. 147 packages translated.",
+   "desc": "Danish (Dansk), locale da, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_nl": {
-   "desc": "Dutch (Nederlands), locale nl, left to right. 147 packages translated.",
+   "desc": "Dutch (Nederlands), locale nl, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_en": {
-   "desc": "English (English), locale en, left to right. 104 packages translated.",
+   "desc": "English (English), locale en, left to right. 105 packages translated.",
    "kind": "language"
   },
   "lang_eo": {
-   "desc": "Esperanto (Esperanto), locale eo, left to right. 147 packages translated.",
+   "desc": "Esperanto (Esperanto), locale eo, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_et": {
-   "desc": "Estonian (Eesti), locale et, left to right. 147 packages translated.",
+   "desc": "Estonian (Eesti), locale et, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_fo": {
-   "desc": "Faroese (Føroyskt), locale fo, left to right. 147 packages translated.",
+   "desc": "Faroese (Føroyskt), locale fo, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_tl": {
-   "desc": "Filipino (Filipino), locale tl, left to right. 147 packages translated.",
+   "desc": "Filipino (Filipino), locale tl, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_fi": {
-   "desc": "Finnish (Suomi), locale fi, left to right. 147 packages translated.",
+   "desc": "Finnish (Suomi), locale fi, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_fr": {
-   "desc": "French (Français), locale fr, left to right. 147 packages translated.",
+   "desc": "French (Français), locale fr, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_gl": {
-   "desc": "Galician (Galego), locale gl, left to right. 147 packages translated.",
+   "desc": "Galician (Galego), locale gl, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_ka": {
-   "desc": "Georgian (ქართული), locale ka, left to right. 147 packages translated.",
+   "desc": "Georgian (ქართული), locale ka, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_de": {
-   "desc": "German (Deutsch), locale de, left to right. 147 packages translated.",
+   "desc": "German (Deutsch), locale de, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_el": {
-   "desc": "Greek (Ελληνικά), locale el, left to right. 147 packages translated.",
+   "desc": "Greek (Ελληνικά), locale el, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_gn": {
-   "desc": "Guarani (Avañe'ẽ), locale gn, left to right. 147 packages translated.",
+   "desc": "Guarani (Avañe'ẽ), locale gn, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_gu": {
-   "desc": "Gujarati (ગુજરાતી), locale gu, left to right. 147 packages translated.",
+   "desc": "Gujarati (ગુજરાતી), locale gu, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_ha": {
-   "desc": "Hausa (Hausa), locale ha, left to right. 147 packages translated.",
+   "desc": "Hausa (Hausa), locale ha, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_haw": {
-   "desc": "Hawaiian (ʻŌlelo Hawaiʻi), locale haw, left to right. 147 packages translated.",
+   "desc": "Hawaiian (ʻŌlelo Hawaiʻi), locale haw, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_he": {
-   "desc": "Hebrew (עברית), locale he, right to left. 147 packages translated.",
+   "desc": "Hebrew (עברית), locale he, right to left. 148 packages translated.",
    "kind": "language"
   },
   "lang_hi": {
-   "desc": "Hindi (हिन्दी), locale hi, left to right. 148 packages translated.",
+   "desc": "Hindi (हिन्दी), locale hi, left to right. 149 packages translated.",
    "kind": "language"
   },
   "lang_hu": {
-   "desc": "Hungarian (Magyar), locale hu, left to right. 147 packages translated.",
+   "desc": "Hungarian (Magyar), locale hu, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_is": {
-   "desc": "Icelandic (Íslenska), locale is, left to right. 147 packages translated.",
+   "desc": "Icelandic (Íslenska), locale is, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_ig": {
-   "desc": "Igbo (Igbo), locale ig, left to right. 147 packages translated.",
+   "desc": "Igbo (Igbo), locale ig, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_id": {
-   "desc": "Indonesian (Bahasa Indonesia), locale id, left to right. 147 packages translated.",
+   "desc": "Indonesian (Bahasa Indonesia), locale id, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_ga": {
-   "desc": "Irish (Gaeilge), locale ga, left to right. 147 packages translated.",
+   "desc": "Irish (Gaeilge), locale ga, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_it": {
-   "desc": "Italian (Italiano), locale it, left to right. 147 packages translated.",
+   "desc": "Italian (Italiano), locale it, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_ja": {
-   "desc": "Japanese (日本語), locale ja, left to right. 147 packages translated.",
+   "desc": "Japanese (日本語), locale ja, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_jv": {
-   "desc": "Javanese (Basa Jawa), locale jv, left to right. 147 packages translated.",
+   "desc": "Javanese (Basa Jawa), locale jv, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_kn": {
-   "desc": "Kannada (ಕನ್ನಡ), locale kn, left to right. 147 packages translated.",
+   "desc": "Kannada (ಕನ್ನಡ), locale kn, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_kk": {
-   "desc": "Kazakh (Қазақ), locale kk, left to right. 147 packages translated.",
+   "desc": "Kazakh (Қазақ), locale kk, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_km": {
-   "desc": "Khmer (ខ្មែរ), locale km, left to right. 147 packages translated.",
+   "desc": "Khmer (ខ្មែរ), locale km, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_ko": {
-   "desc": "Korean (한국어), locale ko, left to right. 147 packages translated.",
+   "desc": "Korean (한국어), locale ko, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_ku": {
-   "desc": "Kurdish (Kurdî), locale ku, left to right. 147 packages translated.",
+   "desc": "Kurdish (Kurdî), locale ku, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_ky": {
-   "desc": "Kyrgyz (Кыргызча), locale ky, left to right. 147 packages translated.",
+   "desc": "Kyrgyz (Кыргызча), locale ky, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_lo": {
-   "desc": "Lao (ລາວ), locale lo, left to right. 147 packages translated.",
+   "desc": "Lao (ລາວ), locale lo, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_lv": {
-   "desc": "Latvian (Latviešu), locale lv, left to right. 147 packages translated.",
+   "desc": "Latvian (Latviešu), locale lv, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_lt": {
-   "desc": "Lithuanian (Lietuvių), locale lt, left to right. 147 packages translated.",
+   "desc": "Lithuanian (Lietuvių), locale lt, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_lb": {
-   "desc": "Luxembourgish (Lëtzebuergesch), locale lb, left to right. 147 packages translated.",
+   "desc": "Luxembourgish (Lëtzebuergesch), locale lb, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_mk": {
-   "desc": "Macedonian (Македонски), locale mk, left to right. 147 packages translated.",
+   "desc": "Macedonian (Македонски), locale mk, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_ms": {
-   "desc": "Malay (Bahasa Melayu), locale ms, left to right. 147 packages translated.",
+   "desc": "Malay (Bahasa Melayu), locale ms, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_ml": {
-   "desc": "Malayalam (മലയാളം), locale ml, left to right. 147 packages translated.",
+   "desc": "Malayalam (മലയാളം), locale ml, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_mt": {
-   "desc": "Maltese (Malti), locale mt, left to right. 147 packages translated.",
+   "desc": "Maltese (Malti), locale mt, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_mr": {
-   "desc": "Marathi (मराठी), locale mr, left to right. 147 packages translated.",
+   "desc": "Marathi (मराठी), locale mr, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_mn": {
-   "desc": "Mongolian (Монгол), locale mn, left to right. 147 packages translated.",
+   "desc": "Mongolian (Монгол), locale mn, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_mi": {
-   "desc": "Māori (Māori), locale mi, left to right. 147 packages translated.",
+   "desc": "Māori (Māori), locale mi, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_ne": {
-   "desc": "Nepali (नेपाली), locale ne, left to right. 147 packages translated.",
+   "desc": "Nepali (नेपाली), locale ne, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_nb": {
-   "desc": "Norwegian Bokmål (Norsk Bokmål), locale nb, left to right. 147 packages translated.",
+   "desc": "Norwegian Bokmål (Norsk Bokmål), locale nb, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_om": {
-   "desc": "Oromo (Oromoo), locale om, left to right. 147 packages translated.",
+   "desc": "Oromo (Oromoo), locale om, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_ps": {
-   "desc": "Pashto (پښتو), locale ps, right to left. 147 packages translated.",
+   "desc": "Pashto (پښتو), locale ps, right to left. 148 packages translated.",
    "kind": "language"
   },
   "lang_fa": {
-   "desc": "Persian (فارسی), locale fa, right to left. 147 packages translated.",
+   "desc": "Persian (فارسی), locale fa, right to left. 148 packages translated.",
    "kind": "language"
   },
   "lang_pl": {
-   "desc": "Polish (Polski), locale pl, left to right. 147 packages translated.",
+   "desc": "Polish (Polski), locale pl, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_pt": {
-   "desc": "Portuguese (Português), locale pt, left to right. 147 packages translated.",
+   "desc": "Portuguese (Português), locale pt, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_pa": {
-   "desc": "Punjabi (ਪੰਜਾਬੀ), locale pa, left to right. 147 packages translated.",
+   "desc": "Punjabi (ਪੰਜਾਬੀ), locale pa, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_qu": {
-   "desc": "Quechua (Runa Simi), locale qu, left to right. 147 packages translated.",
+   "desc": "Quechua (Runa Simi), locale qu, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_ro": {
-   "desc": "Romanian (Română), locale ro, left to right. 147 packages translated.",
+   "desc": "Romanian (Română), locale ro, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_ru": {
-   "desc": "Russian (Русский), locale ru, left to right. 147 packages translated.",
+   "desc": "Russian (Русский), locale ru, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_sr": {
-   "desc": "Serbian (Српски), locale sr, left to right. 147 packages translated.",
+   "desc": "Serbian (Српски), locale sr, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_sn": {
-   "desc": "Shona (ChiShona), locale sn, left to right. 147 packages translated.",
+   "desc": "Shona (ChiShona), locale sn, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_sd": {
-   "desc": "Sindhi (سنڌي), locale sd, right to left. 147 packages translated.",
+   "desc": "Sindhi (سنڌي), locale sd, right to left. 148 packages translated.",
    "kind": "language"
   },
   "lang_si": {
-   "desc": "Sinhala (සිංහල), locale si, left to right. 147 packages translated.",
+   "desc": "Sinhala (සිංහල), locale si, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_sk": {
-   "desc": "Slovak (Slovenčina), locale sk, left to right. 147 packages translated.",
+   "desc": "Slovak (Slovenčina), locale sk, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_sl": {
-   "desc": "Slovenian (Slovenščina), locale sl, left to right. 147 packages translated.",
+   "desc": "Slovenian (Slovenščina), locale sl, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_so": {
-   "desc": "Somali (Soomaali), locale so, left to right. 147 packages translated.",
+   "desc": "Somali (Soomaali), locale so, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_es": {
-   "desc": "Spanish (Español), locale es, left to right. 148 packages translated.",
+   "desc": "Spanish (Español), locale es, left to right. 149 packages translated.",
    "kind": "language"
   },
   "lang_sw": {
-   "desc": "Swahili (Kiswahili), locale sw, left to right. 147 packages translated.",
+   "desc": "Swahili (Kiswahili), locale sw, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_sv": {
-   "desc": "Swedish (Svenska), locale sv, left to right. 147 packages translated.",
+   "desc": "Swedish (Svenska), locale sv, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_tg": {
-   "desc": "Tajik (Тоҷикӣ), locale tg, left to right. 147 packages translated.",
+   "desc": "Tajik (Тоҷикӣ), locale tg, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_ta": {
-   "desc": "Tamil (தமிழ்), locale ta, left to right. 147 packages translated.",
+   "desc": "Tamil (தமிழ்), locale ta, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_tt": {
-   "desc": "Tatar (Татар), locale tt, left to right. 147 packages translated.",
+   "desc": "Tatar (Татар), locale tt, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_te": {
-   "desc": "Telugu (తెలుగు), locale te, left to right. 147 packages translated.",
+   "desc": "Telugu (తెలుగు), locale te, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_th": {
-   "desc": "Thai (ไทย), locale th, left to right. 147 packages translated.",
+   "desc": "Thai (ไทย), locale th, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_tr": {
-   "desc": "Turkish (Türkçe), locale tr, left to right. 147 packages translated.",
+   "desc": "Turkish (Türkçe), locale tr, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_tk": {
-   "desc": "Turkmen (Türkmen), locale tk, left to right. 147 packages translated.",
+   "desc": "Turkmen (Türkmen), locale tk, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_uk": {
-   "desc": "Ukrainian (Українська), locale uk, left to right. 147 packages translated.",
+   "desc": "Ukrainian (Українська), locale uk, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_ur": {
-   "desc": "Urdu (اردو), locale ur, right to left. 147 packages translated.",
+   "desc": "Urdu (اردو), locale ur, right to left. 148 packages translated.",
    "kind": "language"
   },
   "lang_uz": {
-   "desc": "Uzbek (O'zbek), locale uz, left to right. 147 packages translated.",
+   "desc": "Uzbek (O'zbek), locale uz, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_vi": {
-   "desc": "Vietnamese (Tiếng Việt), locale vi, left to right. 147 packages translated.",
+   "desc": "Vietnamese (Tiếng Việt), locale vi, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_cy": {
-   "desc": "Welsh (Cymraeg), locale cy, left to right. 147 packages translated.",
+   "desc": "Welsh (Cymraeg), locale cy, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_fy": {
-   "desc": "Western Frisian (Frysk), locale fy, left to right. 147 packages translated.",
+   "desc": "Western Frisian (Frysk), locale fy, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_pnb": {
-   "desc": "Western Punjabi (پنجابی), locale pnb, right to left. 147 packages translated.",
+   "desc": "Western Punjabi (پنجابی), locale pnb, right to left. 148 packages translated.",
    "kind": "language"
   },
   "lang_wuu": {
-   "desc": "Wu Chinese (吴语), locale wuu, left to right. 147 packages translated.",
+   "desc": "Wu Chinese (吴语), locale wuu, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_xh": {
-   "desc": "Xhosa (isiXhosa), locale xh, left to right. 147 packages translated.",
+   "desc": "Xhosa (isiXhosa), locale xh, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_yi": {
-   "desc": "Yiddish (ייִדיש), locale yi, right to left. 147 packages translated.",
+   "desc": "Yiddish (ייִדיש), locale yi, right to left. 148 packages translated.",
    "kind": "language"
   },
   "lang_yo": {
-   "desc": "Yoruba (Yorùbá), locale yo, left to right. 147 packages translated.",
+   "desc": "Yoruba (Yorùbá), locale yo, left to right. 148 packages translated.",
    "kind": "language"
   },
   "lang_zu": {
-   "desc": "Zulu (isiZulu), locale zu, left to right. 147 packages translated.",
+   "desc": "Zulu (isiZulu), locale zu, left to right. 148 packages translated.",
    "kind": "language"
   }
  },
@@ -508,7 +515,7 @@
   {
    "id": "languages",
    "label": "Every element, every language",
-   "message": "148 packages translated into 101 languages, and how it works.",
+   "message": "149 packages translated into 101 languages, and how it works.",
    "scenes": [
     {
      "caption": "Elements extend I18NMixin and register with i18n-manager.",
@@ -547,6 +554,7 @@
      "nodes": [
       "lg_ready",
       "b_clean_two",
+      "b_instructional_cadence",
       "b_simple_icon_picker",
       "b_terrible_themes"
      ]

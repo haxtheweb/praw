@@ -28,7 +28,7 @@
    "kind": "group"
   },
   "qg_adv": {
-   "desc": "5 checks that run on pull requests but don't stop a merge (continue-on-error, warning only or report only), plus 0 planned checks still in open pull requests. ESLint stays here until it blocks.",
+   "desc": "5 checks that run on pull requests but don't stop a merge (continue-on-error, warning only or report only), plus 3 planned checks still in open pull requests. ESLint stays here until it blocks.",
    "kind": "group"
   },
   "qg_sched": {
@@ -287,6 +287,30 @@
     "workflow": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml"
    }
   },
+  "qp_haxcms_nodejs_240": {
+   "desc": "In an open pull request, not running yet.",
+   "status": "planned",
+   "kind": "planned",
+   "links": {
+    "pr": "https://github.com/haxtheweb/haxcms-nodejs/pull/240"
+   }
+  },
+  "qp_haxcms_php_779": {
+   "desc": "In an open pull request, not running yet.",
+   "status": "planned",
+   "kind": "planned",
+   "links": {
+    "pr": "https://github.com/haxtheweb/haxcms-php/pull/779"
+   }
+  },
+  "qp_create_130": {
+   "desc": "In an open pull request, not running yet.",
+   "status": "planned",
+   "kind": "planned",
+   "links": {
+    "pr": "https://github.com/haxtheweb/create/pull/130"
+   }
+  },
   "q_build_and_tests": {
    "desc": "Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create. webcomponents: last scheduled run 2026-11-10, success; haxcms-nodejs: last scheduled run 2026-11-10, success; haxcms-php: last scheduled run 2026-11-10, failure; create: last scheduled run 2026-11-10, success.",
    "kind": "scheduled",
@@ -506,9 +530,11 @@
      ]
     },
     {
-     "caption": "No checks are waiting in open pull requests.",
+     "caption": "Planned checks, still in open pull requests.",
      "nodes": [
-      "qg_adv"
+      "qp_haxcms_nodejs_240",
+      "qp_haxcms_php_779",
+      "qp_create_130"
      ]
     },
     {

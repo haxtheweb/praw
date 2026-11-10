@@ -282,6 +282,7 @@
 "lg_registry": "2026-10-20",
 "lg_manifest": "2026-11-10",
 "b_clean_two": "2026-11-09",
+"b_instructional_cadence": "2026-11-05",
 "b_simple_icon_picker": "2026-11-09",
 "b_terrible_themes": "2026-11-07"
 },
@@ -379,6 +380,13 @@
 "s_hax_issue_research": "2026-10-20",
 "s_hax_release_prep": "2026-11-09",
 "s_hax_rule_management": "2026-11-09"
+},
+"skillsindex": {
+"w_build": "2026-11-10",
+"w_snapshot": "2026-10-27",
+"w_php": "2026-11-10",
+"w_node": "2026-11-10",
+"w_cli": "2026-11-10"
 },
 "stack": {
 "simpleicon": "2026-11-06",
@@ -1196,6 +1204,9 @@
 "b_clean_two": [
 "btopro"
 ],
+"b_instructional_cadence": [
+"btopro"
+],
 "b_simple_icon_picker": [
 "btopro"
 ],
@@ -1435,6 +1446,24 @@
 "btopro"
 ]
 },
+"skillsindex": {
+"w_build": [
+"btopro"
+],
+"w_snapshot": [
+"btopro"
+],
+"w_php": [
+"btopro"
+],
+"w_node": [
+"btopro"
+],
+"w_cli": [
+"btopro",
+"winstonwumbo"
+]
+},
 "stack": {
 "simpleicon": [
 "btopro"
@@ -1544,7 +1573,7 @@
 "php": true,
 "nodejs": true,
 "cli": false,
-"mcp": false
+"mcp": true
 },
 "op_updatesiteappearance": {
 "php": true,
@@ -1691,6 +1720,18 @@
 "mcp": true
 },
 "op_updatecontentbyidorslug": {
+"php": true,
+"nodejs": true,
+"cli": false,
+"mcp": true
+},
+"op_listcontentblocks": {
+"php": true,
+"nodejs": true,
+"cli": false,
+"mcp": true
+},
+"op_updatecontentblocks": {
 "php": true,
 "nodejs": true,
 "cli": false,

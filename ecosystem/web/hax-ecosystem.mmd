@@ -64,6 +64,7 @@ flowchart TB
     presentations["Presentations"]
   end
   subgraph practices ["Practices and standards"]
+    heosat["HEOSAT"]
     wcstandard["Web component standard"]
     security["Security"]
     quality["Quality control"]
@@ -98,6 +99,7 @@ flowchart TB
     ccso[["CCSO Cyber Security club"]]
     uxdc[["UXDC"]]
     apereo[["Apereo Foundation"]]
+    booklooky[["BookLooky"]]
     github[["GitHub"]]
     npm[["npm"]]
     duke[["Duke University"]]
@@ -347,6 +349,12 @@ flowchart TB
   ccso -->|audits| security
   uxdc --o|is a student organization in| ist
   uxdc -->|practices| design
+  heosat --o|is published by| apereo
+  praw -->|runs| heosat
+  traveler -->|runs the assessment with AI| heosat
+  wins -->|records a win for| booklooky
+  heosat -->|helped| booklooky
+  booklooky --o|went through incubation at| apereo
   apereo --o|supports| human
   apereo --o|supports| traveler
   github --o|hosts| issues
@@ -740,6 +748,8 @@ flowchart TB
   %%@ node ccso mono=CCSO color=landgrantBrown motion=strike
   %%@ node uxdc mono=UXDC color=creekTeal motion=tilt
   %%@ node apereo mono=AP color=limestoneGray motion=pulse
+  %%@ node booklooky mono=BL color=limestoneGray motion=pop
+  %%@ node heosat icon=icons:verified-user color=beaverBlue motion=pop web=heosat
   %%@ node github mono=GH color=coalyGray motion=pop
   %%@ node npm mono=npm color=discoveryCoral motion=nudge
   %%@ node duke mono=DUKE color=slateGray motion=lift

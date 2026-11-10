@@ -328,7 +328,7 @@
   },
   "candidate:version_hidden": {
    "enforced_by": [
-    "qp_haxcms_nodejs_189"
+    "q_unit_and_api_conformance_tests"
    ],
    "pillars": [
     "sustainable"
@@ -337,7 +337,8 @@
     "nodejs",
     "php",
     "haxiam"
-   ]
+   ],
+   "how": "haxcms-nodejs test/unit/version-not-exposed-unauthenticated.test.cjs runs in its unit tests (merged in haxcms-nodejs#189); haxcms-php has no matching test yet."
   },
   "candidate:no_native_dialogs": {
    "pillars": [

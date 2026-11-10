@@ -45,6 +45,7 @@ flowchart TB
     r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123["Meaning Channels — Meaning and Consequential Decisions Use All Five"]
     r_cehsaztyfb2vtcwthggnbk["JavaScript Standards — globalThis"]
     r_njf4syugdn5wr5tevadtgy["JavaScript Standards — No optional chaining"]
+    r_410c4334_a186_4356_9584_0796e5d2bc2d["Shadow-Boundary ARIA References"]
     r_eis0l9w9l2jg1cofysmvdt["HAX Content Authoring"]
     r_wqogob824vgw5hecmh08ew["a11y-collapse heading-button"]
     r_haxhooks_lifecycle_integration["haxHooks lifecycle integration"]
@@ -70,6 +71,10 @@ flowchart TB
     r_edaxma3ziihz86gyx4mosu["Version Control"]
     r_bakmwcmrqrlgdwmunwgvuw["Cross-Repo References — No Local Paths"]
     r_92dfb3b2_1c32_42dc_89c3_0f4ae66f7227["Node.js Version — Latest LTS"]
+    r_4e0800ef_32ff_42dc_83f0_bbb953d97554["Browser Support Policy — Baseline"]
+    r_f54de8cb_0b65_4f50_98e6_43e8c2ebc4c7["HAX Rules Win Over Modern Web Guidance"]
+    r_d2a1207c_b6d1_4cd6_9930_bd21b29a516c["Outside Skills Are Version-Pinned"]
+    r_09255ba6_e67a_44ce_b8cb_f0d5e80f97ab["Rules and Skills Earn Their Tokens"]
     r_4a7c9e2b_8d5f_4e1a_9c3b_7f2e6d5a4b3c["Monorepo Dependency Verification"]
     r_ssy9vkxaqbticixvyustga["Script Restrictions"]
     r_74cc0274_6bf2_45a0_8e06_b88254f4cf9e["AI Guardrails — State Assumptions"]
@@ -136,8 +141,8 @@ flowchart TB
     q_parity["q_parity"]
     q_render_benchmarks["q_render_benchmarks"]
     q_test_all_elements["q_test_all_elements"]
+    q_unit_and_api_conformance_tests["q_unit_and_api_conformance_tests"]
     q_unused_code_knip["q_unused_code_knip"]
-    qp_haxcms_nodejs_189["qp_haxcms_nodejs_189"]
     accessible["accessible"]
     efficient["efficient"]
     extensible["extensible"]
@@ -241,6 +246,7 @@ flowchart TB
   q_lint -->|enforces| r_njf4syugdn5wr5tevadtgy
   r_njf4syugdn5wr5tevadtgy ==>|serves| agnostic
   r_njf4syugdn5wr5tevadtgy -.->|applies to| components
+  rg_web_component_development -->|includes| r_410c4334_a186_4356_9584_0796e5d2bc2d
   rg_web_component_development -->|includes| r_eis0l9w9l2jg1cofysmvdt
   rg_web_component_development -->|includes| r_wqogob824vgw5hecmh08ew
   rg_web_component_development -->|includes| r_haxhooks_lifecycle_integration
@@ -291,6 +297,10 @@ flowchart TB
   r_bakmwcmrqrlgdwmunwgvuw -.->|applies to| praw
   r_bakmwcmrqrlgdwmunwgvuw -.->|applies to| agents
   rg_build_development_workflow -->|includes| r_92dfb3b2_1c32_42dc_89c3_0f4ae66f7227
+  rg_build_development_workflow -->|includes| r_4e0800ef_32ff_42dc_83f0_bbb953d97554
+  rg_build_development_workflow -->|includes| r_f54de8cb_0b65_4f50_98e6_43e8c2ebc4c7
+  rg_build_development_workflow -->|includes| r_d2a1207c_b6d1_4cd6_9930_bd21b29a516c
+  rg_build_development_workflow -->|includes| r_09255ba6_e67a_44ce_b8cb_f0d5e80f97ab
   rg_build_development_workflow -->|includes| r_4a7c9e2b_8d5f_4e1a_9c3b_7f2e6d5a4b3c
   q_unused_code_knip -->|enforces| r_4a7c9e2b_8d5f_4e1a_9c3b_7f2e6d5a4b3c
   r_4a7c9e2b_8d5f_4e1a_9c3b_7f2e6d5a4b3c -.->|applies to| components
@@ -431,7 +441,7 @@ flowchart TB
   rc_user_links ==>|serves| open
   rc_user_links -.->|applies to| editor
   rg_proposed_platform_rules -->|includes| rc_version_hidden
-  qp_haxcms_nodejs_189 -->|enforces| rc_version_hidden
+  q_unit_and_api_conformance_tests -->|enforces| rc_version_hidden
   rc_version_hidden ==>|serves| sustainable
   rc_version_hidden -.->|applies to| nodejs
   rc_version_hidden -.->|applies to| php
@@ -502,6 +512,7 @@ flowchart TB
   %%@ node r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123 icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_cehsaztyfb2vtcwthggnbk icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_njf4syugdn5wr5tevadtgy icon=icons:verified-user color=forestGreen motion=nudge
+  %%@ node r_410c4334_a186_4356_9584_0796e5d2bc2d icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_eis0l9w9l2jg1cofysmvdt icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_wqogob824vgw5hecmh08ew icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_haxhooks_lifecycle_integration icon=icons:gavel color=limestoneGray motion=nudge
@@ -527,6 +538,10 @@ flowchart TB
   %%@ node r_edaxma3ziihz86gyx4mosu icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_bakmwcmrqrlgdwmunwgvuw icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_92dfb3b2_1c32_42dc_89c3_0f4ae66f7227 icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_4e0800ef_32ff_42dc_83f0_bbb953d97554 icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_f54de8cb_0b65_4f50_98e6_43e8c2ebc4c7 icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_d2a1207c_b6d1_4cd6_9930_bd21b29a516c icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_09255ba6_e67a_44ce_b8cb_f0d5e80f97ab icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_4a7c9e2b_8d5f_4e1a_9c3b_7f2e6d5a4b3c icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_ssy9vkxaqbticixvyustga icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_74cc0274_6bf2_45a0_8e06_b88254f4cf9e icon=icons:gavel color=limestoneGray motion=nudge
@@ -589,8 +604,8 @@ flowchart TB
   %%@ node q_parity portal=quality
   %%@ node q_render_benchmarks portal=quality
   %%@ node q_test_all_elements portal=quality
+  %%@ node q_unit_and_api_conformance_tests portal=quality
   %%@ node q_unused_code_knip portal=quality
-  %%@ node qp_haxcms_nodejs_189 portal=quality
   %%@ node accessible portal
   %%@ node efficient portal
   %%@ node extensible portal

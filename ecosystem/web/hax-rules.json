@@ -9,7 +9,7 @@
    "gap": "nothing enforces it yet",
    "proposed": "proposed"
   },
-  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (64 rules) and each repo's AGENTS.md (23), plus 9 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 19 are enforced; 77 are gaps, the backlog of what to automate next.",
+  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (69 rules) and each repo's AGENTS.md (23), plus 9 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 19 are enforced; 82 are gaps, the backlog of what to automate next.",
   "kindLabels": {
    "rel": "where a rule comes from and what enforces it",
    "pillar": "pillars a rule serves",
@@ -33,11 +33,11 @@
    "kind": "group"
   },
   "rg_web_component_development": {
-   "desc": "Web Component Development: 12 rules, 3 enforced by a check.",
+   "desc": "Web Component Development: 13 rules, 3 enforced by a check.",
    "kind": "group"
   },
   "rg_build_development_workflow": {
-   "desc": "Build & Development Workflow: 29 rules, 6 enforced by a check.",
+   "desc": "Build & Development Workflow: 33 rules, 6 enforced by a check.",
    "kind": "group"
   },
   "rg_instructional_design": {
@@ -262,6 +262,14 @@
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#javascript-standards--no-optional-chaining"
    }
   },
+  "r_410c4334_a186_4356_9584_0796e5d2bc2d": {
+   "desc": "An `id` reference (`aria-labelledby`, `aria-describedby`, `aria-controls`, `aria-owns`, `aria-activedescendant`, `<label for>`) only resolves inside the tree it is written in. One that points from light DOM into a shadow root, or out of a shadow root to light DOM, finds nothing and fails silently: no error, no axe failure in many cases, just a control with no name. Inside an element, keep the labelling control and its label in the same shadow root, or take the label as a property/attribute and render it next to the control. To label a shadow-internal control from slotted or light DOM content, set the reflected element properties (`ariaLabelledByElements`, `ariaDescribedByElements`, `ariaControlsElements`) in `firstUpdated`/`updated`; they resolve outward only (shadow tree to light DOM or ancestor trees), never inward, so a host cannot be labelled by its own shadow content this way. They are Baseline Newly available, so feature-detect (`'ariaLabelledByElements' in Element.prototype`) and keep a working label when they are missing (see the Browser Support Policy rule `4e0800ef-32ff-42dc-83f0-bbb953d97554`). Focus: when the element wraps one internal focusable control that owns the semantics (an input, a button), attach the shadow root with `delegatesFocus: true` (in Lit, `static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true }`) instead of putting `tabindex` on the host; do not also give the host a role or state, or focus lands on the inner control and the host's state is skipped. When the host itself is the control (a custom toggle with `role` and `aria-pressed` on the host), put `tabindex=\"0\"` on the host and leave `delegatesFocus` off. Never use a positive `tabindex`. Check this when adding or reviewing labels, descriptions or focus handling in an element; `hax-a11y-audit` checks the authored-content side. Source: Modern Web Guidance `accessible-web-components`. Tracking: <https://github.com/haxtheweb/issues/issues/3298>. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#shadow-boundary-aria-references"
+   }
+  },
   "r_eis0l9w9l2jg1cofysmvdt": {
    "desc": "When you write content for hax sites make sure that the webcomponent tags you are using are things that could have been authored and put in the page. This means written using the HAX editor via elements that have HAXSchema. This registry has a list of all valid HAX capable elements and while not always used on every page, it's useful for knowing what is possible. Some times supplying visually interesting content helps with engagement for video, table, and block element data. Also keep in mind the DDD attributes that we support to help make headings and paragraph content offset in a consistent way. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
    "kind": "gap",
@@ -456,6 +464,38 @@
    "status": "gap",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#nodejs-version--latest-lts"
+   }
+  },
+  "r_4e0800ef_32ff_42dc_83f0_bbb953d97554": {
+   "desc": "HAX supports the current and previous release of each evergreen browser (Chrome, Edge, Firefox, Safari). In Baseline terms: **Widely available** features are used freely; **Newly available** features are allowed behind feature detection (`'x' in obj`, `CSS.supports()`, `@supports`) with a plainer path that still works without them; **Limited availability** needs a reason in the PR plus the same detection. No polyfills, and no dependency added only to fake a platform feature. This replaces Modern Web Guidance's default, which treats only Widely available as safe and adds fallbacks for the rest. Repos state it in `AGENTS.md` as: `**Browser Support:** Current and previous evergreen browsers. Baseline Widely available features without fallbacks; Baseline Newly available features behind feature detection with a working plain path; no polyfills.` The `baseline-js` lint is the PR-time check. Tracking: <https://github.com/haxtheweb/issues/issues/3298>. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#browser-support-policy--baseline"
+   }
+  },
+  "r_f54de8cb_0b65_4f50_98e6_43e8c2ebc4c7": {
+   "desc": "Modern Web Guidance (MWG) and other outside agent guidance are advice; where they conflict with a HAX rule, the HAX rule wins and the PR says which advice was set aside. Known conflicts: no `?.`; `globalThis`; explicit `.js` paths for HAX's own imports; no native `confirm()`/`prompt()`/`alert()`; authored `http` links and resources keep working (no CSP or upgrade that breaks them); site pages stay embeddable (no `frame-ancestors`/`X-Frame-Options`); DDD tokens over raw values; no front-end API change on authorable elements. MWG's security guides (strict CSP, restricted outbound connections) are where these come up most. Browser support follows `4e0800ef-32ff-42dc-83f0-bbb953d97554`. Details and triage table: <https://github.com/haxtheweb/praw/blob/main/webcomponents/MODERN-WEB-GUIDANCE.md>. In PRAW RULES.md (scope: global). Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#hax-rules-win-over-modern-web-guidance"
+   }
+  },
+  "r_d2a1207c_b6d1_4cd6_9930_bd21b29a516c": {
+   "desc": "Agent skills or guidance packages HAX did not write run at the exact version in `skills-lock.json` (https://github.com/haxtheweb/praw/blob/main/skills-lock.json), never `@latest` or a range; e.g. `DISABLE_TELEMETRY=1 npx -y modern-web-guidance@<version>`. MWG's `--skill-version` only tags telemetry and is not a pin; `DISABLE_TELEMETRY=1` is required in CI and scheduled jobs. A bump is its own PR updating `version`, `integrity` and `license` and summarizing what changed; `node scripts/update-skills-lock.js --check` rejects non-exact pins. In PRAW RULES.md (scope: global). Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#outside-skills-are-version-pinned"
+   }
+  },
+  "r_09255ba6_e67a_44ce_b8cb_f0d5e80f97ab": {
+   "desc": "Every rule and skill section must change what an agent does. A new or substantially changed praw skill ships `evals/evals.json` whose cases record `expected_output` and `baseline_behavior` (what an agent does without the skill); content whose cases match the baseline gets trimmed, and a rule an agent would follow anyway is not added. `node scripts/eval-coverage.js` reports per-skill lines and eval coverage for trimming passes and HEOSAT evidence. In PRAW RULES.md (scope: global). Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#rules-and-skills-earn-their-tokens"
    }
   },
   "r_4a7c9e2b_8d5f_4e1a_9c3b_7f2e6d5a4b3c": {
@@ -771,7 +811,7 @@
    "status": "planned"
   },
   "rc_version_hidden": {
-   "desc": "No version number reaches anyone who isn't logged in. Proposed in the HAX Scheduled Background Jobs Plan; not written into RULES.md or AGENTS.md yet. Enforced by Version leak and OpenAPI contract tests.",
+   "desc": "No version number reaches anyone who isn't logged in. Proposed in the HAX Scheduled Background Jobs Plan; not written into RULES.md or AGENTS.md yet. Enforced by Unit and API conformance tests. haxcms-nodejs test/unit/version-not-exposed-unauthenticated.test.cjs runs in its unit tests (merged in haxcms-nodejs#189); haxcms-php has no matching test yet.",
    "kind": "proposed",
    "status": "planned"
   },
@@ -807,7 +847,7 @@
    "id": "rules",
    "label": "Rules and what guarantees them",
    "kind": "story",
-   "message": "96 rules: 19 enforced by a check, 77 not yet.",
+   "message": "101 rules: 19 enforced by a check, 82 not yet.",
    "scenes": [
     {
      "caption": "Rules come from PRAW's RULES.md, each repo's AGENTS.md, and the plan's proposals.",
@@ -864,8 +904,8 @@
       "q_parity",
       "q_render_benchmarks",
       "q_test_all_elements",
-      "q_unused_code_knip",
-      "qp_haxcms_nodejs_189"
+      "q_unit_and_api_conformance_tests",
+      "q_unused_code_knip"
      ]
     },
     {
@@ -913,7 +953,7 @@
      ]
     },
     {
-     "caption": "77 rules nothing enforces yet: the backlog of what to automate next.",
+     "caption": "82 rules nothing enforces yet: the backlog of what to automate next.",
      "nodes": [
       "r_zvem3yg7jtxbsxbop3ypzy",
       "r_rhq7llrzmzlnfvelrwslun",
@@ -933,6 +973,7 @@
       "r_rvsctsdjae8lrmsjmpo3mk",
       "r_13a03330_483e_404e_9e48_b0d9f16432d3",
       "r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123",
+      "r_410c4334_a186_4356_9584_0796e5d2bc2d",
       "r_eis0l9w9l2jg1cofysmvdt",
       "r_wqogob824vgw5hecmh08ew",
       "r_haxhooks_lifecycle_integration",
@@ -954,6 +995,10 @@
       "r_edaxma3ziihz86gyx4mosu",
       "r_bakmwcmrqrlgdwmunwgvuw",
       "r_92dfb3b2_1c32_42dc_89c3_0f4ae66f7227",
+      "r_4e0800ef_32ff_42dc_83f0_bbb953d97554",
+      "r_f54de8cb_0b65_4f50_98e6_43e8c2ebc4c7",
+      "r_d2a1207c_b6d1_4cd6_9930_bd21b29a516c",
+      "r_09255ba6_e67a_44ce_b8cb_f0d5e80f97ab",
       "r_ssy9vkxaqbticixvyustga",
       "r_74cc0274_6bf2_45a0_8e06_b88254f4cf9e",
       "r_f98f5e24_c343_4c12_b1c8_d6ae9783afaa",

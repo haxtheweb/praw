@@ -43,7 +43,9 @@ GUARDS = [
  (r"^build$", "The project still builds."),
  (r"gallery", "The component gallery still builds."),
  (r"phpstan", "New PHP static-analysis errors don't merge."),
+ (r"parity harness", "The same seeded operations sent to haxcms-nodejs, haxcms-php and the HAX CLI write the same sites (report only)."),
  (r"parity", "haxcms-nodejs and haxcms-php give the same results for the same operations."),
+ (r"performance|perf", "Memory, page load and outline save time stay inside the budgets in test/perf/budgets.json."),
  (r"mutation", "The tests catch real faults: deliberate mutations of the code must make them fail."),
  (r"scorecard", "Supply-chain security practices are scored (OpenSSF Scorecard)."),
  (r"sbom", "Every build has a software bill of materials."),
@@ -59,7 +61,7 @@ PRETTY = {"codeql": "CodeQL", "license-check": "Dependency licenses", "license c
           "mutation testing (outline-designer)": "Mutation testing", "knip": "Unused code (knip)", "ddd-token-lint": "DDD token lint", "template-lint": "Template lint",
           "api-snapshot": "Element API snapshot", "i18n-layout": "Pseudo-locale and RTL layout", "leak-check": "Memory leaks", "locale-guard": "Locale guard",
           "walkthrough-status": "Walkthrough status", "render-bench": "Render benchmarks", "phpstan": "PHPStan", "ossf scorecard": "OpenSSF Scorecard",
-          "cla assistant": "CLA", "backend parity": "Backend parity", "build": "Build and tests", "tests": "Build and tests", "sbom": "SBOM"}
+          "cla assistant": "CLA", "backend parity": "Backend parity", "build": "Build and tests", "tests": "Build and tests", "sbom": "SBOM", "perf": "Performance and memory budgets", "parity-nightly": "Parity harness (nodejs, PHP, CLI)"}
 STEP = [(r"^prettier format check|^format check", "Format check"), (r"^eslint$|^lint$", "ESLint"), (r"^security lint", "Security lint"),
         (r"^stylelint", "Stylelint"), (r"^audit production dependencies|^dependency audit|^composer audit", "Dependency audit"),
         (r"^run phpunit", "PHPUnit"), (r"^unit \+ api conformance", "Unit and API conformance tests"), (r"^e2e", "E2E UI tests"),
@@ -120,19 +122,24 @@ for repo, nid in REPOS.items():
         for jname, job in (y.get("jobs") or {}).items():
             if "sweep" in jname.lower() and "pull_request" not in str(job.get("if", "pull_request")): continue
             if re.search(r"sweep|attach", jname, re.I): continue
-            job_adv = bool(job.get("continue-on-error")) or bool(ADVISORY_WORDS.search(jname))
+            cond = str(job.get("if", ""))
+            # jobs gated to another event (a manual dispatch, a release) never run on a pull request
+            if re.search(r"github\.event_name\s*==\s*'(?!pull_request)", cond) and "pull_request" not in cond.replace("!= 'pull_request'", ""): continue
+            on_label = re.search(r"labels\.\*\.name,\s*'([^']+)'", cond)
+            job_adv = bool(job.get("continue-on-error")) or bool(ADVISORY_WORDS.search(jname)) or bool(on_label)
+            extra = f"Opt-in: runs on a pull request only when it is labeled {on_label.group(1)}, and then fails it when the check fails." if on_label else ""
             steps = [s for s in job.get("steps", []) if isinstance(s, dict) and s.get("name") and not SKIP.match(s["name"].strip())]
             all_names = [s.get("name", "") for s in job.get("steps", []) if isinstance(s, dict)]
             if all_names and all(re.match(r"^(comment|attach|upload|download|checkout)", n, re.I) for n in all_names): continue  # housekeeping jobs check nothing
             multi = len(steps) > 2 or wname.lower() in ("build", "tests")
             if not multi:
                 adv = job_adv or any(s.get("continue-on-error") for s in steps) and all(s.get("continue-on-error") for s in steps) or any(ADVISORY_WORDS.search(s["name"]) for s in steps)
-                add(wl, nid, "advisory" if adv else "blocking", wf)
+                add(wl, nid, "advisory" if adv else "blocking", wf, extra)
             else:
                 for s in steps:
                     lab = step_label(s["name"])
                     adv = job_adv or bool(s.get("continue-on-error")) or bool(ADVISORY_WORDS.search(s["name"]))
-                    add(lab, nid, "advisory" if adv else "blocking", wf)
+                    add(lab, nid, "advisory" if adv else "blocking", wf, extra)
 
 # scheduled jobs: a tile of their own, named with how often they run; the id is the check's own id when no PR check uses it
 _s = {}
@@ -226,7 +233,7 @@ nodes = {"quality": {"always": True}, "testing": {},
          "qg_sched": {"desc": f"{len(sched)} GitHub Actions jobs on a schedule and {len(T)} Claude scheduled tasks. Nothing auto-merges: every PR waits for review, and every flag lands in the unified issue queue.", "kind": "group", "links": {"tracking": "https://github.com/haxtheweb/issues/issues/3262"}}}
 for i, c in checks.items():
     wf = sorted(c["wf"])
-    nodes[i] = {"desc": " ".join(x for x in [guards(c["label"]), where(c)] if x), "kind": "gate" if i in blocking else "advisory", "status": "deployed",
+    nodes[i] = {"desc": " ".join(x for x in [guards(c["label"]), "" if any("Opt-in" in e for e in c["extra"]) else where(c), *sorted(c["extra"])] if x), "kind": "gate" if i in blocking else "advisory", "status": "deployed",
                 "links": {f"workflow {k + 1}" if len(wf) > 1 else "workflow": u for k, u in enumerate(wf[:4])}}
 for p in planned:
     nodes[p["id"]] = {"desc": f"In an open pull request, not running yet. {guards(p['label'])}".strip(), "status": "planned", "kind": "planned", "links": {"pr": p["url"]}}

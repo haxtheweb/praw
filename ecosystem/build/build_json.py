@@ -126,6 +126,7 @@ N("appstore", desc="The app store spec: the autoloader \"loads all the elements 
 N("oerschema", desc="Metadata for open educational resources, kept with the content so it can be found, credited and remixed. Authored by Michael Collins.", links={"site": "https://oerschema.org", "repo": GH + "/webcomponents/tree/master/elements/oer-schema"})
 N("openapi", desc="The shared contract that keeps haxcms-nodejs and haxcms-php input and output identical.")
 N("community", desc="How HAX is run: roles and succession, how a decision is made in the open, the documents every repo keeps, and where people meet.", links={"governance": "https://github.com/haxtheweb/issues/blob/main/GOVERNANCE.md"}, always=True)
+N("quality", desc="Every safeguard on what enters HAX: blocking pull request gates, advisory checks, and nightly and weekly jobs, generated from the CI that actually runs.", links={"tracking": "https://github.com/haxtheweb/issues/issues/3262"}, always=True)
 N("contracts", desc="Every data contract in one view: the schema files each HAX format is defined by, and who reads and writes them.", always=True)
 N("anatomy", desc="What a HAX site is made of on disk: site.json, pages, files, theme, the registry and the files HAXcms generates.", always=True)
 N("xapi", desc="Learner activity recorded as xAPI-style statements, ready to move from local storage to a learning record store.", year=2016, yearNote="Dave Fusco works on xAPI integration", yearSource=L("hax-lab README", HAXLAB))

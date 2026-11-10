@@ -229,6 +229,7 @@
         "./skills/hax-backend-dev",
         "./skills/hax-importer-dev",
         "./skills/hax-testing",
+        "./skills/hax-parity-agent-leg",
         "./skills/hax-release-prep"
       ],
       "author": {

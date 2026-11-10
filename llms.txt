@@ -111,6 +111,8 @@ All skills below live in `skills/` in this repo. The machine-readable discovery 
   - Path: `/skills/hax-importer-dev/SKILL.md`
 - **hax-testing**: Find and run the right tests per HAX repo and write the test for a new endpoint
   - Path: `/skills/hax-testing/SKILL.md`
+- **hax-parity-agent-leg**: Run the agent leg of the HAXcms parity harness: replay a recorded run's ops on your own CLI site by following the HAX skills, verify after every op, and report divergences and skill-doc gaps
+  - Path: `/skills/hax-parity-agent-leg/SKILL.md`
 - **hax-release-prep**: Verify locally and write the maintainer handoff for the ubiquity build and publish steps agents must never run
   - Path: `/skills/hax-release-prep/SKILL.md`
 - **hax-element-demo**: Build a throwaway demo of a HAX element inside the real HAX editor (h-a-x) as static files, to check app-store wiring and editability

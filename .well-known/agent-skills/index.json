@@ -219,6 +219,27 @@
       "digest": "sha256:7d53eca4a1830639ea85a2793340c0de86771bf446f5d7bd8c96bdf3803824b5"
     },
     {
+      "name": "hax-parity-agent-leg",
+      "type": "skill-md",
+      "description": "Run the agent leg of the HAXcms parity harness: replay a recorded parity run's ops on your own HAX CLI site by following the HAX skills, verify against the reference snapshots after every op, and report where agent behavior diverges and which skill docs were missing or wrong. Use for \"run the agent leg\", \"replay the parity ops as an agent\", \"check the HAX skills against parity\", or haxtheweb/issues#3292.",
+      "url": "hax-parity-agent-leg/SKILL.md",
+      "digest": "sha256:c9f4483e7bc8814611c3661b84d8e81b0c75e4213cff0ac7794cfaa2360c0f54",
+      "files": [
+        {
+          "path": "references/divergence-classes.md",
+          "digest": "sha256:9b9b255c538b7d5b948d5b92cbbd72d93097dc8e97531bca469157fe87e9ae85"
+        },
+        {
+          "path": "references/ops.md",
+          "digest": "sha256:27520b0470101effba1395c3ce1269cf26b9aab1a22e3cc558410fbe67ce3b10"
+        },
+        {
+          "path": "references/setup.md",
+          "digest": "sha256:443e08b2f3906ec3ef8c987eb8cd00dfcd01b74bc5eaecb989523f11048d746a"
+        }
+      ]
+    },
+    {
       "name": "hax-pattern-library-audit",
       "type": "skill-md",
       "description": "READ-ONLY audit of one HAX web component against the DDD Atomic Design pattern library: composition conformance, internal-contract conformance, library-ingest candidates. Use for \"does this element conform to DDD patterns\". Hands off to hax-webcomponent-dev.",

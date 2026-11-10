@@ -152,6 +152,11 @@ Every rule has one of four scopes:
 - **Scope**: `webcomponents`
 - **Content**: Do not use the optional chaining syntax (`?.`) because the current toolchain / Polymer parser has issues with this syntax.
 
+### Shadow-Boundary ARIA References
+- **Rule ID**: `410c4334-a186-4356-9584-0796e5d2bc2d`
+- **Scope**: `webcomponents`
+- **Content**: An `id` reference (`aria-labelledby`, `aria-describedby`, `aria-controls`, `aria-owns`, `aria-activedescendant`, `<label for>`) only resolves inside the tree it is written in. One that points from light DOM into a shadow root, or out of a shadow root to light DOM, finds nothing and fails silently: no error, no axe failure in many cases, just a control with no name. Inside an element, keep the labelling control and its label in the same shadow root, or take the label as a property/attribute and render it next to the control. To label a shadow-internal control from slotted or light DOM content, set the reflected element properties (`ariaLabelledByElements`, `ariaDescribedByElements`, `ariaControlsElements`) in `firstUpdated`/`updated`; they resolve outward only (shadow tree to light DOM or ancestor trees), never inward, so a host cannot be labelled by its own shadow content this way. They are Baseline Newly available, so feature-detect (`'ariaLabelledByElements' in Element.prototype`) and keep a working label when they are missing (see the Browser Support Policy rule `4e0800ef-32ff-42dc-83f0-bbb953d97554`). Focus: when the element wraps one internal focusable control that owns the semantics (an input, a button), attach the shadow root with `delegatesFocus: true` (in Lit, `static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true }`) instead of putting `tabindex` on the host; do not also give the host a role or state, or focus lands on the inner control and the host's state is skipped. When the host itself is the control (a custom toggle with `role` and `aria-pressed` on the host), put `tabindex="0"` on the host and leave `delegatesFocus` off. Never use a positive `tabindex`. Check this when adding or reviewing labels, descriptions or focus handling in an element; `hax-a11y-audit` checks the authored-content side. Source: Modern Web Guidance `accessible-web-components`. Tracking: <https://github.com/haxtheweb/issues/issues/3298>.
+
 ### HAX Content Authoring
 - **Rule ID**: `eis0l9w9l2jG1COFySmvdT`
 - **Scope**: `webcomponents`
@@ -278,6 +283,26 @@ Every rule has one of four scopes:
 - **Rule ID**: `92dfb3b2-1c32-42dc-89c3-0f4ae66f7227`
 - **Scope**: `global`
 - **Content**: User prefers to always use the latest Node.js LTS release across the ecosystem (currently Node 24). Apply this to `.nvmrc`/`engines` fields, CI workflow `node-version` matrices (e.g. `actions/setup-node`), Docker base images, and local tooling. When a newer LTS supersedes 24, update this rule and all ecosystem workflows/configs in step.
+
+### Browser Support Policy — Baseline
+- **Rule ID**: `4e0800ef-32ff-42dc-83f0-bbb953d97554`
+- **Scope**: `webcomponents`
+- **Content**: HAX supports the current and previous release of each evergreen browser (Chrome, Edge, Firefox, Safari). In Baseline terms: **Widely available** features are used freely; **Newly available** features are allowed behind feature detection (`'x' in obj`, `CSS.supports()`, `@supports`) with a plainer path that still works without them; **Limited availability** needs a reason in the PR plus the same detection. No polyfills, and no dependency added only to fake a platform feature. This replaces Modern Web Guidance's default, which treats only Widely available as safe and adds fallbacks for the rest. Repos state it in `AGENTS.md` as: `**Browser Support:** Current and previous evergreen browsers. Baseline Widely available features without fallbacks; Baseline Newly available features behind feature detection with a working plain path; no polyfills.` The `baseline-js` lint is the PR-time check. Tracking: <https://github.com/haxtheweb/issues/issues/3298>.
+
+### HAX Rules Win Over Modern Web Guidance
+- **Rule ID**: `f54de8cb-0b65-4f50-98e6-43e8c2ebc4c7`
+- **Scope**: `global`
+- **Content**: Modern Web Guidance (MWG) and other outside agent guidance are advice; where they conflict with a HAX rule, the HAX rule wins and the PR says which advice was set aside. Known conflicts: no `?.`; `globalThis`; explicit `.js` paths for HAX's own imports; no native `confirm()`/`prompt()`/`alert()`; authored `http` links and resources keep working (no CSP or upgrade that breaks them); site pages stay embeddable (no `frame-ancestors`/`X-Frame-Options`); DDD tokens over raw values; no front-end API change on authorable elements. MWG's security guides (strict CSP, restricted outbound connections) are where these come up most. Browser support follows `4e0800ef-32ff-42dc-83f0-bbb953d97554`. Details and triage table: <https://github.com/haxtheweb/praw/blob/main/webcomponents/MODERN-WEB-GUIDANCE.md>.
+
+### Outside Skills Are Version-Pinned
+- **Rule ID**: `d2a1207c-b6d1-4cd6-9930-bd21b29a516c`
+- **Scope**: `global`
+- **Content**: Agent skills or guidance packages HAX did not write run at the exact version in `skills-lock.json` (https://github.com/haxtheweb/praw/blob/main/skills-lock.json), never `@latest` or a range; e.g. `DISABLE_TELEMETRY=1 npx -y modern-web-guidance@<version>`. MWG's `--skill-version` only tags telemetry and is not a pin; `DISABLE_TELEMETRY=1` is required in CI and scheduled jobs. A bump is its own PR updating `version`, `integrity` and `license` and summarizing what changed; `node scripts/update-skills-lock.js --check` rejects non-exact pins.
+
+### Rules and Skills Earn Their Tokens
+- **Rule ID**: `09255ba6-e67a-44ce-b8cb-f0d5e80f97ab`
+- **Scope**: `global`
+- **Content**: Every rule and skill section must change what an agent does. A new or substantially changed praw skill ships `evals/evals.json` whose cases record `expected_output` and `baseline_behavior` (what an agent does without the skill); content whose cases match the baseline gets trimmed, and a rule an agent would follow anyway is not added. `node scripts/eval-coverage.js` reports per-skill lines and eval coverage for trimming passes and HEOSAT evidence.
 
 ### Monorepo Dependency Verification
 - **Rule ID**: `4a7c9e2b-8d5f-4e1a-9c3b-7f2e6d5a4b3c`

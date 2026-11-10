@@ -24,6 +24,15 @@
       "sourceType": "github",
       "skillPath": "skills/hax-rule-management/SKILL.md",
       "computedHash": "453e58659b5e4a3a67cdf74585b1bd7a2d81ed78cd76fb8d909ad4e0b7c38430"
+    },
+    "modern-web-guidance": {
+      "source": "GoogleChrome/modern-web-guidance",
+      "sourceType": "npm",
+      "package": "modern-web-guidance",
+      "version": "1.0.0",
+      "integrity": "sha512-vafIZwC8AS6QjM2yyoflZbnc7n3/TVOMLbEMRdPTwcFy0f9/Tq8s5rJQ8UIqRt2KPl9ixravyaMR4nTGuUrcmg==",
+      "license": "Apache-2.0 (code); CC BY 4.0 (guide content)",
+      "run": "DISABLE_TELEMETRY=1 npx -y modern-web-guidance@1.0.0"
     }
   }
 }

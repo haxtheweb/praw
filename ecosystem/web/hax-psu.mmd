@@ -1,0 +1,148 @@
+%% Penn State sub-web: the colleges, units, people and services where HAX is built and used. Generated from the ecosystem web's edges among Penn State tiles, plus the hax.psu.edu snapshot.
+flowchart TB
+  %%@ layout rings=0,240,480,740 sizes=92,64,56,52
+  subgraph hub ["Penn State"]
+    psu["psu"]
+  end
+  subgraph units ["Colleges and units"]
+    aa["aa"]
+    ist["ist"]
+    hhd["hhd"]
+    eberly["eberly"]
+    libraries["libraries"]
+    innovationhub["innovationhub"]
+    ccso["ccso"]
+    uxdc["uxdc"]
+    haxlab["haxlab"]
+  end
+  subgraph work ["What runs and happens here"]
+    haxpsu["haxpsu"]
+    haxiam["haxiam"]
+    elmsln["elmsln"]
+    ist256["ist256"]
+    haxcamp["haxcamp"]
+    course["course"]
+    dept["dept"]
+    hax11ty["hax11ty"]
+    security["security"]
+    design["design"]
+    g_hhd["g_hhd"]
+    g_fusco["g_fusco"]
+    g_frank["g_frank"]
+    wins["wins"]
+    sites_hub["302 sites on hax.psu.edu"]
+  end
+  subgraph ppl ["People"]
+    bryan(("bryan"))
+    billrose(("billrose"))
+    keithbailey(("keithbailey"))
+    mcollins(("mcollins"))
+    fusco(("fusco"))
+    jfrank(("jfrank"))
+    blake(("blake"))
+    agearhart(("agearhart"))
+  end
+
+  psu -->|teaches with| course
+  aa --o|is part of| psu
+  ist --o|is part of| psu
+  hhd --o|is part of| psu
+  eberly --o|is part of| psu
+  libraries --o|is part of| psu
+  psu --o|runs| haxpsu
+  aa --o|publishes courses on| haxpsu
+  ist --o|publishes courses on| haxpsu
+  eberly --o|publishes courses on| haxpsu
+  hhd --o|publishes sites on| haxpsu
+  haxpsu -->|runs on| haxiam
+  hhd -->|runs a| dept
+  libraries -->|publishes with| hax11ty
+  haxlab --o|is based in| aa
+  ccso --o|is a student club in| ist
+  ccso -->|audits| security
+  uxdc --o|is a student organization in| ist
+  uxdc -->|practices| design
+  security -->|was audited in| haxiam
+  wins -->|records a win for| hhd
+  wins -->|records a win for| dept
+  wins -->|records a win for| haxlab
+  wins -->|records a win for| ccso
+  wins -->|records a win for| security
+  wins -->|records a win for| uxdc
+  wins -->|records a win for| libraries
+  elmsln --o|was built at| psu
+  jfrank --o|was in| hhd
+  haxcamp --o|was held at| ist
+  ist256 --o|is taught in| ist
+  ist256 -->|sends its best students to| haxlab
+  innovationhub --o|is part of| psu
+  innovationhub -->|built its earlier site on| haxpsu
+  wins -->|records a win for| innovationhub
+  fusco ---|leads| g_fusco
+  jfrank ---|funded| g_frank
+  billrose ---|is on| g_hhd
+  blake ---|is on| g_hhd
+  g_hhd --o|is with| hhd
+  bryan ---|built| elmsln
+  billrose ---|built| elmsln
+  billrose ---|wrote the course ontology for| course
+  keithbailey ---|championed| elmsln
+  keithbailey ---|worked with| billrose
+  keithbailey --o|led online learning at| psu
+  mcollins ---|teaches with| course
+  mcollins ---|taught with| elmsln
+  mcollins --o|is faculty in| aa
+  fusco --o|was in| haxlab
+  blake --o|directs the Learn to Flourish Hub in| hhd
+  blake ---|runs| dept
+  agearhart --o|works with| libraries
+  agearhart ---|works with| hax11ty
+  fusco --o|teaches in| ist
+  billrose --o|worked in| aa
+  keithbailey --o|worked in| aa
+  mcollins ---|is featured in| wins
+  fusco ---|is featured in| wins
+  jfrank ---|is featured in| wins
+  blake ---|is featured in| wins
+  haxpsu -->|hosts| sites_hub
+  aa -->|publishes courses on| sites_hub
+  ist -->|publishes courses on| sites_hub
+  eberly -->|publishes courses on| sites_hub
+
+  %%@ group hub tier=0
+  %%@ group units tier=1
+  %%@ group work tier=2
+  %%@ group ppl tier=3
+  %%@ node psu portal
+  %%@ node aa portal
+  %%@ node ist portal
+  %%@ node hhd portal
+  %%@ node eberly portal
+  %%@ node libraries portal
+  %%@ node innovationhub portal
+  %%@ node ccso portal
+  %%@ node uxdc portal
+  %%@ node haxlab portal
+  %%@ node bryan portal
+  %%@ node billrose portal
+  %%@ node keithbailey portal
+  %%@ node mcollins portal
+  %%@ node fusco portal
+  %%@ node jfrank portal
+  %%@ node blake portal
+  %%@ node agearhart portal
+  %%@ node haxpsu portal
+  %%@ node haxiam portal
+  %%@ node elmsln portal
+  %%@ node ist256 portal
+  %%@ node haxcamp portal
+  %%@ node course portal
+  %%@ node dept portal
+  %%@ node hax11ty portal
+  %%@ node security portal
+  %%@ node design portal
+  %%@ node g_hhd portal
+  %%@ node g_fusco portal
+  %%@ node g_frank portal
+  %%@ node wins portal
+  %%@ node sites_hub icon=hax:site-map color=nittanyNavy motion=pop

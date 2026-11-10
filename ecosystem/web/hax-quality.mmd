@@ -1,0 +1,105 @@
+%% Quality control sub-web: every gate a change passes through, from a developer's machine to a release, and which repos each guards.
+%% Portals: ids from hax-ecosystem.mmd. Details in hax-quality.json.
+flowchart TB
+  %%@ layout rings=0,230,480,740 sizes=92,66,58,56
+  subgraph hub ["Quality control"]
+    testing["testing"]
+  end
+  subgraph stages ["Stages"]
+    st_local["On your machine"]
+    st_pr["On the pull request"]
+    st_release["At release"]
+  end
+  subgraph gates ["Gates"]
+    q_lint["Lint"]
+    q_precheck["precheck"]
+    q_wtr["Browser tests"]
+    q_dddaudit["DDD audit"]
+    q_unit["Unit tests"]
+    q_parity["API conformance"]
+    q_codeql["CodeQL"]
+    q_audit["Dependency audit"]
+    q_cla["CLA check"]
+    q_e2e["Browser end-to-end"]
+    q_ubiquity["Ubiquity"]
+    q_drift["Graph drift check"]
+  end
+  subgraph repos ["Repos guarded"]
+    components["components"]
+    nodejs["nodejs"]
+    php["php"]
+    cli["cli"]
+    praw["praw"]
+    security["security"]
+    ubiquity["ubiquity"]
+  end
+
+  testing -->|runs at| st_local
+  testing -->|runs at| st_pr
+  testing -->|runs at| st_release
+  st_local -->|runs| q_lint
+  q_lint -->|guards| components
+  q_lint -->|guards| nodejs
+  q_lint -->|guards| cli
+  st_local -->|runs| q_precheck
+  q_precheck -->|guards| nodejs
+  st_local -->|runs| q_wtr
+  q_wtr -->|guards| components
+  st_local -->|runs| q_dddaudit
+  q_dddaudit -->|guards| components
+  st_pr -->|runs| q_unit
+  q_unit -->|guards| nodejs
+  q_unit -->|guards| php
+  q_unit -->|guards| cli
+  st_pr -->|runs| q_parity
+  q_parity -->|guards| nodejs
+  q_parity -->|guards| php
+  st_pr -->|runs| q_codeql
+  q_codeql -->|guards| nodejs
+  q_codeql -->|guards| php
+  q_codeql -->|guards| components
+  q_codeql -->|guards| cli
+  st_pr -->|runs| q_audit
+  q_audit -->|guards| php
+  q_audit -->|guards| nodejs
+  st_pr -->|runs| q_cla
+  q_cla -->|guards| components
+  q_cla -->|guards| nodejs
+  q_cla -->|guards| php
+  q_cla -->|guards| cli
+  st_pr -->|runs| q_e2e
+  q_e2e -->|guards| nodejs
+  st_release -->|runs| q_ubiquity
+  q_ubiquity -->|guards| components
+  st_release -->|runs| q_drift
+  q_drift -->|guards| praw
+  q_codeql -->|feeds| security
+  q_ubiquity -->|is| ubiquity
+
+  %%@ group hub tier=0
+  %%@ group stages tier=1
+  %%@ group gates tier=2
+  %%@ group repos tier=3
+  %%@ node testing portal
+  %%@ node st_local icon=icons:check-circle color=forestGreen motion=pop
+  %%@ node st_pr icon=icons:check-circle color=forestGreen motion=pop
+  %%@ node st_release icon=icons:check-circle color=forestGreen motion=pop
+  %%@ node q_lint icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_precheck icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_wtr icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_dddaudit icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_unit icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_parity icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_codeql icon=icons:bug-report color=forestGreen motion=nudge
+  %%@ node q_audit icon=icons:bug-report color=forestGreen motion=nudge
+  %%@ node q_cla icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_e2e icon=icons:check-circle color=original87Pink motion=nudge
+  %%@ node q_ubiquity icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_drift icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node components portal
+  %%@ node nodejs portal
+  %%@ node php portal
+  %%@ node cli portal
+  %%@ node praw portal
+  %%@ node security portal
+  %%@ node ubiquity portal

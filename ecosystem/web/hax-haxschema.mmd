@@ -1,0 +1,309 @@
+%% HAXSchema sub-web: what an element tells the editor, built on JSON Schema, with every field type and the elements that use it
+%% Generated from hax-schema/schema/haxProperties.schema.json. Details in the matching .json.
+flowchart TB
+  %%@ layout rings=0,300,450,650,880 sizes=92,58,60,46,46
+  subgraph hub ["HAXSchema"]
+    haxschema[("haxschema")]
+  end
+  subgraph base ["Built on"]
+    jsonschema[("JSON Schema 2020-12")]
+    hsfile[("haxProperties.schema.json")]
+    hslocale[("haxProperties.locale.schema.json")]
+  end
+  subgraph parts ["Parts of a haxProperties file"]
+    hp_api["api"]
+    hp_type["type"]
+    hp_gizmo["gizmo"]
+    hp_settings["settings"]
+    hp_demoschema["demoSchema"]
+    hp_saveoptions["saveOptions"]
+    hp_canscale["canScale"]
+    hp_caneditsource["canEditSource"]
+    hp_contenteditable["contentEditable"]
+    hp_designsystem["designSystem"]
+    hp_editingelement["editingElement"]
+    hp_editmode["editMode"]
+    hp_documentation["documentation"]
+    hp_hidedefaultsettings["hideDefaultSettings"]
+    sg_configure["settings.configure"]
+    sg_advanced["settings.advanced"]
+    sg_developer["settings.developer"]
+    sg_inline["settings.inline"]
+  end
+  subgraph fams ["Field families"]
+    fam_text["Text"]
+    fam_choice["Choice"]
+    fam_pickers["Pickers"]
+    fam_media_and_files["Media and files"]
+    fam_structure["Structure"]
+  end
+  subgraph fields ["Field types (inputMethod)"]
+    fd_textfield["textfield"]
+    fd_textarea["textarea"]
+    fd_alt["alt"]
+    fd_url["url"]
+    fd_number["number"]
+    fd_slider["slider"]
+    fd_boolean["boolean"]
+    fd_select["select"]
+    fd_radio["radio"]
+    fd_combo["combo"]
+    fd_color["color"]
+    fd_colorpicker["colorpicker"]
+    fd_iconpicker["iconpicker"]
+    fd_hax_palette_picker["hax-palette-picker"]
+    fd_haxcms_theme_picker["haxcms-theme-picker"]
+    fd_date_time["date-time"]
+    fd_datepicker["datepicker"]
+    fd_monthpicker["monthpicker"]
+    fd_weekpicker["weekpicker"]
+    fd_timepicker["timepicker"]
+    fd_fileupload["fileupload"]
+    fd_haxupload["haxupload"]
+    fd_screenrecorder["screenRecorder"]
+    fd_srcset["srcset"]
+    fd_code["code"]
+    fd_code_editor["code-editor"]
+    fd_markup["markup"]
+    fd_html_block["html-block"]
+    fd_md_block["md-block"]
+    fd_array["array"]
+    fd_object["object"]
+    fd_fieldset["fieldset"]
+    fd_tabs["tabs"]
+    fd_collapse["collapse"]
+  end
+  subgraph els ["Elements that use them most"]
+    b_haxcms_elements["haxcms-elements"]
+    b_lrndesign_chart["lrndesign-chart"]
+    b_micro_game_base["micro-game-base"]
+    b_d_d_d["d-d-d"]
+    b_hax_body["hax-body"]
+    b_multiple_choice["multiple-choice"]
+    b_page_break["page-break"]
+    b_course_design["course-design"]
+    b_polaris_theme["polaris-theme"]
+    b_video_player["video-player"]
+    b_bibliography_builder["bibliography-builder"]
+    b_rpg_character["rpg-character"]
+    b_collection_list["collection-list"]
+    b_editable_table["editable-table"]
+    b_course_model["course-model"]
+    b_accent_card["accent-card"]
+    b_audio_player["audio-player"]
+    b_hax_body_behaviors["hax-body-behaviors"]
+    b_a11y_tabs["a11y-tabs"]
+    b_media_image["media-image"]
+    b_mark_the_words["mark-the-words"]
+    b_simple_fields["simple-fields"]
+    b_sorting_question["sorting-question"]
+    b_count_up["count-up"]
+    editor["editor"]
+    cli["cli"]
+    contracts["contracts"]
+  end
+
+  haxschema -.->|is written in| jsonschema
+  hsfile -.->|is a| jsonschema
+  hslocale -.->|is a| jsonschema
+  haxschema -.->|is defined by| hsfile
+  hslocale -.->|translates| hsfile
+  haxschema -->|has| hp_api
+  haxschema -->|has| hp_type
+  haxschema -->|has| hp_gizmo
+  haxschema -->|has| hp_settings
+  haxschema -->|has| hp_demoschema
+  haxschema -->|has| hp_saveoptions
+  haxschema -->|has| hp_canscale
+  haxschema -->|has| hp_caneditsource
+  haxschema -->|has| hp_contenteditable
+  haxschema -->|has| hp_designsystem
+  haxschema -->|has| hp_editingelement
+  haxschema -->|has| hp_editmode
+  haxschema -->|has| hp_documentation
+  haxschema -->|has| hp_hidedefaultsettings
+  hp_settings -->|groups fields into| sg_configure
+  hp_settings -->|groups fields into| sg_advanced
+  hp_settings -->|groups fields into| sg_developer
+  hp_settings -->|groups fields into| sg_inline
+  sg_configure -->|uses| fam_text
+  sg_configure -->|uses| fam_choice
+  sg_configure -->|uses| fam_pickers
+  sg_configure -->|uses| fam_media_and_files
+  sg_configure -->|uses| fam_structure
+  fam_text -->|includes| fd_textfield
+  fam_text -->|includes| fd_textarea
+  fam_text -->|includes| fd_alt
+  fam_text -->|includes| fd_url
+  fam_choice -->|includes| fd_number
+  fam_choice -->|includes| fd_slider
+  fam_choice -->|includes| fd_boolean
+  fam_choice -->|includes| fd_select
+  fam_choice -->|includes| fd_radio
+  fam_choice -->|includes| fd_combo
+  fam_pickers -->|includes| fd_color
+  fam_pickers -->|includes| fd_colorpicker
+  fam_pickers -->|includes| fd_iconpicker
+  fam_pickers -->|includes| fd_hax_palette_picker
+  fam_pickers -->|includes| fd_haxcms_theme_picker
+  fam_pickers -->|includes| fd_date_time
+  fam_pickers -->|includes| fd_datepicker
+  fam_pickers -->|includes| fd_monthpicker
+  fam_pickers -->|includes| fd_weekpicker
+  fam_pickers -->|includes| fd_timepicker
+  fam_media_and_files -->|includes| fd_fileupload
+  fam_media_and_files -->|includes| fd_haxupload
+  fam_media_and_files -->|includes| fd_screenrecorder
+  fam_media_and_files -->|includes| fd_srcset
+  fam_text -->|includes| fd_code
+  fam_text -->|includes| fd_code_editor
+  fam_text -->|includes| fd_markup
+  fam_text -->|includes| fd_html_block
+  fam_text -->|includes| fd_md_block
+  fam_structure -->|includes| fd_array
+  fam_structure -->|includes| fd_object
+  fam_structure -->|includes| fd_fieldset
+  fam_structure -->|includes| fd_tabs
+  fam_structure -->|includes| fd_collapse
+  fd_textfield -->|used by| b_micro_game_base
+  fd_textfield -->|used by| b_haxcms_elements
+  fd_textfield -->|used by| b_course_design
+  fd_textfield -->|used by| b_hax_body_behaviors
+  fd_textarea -->|used by| b_micro_game_base
+  fd_alt -->|used by| b_collection_list
+  fd_url -->|used by| b_course_design
+  fd_number -->|used by| b_lrndesign_chart
+  fd_number -->|used by| b_haxcms_elements
+  fd_number -->|used by| b_bibliography_builder
+  fd_number -->|used by| b_count_up
+  fd_slider -->|used by| b_d_d_d
+  fd_boolean -->|used by| b_haxcms_elements
+  fd_boolean -->|used by| b_lrndesign_chart
+  fd_boolean -->|used by| b_editable_table
+  fd_boolean -->|used by| b_multiple_choice
+  fd_select -->|used by| b_haxcms_elements
+  fd_select -->|used by| b_rpg_character
+  fd_select -->|used by| b_lrndesign_chart
+  fd_select -->|used by| b_hax_body
+  fd_radio -->|used by| b_d_d_d
+  fd_radio -->|used by| b_multiple_choice
+  fd_colorpicker -->|used by| b_collection_list
+  fd_colorpicker -->|used by| b_haxcms_elements
+  fd_colorpicker -->|used by| b_lrndesign_chart
+  fd_iconpicker -->|used by| b_a11y_tabs
+  fd_iconpicker -->|used by| b_course_design
+  fd_iconpicker -->|used by| b_collection_list
+  fd_hax_palette_picker -->|used by| b_haxcms_elements
+  fd_haxcms_theme_picker -->|used by| b_haxcms_elements
+  fd_datepicker -->|used by| b_bibliography_builder
+  fd_fileupload -->|used by| b_editable_table
+  fd_haxupload -->|used by| b_polaris_theme
+  fd_haxupload -->|used by| b_collection_list
+  fd_haxupload -->|used by| b_video_player
+  fd_srcset -->|used by| b_hax_body
+  fd_code_editor -->|used by| b_course_model
+  fd_code_editor -->|used by| b_a11y_tabs
+  fd_array -->|used by| b_micro_game_base
+  fd_array -->|used by| b_multiple_choice
+  fd_collapse -->|used by| b_hax_body
+  fd_collapse -->|used by| b_d_d_d
+  editor -.->|builds forms from| hp_settings
+  editor -.->|lists blocks from| hp_gizmo
+  editor -.->|inserts| hp_demoschema
+  cli -.->|validates against| hsfile
+  contracts -.->|includes| haxschema
+
+  %%@ group hub tier=0
+  %%@ group base tier=1
+  %%@ group parts tier=1
+  %%@ group fams tier=2
+  %%@ group fields tier=3
+  %%@ group els tier=4
+  %%@ node haxschema portal
+  %%@ node jsonschema mono=JSON color=slateGray motion=nudge
+  %%@ node hsfile icon=hax:code-json color=creekTeal motion=nudge
+  %%@ node hslocale icon=icons:translate color=creekTeal motion=nudge
+  %%@ node hp_api icon=hax:code-json color=wonderPurple motion=nudge
+  %%@ node hp_type icon=hax:code-json color=wonderPurple motion=nudge
+  %%@ node hp_gizmo icon=hax:code-json color=wonderPurple motion=nudge
+  %%@ node hp_settings icon=hax:code-json color=wonderPurple motion=nudge
+  %%@ node hp_demoschema icon=hax:code-json color=wonderPurple motion=nudge
+  %%@ node hp_saveoptions icon=hax:code-json color=wonderPurple motion=nudge
+  %%@ node hp_canscale icon=hax:code-json color=wonderPurple motion=nudge
+  %%@ node hp_caneditsource icon=hax:code-json color=wonderPurple motion=nudge
+  %%@ node hp_contenteditable icon=hax:code-json color=wonderPurple motion=nudge
+  %%@ node hp_designsystem icon=hax:code-json color=wonderPurple motion=nudge
+  %%@ node hp_editingelement icon=hax:code-json color=wonderPurple motion=nudge
+  %%@ node hp_editmode icon=hax:code-json color=wonderPurple motion=nudge
+  %%@ node hp_documentation icon=hax:code-json color=wonderPurple motion=nudge
+  %%@ node hp_hidedefaultsettings icon=hax:code-json color=wonderPurple motion=nudge
+  %%@ node sg_configure icon=icons:build color=wonderPurple motion=nudge
+  %%@ node sg_advanced icon=icons:build color=wonderPurple motion=nudge
+  %%@ node sg_developer icon=icons:build color=wonderPurple motion=nudge
+  %%@ node sg_inline icon=icons:build color=wonderPurple motion=nudge
+  %%@ node fam_text icon=hax:blocks color=roarGolden motion=pop
+  %%@ node fam_choice icon=hax:blocks color=roarGolden motion=pop
+  %%@ node fam_pickers icon=hax:blocks color=roarGolden motion=pop
+  %%@ node fam_media_and_files icon=hax:blocks color=roarGolden motion=pop
+  %%@ node fam_structure icon=hax:blocks color=roarGolden motion=pop
+  %%@ node fd_textfield mono=TEXTF color=roarGolden motion=nudge
+  %%@ node fd_textarea mono=TEXTA color=roarGolden motion=nudge
+  %%@ node fd_alt mono=ALT color=roarGolden motion=nudge
+  %%@ node fd_url mono=URL color=roarGolden motion=nudge
+  %%@ node fd_number mono=NUMBE color=roarGolden motion=nudge
+  %%@ node fd_slider mono=SLIDE color=roarGolden motion=nudge
+  %%@ node fd_boolean mono=BOOLE color=roarGolden motion=nudge
+  %%@ node fd_select mono=SELEC color=roarGolden motion=nudge
+  %%@ node fd_radio mono=RADIO color=roarGolden motion=nudge
+  %%@ node fd_combo mono=COMBO color=limestoneGray motion=nudge
+  %%@ node fd_color mono=COLOR color=limestoneGray motion=nudge
+  %%@ node fd_colorpicker mono=COLOR color=roarGolden motion=nudge
+  %%@ node fd_iconpicker mono=ICON color=roarGolden motion=nudge
+  %%@ node fd_hax_palette_picker mono=HAXPA color=roarGolden motion=nudge
+  %%@ node fd_haxcms_theme_picker mono=HAXCM color=roarGolden motion=nudge
+  %%@ node fd_date_time mono=DATET color=limestoneGray motion=nudge
+  %%@ node fd_datepicker mono=DATE color=roarGolden motion=nudge
+  %%@ node fd_monthpicker mono=MONTH color=limestoneGray motion=nudge
+  %%@ node fd_weekpicker mono=WEEK color=limestoneGray motion=nudge
+  %%@ node fd_timepicker mono=TIME color=limestoneGray motion=nudge
+  %%@ node fd_fileupload mono=FILEU color=roarGolden motion=nudge
+  %%@ node fd_haxupload mono=HAXUP color=roarGolden motion=nudge
+  %%@ node fd_screenrecorder mono=SCREE color=limestoneGray motion=nudge
+  %%@ node fd_srcset mono=SRCSE color=roarGolden motion=nudge
+  %%@ node fd_code mono=CODE color=limestoneGray motion=nudge
+  %%@ node fd_code_editor mono=CODEE color=roarGolden motion=nudge
+  %%@ node fd_markup mono=MARKU color=limestoneGray motion=nudge
+  %%@ node fd_html_block mono=HTMLB color=limestoneGray motion=nudge
+  %%@ node fd_md_block mono=MDBLO color=limestoneGray motion=nudge
+  %%@ node fd_array mono=ARRAY color=roarGolden motion=nudge
+  %%@ node fd_object mono=OBJEC color=limestoneGray motion=nudge
+  %%@ node fd_fieldset mono=FIELD color=limestoneGray motion=nudge
+  %%@ node fd_tabs mono=TABS color=limestoneGray motion=nudge
+  %%@ node fd_collapse mono=COLLA color=roarGolden motion=nudge
+  %%@ node b_haxcms_elements icon=hax:bricks color=slateGray motion=nudge
+  %%@ node b_lrndesign_chart icon=hax:bricks color=slateGray motion=nudge
+  %%@ node b_micro_game_base icon=hax:bricks color=slateGray motion=nudge
+  %%@ node b_d_d_d icon=hax:bricks color=slateGray motion=nudge
+  %%@ node b_hax_body icon=hax:bricks color=slateGray motion=nudge
+  %%@ node b_multiple_choice portal=elements
+  %%@ node b_page_break portal=elements
+  %%@ node b_course_design icon=hax:bricks color=slateGray motion=nudge
+  %%@ node b_polaris_theme icon=hax:bricks color=slateGray motion=nudge
+  %%@ node b_video_player portal=elements
+  %%@ node b_bibliography_builder portal=elements
+  %%@ node b_rpg_character portal=elements
+  %%@ node b_collection_list icon=hax:bricks color=slateGray motion=nudge
+  %%@ node b_editable_table icon=hax:bricks color=slateGray motion=nudge
+  %%@ node b_course_model portal=elements
+  %%@ node b_accent_card portal=elements
+  %%@ node b_audio_player portal=elements
+  %%@ node b_hax_body_behaviors icon=hax:bricks color=slateGray motion=nudge
+  %%@ node b_a11y_tabs icon=hax:bricks color=slateGray motion=nudge
+  %%@ node b_media_image portal=elements
+  %%@ node b_mark_the_words portal=elements
+  %%@ node b_simple_fields icon=hax:bricks color=slateGray motion=nudge
+  %%@ node b_sorting_question portal=elements
+  %%@ node b_count_up icon=hax:bricks color=slateGray motion=nudge
+  %%@ node editor portal
+  %%@ node cli portal
+  %%@ node contracts portal=contracts

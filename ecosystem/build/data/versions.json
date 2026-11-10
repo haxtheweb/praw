@@ -1,0 +1,56 @@
+{
+ "checked": "2026-11-09",
+ "nodes": {
+  "editor": {
+   "version": "26.8.0",
+   "status": "released"
+  },
+  "dashboard": {
+   "version": "26.8.0",
+   "status": "released"
+  },
+  "themes": {
+   "version": "26.8.0",
+   "status": "released"
+  },
+  "php": {
+   "version": "26.8.2",
+   "status": "released"
+  },
+  "nodejs": {
+   "version": "26.8.1",
+   "status": "released"
+  },
+  "hax11ty": {
+   "version": "26.0.0",
+   "status": "released"
+  },
+  "cli": {
+   "version": "26.8.1",
+   "status": "released"
+  },
+  "ubiquity": {
+   "version": "26.8.1",
+   "status": "released"
+  },
+  "mcp": {
+   "status": "prerelease"
+  },
+  "components": {
+   "version": "26.8.1",
+   "status": "released"
+  },
+  "ddd": {
+   "version": "26.8.0",
+   "status": "released"
+  },
+  "jos": {
+   "version": "26.8.0",
+   "status": "released"
+  },
+  "elmsln": {
+   "version": "1.7.0",
+   "status": "legacy"
+  }
+ }
+}

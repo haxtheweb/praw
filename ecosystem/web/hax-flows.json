@@ -1,0 +1,397 @@
+{
+ "meta": {
+  "name": "Step by step",
+  "parent": "main",
+  "noTimeline": true,
+  "sectionLabels": {
+   "path": "paths",
+   "step": "steps"
+  },
+  "about": "Three paths through HAX in order: how a page loads (index.html, the site builder tag, site.json, the theme, the page, then only the elements it uses), how a page is added, and how a site is restructured with the outline designer in one atomic save. Solid arrows are the order; dotted lines are what each step touches.",
+  "kindLabels": {
+   "rel": "the order of steps",
+   "schema": "what a step touches"
+  }
+ },
+ "nodes": {
+  "flows": {
+   "always": true,
+   "desc": "Three things that happen in HAX, in order. Play a path and the steps light up one at a time; each step points at the parts of the ecosystem it touches."
+  },
+  "fl_load": {
+   "desc": "From the request to a rendered page: the site builder tag, site.json, the theme, the page HTML, then the elements the page uses, lazily.",
+   "kind": "path",
+   "source": {
+    "label": "haxcms-site-builder.js",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/haxcms-elements/lib/core/haxcms-site-builder.js"
+   }
+  },
+  "l1": {
+   "desc": "The browser asks for a URL. HAXcms on PHP or Node.js, a static host or a HAX11ty build answers with the site's index.html.",
+   "kind": "step",
+   "note": "Part of: A page loads"
+  },
+  "l2": {
+   "desc": "A small page: an import map, a preload of wc-registry.json and base.css, the web app manifest, the <haxcms-site-builder file=\"site.json?hash\"> tag already in the markup, then build-haxcms.js and build.js.",
+   "kind": "step",
+   "note": "Part of: A page loads"
+  },
+  "l3": {
+   "desc": "Detects module support, sets up WCAutoload and loads the haxcms-site-builder module. Nothing else is loaded yet.",
+   "kind": "step",
+   "note": "Part of: A page loads"
+  },
+  "l4": {
+   "desc": "haxcms-site-builder upgrades and fetches its file attribute: site.json, the JSON Outline Schema manifest. haxcms-site-store holds it for everything else.",
+   "kind": "step",
+   "note": "Part of: A page loads"
+  },
+  "l5": {
+   "desc": "From manifest.metadata.theme, the builder imports the theme element by path, waits for customElements.whenDefined, and stamps it. The theme draws menu, breadcrumb and regions from the store.",
+   "kind": "step",
+   "note": "Part of: A page loads"
+  },
+  "l6": {
+   "desc": "The router turns the URL slug into the active item. The builder fetches that item's location, pages/<id>/index.html, with the build timestamp; a missing page shows the 404.",
+   "kind": "step",
+   "note": "Part of: A page loads"
+  },
+  "l7": {
+   "desc": "The HTML is placed in the theme's content slot and an active-item event fires, so menus, previous and next, and xAPI listeners update.",
+   "kind": "step",
+   "note": "Part of: A page loads"
+  },
+  "l8": {
+   "desc": "wc-autoload watches the DOM for tags that are not defined, looks each up in wc-registry.json and imports its module. Only the elements this page uses are loaded, and they upgrade in place.",
+   "kind": "step",
+   "note": "Part of: A page loads"
+  },
+  "l9": {
+   "desc": "The service worker registers for offline use, search is ready at x/search, and if you are logged in the editor UI loads and the registry graph warms the editor's own elements.",
+   "kind": "step",
+   "note": "Part of: A page loads"
+  },
+  "fl_add": {
+   "desc": "From logging in to a new page readers can see.",
+   "kind": "path",
+   "source": {
+    "label": "site-spec.yaml",
+    "url": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/openapi/site-spec.yaml"
+   }
+  },
+  "a1": {
+   "desc": "POST session login. haxcms-site-editor-ui appears: the top bar with Add page, Edit, Outline designer and the dashboard.",
+   "kind": "step",
+   "note": "Part of: Add a page"
+  },
+  "a2": {
+   "desc": "Choose Add page from the top bar, or ask Merlin. Pick a title, where it goes, and what to start from: blank, a template, a clone, or an imported file.",
+   "kind": "step",
+   "note": "Part of: Add a page"
+  },
+  "a3": {
+   "desc": "POST /x/api/v1/items. The backend writes pages/<id>/index.html and appends the item (id, parent, order, slug, location) to site.json.",
+   "kind": "step",
+   "note": "Part of: Add a page"
+  },
+  "a4": {
+   "desc": "haxcms-site-store refreshes the manifest; menus and breadcrumbs show the page and the router moves to its slug.",
+   "kind": "step",
+   "note": "Part of: Add a page"
+  },
+  "a5": {
+   "desc": "Edit mode opens hax-body with the blocks the app store allows for this site. Type / for Merlin's slash commands, drop a file or paste a link to import.",
+   "kind": "step",
+   "note": "Part of: Add a page"
+  },
+  "a6": {
+   "desc": "PATCH /x/api/v1/content/{id} saves the HTML to pages/<id>/index.html; PATCH /x/api/v1/items/{id} saves title, published state and metadata to site.json. Git keeps a revision.",
+   "kind": "step",
+   "note": "Part of: Add a page"
+  },
+  "a7": {
+   "desc": "The page renders through the same load path as every other page; sitemap, search index and feeds regenerate.",
+   "kind": "step",
+   "note": "Part of: Add a page"
+  },
+  "fl_outline": {
+   "desc": "Many changes to a site's structure, staged in one view and saved in one operation.",
+   "kind": "path",
+   "source": {
+    "label": "outline-designer",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/outline-designer"
+   }
+  },
+  "o1": {
+   "desc": "From the top bar or the dashboard. outline-designer loads the items from the store's manifest.",
+   "kind": "step",
+   "note": "Part of: Restructure with the outline designer"
+  },
+  "o2": {
+   "desc": "Drag to reorder, indent or outdent to nest, rename, add, duplicate, delete, lock, publish or unpublish. Every change is staged locally as a diff; nothing is written yet.",
+   "kind": "step",
+   "note": "Part of: Restructure with the outline designer"
+  },
+  "o3": {
+   "desc": "PATCH /x/api/v1/site/outline: the whole set of operations in one atomic call. The backend validates it, writes site.json, and creates or removes page files as needed. Both backends behave identically.",
+   "kind": "step",
+   "note": "Part of: Restructure with the outline designer"
+  },
+  "o4": {
+   "desc": "The store refreshes the manifest; menus, breadcrumbs, previous and next, the sitemap and search follow the new structure.",
+   "kind": "step",
+   "note": "Part of: Restructure with the outline designer"
+  },
+  "o5": {
+   "desc": "Bulk structure changes are mission critical, so outline-designer and saveOutline are covered by end-to-end and conformance tests; save and failure behavior cannot change from a data-model change.",
+   "kind": "step",
+   "note": "Part of: Restructure with the outline designer"
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "fl_load",
+   "label": "A page loads",
+   "kind": "story",
+   "message": "From the request to a rendered page: the site builder tag, site.json, the theme, the page HTML, then the elements the page uses, lazily.",
+   "scenes": [
+    {
+     "caption": "1. Request. The browser asks for a URL. HAXcms on PHP or Node.js, a static host or a HAX11ty build answers with the site's index.html.",
+     "nodes": [
+      "l1",
+      "haxcms",
+      "php",
+      "nodejs",
+      "deploy",
+      "f_static"
+     ]
+    },
+    {
+     "caption": "2. index.html. A small page: an import map, a preload of wc-registry.json and base.css, the web app manifest, the <haxcms-site-builder file=\"site.json?hash\"> tag already in the markup, then build-haxcms.js and build.js.",
+     "nodes": [
+      "l2",
+      "f_static",
+      "f_registry"
+     ]
+    },
+    {
+     "caption": "3. build.js boots. Detects module support, sets up WCAutoload and loads the haxcms-site-builder module. Nothing else is loaded yet.",
+     "nodes": [
+      "l3",
+      "f_autoload",
+      "f_magic"
+     ]
+    },
+    {
+     "caption": "4. site.json. haxcms-site-builder upgrades and fetches its file attribute: site.json, the JSON Outline Schema manifest. haxcms-site-store holds it for everything else.",
+     "nodes": [
+      "l4",
+      "jos",
+      "f_sitejson",
+      "sitejson"
+     ]
+    },
+    {
+     "caption": "5. The theme. From manifest.metadata.theme, the builder imports the theme element by path, waits for customElements.whenDefined, and stamps it. The theme draws menu, breadcrumb and regions from the store.",
+     "nodes": [
+      "l5",
+      "themes",
+      "f_theme"
+     ]
+    },
+    {
+     "caption": "6. Route to a page. The router turns the URL slug into the active item. The builder fetches that item's location, pages/<id>/index.html, with the build timestamp; a missing page shows the 404.",
+     "nodes": [
+      "l6",
+      "f_pages",
+      "outline"
+     ]
+    },
+    {
+     "caption": "7. Content into the theme. The HTML is placed in the theme's content slot and an active-item event fires, so menus, previous and next, and xAPI listeners update.",
+     "nodes": [
+      "l7",
+      "editor",
+      "xapi"
+     ]
+    },
+    {
+     "caption": "8. Elements load lazily. wc-autoload watches the DOM for tags that are not defined, looks each up in wc-registry.json and imports its module. Only the elements this page uses are loaded, and they upgrade in place.",
+     "nodes": [
+      "l8",
+      "components",
+      "f_registry",
+      "f_autoload",
+      "wcstandard"
+     ]
+    },
+    {
+     "caption": "9. After render. The service worker registers for offline use, search is ready at x/search, and if you are logged in the editor UI loads and the registry graph warms the editor's own elements.",
+     "nodes": [
+      "l9",
+      "f_pwa",
+      "f_search",
+      "merlin"
+     ]
+    },
+    {
+     "caption": "A page loads: the whole path.",
+     "nodes": [
+      "fl_load",
+      "l1",
+      "l2",
+      "l3",
+      "l4",
+      "l5",
+      "l6",
+      "l7",
+      "l8",
+      "l9"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fl_add",
+   "label": "Add a page",
+   "kind": "story",
+   "message": "From logging in to a new page readers can see.",
+   "scenes": [
+    {
+     "caption": "1. Log in. POST session login. haxcms-site-editor-ui appears: the top bar with Add page, Edit, Outline designer and the dashboard.",
+     "nodes": [
+      "a1",
+      "op_sessionlogin",
+      "editor"
+     ]
+    },
+    {
+     "caption": "2. Add page. Choose Add page from the top bar, or ask Merlin. Pick a title, where it goes, and what to start from: blank, a template, a clone, or an imported file.",
+     "nodes": [
+      "a2",
+      "merlin",
+      "importers",
+      "skeletons"
+     ]
+    },
+    {
+     "caption": "3. The item is created. POST /x/api/v1/items. The backend writes pages/<id>/index.html and appends the item (id, parent, order, slug, location) to site.json.",
+     "nodes": [
+      "a3",
+      "op_createitem",
+      "jos",
+      "f_pages"
+     ]
+    },
+    {
+     "caption": "4. The store updates. haxcms-site-store refreshes the manifest; menus and breadcrumbs show the page and the router moves to its slug.",
+     "nodes": [
+      "a4",
+      "f_sitejson"
+     ]
+    },
+    {
+     "caption": "5. Write. Edit mode opens hax-body with the blocks the app store allows for this site. Type / for Merlin's slash commands, drop a file or paste a link to import.",
+     "nodes": [
+      "a5",
+      "editor",
+      "components",
+      "appstore",
+      "importers"
+     ]
+    },
+    {
+     "caption": "6. Save. PATCH /x/api/v1/content/{id} saves the HTML to pages/<id>/index.html; PATCH /x/api/v1/items/{id} saves title, published state and metadata to site.json. Git keeps a revision.",
+     "nodes": [
+      "a6",
+      "op_updatecontentbyidorslug",
+      "op_updateitem"
+     ]
+    },
+    {
+     "caption": "7. Readers see it. The page renders through the same load path as every other page; sitemap, search index and feeds regenerate.",
+     "nodes": [
+      "a7",
+      "f_maps",
+      "f_search"
+     ]
+    },
+    {
+     "caption": "Add a page: the whole path.",
+     "nodes": [
+      "fl_add",
+      "a1",
+      "a2",
+      "a3",
+      "a4",
+      "a5",
+      "a6",
+      "a7"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fl_outline",
+   "label": "Restructure with the outline designer",
+   "kind": "story",
+   "message": "Many changes to a site's structure, staged in one view and saved in one operation.",
+   "scenes": [
+    {
+     "caption": "1. Open the outline designer. From the top bar or the dashboard. outline-designer loads the items from the store's manifest.",
+     "nodes": [
+      "o1",
+      "outline",
+      "dashboard"
+     ]
+    },
+    {
+     "caption": "2. Stage changes. Drag to reorder, indent or outdent to nest, rename, add, duplicate, delete, lock, publish or unpublish. Every change is staged locally as a diff; nothing is written yet.",
+     "nodes": [
+      "o2",
+      "outline",
+      "jos"
+     ]
+    },
+    {
+     "caption": "3. Save once. PATCH /x/api/v1/site/outline: the whole set of operations in one atomic call. The backend validates it, writes site.json, and creates or removes page files as needed. Both backends behave identically.",
+     "nodes": [
+      "o3",
+      "op_updatesiteoutline",
+      "php",
+      "nodejs",
+      "openapi"
+     ]
+    },
+    {
+     "caption": "4. Everything follows. The store refreshes the manifest; menus, breadcrumbs, previous and next, the sitemap and search follow the new structure.",
+     "nodes": [
+      "o4",
+      "f_sitejson",
+      "themes"
+     ]
+    },
+    {
+     "caption": "5. Why it is guarded. Bulk structure changes are mission critical, so outline-designer and saveOutline are covered by end-to-end and conformance tests; save and failure behavior cannot change from a data-model change.",
+     "nodes": [
+      "o5",
+      "q_e2e",
+      "q_parity"
+     ]
+    },
+    {
+     "caption": "Restructure with the outline designer: the whole path.",
+     "nodes": [
+      "fl_outline",
+      "o1",
+      "o2",
+      "o3",
+      "o4",
+      "o5"
+     ]
+    }
+   ]
+  }
+ ]
+}

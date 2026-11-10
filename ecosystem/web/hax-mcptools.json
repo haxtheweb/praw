@@ -1,0 +1,697 @@
+{
+ "meta": {
+  "name": "HAX MCP tools",
+  "parent": "main",
+  "noTimeline": true,
+  "sectionLabels": {
+   "group": "tool groups",
+   "tool": "tools"
+  },
+  "about": "Every tool the HAXcms MCP server exposes (105 in 10 groups), generated from the haxcms-mcp source, with the OpenAPI areas each group calls traced through its services and client.",
+  "kindLabels": {
+   "rel": "group to tool",
+   "schema": "OpenAPI areas called"
+  }
+ },
+ "nodes": {
+  "mcp": {
+   "always": true
+  },
+  "mod_blocks_typed": {
+   "desc": "Typed block tools, one per HAX element: 37 tools in tools/blocks_typed.py, calling the blocks, custom-elements, items, schemas areas of the API.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-mcp/blob/main/src/haxcms_mcp/tools/blocks_typed.py"
+   },
+   "kind": "group"
+  },
+  "mod_content": {
+   "desc": "Page content and blocks: 12 tools in tools/content.py, calling the blocks, content, custom-elements, items, schemas areas of the API.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-mcp/blob/main/src/haxcms_mcp/tools/content.py"
+   },
+   "kind": "group"
+  },
+  "mod_exports": {
+   "desc": "Exports: 5 tools in tools/exports.py, calling the blocks, content, custom-elements, items, lifecycle, schemas, site areas of the API.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-mcp/blob/main/src/haxcms_mcp/tools/exports.py"
+   },
+   "kind": "group"
+  },
+  "mod_files": {
+   "desc": "Files: 8 tools in tools/files.py, calling the blocks, custom-elements, files, items, schemas areas of the API.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-mcp/blob/main/src/haxcms_mcp/tools/files.py"
+   },
+   "kind": "group"
+  },
+  "mod_outline": {
+   "desc": "Outline: 5 tools in tools/outline.py, calling the blocks, custom-elements, items, schemas, site areas of the API.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-mcp/blob/main/src/haxcms_mcp/tools/outline.py"
+   },
+   "kind": "group"
+  },
+  "mod_pages": {
+   "desc": "Pages: 11 tools in tools/pages.py, calling the blocks, custom-elements, items, schemas, search, tags areas of the API.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-mcp/blob/main/src/haxcms_mcp/tools/pages.py"
+   },
+   "kind": "group"
+  },
+  "mod_settings": {
+   "desc": "Settings: 11 tools in tools/settings.py, calling the blocks, custom-elements, items, schemas, settings, site areas of the API.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-mcp/blob/main/src/haxcms_mcp/tools/settings.py"
+   },
+   "kind": "group"
+  },
+  "mod_sites": {
+   "desc": "Sites: 9 tools in tools/sites.py, calling the custom-elements, lifecycle, settings, site areas of the API.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-mcp/blob/main/src/haxcms_mcp/tools/sites.py"
+   },
+   "kind": "group"
+  },
+  "mod_auth": {
+   "desc": "Sign in and sessions: 4 tools in tools/auth.py, calling the session areas of the API.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-mcp/blob/main/src/haxcms_mcp/tools/auth.py"
+   },
+   "kind": "group"
+  },
+  "mod_imports": {
+   "desc": "Imports: 3 tools in tools/imports.py, calling the actions areas of the API.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-mcp/blob/main/src/haxcms_mcp/tools/imports.py"
+   },
+   "kind": "group"
+  },
+  "t_add_image": {
+   "desc": "Add image. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_video": {
+   "desc": "Add video. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_audio": {
+   "desc": "Add audio. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_image_compare": {
+   "desc": "Add image compare slider. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_image_gallery": {
+   "desc": "Add image gallery. Calls: getBlockByName, getCustomElementByName, listSchemas.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_collapse": {
+   "desc": "Add collapse. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_stop_note": {
+   "desc": "Add stop note. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_code_sample": {
+   "desc": "Add code sample. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_markdown_block": {
+   "desc": "Add markdown block. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_accent_card": {
+   "desc": "Add accent card. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_grid": {
+   "desc": "Add grid. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_page_section": {
+   "desc": "Add page section. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_placeholder": {
+   "desc": "Add placeholder. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_cta": {
+   "desc": "Add call to action. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_self_check": {
+   "desc": "Add self check. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_multiple_choice": {
+   "desc": "Add multiple choice. Calls: getBlockByName, getCustomElementByName, listSchemas.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_true_false": {
+   "desc": "Add true/false question. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_short_answer": {
+   "desc": "Add short answer question. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_sorting_question": {
+   "desc": "Add sorting question. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_matching_question": {
+   "desc": "Add matching question. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_fill_in_the_blanks": {
+   "desc": "Add fill in the blanks. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_mark_the_words": {
+   "desc": "Add mark the words. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_tagging_question": {
+   "desc": "Add tagging question. Calls: getBlockByName, getCustomElementByName, listSchemas.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_flash_card": {
+   "desc": "Add flash card. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_vocab_term": {
+   "desc": "Add vocab term. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_learning_component": {
+   "desc": "Add learning component. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_timeline": {
+   "desc": "Add timeline. Calls: getBlockByName, getCustomElementByName, listSchemas.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_styled_quote": {
+   "desc": "Add styled quote. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_citation": {
+   "desc": "Add citation. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_license": {
+   "desc": "Add license. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_wikipedia_query": {
+   "desc": "Add Wikipedia query. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_paragraph": {
+   "desc": "Add paragraph. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_heading": {
+   "desc": "Add heading. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_list": {
+   "desc": "Add list. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_table": {
+   "desc": "Add table. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_blockquote": {
+   "desc": "Add blockquote. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_add_divider": {
+   "desc": "Add divider. Calls: getBlockByName, getCustomElementByName, listSchemas, getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module blocks_typed"
+  },
+  "t_get_page_content": {
+   "desc": "Get page content. Calls: getItemByIdOrSlug, listItems.",
+   "kind": "tool",
+   "note": "Module content"
+  },
+  "t_set_page_content": {
+   "desc": "Set page content. Calls: getCustomElementByName, getItemByIdOrSlug, updateContentByIdOrSlug.",
+   "kind": "tool",
+   "note": "Module content"
+  },
+  "t_get_page_blocks": {
+   "desc": "Get page blocks. Calls: getItemByIdOrSlug.",
+   "kind": "tool",
+   "note": "Module content"
+  },
+  "t_add_block": {
+   "desc": "Add block. Calls: getBlockByName, getCustomElementByName, listSchemas.",
+   "kind": "tool",
+   "note": "Module content"
+  },
+  "t_replace_block": {
+   "desc": "Replace block. Calls: getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module content"
+  },
+  "t_remove_block": {
+   "desc": "Remove block. Calls: getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module content"
+  },
+  "t_move_block": {
+   "desc": "Move block. Calls: getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module content"
+  },
+  "t_update_block": {
+   "desc": "Update block attributes. Calls: getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module content"
+  },
+  "t_set_block_text": {
+   "desc": "Set block text. Calls: getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module content"
+  },
+  "t_add_link": {
+   "desc": "Add link. Calls: getItemByIdOrSlug, updateItem.",
+   "kind": "tool",
+   "note": "Module content"
+  },
+  "t_list_blocks": {
+   "desc": "List blocks. Calls: getBlockByName, getCustomElementByName, listBlocks, listSchemas.",
+   "kind": "tool",
+   "note": "Module content"
+  },
+  "t_get_block_schema": {
+   "desc": "Get block schema. Calls: getBlockByName, getCustomElementByName, listSchemas.",
+   "kind": "tool",
+   "note": "Module content"
+  },
+  "t_export_site": {
+   "desc": "Export site. Calls: downloadSite, downloadSiteSkeleton, getBlockByName, getCustomElementByName, getSiteExport, listContent, listSchemas.",
+   "kind": "tool",
+   "note": "Module exports"
+  },
+  "t_export_page": {
+   "desc": "Export page. Calls: downloadItemExport, getBlockByName, getCustomElementByName, getItemByIdOrSlug, listSchemas.",
+   "kind": "tool",
+   "note": "Module exports"
+  },
+  "t_download_site_zip": {
+   "desc": "Download site zip. Calls: downloadSite, downloadSiteSkeleton, getBlockByName, getCustomElementByName, getSiteExport, listContent, listSchemas.",
+   "kind": "tool",
+   "note": "Module exports"
+  },
+  "t_save_site_as_template": {
+   "desc": "Save site as template. Calls: saveSiteAsTemplate.",
+   "kind": "tool",
+   "note": "Module exports"
+  },
+  "t_download_site_skeleton": {
+   "desc": "Download site skeleton. Calls: downloadSite, downloadSiteSkeleton, getBlockByName, getCustomElementByName, getSiteExport, listContent, listSchemas.",
+   "kind": "tool",
+   "note": "Module exports"
+  },
+  "t_list_files": {
+   "desc": "List files. Calls: listFiles.",
+   "kind": "tool",
+   "note": "Module files"
+  },
+  "t_upload_file": {
+   "desc": "Upload file. Calls: createFile, getBlockByName, getCustomElementByName, getItemByIdOrSlug, listSchemas.",
+   "kind": "tool",
+   "note": "Module files"
+  },
+  "t_get_file": {
+   "desc": "Get file. Calls: getFileByUuid.",
+   "kind": "tool",
+   "note": "Module files"
+  },
+  "t_rename_file": {
+   "desc": "Rename file. Calls: updateFileByUuid.",
+   "kind": "tool",
+   "note": "Module files"
+  },
+  "t_transform_file": {
+   "desc": "Transform file. Calls: updateFileByUuid.",
+   "kind": "tool",
+   "note": "Module files"
+  },
+  "t_duplicate_file": {
+   "desc": "Duplicate file. Calls: updateFileByUuid.",
+   "kind": "tool",
+   "note": "Module files"
+  },
+  "t_delete_file": {
+   "desc": "Delete file. Calls: deleteFileByUuid.",
+   "kind": "tool",
+   "note": "Module files"
+  },
+  "t_get_outline": {
+   "desc": "Get outline. Calls: getCustomElementByName, listItems.",
+   "kind": "tool",
+   "note": "Module outline"
+  },
+  "t_reorder_pages": {
+   "desc": "Reorder pages. Calls: getCustomElementByName, listItems, updateSiteOutline.",
+   "kind": "tool",
+   "note": "Module outline"
+  },
+  "t_move_page": {
+   "desc": "Move page. Calls: getBlockByName, getCustomElementByName, listSchemas, updateItem.",
+   "kind": "tool",
+   "note": "Module outline"
+  },
+  "t_set_page_parent": {
+   "desc": "Set page parent. Calls: getCustomElementByName, listItems, updateItem.",
+   "kind": "tool",
+   "note": "Module outline"
+  },
+  "t_normalize_slugs": {
+   "desc": "Normalize slugs. Calls: getBlockByName, getCustomElementByName, listSchemas, normalizeSiteSlugs, updateItem.",
+   "kind": "tool",
+   "note": "Module outline"
+  },
+  "t_list_pages": {
+   "desc": "List pages. Calls: listItems.",
+   "kind": "tool",
+   "note": "Module pages"
+  },
+  "t_get_page": {
+   "desc": "Get page. Calls: getCustomElementByName, getItemByIdOrSlug, listItems.",
+   "kind": "tool",
+   "note": "Module pages"
+  },
+  "t_create_page": {
+   "desc": "Create page. Calls: createItem, getCustomElementByName, listItems, updateItem.",
+   "kind": "tool",
+   "note": "Module pages"
+  },
+  "t_create_pages": {
+   "desc": "Create pages (bulk). Calls: createItem, getBlockByName, getCustomElementByName, listItems, listSchemas.",
+   "kind": "tool",
+   "note": "Module pages"
+  },
+  "t_update_page_details": {
+   "desc": "Update page details. Calls: getBlockByName, getCustomElementByName, listSchemas, updateItem.",
+   "kind": "tool",
+   "note": "Module pages"
+  },
+  "t_delete_page": {
+   "desc": "Delete page. Calls: deleteItem, getItemByIdOrSlug, listItems.",
+   "kind": "tool",
+   "note": "Module pages"
+  },
+  "t_list_page_revisions": {
+   "desc": "List page revisions. Calls: getBlockByName, getCustomElementByName, listItemRevisions, listSchemas.",
+   "kind": "tool",
+   "note": "Module pages"
+  },
+  "t_get_page_revision": {
+   "desc": "Get page revision. Calls: getItemRevisionById.",
+   "kind": "tool",
+   "note": "Module pages"
+  },
+  "t_restore_page_revision": {
+   "desc": "Restore page revision. Calls: getBlockByName, getCustomElementByName, listSchemas, restoreItemRevision.",
+   "kind": "tool",
+   "note": "Module pages"
+  },
+  "t_search_site": {
+   "desc": "Search site. Calls: searchContent.",
+   "kind": "tool",
+   "note": "Module pages"
+  },
+  "t_list_tags": {
+   "desc": "List tags. Calls: listItems, listTags, searchContent.",
+   "kind": "tool",
+   "note": "Module pages"
+  },
+  "t_get_site_settings": {
+   "desc": "Get site settings. Calls: no HTTP call traced.",
+   "kind": "tool",
+   "note": "Module settings"
+  },
+  "t_update_site_info": {
+   "desc": "Update site info. Calls: getItemByIdOrSlug, listItems, updateSiteSeo, updateSiteSummary.",
+   "kind": "tool",
+   "note": "Module settings"
+  },
+  "t_update_author_info": {
+   "desc": "Update author info. Calls: updateSiteSeo.",
+   "kind": "tool",
+   "note": "Module settings"
+  },
+  "t_set_site_theme": {
+   "desc": "Set site theme. Calls: systemThemesGet, updateSiteAppearance.",
+   "kind": "tool",
+   "note": "Module settings"
+  },
+  "t_set_theme_regions": {
+   "desc": "Set theme regions. Calls: getItemByIdOrSlug, listItems, updateSiteAppearance.",
+   "kind": "tool",
+   "note": "Module settings"
+  },
+  "t_update_seo_settings": {
+   "desc": "Update SEO settings. Calls: updateSiteSeo.",
+   "kind": "tool",
+   "note": "Module settings"
+  },
+  "t_set_editor_audience": {
+   "desc": "Set editor audience. Calls: updateSiteEditorSettings.",
+   "kind": "tool",
+   "note": "Module settings"
+  },
+  "t_set_allowed_blocks": {
+   "desc": "Set allowed blocks. Calls: getCustomElementByName, updateSiteAllowedBlocks.",
+   "kind": "tool",
+   "note": "Module settings"
+  },
+  "t_set_platform_features": {
+   "desc": "Set platform features. Calls: getBlockByName, getCustomElementByName, listSchemas, updateSitePlatform.",
+   "kind": "tool",
+   "note": "Module settings"
+  },
+  "t_configure_site_git": {
+   "desc": "Configure site git. Calls: no HTTP call traced.",
+   "kind": "tool",
+   "note": "Module settings"
+  },
+  "t_regenerate_alternate_formats": {
+   "desc": "Regenerate alternate formats. Calls: updateSiteAlternativeFormats.",
+   "kind": "tool",
+   "note": "Module settings"
+  },
+  "t_list_sites": {
+   "desc": "List sites. Calls: listSites.",
+   "kind": "tool",
+   "note": "Module sites"
+  },
+  "t_get_site": {
+   "desc": "Get site. Calls: getSiteSummary, siteInfoGet.",
+   "kind": "tool",
+   "note": "Module sites"
+  },
+  "t_create_site": {
+   "desc": "Create site. Calls: createSite, getCustomElementByName, getSiteSummary, siteInfoGet, systemThemesGet.",
+   "kind": "tool",
+   "note": "Module sites"
+  },
+  "t_list_skeletons": {
+   "desc": "List skeletons. Calls: systemSkeletonsGet.",
+   "kind": "tool",
+   "note": "Module sites"
+  },
+  "t_get_skeleton": {
+   "desc": "Get skeleton. Calls: systemSkeletonDetailGet.",
+   "kind": "tool",
+   "note": "Module sites"
+  },
+  "t_list_themes": {
+   "desc": "List themes. Calls: systemThemesGet.",
+   "kind": "tool",
+   "note": "Module sites"
+  },
+  "t_clone_site": {
+   "desc": "Clone site. Calls: cloneSite, getCustomElementByName, getSiteSummary, siteInfoGet.",
+   "kind": "tool",
+   "note": "Module sites"
+  },
+  "t_login": {
+   "desc": "Login. Calls: no HTTP call traced.",
+   "kind": "tool",
+   "note": "Module auth"
+  },
+  "t_logout": {
+   "desc": "Logout. Calls: no HTTP call traced.",
+   "kind": "tool",
+   "note": "Module auth"
+  },
+  "t_whoami": {
+   "desc": "Who am I. Calls: no HTTP call traced.",
+   "kind": "tool",
+   "note": "Module auth"
+  },
+  "t_get_server_info": {
+   "desc": "Server info. Calls: no HTTP call traced.",
+   "kind": "tool",
+   "note": "Module auth"
+  },
+  "t_import_document": {
+   "desc": "Import document into site. Calls: no HTTP call traced.",
+   "kind": "tool",
+   "note": "Module imports"
+  },
+  "t_create_site_from_document": {
+   "desc": "Create site from document. Calls: no HTTP call traced.",
+   "kind": "tool",
+   "note": "Module imports"
+  },
+  "t_create_site_from_platform": {
+   "desc": "Create site from platform. Calls: no HTTP call traced.",
+   "kind": "tool",
+   "note": "Module imports"
+  },
+  "t_create_site_from_skeleton": {
+   "desc": "Create site from skeleton. Calls: no HTTP call traced.",
+   "kind": "tool",
+   "note": "Module sites"
+  },
+  "t_archive_site": {
+   "desc": "Archive site. Calls: no HTTP call traced.",
+   "kind": "tool",
+   "note": "Module sites"
+  },
+  "t_add_image_from_file": {
+   "desc": "Add image from file. Calls: no HTTP call traced.",
+   "kind": "tool",
+   "note": "Module files"
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "mcptools",
+   "label": "What an agent can do",
+   "message": "105 tools in 10 groups, generated from haxcms-mcp, each tied to the OpenAPI areas it calls.",
+   "scenes": [
+    {
+     "caption": "The Future Traveler reaches HAXcms through the MCP.",
+     "nodes": [
+      "traveler",
+      "mcp"
+     ]
+    },
+    {
+     "caption": "Ten groups of tools.",
+     "nodes": [
+      "mod_blocks_typed",
+      "mod_content",
+      "mod_exports",
+      "mod_files",
+      "mod_outline",
+      "mod_pages",
+      "mod_settings",
+      "mod_sites",
+      "mod_auth",
+      "mod_imports"
+     ]
+    },
+    {
+     "caption": "Sign in, pick a site, create pages.",
+     "nodes": [
+      "mod_auth",
+      "mod_sites",
+      "mod_pages",
+      "t_list_sites",
+      "t_create_page"
+     ]
+    },
+    {
+     "caption": "Write content: one typed tool per HAX element, so an agent places the right block.",
+     "nodes": [
+      "mod_content",
+      "mod_blocks_typed"
+     ]
+    },
+    {
+     "caption": "Files, settings, outline, exports and imports.",
+     "nodes": [
+      "mod_files",
+      "mod_settings",
+      "mod_outline",
+      "mod_exports",
+      "mod_imports"
+     ]
+    },
+    {
+     "caption": "Every tool calls the same OpenAPI areas people use; open OpenAPI to see them.",
+     "nodes": [
+      "tag_actions",
+      "tag_blocks",
+      "tag_content",
+      "tag_custom_elements",
+      "tag_files",
+      "tag_items",
+      "tag_lifecycle",
+      "tag_schemas",
+      "tag_search",
+      "tag_session",
+      "tag_settings",
+      "tag_site",
+      "tag_tags"
+     ]
+    },
+    {
+     "caption": "All the tools.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

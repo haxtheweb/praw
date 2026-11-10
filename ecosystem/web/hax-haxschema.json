@@ -1,0 +1,460 @@
+{
+ "meta": {
+  "name": "HAXSchema",
+  "parent": "contracts",
+  "noTimeline": true,
+  "sectionLabels": {
+   "part": "parts",
+   "family": "field families",
+   "field": "field types",
+   "element": "elements"
+  },
+  "about": "What an element tells the editor, generated from haxProperties.schema.json: the JSON Schema it is written in, 14 top-level keys, the four settings groups, all 34 field types (inputMethod) and the 24 element packages that use fields most, counted across the built packages. Gray field tiles are defined but unused.",
+  "kindLabels": {
+   "rel": "part, family, field, element",
+   "schema": "built on and validated by"
+  }
+ },
+ "nodes": {
+  "haxschema": {
+   "always": true
+  },
+  "jsonschema": {
+   "desc": "JSON Schema, draft 2020-12: the standard every HAX schema file is written in, so any JSON Schema validator, editor or AI agent can read them.",
+   "links": {
+    "spec": "https://json-schema.org/draft/2020-12"
+   }
+  },
+  "hsfile": {
+   "desc": "The JSON Schema for lib/<tag>.haxProperties.json, with the descriptions and defaults from the hax-schema README. Validate with npx -p @haxtheweb/hax-schema haxproperties-validate.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/hax-schema/blob/main/schema/haxProperties.schema.json",
+    "docs": "https://haxtheweb.github.io/hax-schema/"
+   }
+  },
+  "hslocale": {
+   "desc": "The JSON Schema for locales/<tag>.<lang>.haxProperties.json, the translation overlays the editor uses for other languages.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/hax-schema/blob/main/schema/haxProperties.locale.schema.json"
+   }
+  },
+  "hp_api": {
+   "desc": "Schema API version. Only \"1\" exists.",
+   "kind": "part"
+  },
+  "hp_type": {
+   "desc": "`element` for a normal block; `grid` when the element is a layout container that other blocks are placed inside (its slots become drop targets).",
+   "kind": "part"
+  },
+  "hp_gizmo": {
+   "desc": "How the block appears in the HAX block browser, search and Merlin. Omit (or `false`) for elements that should not be insertable on their own. Gizmo fields: title, description, icon, iconLib, color, tags, groups, handles, meta, requiresChildren, requiresParent, allowedParents, shortcut, tag, keywords.",
+   "kind": "part"
+  },
+  "hp_settings": {
+   "desc": "Editing form fields. Each group is an array of fields; the group decides where the form shows them. Each field can set: property, attribute, slot, title, description, inputMethod, icon, required, disabled, hidden, validation, validationType, options, itemsList, min, max and more.",
+   "kind": "part"
+  },
+  "hp_demoschema": {
+   "desc": "Sample instances. The first entry is what HAX inserts when a user adds the block.",
+   "kind": "part"
+  },
+  "hp_saveoptions": {
+   "desc": "Clean-up applied when the element is serialized to HTML. Must be top level, not inside `settings`.",
+   "kind": "part"
+  },
+  "hp_canscale": {
+   "desc": "Show the width scaler. `true` uses the default 25/50/75/100 steps; an object sets a custom range.",
+   "kind": "part"
+  },
+  "hp_caneditsource": {
+   "desc": "Show the inline `view source` button.",
+   "kind": "part"
+  },
+  "hp_contenteditable": {
+   "desc": "The element's light DOM is directly editable as text inside the editor.",
+   "kind": "part"
+  },
+  "hp_designsystem": {
+   "desc": "Which design-system form inputs to show. `false` hides them all; an object toggles each one.",
+   "kind": "part"
+  },
+  "hp_editingelement": {
+   "desc": "Who provides the editing UI. `core` (default) means HAX edits the element itself. An object names a custom element HAX wraps around the active element while it is being edited (HAX core uses this for `<table>` -> editable-table and `<iframe>` -> iframe-loader). The wrapper receives the `activeElementChanged` haxHook to sync state in and out.",
+   "kind": "part"
+  },
+  "hp_editmode": {
+   "desc": "Properties applied to slots when the element is in edit mode; merged into each slot's own `editMode` (HaxStore.slotsSchemaFromNode).",
+   "kind": "part"
+  },
+  "hp_documentation": {
+   "desc": "Links to help for this element.",
+   "kind": "part"
+  },
+  "hp_hidedefaultsettings": {
+   "desc": "Hide the standard design-system and text-alignment controls HAX adds to every element.",
+   "kind": "part"
+  },
+  "sg_configure": {
+   "desc": "The fields an author sees first when they select the block.",
+   "kind": "part"
+  },
+  "sg_advanced": {
+   "desc": "Fields shown under Advanced.",
+   "kind": "part"
+  },
+  "sg_developer": {
+   "desc": "Fields only developers need.",
+   "kind": "part"
+  },
+  "sg_inline": {
+   "desc": "Fields shown inline on the block while editing.",
+   "kind": "part"
+  },
+  "fam_text": {
+   "desc": "Text fields: textfield, textarea, alt, url, code, code-editor, markup, html-block, md-block.",
+   "kind": "family"
+  },
+  "fam_choice": {
+   "desc": "Choice fields: boolean, select, radio, combo, number, slider.",
+   "kind": "family"
+  },
+  "fam_pickers": {
+   "desc": "Pickers fields: color, colorpicker, iconpicker, hax-palette-picker, haxcms-theme-picker, date-time, datepicker, monthpicker, weekpicker, timepicker.",
+   "kind": "family"
+  },
+  "fam_media_and_files": {
+   "desc": "Media and files fields: fileupload, haxupload, screenRecorder, srcset.",
+   "kind": "family"
+  },
+  "fam_structure": {
+   "desc": "Structure fields: array, object, fieldset, tabs, collapse.",
+   "kind": "family"
+  },
+  "fd_textfield": {
+   "desc": "inputMethod \"textfield\": used 420 times across 93 element packages, most in micro-game-base, haxcms-elements, course-design.",
+   "kind": "field"
+  },
+  "fd_textarea": {
+   "desc": "inputMethod \"textarea\": used 34 times across 14 element packages, most in micro-game-base, vocab-term, self-check.",
+   "kind": "field"
+  },
+  "fd_alt": {
+   "desc": "inputMethod \"alt\": used 17 times across 15 element packages, most in collection-list, image-compare-slider, q-r.",
+   "kind": "field"
+  },
+  "fd_url": {
+   "desc": "inputMethod \"url\": used 3 times across 2 element packages, most in author-card, course-design.",
+   "kind": "field"
+  },
+  "fd_number": {
+   "desc": "inputMethod \"number\": used 73 times across 26 element packages, most in lrndesign-chart, haxcms-elements, bibliography-builder.",
+   "kind": "field"
+  },
+  "fd_slider": {
+   "desc": "inputMethod \"slider\": used 4 times across 3 element packages, most in grid-plate, un-sdg, d-d-d.",
+   "kind": "field"
+  },
+  "fd_boolean": {
+   "desc": "inputMethod \"boolean\": used 199 times across 59 element packages, most in haxcms-elements, lrndesign-chart, editable-table.",
+   "kind": "field"
+  },
+  "fd_select": {
+   "desc": "inputMethod \"select\": used 106 times across 45 element packages, most in haxcms-elements, rpg-character, lrndesign-chart.",
+   "kind": "field"
+  },
+  "fd_radio": {
+   "desc": "inputMethod \"radio\": used 16 times across 3 element packages, most in d-d-d, multiple-choice, page-section.",
+   "kind": "field"
+  },
+  "fd_combo": {
+   "desc": "inputMethod \"combo\": defined by the schema; no built element package uses it yet.",
+   "kind": "field"
+  },
+  "fd_color": {
+   "desc": "inputMethod \"color\": defined by the schema; no built element package uses it yet.",
+   "kind": "field"
+  },
+  "fd_colorpicker": {
+   "desc": "inputMethod \"colorpicker\": used 24 times across 20 element packages, most in event-badge, collection-list, haxcms-elements.",
+   "kind": "field"
+  },
+  "fd_iconpicker": {
+   "desc": "inputMethod \"iconpicker\": used 18 times across 12 element packages, most in a11y-tabs, course-design, collection-list.",
+   "kind": "field"
+  },
+  "fd_hax_palette_picker": {
+   "desc": "inputMethod \"hax-palette-picker\": used 1 times across 1 element packages, most in haxcms-elements.",
+   "kind": "field"
+  },
+  "fd_haxcms_theme_picker": {
+   "desc": "inputMethod \"haxcms-theme-picker\": used 1 times across 1 element packages, most in haxcms-elements.",
+   "kind": "field"
+  },
+  "fd_date_time": {
+   "desc": "inputMethod \"date-time\": defined by the schema; no built element package uses it yet.",
+   "kind": "field"
+  },
+  "fd_datepicker": {
+   "desc": "inputMethod \"datepicker\": used 5 times across 2 element packages, most in bibliography-builder, career-timeline.",
+   "kind": "field"
+  },
+  "fd_monthpicker": {
+   "desc": "inputMethod \"monthpicker\": defined by the schema; no built element package uses it yet.",
+   "kind": "field"
+  },
+  "fd_weekpicker": {
+   "desc": "inputMethod \"weekpicker\": defined by the schema; no built element package uses it yet.",
+   "kind": "field"
+  },
+  "fd_timepicker": {
+   "desc": "inputMethod \"timepicker\": defined by the schema; no built element package uses it yet.",
+   "kind": "field"
+  },
+  "fd_fileupload": {
+   "desc": "inputMethod \"fileupload\": used 3 times across 2 element packages, most in post-card, editable-table.",
+   "kind": "field"
+  },
+  "fd_haxupload": {
+   "desc": "inputMethod \"haxupload\": used 77 times across 48 element packages, most in polaris-theme, collection-list, video-player.",
+   "kind": "field"
+  },
+  "fd_screenrecorder": {
+   "desc": "inputMethod \"screenRecorder\": defined by the schema; no built element package uses it yet.",
+   "kind": "field"
+  },
+  "fd_srcset": {
+   "desc": "inputMethod \"srcset\": used 1 times across 1 element packages, most in hax-body.",
+   "kind": "field"
+  },
+  "fd_code": {
+   "desc": "inputMethod \"code\": defined by the schema; no built element package uses it yet.",
+   "kind": "field"
+  },
+  "fd_code_editor": {
+   "desc": "inputMethod \"code-editor\": used 26 times across 15 element packages, most in course-model, a11y-details, a11y-figure.",
+   "kind": "field"
+  },
+  "fd_markup": {
+   "desc": "inputMethod \"markup\": defined by the schema; no built element package uses it yet.",
+   "kind": "field"
+  },
+  "fd_html_block": {
+   "desc": "inputMethod \"html-block\": defined by the schema; no built element package uses it yet.",
+   "kind": "field"
+  },
+  "fd_md_block": {
+   "desc": "inputMethod \"md-block\": defined by the schema; no built element package uses it yet.",
+   "kind": "field"
+  },
+  "fd_array": {
+   "desc": "inputMethod \"array\": used 20 times across 17 element packages, most in micro-game-base, multiple-choice, vocab-term.",
+   "kind": "field"
+  },
+  "fd_object": {
+   "desc": "inputMethod \"object\": defined by the schema; no built element package uses it yet.",
+   "kind": "field"
+  },
+  "fd_fieldset": {
+   "desc": "inputMethod \"fieldset\": defined by the schema; no built element package uses it yet.",
+   "kind": "field"
+  },
+  "fd_tabs": {
+   "desc": "inputMethod \"tabs\": defined by the schema; no built element package uses it yet.",
+   "kind": "field"
+  },
+  "fd_collapse": {
+   "desc": "inputMethod \"collapse\": used 4 times across 3 element packages, most in hax-body, bootstrap-theme, d-d-d.",
+   "kind": "field"
+  },
+  "b_haxcms_elements": {
+   "desc": "@haxtheweb/haxcms-elements: 90 editing fields across its haxProperties.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/haxcms-elements"
+   },
+   "kind": "element"
+  },
+  "b_lrndesign_chart": {
+   "desc": "@haxtheweb/lrndesign-chart: 66 editing fields across its haxProperties.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/lrndesign-chart"
+   },
+   "kind": "element"
+  },
+  "b_micro_game_base": {
+   "desc": "@haxtheweb/micro-game-base: 62 editing fields across its haxProperties.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/micro-game-base"
+   },
+   "kind": "element"
+  },
+  "b_d_d_d": {
+   "desc": "@haxtheweb/d-d-d: 28 editing fields across its haxProperties.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/d-d-d"
+   },
+   "kind": "element"
+  },
+  "b_hax_body": {
+   "desc": "@haxtheweb/hax-body: 25 editing fields across its haxProperties.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/hax-body"
+   },
+   "kind": "element"
+  },
+  "b_course_design": {
+   "desc": "@haxtheweb/course-design: 23 editing fields across its haxProperties.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/course-design"
+   },
+   "kind": "element"
+  },
+  "b_polaris_theme": {
+   "desc": "@haxtheweb/polaris-theme: 22 editing fields across its haxProperties.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/polaris-theme"
+   },
+   "kind": "element"
+  },
+  "b_collection_list": {
+   "desc": "@haxtheweb/collection-list: 19 editing fields across its haxProperties.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/collection-list"
+   },
+   "kind": "element"
+  },
+  "b_editable_table": {
+   "desc": "@haxtheweb/editable-table: 16 editing fields across its haxProperties.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/editable-table"
+   },
+   "kind": "element"
+  },
+  "b_hax_body_behaviors": {
+   "desc": "@haxtheweb/hax-body-behaviors: 15 editing fields across its haxProperties.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/hax-body-behaviors"
+   },
+   "kind": "element"
+  },
+  "b_a11y_tabs": {
+   "desc": "@haxtheweb/a11y-tabs: 15 editing fields across its haxProperties.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/a11y-tabs"
+   },
+   "kind": "element"
+  },
+  "b_simple_fields": {
+   "desc": "@haxtheweb/simple-fields: 12 editing fields across its haxProperties.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/simple-fields"
+   },
+   "kind": "element"
+  },
+  "b_count_up": {
+   "desc": "@haxtheweb/count-up: 11 editing fields across its haxProperties.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/count-up"
+   },
+   "kind": "element"
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "haxschema",
+   "label": "How an element talks to the editor",
+   "message": "HAXSchema in parts: a JSON Schema file, 14 top-level keys, four settings groups and 34 field types.",
+   "scenes": [
+    {
+     "caption": "HAXSchema is written in JSON Schema, with a second schema for translations.",
+     "nodes": [
+      "haxschema",
+      "jsonschema",
+      "hsfile",
+      "hslocale"
+     ]
+    },
+    {
+     "caption": "A haxProperties file has these parts.",
+     "nodes": [
+      "hp_api",
+      "hp_type",
+      "hp_gizmo",
+      "hp_settings",
+      "hp_demoschema",
+      "hp_saveoptions",
+      "hp_canscale",
+      "hp_caneditsource",
+      "hp_contenteditable",
+      "hp_designsystem",
+      "hp_editingelement",
+      "hp_editmode",
+      "hp_documentation",
+      "hp_hidedefaultsettings"
+     ]
+    },
+    {
+     "caption": "The gizmo is how a block appears in the block browser, search and Merlin; demoSchema is what gets inserted.",
+     "nodes": [
+      "hp_gizmo",
+      "hp_demoschema",
+      "editor"
+     ]
+    },
+    {
+     "caption": "Settings group fields into configure, advanced, developer and inline.",
+     "nodes": [
+      "hp_settings",
+      "sg_configure",
+      "sg_advanced",
+      "sg_developer",
+      "sg_inline"
+     ]
+    },
+    {
+     "caption": "34 field types in five families.",
+     "nodes": [
+      "fam_text",
+      "fam_choice",
+      "fam_pickers",
+      "fam_media_and_files",
+      "fam_structure"
+     ]
+    },
+    {
+     "caption": "The most used: textfield, boolean, select, haxupload and number.",
+     "nodes": [
+      "fd_textfield",
+      "fd_boolean",
+      "fd_select",
+      "fd_haxupload",
+      "fd_number"
+     ]
+    },
+    {
+     "caption": "14 field types no built element uses yet.",
+     "nodes": [
+      "fd_combo",
+      "fd_color",
+      "fd_date_time",
+      "fd_monthpicker",
+      "fd_weekpicker",
+      "fd_timepicker",
+      "fd_screenrecorder",
+      "fd_code",
+      "fd_markup",
+      "fd_html_block",
+      "fd_md_block",
+      "fd_object",
+      "fd_fieldset",
+      "fd_tabs"
+     ]
+    },
+    {
+     "caption": "Which elements lean on which fields.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

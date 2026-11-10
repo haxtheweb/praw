@@ -1,0 +1,383 @@
+%% Languages sub-web: which elements speak which languages, generated from the built packages' locales folders and i18n-manager's language registry.
+%% Portals: ids from hax-ecosystem.mmd, hax-skills.mmd and hax-haxschema.mmd. Details in hax-languages.json.
+flowchart TB
+  %%@ layout rings=0,210,420,610,900 sizes=92,60,60,52,40
+  subgraph hub ["Languages"]
+    languages["languages"]
+  end
+  subgraph tools ["How it works"]
+    lg_manager["i18n-manager"]
+    lg_mixin["I18NMixin"]
+    lg_registry[("languages.json")]
+    lg_manifest[("translation-manifest.json")]
+    lg_files["locales folder"]
+    hslocale["hslocale"]
+    s_hax_i18n_translate["s_hax_i18n_translate"]
+    lg_picker["Language picker"]
+  end
+  subgraph bands ["How much is translated"]
+    lg_full["Every language"]
+    lg_partial["Some languages"]
+    lg_ready["Strings ready, not translated yet"]
+    lg_none["No strings to translate"]
+  end
+  subgraph dirs ["Writing direction"]
+    lg_ltr["Left to right"]
+    lg_rtl["Right to left"]
+    lg_variants["Regional variants"]
+  end
+  subgraph rdy ["Next to translate"]
+    b_clean_two["clean-two"]
+    b_simple_icon_picker["simple-icon-picker"]
+    b_terrible_themes["terrible-themes"]
+  end
+  subgraph langsg ["Languages"]
+    lang_af["Afrikaans"]
+    lang_sq["Albanian"]
+    lang_am["Amharic"]
+    lang_ar["Arabic"]
+    lang_hy["Armenian"]
+    lang_az["Azerbaijani"]
+    lang_eu["Basque"]
+    lang_be["Belarusian"]
+    lang_bn["Bengali"]
+    lang_bs["Bosnian"]
+    lang_bg["Bulgarian"]
+    lang_my["Burmese"]
+    lang_ca["Catalan"]
+    lang_ny["Chichewa"]
+    lang_co["Corsican"]
+    lang_hr["Croatian"]
+    lang_cs["Czech"]
+    lang_da["Danish"]
+    lang_nl["Dutch"]
+    lang_en["English"]
+    lang_eo["Esperanto"]
+    lang_et["Estonian"]
+    lang_fo["Faroese"]
+    lang_tl["Filipino"]
+    lang_fi["Finnish"]
+    lang_fr["French"]
+    lang_gl["Galician"]
+    lang_ka["Georgian"]
+    lang_de["German"]
+    lang_el["Greek"]
+    lang_gn["Guarani"]
+    lang_gu["Gujarati"]
+    lang_ha["Hausa"]
+    lang_haw["Hawaiian"]
+    lang_he["Hebrew"]
+    lang_hi["Hindi"]
+    lang_hu["Hungarian"]
+    lang_is["Icelandic"]
+    lang_ig["Igbo"]
+    lang_id["Indonesian"]
+    lang_ga["Irish"]
+    lang_it["Italian"]
+    lang_ja["Japanese"]
+    lang_jv["Javanese"]
+    lang_kn["Kannada"]
+    lang_kk["Kazakh"]
+    lang_km["Khmer"]
+    lang_ko["Korean"]
+    lang_ku["Kurdish"]
+    lang_ky["Kyrgyz"]
+    lang_lo["Lao"]
+    lang_lv["Latvian"]
+    lang_lt["Lithuanian"]
+    lang_lb["Luxembourgish"]
+    lang_mk["Macedonian"]
+    lang_ms["Malay"]
+    lang_ml["Malayalam"]
+    lang_mt["Maltese"]
+    lang_mr["Marathi"]
+    lang_mn["Mongolian"]
+    lang_mi["Māori"]
+    lang_ne["Nepali"]
+    lang_nb["Norwegian Bokmål"]
+    lang_om["Oromo"]
+    lang_ps["Pashto"]
+    lang_fa["Persian"]
+    lang_pl["Polish"]
+    lang_pt["Portuguese"]
+    lang_pa["Punjabi"]
+    lang_qu["Quechua"]
+    lang_ro["Romanian"]
+    lang_ru["Russian"]
+    lang_sr["Serbian"]
+    lang_sn["Shona"]
+    lang_sd["Sindhi"]
+    lang_si["Sinhala"]
+    lang_sk["Slovak"]
+    lang_sl["Slovenian"]
+    lang_so["Somali"]
+    lang_es["Spanish"]
+    lang_sw["Swahili"]
+    lang_sv["Swedish"]
+    lang_tg["Tajik"]
+    lang_ta["Tamil"]
+    lang_tt["Tatar"]
+    lang_te["Telugu"]
+    lang_th["Thai"]
+    lang_tr["Turkish"]
+    lang_tk["Turkmen"]
+    lang_uk["Ukrainian"]
+    lang_ur["Urdu"]
+    lang_uz["Uzbek"]
+    lang_vi["Vietnamese"]
+    lang_cy["Welsh"]
+    lang_fy["Western Frisian"]
+    lang_pnb["Western Punjabi"]
+    lang_wuu["Wu Chinese"]
+    lang_xh["Xhosa"]
+    lang_yi["Yiddish"]
+    lang_yo["Yoruba"]
+    lang_zu["Zulu"]
+  end
+
+  languages -->|runs on| lg_manager
+  lg_mixin -->|registers elements with| lg_manager
+  lg_manager -->|reads| lg_registry
+  lg_manager -->|loads| lg_files
+  lg_manifest -.->|indexes| lg_files
+  hslocale -.->|translates editor labels in| lg_files
+  s_hax_i18n_translate -->|writes| lg_files
+  lg_picker -->|sets the language for| lg_manager
+  lg_files -->|cover| lg_full
+  lg_files -->|cover| lg_partial
+  lg_mixin -->|is ready in| lg_ready
+  languages -->|counts| lg_none
+  lg_registry -->|lists| lg_ltr
+  lg_registry -->|lists| lg_rtl
+  lg_registry -->|maps| lg_variants
+  lg_ready -->|includes| b_clean_two
+  lg_ready -->|includes| b_simple_icon_picker
+  lg_ready -->|includes| b_terrible_themes
+  lg_ltr -->|includes| lang_af
+  lg_ltr -->|includes| lang_sq
+  lg_ltr -->|includes| lang_am
+  lg_rtl -->|includes| lang_ar
+  lg_ltr -->|includes| lang_hy
+  lg_ltr -->|includes| lang_az
+  lg_ltr -->|includes| lang_eu
+  lg_ltr -->|includes| lang_be
+  lg_ltr -->|includes| lang_bn
+  lg_ltr -->|includes| lang_bs
+  lg_ltr -->|includes| lang_bg
+  lg_ltr -->|includes| lang_my
+  lg_ltr -->|includes| lang_ca
+  lg_ltr -->|includes| lang_ny
+  lg_ltr -->|includes| lang_co
+  lg_ltr -->|includes| lang_hr
+  lg_ltr -->|includes| lang_cs
+  lg_ltr -->|includes| lang_da
+  lg_ltr -->|includes| lang_nl
+  lg_ltr -->|includes| lang_en
+  lg_ltr -->|includes| lang_eo
+  lg_ltr -->|includes| lang_et
+  lg_ltr -->|includes| lang_fo
+  lg_ltr -->|includes| lang_tl
+  lg_ltr -->|includes| lang_fi
+  lg_ltr -->|includes| lang_fr
+  lg_ltr -->|includes| lang_gl
+  lg_ltr -->|includes| lang_ka
+  lg_ltr -->|includes| lang_de
+  lg_ltr -->|includes| lang_el
+  lg_ltr -->|includes| lang_gn
+  lg_ltr -->|includes| lang_gu
+  lg_ltr -->|includes| lang_ha
+  lg_ltr -->|includes| lang_haw
+  lg_rtl -->|includes| lang_he
+  lg_ltr -->|includes| lang_hi
+  lg_ltr -->|includes| lang_hu
+  lg_ltr -->|includes| lang_is
+  lg_ltr -->|includes| lang_ig
+  lg_ltr -->|includes| lang_id
+  lg_ltr -->|includes| lang_ga
+  lg_ltr -->|includes| lang_it
+  lg_ltr -->|includes| lang_ja
+  lg_ltr -->|includes| lang_jv
+  lg_ltr -->|includes| lang_kn
+  lg_ltr -->|includes| lang_kk
+  lg_ltr -->|includes| lang_km
+  lg_ltr -->|includes| lang_ko
+  lg_ltr -->|includes| lang_ku
+  lg_ltr -->|includes| lang_ky
+  lg_ltr -->|includes| lang_lo
+  lg_ltr -->|includes| lang_lv
+  lg_ltr -->|includes| lang_lt
+  lg_ltr -->|includes| lang_lb
+  lg_ltr -->|includes| lang_mk
+  lg_ltr -->|includes| lang_ms
+  lg_ltr -->|includes| lang_ml
+  lg_ltr -->|includes| lang_mt
+  lg_ltr -->|includes| lang_mr
+  lg_ltr -->|includes| lang_mn
+  lg_ltr -->|includes| lang_mi
+  lg_ltr -->|includes| lang_ne
+  lg_ltr -->|includes| lang_nb
+  lg_ltr -->|includes| lang_om
+  lg_rtl -->|includes| lang_ps
+  lg_rtl -->|includes| lang_fa
+  lg_ltr -->|includes| lang_pl
+  lg_ltr -->|includes| lang_pt
+  lg_ltr -->|includes| lang_pa
+  lg_ltr -->|includes| lang_qu
+  lg_ltr -->|includes| lang_ro
+  lg_ltr -->|includes| lang_ru
+  lg_ltr -->|includes| lang_sr
+  lg_ltr -->|includes| lang_sn
+  lg_rtl -->|includes| lang_sd
+  lg_ltr -->|includes| lang_si
+  lg_ltr -->|includes| lang_sk
+  lg_ltr -->|includes| lang_sl
+  lg_ltr -->|includes| lang_so
+  lg_ltr -->|includes| lang_es
+  lg_ltr -->|includes| lang_sw
+  lg_ltr -->|includes| lang_sv
+  lg_ltr -->|includes| lang_tg
+  lg_ltr -->|includes| lang_ta
+  lg_ltr -->|includes| lang_tt
+  lg_ltr -->|includes| lang_te
+  lg_ltr -->|includes| lang_th
+  lg_ltr -->|includes| lang_tr
+  lg_ltr -->|includes| lang_tk
+  lg_ltr -->|includes| lang_uk
+  lg_rtl -->|includes| lang_ur
+  lg_ltr -->|includes| lang_uz
+  lg_ltr -->|includes| lang_vi
+  lg_ltr -->|includes| lang_cy
+  lg_ltr -->|includes| lang_fy
+  lg_rtl -->|includes| lang_pnb
+  lg_ltr -->|includes| lang_wuu
+  lg_ltr -->|includes| lang_xh
+  lg_rtl -->|includes| lang_yi
+  lg_ltr -->|includes| lang_yo
+  lg_ltr -->|includes| lang_zu
+
+  %%@ group hub tier=0
+  %%@ group tools tier=1
+  %%@ group bands tier=2
+  %%@ group dirs tier=2
+  %%@ group rdy tier=3
+  %%@ group langsg tier=4
+  %%@ node languages portal
+  %%@ node hslocale portal=haxschema
+  %%@ node s_hax_i18n_translate portal=skills
+  %%@ node lg_manager icon=icons:translate color=skyBlue motion=tilt
+  %%@ node lg_mixin icon=hax:code-json color=skyBlue motion=nudge
+  %%@ node lg_registry icon=hax:code-json color=skyBlue motion=nudge
+  %%@ node lg_manifest icon=hax:code-json color=skyBlue motion=nudge
+  %%@ node lg_files icon=icons:folder-open color=skyBlue motion=nudge
+  %%@ node lg_picker icon=icons:translate color=beaverBlue motion=pop
+  %%@ node lg_full icon=icons:check-circle color=forestGreen motion=pop
+  %%@ node lg_partial icon=icons:translate color=roarGolden motion=pop
+  %%@ node lg_ready icon=icons:build color=inventOrange motion=pop
+  %%@ node lg_none icon=icons:view-day color=limestoneGray motion=nudge
+  %%@ node lg_ltr mono=LTR color=creekTeal motion=nudge
+  %%@ node lg_rtl mono=RTL color=creekTeal motion=nudge
+  %%@ node lg_variants mono=VAR color=creekTeal motion=nudge
+  %%@ node b_clean_two icon=hax:bricks color=inventOrange motion=nudge
+  %%@ node b_simple_icon_picker icon=hax:bricks color=inventOrange motion=nudge
+  %%@ node b_terrible_themes icon=hax:bricks color=inventOrange motion=nudge
+  %%@ node lang_af mono=AF color=skyBlue motion=nudge
+  %%@ node lang_sq mono=SQ color=skyBlue motion=nudge
+  %%@ node lang_am mono=AM color=skyBlue motion=nudge
+  %%@ node lang_ar mono=AR color=athertonViolet motion=nudge
+  %%@ node lang_hy mono=HY color=skyBlue motion=nudge
+  %%@ node lang_az mono=AZ color=skyBlue motion=nudge
+  %%@ node lang_eu mono=EU color=skyBlue motion=nudge
+  %%@ node lang_be mono=BE color=skyBlue motion=nudge
+  %%@ node lang_bn mono=BN color=skyBlue motion=nudge
+  %%@ node lang_bs mono=BS color=skyBlue motion=nudge
+  %%@ node lang_bg mono=BG color=skyBlue motion=nudge
+  %%@ node lang_my mono=MY color=skyBlue motion=nudge
+  %%@ node lang_ca mono=CA color=skyBlue motion=nudge
+  %%@ node lang_ny mono=NY color=skyBlue motion=nudge
+  %%@ node lang_co mono=CO color=skyBlue motion=nudge
+  %%@ node lang_hr mono=HR color=skyBlue motion=nudge
+  %%@ node lang_cs mono=CS color=skyBlue motion=nudge
+  %%@ node lang_da mono=DA color=skyBlue motion=nudge
+  %%@ node lang_nl mono=NL color=skyBlue motion=nudge
+  %%@ node lang_en mono=EN color=skyBlue motion=nudge
+  %%@ node lang_eo mono=EO color=skyBlue motion=nudge
+  %%@ node lang_et mono=ET color=skyBlue motion=nudge
+  %%@ node lang_fo mono=FO color=skyBlue motion=nudge
+  %%@ node lang_tl mono=TL color=skyBlue motion=nudge
+  %%@ node lang_fi mono=FI color=skyBlue motion=nudge
+  %%@ node lang_fr mono=FR color=skyBlue motion=nudge
+  %%@ node lang_gl mono=GL color=skyBlue motion=nudge
+  %%@ node lang_ka mono=KA color=skyBlue motion=nudge
+  %%@ node lang_de mono=DE color=skyBlue motion=nudge
+  %%@ node lang_el mono=EL color=skyBlue motion=nudge
+  %%@ node lang_gn mono=GN color=skyBlue motion=nudge
+  %%@ node lang_gu mono=GU color=skyBlue motion=nudge
+  %%@ node lang_ha mono=HA color=skyBlue motion=nudge
+  %%@ node lang_haw mono=HAW color=skyBlue motion=nudge
+  %%@ node lang_he mono=HE color=athertonViolet motion=nudge
+  %%@ node lang_hi mono=HI color=skyBlue motion=nudge
+  %%@ node lang_hu mono=HU color=skyBlue motion=nudge
+  %%@ node lang_is mono=IS color=skyBlue motion=nudge
+  %%@ node lang_ig mono=IG color=skyBlue motion=nudge
+  %%@ node lang_id mono=ID color=skyBlue motion=nudge
+  %%@ node lang_ga mono=GA color=skyBlue motion=nudge
+  %%@ node lang_it mono=IT color=skyBlue motion=nudge
+  %%@ node lang_ja mono=JA color=skyBlue motion=nudge
+  %%@ node lang_jv mono=JV color=skyBlue motion=nudge
+  %%@ node lang_kn mono=KN color=skyBlue motion=nudge
+  %%@ node lang_kk mono=KK color=skyBlue motion=nudge
+  %%@ node lang_km mono=KM color=skyBlue motion=nudge
+  %%@ node lang_ko mono=KO color=skyBlue motion=nudge
+  %%@ node lang_ku mono=KU color=skyBlue motion=nudge
+  %%@ node lang_ky mono=KY color=skyBlue motion=nudge
+  %%@ node lang_lo mono=LO color=skyBlue motion=nudge
+  %%@ node lang_lv mono=LV color=skyBlue motion=nudge
+  %%@ node lang_lt mono=LT color=skyBlue motion=nudge
+  %%@ node lang_lb mono=LB color=skyBlue motion=nudge
+  %%@ node lang_mk mono=MK color=skyBlue motion=nudge
+  %%@ node lang_ms mono=MS color=skyBlue motion=nudge
+  %%@ node lang_ml mono=ML color=skyBlue motion=nudge
+  %%@ node lang_mt mono=MT color=skyBlue motion=nudge
+  %%@ node lang_mr mono=MR color=skyBlue motion=nudge
+  %%@ node lang_mn mono=MN color=skyBlue motion=nudge
+  %%@ node lang_mi mono=MI color=skyBlue motion=nudge
+  %%@ node lang_ne mono=NE color=skyBlue motion=nudge
+  %%@ node lang_nb mono=NB color=skyBlue motion=nudge
+  %%@ node lang_om mono=OM color=skyBlue motion=nudge
+  %%@ node lang_ps mono=PS color=athertonViolet motion=nudge
+  %%@ node lang_fa mono=FA color=athertonViolet motion=nudge
+  %%@ node lang_pl mono=PL color=skyBlue motion=nudge
+  %%@ node lang_pt mono=PT color=skyBlue motion=nudge
+  %%@ node lang_pa mono=PA color=skyBlue motion=nudge
+  %%@ node lang_qu mono=QU color=skyBlue motion=nudge
+  %%@ node lang_ro mono=RO color=skyBlue motion=nudge
+  %%@ node lang_ru mono=RU color=skyBlue motion=nudge
+  %%@ node lang_sr mono=SR color=skyBlue motion=nudge
+  %%@ node lang_sn mono=SN color=skyBlue motion=nudge
+  %%@ node lang_sd mono=SD color=athertonViolet motion=nudge
+  %%@ node lang_si mono=SI color=skyBlue motion=nudge
+  %%@ node lang_sk mono=SK color=skyBlue motion=nudge
+  %%@ node lang_sl mono=SL color=skyBlue motion=nudge
+  %%@ node lang_so mono=SO color=skyBlue motion=nudge
+  %%@ node lang_es mono=ES color=skyBlue motion=nudge
+  %%@ node lang_sw mono=SW color=skyBlue motion=nudge
+  %%@ node lang_sv mono=SV color=skyBlue motion=nudge
+  %%@ node lang_tg mono=TG color=skyBlue motion=nudge
+  %%@ node lang_ta mono=TA color=skyBlue motion=nudge
+  %%@ node lang_tt mono=TT color=skyBlue motion=nudge
+  %%@ node lang_te mono=TE color=skyBlue motion=nudge
+  %%@ node lang_th mono=TH color=skyBlue motion=nudge
+  %%@ node lang_tr mono=TR color=skyBlue motion=nudge
+  %%@ node lang_tk mono=TK color=skyBlue motion=nudge
+  %%@ node lang_uk mono=UK color=skyBlue motion=nudge
+  %%@ node lang_ur mono=UR color=athertonViolet motion=nudge
+  %%@ node lang_uz mono=UZ color=skyBlue motion=nudge
+  %%@ node lang_vi mono=VI color=skyBlue motion=nudge
+  %%@ node lang_cy mono=CY color=skyBlue motion=nudge
+  %%@ node lang_fy mono=FY color=skyBlue motion=nudge
+  %%@ node lang_pnb mono=PNB color=athertonViolet motion=nudge
+  %%@ node lang_wuu mono=WUU color=skyBlue motion=nudge
+  %%@ node lang_xh mono=XH color=skyBlue motion=nudge
+  %%@ node lang_yi mono=YI color=athertonViolet motion=nudge
+  %%@ node lang_yo mono=YO color=skyBlue motion=nudge
+  %%@ node lang_zu mono=ZU color=skyBlue motion=nudge

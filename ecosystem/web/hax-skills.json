@@ -1,0 +1,785 @@
+{
+ "meta": {
+  "name": "Future Traveler skills",
+  "parent": "main",
+  "noTimeline": true,
+  "about": "56 agent skills (50 in PRAW, 6 in the HAX CLI's create repo), grouped by what they help with and linked to the parts of HAX they work on.",
+  "kindLabels": {
+   "rel": "groups and what each skill works on",
+   "org": "where each skill lives"
+  }
+ },
+ "nodes": {
+  "traveler": {
+   "always": true
+  },
+  "g_use": {
+   "desc": "9 skills."
+  },
+  "g_dev": {
+   "desc": "11 skills."
+  },
+  "g_id": {
+   "desc": "21 skills."
+  },
+  "g_audit": {
+   "desc": "6 skills."
+  },
+  "g_media": {
+   "desc": "5 skills."
+  },
+  "g_community": {
+   "desc": "4 skills."
+  },
+  "s_hax": {
+   "desc": "Onboard and drive the HAX CLI (@haxtheweb/create). Use when the user wants to set up the HAX development environment, create a HAX web component or HAXsite, scaffold a Lit/DDD component, audit DDD design-system compliance, run a HAXsite dev server, add/edit/delete pages or content, import or migrate content into a HAXsite, publish to surge/netlify/vercel/gh-pages, or otherwise run `hax` commands. Triggers…",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/plugins/hax-onboarding/skills/hax/SKILL.md"
+   },
+   "source": {
+    "label": "praw: plugins/hax-onboarding/skills/hax/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/plugins/hax-onboarding/skills/hax/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_content_authoring": {
+   "desc": "Author HAX page HTML with valid HAX-capable web components and DDD attributes. Use when writing or editing pages/, choosing input, icon, button or media components, or creating pages via the hax CLI. Keeps content portable and editable in the HAX editor.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-content-authoring/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-content-authoring/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-content-authoring/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_ecosystem_onboarding": {
+   "desc": "Onboard new developers to the HAX ecosystem by cloning repositories, installing the CLI, and setting up the development environment. Use when a developer is new to HAX, needs a fresh environment setup, or wants to scaffold their first web component or HAXsite.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create/blob/main/src/skills/hax-ecosystem-onboarding/SKILL.md"
+   },
+   "source": {
+    "label": "create: src/skills/hax-ecosystem-onboarding/SKILL.md",
+    "url": "https://github.com/haxtheweb/create/blob/main/src/skills/hax-ecosystem-onboarding/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_managed_files": {
+   "desc": "Know which HAXcms files are generated (rebuild, never hand-edit) versus authored. Load before editing a managed file or running a build: no ubiquity script, no top-level monorepo build, local hax CLI instead of npx.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-managed-files/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-managed-files/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-managed-files/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_site_building": {
+   "desc": "Build and maintain HAXcms sites with proper structure, themes, and JSON Outline Schema. Use when creating a new HAXsite, editing site.json, managing page content, or modifying themes in the HAXcms ecosystem. Use when the user says \"create a site\", \"add pages\", \"edit site.json\", or references HAXcms site structure.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create/blob/main/src/skills/hax-site-building/SKILL.md"
+   },
+   "source": {
+    "label": "create: src/skills/hax-site-building/SKILL.md",
+    "url": "https://github.com/haxtheweb/create/blob/main/src/skills/hax-site-building/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_site_ops": {
+   "desc": "Operate HAX sites from Claude Code using the HAX CLI and HAX web components. Use when the user wants to add pages, create a course, update page content, add lesson pages, add videos, inspect a site, list pages, validate, export, publish, improve site structure, add assessments, add interactive content, or use HAX web components. Triggers include: hax site, haxcms, add pages, create course, site operations,…",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/plugins/hax-site-ops/skills/hax-site-ops/SKILL.md"
+   },
+   "source": {
+    "label": "praw: plugins/hax-site-ops/skills/hax-site-ops/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/plugins/hax-site-ops/skills/hax-site-ops/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_site_structure": {
+   "desc": "Read and navigate an existing HAXcms site from its portable files: site.json, pages/, files/, theme, basePath, wc-registry.json. Load FIRST when an agent lands on any HAXsite or deployment.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-site-structure/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-site-structure/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-site-structure/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_theme_builder": {
+   "desc": "Turn a screenshot plus a short Q&A into an accessible, dark-mode-ready HAXcms theme extending HAXCMSLitElementTheme. Use for 'build a HAXcms theme' or a site-layout image; adds a custom site theme or a monorepo package.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-theme-builder/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-theme-builder/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-theme-builder/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_tutorial_site": {
+   "desc": "Create a published HAXcms tutorial site from a YouTube video plus a DOCX transcript, then write LinkedIn / X posts and a YouTube SEO description. Use for \\\"hax tutorial skill\\\" or \\\"make a tutorial site from this video\\\". Bundled skeleton, portable.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-tutorial-site/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-tutorial-site/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-tutorial-site/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_backend_dev": {
+   "desc": "Change the HAXcms backends in step: implement in haxcms-nodejs and haxcms-php, mirror site-spec and system-spec edits, use @site/ or @system/ MFR namespaces. Use for any API, route, operation, audit or security fix touching either backend.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-backend-dev/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-backend-dev/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-backend-dev/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_claudehax": {
+   "desc": "Operate HAX sites from Claude Code using the ClaudeHAX plugin, HAX CLI, and HAX web components. Use when the user wants to add pages, create courses, update content, add assessments, add quizzes, add videos, use HAX web components, analyze existing HAX sites, or suggest improvements using the ClaudeHAX /hax slash command or HAX CLI directly.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create/blob/main/src/skills/hax-claudehax/SKILL.md"
+   },
+   "source": {
+    "label": "create: src/skills/hax-claudehax/SKILL.md",
+    "url": "https://github.com/haxtheweb/create/blob/main/src/skills/hax-claudehax/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_design_system": {
+   "desc": "Apply the DDD (Design, Develop, Destroy) design system and manage SimpleColors legacy usage. Use when styling components, auditing CSS for DDD compliance, migrating from SimpleColors, creating new themes, or building admin surfaces (site admin, outline-designer, system admin) with HAX UI, DDD's admin layer.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-design-system/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-design-system/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-design-system/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_design_system_sync": {
+   "desc": "Maintain the DDD design system and its derived copies: lint --ddd-* tokens, check contrast, regenerate the DTCG export and skill references, republish the claude.ai design system, open PRs. Use for \\\"sync the design system\\\" or \\\"the token lint is failing\\\".",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-design-system-sync/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-design-system-sync/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-design-system-sync/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_element_demo": {
+   "desc": "Build a throwaway demo of a HAX web component running inside the real HAX editor (h-a-x) as static files, to check the element is wired into the app store and editable. Use when asked to demo, preview, or play with a new or changed element in HAX, or to prove its haxProperties and light-DOM save round trip.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-element-demo/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-element-demo/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-element-demo/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_i18n_translate": {
+   "desc": "Scaffold and translate HAX web component i18n locale files: extract this.t strings or haxProperties text, stub ~100 languages, translate, validate. Use for \\\"translate <element>\\\", \\\"i18n my component\\\" or work on an element's locales/ folder.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-i18n-translate/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-i18n-translate/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-i18n-translate/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_mental_model": {
+   "desc": "Explain how HAX fits together: portable site files, web components, HAXSchema, the editor, optional backends, DDD, and the hax CLI. Load first when someone is new to HAX, asks what HAX is or how the pieces relate, or an agent must decide which HAX skill to use.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-mental-model/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-mental-model/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-mental-model/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_rpg_character": {
+   "desc": "Extend the rpg-character web component (haxtheweb/webcomponents, elements/rpg-character) with new pixel-art pieces: hats, masks, makeup, held items, off-hand items, feet, pets, outfit presets, expressions or poses. Use when someone asks to \"add a hat / costume / job / pet / outfit to rpg-character\", \"draw a new rpg-character piece\", \"make an 8-bit X for the HAX avatar\", \"add a holiday look\", or names…",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create/blob/main/src/skills/hax-rpg-character/SKILL.md"
+   },
+   "source": {
+    "label": "create: src/skills/hax-rpg-character/SKILL.md",
+    "url": "https://github.com/haxtheweb/create/blob/main/src/skills/hax-rpg-character/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_testing": {
+   "desc": "Find and run the right tests per HAX repo and write the test for a new endpoint. Use before opening any PR in haxcms-nodejs, haxcms-php or webcomponents, or when asked how to test a backend or element change.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-testing/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-testing/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-testing/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_webcomponent_dev": {
+   "desc": "Develop HAX-capable web components using LitElement, DDD design system, and HAXSchema. Use when scaffolding new components, adding HAX editor support, auditing accessibility, or applying DDD tokens to elements in the webcomponents monorepo.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create/blob/main/src/skills/hax-webcomponent-dev/SKILL.md"
+   },
+   "source": {
+    "label": "create: src/skills/hax-webcomponent-dev/SKILL.md",
+    "url": "https://github.com/haxtheweb/create/blob/main/src/skills/hax-webcomponent-dev/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_webcomponent_documentation_writer": {
+   "desc": "Generate and maintain accurate README/reference documentation for HAX web components in the webcomponents monorepo by extracting facts from custom-elements.json and haxProperties. Use whenever the user asks to write, fix, regenerate, or update the README for a HAX element, document an element's properties/slots/events/methods, fix broken or boilerplate element READMEs, produce a reference table from a…",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create/blob/main/src/skills/hax-webcomponent-documentation-writer/SKILL.md"
+   },
+   "source": {
+    "label": "create: src/skills/hax-webcomponent-documentation-writer/SKILL.md",
+    "url": "https://github.com/haxtheweb/create/blob/main/src/skills/hax-webcomponent-documentation-writer/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_grad_blooms": {
+   "desc": "Classify learning objectives and design assessments with Bloom's revised taxonomy (six cognitive levels). Use for writing objectives at a level, aligning assessment to goals, or checking a curriculum's cognitive balance.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/grad-blooms/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/grad-blooms/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/grad-blooms/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_content_chunking_audit": {
+   "desc": "Audit a HAX page against cognitive-load and chunking standards and return HAX remediation. Use for \\\"wall of text\\\", overly long sections, list fatigue or \\\"make this page less overwhelming\\\".",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-content-chunking-audit/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-content-chunking-audit/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-content-chunking-audit/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_feedback_design": {
+   "desc": "Write and audit feedback, hints and evidence for HAX question elements, matched to the learner's stage (right/wrong → explanation → advice → strategy hint → delayed). Use for \\\"improve my quiz feedback\\\", \\\"add hints\\\" or empty feedback slots.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-feedback-design/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-feedback-design/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-feedback-design/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_instructional_element": {
+   "desc": "Build or audit a HAX instructional element (a learning activity web component) against the instructional element contract: base class, light-DOM content and target ids, settings placement, haxHooks, accessibility, phone width, DDD and dark mode, reduced motion, i18n, xAPI vocabulary through user-action, learner-record restore, docs and tests. Use for \\\"make a new quiz/activity element\\\", \\\"is this element…",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-instructional-element/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-instructional-element/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-instructional-element/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_instructional_events_audit": {
+   "desc": "READ-ONLY audit of a HAX lesson against Gagné's nine events of instruction and Merrill's First Principles, with HAX remediation. Use for \\\"is this lesson complete\\\", \\\"what is missing from this lesson\\\" or lessons that only present content.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-instructional-events-audit/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-instructional-events-audit/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-instructional-events-audit/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_multimedia_principles_audit": {
+   "desc": "READ-ONLY audit of how a HAX page combines words, images, audio and video against Mayer's multimedia principles, with HAX remediation. Use for \\\"is this media helping\\\", decorative images, long videos or text far from its diagram.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-multimedia-principles-audit/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-multimedia-principles-audit/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-multimedia-principles-audit/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_practice_and_retrieval": {
+   "desc": "Plan retrieval practice, spacing, interleaving and deliberate practice across a HAX site so learning lasts. Use for \\\"learners forget this\\\", \\\"add review\\\", \\\"build practice\\\" or a unit where each concept appears only once.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-practice-and-retrieval/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-practice-and-retrieval/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-practice-and-retrieval/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_proficiency_scaffolding": {
+   "desc": "Match a HAX unit's scaffolding to its learners' skill stage (novice to expert) using ELEVATE-XR: objectives, learning loop, stress, complexity, assistance, feedback and fidelity. Use for \\\"who is this for\\\", \\\"too easy / too hard for experts\\\" or adaptive paths.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-proficiency-scaffolding/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-proficiency-scaffolding/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-proficiency-scaffolding/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_reflection_prompts": {
+   "desc": "Write reflection prompts for HAX pages matched to the learner's stage (summarize → give an example → relate → find contradictions → self-critique). Use for \\\"add reflection\\\", \\\"metacognition\\\" or a unit with no reflection step.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-reflection-prompts/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-reflection-prompts/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-reflection-prompts/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_ubd_backward_design": {
+   "desc": "Design HAX course units by Understanding by Design backward design, producing a UbD unit plan and a HAX site skeleton. Use for \\\"design a unit on X\\\" or \\\"build a course around big ideas\\\".",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-backward-design/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-ubd-backward-design/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-backward-design/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_ubd_essential_questions": {
+   "desc": "Author UbD essential and entry questions from the six-facet starter bank, separating overarching from topical and essential from leading. Use for \\\"write essential questions\\\". Companion to hax-ubd-stage1.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-essential-questions/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-ubd-essential-questions/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-essential-questions/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_ubd_grasps": {
+   "desc": "Frame UbD GRASPS performance tasks (Goal, Role, Audience, Situation, Performance/Product, Standards) and select authentic-context HAX media. Use when the user says \"build a GRASPS task\", \"make this assessment authentic\", \"design a performance task\", or \"frame a real-world task\". Companion to hax-ubd-stage2.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-grasps/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-ubd-grasps/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-grasps/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_ubd_six_facets": {
+   "desc": "Apply the UbD six facets of understanding to write understandings and facet-mapped rubric criteria. Use for \\\"what facet does this target\\\" or \\\"build a rubric for understanding\\\". Companion to hax-ubd-stage2.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-six-facets/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-ubd-six-facets/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-six-facets/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_ubd_stage1": {
+   "desc": "UbD Stage 1: unpack standards into big ideas, enduring understandings, essential questions, knowledge/skills and misconceptions. Use for \\\"what are the big ideas in X\\\" or \\\"write enduring understandings\\\".",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-stage1/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-ubd-stage1/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-stage1/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_ubd_stage2": {
+   "desc": "UbD Stage 2: build the evidence scrapbook, a GRASPS performance task, facet-mapped rubric and validity self-test. Use for \\\"what evidence do I need\\\" or \\\"design a performance task\\\".",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-stage2/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-ubd-stage2/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-stage2/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_ubd_stage3": {
+   "desc": "UbD Stage 3: plan learning experiences with WHERETO, derived from Stages 1 and 2. Use for \\\"sequence this unit\\\" or \\\"plan the learning activities\\\"; points at Stage 2 evidence and never invents endpoints.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-stage3/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-ubd-stage3/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-stage3/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_ubd_unit_audit": {
+   "desc": "READ-ONLY review of an existing HAX unit against Understanding by Design with HAX remediation. Use for \\\"is my course backward-designed\\\" or \\\"are my assessments aligned\\\". Hands off to the stage skills.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-unit-audit/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-ubd-unit-audit/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-ubd-unit-audit/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_udl_audit": {
+   "desc": "READ-ONLY audit of a HAX page against UDL 3.0 (Engagement, Representation, Action & Expression) with HAX component remediation. Use for \\\"audit for UDL\\\" or \\\"does this page reach everyone\\\".",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-udl-audit/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-udl-audit/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-udl-audit/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_haxcms_lrs_rater": {
+   "desc": "Run BookLooky's Looky Rating System content rating and minimum-age recommendation on a HAXcms site, local or live URL, using the agent's own reasoning. Use for \\\"rate this HAXcms site\\\" or \\\"run an LRS scan\\\". Reads the site's llms.txt manifest.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/haxcms-lrs-rater/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/haxcms-lrs-rater/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/haxcms-lrs-rater/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_reading_notes": {
+   "desc": "Draft paragraph-level Reading Notes for a book chapter or long reading: topic rows, page ranges, first…last word anchors and one-sentence paraphrases, for human review. Use for \\\"make reading notes\\\", \\\"paraphrase this chapter paragraph by paragraph\\\" or notes to pair with a converted reading.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/reading-notes/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/reading-notes/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/reading-notes/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_siip_course_alignment": {
+   "desc": "Align a course with an open source project using the Sustainable Impact and Innovation Pipeline (SIIP): map course objectives to real contribution paths, shape a 40/20/20/20 term, and plan the lab, club and onboarding loop. Use for \\\"align my course with an open source project\\\", \\\"students contributing to OSS\\\", \\\"SIIP\\\" or \\\"turn class projects into real contributions\\\".",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/siip-course-alignment/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/siip-course-alignment/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/siip-course-alignment/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_a11y_audit": {
+   "desc": "READ-ONLY WCAG 2.0 AA audit of authored HAX pages (alt text, headings, landmarks, contrast, captions, keyboard, ARIA) with HAX remediation. Use for \\\"is this accessible\\\" or \\\"audit for WCAG\\\". Diagnoses only; hands off to hax-site-building.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-a11y-audit/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-a11y-audit/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-a11y-audit/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_pattern_library_audit": {
+   "desc": "READ-ONLY audit of one HAX web component against the DDD Atomic Design pattern library: composition conformance, internal-contract conformance, library-ingest candidates. Use for \\\"does this element conform to DDD patterns\\\". Hands off to hax-webcomponent-dev.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-pattern-library-audit/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-pattern-library-audit/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-pattern-library-audit/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_heosat": {
+   "desc": "Run the HEOSAT open source maturity assessment (9 sections, 47 questions, 0-5 scale) on a project and produce an evidence-backed scorecard. Use for \\\"run HEOSAT\\\", \\\"grade this open source project\\\" or a repo URL plus a health report request.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/heosat/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/heosat/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/heosat/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_heosat_report_site": {
+   "desc": "Run a HEOSAT assessment and publish it as a single-page HAXcms report site on surge with scorecard, evidence and LinkedIn / X copy. Use for \\\"make a HEOSAT report site\\\". Companion to heosat.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/heosat-report-site/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/heosat-report-site/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/heosat-report-site/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_oerschema_audit": {
+   "desc": "READ-ONLY audit of authored content (HAX HTML, site.json, VitePress, JSON-LD, Docs export) against the OER Schema vocabulary, recommending class, properties and markup per finding. Use for \\\"audit this page for OER schema\\\".",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/oerschema-audit/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/oerschema-audit/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/oerschema-audit/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_oerschema_integration_finder": {
+   "desc": "READ-ONLY scan of webcomponents, themes, CMS backends and plugins for pedagogical-content code that should emit or consume OER Schema but doesn't, with a per-file hit-list. Use for \\\"which elements should emit oer schema\\\".",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/oerschema-integration-finder/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/oerschema-integration-finder/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/oerschema-integration-finder/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_audio_program_hax": {
+   "desc": "Publish a transcribed audio/video program as a searchable HAXcms library site with transcript pages, distilled notes, inline playback and a quotes page. Use for \\\"publish this program to my HAX library\\\" or \\\"curate quotes\\\". Consumes the audio-program-transcribe staging tree.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/audio-program-hax/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/audio-program-hax/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/audio-program-hax/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_audio_program_transcribe": {
+   "desc": "Transcribe and distill an owned audio or video program (CD rips, course downloads, lectures) into a markdown staging tree of per-track transcripts, per-disc notes and a summary. Use for \\\"transcribe this program\\\" or \\\"ingest this course\\\". Personal use; credit the publisher.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/audio-program-transcribe/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/audio-program-transcribe/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/audio-program-transcribe/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_importer_dev": {
+   "desc": "Build a new site importer (a platform-to-HAXcms converter such as Quarto, VitePress, GitBook or OpenStax) end to end: Node and PHP converters, dispatcher, OpenAPI spec, API error codes, client service and chooser card, i18n, and tests. Use when asked to add or change an importer, or to support migrating a new format or CMS into HAX.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-importer-dev/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-importer-dev/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-importer-dev/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_openstax2hax": {
+   "desc": "Inspect OpenStax books and prepare conversion files plus a HAX handoff prompt. Use when a user wants to turn an OpenStax book, chapter, or export into a HAX site. This skill prepares the conversion; it does NOT build the HAX site itself.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/plugins/openstax2hax/skills/openstax2hax/SKILL.md"
+   },
+   "source": {
+    "label": "praw: plugins/openstax2hax/skills/openstax2hax/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/plugins/openstax2hax/skills/openstax2hax/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_youtube_vtt": {
+   "desc": "Generate a WebVTT transcript from a YouTube URL with yt-dlp, without downloading the video. Use for 'youtube to vtt', subtitles or captions for a video; auto-provisions yt-dlp in an isolated venv.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/youtube-vtt/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/youtube-vtt/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/youtube-vtt/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_issue_analysis": {
+   "desc": "Fetch, analyze, and summarize GitHub issues across the HAX ecosystem using the unified issue queue. Use when tracking bugs, planning sprints, generating weekly productivity reports, or creating social media content from project activity.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-issue-analysis/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-issue-analysis/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-issue-analysis/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_issue_research": {
+   "desc": "Research a GitHub issue in the HAX ecosystem, propose a plan, and post it as a \\\"Plan Created\\\" comment. Use when given an issue URL to \\\"research\\\", \\\"scope\\\" or \\\"write a plan for\\\"; presents the plan for confirmation before posting.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-issue-research/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-issue-research/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-issue-research/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_release_prep": {
+   "desc": "Prepare HAX changes for a maintainer release: verify locally, then write the handoff for the ubiquity build and publish steps an agent must never run. Use when work is done and heading to release, or when asked what happens next.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-release-prep/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-release-prep/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-release-prep/SKILL.md"
+   },
+   "kind": "skill"
+  },
+  "s_hax_rule_management": {
+   "desc": "Add, search, validate, and export PRAW (HAX ecosystem) rules stored in RULES.md. Use when managing HAX ecosystem development rules, adding new conventions, or updating existing rule entries in the PRAW repository.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/praw/blob/main/skills/hax-rule-management/SKILL.md"
+   },
+   "source": {
+    "label": "praw: skills/hax-rule-management/SKILL.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/skills/hax-rule-management/SKILL.md"
+   },
+   "kind": "skill"
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "skills",
+   "label": "What the Future Traveler can do",
+   "message": "The 56 agent skills that let your AI companion work in HAX the way a person would, from PRAW and the HAX CLI.",
+   "scenes": [
+    {
+     "caption": "The Future Traveler works through skills.",
+     "nodes": [
+      "traveler"
+     ]
+    },
+    {
+     "caption": "Six kinds of skills.",
+     "nodes": [
+      "g_use",
+      "g_dev",
+      "g_id",
+      "g_audit",
+      "g_media",
+      "g_community"
+     ]
+    },
+    {
+     "caption": "Using HAX: build sites, author content, make themes.",
+     "nodes": [
+      "s_hax",
+      "s_hax_content_authoring",
+      "s_hax_ecosystem_onboarding",
+      "s_hax_managed_files",
+      "s_hax_site_building",
+      "s_hax_site_ops",
+      "s_hax_site_structure",
+      "s_hax_theme_builder",
+      "s_hax_tutorial_site",
+      "haxcms",
+      "cli",
+      "themes",
+      "editor"
+     ]
+    },
+    {
+     "caption": "Building HAX: components, DDD, backends, tests.",
+     "nodes": [
+      "s_hax_backend_dev",
+      "s_hax_claudehax",
+      "s_hax_design_system",
+      "s_hax_design_system_sync",
+      "s_hax_element_demo",
+      "s_hax_i18n_translate",
+      "s_hax_mental_model",
+      "s_hax_rpg_character",
+      "s_hax_testing",
+      "s_hax_webcomponent_dev",
+      "s_hax_webcomponent_documentation_writer",
+      "components",
+      "ddd",
+      "nodejs",
+      "php",
+      "testing"
+     ]
+    },
+    {
+     "caption": "Instructional design: UbD, UDL, Bloom's and more.",
+     "nodes": [
+      "s_grad_blooms",
+      "s_hax_content_chunking_audit",
+      "s_hax_feedback_design",
+      "s_hax_instructional_element",
+      "s_hax_instructional_events_audit",
+      "s_hax_multimedia_principles_audit",
+      "s_hax_practice_and_retrieval",
+      "s_hax_proficiency_scaffolding",
+      "s_hax_reflection_prompts",
+      "s_hax_ubd_backward_design",
+      "s_hax_ubd_essential_questions",
+      "s_hax_ubd_grasps",
+      "s_hax_ubd_six_facets",
+      "s_hax_ubd_stage1",
+      "s_hax_ubd_stage2",
+      "s_hax_ubd_stage3",
+      "s_hax_ubd_unit_audit",
+      "s_hax_udl_audit",
+      "s_haxcms_lrs_rater",
+      "s_reading_notes",
+      "s_siip_course_alignment",
+      "course",
+      "xapi"
+     ]
+    },
+    {
+     "caption": "Audits keep it accessible and open.",
+     "nodes": [
+      "s_hax_a11y_audit",
+      "s_hax_pattern_library_audit",
+      "s_heosat",
+      "s_heosat_report_site",
+      "s_oerschema_audit",
+      "s_oerschema_integration_finder",
+      "accessible",
+      "oerschema"
+     ]
+    },
+    {
+     "caption": "Media and import bring outside content in.",
+     "nodes": [
+      "s_audio_program_hax",
+      "s_audio_program_transcribe",
+      "s_hax_importer_dev",
+      "s_openstax2hax",
+      "s_youtube_vtt",
+      "textbook"
+     ]
+    },
+    {
+     "caption": "Community skills keep the issue queue and PRAW running.",
+     "nodes": [
+      "s_hax_issue_analysis",
+      "s_hax_issue_research",
+      "s_hax_release_prep",
+      "s_hax_rule_management",
+      "issues",
+      "praw",
+      "ubiquity"
+     ]
+    },
+    {
+     "caption": "Every skill is something people can do too, and check.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

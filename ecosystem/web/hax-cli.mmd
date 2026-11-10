@@ -1,0 +1,375 @@
+%% HAX CLI sub-web: every command the hax CLI offers, grouped by area, generated from haxtheweb/create (create.js, programs/*.js and the English locale).
+%% Portals: ids from hax-ecosystem.mmd. Regenerate with build_generated.py when commands change; details in hax-cli.json.
+flowchart TB
+  %%@ layout rings=0,230,500,780 sizes=92,66,46,52
+  subgraph hub ["HAX CLI"]
+    cli["cli"]
+  end
+  subgraph groups ["Areas"]
+    g_top["Top-level commands"]
+    g_node["Pages"]
+    g_site["Sites"]
+    g_setup["CI and hosting setup"]
+    g_issue["Filing issues"]
+    g_audit["Audits"]
+    g_party["Community"]
+    g_skills["Agent skills"]
+  end
+  subgraph cmdsg ["Commands"]
+    c_start["start"]
+    c_update["hax update"]
+    c_serve["serve"]
+    c_site["hax site"]
+    c_wc["hax wc"]
+    c_audit["hax audit"]
+    c_party["hax party"]
+    c_skills["hax skills"]
+    c_list["hax list"]
+    c_alias["hax alias"]
+    c_completion["hax completion"]
+    c_node_stats["node:stats"]
+    c_node_add["node:add"]
+    c_node_edit["node:edit"]
+    c_node_delete["node:delete"]
+    c_node_generate["node:generate"]
+    c_site_stats["site:stats"]
+    c_site_items["site:items"]
+    c_site_items_import["site:items-import"]
+    c_site_list_files["site:list-files"]
+    c_site_search["site:search"]
+    c_site_tags["site:tags"]
+    c_site_blocks["site:blocks"]
+    c_site_analytics["site:analytics"]
+    c_site_revisions["site:revisions"]
+    c_site_validate["site:validate"]
+    c_site_rebuild["site:rebuild"]
+    c_site_archive["site:archive"]
+    c_site_restore["site:restore"]
+    c_site_logs["site:logs"]
+    c_site_list["site:list"]
+    c_site_export["site:export"]
+    c_site_theme["site:theme"]
+    c_site_element["site:element"]
+    c_site_html["site:html"]
+    c_site_md["site:md"]
+    c_site_schema["site:schema"]
+    c_site_skeleton_export["site:skeleton-export"]
+    c_site_skeleton_install["site:skeleton-install"]
+    c_site_sync["site:sync"]
+    c_site_rsync["site:rsync"]
+    c_site_surge["site:surge"]
+    c_site_netlify["site:netlify"]
+    c_site_vercel["site:vercel"]
+    c_setup_github_actions["setup:github-actions"]
+    c_setup_gitlab_ci["setup:gitlab-ci"]
+    c_setup_replit["setup:replit"]
+    c_issue_general["issue:general"]
+    c_issue_theme["issue:theme"]
+    c_to_remote["to-remote"]
+    c_to_local["to-local"]
+    c_from_remote["from-remote"]
+    c_test["test"]
+    c_base["base"]
+    c_starter["starter"]
+    c_polaris_flex["polaris-flex"]
+    c_polaris_sidebar["polaris-sidebar"]
+    c_skeleton["skeleton"]
+    c_details["details"]
+    c_html["html"]
+    c_schema["schema"]
+    c_md["md"]
+    c_title["title"]
+    c_content["content"]
+    c_slug["slug"]
+    c_published["published"]
+    c_tags["tags"]
+    c_parent["parent"]
+    c_order["order"]
+    c_theme["theme"]
+    c_hideinmenu["hideInMenu"]
+    c_custom_theme["custom-theme"]
+    c_site_status["site:status"]
+    c_node_status["node:status"]
+    c_site_file_list["site:file-list"]
+    c_site_files_upload["site:files-upload"]
+    c_site_files_delete["site:files-delete"]
+    c_site_search_replace["site:search-replace"]
+    c_site_doctor["site:doctor"]
+    c_audit_i18n["hax audit:i18n"]
+    c_audit_schema["hax audit:schema"]
+    c_audit_ssr["hax audit:ssr"]
+    c_audit_theme["hax audit:theme"]
+    c_party_docs["party docs"]
+    c_party_playground["party playground"]
+    c_party_psu["party psu"]
+    c_party_issues["party issues"]
+    c_party_discord["party discord"]
+    c_party_club["party club"]
+    c_party_github["party github"]
+    c_skills_list["skills list"]
+    c_skills_all["skills all"]
+  end
+  subgraph touches ["What they touch"]
+    agents["agents"]
+    components["components"]
+    ddd["ddd"]
+    deploy["deploy"]
+    github["github"]
+    haxcms["haxcms"]
+    haxschema["haxschema"]
+    issues["issues"]
+    jos["jos"]
+    npm["npm"]
+    praw["praw"]
+    skeletons["skeletons"]
+    testing["testing"]
+    themes["themes"]
+  end
+
+  cli -->|offers| g_top
+  cli -->|offers| g_node
+  cli -->|offers| g_site
+  cli -->|offers| g_setup
+  cli -->|offers| g_issue
+  cli -->|offers| g_audit
+  cli -->|offers| g_party
+  cli -->|offers| g_skills
+  g_site -->|includes| c_start
+  g_top -->|includes| c_update
+  g_site -->|includes| c_serve
+  g_top -->|includes| c_site
+  g_top -->|includes| c_wc
+  g_audit -->|includes| c_audit
+  g_top -->|includes| c_party
+  g_top -->|includes| c_skills
+  g_top -->|includes| c_list
+  g_top -->|includes| c_alias
+  g_top -->|includes| c_completion
+  g_node -->|includes| c_node_stats
+  g_node -->|includes| c_node_add
+  g_node -->|includes| c_node_edit
+  g_node -->|includes| c_node_delete
+  g_node -->|includes| c_node_generate
+  g_site -->|includes| c_site_stats
+  g_site -->|includes| c_site_items
+  g_site -->|includes| c_site_items_import
+  g_site -->|includes| c_site_list_files
+  g_site -->|includes| c_site_search
+  g_site -->|includes| c_site_tags
+  g_site -->|includes| c_site_blocks
+  g_site -->|includes| c_site_analytics
+  g_site -->|includes| c_site_revisions
+  g_site -->|includes| c_site_validate
+  g_site -->|includes| c_site_rebuild
+  g_site -->|includes| c_site_archive
+  g_site -->|includes| c_site_restore
+  g_site -->|includes| c_site_logs
+  g_site -->|includes| c_site_list
+  g_site -->|includes| c_site_export
+  g_site -->|includes| c_site_theme
+  g_site -->|includes| c_site_element
+  g_site -->|includes| c_site_html
+  g_site -->|includes| c_site_md
+  g_site -->|includes| c_site_schema
+  g_site -->|includes| c_site_skeleton_export
+  g_site -->|includes| c_site_skeleton_install
+  g_site -->|includes| c_site_sync
+  g_site -->|includes| c_site_rsync
+  g_site -->|includes| c_site_surge
+  g_site -->|includes| c_site_netlify
+  g_site -->|includes| c_site_vercel
+  g_setup -->|includes| c_setup_github_actions
+  g_setup -->|includes| c_setup_gitlab_ci
+  g_setup -->|includes| c_setup_replit
+  g_issue -->|includes| c_issue_general
+  g_issue -->|includes| c_issue_theme
+  g_site -->|includes| c_to_remote
+  g_site -->|includes| c_to_local
+  g_site -->|includes| c_from_remote
+  g_site -->|includes| c_test
+  g_site -->|includes| c_base
+  g_site -->|includes| c_starter
+  g_site -->|includes| c_polaris_flex
+  g_site -->|includes| c_polaris_sidebar
+  g_site -->|includes| c_skeleton
+  g_site -->|includes| c_details
+  g_site -->|includes| c_html
+  g_site -->|includes| c_schema
+  g_site -->|includes| c_md
+  g_site -->|includes| c_title
+  g_site -->|includes| c_content
+  g_site -->|includes| c_slug
+  g_site -->|includes| c_published
+  g_site -->|includes| c_tags
+  g_site -->|includes| c_parent
+  g_site -->|includes| c_order
+  g_site -->|includes| c_theme
+  g_site -->|includes| c_hideinmenu
+  g_site -->|includes| c_custom_theme
+  g_site -->|includes| c_site_status
+  g_node -->|includes| c_node_status
+  g_site -->|includes| c_site_file_list
+  g_site -->|includes| c_site_files_upload
+  g_site -->|includes| c_site_files_delete
+  g_site -->|includes| c_site_search_replace
+  g_site -->|includes| c_site_doctor
+  g_audit -->|includes| c_audit_i18n
+  g_audit -->|includes| c_audit_schema
+  g_audit -->|includes| c_audit_ssr
+  g_audit -->|includes| c_audit_theme
+  g_party -->|includes| c_party_docs
+  g_party -->|includes| c_party_playground
+  g_party -->|includes| c_party_psu
+  g_party -->|includes| c_party_issues
+  g_party -->|includes| c_party_discord
+  g_party -->|includes| c_party_club
+  g_party -->|includes| c_party_github
+  g_skills -->|includes| c_skills_list
+  g_skills -->|includes| c_skills_all
+  c_wc -->|touches| components
+  c_wc -->|touches| ddd
+  c_wc -->|touches| haxschema
+  c_site -->|touches| haxcms
+  c_site -->|touches| skeletons
+  c_audit -->|touches| ddd
+  c_audit -->|touches| haxschema
+  c_audit -->|touches| testing
+  c_skills -->|touches| agents
+  c_skills -->|touches| praw
+  c_party -->|touches| issues
+  c_site_surge -->|touches| deploy
+  c_site_netlify -->|touches| deploy
+  c_site_vercel -->|touches| deploy
+  c_site_skeleton_export -->|touches| skeletons
+  c_site_skeleton_install -->|touches| skeletons
+  c_site_theme -->|touches| themes
+  c_site_element -->|touches| components
+  c_site_schema -->|touches| jos
+  c_site_validate -->|touches| jos
+  c_setup_github_actions -->|touches| github
+  c_issue_general -->|touches| issues
+  c_issue_theme -->|touches| issues
+  c_issue_theme -->|touches| themes
+  c_update -->|touches| npm
+  c_start -->|touches| haxcms
+  c_serve -->|touches| haxcms
+
+  %%@ group hub tier=0
+  %%@ group groups tier=1
+  %%@ group cmdsg tier=2
+  %%@ group touches tier=3
+  %%@ node cli portal
+  %%@ node g_top icon=hax:wand color=skyBlue motion=pop
+  %%@ node g_node icon=hax:wand color=skyBlue motion=pop
+  %%@ node g_site icon=hax:wand color=skyBlue motion=pop
+  %%@ node g_setup icon=hax:wand color=skyBlue motion=pop
+  %%@ node g_issue icon=hax:wand color=skyBlue motion=pop
+  %%@ node g_audit icon=hax:wand color=skyBlue motion=pop
+  %%@ node g_party icon=hax:wand color=skyBlue motion=pop
+  %%@ node g_skills icon=hax:wand color=skyBlue motion=pop
+  %%@ node c_start mono=START color=skyBlue motion=nudge
+  %%@ node c_update mono=UPDAT color=skyBlue motion=nudge
+  %%@ node c_serve mono=SERVE color=skyBlue motion=nudge
+  %%@ node c_site mono=SITE color=skyBlue motion=nudge
+  %%@ node c_wc mono=WC color=skyBlue motion=nudge
+  %%@ node c_audit mono=AUDIT color=skyBlue motion=nudge
+  %%@ node c_party mono=PARTY color=skyBlue motion=nudge
+  %%@ node c_skills mono=SKILL color=skyBlue motion=nudge
+  %%@ node c_list mono=LIST color=skyBlue motion=nudge
+  %%@ node c_alias mono=ALIAS color=limestoneGray motion=nudge
+  %%@ node c_completion mono=COMPL color=skyBlue motion=nudge
+  %%@ node c_node_stats mono=STATS color=skyBlue motion=nudge
+  %%@ node c_node_add mono=ADD color=skyBlue motion=nudge
+  %%@ node c_node_edit mono=EDIT color=skyBlue motion=nudge
+  %%@ node c_node_delete mono=DELET color=skyBlue motion=nudge
+  %%@ node c_node_generate mono=GENER color=skyBlue motion=nudge
+  %%@ node c_site_stats mono=STATS color=skyBlue motion=nudge
+  %%@ node c_site_items mono=ITEMS color=skyBlue motion=nudge
+  %%@ node c_site_items_import mono=ITEMS color=skyBlue motion=nudge
+  %%@ node c_site_list_files mono=LIST- color=skyBlue motion=nudge
+  %%@ node c_site_search mono=SEARC color=skyBlue motion=nudge
+  %%@ node c_site_tags mono=TAGS color=skyBlue motion=nudge
+  %%@ node c_site_blocks mono=BLOCK color=skyBlue motion=nudge
+  %%@ node c_site_analytics mono=ANALY color=skyBlue motion=nudge
+  %%@ node c_site_revisions mono=REVIS color=skyBlue motion=nudge
+  %%@ node c_site_validate mono=VALID color=skyBlue motion=nudge
+  %%@ node c_site_rebuild mono=REBUI color=skyBlue motion=nudge
+  %%@ node c_site_archive mono=ARCHI color=skyBlue motion=nudge
+  %%@ node c_site_restore mono=RESTO color=skyBlue motion=nudge
+  %%@ node c_site_logs mono=LOGS color=skyBlue motion=nudge
+  %%@ node c_site_list mono=LIST color=skyBlue motion=nudge
+  %%@ node c_site_export mono=EXPOR color=skyBlue motion=nudge
+  %%@ node c_site_theme mono=THEME color=skyBlue motion=nudge
+  %%@ node c_site_element mono=ELEME color=skyBlue motion=nudge
+  %%@ node c_site_html mono=HTML color=skyBlue motion=nudge
+  %%@ node c_site_md mono=MD color=skyBlue motion=nudge
+  %%@ node c_site_schema mono=SCHEM color=skyBlue motion=nudge
+  %%@ node c_site_skeleton_export mono=SKELE color=skyBlue motion=nudge
+  %%@ node c_site_skeleton_install mono=SKELE color=skyBlue motion=nudge
+  %%@ node c_site_sync mono=SYNC color=skyBlue motion=nudge
+  %%@ node c_site_rsync mono=RSYNC color=skyBlue motion=nudge
+  %%@ node c_site_surge mono=SURGE color=skyBlue motion=nudge
+  %%@ node c_site_netlify mono=NETLI color=skyBlue motion=nudge
+  %%@ node c_site_vercel mono=VERCE color=skyBlue motion=nudge
+  %%@ node c_setup_github_actions mono=GITHU color=skyBlue motion=nudge
+  %%@ node c_setup_gitlab_ci mono=GITLA color=skyBlue motion=nudge
+  %%@ node c_setup_replit mono=REPLI color=skyBlue motion=nudge
+  %%@ node c_issue_general mono=GENER color=skyBlue motion=nudge
+  %%@ node c_issue_theme mono=THEME color=skyBlue motion=nudge
+  %%@ node c_to_remote mono=TO-RE color=skyBlue motion=nudge
+  %%@ node c_to_local mono=TO-LO color=skyBlue motion=nudge
+  %%@ node c_from_remote mono=FROM- color=skyBlue motion=nudge
+  %%@ node c_test mono=TEST color=skyBlue motion=nudge
+  %%@ node c_base mono=BASE color=skyBlue motion=nudge
+  %%@ node c_starter mono=START color=skyBlue motion=nudge
+  %%@ node c_polaris_flex mono=POLAR color=skyBlue motion=nudge
+  %%@ node c_polaris_sidebar mono=POLAR color=skyBlue motion=nudge
+  %%@ node c_skeleton mono=SKELE color=skyBlue motion=nudge
+  %%@ node c_details mono=DETAI color=skyBlue motion=nudge
+  %%@ node c_html mono=HTML color=skyBlue motion=nudge
+  %%@ node c_schema mono=SCHEM color=skyBlue motion=nudge
+  %%@ node c_md mono=MD color=skyBlue motion=nudge
+  %%@ node c_title mono=TITLE color=skyBlue motion=nudge
+  %%@ node c_content mono=CONTE color=skyBlue motion=nudge
+  %%@ node c_slug mono=SLUG color=skyBlue motion=nudge
+  %%@ node c_published mono=PUBLI color=skyBlue motion=nudge
+  %%@ node c_tags mono=TAGS color=skyBlue motion=nudge
+  %%@ node c_parent mono=PAREN color=skyBlue motion=nudge
+  %%@ node c_order mono=ORDER color=skyBlue motion=nudge
+  %%@ node c_theme mono=THEME color=skyBlue motion=nudge
+  %%@ node c_hideinmenu mono=HIDEI color=skyBlue motion=nudge
+  %%@ node c_custom_theme mono=CUSTO color=skyBlue motion=nudge
+  %%@ node c_site_status mono=STATU color=limestoneGray motion=nudge
+  %%@ node c_node_status mono=STATU color=limestoneGray motion=nudge
+  %%@ node c_site_file_list mono=FILE- color=limestoneGray motion=nudge
+  %%@ node c_site_files_upload mono=FILES color=limestoneGray motion=nudge
+  %%@ node c_site_files_delete mono=FILES color=limestoneGray motion=nudge
+  %%@ node c_site_search_replace mono=SEARC color=limestoneGray motion=nudge
+  %%@ node c_site_doctor mono=DOCTO color=limestoneGray motion=nudge
+  %%@ node c_audit_i18n mono=I18N color=skyBlue motion=nudge
+  %%@ node c_audit_schema mono=SCHEM color=skyBlue motion=nudge
+  %%@ node c_audit_ssr mono=SSR color=skyBlue motion=nudge
+  %%@ node c_audit_theme mono=THEME color=skyBlue motion=nudge
+  %%@ node c_party_docs mono=DOCS color=skyBlue motion=nudge
+  %%@ node c_party_playground mono=PLAYG color=skyBlue motion=nudge
+  %%@ node c_party_psu mono=PSU color=skyBlue motion=nudge
+  %%@ node c_party_issues mono=ISSUE color=skyBlue motion=nudge
+  %%@ node c_party_discord mono=DISCO color=skyBlue motion=nudge
+  %%@ node c_party_club mono=CLUB color=skyBlue motion=nudge
+  %%@ node c_party_github mono=GITHU color=skyBlue motion=nudge
+  %%@ node c_skills_list mono=LIST color=skyBlue motion=nudge
+  %%@ node c_skills_all mono=ALL color=skyBlue motion=nudge
+  %%@ node agents portal
+  %%@ node components portal
+  %%@ node ddd portal
+  %%@ node deploy portal
+  %%@ node github portal
+  %%@ node haxcms portal
+  %%@ node haxschema portal
+  %%@ node issues portal
+  %%@ node jos portal
+  %%@ node npm portal
+  %%@ node praw portal
+  %%@ node skeletons portal
+  %%@ node testing portal
+  %%@ node themes portal

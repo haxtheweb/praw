@@ -1,0 +1,99 @@
+%% HAX skeletons sub-web: the starter sites HAXcms ships, the use case each serves and the theme each starts from.
+%% Portals: ids from hax-ecosystem.mmd and hax-themes.mmd. Details in hax-skeletons.json.
+flowchart TB
+  %%@ layout rings=0,250,520,760 sizes=92,60,56,50
+  subgraph hub ["Skeletons"]
+    skeletons["skeletons"]
+  end
+  subgraph list ["Skeletons"]
+    k_art_portfolio(["Art Portfolio"])
+    k_blog(["Blog"])
+    k_club_website(["Club Website"])
+    k_default_starter(["Default Starter"])
+    k_docs(["Documentation"])
+    k_isc_graduate_portfolio(["ISC Graduate Portfolio"])
+    k_online_course(["Online Course"])
+    k_portfolio(["Portfolio"])
+    k_resume_journey(["Resume Journey"])
+  end
+  subgraph uses ["Use cases"]
+    blog(["Blog"])
+    docs(["Documentation"])
+    club(["Club website"])
+    course(["course"])
+    portfolio(["portfolio"])
+    dept(["dept"])
+  end
+  subgraph more ["Themes, tools and people"]
+    t_clean_one["clean-one"]
+    t_clean_portfolio_theme["clean-portfolio-theme"]
+    t_clean_two["clean-two"]
+    t_glossy_portfolio_theme["glossy-portfolio-theme"]
+    t_haxma_theme["haxma-theme"]
+    t_journey_theme["journey-theme"]
+    t_polaris_flex_theme["polaris-flex-theme"]
+    cli["cli"]
+    jos["jos"]
+    winston(("winston"))
+  end
+
+  skeletons -->|includes| k_art_portfolio
+  k_art_portfolio -->|starts a| portfolio
+  k_art_portfolio -->|starts with| t_clean_portfolio_theme
+  skeletons -->|includes| k_blog
+  k_blog -->|starts a| blog
+  k_blog -->|starts with| t_clean_one
+  skeletons -->|includes| k_club_website
+  k_club_website -->|starts a| club
+  k_club_website -->|starts with| t_polaris_flex_theme
+  skeletons -->|includes| k_default_starter
+  k_default_starter -->|starts with| t_clean_two
+  skeletons -->|includes| k_docs
+  k_docs -->|starts a| docs
+  k_docs -->|starts with| t_haxma_theme
+  skeletons -->|includes| k_isc_graduate_portfolio
+  k_isc_graduate_portfolio -->|starts a| portfolio
+  k_isc_graduate_portfolio -->|starts with| t_clean_portfolio_theme
+  skeletons -->|includes| k_online_course
+  k_online_course -->|starts a| course
+  k_online_course -->|starts with| t_clean_one
+  skeletons -->|includes| k_portfolio
+  k_portfolio -->|starts a| portfolio
+  k_portfolio -->|starts with| t_glossy_portfolio_theme
+  skeletons -->|includes| k_resume_journey
+  k_resume_journey -->|starts a| portfolio
+  k_resume_journey -->|starts with| t_journey_theme
+  cli -->|creates sites from| skeletons
+  jos -.->|outlines| skeletons
+  winston ---|built the templating for| skeletons
+
+  %%@ group hub tier=0
+  %%@ group list tier=1
+  %%@ group uses tier=2
+  %%@ group more tier=3
+  %%@ node skeletons portal
+  %%@ node k_art_portfolio icon=hax:templates color=original87Pink motion=lift
+  %%@ node k_blog icon=hax:templates color=original87Pink motion=lift
+  %%@ node k_club_website icon=hax:templates color=original87Pink motion=lift
+  %%@ node k_default_starter icon=hax:templates color=original87Pink motion=lift
+  %%@ node k_docs icon=hax:templates color=original87Pink motion=lift
+  %%@ node k_isc_graduate_portfolio icon=hax:templates color=original87Pink motion=lift
+  %%@ node k_online_course icon=hax:templates color=original87Pink motion=lift
+  %%@ node k_portfolio icon=hax:templates color=original87Pink motion=lift
+  %%@ node k_resume_journey icon=hax:templates color=original87Pink motion=lift
+  %%@ node blog icon=hax:newspaper color=discoveryCoral motion=nudge
+  %%@ node docs icon=hax:documents color=creekTeal motion=nudge
+  %%@ node club icon=social:school color=pughBlue motion=nudge
+  %%@ node course portal
+  %%@ node portfolio portal
+  %%@ node dept portal
+  %%@ node t_clean_one portal=themes
+  %%@ node t_clean_portfolio_theme portal=themes
+  %%@ node t_clean_two portal=themes
+  %%@ node t_glossy_portfolio_theme portal=themes
+  %%@ node t_haxma_theme portal=themes
+  %%@ node t_journey_theme portal=themes
+  %%@ node t_polaris_flex_theme portal=themes
+  %%@ node cli portal
+  %%@ node jos portal
+  %%@ node winston portal

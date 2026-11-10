@@ -1,0 +1,119 @@
+%% Merlin sub-web: the option schema every command is defined with, the contexts and events, and who defines commands
+%% Generated from super-daemon.js defineOption() and every defineOption call in the built packages. Details in the matching .json.
+flowchart TB
+  %%@ layout rings=0,220,460,700 sizes=92,62,56,52
+  subgraph hub ["Merlin"]
+    merlin[("merlin")]
+  end
+  subgraph fieldsg ["An option has"]
+    mo_title["title"]
+    mo_icon["icon"]
+    mo_tags["tags"]
+    mo_value["value"]
+    mo_eventName["eventName"]
+    mo_path["path"]
+    mo_context["context"]
+    mo_priority["priority"]
+    mo_inline["inline"]
+    mo_shortcut["shortcut"]
+    mo_i18n["i18n"]
+    mo_more["more"]
+  end
+  subgraph ctxg ["Contexts"]
+    mc_cms["CMS"]
+    mc_hax["HAX"]
+    mc_all["*"]
+    mc_admin["admin"]
+    mc_slash[">"]
+    mc_nav["/"]
+    mc_logged_in["logged-in"]
+    mc_community["community"]
+    mc_system_settings["system-settings"]
+    mc_addpage["addPage"]
+    mc_uploadmedia["uploadMedia"]
+  end
+  subgraph evg ["Events"]
+    me_super_daemon_element_method["super-daemon-element-method"]
+    me_super_daemon_run_program["super-daemon-run-program"]
+    me_insert_tag["insert-tag"]
+    me_super_daemon_element_click["super-daemon-element-click"]
+  end
+  subgraph who ["Who defines commands"]
+    md_haxcms_elements["haxcms-elements"]
+    md_app_hax["app-hax"]
+    md_hax_body["hax-body"]
+    tips["tips"]
+    editor["editor"]
+  end
+
+  merlin -->|option has| mo_title
+  merlin -->|option has| mo_icon
+  merlin -->|option has| mo_tags
+  merlin -->|option has| mo_value
+  merlin -->|option has| mo_eventName
+  merlin -->|option has| mo_path
+  merlin -->|option has| mo_context
+  merlin -->|option has| mo_priority
+  merlin -->|option has| mo_inline
+  merlin -->|option has| mo_shortcut
+  merlin -->|option has| mo_i18n
+  merlin -->|option has| mo_more
+  mo_context -->|can be| mc_cms
+  mo_context -->|can be| mc_hax
+  mo_context -->|can be| mc_all
+  mo_context -->|can be| mc_admin
+  mo_context -->|can be| mc_slash
+  mo_context -->|can be| mc_nav
+  mo_context -->|can be| mc_logged_in
+  mo_context -->|can be| mc_community
+  mo_context -->|can be| mc_system_settings
+  mo_context -->|can be| mc_addpage
+  mo_context -->|can be| mc_uploadmedia
+  mo_eventName -->|can fire| me_super_daemon_element_method
+  mo_eventName -->|can fire| me_super_daemon_run_program
+  mo_eventName -->|can fire| me_insert_tag
+  mo_eventName -->|can fire| me_super_daemon_element_click
+  md_haxcms_elements -->|defines 69 options in| merlin
+  md_app_hax -->|defines 11 options in| merlin
+  md_hax_body -->|defines 9 options in| merlin
+  tips -->|appear in| merlin
+  merlin -->|works inside| editor
+
+  %%@ group hub tier=0
+  %%@ group fieldsg tier=1
+  %%@ group ctxg tier=2
+  %%@ group evg tier=2
+  %%@ group who tier=3
+  %%@ node merlin portal
+  %%@ node mo_title icon=hax:code-json color=athertonViolet motion=nudge
+  %%@ node mo_icon icon=hax:code-json color=athertonViolet motion=nudge
+  %%@ node mo_tags icon=hax:code-json color=athertonViolet motion=nudge
+  %%@ node mo_value icon=hax:code-json color=athertonViolet motion=nudge
+  %%@ node mo_eventName icon=hax:code-json color=athertonViolet motion=nudge
+  %%@ node mo_path icon=hax:code-json color=athertonViolet motion=nudge
+  %%@ node mo_context icon=hax:code-json color=athertonViolet motion=nudge
+  %%@ node mo_priority icon=hax:code-json color=athertonViolet motion=nudge
+  %%@ node mo_inline icon=hax:code-json color=athertonViolet motion=nudge
+  %%@ node mo_shortcut icon=hax:code-json color=athertonViolet motion=nudge
+  %%@ node mo_i18n icon=hax:code-json color=athertonViolet motion=nudge
+  %%@ node mo_more icon=hax:code-json color=athertonViolet motion=nudge
+  %%@ node mc_cms mono=CMS color=wonderPurple motion=nudge
+  %%@ node mc_hax mono=HAX color=wonderPurple motion=nudge
+  %%@ node mc_all mono=* color=wonderPurple motion=nudge
+  %%@ node mc_admin mono=ADMI color=wonderPurple motion=nudge
+  %%@ node mc_slash mono=> color=wonderPurple motion=nudge
+  %%@ node mc_nav mono=/ color=wonderPurple motion=nudge
+  %%@ node mc_logged_in mono=LOGG color=wonderPurple motion=nudge
+  %%@ node mc_community mono=COMM color=wonderPurple motion=nudge
+  %%@ node mc_system_settings mono=SYST color=wonderPurple motion=nudge
+  %%@ node mc_addpage mono=ADDP color=wonderPurple motion=nudge
+  %%@ node mc_uploadmedia mono=UPLO color=wonderPurple motion=nudge
+  %%@ node me_super_daemon_element_method icon=hax:wand color=wonderPurple motion=nudge
+  %%@ node me_super_daemon_run_program icon=hax:wand color=wonderPurple motion=nudge
+  %%@ node me_insert_tag icon=hax:wand color=wonderPurple motion=nudge
+  %%@ node me_super_daemon_element_click icon=hax:wand color=wonderPurple motion=nudge
+  %%@ node md_haxcms_elements icon=hax:bricks color=slateGray motion=nudge
+  %%@ node md_app_hax icon=hax:bricks color=slateGray motion=nudge
+  %%@ node md_hax_body icon=hax:bricks color=slateGray motion=nudge
+  %%@ node tips portal=haxcms
+  %%@ node editor portal

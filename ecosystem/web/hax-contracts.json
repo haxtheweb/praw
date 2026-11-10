@@ -1,0 +1,171 @@
+{
+ "meta": {
+  "name": "Data contracts",
+  "parent": "main",
+  "noTimeline": true,
+  "about": "The six schemas HAX runs on (JSON Outline Schema, HAXSchema, the app store spec, OER Schema, xAPI, OpenAPI), the files that conform to each, and the tools that read or write them.",
+  "kindLabels": {
+   "schema": "conforms to",
+   "rel": "reads or writes"
+  }
+ },
+ "nodes": {
+  "contracts": {
+   "always": true,
+   "desc": "Six schemas carry HAX: what a site is, what an element can do, what a site may place, what learning content is, what a learner did, and what the backends promise. Each has files that conform to it and tools that read or write them."
+  },
+  "sitejson": {
+   "desc": "One per site: title, metadata, theme and the items tree (id, parent, order, slug, location). The single source of truth for structure and navigation.",
+   "links": {
+    "spec": "https://github.com/haxtheweb/json-outline-schema"
+   }
+  },
+  "josspec": {
+   "desc": "The JSON Schema for site.json, shipped as a package so tools can validate a site in process.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/json-outline-schema"
+   }
+  },
+  "haxprops": {
+   "desc": "One per element, in lib/: the gizmo, settings (configure, advanced, developer) and demo an element shows the editor. Referenced from static get haxProperties().",
+   "links": {
+    "example": "https://github.com/haxtheweb/hax-schema/blob/main/example.json"
+   }
+  },
+  "haxpropsschema": {
+   "desc": "JSON Schema (draft 2020-12) for haxProperties files, in the hax-schema repo, with a validator: npx -p @haxtheweb/hax-schema haxproperties-validate.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/hax-schema",
+    "docs": "https://haxtheweb.github.io/hax-schema/"
+   }
+  },
+  "localeoverlay": {
+   "desc": "Translation overlays in locales/: the editor strings of an element in another language, validated by haxProperties.locale.schema.json.",
+   "links": {
+    "schema": "https://github.com/haxtheweb/hax-schema/blob/main/schema/haxProperties.locale.schema.json"
+   }
+  },
+  "appstorejson": {
+   "desc": "The autoloader's list of blocks a site can place, generated per site so the editor loads only what is needed.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/lib/HAXAppStoreService.js"
+   }
+  },
+  "sitespec": {
+   "desc": "The OpenAPI spec for site routes, kept identical in haxcms-nodejs and haxcms-php.",
+   "links": {
+    "nodejs": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/openapi/site-spec.yaml",
+    "php": "https://github.com/haxtheweb/haxcms-php/blob/master/system/backend/php/lib/siteRoutes/openapi/site-spec.yaml"
+   }
+  },
+  "systemspec": {
+   "desc": "The OpenAPI spec for system routes (login, create site, skeletons, app store), kept identical in both backends.",
+   "links": {
+    "nodejs": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/openapi/system-spec.yaml",
+    "php": "https://github.com/haxtheweb/haxcms-php/blob/master/system/backend/php/lib/systemRoutes/openapi/system-spec.yaml"
+   }
+  },
+  "xapivocab": {
+   "desc": "The shared xAPI verbs and objects HAX elements use, with buildStatement to shape a statement the same way everywhere.",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/user-action/lib"
+   }
+  },
+  "merlinoption": {
+   "desc": "Every Merlin command is one defineOption() call: title, icon, tags, value, eventName, path, context, priority and more. HAXcms, the dashboard and the editor define them.",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/super-daemon/super-daemon.js"
+   }
+  },
+  "oervocab": {
+   "desc": "The OER Schema terms (course, lesson, learning objective, assessment) as linked data, authored by Michael Collins.",
+   "links": {
+    "site": "https://oerschema.org"
+   }
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "contracts",
+   "label": "Follow the data",
+   "message": "The schemas HAX runs on, the files that conform to them, and what reads and writes each.",
+   "scenes": [
+    {
+     "caption": "HAX is held together by six schemas.",
+     "nodes": [
+      "contracts",
+      "jos",
+      "haxschema",
+      "appstore",
+      "merlin",
+      "oerschema",
+      "xapi",
+      "openapi"
+     ]
+    },
+    {
+     "caption": "A site is a site.json, validated by the JSON Outline Schema spec.",
+     "nodes": [
+      "jos",
+      "sitejson",
+      "josspec",
+      "outline",
+      "haxcms",
+      "cli",
+      "skeletons",
+      "hax11ty"
+     ]
+    },
+    {
+     "caption": "An element describes itself to the editor in haxProperties, with translation overlays.",
+     "nodes": [
+      "haxschema",
+      "haxprops",
+      "haxpropsschema",
+      "localeoverlay",
+      "editor",
+      "components",
+      "languages"
+     ]
+    },
+    {
+     "caption": "The app store manifest tells the editor which blocks a site may place.",
+     "nodes": [
+      "appstore",
+      "appstorejson",
+      "editor",
+      "cli"
+     ]
+    },
+    {
+     "caption": "Two OpenAPI specs are the promise both backends and the MCP keep.",
+     "nodes": [
+      "openapi",
+      "sitespec",
+      "systemspec",
+      "php",
+      "nodejs",
+      "mcp"
+     ]
+    },
+    {
+     "caption": "xAPI and OER Schema describe what learners did and what content is.",
+     "nodes": [
+      "xapi",
+      "xapivocab",
+      "insights",
+      "oerschema",
+      "oervocab",
+      "course",
+      "mcollins"
+     ]
+    },
+    {
+     "caption": "All the contracts at once.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

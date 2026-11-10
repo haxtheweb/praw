@@ -1,0 +1,4 @@
+const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();const p=await b.newPage();p.on('pageerror',e=>console.log('PAGEERR',e.message));
+await p.goto('file://'+require('path').resolve(process.argv[2]||'hax-area-icons.html'));await p.waitForTimeout(800);
+const r=await p.evaluate(()=>{const o={};Object.keys(WEBS).forEach(w=>{let m;if(w==='main'){m=modelOf(w)}else{m=parse(WEBS[w].mmd);attach(m,jsonOf(w),m.errors,BASE)}o[w]=m.errors});return o});
+let n=0;for(const [w,e] of Object.entries(r)){if(e.length){n+=e.length;console.log('##',w);e.forEach(x=>console.log('  ',x))}}console.log('total errors',n,'webs',Object.keys(r).length);await b.close()})();

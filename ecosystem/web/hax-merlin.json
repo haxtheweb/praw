@@ -1,0 +1,250 @@
+{
+ "meta": {
+  "name": "Merlin",
+  "parent": "contracts",
+  "noTimeline": true,
+  "sectionLabels": {
+   "field": "option fields",
+   "context": "contexts",
+   "event": "events",
+   "definer": "who defines commands"
+  },
+  "about": "Merlin's option schema, generated from super-daemon's defineOption and the 89 options defined across the built packages: the fields an option has, the contexts it can show in, the events it fires and which packages define them.",
+  "kindLabels": {
+   "rel": "field, context, event, definer"
+  }
+ },
+ "nodes": {
+  "merlin": {
+   "always": true
+  },
+  "mo_title": {
+   "desc": "What the person sees and searches.",
+   "kind": "field",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/super-daemon/super-daemon.js"
+   }
+  },
+  "mo_icon": {
+   "desc": "Icon, or image or textCharacter instead.",
+   "kind": "field",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/super-daemon/super-daemon.js"
+   }
+  },
+  "mo_tags": {
+   "desc": "Extra words to match on.",
+   "kind": "field",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/super-daemon/super-daemon.js"
+   }
+  },
+  "mo_value": {
+   "desc": "Payload handed to the event.",
+   "kind": "field",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/super-daemon/super-daemon.js"
+   }
+  },
+  "mo_eventName": {
+   "desc": "What fires when chosen.",
+   "kind": "field",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/super-daemon/super-daemon.js"
+   }
+  },
+  "mo_path": {
+   "desc": "Where it lives in Merlin's menu, like CMS/action/create/page.",
+   "kind": "field",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/super-daemon/super-daemon.js"
+   }
+  },
+  "mo_context": {
+   "desc": "When it shows: * everywhere, CMS, HAX, admin, logged-in, and more.",
+   "kind": "field",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/super-daemon/super-daemon.js"
+   }
+  },
+  "mo_priority": {
+   "desc": "Sort order; lower shows first.",
+   "kind": "field",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/super-daemon/super-daemon.js"
+   }
+  },
+  "mo_inline": {
+   "desc": "Runs inline without closing Merlin.",
+   "kind": "field",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/super-daemon/super-daemon.js"
+   }
+  },
+  "mo_shortcut": {
+   "desc": "A keyboard shortcut, labeled automatically.",
+   "kind": "field",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/super-daemon/super-daemon.js"
+   }
+  },
+  "mo_i18n": {
+   "desc": "Binds title and other strings to the element's translations.",
+   "kind": "field",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/super-daemon/super-daemon.js"
+   }
+  },
+  "mo_more": {
+   "desc": "A second line of detail.",
+   "kind": "field",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/elements/super-daemon/super-daemon.js"
+   }
+  },
+  "mc_cms": {
+   "desc": "In a HAXcms site. 19 options use it.",
+   "kind": "context"
+  },
+  "mc_hax": {
+   "desc": "While editing a page. 10 options use it.",
+   "kind": "context"
+  },
+  "mc_all": {
+   "desc": "Everywhere. 8 options use it.",
+   "kind": "context"
+  },
+  "mc_admin": {
+   "desc": "For admins. 6 options use it.",
+   "kind": "context"
+  },
+  "mc_slash": {
+   "desc": "Slash commands typed in the editor. 4 options use it.",
+   "kind": "context"
+  },
+  "mc_nav": {
+   "desc": "Top-level navigation. 4 options use it.",
+   "kind": "context"
+  },
+  "mc_logged_in": {
+   "desc": "Only when logged in. 3 options use it.",
+   "kind": "context"
+  },
+  "mc_community": {
+   "desc": "Community links and help. 2 options use it.",
+   "kind": "context"
+  },
+  "mc_system_settings": {
+   "desc": "System settings. 1 options use it.",
+   "kind": "context"
+  },
+  "mc_addpage": {
+   "desc": "While adding a page. 1 options use it.",
+   "kind": "context"
+  },
+  "mc_uploadmedia": {
+   "desc": "While uploading media. 1 options use it.",
+   "kind": "context"
+  },
+  "me_super_daemon_element_method": {
+   "desc": "Calls a method on the element that defined the option. 22 options fire it.",
+   "kind": "event"
+  },
+  "me_super_daemon_run_program": {
+   "desc": "Starts a program: Merlin switches to a filtered sub-list (pick a page, a theme, a block). 12 options fire it.",
+   "kind": "event"
+  },
+  "me_insert_tag": {
+   "desc": "Inserts a block into the page. 1 options fire it.",
+   "kind": "event"
+  },
+  "me_super_daemon_element_click": {
+   "desc": "Clicks an element. 1 options fire it.",
+   "kind": "event"
+  },
+  "md_haxcms_elements": {
+   "desc": "@haxtheweb/haxcms-elements defines 69 Merlin options.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/haxcms-elements"
+   },
+   "kind": "definer"
+  },
+  "md_app_hax": {
+   "desc": "@haxtheweb/app-hax defines 11 Merlin options.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/app-hax"
+   },
+   "kind": "definer"
+  },
+  "md_hax_body": {
+   "desc": "@haxtheweb/hax-body defines 9 Merlin options.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/hax-body"
+   },
+   "kind": "definer"
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "merlin",
+   "label": "How Merlin knows what to do",
+   "message": "Every Merlin command is one defineOption call; this is its shape and who defines them.",
+   "scenes": [
+    {
+     "caption": "Every command is an option with these fields.",
+     "nodes": [
+      "mo_title",
+      "mo_icon",
+      "mo_tags",
+      "mo_value",
+      "mo_eventName",
+      "mo_path",
+      "mo_context",
+      "mo_priority",
+      "mo_inline",
+      "mo_shortcut",
+      "mo_i18n",
+      "mo_more"
+     ]
+    },
+    {
+     "caption": "Context decides when an option shows.",
+     "nodes": [
+      "mo_context",
+      "mc_cms",
+      "mc_hax",
+      "mc_all",
+      "mc_admin",
+      "mc_slash",
+      "mc_nav",
+      "mc_logged_in",
+      "mc_community",
+      "mc_system_settings",
+      "mc_addpage",
+      "mc_uploadmedia"
+     ]
+    },
+    {
+     "caption": "eventName decides what happens: call a method, run a program, click, insert.",
+     "nodes": [
+      "mo_eventName",
+      "me_super_daemon_element_method",
+      "me_super_daemon_run_program",
+      "me_insert_tag",
+      "me_super_daemon_element_click"
+     ]
+    },
+    {
+     "caption": "HAXcms, the dashboard and the editor define the commands; Tips show up here too.",
+     "nodes": [
+      "md_haxcms_elements",
+      "md_app_hax",
+      "md_hax_body",
+      "tips"
+     ]
+    }
+   ]
+  }
+ ]
+}

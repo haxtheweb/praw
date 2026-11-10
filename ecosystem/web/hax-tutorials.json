@@ -1,0 +1,355 @@
+{
+ "meta": {
+  "name": "Learn HAX tutorials",
+  "parent": "main",
+  "noTimeline": true,
+  "sectionLabels": {
+   "section": "sections",
+   "tutorial": "tutorials",
+   "persona": "personas"
+  },
+  "about": "The 19 tutorials and 4 personas of Learn HAX (learn.haxtheweb.org), generated from the haxtheweb/learn site, each tied to the part of HAX it teaches. Tiles with a slideshow icon have a video.",
+  "kindLabels": {
+   "rel": "section to tutorial; tutorial to what it teaches"
+  }
+ },
+ "nodes": {
+  "learnhax": {
+   "always": true
+  },
+  "tu_start_here": {
+   "desc": "4 pages in Learn HAX.",
+   "links": {
+    "page": "https://learn.haxtheweb.org/start-here"
+   },
+   "kind": "section"
+  },
+  "tu_tutorial_library_dashboard_site_basics": {
+   "desc": "3 pages in Learn HAX.",
+   "links": {
+    "page": "https://learn.haxtheweb.org/tutorial-library/dashboard-site-basics"
+   },
+   "kind": "section"
+  },
+  "tu_tutorial_library_creating_structuring_content": {
+   "desc": "3 pages in Learn HAX.",
+   "links": {
+    "page": "https://learn.haxtheweb.org/tutorial-library/creating-structuring-content"
+   },
+   "kind": "section"
+  },
+  "tu_tutorial_library_editing_authoring": {
+   "desc": "3 pages in Learn HAX.",
+   "links": {
+    "page": "https://learn.haxtheweb.org/tutorial-library/editing-authoring"
+   },
+   "kind": "section"
+  },
+  "tu_tutorial_library_working_with_media": {
+   "desc": "2 pages in Learn HAX.",
+   "links": {
+    "page": "https://learn.haxtheweb.org/tutorial-library/working-with-media"
+   },
+   "kind": "section"
+  },
+  "tu_tutorial_library_site_health_reports": {
+   "desc": "1 pages in Learn HAX.",
+   "links": {
+    "page": "https://learn.haxtheweb.org/tutorial-library/site-health-reports"
+   },
+   "kind": "section"
+  },
+  "tu_tutorial_library_developer_onboarding": {
+   "desc": "1 pages in Learn HAX.",
+   "links": {
+    "page": "https://learn.haxtheweb.org/tutorial-library/developer-onboarding"
+   },
+   "kind": "section"
+  },
+  "tu_import_content": {
+   "desc": "3 pages in Learn HAX.",
+   "links": {
+    "page": "https://learn.haxtheweb.org/import-content"
+   },
+   "kind": "section"
+  },
+  "tu_using_hax_for": {
+   "desc": "3 pages in Learn HAX.",
+   "links": {
+    "page": "https://learn.haxtheweb.org/using-hax-for"
+   },
+   "kind": "section"
+  },
+  "tu_start_here_cat": {
+   "desc": "Web content author, knows some HTML Cat has used the web and understands HTML but doesn't write it well enough to feel confident. She likes to know she can, and it helps inform her understanding of what HAX is doing, but…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/start-here/cat"
+   },
+   "kind": "persona",
+   "note": ""
+  },
+  "tu_start_here_chuck": {
+   "desc": "Site builder, can write HTML / CSS / JavaScript Chuck is a site builder. He understands git and the fundamentals of front-end development, but it's not something he wants to touch every day. Chuck likes the customization…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/start-here/chuck"
+   },
+   "kind": "persona",
+   "note": ""
+  },
+  "tu_start_here_sven": {
+   "desc": "Artist, student without web fundamentals Sven is a student studying to be an artist. He has to focus on his craft and doesn't have time to manage web properties. For people to see his work, he needs a basic website. He's…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/start-here/sven"
+   },
+   "kind": "persona",
+   "note": ""
+  },
+  "tu_start_here_luna": {
+   "desc": "Front-end developer Luna has written JavaScript for over a decade. She's seen trends come and go in the many JS ecosystems and is burned out from constantly having to relearn \"Thing + Ecosystem\". HAX is appealing because…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/start-here/luna"
+   },
+   "kind": "persona",
+   "note": ""
+  },
+  "tu_tutorial_library_dashboard_site_basics_haxcms_dashboard": {
+   "desc": "How to Create an Online Course in HAXcms Prerequisites Ensure you have access to the HAXCMS dashboard. Be ready with a course name for your new online course. Having these prerequisites will make your course creation pro…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/tutorial-library/dashboard-site-basics/haxcms-dashboard",
+    "video": "https://www.youtube.com/watch?v=fZK3UiOcvag"
+   },
+   "kind": "tutorial",
+   "note": "Video tutorial with screenshots."
+  },
+  "tu_tutorial_library_dashboard_site_basics_site_admin_settings_dashboard": {
+   "desc": "Exploring and Customizing HAX Site Settings Prerequisites Before diving into your HAX site settings, ensure you have administrator access to the content management system. This will allow you to view and modify all avail…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/tutorial-library/dashboard-site-basics/site-admin-settings-dashboard",
+    "video": "https://www.youtube.com/watch?v=2IkcqjuociU"
+   },
+   "kind": "tutorial",
+   "note": "Video tutorial with screenshots."
+  },
+  "tu_tutorial_library_dashboard_site_basics_system_settings_dashboard": {
+   "desc": "How to Configure System Settings in HAXcms Prerequisites Before you begin, make sure you have administrator access to your HAXcms dashboard. Familiarity with basic navigation in HAXcms is helpful but not required. Access…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/tutorial-library/dashboard-site-basics/system-settings-dashboard",
+    "video": "https://www.youtube.com/watch?v=EeXjoJNHj4U"
+   },
+   "kind": "tutorial",
+   "note": "Video tutorial with screenshots."
+  },
+  "tu_tutorial_library_creating_structuring_content_create_a_new_page": {
+   "desc": "How to Create and Manage Pages in HAX Prerequisites Before you begin, make sure you have access to HAX and are logged into your account. Familiarity with basic navigation in HAX will help streamline the process. Active H…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/tutorial-library/creating-structuring-content/create-a-new-page",
+    "video": "https://www.youtube.com/watch?v=fDKTS0Df8ec"
+   },
+   "kind": "tutorial",
+   "note": "Video tutorial with screenshots."
+  },
+  "tu_tutorial_library_creating_structuring_content_reorder_organize_pages": {
+   "desc": "How to Reorganize Your Site Structure in HAX Prerequisites Access to your site in HAX Basic familiarity with the HAX interface Before starting, make sure you have editing permissions and are logged into your HAX site wor…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/tutorial-library/creating-structuring-content/reorder-organize-pages",
+    "video": "https://www.youtube.com/watch?v=dBSw38-QaB4"
+   },
+   "kind": "tutorial",
+   "note": "Video tutorial with screenshots."
+  },
+  "tu_tutorial_library_creating_structuring_content_managing_course_structure": {
+   "desc": "The outline designer is an interface for bulk management of the site outline. It allows you to add, delete, duplicate, and move content around in bulk and then see changes applied on save.",
+   "links": {
+    "page": "https://learn.haxtheweb.org/tutorial-library/creating-structuring-content/managing-course-structure"
+   },
+   "kind": "tutorial",
+   "note": ""
+  },
+  "tu_tutorial_library_editing_authoring_edit_a_page": {
+   "desc": "How to Edit a Page in HACS: Step-by-Step Tutorial Prerequisites Permissions : You need editing rights for the page you wish to modify. Familiarity with basic navigation in HAX will help you follow these steps smoothly. O…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/tutorial-library/editing-authoring/edit-a-page",
+    "video": "https://www.youtube.com/watch?v=hnG2IrpNy4A"
+   },
+   "kind": "tutorial",
+   "note": "Video tutorial with screenshots."
+  },
+  "tu_tutorial_library_editing_authoring_adding_blocks": {
+   "desc": "How to Use the Blocks Engine in HAX for Dynamic Content Creation Prerequisites Before you begin, ensure you have access to the HAX editor and are familiar with its basic text editing features. Having some experience with…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/tutorial-library/editing-authoring/adding-blocks",
+    "video": "https://www.youtube.com/watch?v=E-Znf_OQJTI"
+   },
+   "kind": "tutorial",
+   "note": "Video tutorial with screenshots."
+  },
+  "tu_tutorial_library_editing_authoring_slash_commands": {
+   "desc": "Mastering Slash Commands for Efficient Content Editing Prerequisites Access to the content editor interface. Basic familiarity with keyboard navigation. Make sure you are logged in and have a document open for editing be…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/tutorial-library/editing-authoring/slash-commands",
+    "video": "https://www.youtube.com/watch?v=IG1d_Kp7x8U"
+   },
+   "kind": "tutorial",
+   "note": "Video tutorial with screenshots."
+  },
+  "tu_tutorial_library_working_with_media_adding_video_blocks": {
+   "desc": "How to Add Video to Your Page: Multiple Methods Explained Prerequisites Before you start, ensure you have editing access to the page. Prepare the video link (such as a YouTube URL) or have your local video file ready for…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/tutorial-library/working-with-media/adding-video-blocks",
+    "video": "https://www.youtube.com/watch?v=vG3dF-fckEw"
+   },
+   "kind": "tutorial",
+   "note": "Video tutorial with screenshots."
+  },
+  "tu_tutorial_library_working_with_media_working_with_images": {
+   "desc": "How to Work with Images in HAX: A Step-by-Step Guide Prerequisites Access to HAX editing environment Some images or media files ready to use Basic familiarity with editing a page in HAX Start Editing the Page Begin by en…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/tutorial-library/working-with-media/working-with-images",
+    "video": "https://www.youtube.com/watch?v=Kf_XkUH9MqE"
+   },
+   "kind": "tutorial",
+   "note": "Video tutorial with screenshots."
+  },
+  "tu_tutorial_library_site_health_reports_reports": {
+   "desc": "Reports (beta) provide a variety of ways to optimize the process of maintaining and discovering meaning in sites built with HAX. Automated Link Checking",
+   "links": {
+    "page": "https://learn.haxtheweb.org/tutorial-library/site-health-reports/reports",
+    "video": "https://www.youtube.com/watch?v=I6cDZLutvhU"
+   },
+   "kind": "tutorial",
+   "note": "Video tutorial with screenshots."
+  },
+  "tu_tutorial_library_developer_onboarding_developer_onboarding": {
+   "desc": "Single source of truth: issues/CONTRIBUTING.md on GitHub . This page is the readable version of that guide. What is HAX HAX (Headless Authoring eXperience) is an authoring experience that enables rapid creation of fast, …",
+   "links": {
+    "page": "https://learn.haxtheweb.org/tutorial-library/developer-onboarding/developer-onboarding"
+   },
+   "kind": "tutorial",
+   "note": ""
+  },
+  "tu_import_content_create_site_from_docx": {
+   "desc": "How to Import a Website from a Word Document Using HAX Prerequisites Word Document: Have your .docx file ready for import. This should be structured for web content. Example file: Download the import-example.docx used in…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/import-content/create-site-from-docx",
+    "video": "https://www.youtube.com/watch?v=mkOGesnGw7Q"
+   },
+   "kind": "tutorial",
+   "note": "Video tutorial with screenshots."
+  },
+  "tu_import_content_xlsx_data_table_and_site_import": {
+   "desc": "How to Import an XLSX File as a Data Table and Build a Site in HAXcms Prerequisites Ensure you have access to HAXcms and permission to edit pages. Prepare your XLSX file with properly formatted data and clear headings. F…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/import-content/xlsx-data-table-and-site-import",
+    "video": "https://www.youtube.com/watch?v=e73YmYQwqXU"
+   },
+   "kind": "tutorial",
+   "note": "Video tutorial with screenshots."
+  },
+  "tu_import_content_migrate_data_to_hax": {
+   "desc": "HAX is easy to move content to because it is playing flat HTML files from a simple JSON based data structure. As a result the community has been able to produce a number of atypical migration methodologies. Any system we…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/import-content/migrate-data-to-hax",
+    "video": "https://www.youtube.com/watch?v=58AKmH4K-Ec"
+   },
+   "kind": "tutorial",
+   "note": "Video tutorial with screenshots."
+  },
+  "tu_using_hax_for_club_websites": {
+   "desc": "Goal: Stand up a simple, maintainable website for a club, team, or community group — with a homepage, an outline of activities/pages, a way to show photos and meeting info, and no ongoing hosting lock-in. A dedicated con…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/using-hax-for/club-websites"
+   },
+   "kind": "tutorial",
+   "note": ""
+  },
+  "tu_using_hax_for_portfolios": {
+   "desc": "Goal: Build a portfolio that shows off your work — art, writing, music, or projects — in a site you control and can take with you, without depending on a platform that might disappear. A dedicated concept walkthrough vid…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/using-hax-for/portfolios"
+   },
+   "kind": "tutorial",
+   "note": ""
+  },
+  "tu_using_hax_for_courses_and_resumes": {
+   "desc": "Goal: Use HAX to author a course site or a structured resume/CV — an outline of pages with instructional content, assessments, and supporting media, or a cleanly outlined record of experience. A dedicated concept walkthr…",
+   "links": {
+    "page": "https://learn.haxtheweb.org/using-hax-for/courses-and-resumes"
+   },
+   "kind": "tutorial",
+   "note": ""
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "tutorials",
+   "label": "Learn HAX",
+   "message": "19 tutorials and 4 personas from learn.haxtheweb.org, each tied to the part of HAX it teaches.",
+   "scenes": [
+    {
+     "caption": "Learn HAX is where the tutorials live; this web will fold into it.",
+     "nodes": [
+      "learnhax"
+     ]
+    },
+    {
+     "caption": "Start as one of four people: Cat, Chuck, Sven or Luna.",
+     "nodes": [
+      "tu_start_here_cat",
+      "tu_start_here_chuck",
+      "tu_start_here_sven",
+      "tu_start_here_luna"
+     ]
+    },
+    {
+     "caption": "Dashboard and site basics.",
+     "nodes": [
+      "tu_tutorial_library_dashboard_site_basics_haxcms_dashboard",
+      "tu_tutorial_library_dashboard_site_basics_site_admin_settings_dashboard",
+      "tu_tutorial_library_dashboard_site_basics_system_settings_dashboard",
+      "dashboard"
+     ]
+    },
+    {
+     "caption": "Creating, structuring and editing content.",
+     "nodes": [
+      "tu_tutorial_library_creating_structuring_content_create_a_new_page",
+      "tu_tutorial_library_creating_structuring_content_reorder_organize_pages",
+      "tu_tutorial_library_creating_structuring_content_managing_course_structure",
+      "tu_tutorial_library_editing_authoring_edit_a_page",
+      "tu_tutorial_library_editing_authoring_adding_blocks",
+      "tu_tutorial_library_editing_authoring_slash_commands",
+      "editor",
+      "merlin"
+     ]
+    },
+    {
+     "caption": "Media, reports and developer onboarding.",
+     "nodes": [
+      "tu_tutorial_library_working_with_media_adding_video_blocks",
+      "tu_tutorial_library_working_with_media_working_with_images",
+      "tu_tutorial_library_site_health_reports_reports",
+      "tu_tutorial_library_developer_onboarding_developer_onboarding"
+     ]
+    },
+    {
+     "caption": "Getting content in, and what to use HAX for.",
+     "nodes": [
+      "tu_import_content_create_site_from_docx",
+      "tu_import_content_xlsx_data_table_and_site_import",
+      "tu_import_content_migrate_data_to_hax",
+      "tu_using_hax_for_club_websites",
+      "tu_using_hax_for_portfolios",
+      "tu_using_hax_for_courses_and_resumes",
+      "importers",
+      "skeletons"
+     ]
+    },
+    {
+     "caption": "Every tutorial and what it teaches.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

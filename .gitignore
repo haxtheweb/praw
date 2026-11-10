@@ -44,3 +44,10 @@ local-config.*
 # Python bytecode caches (any skill's scripts/)
 __pycache__/
 *.pyc
+
+# ecosystem web: working folder, fetched sources and caches (see ecosystem/README.md)
+ecosystem/.work/
+ecosystem/build/data/el/hn/
+ecosystem/build/data/gh_cache.json
+ecosystem/build/data/drift-report.*
+ecosystem/build/data/*_report.json

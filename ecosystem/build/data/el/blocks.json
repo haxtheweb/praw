@@ -1,0 +1,1754 @@
+{
+ "site-remote-content": {
+  "rel": "@haxtheweb/haxcms-elements/lib/ui-components/site/site-remote-content.js",
+  "gizmo": {
+   "title": "Remote Content",
+   "description": "Reuse content from one site in another.",
+   "icon": "hax:remote",
+   "color": "grey",
+   "tags": [
+    "Other",
+    "haxcms",
+    "content",
+    "remote",
+    "reference",
+    "url",
+    "resource"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "t",
+    "_remote-title"
+   ]
+  }
+ },
+ "citation-element": {
+  "rel": "@haxtheweb/citation-element/citation-element.js",
+  "gizmo": {
+   "title": "Citation",
+   "description": "Citation element with three presentation modes.",
+   "icon": "editor:title",
+   "color": "grey",
+   "tags": [
+    "Text",
+    "content",
+    "citation",
+    "reference",
+    "cc0",
+    "cc-by",
+    "cc-by-sa",
+    "cc-by-nd",
+    "cc-by-nc",
+    "cc-by-nc-sa",
+    "cc-by-nc-nd"
+   ],
+   "handles": [
+    {
+     "type": "citation",
+     "source": "source",
+     "title": "title",
+     "author": "creator",
+     "license": "license",
+     "accessDate": "date"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": null
+ },
+ "page-flag": {
+  "rel": "@haxtheweb/page-flag/page-flag.js",
+  "gizmo": {
+   "title": "Page flag",
+   "description": "Editorial note for page authors.",
+   "icon": "lrn:quiz",
+   "color": "grey",
+   "tags": [
+    "Other",
+    "workflow",
+    "edit",
+    "note",
+    "flag",
+    "page"
+   ]
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "colors",
+    "opened"
+   ]
+  }
+ },
+ "multiple-choice": {
+  "rel": "@haxtheweb/multiple-choice/multiple-choice.js",
+  "gizmo": {
+   "title": "Multiple choice",
+   "description": "Multiple-choice self-check question.",
+   "icon": "hax:multiple-choice",
+   "color": "purple",
+   "tags": [
+    "Instructional",
+    "quiz",
+    "form",
+    "multiple",
+    "self check",
+    "test",
+    "exam",
+    "question",
+    "answer",
+    "feedback"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "__utils",
+    "displayed-answers",
+    "colors",
+    "answers",
+    "show-answer",
+    "t",
+    "attempts",
+    "edit"
+   ]
+  }
+ },
+ "true-false-question": {
+  "rel": "@haxtheweb/multiple-choice/lib/true-false-question.js",
+  "gizmo": {
+   "title": "True / False Question",
+   "description": "True false question",
+   "icon": "hax:multiple-choice",
+   "color": "purple",
+   "tags": [
+    "Instructional",
+    "quiz",
+    "question",
+    "true false"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "__utils",
+    "displayed-answers",
+    "colors",
+    "answers",
+    "_tfanswer",
+    "show-answer",
+    "t",
+    "attempts",
+    "edit"
+   ]
+  }
+ },
+ "short-answer-question": {
+  "rel": "@haxtheweb/multiple-choice/lib/short-answer-question.js",
+  "gizmo": {
+   "title": "Short Answer Question",
+   "description": "Have the user answer a basic question",
+   "icon": "hax:multiple-choice",
+   "color": "purple",
+   "tags": [
+    "Instructional",
+    "question",
+    "quiz",
+    "short answer"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "__utils",
+    "displayed-answers",
+    "colors",
+    "answers",
+    "shortanswer",
+    "show-answer",
+    "t",
+    "attempts",
+    "edit"
+   ]
+  }
+ },
+ "sorting-question": {
+  "rel": "@haxtheweb/sorting-question/sorting-question.js",
+  "gizmo": {
+   "title": "Sorting Question",
+   "description": "Sort items into the correct order.",
+   "icon": "credit-card",
+   "color": "blue",
+   "tags": [
+    "Instructional",
+    "self check",
+    "sorting",
+    "question",
+    "quiz",
+    "assessment"
+   ]
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "number-correct",
+    "attempts",
+    "answers",
+    "displayed-answers",
+    "t",
+    "show-answer",
+    "edit"
+   ]
+  }
+ },
+ "tagging-question": {
+  "rel": "@haxtheweb/tagging-question/tagging-question.js",
+  "gizmo": {
+   "title": "Tagging Question",
+   "description": "Select tags to answer the question.",
+   "icon": "icons:line-style",
+   "color": "purple",
+   "tags": [
+    "Instructional",
+    "self check",
+    "assessment",
+    "tag"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "word-list",
+    "match-answers",
+    "selected-answers",
+    "attempts",
+    "answers",
+    "displayed-answers",
+    "t",
+    "show-answer",
+    "edit"
+   ]
+  }
+ },
+ "matching-question": {
+  "rel": "@haxtheweb/matching-question/matching-question.js",
+  "gizmo": {
+   "title": "Matching Question",
+   "description": "Drag-and-drop matching activity that pairs prompts with their correct responses.",
+   "icon": "editor:drag-handle",
+   "color": "purple",
+   "tags": [
+    "Instructional",
+    "matching",
+    "drag and drop",
+    "question"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "word-list",
+    "match-answers",
+    "target-answers",
+    "attempts",
+    "answers",
+    "displayed-answers",
+    "t",
+    "show-answer",
+    "edit"
+   ]
+  }
+ },
+ "mark-the-words": {
+  "rel": "@haxtheweb/mark-the-words/mark-the-words.js",
+  "gizmo": {
+   "title": "Mark the words",
+   "description": "Identify concepts via words by clicking within a body of text.",
+   "icon": "icons:receipt",
+   "color": "yellow",
+   "tags": [
+    "Instructional",
+    "content",
+    "activity",
+    "exercise",
+    "knowledge check"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "edit",
+    "word-list",
+    "number-correct",
+    "number-guessed",
+    "attempts",
+    "answers",
+    "displayed-answers",
+    "t",
+    "show-answer"
+   ]
+  }
+ },
+ "fill-in-the-blanks": {
+  "rel": "@haxtheweb/fill-in-the-blanks/fill-in-the-blanks.js",
+  "gizmo": {
+   "title": "Fill in the blanks",
+   "description": "Assessment activity where learners complete missing words in a statement.",
+   "icon": "editor:space-bar",
+   "color": "purple",
+   "tags": [
+    "Instructional",
+    "question"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "word-list",
+    "number-correct",
+    "number-guessed",
+    "attempts",
+    "answers",
+    "displayed-answers",
+    "t",
+    "show-answer",
+    "edit"
+   ]
+  }
+ },
+ "play-list": {
+  "rel": "@haxtheweb/play-list/play-list.js",
+  "gizmo": {
+   "title": "Play list",
+   "description": "Display any kind of content in a playlist.",
+   "icon": "hax:view-gallery",
+   "color": "purple",
+   "tags": [
+    "Layout",
+    "play list",
+    "list",
+    "gallery",
+    "grid",
+    "player",
+    "slideshow",
+    "carousel",
+    "player"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "items",
+    "edit"
+   ]
+  }
+ },
+ "simple-cta": {
+  "rel": "@haxtheweb/simple-cta/simple-cta.js",
+  "gizmo": {
+   "title": "Call to action",
+   "description": "A simple button with a link to take action.",
+   "icon": "image:crop-16-9",
+   "color": "orange",
+   "tags": [
+    "Layout",
+    "marketing",
+    "button",
+    "link",
+    "url",
+    "design",
+    "cta"
+   ],
+   "handles": [
+    {
+     "type": "link",
+     "source": "link",
+     "title": "label"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "colors",
+    "element-visible"
+   ]
+  }
+ },
+ "page-section": {
+  "rel": "@haxtheweb/page-section/page-section.js",
+  "gizmo": {
+   "title": "Page section",
+   "description": "Section container for page content and screen-based layouts.",
+   "icon": "av:call-to-action",
+   "color": "purple",
+   "tags": [
+    "Layout",
+    "page",
+    "section",
+    "container",
+    "cta"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "colors"
+   ]
+  }
+ },
+ "page-break": {
+  "rel": "@haxtheweb/page-break/page-break.js",
+  "gizmo": {
+   "title": "Page details",
+   "description": "Define a visual split between pages which CMSs can use to create pages.",
+   "icon": "editor:format-page-break",
+   "color": "grey",
+   "tags": [
+    "Other"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team",
+    "hidden": true
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "t",
+    "_hax-state",
+    "element-visible",
+    "noderefs",
+    "style",
+    "resource",
+    "prefix",
+    "is-logged-in"
+   ]
+  }
+ },
+ "page-anchor": {
+  "rel": "@haxtheweb/page-break/lib/page-anchor.js",
+  "gizmo": {
+   "title": "Page Anchor",
+   "description": "Link to specific points in media on the page.",
+   "icon": "hax:anchor",
+   "color": "grey",
+   "tags": [
+    "Other",
+    "video-player",
+    "audio-player",
+    "play-list",
+    "site",
+    "taxonomy"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team",
+    "inlineOnly": true
+   }
+  },
+  "saveOptions": null
+ },
+ "spotify-embed": {
+  "rel": "@haxtheweb/spotify-embed/spotify-embed.js",
+  "gizmo": {
+   "title": "Spotify",
+   "description": "Wrapper for Spotify player embeds.",
+   "icon": "hax:spotify",
+   "color": "green",
+   "tags": [
+    "Media",
+    "music",
+    "spotify"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "editing"
+   ]
+  }
+ },
+ "media-image": {
+  "rel": "@haxtheweb/media-image/media-image.js",
+  "gizmo": {
+   "title": "Enhanced Image",
+   "description": "A way of presenting images with various enhancements.",
+   "icon": "editor:insert-photo",
+   "color": "indigo",
+   "tags": [
+    "Media",
+    "media",
+    "core",
+    "figure",
+    "image",
+    "caption",
+    "presentation",
+    "design"
+   ],
+   "handles": [
+    {
+     "type": "image",
+     "type_exclusive": true,
+     "source": "source",
+     "title": "alt",
+     "alt": "alt",
+     "citation": "citation",
+     "caption": "caption"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team",
+    "outlineDesigner": true
+   }
+  },
+  "saveOptions": null
+ },
+ "inline-audio": {
+  "rel": "@haxtheweb/inline-audio/inline-audio.js",
+  "gizmo": {
+   "title": "Inline audio",
+   "description": "Play audio inline to supplement page content.",
+   "icon": "av:volume-up",
+   "color": "blue",
+   "tags": [
+    "Media",
+    "media",
+    "mp3",
+    "sound",
+    "audio",
+    "inline",
+    "enhancement"
+   ],
+   "handles": [
+    {
+     "type": "inline",
+     "text": "term"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team",
+    "inlineOnly": true
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "icon",
+    "playing",
+    "canPlay",
+    "aria"
+   ]
+  }
+ },
+ "course-model": {
+  "rel": "@haxtheweb/course-model/course-model.js",
+  "gizmo": {
+   "title": "course model",
+   "description": "Interactive layout for course concepts with details, animation, and knowledge checks.",
+   "icon": "3d-rotation",
+   "color": "purple",
+   "tags": [
+    "Other",
+    "Course",
+    "Model",
+    "Eberly"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": []
+  }
+ },
+ "audio-player": {
+  "rel": "@haxtheweb/audio-player/audio-player.js",
+  "gizmo": {
+   "title": "Audio",
+   "description": "This can present video in a highly accessible manner regardless of source.",
+   "icon": "av:music-video",
+   "color": "green",
+   "tags": [
+    "Media",
+    "Media",
+    "listen",
+    "mp3"
+   ],
+   "handles": [
+    {
+     "type": "audio",
+     "type_exclusive": true,
+     "source": "source",
+     "title": "caption",
+     "caption": "caption",
+     "description": "caption",
+     "color": "primaryColor"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "__utils",
+    "__stand-alone",
+    "colors"
+   ]
+  }
+ },
+ "moar-sarcasm": {
+  "rel": "@haxtheweb/moar-sarcasm/moar-sarcasm.js",
+  "gizmo": {
+   "title": "Sarcasm",
+   "description": "Presenting text in a trolly way",
+   "icon": "hax:case-sensitive-alt",
+   "color": "purple",
+   "tags": [
+    "Other",
+    "troll",
+    "sarcasm",
+    "text",
+    "funny"
+   ],
+   "handles": [
+    {
+     "type": "text",
+     "say": "innerText"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team",
+    "inlineOnly": true
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "a11y"
+   ]
+  }
+ },
+ "learning-component": {
+  "rel": "@haxtheweb/course-design/lib/learning-component.js",
+  "gizmo": {
+   "title": "Learning Component",
+   "description": "A card for instructors to communicate pedagogy and instructional strategies.",
+   "icon": "icons:bookmark",
+   "color": "orange",
+   "tags": [
+    "Instructional",
+    "content",
+    "design",
+    "presentation",
+    "instruction",
+    "course",
+    "learning",
+    "card"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "t"
+   ]
+  }
+ },
+ "simple-tags": {
+  "rel": "@haxtheweb/simple-fields/lib/simple-tags.js",
+  "gizmo": {
+   "title": "Tags",
+   "description": "Simple tag list for display on the page.",
+   "icon": "line-style",
+   "color": "orange",
+   "tags": [
+    "Other",
+    "content",
+    "tag",
+    "list"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": null
+ },
+ "flash-card": {
+  "rel": "@haxtheweb/flash-card/flash-card.js",
+  "gizmo": {
+   "title": "Flash card",
+   "description": "Practice concepts with front-and-back flash cards.",
+   "icon": "av:call-to-action",
+   "color": "blue",
+   "tags": [
+    "Instructional",
+    "self check",
+    "flash card",
+    "quiz",
+    "educational"
+   ]
+  },
+  "saveOptions": null
+ },
+ "twitter-embed": {
+  "rel": "@haxtheweb/twitter-embed/twitter-embed.js",
+  "gizmo": {
+   "title": "Twitter (X) embed",
+   "description": "Embed a tweet from X in context.",
+   "icon": "hax:twitter",
+   "color": "blue",
+   "tags": [
+    "Other",
+    "social media",
+    "twitter",
+    "embed",
+    "tweet"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": null
+ },
+ "self-check": {
+  "rel": "@haxtheweb/self-check/self-check.js",
+  "gizmo": {
+   "title": "Self Check",
+   "description": "Users can complete a self-check.",
+   "icon": "icons:check-circle",
+   "color": "orange",
+   "tags": [
+    "Instructional",
+    "media",
+    "self check",
+    "pedagogy",
+    "quiz",
+    "question",
+    "image"
+   ],
+   "handles": [
+    {
+     "type": "image",
+     "source": "image",
+     "title": "question",
+     "description": "answer"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team",
+    "outlineDesigner": true
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "__utils",
+    "colors",
+    "image-loaded",
+    "t",
+    "correct",
+    "element-visible"
+   ]
+  }
+ },
+ "stop-note": {
+  "rel": "@haxtheweb/stop-note/stop-note.js",
+  "gizmo": {
+   "title": "Stop Note",
+   "description": "A message to alert readers to specific directions.",
+   "icon": "icons:report",
+   "color": "orange",
+   "tags": [
+    "Instructional",
+    "content",
+    "layout",
+    "pedagogy",
+    "warning",
+    "notice",
+    "stop",
+    "note"
+   ],
+   "handles": [
+    {
+     "type": "text",
+     "title": "title"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "colors",
+    "t"
+   ]
+  }
+ },
+ "video-player": {
+  "rel": "@haxtheweb/video-player/video-player.js",
+  "gizmo": {
+   "title": "Video",
+   "description": "Accessible video playback across multiple sources.",
+   "icon": "av:play-circle-filled",
+   "color": "red",
+   "tags": [
+    "Media",
+    "youtube",
+    "watch",
+    "vimeo",
+    "twitch",
+    "mp4",
+    "webm",
+    "ogg",
+    "video-player",
+    "a11y",
+    "media-player"
+   ],
+   "handles": [
+    {
+     "type": "video",
+     "type_exclusive": true,
+     "source": "source",
+     "title": "caption",
+     "caption": "caption",
+     "description": "caption",
+     "color": "primaryColor"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team",
+    "outlineDesigner": true,
+    "anchorLabel": "mediaTitle"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "__utils",
+    "__stand-alone",
+    "colors",
+    "playing",
+    "__forcePaused",
+    "t"
+   ]
+  }
+ },
+ "block-quote": {
+  "rel": "@haxtheweb/course-design/lib/block-quote.js",
+  "gizmo": {
+   "title": "Block quote",
+   "description": "Styled quote block.",
+   "icon": "editor:format-quote",
+   "color": "blue",
+   "tags": [
+    "Layout",
+    "quote",
+    "blockquote",
+    "content",
+    "design",
+    "presentation"
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "wipeSlot": false,
+   "unsetAttributes": []
+  }
+ },
+ "a11y-collapse": {
+  "rel": "@haxtheweb/a11y-collapse/a11y-collapse.js",
+  "gizmo": {
+   "title": "Collapsible container",
+   "description": "Single expandable and collapsible container.",
+   "icon": "icons:view-day",
+   "color": "grey",
+   "tags": [
+    "Layout"
+   ]
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "expanded"
+   ]
+  }
+ },
+ "accent-card": {
+  "rel": "@haxtheweb/accent-card/accent-card.js",
+  "gizmo": {
+   "title": "Card",
+   "description": "A card with optional accent styling.",
+   "icon": "chrome-reader-mode",
+   "color": "light-blue",
+   "tags": [
+    "Layout",
+    "content",
+    "card",
+    "Image",
+    "Presentation",
+    "style"
+   ],
+   "handles": [
+    {
+     "type": "media",
+     "url": "source"
+    },
+    {
+     "type": "image"
+    },
+    {
+     "type": "text",
+     "url": "source"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team",
+    "owner": "The Pennsylvania State University"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "colors",
+    "element-visible"
+   ]
+  }
+ },
+ "a11y-gif-player": {
+  "rel": "@haxtheweb/a11y-gif-player/a11y-gif-player.js",
+  "gizmo": {
+   "title": "GIF",
+   "description": "Make animated GIFs accessible.",
+   "icon": "gif",
+   "color": "grey",
+   "tags": [
+    "Media",
+    "player",
+    "gif",
+    "media",
+    "a11y",
+    "accessibility",
+    "animation",
+    "image"
+   ],
+   "handles": [
+    {
+     "type": "gif",
+     "type_exclusive": true,
+     "source": "src",
+     "source2": "srcWithoutAnimation",
+     "alt": "alt"
+    },
+    {
+     "type": "image",
+     "source": "src",
+     "source2": "srcWithoutAnimation",
+     "alt": "alt"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "__playing",
+    "__gif-loaded",
+    "element-visible",
+    "t"
+   ]
+  }
+ },
+ "code-sample": {
+  "rel": "@haxtheweb/code-sample/code-sample.js",
+  "gizmo": {
+   "title": "Code sample",
+   "description": "A sample of code highlighted in the page",
+   "icon": "icons:code",
+   "color": "blue",
+   "tags": [
+    "Instructional",
+    "code",
+    "highlight",
+    "syntax",
+    "code-sample"
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "theme",
+    "editMode",
+    "_haxstate",
+    "t"
+   ]
+  }
+ },
+ "ebook-button": {
+  "rel": "@haxtheweb/course-design/lib/ebook-button.js",
+  "gizmo": {
+   "title": "Ebook button",
+   "description": "A button that links to an Ebook.",
+   "icon": "icons:book",
+   "color": "blue",
+   "tags": [
+    "Instructional",
+    "link",
+    "ebook",
+    "book"
+   ],
+   "handles": [
+    {
+     "type": "link",
+     "source": "link",
+     "title": "title"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": null
+ },
+ "worksheet-download": {
+  "rel": "@haxtheweb/course-design/lib/worksheet-download.js",
+  "gizmo": {
+   "title": "Worksheet Download",
+   "description": "A button for displaying files available for download.",
+   "icon": "icons:file-download",
+   "color": "blue",
+   "tags": [
+    "Instructional",
+    "link",
+    "worksheet",
+    "download",
+    "url",
+    "file"
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": null
+ },
+ "image-compare-slider": {
+  "rel": "@haxtheweb/image-compare-slider/image-compare-slider.js",
+  "gizmo": {
+   "title": "Image compare",
+   "description": "Swipe one image over another for comparison.",
+   "icon": "image:compare",
+   "color": "orange",
+   "tags": [
+    "Media",
+    "media",
+    "comparison",
+    "slider",
+    "swipe",
+    "compare",
+    "instructional"
+   ],
+   "handles": [
+    {
+     "type": "image",
+     "source": "bottomSrc",
+     "source2": "topSrc",
+     "title": "title"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": null
+ },
+ "license-element": {
+  "rel": "@haxtheweb/license-element/license-element.js",
+  "gizmo": {
+   "title": "License",
+   "description": "Provide a license for your work.",
+   "icon": "icons:copyright",
+   "color": "grey",
+   "tags": [
+    "Other",
+    "content",
+    "copyright",
+    "license",
+    "cc0",
+    "cc-by",
+    "cc-by-sa",
+    "cc-by-nd",
+    "cc-by-nc",
+    "cc-by-nc-sa",
+    "cc-by-nc-nd",
+    "citation"
+   ],
+   "handles": [
+    {
+     "type": "license",
+     "source": "source",
+     "title": "title",
+     "author": "creator",
+     "license": "license"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": null
+ },
+ "ai-usage-license": {
+  "rel": "@haxtheweb/ai-usage-license/ai-usage-license.js",
+  "gizmo": {
+   "title": "AI Usage License",
+   "description": "Display an AI Usage License (AIUL) badge for your work",
+   "icon": "hardware:memory",
+   "color": "blue",
+   "tags": [
+    "Other",
+    "content",
+    "ai",
+    "license",
+    "aiul",
+    "ai-usage",
+    "attribution"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": null
+ },
+ "lrn-math": {
+  "rel": "@haxtheweb/lrn-math/lrn-math.js",
+  "gizmo": {
+   "title": "Math",
+   "description": "Present math in a nice looking way.",
+   "icon": "hax:pi",
+   "color": "grey",
+   "tags": [
+    "Instructional",
+    "math",
+    "mathjax",
+    "mathml",
+    "latex",
+    "mathml"
+   ],
+   "handles": [
+    {
+     "type": "math",
+     "math": "mathText"
+    },
+    {
+     "type": "inline",
+     "text": "mathText"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team",
+    "inlineOnly": true,
+    "selectionRequired": false
+   }
+  },
+  "saveOptions": null
+ },
+ "vocab-term": {
+  "rel": "@haxtheweb/vocab-term/vocab-term.js",
+  "gizmo": {
+   "title": "Vocab",
+   "description": "Vocabulary term.",
+   "icon": "hax:vocab",
+   "color": "red",
+   "tags": [
+    "Instructional",
+    "definition",
+    "term",
+    "vocabulary",
+    "glossary"
+   ],
+   "handles": [
+    {
+     "type": "inline",
+     "text": "term"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team",
+    "inlineOnly": true
+   }
+  },
+  "saveOptions": null
+ },
+ "meme-maker": {
+  "rel": "@haxtheweb/meme-maker/meme-maker.js",
+  "gizmo": {
+   "title": "Meme",
+   "description": "Make a meme out of an image.",
+   "icon": "hax:meme",
+   "color": "orange",
+   "tags": [
+    "Media",
+    "funny",
+    "meme",
+    "image"
+   ],
+   "handles": [
+    {
+     "type": "image",
+     "source": "imageUrl",
+     "title": "topText",
+     "author": "bottomText",
+     "alt": "alt"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "wipeSlot": true
+  }
+ },
+ "grid-plate": {
+  "rel": "@haxtheweb/grid-plate/grid-plate.js",
+  "gizmo": {
+   "title": "Column layout",
+   "description": "Layout material in simple columns",
+   "icon": "hax:3-3-3-3",
+   "color": "grey",
+   "tags": [
+    "Layout",
+    "content",
+    "grid"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team",
+    "owner": "The Pennsylvania State University"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "ready",
+    "layouts",
+    "columns",
+    "options",
+    "responsive-width",
+    "responsive-size",
+    "breakpoint-sm",
+    "breakpoint-md",
+    "breakpoint-lg",
+    "breakpoint-xl"
+   ]
+  }
+ },
+ "lrndesign-timeline": {
+  "rel": "@haxtheweb/lrndesign-timeline/lrndesign-timeline.js",
+  "gizmo": {
+   "title": "Timeline",
+   "description": "A timeline of events with images and text",
+   "icon": "hax:timeline",
+   "color": "indigo",
+   "tags": [
+    "Instructional",
+    "content",
+    "Media",
+    "timeline",
+    "time",
+    "event",
+    "image",
+    "text"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "colors"
+   ]
+  }
+ },
+ "person-testimonial": {
+  "rel": "@haxtheweb/person-testimonial/person-testimonial.js",
+  "gizmo": {
+   "title": "Image Blockquote",
+   "description": "Stylized quote with an optional image.",
+   "icon": "editor:format-quote",
+   "color": "orange",
+   "tags": [
+    "Layout",
+    "content",
+    "presentation",
+    "blockquote",
+    "quote",
+    "testimonial",
+    "person",
+    "design",
+    "image"
+   ],
+   "handles": [
+    {
+     "type": "image",
+     "source": "image",
+     "title": "name",
+     "caption": "position"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": null
+ },
+ "place-holder": {
+  "rel": "@haxtheweb/place-holder/place-holder.js",
+  "gizmo": {
+   "title": "Placeholder",
+   "description": "A place holder that can be converted into the media type that's been selected",
+   "icon": "hax:placeholder-image",
+   "color": "grey",
+   "tags": [
+    "Text",
+    "development",
+    "authoring",
+    "media",
+    "image",
+    "video",
+    "audio",
+    "document",
+    "math",
+    "text"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "icon-from-type",
+    "calc-text",
+    "colors"
+   ],
+   "wipeSlot": true
+  }
+ },
+ "q-r": {
+  "rel": "@haxtheweb/q-r/q-r.js",
+  "gizmo": {
+   "title": "QR Code",
+   "description": "Code to scan from a smartphone.",
+   "icon": "hax:qr-code",
+   "color": "grey",
+   "tags": [
+    "Other",
+    "qr",
+    "code",
+    "phone",
+    "scan",
+    "mobile",
+    "smartphone",
+    "barcode"
+   ],
+   "handles": [
+    {
+     "type": "video",
+     "source": "data",
+     "title": "title"
+    },
+    {
+     "type": "image",
+     "source": "data",
+     "title": "title"
+    },
+    {
+     "type": "link",
+     "source": "data",
+     "title": "title"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": null
+ },
+ "wikipedia-query": {
+  "rel": "@haxtheweb/wikipedia-query/wikipedia-query.js",
+  "gizmo": {
+   "title": "Wikipedia",
+   "description": "This can display a wikipedia article in context in a variety of formats.",
+   "icon": "book",
+   "color": "green",
+   "tags": [
+    "Other",
+    "creative commons",
+    "wikipedia",
+    "search",
+    "web",
+    "resource",
+    "definition",
+    "encyclopedia"
+   ],
+   "handles": [
+    {
+     "type": "wikipedia",
+     "type_exclusive": true,
+     "title": "search"
+    },
+    {
+     "type": "content",
+     "title": "search"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "wipeSlot": true,
+   "unsetAttributes": [
+    "_title"
+   ]
+  }
+ },
+ "date-card": {
+  "rel": "@haxtheweb/date-card/date-card.js",
+  "gizmo": {
+   "title": "Date",
+   "description": "Display a calendar date with details.",
+   "icon": "hax:calendar",
+   "color": "green",
+   "tags": [
+    "Other",
+    "date",
+    "place",
+    "location",
+    "evenet",
+    "calendar"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "colors"
+   ]
+  }
+ },
+ "h5p-element": {
+  "rel": "@haxtheweb/h5p-element/h5p-element.js",
+  "gizmo": {
+   "title": "H5P",
+   "description": "h5p wrapper for loading and presenting .h5p files",
+   "icon": "icons:android",
+   "color": "green",
+   "tags": [
+    "Instructional",
+    "Interactive",
+    "media"
+   ],
+   "meta": {
+    "author": "HAXTheWeb"
+   }
+  },
+  "saveOptions": {
+   "wipeSlot": true,
+   "unsetAttributes": [
+    "content-id"
+   ]
+  }
+ },
+ "md-block": {
+  "rel": "@haxtheweb/md-block/md-block.js",
+  "gizmo": {
+   "title": "Markdown",
+   "description": "A block of markdown content directly or remote loaded",
+   "icon": "icons:code",
+   "color": "yellow",
+   "tags": [
+    "Other",
+    "md",
+    "markdown",
+    "content",
+    "text",
+    "code",
+    "codeblock",
+    "code-block",
+    "code block",
+    "html"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb",
+    "owner": "The Pennsylvania State University"
+   }
+  },
+  "saveOptions": null
+ },
+ "rpg-character": {
+  "rel": "@haxtheweb/rpg-character/rpg-character.js",
+  "gizmo": {
+   "title": "RPG Character",
+   "description": "Fun character from HAX.",
+   "icon": "hax:hax2022",
+   "color": "red",
+   "tags": [
+    "Other",
+    "fun",
+    "8bit",
+    "game"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "unsetAttributes": [
+    "colors"
+   ]
+  }
+ },
+ "career-org-item": {
+  "rel": "@haxtheweb/career-timeline/lib/career-org-item.js",
+  "gizmo": {
+   "title": "Career Item",
+   "description": "An individual organization and its affiliated roles",
+   "icon": "chrome-reader-mode",
+   "color": "light-blue",
+   "tags": [
+    "Content",
+    "list",
+    "step"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": null
+ },
+ "career-role-item": {
+  "rel": "@haxtheweb/career-timeline/lib/career-role-item.js",
+  "gizmo": {
+   "title": "Career Role",
+   "description": "An individual role within an organization",
+   "icon": "chrome-reader-mode",
+   "color": "light-blue",
+   "tags": [
+    "Content",
+    "list",
+    "step"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": null
+ },
+ "career-timeline": {
+  "rel": "@haxtheweb/career-timeline/career-timeline.js",
+  "gizmo": {
+   "title": "Career timeline",
+   "description": "A career timeline containing organizations, roles, and other data",
+   "icon": "icons:android",
+   "color": "purple",
+   "tags": [
+    "Content",
+    "portfolio",
+    "career",
+    "timeline",
+    "resume"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "wipeSlot": false,
+   "unsetAttributes": []
+  }
+ },
+ "bibliography-builder": {
+  "rel": "@haxtheweb/bibliography-builder/bibliography-builder.js",
+  "gizmo": {
+   "title": "Bibliography builder",
+   "description": "A tool for creating and managing bibliographies",
+   "icon": "icons:android",
+   "color": "purple",
+   "tags": [
+    "Content",
+    "portfolio",
+    "citation",
+    "reference",
+    "bibliography"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "wipeSlot": false,
+   "unsetAttributes": []
+  }
+ },
+ "bibliography-item": {
+  "rel": "@haxtheweb/bibliography-builder/lib/bibliography-item.js",
+  "gizmo": {
+   "title": "Bibliography item",
+   "description": "Item representing a single citation in a bibliography, supporting multiple formats and export options.",
+   "icon": "icons:android",
+   "color": "purple",
+   "tags": [
+    "Content",
+    "portfolio",
+    "citation",
+    "reference",
+    "bibliography"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "wipeSlot": false,
+   "unsetAttributes": []
+  }
+ },
+ "media-playlist": {
+  "rel": "@haxtheweb/media-playlist/media-playlist.js",
+  "gizmo": {
+   "title": "Media Playlist",
+   "description": "A playlist that presents video and audio players in a player + sidebar layout.",
+   "icon": "av:playlist-play",
+   "color": "red",
+   "tags": [
+    "Media",
+    "video",
+    "audio",
+    "playlist",
+    "player"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "wipeSlot": false,
+   "unsetAttributes": [
+    "items",
+    "edit",
+    "mediaItems"
+   ]
+  }
+ },
+ "image-gallery": {
+  "rel": "@haxtheweb/image-gallery/image-gallery.js",
+  "gizmo": {
+   "title": "Image Gallery",
+   "description": "A gallery that presents images in grid, masonry, or slideshow layouts.",
+   "icon": "image:photo-library",
+   "color": "indigo",
+   "tags": [
+    "Media",
+    "image",
+    "gallery",
+    "grid",
+    "masonry",
+    "slideshow"
+   ],
+   "handles": [],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": {
+   "wipeSlot": false,
+   "unsetAttributes": [
+    "images",
+    "edit"
+   ]
+  }
+ },
+ "tableau-embed": {
+  "rel": "@haxtheweb/tableau-embed/tableau-embed.js",
+  "gizmo": {
+   "title": "Tableau",
+   "description": "Embed Tableau visualizations from a share URL.",
+   "icon": "hax:graph",
+   "color": "blue",
+   "tags": [
+    "Media",
+    "tableau",
+    "chart",
+    "data",
+    "visualization",
+    "embed"
+   ],
+   "handles": [
+    {
+     "type": "link",
+     "source": "src"
+    }
+   ],
+   "meta": {
+    "author": "HAXTheWeb core team"
+   }
+  },
+  "saveOptions": null
+ }
+}

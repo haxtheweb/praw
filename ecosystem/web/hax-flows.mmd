@@ -1,0 +1,217 @@
+%% Step-by-step paths sub-web: what happens, in order, when a page loads, when you add a page, and when you restructure a site with the outline designer.
+%% Sources: a published site's index.html and build.js, haxcms-site-builder.js, wc-autoload, the OpenAPI site spec. Portals: ids from hax-ecosystem.mmd and the other sub-webs. Details in hax-flows.json.
+flowchart TB
+  %%@ layout rings=0,220,480,780 sizes=92,72,60,50
+  subgraph hub ["Step by step"]
+    flows["Step by step"]
+  end
+  subgraph flowsg ["Three paths"]
+    fl_load["A page loads"]
+    fl_add["Add a page"]
+    fl_outline["Restructure with the outline designer"]
+  end
+  subgraph steps ["Steps, in order"]
+    l1>"1. Request"]
+    l2>"2. index.html"]
+    l3>"3. build.js boots"]
+    l4>"4. site.json"]
+    l5>"5. The theme"]
+    l6>"6. Route to a page"]
+    l7>"7. Content into the theme"]
+    l8>"8. Elements load lazily"]
+    l9>"9. After render"]
+    a1>"1. Log in"]
+    a2>"2. Add page"]
+    a3>"3. The item is created"]
+    a4>"4. The store updates"]
+    a5>"5. Write"]
+    a6>"6. Save"]
+    a7>"7. Readers see it"]
+    o1>"1. Open the outline designer"]
+    o2>"2. Stage changes"]
+    o3>"3. Save once"]
+    o4>"4. Everything follows"]
+    o5>"5. Why it is guarded"]
+  end
+  subgraph parts ["What each step touches"]
+    haxcms["haxcms"]
+    php["php"]
+    nodejs["nodejs"]
+    deploy["deploy"]
+    f_static["f_static"]
+    f_registry["f_registry"]
+    f_autoload["f_autoload"]
+    f_magic["f_magic"]
+    jos["jos"]
+    f_sitejson["f_sitejson"]
+    sitejson["sitejson"]
+    themes["themes"]
+    f_theme["f_theme"]
+    f_pages["f_pages"]
+    outline["outline"]
+    editor["editor"]
+    xapi["xapi"]
+    components["components"]
+    wcstandard["wcstandard"]
+    f_pwa["f_pwa"]
+    f_search["f_search"]
+    merlin["merlin"]
+    op_sessionlogin["op_sessionlogin"]
+    importers["importers"]
+    skeletons["skeletons"]
+    op_createitem["op_createitem"]
+    appstore["appstore"]
+    op_updatecontentbyidorslug["op_updatecontentbyidorslug"]
+    op_updateitem["op_updateitem"]
+    f_maps["f_maps"]
+    dashboard["dashboard"]
+    op_updatesiteoutline["op_updatesiteoutline"]
+    openapi["openapi"]
+    q_e2e["q_e2e"]
+    q_parity["q_parity"]
+  end
+
+  flows -->|shows| fl_load
+  fl_load -->|starts with| l1
+  l1 -->|then| l2
+  l2 -->|then| l3
+  l3 -->|then| l4
+  l4 -->|then| l5
+  l5 -->|then| l6
+  l6 -->|then| l7
+  l7 -->|then| l8
+  l8 -->|then| l9
+  l1 -.->|touches| haxcms
+  l1 -.->|touches| php
+  l1 -.->|touches| nodejs
+  l1 -.->|touches| deploy
+  l1 -.->|touches| f_static
+  l2 -.->|touches| f_static
+  l2 -.->|touches| f_registry
+  l3 -.->|touches| f_autoload
+  l3 -.->|touches| f_magic
+  l4 -.->|touches| jos
+  l4 -.->|touches| f_sitejson
+  l4 -.->|touches| sitejson
+  l5 -.->|touches| themes
+  l5 -.->|touches| f_theme
+  l6 -.->|touches| f_pages
+  l6 -.->|touches| outline
+  l7 -.->|touches| editor
+  l7 -.->|touches| xapi
+  l8 -.->|touches| components
+  l8 -.->|touches| f_registry
+  l8 -.->|touches| f_autoload
+  l8 -.->|touches| wcstandard
+  l9 -.->|touches| f_pwa
+  l9 -.->|touches| f_search
+  l9 -.->|touches| merlin
+  flows -->|shows| fl_add
+  fl_add -->|starts with| a1
+  a1 -->|then| a2
+  a2 -->|then| a3
+  a3 -->|then| a4
+  a4 -->|then| a5
+  a5 -->|then| a6
+  a6 -->|then| a7
+  a1 -.->|touches| op_sessionlogin
+  a1 -.->|touches| editor
+  a2 -.->|touches| merlin
+  a2 -.->|touches| importers
+  a2 -.->|touches| skeletons
+  a3 -.->|touches| op_createitem
+  a3 -.->|touches| jos
+  a3 -.->|touches| f_pages
+  a4 -.->|touches| f_sitejson
+  a5 -.->|touches| editor
+  a5 -.->|touches| components
+  a5 -.->|touches| appstore
+  a5 -.->|touches| importers
+  a6 -.->|touches| op_updatecontentbyidorslug
+  a6 -.->|touches| op_updateitem
+  a7 -->|uses| fl_load
+  a7 -.->|touches| f_maps
+  a7 -.->|touches| f_search
+  flows -->|shows| fl_outline
+  fl_outline -->|starts with| o1
+  o1 -->|then| o2
+  o2 -->|then| o3
+  o3 -->|then| o4
+  o4 -->|then| o5
+  o1 -.->|touches| outline
+  o1 -.->|touches| dashboard
+  o2 -.->|touches| outline
+  o2 -.->|touches| jos
+  o3 -.->|touches| op_updatesiteoutline
+  o3 -.->|touches| php
+  o3 -.->|touches| nodejs
+  o3 -.->|touches| openapi
+  o4 -.->|touches| f_sitejson
+  o4 -.->|touches| themes
+  o5 -.->|touches| q_e2e
+  o5 -.->|touches| q_parity
+
+  %%@ group hub tier=0
+  %%@ group flowsg tier=1
+  %%@ group steps tier=2
+  %%@ group parts tier=3
+  %%@ node flows icon=hax:site-map color=nittanyNavy motion=pulse
+  %%@ node fl_load icon=hax:site-map color=skyBlue motion=pop
+  %%@ node l1 mono=1 color=skyBlue motion=nudge
+  %%@ node l2 mono=2 color=skyBlue motion=nudge
+  %%@ node l3 mono=3 color=skyBlue motion=nudge
+  %%@ node l4 mono=4 color=skyBlue motion=nudge
+  %%@ node l5 mono=5 color=skyBlue motion=nudge
+  %%@ node l6 mono=6 color=skyBlue motion=nudge
+  %%@ node l7 mono=7 color=skyBlue motion=nudge
+  %%@ node l8 mono=8 color=skyBlue motion=nudge
+  %%@ node l9 mono=9 color=skyBlue motion=nudge
+  %%@ node fl_add icon=hax:site-map color=opportunityGreen motion=pop
+  %%@ node a1 mono=1 color=opportunityGreen motion=nudge
+  %%@ node a2 mono=2 color=opportunityGreen motion=nudge
+  %%@ node a3 mono=3 color=opportunityGreen motion=nudge
+  %%@ node a4 mono=4 color=opportunityGreen motion=nudge
+  %%@ node a5 mono=5 color=opportunityGreen motion=nudge
+  %%@ node a6 mono=6 color=opportunityGreen motion=nudge
+  %%@ node a7 mono=7 color=opportunityGreen motion=nudge
+  %%@ node fl_outline icon=hax:site-map color=inventOrange motion=pop
+  %%@ node o1 mono=1 color=inventOrange motion=nudge
+  %%@ node o2 mono=2 color=inventOrange motion=nudge
+  %%@ node o3 mono=3 color=inventOrange motion=nudge
+  %%@ node o4 mono=4 color=inventOrange motion=nudge
+  %%@ node o5 mono=5 color=inventOrange motion=nudge
+  %%@ node haxcms portal
+  %%@ node php portal
+  %%@ node nodejs portal
+  %%@ node deploy portal
+  %%@ node f_static portal=anatomy
+  %%@ node f_registry portal=anatomy
+  %%@ node f_autoload portal=anatomy
+  %%@ node f_magic portal=anatomy
+  %%@ node jos portal
+  %%@ node f_sitejson portal=anatomy
+  %%@ node sitejson portal=contracts
+  %%@ node themes portal
+  %%@ node f_theme portal=anatomy
+  %%@ node f_pages portal=anatomy
+  %%@ node outline portal=haxcms
+  %%@ node editor portal
+  %%@ node xapi portal
+  %%@ node components portal
+  %%@ node wcstandard portal
+  %%@ node f_pwa portal=anatomy
+  %%@ node f_search portal=anatomy
+  %%@ node merlin portal
+  %%@ node op_sessionlogin portal=openapi
+  %%@ node importers portal
+  %%@ node skeletons portal
+  %%@ node op_createitem portal=openapi
+  %%@ node appstore portal
+  %%@ node op_updatecontentbyidorslug portal=openapi
+  %%@ node op_updateitem portal=openapi
+  %%@ node f_maps portal=anatomy
+  %%@ node dashboard portal
+  %%@ node op_updatesiteoutline portal=openapi
+  %%@ node openapi portal
+  %%@ node q_e2e portal=quality
+  %%@ node q_parity portal=quality

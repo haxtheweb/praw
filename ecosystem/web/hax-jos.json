@@ -1,0 +1,188 @@
+{
+ "meta": {
+  "name": "JSON Outline Schema",
+  "parent": "contracts",
+  "noTimeline": true,
+  "sectionLabels": {
+   "part": "parts"
+  },
+  "about": "JSON Outline Schema in parts, generated from the json-outline-schema repo's three schema files: the core outline and items, the HAXcms site.json conventions layered on top, and the skeleton format, with everything that reads or writes it.",
+  "kindLabels": {
+   "rel": "file, part, reader or writer",
+   "schema": "extends or points to"
+  }
+ },
+ "nodes": {
+  "jos": {
+   "always": true
+  },
+  "js_core": {
+   "desc": "Core JSON Outline Schema (JOS): a work (outline) and a flat list of items whose tree is expressed through `parent` + `order`. This schema is intentionally lenient about legacy value types (numeric strings for `indent`/`order`) because real HAXcms data contains both; writers SHOULD emit the canonical form described in each property. Rules that JSON Schema cannot express (unique ids, parent references, cycles, unique slugs) are enforced by scripts/validate.js.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/json-outline-schema/blob/main/schema/json-outline-schema.schema.json"
+   }
+  },
+  "js_site": {
+   "desc": "A HAXcms site manifest (site.json): core JSON Outline Schema plus the metadata conventions HAXcms reads and writes. Unknown keys inside `metadata.*` groups are allowed (HAXcms passes them through), but unknown top-level keys on items are rejected because HAXcms drops them on save.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/json-outline-schema/blob/main/schema/haxcms-site.schema.json"
+   }
+  },
+  "js_skel": {
+   "desc": "A reusable starter for new HAXcms sites, served by the `skeletonsList` / `getSkeleton` endpoints and written by the HAXcms site-skeleton-generator. `build.items` is an extended JSON Outline Schema item list: same tree fields, no `location`, plus an inline `content` HTML string.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/json-outline-schema/blob/main/schema/skeleton.schema.json"
+   }
+  },
+  "jp_outline": {
+   "desc": "The work itself: id, title, author, description, license and metadata.",
+   "kind": "part"
+  },
+  "jp_items": {
+   "desc": "A flat list of items. The tree is expressed through parent and order, so moving a page never rewrites the pages around it.",
+   "kind": "part"
+  },
+  "jp_itemmeta": {
+   "desc": "What HAXcms keeps per page: published, hideInMenu, locked, created, updated, tags, pageType, relatedItems, icon, image, theme, readtime, images, videos, files, contentDetails, overridePathauto, plugins.",
+   "kind": "part"
+  },
+  "jp_skelbuild": {
+   "desc": "A skeleton's items carry their page content inline, so one file is a whole starter site.",
+   "kind": "part"
+  },
+  "ji_id": {
+   "desc": "Unique id of the item within this outline. HAXcms uses `item-<uuid v4>`; skeletons use bare UUIDs. Treat as opaque.",
+   "kind": "part"
+  },
+  "ji_title": {
+   "desc": "Title to display for this item.",
+   "kind": "part"
+  },
+  "ji_description": {
+   "desc": "Short description of the item (HAXcms auto-fills this from the first text of the page).",
+   "kind": "part"
+  },
+  "ji_parent": {
+   "desc": "`id` of the parent item, or `null` for a top-level item. `null` is canonical; an empty string is accepted only as a legacy form for reading older data and should not be written.",
+   "kind": "part"
+  },
+  "ji_order": {
+   "desc": "Sort weight relative to siblings that share the same `parent`. Canonical form: 0-based integer, contiguous within a sibling group.",
+   "kind": "part"
+  },
+  "ji_indent": {
+   "desc": "Visual indentation level (integer, 0 = top level). In a typical outline it equals the item's depth in the tree. It MAY intentionally differ when an outline wants a different presentation than its hierarchy (for example, sibling pages displayed at different indents), but that is rare. Consumers MUST derive hierarchy from `parent`, never from `indent`.",
+   "kind": "part"
+  },
+  "ji_location": {
+   "desc": "Relative path to the resource holding this item's content. HAXcms convention: `pages/<id>/index.html`.",
+   "kind": "part"
+  },
+  "ji_slug": {
+   "desc": "URL path segment(s) for this item, relative to the site base. May contain `/` (HAXcms with pathauto builds `parent-slug/child-slug`). Must be unique within the outline. Must not start with `/`.",
+   "kind": "part"
+  },
+  "ji_metadata": {
+   "desc": "Open-ended container for per-item data.",
+   "kind": "part"
+  },
+  "jm_author": {
+   "desc": "Site author profile shown by themes.",
+   "kind": "part"
+  },
+  "jm_site": {
+   "desc": "Site-level site settings. Fields: name, logo, lang, domain, homePageId, tags, created, updated, version, git, static, settings.",
+   "kind": "part"
+  },
+  "jm_theme": {
+   "desc": "Site-level theme settings. Fields: element, path, name, thumbnail, styleGuide, variables, regions.",
+   "kind": "part"
+  },
+  "jm_platform": {
+   "desc": "Site-level platform settings. Fields: audience, features, allowedBlocks, delete, blocks.",
+   "kind": "part"
+  },
+  "jm_node": {
+   "desc": "Node / page field configuration.",
+   "kind": "part"
+  },
+  "jm_build": {
+   "desc": "How the site was originally created (written once by HAXcms at creation time).",
+   "kind": "part"
+  },
+  "jm_plugins": {
+   "desc": "Site-level plugins settings.",
+   "kind": "part"
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "jos",
+   "label": "Inside site.json",
+   "message": "The core outline, the HAXcms layer on top, and the skeleton format, generated from the three schema files.",
+   "scenes": [
+    {
+     "caption": "Three schema files: the core, the HAXcms site.json layer, and skeletons.",
+     "nodes": [
+      "js_core",
+      "js_site",
+      "js_skel"
+     ]
+    },
+    {
+     "caption": "The core is an outline and a flat list of items.",
+     "nodes": [
+      "jp_outline",
+      "jp_items"
+     ]
+    },
+    {
+     "caption": "Each item: id, parent and order for the tree, slug for the URL, location for the page file.",
+     "nodes": [
+      "ji_id",
+      "ji_title",
+      "ji_description",
+      "ji_parent",
+      "ji_order",
+      "ji_indent",
+      "ji_location",
+      "ji_slug",
+      "ji_metadata"
+     ]
+    },
+    {
+     "caption": "HAXcms adds site, theme, platform, build and plugin metadata.",
+     "nodes": [
+      "jm_author",
+      "jm_site",
+      "jm_theme",
+      "jm_platform",
+      "jm_node",
+      "jm_build",
+      "jm_plugins",
+      "jp_itemmeta"
+     ]
+    },
+    {
+     "caption": "The outline designer, the CLI, HAX11ty, importers and themes all read or write it.",
+     "nodes": [
+      "outline",
+      "haxcms",
+      "editor",
+      "cli",
+      "hax11ty",
+      "skeletons",
+      "importers",
+      "themes",
+      "mcp"
+     ]
+    },
+    {
+     "caption": "All of JSON Outline Schema.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

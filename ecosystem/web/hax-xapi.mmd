@@ -1,0 +1,154 @@
+%% xAPI verbs sub-web: the verbs HAX elements send, and which element sends each, generated from user-action/lib/xapi-vocabulary.json.
+%% Portals: ids from hax-ecosystem.mmd and hax-elements.mmd. Details in hax-xapi.json.
+flowchart TB
+  %%@ layout rings=0,230,520 sizes=92,66,54
+  subgraph hub ["xAPI"]
+    xapi[("xapi")]
+  end
+  subgraph verbsg ["Verbs"]
+    v_experienced[("experienced")]
+    v_attempted[("attempted")]
+    v_progressed[("progressed")]
+    v_completed[("completed")]
+    v_answered[("answered")]
+    v_interacted[("interacted")]
+  end
+  subgraph els ["Elements that send them"]
+    x_a11y_collapse["a11y-collapse"]
+    x_a11y_media_player["a11y-media-player"]
+    x_audio_player["audio-player"]
+    x_bullet_check_list["bullet-check-list"]
+    x_concept_map_game["concept-map-game"]
+    x_concept_quest_game["concept-quest-game"]
+    x_concept_runner_game["concept-runner-game"]
+    x_fill_in_the_blanks["fill-in-the-blanks"]
+    x_flash_card["flash-card"]
+    x_h5p_element["h5p-element"]
+    x_haxcms_page["haxcms-page"]
+    x_image_compare_slider["image-compare-slider"]
+    x_lrndesign_imagemap["lrndesign-imagemap"]
+    x_lrs_emitter["lrs-emitter"]
+    x_mark_the_words["mark-the-words"]
+    x_matching_question["matching-question"]
+    x_multiple_choice["multiple-choice"]
+    x_reading_analysis["reading-analysis"]
+    x_self_check["self-check"]
+    x_self_reflective_nudge["self-reflective-nudge"]
+    x_short_answer_question["short-answer-question"]
+    x_slide_deck["slide-deck"]
+    x_sorting_question["sorting-question"]
+    x_tagging_question["tagging-question"]
+    x_true_false_question["true-false-question"]
+    x_user_action["user-action"]
+    x_video_player["video-player"]
+    x_vocab_term["vocab-term"]
+  end
+  subgraph sink ["Where statements go"]
+    insights["insights"]
+    course["course"]
+  end
+
+  xapi -.->|defines| v_experienced
+  xapi -.->|defines| v_attempted
+  xapi -.->|defines| v_progressed
+  xapi -.->|defines| v_completed
+  xapi -.->|defines| v_answered
+  xapi -.->|defines| v_interacted
+  x_a11y_collapse -->|sends| v_experienced
+  x_a11y_media_player -->|sends| v_attempted
+  x_a11y_media_player -->|sends| v_progressed
+  x_a11y_media_player -->|sends| v_completed
+  x_audio_player -->|sends| v_attempted
+  x_audio_player -->|sends| v_progressed
+  x_audio_player -->|sends| v_completed
+  x_bullet_check_list -->|sends| v_progressed
+  x_bullet_check_list -->|sends| v_completed
+  x_concept_map_game -->|sends| v_attempted
+  x_concept_map_game -->|sends| v_progressed
+  x_concept_map_game -->|sends| v_completed
+  x_concept_quest_game -->|sends| v_attempted
+  x_concept_quest_game -->|sends| v_answered
+  x_concept_quest_game -->|sends| v_completed
+  x_concept_runner_game -->|sends| v_attempted
+  x_concept_runner_game -->|sends| v_answered
+  x_concept_runner_game -->|sends| v_completed
+  x_fill_in_the_blanks -->|sends| v_answered
+  x_flash_card -->|sends| v_answered
+  x_h5p_element -->|sends| v_attempted
+  x_h5p_element -->|sends| v_answered
+  x_h5p_element -->|sends| v_completed
+  x_haxcms_page -->|sends| v_experienced
+  x_haxcms_page -->|sends| v_progressed
+  x_haxcms_page -->|sends| v_completed
+  x_image_compare_slider -->|sends| v_interacted
+  x_lrndesign_imagemap -->|sends| v_progressed
+  x_lrndesign_imagemap -->|sends| v_completed
+  x_lrs_emitter -->|sends| v_experienced
+  x_lrs_emitter -->|sends| v_interacted
+  x_lrs_emitter -->|sends| v_answered
+  x_lrs_emitter -->|sends| v_progressed
+  x_lrs_emitter -->|sends| v_attempted
+  x_lrs_emitter -->|sends| v_completed
+  x_mark_the_words -->|sends| v_answered
+  x_matching_question -->|sends| v_answered
+  x_multiple_choice -->|sends| v_answered
+  x_reading_analysis -->|sends| v_answered
+  x_self_check -->|sends| v_experienced
+  x_self_reflective_nudge -->|sends| v_answered
+  x_short_answer_question -->|sends| v_answered
+  x_slide_deck -->|sends| v_attempted
+  x_slide_deck -->|sends| v_progressed
+  x_slide_deck -->|sends| v_completed
+  x_sorting_question -->|sends| v_answered
+  x_tagging_question -->|sends| v_answered
+  x_true_false_question -->|sends| v_answered
+  x_user_action -->|sends| v_experienced
+  x_user_action -->|sends| v_interacted
+  x_video_player -->|sends| v_attempted
+  x_video_player -->|sends| v_progressed
+  x_video_player -->|sends| v_completed
+  x_vocab_term -->|sends| v_experienced
+  xapi -.->|feeds| insights
+  course -->|records learning through| xapi
+
+  %%@ group hub tier=0
+  %%@ group verbsg tier=1
+  %%@ group els tier=2
+  %%@ group sink tier=1
+  %%@ node xapi portal
+  %%@ node v_experienced icon=hax:clipboard-pulse color=roarGolden motion=pulse
+  %%@ node v_attempted icon=hax:clipboard-pulse color=roarGolden motion=pulse
+  %%@ node v_progressed icon=hax:clipboard-pulse color=roarGolden motion=pulse
+  %%@ node v_completed icon=hax:clipboard-pulse color=roarGolden motion=pulse
+  %%@ node v_answered icon=hax:clipboard-pulse color=roarGolden motion=pulse
+  %%@ node v_interacted icon=hax:clipboard-pulse color=roarGolden motion=pulse
+  %%@ node x_a11y_collapse icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_a11y_media_player icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_audio_player icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_bullet_check_list icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_concept_map_game icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_concept_quest_game icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_concept_runner_game icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_fill_in_the_blanks icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_flash_card icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_h5p_element icon=hax:bricks color=slateGray motion=nudge
+  %%@ node x_haxcms_page icon=hax:bricks color=slateGray motion=nudge
+  %%@ node x_image_compare_slider icon=hax:bricks color=slateGray motion=nudge
+  %%@ node x_lrndesign_imagemap icon=hax:bricks color=slateGray motion=nudge
+  %%@ node x_lrs_emitter icon=hax:bricks color=slateGray motion=nudge
+  %%@ node x_mark_the_words icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_matching_question icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_multiple_choice icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_reading_analysis icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_self_check icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_self_reflective_nudge icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_short_answer_question icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_slide_deck icon=hax:bricks color=slateGray motion=nudge
+  %%@ node x_sorting_question icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_tagging_question icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_true_false_question icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_user_action icon=hax:bricks color=slateGray motion=nudge
+  %%@ node x_video_player icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_vocab_term icon=hax:bricks color=slateGray motion=nudge
+  %%@ node insights portal=haxcms
+  %%@ node course portal

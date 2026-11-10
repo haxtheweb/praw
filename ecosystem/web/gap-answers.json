@@ -1,0 +1,513 @@
+{
+  "main": {
+    "php": {
+      "year": 2018,
+      "yearNote": "haxcms-php started July 2018",
+      "confirmed": "bto"
+    },
+    "nodejs": {
+      "year": 2024,
+      "yearNote": "haxcms-nodejs started June 2024",
+      "confirmed": "bto"
+    },
+    "issues": {
+      "year": 2020,
+      "yearNote": "haxtheweb/issues created February 2020",
+      "confirmed": "bto"
+    },
+    "praw": {
+      "year": 2025,
+      "yearNote": "praw started September 2025",
+      "confirmed": "bto"
+    },
+    "merlin": {
+      "links": {
+        "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/super-daemon",
+        "npm": "https://www.npmjs.com/package/@haxtheweb/super-daemon"
+      },
+      "confirmed": "bto",
+      "year": 2023,
+      "yearNote": "Merlin, the wand command program"
+    },
+    "languages": {
+      "year": 2021,
+      "yearNote": "Languages: i18n for any web component",
+      "confirmed": "bto"
+    },
+    "games": {
+      "year": 2022,
+      "yearNote": "rpg-character, the first game element",
+      "confirmed": "bto",
+      "links": {
+        "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/rpg-character",
+        "npm": "https://www.npmjs.com/package/@haxtheweb/rpg-character"
+      }
+    },
+    "jos": {
+      "year": 2018,
+      "yearNote": "JSON Outline Schema becomes the site structure",
+      "confirmed": "bto"
+    },
+    "github": {
+      "always": true,
+      "confirmed": "bto"
+    },
+    "npm": {
+      "always": true,
+      "confirmed": "bto"
+    },
+    "elmsln": {
+      "year": 2012,
+      "yearNote": "ELMS:LN, the platform before HAX",
+      "confirmed": "bto"
+    },
+    "mcp": {
+      "year": 2026,
+      "yearNote": "HAXcms MCP server",
+      "confirmed": "bto"
+    },
+    "deploy": {
+      "year": 2020,
+      "yearNote": "Publishing HAX sites to static hosts",
+      "confirmed": "bto",
+      "links": {
+        "npm": "https://www.npmjs.com/package/@haxtheweb/create",
+        "repo": "https://github.com/haxtheweb/create"
+      }
+    },
+    "ist": {
+      "year": 2019,
+      "yearNote": "IST connects through HAX Camp and IST 256",
+      "confirmed": "bto"
+    },
+    "eberly": {
+      "year": 2020,
+      "yearNote": "Eberly science courses move to HAX",
+      "confirmed": "bto"
+    },
+    "libraries": {
+      "year": 2022,
+      "yearNote": "University Libraries publishes plays with HAX11ty",
+      "confirmed": "bto"
+    },
+    "hax11ty": {
+      "year": 2022,
+      "yearNote": "HAX11ty, made for the Libraries plays",
+      "confirmed": "bto"
+    },
+    "uxdc": {
+      "year": 2025,
+      "yearNote": "UXDC joins the design work",
+      "confirmed": "bto"
+    },
+    "innovationhub": {
+      "year": 2024,
+      "yearNote": "Innovation Hub connects",
+      "confirmed": "bto"
+    },
+    "haxiam": {
+      "year": 2020,
+      "yearNote": "HAXiam: many HAXcms sites behind one login",
+      "confirmed": "bto"
+    },
+    "g_fusco": {
+      "year": 2025,
+      "yearNote": "Dave Fusco's AI and HAX grant",
+      "confirmed": "bto"
+    },
+    "g_frank": {
+      "year": 2026,
+      "yearNote": "Jennifer Frank's International Student Portfolio grant",
+      "confirmed": "bto"
+    },
+    "g_hhd": {
+      "year": 2026,
+      "yearNote": "HHD grant with Bill, Bryan and Blake",
+      "confirmed": "bto"
+    },
+    "grants": {
+      "always": true,
+      "confirmed": "bto"
+    },
+    "themes": {
+      "year": 2019,
+      "yearNote": "HAXcms themes",
+      "confirmed": "bto"
+    },
+    "haxschema": {
+      "year": 2018,
+      "yearNote": "HAXSchema: elements describe themselves to the editor",
+      "confirmed": "bto: schemas live in hax-schema",
+      "links": {
+        "repo": "https://github.com/haxtheweb/hax-schema",
+        "npm": "https://www.npmjs.com/package/@haxtheweb/hax-body-behaviors",
+        "docs": "https://haxtheweb.github.io/hax-schema/"
+      }
+    },
+    "oerschema": {
+      "year": 2016,
+      "yearNote": "OER Schema for open educational resources",
+      "confirmed": "bto",
+      "links": {
+        "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/oer-schema",
+        "npm": "https://www.npmjs.com/package/@haxtheweb/oer-schema"
+      }
+    },
+    "testing": {
+      "year": 2021,
+      "yearNote": "Automated tests with web-test-runner",
+      "confirmed": "bto",
+      "links": {
+        "repo": "https://github.com/haxtheweb/webcomponents/blob/master/web-test-runner.config.mjs"
+      }
+    },
+    "course": {
+      "always": true,
+      "confirmed": "bto"
+    },
+    "blog": {
+      "always": true,
+      "confirmed": "bto",
+      "desc": "Blogs and journals on HAXcms, like btopro.com, written in the same editor as courses."
+    },
+    "docs": {
+      "always": true,
+      "confirmed": "bto"
+    },
+    "textbook": {
+      "always": true,
+      "confirmed": "bto"
+    },
+    "files": {
+      "always": true,
+      "confirmed": "bto",
+      "desc": "Upload and manage a site's images, documents and media from the HAXcms admin; files stay in the site's files/ folder."
+    },
+    "nikkimk": {
+      "year": 2018,
+      "confirmed": "git first commit (approved rule)"
+    },
+    "gh_cgldevel": {
+      "year": 2019,
+      "confirmed": "git first commit (approved rule)"
+    },
+    "gh_jalbert2": {
+      "year": 2021,
+      "confirmed": "git first commit (approved rule)"
+    },
+    "gh_sanikaa3": {
+      "year": 2026,
+      "confirmed": "git first commit (approved rule)"
+    },
+    "gh_christianmurphy": {
+      "year": 2019,
+      "confirmed": "git first commit (approved rule)"
+    },
+    "gh_aam198": {
+      "year": 2020,
+      "confirmed": "git first commit (approved rule)"
+    },
+    "gh_firaol4": {
+      "year": 2026,
+      "confirmed": "git first commit (approved rule)"
+    },
+    "billrose": {
+      "year": 2022,
+      "yearNote": "Bill Rose becomes HAX product owner",
+      "confirmed": "bto"
+    },
+    "keithbailey": {
+      "year": 2012,
+      "yearNote": "Keith Bailey champions ELMS:LN; he did not work on HAX itself",
+      "confirmed": "bto"
+    },
+    "openapi": {
+      "year": 2026,
+      "yearNote": "One OpenAPI contract for haxcms-nodejs and haxcms-php",
+      "confirmed": "bto",
+      "links": {
+        "repo": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/siteRoutes/discovery/openapi.js"
+      }
+    },
+    "ubiquity": {
+      "year": 2024,
+      "yearNote": "Ubiquity: one tested release build of every element",
+      "confirmed": "bto"
+    },
+    "appstore": {
+      "year": 2018,
+      "yearNote": "The app store spec: the editor loads only the elements a site needs",
+      "confirmed": "bto",
+      "links": {
+        "repo": "https://github.com/haxtheweb/hax-schema",
+        "docs": "https://haxtheweb.github.io/hax-schema/"
+      }
+    },
+    "plugins": {
+      "year": 2026,
+      "yearNote": "A plugin architecture for HAXcms",
+      "confirmed": "bto"
+    },
+    "ssr": {
+      "year": 2026,
+      "yearNote": "Server-side rendering for search engines and AI",
+      "confirmed": "bto"
+    },
+    "wins": {
+      "year": 2025,
+      "yearNote": "WINS: sourced stories that prove the worldview works",
+      "confirmed": "bto"
+    },
+    "agents": {
+      "year": 2025,
+      "yearNote": "Agent skills for HAX",
+      "confirmed": "bto"
+    },
+    "insights": {
+      "year": 2026,
+      "yearNote": "Insights, What's New and Tips on the dashboard",
+      "confirmed": "bto",
+      "noLink": true
+    },
+    "whatsnew": {
+      "year": 2026,
+      "confirmed": "bto"
+    },
+    "tips": {
+      "year": 2026,
+      "confirmed": "bto"
+    },
+    "design": {
+      "year": 2023,
+      "yearNote": "The design practice behind HAX UI and DDD",
+      "confirmed": "bto"
+    },
+    "jfrank": {
+      "year": 2026,
+      "confirmed": "bto"
+    },
+    "wcstandard": {
+      "links": {
+        "docs": "https://developer.mozilla.org/en-US/docs/Web/API/Web_components"
+      },
+      "confirmed": "claude: high confidence (pending review)"
+    },
+    "bryan": {
+      "links": {
+        "profile": "https://github.com/btopro"
+      }
+    },
+    "mikepotter": {
+      "links": {
+        "profile": "https://github.com/heyMP"
+      }
+    },
+    "mcollins": {
+      "links": {
+        "profile": "https://github.com/michael-collins"
+      }
+    },
+    "chloe": {
+      "links": {
+        "profile": "https://github.com/chloemartin312"
+      }
+    },
+    "xapi": {
+      "links": {
+        "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/user-action"
+      },
+      "confirmed": "bto"
+    },
+    "skeletons": {
+      "noLink": true
+    },
+    "importers": {
+      "year": 2026,
+      "yearNote": "Importers: every way content gets into HAX",
+      "confirmed": "bto"
+    },
+    "learnhax": {
+      "year": 2026,
+      "yearNote": "Learn HAX, the tutorial site",
+      "confirmed": "bto"
+    }
+  },
+  "_policy": {
+    "orgs": "platforms (GitHub, npm) always present; Penn State units dated by the year they joined HAX",
+    "use_cases": "always present",
+    "people": "dated by first commit to a HAX repo"
+  },
+  "presentations": {
+    "tgov4": {
+      "year": 2018,
+      "yearLabel": "July 2018",
+      "yearNote": "Drupal4Gov webinar on HAX, July 19, 2018 (groups.drupal.org)",
+      "confirmed": "source"
+    },
+    "drupal4gov": {
+      "year": 2018,
+      "confirmed": "derived: earliest talk"
+    },
+    "govcon": {
+      "year": 2018,
+      "confirmed": "derived: earliest talk"
+    },
+    "drupalcampnj": {
+      "year": 2023,
+      "confirmed": "derived: earliest talk"
+    },
+    "fossy": {
+      "year": 2024,
+      "confirmed": "derived: earliest talk"
+    },
+    "hitech": {
+      "year": 2024,
+      "confirmed": "derived: earliest talk"
+    },
+    "zane": {
+      "year": 2023,
+      "confirmed": "derived: DrupalCamp NJ 2023"
+    },
+    "tmanymes": {
+      "year": 2026,
+      "confirmed": "bto"
+    },
+    "tperf": {
+      "year": 2020,
+      "confirmed": "bto"
+    }
+  },
+  "ist256": {
+    "p_service": {
+      "year": 2019,
+      "yearLabel": "Fall 2019",
+      "confirmed": "derived: semester in description"
+    },
+    "p_datecard": {
+      "year": 2020,
+      "yearLabel": "Spring 2020",
+      "confirmed": "derived: semester in description"
+    },
+    "p_ghpreview": {
+      "year": 2020,
+      "yearLabel": "Fall 2020",
+      "confirmed": "derived: semester in description"
+    },
+    "p_tvguide": {
+      "year": 2021,
+      "yearLabel": "Spring 2021",
+      "confirmed": "derived: semester in description"
+    },
+    "p_sorting": {
+      "year": 2021,
+      "yearLabel": "Fall 2021",
+      "confirmed": "derived: semester in description"
+    },
+    "p_flash": {
+      "year": 2021,
+      "yearLabel": "Fall 2021",
+      "confirmed": "derived: semester in description"
+    },
+    "p_mark": {
+      "year": 2021,
+      "yearLabel": "Fall 2021",
+      "confirmed": "derived: semester in description"
+    },
+    "p_vocab": {
+      "year": 2022,
+      "yearLabel": "Spring 2022",
+      "confirmed": "derived: semester in description"
+    },
+    "p_apa": {
+      "year": 2023,
+      "yearLabel": "Spring 2023",
+      "confirmed": "derived: semester in description"
+    },
+    "p_dragdrop": {
+      "year": 2023,
+      "yearLabel": "Spring 2023",
+      "confirmed": "derived: semester in description"
+    },
+    "p_rpg": {
+      "year": 2023,
+      "yearLabel": "Fall 2023",
+      "confirmed": "derived: semester in description"
+    },
+    "p_linkpreview": {
+      "year": 2023,
+      "yearLabel": "Fall 2023",
+      "confirmed": "derived: semester in description"
+    },
+    "p_lecture": {
+      "year": 2023,
+      "yearLabel": "Fall 2023",
+      "confirmed": "derived: semester in description"
+    },
+    "p_inline": {
+      "year": 2024,
+      "yearLabel": "Spring 2024",
+      "confirmed": "derived: semester in description"
+    },
+    "p_playlist": {
+      "year": 2024,
+      "yearLabel": "Spring 2024",
+      "confirmed": "derived: semester in description"
+    },
+    "p_testimonial": {
+      "year": 2024,
+      "yearLabel": "Spring 2024",
+      "confirmed": "derived: semester in description"
+    },
+    "p_gallery": {
+      "year": 2024,
+      "yearLabel": "Spring 2024",
+      "confirmed": "derived: semester in description"
+    },
+    "p_party": {
+      "year": 2024,
+      "yearLabel": "Spring 2024",
+      "confirmed": "derived: semester in description"
+    },
+    "p_search": {
+      "year": 2024,
+      "yearLabel": "Fall 2024",
+      "confirmed": "derived: semester in description"
+    },
+    "p_unsdg": {
+      "year": 2024,
+      "yearLabel": "Fall 2024",
+      "confirmed": "derived: semester in description"
+    },
+    "p_usecases": {
+      "year": 2024,
+      "yearLabel": "Fall 2024",
+      "confirmed": "derived: semester in description"
+    },
+    "p_steps": {
+      "year": 2025,
+      "yearLabel": "Spring 2025",
+      "confirmed": "derived: semester in description"
+    },
+    "p_aiul": {
+      "year": 2025,
+      "yearLabel": "Spring 2025",
+      "confirmed": "derived: semester in description"
+    },
+    "p_portthemes": {
+      "year": 2025,
+      "yearLabel": "Spring 2025",
+      "confirmed": "derived: semester in description"
+    },
+    "p_fox": {
+      "year": 2025,
+      "yearLabel": "Fall 2025",
+      "confirmed": "derived: semester in description"
+    },
+    "p_dyngallery": {
+      "year": 2026,
+      "yearLabel": "Spring 2026",
+      "confirmed": "derived: semester in description"
+    }
+  },
+  "themes": {}
+}

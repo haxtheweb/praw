@@ -1,0 +1,268 @@
+%% HAX presentations sub-web: plain Mermaid flowchart plus %%@ annotations.
+%% Nodes that share an id with the ecosystem web (hax-ecosystem.mmd) are portals: they take their icon,
+%% color and details from there and link back to it. Details live in hax-presentations.json.
+flowchart TB
+  %%@ layout rings=0,380,650,890 sizes=92,46,50,42
+  subgraph hub ["Presentations"]
+    presentations["Presentations"]
+  end
+  subgraph talks ["Talks"]
+    t17balt>"Mad Scientist Road show"]
+    t18nash>"Webcomponents, Polymer and HAX"]
+    t18gov>"HAX: the best Drupal authoring experience, by not making it for Drupal"]
+    t19seattle>"HAXcms announced at DrupalCon Seattle"]
+    t19gov>"Future proofing design work with web components"]
+    t19apereo>"HAXTheWeb @ Apereo 19"]
+    t23njcamp>"HAX: decoupling authoring from Drupal to use anywhere"]
+    t23ontology>"HAX Ontology"]
+    t23horizon>"HAX Horizon Report"]
+    t24hitech>"HiTech Podcast ep. 168: Reclaiming the Internet"]
+    t24fossy>"So you want a (web) revolution?"]
+    t25state>"2025: State of HAX Community"]
+    t25fossy>"FOSSY 2025: ten years from a notepad"]
+    t26nothing>"Nothing is intentional, until it is"]
+    t26siip>"SIIP: a Conversation with HAX"]
+    tmanymes>"The Many Mes"]
+    tperf>"THE web components high performance video"]
+    tgov4>"Drupal4Gov webinar: HAX"]
+  end
+  subgraph topics ["What they covered"]
+    accessible["accessible"]
+    agents["agents"]
+    agnostic["agnostic"]
+    cli["cli"]
+    components["components"]
+    course["course"]
+    ddd["ddd"]
+    design["design"]
+    editor["editor"]
+    efficient["efficient"]
+    elmsln["elmsln"]
+    extensible["extensible"]
+    hax11ty["hax11ty"]
+    haxcms["haxcms"]
+    haxlab["haxlab"]
+    jos["jos"]
+    keithbailey["keithbailey"]
+    libraries["libraries"]
+    open["open"]
+    praw["praw"]
+    remixable["remixable"]
+    security["security"]
+    skeletons["skeletons"]
+    sustainable["sustainable"]
+    textbook["textbook"]
+    themes["themes"]
+    ubiquity["ubiquity"]
+    wcstandard["wcstandard"]
+    wins["wins"]
+  end
+  subgraph speakers ["Speakers"]
+    alyssa(("alyssa"))
+    ashley(("ashley"))
+    billrose(("billrose"))
+    bryan(("bryan"))
+    fusco(("fusco"))
+    jfrank(("jfrank"))
+    jimmykane(("jimmykane"))
+    mikepotter(("mikepotter"))
+    nikkimk(("nikkimk"))
+    winston(("winston"))
+    zane(("Zane Sensenig"))
+  end
+  subgraph venues ["Venues"]
+    drupalcon[["drupalcon"]]
+    apereo[["apereo"]]
+    govcon[["Drupal GovCon"]]
+    drupalcampnj[["DrupalCamp NJ"]]
+    fossy[["FOSSY"]]
+    hitech[["HiTech Podcast"]]
+    drupal4gov[["Drupal4Gov"]]
+  end
+
+  presentations -->|includes| t17balt
+  bryan ---|presented| t17balt
+  mikepotter ---|presented| t17balt
+  t17balt -->|covers| elmsln
+  t17balt -->|covers| editor
+  t17balt -->|covers| wcstandard
+  t17balt -->|covers| components
+  t17balt --o|was given at| drupalcon
+  presentations -->|includes| t18nash
+  bryan ---|presented| t18nash
+  nikkimk ---|presented| t18nash
+  t18nash -->|covers| editor
+  t18nash -->|covers| components
+  t18nash -->|covers| wcstandard
+  t18nash --o|was given at| drupalcon
+  presentations -->|includes| t18gov
+  bryan ---|presented| t18gov
+  t18gov -->|covers| editor
+  t18gov --o|was given at| govcon
+  presentations -->|includes| t19seattle
+  bryan ---|presented| t19seattle
+  t19seattle -->|covers| haxcms
+  t19seattle -->|covers| components
+  t19seattle --o|was given at| drupalcon
+  presentations -->|includes| t19gov
+  bryan ---|presented| t19gov
+  t19gov -->|covers| components
+  t19gov -->|covers| design
+  t19gov --o|was given at| govcon
+  presentations -->|includes| t19apereo
+  bryan ---|presented| t19apereo
+  t19apereo -->|covers| editor
+  t19apereo -->|covers| haxcms
+  t19apereo --o|was given at| apereo
+  presentations -->|includes| t23njcamp
+  bryan ---|presented| t23njcamp
+  mikepotter ---|presented| t23njcamp
+  zane ---|presented| t23njcamp
+  t23njcamp -->|covers| editor
+  t23njcamp --o|was given at| drupalcampnj
+  presentations -->|includes| t23ontology
+  billrose ---|presented| t23ontology
+  t23ontology -->|covers| course
+  presentations -->|includes| t23horizon
+  bryan ---|presented| t23horizon
+  t23horizon -->|covers| haxcms
+  t23horizon -->|covers| jos
+  t23horizon -->|covers| hax11ty
+  t23horizon -->|covers| libraries
+  t23horizon -->|covers| themes
+  presentations -->|includes| t24hitech
+  bryan ---|presented| t24hitech
+  t24hitech -->|covers| elmsln
+  t24hitech -->|covers| wcstandard
+  t24hitech -->|covers| editor
+  t24hitech -->|covers| keithbailey
+  t24hitech -->|covers| mikepotter
+  t24hitech --o|was given at| hitech
+  presentations -->|includes| t24fossy
+  bryan ---|presented| t24fossy
+  t24fossy -->|covers| editor
+  t24fossy -->|covers| components
+  t24fossy -->|covers| open
+  t24fossy --o|was given at| fossy
+  presentations -->|includes| t25state
+  bryan ---|presented| t25state
+  t25state -->|covers| haxlab
+  t25state -->|covers| ddd
+  t25state -->|covers| agents
+  t25state -->|covers| accessible
+  t25state -->|covers| efficient
+  t25state -->|covers| extensible
+  t25state -->|covers| open
+  t25state -->|covers| agnostic
+  t25state -->|covers| remixable
+  t25state -->|covers| sustainable
+  presentations -->|includes| t25fossy
+  bryan ---|presented| t25fossy
+  t25fossy -->|covers| haxlab
+  t25fossy -->|covers| cli
+  t25fossy -->|covers| security
+  t25fossy --o|was given at| fossy
+  presentations -->|includes| t26nothing
+  bryan ---|presented| t26nothing
+  t26nothing -->|covers| ubiquity
+  t26nothing -->|covers| haxcms
+  t26nothing -->|covers| themes
+  t26nothing -->|covers| wins
+  presentations -->|includes| t26siip
+  bryan ---|presented| t26siip
+  billrose ---|presented| t26siip
+  jfrank ---|presented| t26siip
+  fusco ---|presented| t26siip
+  winston ---|presented| t26siip
+  jimmykane ---|presented| t26siip
+  ashley ---|presented| t26siip
+  alyssa ---|presented| t26siip
+  t26siip -->|covers| haxlab
+  t26siip -->|covers| cli
+  t26siip -->|covers| skeletons
+  t26siip -->|covers| textbook
+  t26siip -->|covers| wins
+  t26siip --o|was given at| apereo
+  presentations -->|includes| tmanymes
+  bryan ---|presented| tmanymes
+  tmanymes -->|covers| praw
+  tmanymes -->|covers| agents
+  presentations -->|includes| tperf
+  bryan ---|presented| tperf
+  tperf -->|covers| components
+  tperf -->|covers| efficient
+  presentations -->|includes| tgov4
+  tgov4 -->|covers| editor
+  tgov4 --o|was given at| drupal4gov
+
+  %%@ group hub tier=0
+  %%@ group talks tier=1
+  %%@ group topics tier=2
+  %%@ group speakers tier=3
+  %%@ group venues tier=3
+  %%@ node presentations portal
+  %%@ node t17balt icon=image:slideshow color=beaverBlue motion=lift
+  %%@ node t18nash icon=image:slideshow color=beaverBlue motion=lift
+  %%@ node t18gov icon=image:slideshow color=beaverBlue motion=lift
+  %%@ node t19seattle icon=image:slideshow color=beaverBlue motion=lift
+  %%@ node t19gov icon=image:slideshow color=beaverBlue motion=lift
+  %%@ node t19apereo icon=image:slideshow color=beaverBlue motion=lift
+  %%@ node t23njcamp icon=image:slideshow color=creekTeal motion=lift
+  %%@ node t23ontology icon=hax:video color=creekTeal motion=lift
+  %%@ node t23horizon icon=hax:video color=creekTeal motion=lift
+  %%@ node t24hitech icon=hax:podcast color=creekTeal motion=lift
+  %%@ node t24fossy icon=image:slideshow color=creekTeal motion=lift
+  %%@ node t25state icon=hax:video color=inventOrange motion=lift
+  %%@ node t25fossy icon=image:slideshow color=inventOrange motion=lift
+  %%@ node t26nothing icon=hax:video color=inventOrange motion=lift
+  %%@ node t26siip icon=hax:video color=inventOrange motion=lift
+  %%@ node tmanymes icon=image:slideshow color=limestoneGray motion=lift
+  %%@ node tperf icon=hax:video color=limestoneGray motion=lift
+  %%@ node tgov4 icon=image:slideshow color=limestoneGray motion=lift
+  %%@ node accessible portal
+  %%@ node agents portal
+  %%@ node agnostic portal
+  %%@ node cli portal
+  %%@ node components portal
+  %%@ node course portal
+  %%@ node ddd portal
+  %%@ node design portal
+  %%@ node editor portal
+  %%@ node efficient portal
+  %%@ node elmsln portal
+  %%@ node extensible portal
+  %%@ node hax11ty portal
+  %%@ node haxcms portal
+  %%@ node haxlab portal
+  %%@ node jos portal
+  %%@ node keithbailey portal
+  %%@ node libraries portal
+  %%@ node open portal
+  %%@ node praw portal
+  %%@ node remixable portal
+  %%@ node security portal
+  %%@ node skeletons portal
+  %%@ node sustainable portal
+  %%@ node textbook portal
+  %%@ node themes portal
+  %%@ node ubiquity portal
+  %%@ node wcstandard portal
+  %%@ node wins portal
+  %%@ node alyssa portal
+  %%@ node ashley portal
+  %%@ node billrose portal
+  %%@ node bryan portal
+  %%@ node fusco portal
+  %%@ node jfrank portal
+  %%@ node jimmykane portal
+  %%@ node mikepotter portal
+  %%@ node nikkimk portal
+  %%@ node winston portal
+  %%@ node zane mono=ZS color=keystoneYellow motion=pop
+  %%@ node drupalcon portal
+  %%@ node apereo portal
+  %%@ node govcon mono=GOV color=slateGray motion=lift
+  %%@ node drupalcampnj mono=NJ color=forestGreen motion=lift
+  %%@ node fossy mono=FOSSY color=landgrantBrown motion=lift
+  %%@ node hitech mono=HT color=original87Pink motion=lift
+  %%@ node drupal4gov mono=D4G color=skyBlue motion=lift

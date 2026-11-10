@@ -1,0 +1,370 @@
+%% HAX blocks sub-web: the blocks in the HAX app store, grouped by HAX's own categories.
+%% Ids shared with hax-ecosystem.mmd are portals. Details live in hax-elements.json.
+flowchart TB
+  %%@ layout rings=0,250,520,740,980 sizes=92,56,46,46,44
+  subgraph hub ["Web components"]
+    components["components"]
+  end
+  subgraph cats ["Block categories"]
+    cat_instructional["Instructional"]
+    cat_media["Media"]
+    cat_layout["Layout"]
+    cat_content["Content"]
+    cat_text["Text"]
+    cat_other["Other"]
+  end
+  subgraph blocksA ["Blocks"]
+    b_code_sample["Code sample"]
+    b_fill_in_the_blanks["Fill in the blanks"]
+    b_h5p_element["H5P"]
+    b_mark_the_words["Mark the words"]
+    b_lrn_math["Math"]
+    b_self_check["Self Check"]
+    b_sorting_question["Sorting Question"]
+    b_tagging_question["Tagging Question"]
+    b_true_false_question["True / False Question"]
+    b_worksheet_download["Worksheet Download"]
+    b_audio_player["Audio"]
+    b_a11y_gif_player["GIF"]
+    b_image_gallery["Image Gallery"]
+    b_media_playlist["Media Playlist"]
+    b_spotify_embed["Spotify"]
+    b_video_player["Video"]
+    b_block_quote["Block quote"]
+    b_accent_card["Card"]
+    b_grid_plate["Column layout"]
+    b_page_section["Page section"]
+    b_bibliography_builder["Bibliography builder"]
+    b_career_org_item["Career Item"]
+    b_career_timeline["Career timeline"]
+    b_citation_element["Citation"]
+    b_ai_usage_license["AI Usage License"]
+    b_date_card["Date"]
+    b_md_block["Markdown"]
+    b_page_break["Page details"]
+    b_q_r["QR Code"]
+    b_rpg_character["RPG Character"]
+    b_simple_tags["Tags"]
+    b_wikipedia_query["Wikipedia"]
+  end
+  subgraph blocksB ["Blocks"]
+    b_ebook_button["Ebook button"]
+    b_flash_card["Flash card"]
+    b_learning_component["Learning Component"]
+    b_matching_question["Matching Question"]
+    b_multiple_choice["Multiple choice"]
+    b_short_answer_question["Short Answer Question"]
+    b_stop_note["Stop Note"]
+    b_lrndesign_timeline["Timeline"]
+    b_vocab_term["Vocab"]
+    b_media_image["Enhanced Image"]
+    b_image_compare_slider["Image compare"]
+    b_inline_audio["Inline audio"]
+    b_meme_maker["Meme"]
+    b_tableau_embed["Tableau"]
+    b_simple_cta["Call to action"]
+    b_a11y_collapse["Collapsible container"]
+    b_person_testimonial["Image Blockquote"]
+    b_play_list["Play list"]
+    b_bibliography_item["Bibliography item"]
+    b_career_role_item["Career Role"]
+    b_place_holder["Placeholder"]
+    b_course_model["course model"]
+    b_license_element["License"]
+    b_page_anchor["Page Anchor"]
+    b_page_flag["Page flag"]
+    b_site_remote_content["Remote Content"]
+    b_moar_sarcasm["Sarcasm"]
+    b_twitter_embed["Twitter (X) embed"]
+  end
+  subgraph ontology ["Course ontology and links"]
+    br_assessment{{"Assessment"}}
+    br_instruction{{"Instruction"}}
+    br_content{{"Content"}}
+    br_structure{{"Structure"}}
+    br_pedagogy{{"Pedagogy"}}
+    kai(("kai"))
+    kcharlton(("kcharlton"))
+    mcollins(("mcollins"))
+    traveler(("traveler"))
+    winston(("winston"))
+    zach(("zach"))
+    haxschema[("haxschema")]
+    appstore[("appstore")]
+    editor["editor"]
+    accessible{{"accessible"}}
+    remixable{{"remixable"}}
+    course(["course"])
+    portfolio(["portfolio"])
+    eberly[["eberly"]]
+    wins["wins"]
+    ddd["ddd"]
+    hanna(("hanna"))
+    jimmykane(("jimmykane"))
+  end
+
+  components -->|groups blocks into| cat_instructional
+  components -->|groups blocks into| cat_media
+  components -->|groups blocks into| cat_layout
+  components -->|groups blocks into| cat_content
+  components -->|groups blocks into| cat_text
+  components -->|groups blocks into| cat_other
+  haxschema -.->|describes the editing form of every block in| components
+  appstore -.->|loads these blocks into| editor
+  components -->|are placed with| editor
+  cat_instructional -->|includes| b_code_sample
+  b_code_sample ==>|serves| br_content
+  cat_instructional -->|includes| b_ebook_button
+  b_ebook_button ==>|serves| br_content
+  cat_instructional -->|includes| b_fill_in_the_blanks
+  b_fill_in_the_blanks ==>|serves| br_assessment
+  cat_instructional -->|includes| b_flash_card
+  b_flash_card ==>|serves| br_assessment
+  cat_instructional -->|includes| b_h5p_element
+  b_h5p_element ==>|serves| br_instruction
+  cat_instructional -->|includes| b_learning_component
+  b_learning_component ==>|serves| br_pedagogy
+  b_learning_component -->|is used in| course
+  cat_instructional -->|includes| b_mark_the_words
+  b_mark_the_words ==>|serves| br_assessment
+  cat_instructional -->|includes| b_matching_question
+  b_matching_question ==>|serves| br_assessment
+  cat_instructional -->|includes| b_lrn_math
+  b_lrn_math ==>|serves| br_content
+  cat_instructional -->|includes| b_multiple_choice
+  b_multiple_choice ==>|serves| br_assessment
+  cat_instructional -->|includes| b_self_check
+  b_self_check ==>|serves| br_assessment
+  b_self_check ==>|serves| br_pedagogy
+  cat_instructional -->|includes| b_short_answer_question
+  b_short_answer_question ==>|serves| br_assessment
+  cat_instructional -->|includes| b_sorting_question
+  b_sorting_question ==>|serves| br_assessment
+  cat_instructional -->|includes| b_stop_note
+  b_stop_note ==>|serves| br_pedagogy
+  b_stop_note ==>|serves| br_structure
+  cat_instructional -->|includes| b_tagging_question
+  b_tagging_question ==>|serves| br_assessment
+  cat_instructional -->|includes| b_lrndesign_timeline
+  b_lrndesign_timeline ==>|serves| br_content
+  b_lrndesign_timeline ==>|serves| br_instruction
+  cat_instructional -->|includes| b_true_false_question
+  b_true_false_question ==>|serves| br_assessment
+  cat_instructional -->|includes| b_vocab_term
+  b_vocab_term ==>|serves| br_content
+  cat_instructional -->|includes| b_worksheet_download
+  b_worksheet_download ==>|serves| br_content
+  cat_media -->|includes| b_audio_player
+  b_audio_player ==>|serves| br_instruction
+  b_audio_player -->|keeps it| accessible
+  cat_media -->|includes| b_media_image
+  b_media_image ==>|serves| br_instruction
+  cat_media -->|includes| b_a11y_gif_player
+  b_a11y_gif_player ==>|serves| br_instruction
+  b_a11y_gif_player -->|keeps it| accessible
+  cat_media -->|includes| b_image_compare_slider
+  b_image_compare_slider ==>|serves| br_instruction
+  cat_media -->|includes| b_image_gallery
+  b_image_gallery ==>|serves| br_structure
+  b_image_gallery ==>|serves| br_instruction
+  cat_media -->|includes| b_inline_audio
+  b_inline_audio ==>|serves| br_instruction
+  cat_media -->|includes| b_media_playlist
+  b_media_playlist ==>|serves| br_instruction
+  cat_media -->|includes| b_meme_maker
+  b_meme_maker ==>|serves| br_instruction
+  cat_media -->|includes| b_spotify_embed
+  b_spotify_embed ==>|serves| br_instruction
+  cat_media -->|includes| b_tableau_embed
+  b_tableau_embed ==>|serves| br_instruction
+  cat_media -->|includes| b_video_player
+  b_video_player ==>|serves| br_instruction
+  b_video_player -->|keeps it| accessible
+  cat_layout -->|includes| b_block_quote
+  b_block_quote ==>|serves| br_structure
+  cat_layout -->|includes| b_simple_cta
+  b_simple_cta ==>|serves| br_structure
+  cat_layout -->|includes| b_accent_card
+  b_accent_card ==>|serves| br_structure
+  b_accent_card ==>|serves| br_instruction
+  cat_layout -->|includes| b_a11y_collapse
+  b_a11y_collapse ==>|serves| br_structure
+  cat_layout -->|includes| b_grid_plate
+  b_grid_plate ==>|serves| br_structure
+  cat_layout -->|includes| b_person_testimonial
+  b_person_testimonial ==>|serves| br_structure
+  b_person_testimonial ==>|serves| br_instruction
+  cat_layout -->|includes| b_page_section
+  b_page_section ==>|serves| br_structure
+  cat_layout -->|includes| b_play_list
+  b_play_list ==>|serves| br_structure
+  b_play_list ==>|serves| br_instruction
+  cat_content -->|includes| b_bibliography_builder
+  b_bibliography_builder ==>|serves| br_content
+  b_bibliography_builder -->|is used in| portfolio
+  cat_content -->|includes| b_bibliography_item
+  b_bibliography_item ==>|serves| br_content
+  b_bibliography_item -->|is used in| portfolio
+  cat_content -->|includes| b_career_org_item
+  cat_content -->|includes| b_career_role_item
+  cat_content -->|includes| b_career_timeline
+  b_career_timeline ==>|serves| br_content
+  b_career_timeline -->|is used in| portfolio
+  cat_text -->|includes| b_citation_element
+  b_citation_element ==>|serves| br_content
+  cat_text -->|includes| b_place_holder
+  b_place_holder ==>|serves| br_content
+  b_place_holder ==>|serves| br_instruction
+  cat_other -->|includes| b_ai_usage_license
+  b_ai_usage_license -->|keeps it| remixable
+  cat_other -->|includes| b_course_model
+  b_course_model -->|is used in| course
+  b_course_model --o|was made with| eberly
+  cat_other -->|includes| b_date_card
+  cat_other -->|includes| b_license_element
+  b_license_element ==>|serves| br_content
+  b_license_element -->|keeps it| remixable
+  cat_other -->|includes| b_md_block
+  b_md_block ==>|serves| br_content
+  cat_other -->|includes| b_page_anchor
+  cat_other -->|includes| b_page_break
+  b_page_break ==>|serves| br_structure
+  cat_other -->|includes| b_page_flag
+  b_page_flag ==>|serves| br_pedagogy
+  b_page_flag ==>|serves| br_structure
+  cat_other -->|includes| b_q_r
+  b_q_r ==>|serves| br_content
+  cat_other -->|includes| b_site_remote_content
+  b_site_remote_content ==>|serves| br_content
+  cat_other -->|includes| b_rpg_character
+  cat_other -->|includes| b_moar_sarcasm
+  cat_other -->|includes| b_simple_tags
+  cat_other -->|includes| b_twitter_embed
+  cat_other -->|includes| b_wikipedia_query
+  b_wikipedia_query ==>|serves| br_content
+  hanna ---|built| b_vocab_term
+  jimmykane ---|designed the 8-bit characters for| b_rpg_character
+  wins -->|records a win for| b_accent_card
+  ddd -->|styles| components
+  kcharlton ---|made 2 commits to| b_citation_element
+  kai ---|made 5 commits to| b_tagging_question
+  kcharlton ---|made 6 commits to| b_simple_cta
+  kai ---|made 4 commits to| b_inline_audio
+  kcharlton ---|made 6 commits to| b_learning_component
+  kai ---|made 3 commits to| b_self_check
+  kcharlton ---|made 6 commits to| b_block_quote
+  winston ---|made 3 commits to| b_a11y_collapse
+  kcharlton ---|made 3 commits to| b_accent_card
+  kcharlton ---|made 6 commits to| b_ebook_button
+  kcharlton ---|made 6 commits to| b_worksheet_download
+  mcollins ---|made 1 commits to| b_ai_usage_license
+  zach ---|made 2 commits to| b_rpg_character
+  winston ---|made 4 commits to| b_career_org_item
+  winston ---|made 4 commits to| b_career_role_item
+  winston ---|made 4 commits to| b_career_timeline
+  traveler ---|made 74 commits as Claude to| b_site_remote_content
+  traveler ---|made 33 commits as Claude to| b_simple_tags
+  traveler ---|made 30 commits as Claude to| b_learning_component
+  traveler ---|made 30 commits as Claude to| b_block_quote
+  traveler ---|made 30 commits as Claude to| b_ebook_button
+  traveler ---|made 30 commits as Claude to| b_worksheet_download
+  traveler ---|made 29 commits as Claude to| b_multiple_choice
+  traveler ---|made 29 commits as Claude to| b_true_false_question
+  traveler ---|made 29 commits as Claude to| b_short_answer_question
+  traveler ---|made 28 commits as Claude to| b_sorting_question
+
+  %%@ group hub tier=0
+  %%@ group cats tier=1
+  %%@ group blocksA tier=2
+  %%@ group blocksB tier=3
+  %%@ group ontology tier=4
+  %%@ node components portal
+  %%@ node cat_instructional icon=hax:lesson color=opportunityGreen motion=pop
+  %%@ node cat_media icon=hax:multimedia color=skyBlue motion=pop
+  %%@ node cat_layout icon=hax:3-3-3-3 color=inventOrange motion=pop
+  %%@ node cat_content icon=hax:paragraph color=wonderPurple motion=pop
+  %%@ node cat_text icon=hax:format-textblock color=beaverBlue motion=pop
+  %%@ node cat_other icon=hax:apps color=slateGray motion=pop
+  %%@ node b_code_sample icon=icons:code color=opportunityGreen motion=lift
+  %%@ node b_ebook_button icon=icons:book color=opportunityGreen motion=lift
+  %%@ node b_fill_in_the_blanks icon=editor:space-bar color=opportunityGreen motion=lift
+  %%@ node b_flash_card icon=av:call-to-action color=opportunityGreen motion=lift
+  %%@ node b_h5p_element icon=icons:android color=opportunityGreen motion=lift
+  %%@ node b_learning_component icon=icons:bookmark color=opportunityGreen motion=lift
+  %%@ node b_mark_the_words icon=icons:receipt color=opportunityGreen motion=lift
+  %%@ node b_matching_question icon=editor:drag-handle color=opportunityGreen motion=lift
+  %%@ node b_lrn_math icon=hax:pi color=opportunityGreen motion=lift
+  %%@ node b_multiple_choice icon=hax:multiple-choice color=opportunityGreen motion=lift
+  %%@ node b_self_check icon=icons:check-circle color=opportunityGreen motion=lift
+  %%@ node b_short_answer_question icon=hax:multiple-choice color=opportunityGreen motion=lift
+  %%@ node b_sorting_question icon=icons:credit-card color=opportunityGreen motion=lift
+  %%@ node b_stop_note icon=icons:report color=opportunityGreen motion=lift
+  %%@ node b_tagging_question icon=icons:line-style color=opportunityGreen motion=lift
+  %%@ node b_lrndesign_timeline icon=hax:timeline color=opportunityGreen motion=lift
+  %%@ node b_true_false_question icon=hax:multiple-choice color=opportunityGreen motion=lift
+  %%@ node b_vocab_term icon=hax:vocab color=opportunityGreen motion=lift
+  %%@ node b_worksheet_download icon=icons:file-download color=opportunityGreen motion=lift
+  %%@ node b_audio_player icon=av:music-video color=skyBlue motion=lift
+  %%@ node b_media_image icon=editor:insert-photo color=skyBlue motion=lift
+  %%@ node b_a11y_gif_player icon=icons:gif color=skyBlue motion=lift
+  %%@ node b_image_compare_slider icon=image:compare color=skyBlue motion=lift
+  %%@ node b_image_gallery icon=image:photo-library color=skyBlue motion=lift
+  %%@ node b_inline_audio icon=av:volume-up color=skyBlue motion=lift
+  %%@ node b_media_playlist icon=av:playlist-play color=skyBlue motion=lift
+  %%@ node b_meme_maker icon=hax:meme color=skyBlue motion=lift
+  %%@ node b_spotify_embed icon=hax:spotify color=skyBlue motion=lift
+  %%@ node b_tableau_embed icon=hax:graph color=skyBlue motion=lift
+  %%@ node b_video_player icon=av:play-circle-filled color=skyBlue motion=lift
+  %%@ node b_block_quote icon=editor:format-quote color=inventOrange motion=lift
+  %%@ node b_simple_cta icon=image:crop-16-9 color=inventOrange motion=lift
+  %%@ node b_accent_card icon=icons:chrome-reader-mode color=inventOrange motion=lift
+  %%@ node b_a11y_collapse icon=icons:view-day color=inventOrange motion=lift
+  %%@ node b_grid_plate icon=hax:3-3-3-3 color=inventOrange motion=lift
+  %%@ node b_person_testimonial icon=editor:format-quote color=inventOrange motion=lift
+  %%@ node b_page_section icon=av:call-to-action color=inventOrange motion=lift
+  %%@ node b_play_list icon=hax:view-gallery color=inventOrange motion=lift
+  %%@ node b_bibliography_builder icon=icons:android color=wonderPurple motion=lift
+  %%@ node b_bibliography_item icon=icons:android color=wonderPurple motion=lift
+  %%@ node b_career_org_item icon=icons:chrome-reader-mode color=wonderPurple motion=lift
+  %%@ node b_career_role_item icon=icons:chrome-reader-mode color=wonderPurple motion=lift
+  %%@ node b_career_timeline icon=icons:android color=wonderPurple motion=lift
+  %%@ node b_citation_element icon=editor:title color=beaverBlue motion=lift
+  %%@ node b_place_holder icon=hax:placeholder-image color=beaverBlue motion=lift
+  %%@ node b_ai_usage_license icon=hardware:memory color=slateGray motion=lift
+  %%@ node b_course_model icon=icons:3d-rotation color=slateGray motion=lift
+  %%@ node b_date_card icon=hax:calendar color=slateGray motion=lift
+  %%@ node b_license_element icon=icons:copyright color=slateGray motion=lift
+  %%@ node b_md_block icon=icons:code color=slateGray motion=lift
+  %%@ node b_page_anchor icon=hax:anchor color=slateGray motion=lift
+  %%@ node b_page_break icon=editor:format-page-break color=slateGray motion=lift
+  %%@ node b_page_flag icon=lrn:quiz color=slateGray motion=lift
+  %%@ node b_q_r icon=hax:qr-code color=slateGray motion=lift
+  %%@ node b_site_remote_content icon=hax:remote color=slateGray motion=lift
+  %%@ node b_rpg_character icon=hax:hax2022 color=slateGray motion=lift
+  %%@ node b_moar_sarcasm icon=hax:case-sensitive-alt color=slateGray motion=lift
+  %%@ node b_simple_tags icon=icons:line-style color=slateGray motion=lift
+  %%@ node b_twitter_embed icon=hax:twitter color=slateGray motion=lift
+  %%@ node b_wikipedia_query icon=icons:book color=slateGray motion=lift
+  %%@ node br_assessment icon=hax:assess color=nittanyNavy motion=pop
+  %%@ node br_instruction icon=hax:engage color=nittanyNavy motion=pop
+  %%@ node br_content icon=hax:documents color=nittanyNavy motion=pop
+  %%@ node br_structure icon=hax:module color=nittanyNavy motion=pop
+  %%@ node br_pedagogy icon=hax:consult color=nittanyNavy motion=pop
+  %%@ node kai portal
+  %%@ node kcharlton portal
+  %%@ node mcollins portal
+  %%@ node traveler portal
+  %%@ node winston portal
+  %%@ node zach portal
+  %%@ node haxschema portal
+  %%@ node appstore portal
+  %%@ node editor portal
+  %%@ node accessible portal
+  %%@ node remixable portal
+  %%@ node course portal
+  %%@ node portfolio portal
+  %%@ node eberly portal
+  %%@ node wins portal
+  %%@ node ddd portal
+  %%@ node hanna portal
+  %%@ node jimmykane portal

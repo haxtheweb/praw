@@ -1,0 +1,112 @@
+%% Site anatomy sub-web: what is on disk when you export a HAX site, authored versus generated, and what writes each file.
+%% Portals: ids from hax-ecosystem.mmd and hax-haxcms.mmd. Details in hax-anatomy.json.
+flowchart TB
+  %%@ layout rings=0,240,470,720 sizes=92,64,58,52
+  subgraph hub ["A HAX site on disk"]
+    site["A HAX site on disk"]
+  end
+  subgraph authored ["Authored: yours to edit"]
+    f_sitejson["site.json"]
+    f_pages["pages/<id>/index.html"]
+    f_files["files/"]
+    f_theme["theme/"]
+    f_custom["custom/"]
+  end
+  subgraph generated ["Generated: rebuilt, never hand-edited"]
+    f_registry["wc-registry.json"]
+    f_autoload["build.js and the autoloader"]
+    f_magic["the magic script"]
+    f_llms["llms.txt"]
+    f_maps["sitemap.xml, robots.txt, rss.xml"]
+    f_search["lunrSearchIndex.json"]
+    f_pwa["manifest.json and service-worker.js"]
+    f_wellknown[".well-known/"]
+    f_static["index.html, 404.html"]
+  end
+  subgraph writers ["What writes them"]
+    outline["outline"]
+    editor["editor"]
+    files["files"]
+    themes["themes"]
+    ubiquity["ubiquity"]
+    haxcms["haxcms"]
+    cli["cli"]
+    components["components"]
+    deploy["deploy"]
+    hax11ty["hax11ty"]
+    skeletons["skeletons"]
+    agents["agents"]
+  end
+
+  site -->|holds| f_sitejson
+  site -->|holds| f_pages
+  site -->|holds| f_files
+  site -->|holds| f_theme
+  site -->|holds| f_custom
+  site -->|is served with| f_registry
+  site -->|is served with| f_autoload
+  site -->|is served with| f_magic
+  site -->|is served with| f_llms
+  site -->|is served with| f_maps
+  site -->|is served with| f_search
+  site -->|is served with| f_pwa
+  site -->|is served with| f_wellknown
+  site -->|is served with| f_static
+  f_autoload -.->|reads| f_registry
+  f_magic -->|loads| f_autoload
+  f_magic -->|loads| f_registry
+  f_sitejson -.->|locates| f_pages
+  outline -->|writes| f_sitejson
+  editor -->|writes| f_pages
+  files -->|fills| f_files
+  themes -->|layer under| f_theme
+  ubiquity -->|builds| f_registry
+  haxcms -->|generates| f_llms
+  haxcms -->|generates| f_maps
+  haxcms -->|generates| f_search
+  haxcms -->|generates| f_pwa
+  haxcms -->|generates| f_wellknown
+  haxcms -->|generates| f_static
+  cli -->|creates and builds| f_sitejson
+  cli -->|creates and builds| f_pages
+  components -->|are loaded by| f_autoload
+  deploy -->|publishes| f_static
+  hax11ty -->|renders from| f_sitejson
+  hax11ty -->|renders from| f_pages
+  skeletons -->|ship as| f_sitejson
+  skeletons -->|ship as| f_pages
+  skeletons -->|ship as| f_files
+  agents -->|discover through| f_wellknown
+  agents -->|discover through| f_llms
+
+  %%@ group hub tier=0
+  %%@ group authored tier=1
+  %%@ group generated tier=2
+  %%@ group writers tier=3
+  %%@ node site icon=hax:site-map color=discoveryCoral motion=pop
+  %%@ node f_sitejson icon=hax:page-edit color=opportunityGreen motion=nudge
+  %%@ node f_pages icon=hax:page-edit color=opportunityGreen motion=nudge
+  %%@ node f_files icon=hax:page-edit color=opportunityGreen motion=nudge
+  %%@ node f_theme icon=hax:page-edit color=opportunityGreen motion=nudge
+  %%@ node f_custom icon=hax:page-edit color=opportunityGreen motion=nudge
+  %%@ node f_registry icon=icons:build color=slateGray motion=nudge
+  %%@ node f_autoload icon=icons:build color=slateGray motion=nudge
+  %%@ node f_magic icon=icons:build color=slateGray motion=nudge
+  %%@ node f_llms icon=icons:build color=slateGray motion=nudge
+  %%@ node f_maps icon=icons:build color=slateGray motion=nudge
+  %%@ node f_search icon=icons:build color=slateGray motion=nudge
+  %%@ node f_pwa icon=icons:build color=slateGray motion=nudge
+  %%@ node f_wellknown icon=icons:build color=slateGray motion=nudge
+  %%@ node f_static icon=icons:build color=slateGray motion=nudge
+  %%@ node outline portal=haxcms
+  %%@ node editor portal
+  %%@ node files portal=haxcms
+  %%@ node themes portal
+  %%@ node ubiquity portal
+  %%@ node haxcms portal
+  %%@ node cli portal
+  %%@ node components portal
+  %%@ node deploy portal
+  %%@ node hax11ty portal
+  %%@ node skeletons portal
+  %%@ node agents portal

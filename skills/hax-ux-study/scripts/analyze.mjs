@@ -7,14 +7,14 @@
  * Writes <out>/ux-study-analysis.json and <out>/ux-study-report.md.
  * The analyzer module is the one shipped in webcomponents
  * (haxcms-elements/lib/core/utils/UXStudyAnalyzer.js), loaded from a local
- * checkout path when given, otherwise from the webcomponents main branch.
+ * checkout path when given, otherwise from the webcomponents master branch.
  */
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
 const DEFAULT_ANALYZER =
-  "https://raw.githubusercontent.com/haxtheweb/webcomponents/main/elements/haxcms-elements/lib/core/utils/UXStudyAnalyzer.js";
+  "https://raw.githubusercontent.com/haxtheweb/webcomponents/master/elements/haxcms-elements/lib/core/utils/UXStudyAnalyzer.js";
 
 const args = process.argv.slice(2);
 let out = process.cwd();

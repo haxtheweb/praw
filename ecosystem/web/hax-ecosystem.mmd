@@ -83,6 +83,7 @@ flowchart TB
     openapi[("OpenAPI")]
     xapi[("xAPI statements")]
     skillsindex[("Agent skills index")]
+    registry[("Registry and manifests")]
     contracts[("All data contracts")]
     anatomy[("Site anatomy")]
   end
@@ -258,6 +259,11 @@ flowchart TB
   contracts -.->|gathers| openapi
   contracts -.->|gathers| xapi
   contracts -.->|gathers| skillsindex
+  contracts -.->|gathers| registry
+  ubiquity -->|writes| registry
+  registry -.->|describes| components
+  registry -.->|ships with| php
+  registry -.->|ships with| nodejs
   praw -->|publishes| skillsindex
   skillsindex -.->|lists the skills of| traveler
   skillsindex -.->|ships with| php
@@ -326,6 +332,7 @@ flowchart TB
   openapi ==>|keeps it| agnostic
   openapi ==>|keeps it| extensible
   skillsindex ==>|keeps it| open
+  registry ==>|keeps it| efficient
   deploy ==>|keep it| agnostic
   oerschema ==>|keeps it| remixable
   skeletons ==>|keep it| remixable
@@ -746,6 +753,7 @@ flowchart TB
   %%@ node openapi icon=hax:code-json color=forestGreen motion=nudge web=openapi
   %%@ node xapi icon=hax:clipboard-pulse color=roarGolden motion=pulse web=xapi
   %%@ node skillsindex icon=icons:extension color=creekTeal motion=nudge web=skillsindex
+  %%@ node registry icon=hax:apps color=creekTeal motion=nudge web=registry
   %%@ node contracts icon=hax:code-json color=slateGray motion=nudge web=contracts
   %%@ node anatomy icon=hax:site-map color=slateGray motion=nudge web=anatomy
   %%@ node skeletons icon=hax:templates color=original87Pink motion=lift web=skeletons

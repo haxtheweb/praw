@@ -31,9 +31,9 @@
    "always": true
   },
   "traveler": {
-   "desc": "The HAX mascot, a.k.a. World Changer: \"Dream it, remix it, have it, share it.\" Here he stands for your AI companion, working alongside people.",
+   "desc": "The HAX mascot, the Future Traveler: \"Dream it, remix it, have it, share it.\" Here he stands for your AI companion, working alongside people.",
    "source": {
-    "label": "haxtheweb/art world-traveler",
+    "label": "haxtheweb/art: the Future Traveler",
     "url": "https://github.com/haxtheweb/art/tree/main/world-traveler"
    },
    "links": {

@@ -111,6 +111,8 @@ function unquoteScalar(value) {
  *   aux     — allowed content files (.md/.json/.txt) as { path, full }
  *   skipped — executable/non-content files excluded from files[] (for warnings)
  */
+const IGNORED_DIRS = new Set(['__pycache__', 'node_modules', '.git', '.venv', '.pytest_cache']);
+
 function walkAuxFiles(skillDir) {
   const aux = [];
   const skipped = [];
@@ -127,6 +129,8 @@ function walkAuxFiles(skillDir) {
       const full = path.join(dir, entry.name);
       const relPath = rel ? rel + '/' + entry.name : entry.name;
       if (entry.isDirectory()) {
+        // local tool caches are never part of a skill
+        if (IGNORED_DIRS.has(entry.name)) continue;
         walk(full, relPath);
       } else if (entry.isFile()) {
         const ext = entry.name.split('.').pop().toLowerCase();
@@ -221,9 +225,11 @@ for (let d = 0; d < dirs.length; d++) {
   if (boundary) warnings.push(boundary);
 
   const walked = walkAuxFiles(skillDir);
-  walked.skipped.forEach(function (s) {
-    console.log('  excluded ' + name + '/' + s + ' (non-content; not shipped to .well-known)');
-  });
+  if (walked.skipped.length) {
+    // one line per skill; scripts are expected and not worth a line each
+    console.log('  excluded ' + walked.skipped.length + ' non-content file(s) from ' + name +
+      ' (not shipped to .well-known): ' + walked.skipped.join(', '));
+  }
   const files = walked.aux
     .map(function (a) {
       return { path: a.path, digest: sha256(fs.readFileSync(a.full)) };

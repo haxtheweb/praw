@@ -7,7 +7,7 @@
    "tag": "areas",
    "operation": "operations"
   },
-  "about": "Every endpoint HAXcms promises: 151 operations in 20 areas, generated from site-spec.yaml and system-spec.yaml. Both backends implement them; the MCP and the CLI call them. Tiles are colored by HTTP method.",
+  "about": "Every endpoint HAXcms promises: 153 operations in 20 areas, generated from site-spec.yaml and system-spec.yaml. Both backends implement them; the MCP and the CLI call them. Tiles are colored by HTTP method.",
   "kindLabels": {
    "rel": "spec to area to operation",
    "schema": "who implements or calls the contract"
@@ -18,7 +18,7 @@
    "always": true
   },
   "spec_site": {
-   "desc": "59 operations on one site: pages, content, files, themes, search, reports.",
+   "desc": "61 operations on one site: pages, content, files, themes, search, reports.",
    "links": {
     "nodejs": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/openapi/site-spec.yaml",
     "php": "https://github.com/haxtheweb/haxcms-php/blob/master/system/backend/php/lib/siteRoutes/openapi/site-spec.yaml"
@@ -56,7 +56,7 @@
    "kind": "tag"
   },
   "tag_content": {
-   "desc": "Page content as HTML, markdown and blocks. 4 operations in the site spec.",
+   "desc": "Page content as HTML, markdown and blocks. 6 operations in the site spec.",
    "kind": "tag"
   },
   "tag_files": {
@@ -279,6 +279,16 @@
   "op_updatecontentbyidorslug": {
    "desc": "Update one item content payload by id or slug",
    "note": "operationId updateContentByIdOrSlug",
+   "kind": "operation"
+  },
+  "op_listcontentblocks": {
+   "desc": "Elements in the page's stored HTML whose tag is in the block allowlist and that have an exact end in the source, each with the tag, index and before a block operation sends back, and its allowlisted attributes decoded as a browser reads them. index counts elements of that tag in the stored source, which can differ from a browser DOM.",
+   "note": "operationId listContentBlocks",
+   "kind": "operation"
+  },
+  "op_updatecontentblocks": {
+   "desc": "Applies block operations to one page, all or nothing, as one git commit. Each op names its target by tag, index and before (the element's exact stored HTML); if the stored bytes do not match, nothing is written (409). setAttributes may only set attributes in the per-tag allowlist, normalized by kind (text, url); replaceBlock replaces the element with one complete element of the same tag. The change must pass the storage sanitizer unchanged, and parsing the page before and after must show no difference other than the targets. The rest of the page is left exactly as stored. Locked pages are refused (423). Each site has a budget of block changes per window (default 1000 per minute, security.blockOperationsRateLimit), charged only for changes about to be written; over it nothing is written (429, Retry-After).",
+   "note": "operationId updateContentBlocks",
    "kind": "operation"
   },
   "op_listfiles": {
@@ -587,12 +597,12 @@
    "kind": "operation"
   },
   "op_getapikeys": {
-   "desc": "Returns all configured system API keys and provider connection statuses. security (F3/authz): this endpoint exposes system-wide credentials and is restricted to the superUser (admin) principal on the PHP backend (see SystemRoutesMap::getSystemV1SuperUserReadRoutes and the handler defense-in-depth superUser check); a non-superUser authenticated caller receives 403. The NodeJS single-user backend does not model an admin tier and allows the single authenticated dashboard user.",
+   "desc": "Returns all configured system API keys and provider connection statuses. Security (SEC-ROUTE): this endpoint exposes system-wide credentials and is restricted to the superUser (admin) principal on the PHP backend (see SystemRoutesMap::getSystemV1SuperUserReadRoutes and the handler defense-in-depth superUser check); a non-superUser authenticated caller receives 403. The NodeJS single-user backend does not model an admin tier and allows the single authenticated dashboard user.",
    "note": "operationId getApiKeys",
    "kind": "operation"
   },
   "op_getapikeyspost": {
-   "desc": "Read-only alias of GET /configuration/api-keys. POST is accepted for callers that prefer POST over GET but does not write; use PATCH to update API key settings. security (F3/authz): like the GET, this endpoint exposes system-wide credentials and is restricted to the superUser (admin) principal on the PHP backend; a non-superUser authenticated caller receives 403. Single-user deployment assumption: the NodeJS backend does not model an admin/superUser tier; these settings are written by the single authenticated dashboard user.",
+   "desc": "Read-only alias of GET /configuration/api-keys. POST is accepted for callers that prefer POST over GET but does not write; use PATCH to update API key settings. Security (SEC-ROUTE): like the GET, this endpoint exposes system-wide credentials and is restricted to the superUser (admin) principal on the PHP backend; a non-superUser authenticated caller receives 403. Single-user deployment assumption: the NodeJS backend does not model an admin/superUser tier; these settings are written by the single authenticated dashboard user.",
    "note": "operationId getApiKeysPost",
    "kind": "operation"
   },
@@ -872,7 +882,7 @@
   {
    "id": "openapi",
    "label": "Walk the API",
-   "message": "151 operations across 20 areas, generated from the two spec files both backends keep identical.",
+   "message": "153 operations across 20 areas, generated from the two spec files both backends keep identical.",
    "scenes": [
     {
      "caption": "HAXcms is built on one OpenAPI contract.",
@@ -922,7 +932,7 @@
      ]
     },
     {
-     "caption": "Every one of the 151 operations. Select any for its summary.",
+     "caption": "Every one of the 153 operations. Select any for its summary.",
      "nodes": []
     }
    ]

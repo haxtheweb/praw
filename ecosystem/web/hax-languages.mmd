@@ -28,6 +28,7 @@ flowchart TB
   end
   subgraph rdy ["Next to translate"]
     b_clean_two["clean-two"]
+    b_instructional_cadence["instructional-cadence"]
     b_simple_icon_picker["simple-icon-picker"]
     b_terrible_themes["terrible-themes"]
   end
@@ -151,6 +152,7 @@ flowchart TB
   lg_registry -->|lists| lg_rtl
   lg_registry -->|maps| lg_variants
   lg_ready -->|includes| b_clean_two
+  lg_ready -->|includes| b_instructional_cadence
   lg_ready -->|includes| b_simple_icon_picker
   lg_ready -->|includes| b_terrible_themes
   lg_ltr -->|includes| lang_af
@@ -278,6 +280,7 @@ flowchart TB
   %%@ node lg_rtl mono=RTL color=creekTeal motion=nudge
   %%@ node lg_variants mono=VAR color=creekTeal motion=nudge
   %%@ node b_clean_two icon=hax:bricks color=inventOrange motion=nudge
+  %%@ node b_instructional_cadence icon=hax:bricks color=inventOrange motion=nudge
   %%@ node b_simple_icon_picker icon=hax:bricks color=inventOrange motion=nudge
   %%@ node b_terrible_themes icon=hax:bricks color=inventOrange motion=nudge
   %%@ node lang_af mono=AF color=skyBlue motion=nudge

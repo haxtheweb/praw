@@ -1,0 +1,473 @@
+{
+ "meta": {
+  "name": "Instructional design skills",
+  "parent": "skills",
+  "noTimeline": true,
+  "sectionLabels": {
+   "family": "families",
+   "element": "elements",
+   "gap": "gaps"
+  },
+  "about": "PRAW's 24 instructional design skills, the 38 HAX elements their own files recommend or check, and the pillars they uphold, generated from id-skills-map.json. Pillar links are proposed for review. Ghosted tiles are gaps: 4 elements no skill covers and 1 skill with no element to act on.",
+  "kindLabels": {
+   "rel": "families, skills and the elements they act on",
+   "pillar": "pillars a skill upholds",
+   "schema": "parts a skill works with"
+  },
+  "links": {
+   "map": "https://github.com/haxtheweb/praw/blob/main/ecosystem/id-skills-map.json",
+   "issue": "https://github.com/haxtheweb/issues/issues/3257"
+  }
+ },
+ "nodes": {
+  "g_id": {},
+  "if_understanding_by_design": {
+   "desc": "Understanding by Design: 8 skills, recommending or checking 20 elements.",
+   "kind": "family"
+  },
+  "if_course_alignment_and_cognitive_level": {
+   "desc": "Course alignment and cognitive level: 3 skills, recommending or checking 18 elements.",
+   "kind": "family"
+  },
+  "if_universal_design_accessibility_and_cognitive_load": {
+   "desc": "Universal design, accessibility and cognitive load: 4 skills, recommending or checking 20 elements.",
+   "kind": "family"
+  },
+  "if_learning_science": {
+   "desc": "Learning science: 4 skills, recommending or checking 16 elements.",
+   "kind": "family"
+  },
+  "if_open_educational_resources": {
+   "desc": "Open educational resources: 2 skills, recommending or checking 1 elements.",
+   "kind": "family"
+  },
+  "if_reading_and_content_rating": {
+   "desc": "Reading and content rating: 2 skills, recommending or checking 1 elements.",
+   "kind": "family"
+  },
+  "if_building_new_instructional_elements": {
+   "desc": "Building new instructional elements: 1 skill, recommending or checking 10 elements.",
+   "kind": "family"
+  },
+  "s_haxcms_lrs_rater": {
+   "status": "gap",
+   "note": "Gap: no HAX element for this skill to act on yet."
+  },
+  "b_a11y_compare_image": {
+   "desc": "@haxtheweb/a11y-compare-image. Recommended or checked by 2 skills: hax-ubd-grasps, hax-ubd-six-facets.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/a11y-compare-image"
+   },
+   "kind": "element"
+  },
+  "b_a11y_figure": {
+   "desc": "@haxtheweb/a11y-figure. Recommended or checked by 2 skills: hax-a11y-audit, hax-multimedia-principles-audit.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/a11y-figure"
+   },
+   "kind": "element"
+  },
+  "b_a11y_media_player": {
+   "desc": "@haxtheweb/a11y-media-player. Recommended or checked by 1 skill: hax-a11y-audit.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/a11y-media-player"
+   },
+   "kind": "element"
+  },
+  "b_a11y_tabs": {
+   "desc": "@haxtheweb/a11y-tabs. Recommended or checked by 2 skills: hax-ubd-stage3, hax-content-chunking-audit.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/a11y-tabs"
+   },
+   "kind": "element"
+  },
+  "b_course_design": {
+   "desc": "@haxtheweb/course-design. Recommended or checked by 1 skill: siip-course-alignment.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/course-design"
+   },
+   "kind": "element"
+  },
+  "b_editable_table": {
+   "desc": "@haxtheweb/editable-table. Recommended or checked by 10 skills: hax-ubd-backward-design, hax-ubd-stage1, hax-ubd-stage2, hax-ubd-grasps, hax-ubd-six-facets, hax-ubd-unit-audit, grad-blooms, hax-udl-audit, hax-a11y-audit, hax-reflection-prompts.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/editable-table"
+   },
+   "kind": "element"
+  },
+  "b_grade_book": {
+   "desc": "@haxtheweb/grade-book. Recommended or checked by 1 skill: hax-ubd-stage2.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/grade-book"
+   },
+   "kind": "element"
+  },
+  "b_h_a_x": {
+   "desc": "@haxtheweb/h-a-x. Recommended or checked by 1 skill: hax-instructional-element.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/h-a-x"
+   },
+   "kind": "element"
+  },
+  "b_lrn_vocab": {
+   "desc": "@haxtheweb/lrn-vocab. Recommended or checked by 2 skills: hax-instructional-events-audit, hax-multimedia-principles-audit.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/lrn-vocab"
+   },
+   "kind": "element"
+  },
+  "b_lrndesign_imagemap": {
+   "desc": "@haxtheweb/lrndesign-imagemap. Recommended or checked by 4 skills: hax-ubd-grasps, hax-instructional-events-audit, hax-multimedia-principles-audit, hax-proficiency-scaffolding.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/lrndesign-imagemap"
+   },
+   "kind": "element"
+  },
+  "b_lrndesign_sidenote": {
+   "desc": "@haxtheweb/lrndesign-sidenote. Recommended or checked by 1 skill: hax-instructional-events-audit.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/lrndesign-sidenote"
+   },
+   "kind": "element"
+  },
+  "b_map_menu": {
+   "desc": "@haxtheweb/map-menu. Recommended or checked by 1 skill: hax-ubd-stage3.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/map-menu"
+   },
+   "kind": "element"
+  },
+  "b_oer_schema": {
+   "desc": "@haxtheweb/oer-schema. Recommended or checked by 7 skills: hax-ubd-backward-design, hax-ubd-stage1, hax-ubd-unit-audit, hax-instructional-events-audit, hax-udl-audit, oerschema-audit, oerschema-integration-finder.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/oer-schema"
+   },
+   "kind": "element"
+  },
+  "b_progress_donut": {
+   "desc": "@haxtheweb/progress-donut. Recommended or checked by 3 skills: hax-ubd-backward-design, hax-ubd-stage2, hax-ubd-stage3.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/progress-donut"
+   },
+   "kind": "element"
+  },
+  "b_promise_progress": {
+   "desc": "@haxtheweb/promise-progress. Recommended or checked by 2 skills: hax-ubd-stage2, hax-ubd-stage3.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/promise-progress"
+   },
+   "kind": "element"
+  },
+  "b_reading_analysis": {
+   "desc": "@haxtheweb/reading-analysis. Recommended or checked by 1 skill: hax-instructional-element.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/reading-analysis"
+   },
+   "kind": "element"
+  },
+  "b_self_reflective_nudge": {
+   "desc": "@haxtheweb/self-reflective-nudge. Recommended or checked by 3 skills: hax-practice-and-retrieval, hax-proficiency-scaffolding, hax-reflection-prompts.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/self-reflective-nudge"
+   },
+   "kind": "element"
+  },
+  "b_simple_fields": {
+   "desc": "@haxtheweb/simple-fields. Recommended or checked by 7 skills: hax-ubd-backward-design, hax-ubd-stage2, hax-ubd-grasps, hax-ubd-six-facets, hax-ubd-unit-audit, hax-udl-audit, hax-a11y-audit.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/simple-fields"
+   },
+   "kind": "element"
+  },
+  "b_simple_progress": {
+   "desc": "@haxtheweb/simple-progress. Recommended or checked by 2 skills: hax-ubd-stage2, hax-ubd-stage3.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/simple-progress"
+   },
+   "kind": "element"
+  },
+  "b_user_action": {
+   "desc": "@haxtheweb/user-action. Recommended or checked by 1 skill: hax-instructional-element.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/user-action"
+   },
+   "kind": "element"
+  },
+  "b_course_model": {
+   "desc": "@haxtheweb/course-model. Course structure modeling; no skill recommends it.",
+   "status": "gap",
+   "note": "Gap: no instructional design skill covers this element yet.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/course-model",
+    "issue": "https://github.com/haxtheweb/issues/issues/3257"
+   },
+   "kind": "gap"
+  },
+  "b_vocab_term": {
+   "desc": "@haxtheweb/vocab-term. Overlaps lrn-vocab, which skills do cite; decide which one skills should recommend.",
+   "status": "gap",
+   "note": "Gap: no instructional design skill covers this element yet.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/vocab-term",
+    "issue": "https://github.com/haxtheweb/issues/issues/3257"
+   },
+   "kind": "gap"
+  },
+  "b_micro_game_base": {
+   "desc": "@haxtheweb/micro-game-base. Base for learning games; no skill covers game-based practice.",
+   "status": "gap",
+   "note": "Gap: no instructional design skill covers this element yet.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/micro-game-base",
+    "issue": "https://github.com/haxtheweb/issues/issues/3257"
+   },
+   "kind": "gap"
+  },
+  "b_bullet_check_list": {
+   "desc": "@haxtheweb/bullet-check-list. Checklist activity; could serve practice or reflection skills.",
+   "status": "gap",
+   "note": "Gap: no instructional design skill covers this element yet.",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/bullet-check-list",
+    "issue": "https://github.com/haxtheweb/issues/issues/3257"
+   },
+   "kind": "gap"
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "idskills",
+   "label": "Skills, elements and pillars",
+   "kind": "story",
+   "message": "24 instructional design skills, the 38 elements they recommend or check, and the pillars they uphold.",
+   "scenes": [
+    {
+     "caption": "7 families of instructional design skills in PRAW.",
+     "nodes": [
+      "if_understanding_by_design",
+      "if_course_alignment_and_cognitive_level",
+      "if_universal_design_accessibility_and_cognitive_load",
+      "if_learning_science",
+      "if_open_educational_resources",
+      "if_reading_and_content_rating",
+      "if_building_new_instructional_elements"
+     ]
+    },
+    {
+     "caption": "Understanding by Design.",
+     "nodes": [
+      "if_understanding_by_design",
+      "s_hax_ubd_backward_design",
+      "s_hax_ubd_stage1",
+      "s_hax_ubd_stage2",
+      "s_hax_ubd_stage3",
+      "s_hax_ubd_essential_questions",
+      "s_hax_ubd_grasps",
+      "s_hax_ubd_six_facets",
+      "s_hax_ubd_unit_audit",
+      "b_a11y_collapse",
+      "b_a11y_compare_image",
+      "b_a11y_tabs",
+      "b_audio_player",
+      "b_editable_table",
+      "b_flash_card",
+      "b_grade_book",
+      "b_image_compare_slider",
+      "b_lrndesign_imagemap",
+      "b_map_menu",
+      "b_media_playlist",
+      "b_multiple_choice",
+      "b_oer_schema",
+      "b_progress_donut",
+      "b_promise_progress",
+      "b_self_check",
+      "b_simple_fields",
+      "b_simple_progress",
+      "b_stop_note",
+      "b_video_player"
+     ]
+    },
+    {
+     "caption": "Course alignment and cognitive level.",
+     "nodes": [
+      "if_course_alignment_and_cognitive_level",
+      "s_grad_blooms",
+      "s_siip_course_alignment",
+      "s_hax_instructional_events_audit",
+      "b_course_design",
+      "b_editable_table",
+      "b_fill_in_the_blanks",
+      "b_flash_card",
+      "b_h5p_element",
+      "b_image_compare_slider",
+      "b_lrn_vocab",
+      "b_lrndesign_imagemap",
+      "b_lrndesign_sidenote",
+      "b_matching_question",
+      "b_media_image",
+      "b_multiple_choice",
+      "b_oer_schema",
+      "b_self_check",
+      "b_sorting_question",
+      "b_stop_note",
+      "b_tagging_question",
+      "b_video_player"
+     ]
+    },
+    {
+     "caption": "Universal design, accessibility and cognitive load.",
+     "nodes": [
+      "if_universal_design_accessibility_and_cognitive_load",
+      "s_hax_udl_audit",
+      "s_hax_a11y_audit",
+      "s_hax_content_chunking_audit",
+      "s_hax_multimedia_principles_audit",
+      "b_a11y_collapse",
+      "b_a11y_figure",
+      "b_a11y_media_player",
+      "b_a11y_tabs",
+      "b_audio_player",
+      "b_editable_table",
+      "b_fill_in_the_blanks",
+      "b_flash_card",
+      "b_image_compare_slider",
+      "b_lrn_vocab",
+      "b_lrndesign_imagemap",
+      "b_lrndesign_timeline",
+      "b_media_image",
+      "b_media_playlist",
+      "b_multiple_choice",
+      "b_oer_schema",
+      "b_self_check",
+      "b_simple_fields",
+      "b_stop_note",
+      "b_video_player"
+     ]
+    },
+    {
+     "caption": "Learning science.",
+     "nodes": [
+      "if_learning_science",
+      "s_hax_feedback_design",
+      "s_hax_practice_and_retrieval",
+      "s_hax_proficiency_scaffolding",
+      "s_hax_reflection_prompts",
+      "b_a11y_collapse",
+      "b_editable_table",
+      "b_fill_in_the_blanks",
+      "b_flash_card",
+      "b_h5p_element",
+      "b_lrndesign_imagemap",
+      "b_mark_the_words",
+      "b_matching_question",
+      "b_media_image",
+      "b_multiple_choice",
+      "b_self_check",
+      "b_self_reflective_nudge",
+      "b_sorting_question",
+      "b_stop_note",
+      "b_tagging_question",
+      "b_video_player"
+     ]
+    },
+    {
+     "caption": "Open educational resources.",
+     "nodes": [
+      "if_open_educational_resources",
+      "s_oerschema_audit",
+      "s_oerschema_integration_finder",
+      "b_oer_schema"
+     ]
+    },
+    {
+     "caption": "Reading and content rating.",
+     "nodes": [
+      "if_reading_and_content_rating",
+      "s_reading_notes",
+      "s_haxcms_lrs_rater",
+      "b_self_check"
+     ]
+    },
+    {
+     "caption": "Building new instructional elements.",
+     "nodes": [
+      "if_building_new_instructional_elements",
+      "s_hax_instructional_element",
+      "b_a11y_gif_player",
+      "b_fill_in_the_blanks",
+      "b_h_a_x",
+      "b_mark_the_words",
+      "b_matching_question",
+      "b_multiple_choice",
+      "b_reading_analysis",
+      "b_sorting_question",
+      "b_tagging_question",
+      "b_user_action"
+     ]
+    },
+    {
+     "caption": "The elements skills reach for most: self-check, stop-note, editable-table, multiple-choice, video-player, a11y-collapse, fill-in-the-blanks, flash-card.",
+     "nodes": [
+      "b_self_check",
+      "b_stop_note",
+      "b_editable_table",
+      "b_multiple_choice",
+      "b_video_player",
+      "b_a11y_collapse",
+      "b_fill_in_the_blanks",
+      "b_flash_card"
+     ]
+    },
+    {
+     "caption": "Each skill upholds pillars (proposed for review in haxtheweb/issues#3257).",
+     "nodes": [
+      "accessible",
+      "efficient",
+      "extensible",
+      "open",
+      "remixable",
+      "s_hax_ubd_backward_design",
+      "s_hax_ubd_stage1",
+      "s_hax_ubd_stage2",
+      "s_hax_ubd_stage3",
+      "s_hax_ubd_essential_questions",
+      "s_hax_ubd_grasps",
+      "s_hax_ubd_six_facets",
+      "s_hax_ubd_unit_audit",
+      "s_grad_blooms",
+      "s_siip_course_alignment",
+      "s_hax_instructional_events_audit",
+      "s_hax_udl_audit",
+      "s_hax_a11y_audit",
+      "s_hax_content_chunking_audit",
+      "s_hax_multimedia_principles_audit",
+      "s_hax_feedback_design",
+      "s_hax_practice_and_retrieval",
+      "s_hax_proficiency_scaffolding",
+      "s_hax_reflection_prompts",
+      "s_oerschema_audit",
+      "s_oerschema_integration_finder",
+      "s_reading_notes",
+      "s_haxcms_lrs_rater",
+      "s_hax_instructional_element"
+     ]
+    },
+    {
+     "caption": "Gaps: elements no skill covers yet, and a skill with no element to act on.",
+     "nodes": [
+      "b_course_model",
+      "b_vocab_term",
+      "b_micro_game_base",
+      "b_bullet_check_list",
+      "s_haxcms_lrs_rater"
+     ]
+    },
+    {
+     "caption": "All of it.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

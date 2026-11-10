@@ -1,0 +1,1226 @@
+{
+ "meta": {
+  "name": "HAX blocks",
+  "parent": "main",
+  "noTimeline": true,
+  "about": "The 60 blocks in the HAX app store, read from each element's HAX properties. Gold lines show which course ontology branch a block serves.",
+  "layerLabels": {
+   "pillar": "Course ontology",
+   "rel": "Categories and links"
+  },
+  "sectionLabels": {
+   "pillar": "Course ontology",
+   "rel": "Category and links"
+  },
+  "kindLabels": {
+   "rel": "blocks in each category and their links",
+   "pillar": "course ontology branches served",
+   "schema": "schema contracts",
+   "contrib": "people who built blocks",
+   "org": "organizations"
+  },
+  "links": {
+   "repo": "https://github.com/haxtheweb/webcomponents"
+  },
+  "checked": "2026-11-06",
+  "releases": {
+   "npm:@haxtheweb/code-sample": "26.8.0",
+   "npm:@haxtheweb/course-design": "26.8.0",
+   "npm:@haxtheweb/fill-in-the-blanks": "26.8.0",
+   "npm:@haxtheweb/flash-card": "26.8.0",
+   "npm:@haxtheweb/h5p-element": "26.8.0",
+   "npm:@haxtheweb/mark-the-words": "26.8.0",
+   "npm:@haxtheweb/matching-question": "26.8.0",
+   "npm:@haxtheweb/lrn-math": "26.8.0",
+   "npm:@haxtheweb/multiple-choice": "26.8.0",
+   "npm:@haxtheweb/self-check": "26.8.0",
+   "npm:@haxtheweb/sorting-question": "26.8.0",
+   "npm:@haxtheweb/stop-note": "26.8.0",
+   "npm:@haxtheweb/tagging-question": "26.8.0",
+   "npm:@haxtheweb/lrndesign-timeline": "26.8.0",
+   "npm:@haxtheweb/vocab-term": "26.8.0",
+   "npm:@haxtheweb/audio-player": "26.8.0",
+   "npm:@haxtheweb/media-image": "26.8.0",
+   "npm:@haxtheweb/a11y-gif-player": "26.8.0",
+   "npm:@haxtheweb/image-compare-slider": "26.8.0",
+   "npm:@haxtheweb/image-gallery": "26.8.0",
+   "npm:@haxtheweb/inline-audio": "26.8.0",
+   "npm:@haxtheweb/media-playlist": "26.8.0",
+   "npm:@haxtheweb/meme-maker": "26.8.0",
+   "npm:@haxtheweb/spotify-embed": "26.8.0",
+   "npm:@haxtheweb/tableau-embed": "26.8.0",
+   "npm:@haxtheweb/video-player": "26.8.0",
+   "npm:@haxtheweb/simple-cta": "26.8.0",
+   "npm:@haxtheweb/accent-card": "26.8.0",
+   "npm:@haxtheweb/a11y-collapse": "26.8.0",
+   "npm:@haxtheweb/grid-plate": "26.8.0",
+   "npm:@haxtheweb/person-testimonial": "26.8.0",
+   "npm:@haxtheweb/page-section": "26.8.0",
+   "npm:@haxtheweb/play-list": "26.8.0",
+   "npm:@haxtheweb/bibliography-builder": "no release",
+   "npm:@haxtheweb/career-timeline": "no release",
+   "npm:@haxtheweb/citation-element": "26.8.0",
+   "npm:@haxtheweb/place-holder": "26.8.0",
+   "npm:@haxtheweb/ai-usage-license": "26.8.0",
+   "npm:@haxtheweb/course-model": "26.8.0",
+   "npm:@haxtheweb/date-card": "26.8.0",
+   "npm:@haxtheweb/license-element": "26.8.0",
+   "npm:@haxtheweb/md-block": "26.8.0",
+   "npm:@haxtheweb/page-break": "26.8.0",
+   "npm:@haxtheweb/page-flag": "26.8.0",
+   "npm:@haxtheweb/q-r": "26.8.0",
+   "npm:@haxtheweb/haxcms-elements": "26.8.0",
+   "npm:@haxtheweb/rpg-character": "26.8.0",
+   "npm:@haxtheweb/moar-sarcasm": "26.8.0",
+   "npm:@haxtheweb/simple-fields": "26.8.0",
+   "npm:@haxtheweb/twitter-embed": "26.8.0",
+   "npm:@haxtheweb/wikipedia-query": "26.8.0"
+  }
+ },
+ "nodes": {
+  "components": {
+   "always": true
+  },
+  "cat_instructional": {
+   "desc": "Blocks that teach: questions, self checks, vocabulary, math, timelines and more. 19 blocks in the app store.",
+   "source": {
+    "label": "HAX app store (haxcms-nodejs config)",
+    "url": "https://github.com/haxtheweb/haxcms-nodejs"
+   }
+  },
+  "cat_media": {
+   "desc": "Video, audio, images, galleries and embeds. 11 blocks in the app store.",
+   "source": {
+    "label": "HAX app store (haxcms-nodejs config)",
+    "url": "https://github.com/haxtheweb/haxcms-nodejs"
+   }
+  },
+  "cat_layout": {
+   "desc": "Columns, sections, cards, quotes and calls to action. 8 blocks in the app store.",
+   "source": {
+    "label": "HAX app store (haxcms-nodejs config)",
+    "url": "https://github.com/haxtheweb/haxcms-nodejs"
+   }
+  },
+  "cat_content": {
+   "desc": "Structured content like career timelines and bibliographies. 5 blocks in the app store.",
+   "source": {
+    "label": "HAX app store (haxcms-nodejs config)",
+    "url": "https://github.com/haxtheweb/haxcms-nodejs"
+   }
+  },
+  "cat_text": {
+   "desc": "Text helpers such as citations and placeholders. 2 blocks in the app store.",
+   "source": {
+    "label": "HAX app store (haxcms-nodejs config)",
+    "url": "https://github.com/haxtheweb/haxcms-nodejs"
+   }
+  },
+  "cat_other": {
+   "desc": "Licenses, tags, remote content, QR codes, embeds and fun extras. 15 blocks in the app store.",
+   "source": {
+    "label": "HAX app store (haxcms-nodejs config)",
+    "url": "https://github.com/haxtheweb/haxcms-nodejs"
+   }
+  },
+  "br_assessment": {
+   "desc": "Course ontology branch: High, low and no stakes checks of understanding.",
+   "source": {
+    "label": "WORLDVIEW.md: Course ontology (Bill Rose)",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#course-ontology-the-model-under-the-authoring"
+   }
+  },
+  "br_instruction": {
+   "desc": "Course ontology branch: Direct instruction, facilitation and coaching.",
+   "source": {
+    "label": "WORLDVIEW.md: Course ontology (Bill Rose)",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#course-ontology-the-model-under-the-authoring"
+   }
+  },
+  "br_content": {
+   "desc": "Course ontology branch: Pre-instructional, instructional, checks, tips and summaries.",
+   "source": {
+    "label": "WORLDVIEW.md: Course ontology (Bill Rose)",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#course-ontology-the-model-under-the-authoring"
+   }
+  },
+  "br_structure": {
+   "desc": "Course ontology branch: Units, lessons, sub-lessons and pages.",
+   "source": {
+    "label": "WORLDVIEW.md: Course ontology (Bill Rose)",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#course-ontology-the-model-under-the-authoring"
+   }
+  },
+  "br_pedagogy": {
+   "desc": "Course ontology branch: The beliefs and method driving the course.",
+   "source": {
+    "label": "WORLDVIEW.md: Course ontology (Bill Rose)",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#course-ontology-the-model-under-the-authoring"
+   }
+  },
+  "b_code_sample": {
+   "desc": "A sample of code highlighted in the page",
+   "tag": "code-sample",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/code-sample",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/code-sample"
+   },
+   "source": {
+    "label": "code-sample HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/code-sample"
+   },
+   "release": "npm:@haxtheweb/code-sample",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_ebook_button": {
+   "desc": "A button that links to an Ebook.",
+   "tag": "ebook-button",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/course-design",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/course-design"
+   },
+   "source": {
+    "label": "ebook-button HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/course-design"
+   },
+   "release": "npm:@haxtheweb/course-design",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_fill_in_the_blanks": {
+   "desc": "Assessment activity where learners complete missing words in a statement.",
+   "tag": "fill-in-the-blanks",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/fill-in-the-blanks",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/fill-in-the-blanks"
+   },
+   "source": {
+    "label": "fill-in-the-blanks HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/fill-in-the-blanks"
+   },
+   "release": "npm:@haxtheweb/fill-in-the-blanks",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_flash_card": {
+   "desc": "Practice concepts with front-and-back flash cards.",
+   "tag": "flash-card",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/flash-card",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/flash-card"
+   },
+   "source": {
+    "label": "flash-card HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/flash-card"
+   },
+   "release": "npm:@haxtheweb/flash-card",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_h5p_element": {
+   "desc": "h5p wrapper for loading and presenting .h5p files",
+   "tag": "h5p-element",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/h5p-element",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/h5p-element"
+   },
+   "source": {
+    "label": "h5p-element HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/h5p-element"
+   },
+   "release": "npm:@haxtheweb/h5p-element",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_learning_component": {
+   "desc": "A card for instructors to communicate pedagogy and instructional strategies.",
+   "tag": "learning-component",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/course-design",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/course-design"
+   },
+   "source": {
+    "label": "learning-component HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/course-design"
+   },
+   "release": "npm:@haxtheweb/course-design",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_mark_the_words": {
+   "desc": "Identify concepts via words by clicking within a body of text.",
+   "tag": "mark-the-words",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/mark-the-words",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/mark-the-words"
+   },
+   "source": {
+    "label": "mark-the-words HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/mark-the-words"
+   },
+   "release": "npm:@haxtheweb/mark-the-words",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_matching_question": {
+   "desc": "Drag-and-drop matching activity that pairs prompts with their correct responses.",
+   "tag": "matching-question",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/matching-question",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/matching-question"
+   },
+   "source": {
+    "label": "matching-question HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/matching-question"
+   },
+   "release": "npm:@haxtheweb/matching-question",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_lrn_math": {
+   "desc": "Present math in a nice looking way.",
+   "tag": "lrn-math",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/lrn-math",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/lrn-math"
+   },
+   "source": {
+    "label": "lrn-math HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/lrn-math"
+   },
+   "release": "npm:@haxtheweb/lrn-math",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_multiple_choice": {
+   "desc": "Multiple-choice self-check question.",
+   "tag": "multiple-choice",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/multiple-choice",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/multiple-choice"
+   },
+   "source": {
+    "label": "multiple-choice HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/multiple-choice"
+   },
+   "release": "npm:@haxtheweb/multiple-choice",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_self_check": {
+   "desc": "Users can complete a self-check.",
+   "tag": "self-check",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/self-check",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/self-check"
+   },
+   "source": {
+    "label": "self-check HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/self-check"
+   },
+   "release": "npm:@haxtheweb/self-check",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_short_answer_question": {
+   "desc": "Have the user answer a basic question",
+   "tag": "short-answer-question",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/multiple-choice",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/multiple-choice"
+   },
+   "source": {
+    "label": "short-answer-question HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/multiple-choice"
+   },
+   "release": "npm:@haxtheweb/multiple-choice",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_sorting_question": {
+   "desc": "Sort items into the correct order.",
+   "tag": "sorting-question",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/sorting-question",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/sorting-question"
+   },
+   "source": {
+    "label": "sorting-question HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/sorting-question"
+   },
+   "release": "npm:@haxtheweb/sorting-question",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_stop_note": {
+   "desc": "A message to alert readers to specific directions.",
+   "tag": "stop-note",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/stop-note",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/stop-note"
+   },
+   "source": {
+    "label": "stop-note HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/stop-note"
+   },
+   "release": "npm:@haxtheweb/stop-note",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_tagging_question": {
+   "desc": "Select tags to answer the question.",
+   "tag": "tagging-question",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/tagging-question",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/tagging-question"
+   },
+   "source": {
+    "label": "tagging-question HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/tagging-question"
+   },
+   "release": "npm:@haxtheweb/tagging-question",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_lrndesign_timeline": {
+   "desc": "A timeline of events with images and text",
+   "tag": "lrndesign-timeline",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/lrndesign-timeline",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/lrndesign-timeline"
+   },
+   "source": {
+    "label": "lrndesign-timeline HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/lrndesign-timeline"
+   },
+   "release": "npm:@haxtheweb/lrndesign-timeline",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_true_false_question": {
+   "desc": "True false question",
+   "tag": "true-false-question",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/multiple-choice",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/multiple-choice"
+   },
+   "source": {
+    "label": "true-false-question HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/multiple-choice"
+   },
+   "release": "npm:@haxtheweb/multiple-choice",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_vocab_term": {
+   "desc": "Vocabulary term.",
+   "tag": "vocab-term",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/vocab-term",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/vocab-term"
+   },
+   "source": {
+    "label": "vocab-term HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/vocab-term"
+   },
+   "release": "npm:@haxtheweb/vocab-term",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_worksheet_download": {
+   "desc": "A button for displaying files available for download.",
+   "tag": "worksheet-download",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/course-design",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/course-design"
+   },
+   "source": {
+    "label": "worksheet-download HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/course-design"
+   },
+   "release": "npm:@haxtheweb/course-design",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_audio_player": {
+   "desc": "This can present video in a highly accessible manner regardless of source.",
+   "tag": "audio-player",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/audio-player",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/audio-player"
+   },
+   "source": {
+    "label": "audio-player HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/audio-player"
+   },
+   "release": "npm:@haxtheweb/audio-player",
+   "status": "released",
+   "note": "Mission-critical: redesigns are limited to wrapping it, so existing content keeps working.",
+   "version": "26.8.0"
+  },
+  "b_media_image": {
+   "desc": "A way of presenting images with various enhancements.",
+   "tag": "media-image",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/media-image",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/media-image"
+   },
+   "source": {
+    "label": "media-image HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/media-image"
+   },
+   "release": "npm:@haxtheweb/media-image",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_a11y_gif_player": {
+   "desc": "Make animated GIFs accessible.",
+   "tag": "a11y-gif-player",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/a11y-gif-player",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/a11y-gif-player"
+   },
+   "source": {
+    "label": "a11y-gif-player HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/a11y-gif-player"
+   },
+   "release": "npm:@haxtheweb/a11y-gif-player",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_image_compare_slider": {
+   "desc": "Swipe one image over another for comparison.",
+   "tag": "image-compare-slider",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/image-compare-slider",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/image-compare-slider"
+   },
+   "source": {
+    "label": "image-compare-slider HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/image-compare-slider"
+   },
+   "release": "npm:@haxtheweb/image-compare-slider",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_image_gallery": {
+   "desc": "A gallery that presents images in grid, masonry, or slideshow layouts.",
+   "tag": "image-gallery",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/image-gallery",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/image-gallery"
+   },
+   "source": {
+    "label": "image-gallery HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/image-gallery"
+   },
+   "release": "npm:@haxtheweb/image-gallery",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_inline_audio": {
+   "desc": "Play audio inline to supplement page content.",
+   "tag": "inline-audio",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/inline-audio",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/inline-audio"
+   },
+   "source": {
+    "label": "inline-audio HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/inline-audio"
+   },
+   "release": "npm:@haxtheweb/inline-audio",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_media_playlist": {
+   "desc": "A playlist that presents video and audio players in a player + sidebar layout.",
+   "tag": "media-playlist",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/media-playlist",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/media-playlist"
+   },
+   "source": {
+    "label": "media-playlist HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/media-playlist"
+   },
+   "release": "npm:@haxtheweb/media-playlist",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_meme_maker": {
+   "desc": "Make a meme out of an image.",
+   "tag": "meme-maker",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/meme-maker",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/meme-maker"
+   },
+   "source": {
+    "label": "meme-maker HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/meme-maker"
+   },
+   "release": "npm:@haxtheweb/meme-maker",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_spotify_embed": {
+   "desc": "Wrapper for Spotify player embeds.",
+   "tag": "spotify-embed",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/spotify-embed",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/spotify-embed"
+   },
+   "source": {
+    "label": "spotify-embed HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/spotify-embed"
+   },
+   "release": "npm:@haxtheweb/spotify-embed",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_tableau_embed": {
+   "desc": "Embed Tableau visualizations from a share URL.",
+   "tag": "tableau-embed",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/tableau-embed",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/tableau-embed"
+   },
+   "source": {
+    "label": "tableau-embed HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/tableau-embed"
+   },
+   "release": "npm:@haxtheweb/tableau-embed",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_video_player": {
+   "desc": "Accessible video playback across multiple sources.",
+   "tag": "video-player",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/video-player",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/video-player"
+   },
+   "source": {
+    "label": "video-player HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/video-player"
+   },
+   "release": "npm:@haxtheweb/video-player",
+   "status": "released",
+   "note": "Mission-critical: redesigns are limited to wrapping it, so existing content keeps working.",
+   "version": "26.8.0"
+  },
+  "b_block_quote": {
+   "desc": "Styled quote block.",
+   "tag": "block-quote",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/course-design",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/course-design"
+   },
+   "source": {
+    "label": "block-quote HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/course-design"
+   },
+   "release": "npm:@haxtheweb/course-design",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_simple_cta": {
+   "desc": "A simple button with a link to take action.",
+   "tag": "simple-cta",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/simple-cta",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/simple-cta"
+   },
+   "source": {
+    "label": "simple-cta HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/simple-cta"
+   },
+   "release": "npm:@haxtheweb/simple-cta",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_accent_card": {
+   "desc": "A card with optional accent styling.",
+   "tag": "accent-card",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/accent-card",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/accent-card"
+   },
+   "source": {
+    "label": "accent-card HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/accent-card"
+   },
+   "release": "npm:@haxtheweb/accent-card",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_a11y_collapse": {
+   "desc": "Single expandable and collapsible container.",
+   "tag": "a11y-collapse",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/a11y-collapse",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/a11y-collapse"
+   },
+   "source": {
+    "label": "a11y-collapse HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/a11y-collapse"
+   },
+   "release": "npm:@haxtheweb/a11y-collapse",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_grid_plate": {
+   "desc": "Layout material in simple columns",
+   "tag": "grid-plate",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/grid-plate",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/grid-plate"
+   },
+   "source": {
+    "label": "grid-plate HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/grid-plate"
+   },
+   "release": "npm:@haxtheweb/grid-plate",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_person_testimonial": {
+   "desc": "Stylized quote with an optional image.",
+   "tag": "person-testimonial",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/person-testimonial",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/person-testimonial"
+   },
+   "source": {
+    "label": "person-testimonial HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/person-testimonial"
+   },
+   "release": "npm:@haxtheweb/person-testimonial",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_page_section": {
+   "desc": "Section container for page content and screen-based layouts.",
+   "tag": "page-section",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/page-section",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/page-section"
+   },
+   "source": {
+    "label": "page-section HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/page-section"
+   },
+   "release": "npm:@haxtheweb/page-section",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_play_list": {
+   "desc": "Display any kind of content in a playlist.",
+   "tag": "play-list",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/play-list",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/play-list"
+   },
+   "source": {
+    "label": "play-list HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/play-list"
+   },
+   "release": "npm:@haxtheweb/play-list",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_bibliography_builder": {
+   "desc": "A tool for creating and managing bibliographies",
+   "tag": "bibliography-builder",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/bibliography-builder"
+   },
+   "source": {
+    "label": "bibliography-builder HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/bibliography-builder"
+   },
+   "release": "npm:@haxtheweb/bibliography-builder",
+   "status": "prerelease",
+   "note": "Ships in the HAXcms app store build but is not published to npm yet."
+  },
+  "b_bibliography_item": {
+   "desc": "Item representing a single citation in a bibliography, supporting multiple formats and export options.",
+   "tag": "bibliography-item",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/bibliography-builder"
+   },
+   "source": {
+    "label": "bibliography-item HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/bibliography-builder"
+   },
+   "release": "npm:@haxtheweb/bibliography-builder",
+   "status": "prerelease",
+   "note": "Ships in the HAXcms app store build but is not published to npm yet."
+  },
+  "b_career_org_item": {
+   "desc": "An individual organization and its affiliated roles",
+   "tag": "career-org-item",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/career-timeline"
+   },
+   "source": {
+    "label": "career-org-item HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/career-timeline"
+   },
+   "release": "npm:@haxtheweb/career-timeline",
+   "status": "prerelease",
+   "note": "Ships in the HAXcms app store build but is not published to npm yet."
+  },
+  "b_career_role_item": {
+   "desc": "An individual role within an organization",
+   "tag": "career-role-item",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/career-timeline"
+   },
+   "source": {
+    "label": "career-role-item HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/career-timeline"
+   },
+   "release": "npm:@haxtheweb/career-timeline",
+   "status": "prerelease",
+   "note": "Ships in the HAXcms app store build but is not published to npm yet."
+  },
+  "b_career_timeline": {
+   "desc": "A career timeline containing organizations, roles, and other data",
+   "tag": "career-timeline",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/career-timeline"
+   },
+   "source": {
+    "label": "career-timeline HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/career-timeline"
+   },
+   "release": "npm:@haxtheweb/career-timeline",
+   "status": "prerelease",
+   "note": "Ships in the HAXcms app store build but is not published to npm yet."
+  },
+  "b_citation_element": {
+   "desc": "Citation element with three presentation modes.",
+   "tag": "citation-element",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/citation-element",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/citation-element"
+   },
+   "source": {
+    "label": "citation-element HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/citation-element"
+   },
+   "release": "npm:@haxtheweb/citation-element",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_place_holder": {
+   "desc": "A place holder that can be converted into the media type that's been selected",
+   "tag": "place-holder",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/place-holder",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/place-holder"
+   },
+   "source": {
+    "label": "place-holder HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/place-holder"
+   },
+   "release": "npm:@haxtheweb/place-holder",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_ai_usage_license": {
+   "desc": "Display an AI Usage License (AIUL) badge for your work",
+   "tag": "ai-usage-license",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/ai-usage-license",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/ai-usage-license"
+   },
+   "source": {
+    "label": "ai-usage-license HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/ai-usage-license"
+   },
+   "release": "npm:@haxtheweb/ai-usage-license",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_course_model": {
+   "desc": "Interactive layout for course concepts with details, animation, and knowledge checks.",
+   "tag": "course-model",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/course-model",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/course-model"
+   },
+   "source": {
+    "label": "course-model HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/course-model"
+   },
+   "release": "npm:@haxtheweb/course-model",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_date_card": {
+   "desc": "Display a calendar date with details.",
+   "tag": "date-card",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/date-card",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/date-card"
+   },
+   "source": {
+    "label": "date-card HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/date-card"
+   },
+   "release": "npm:@haxtheweb/date-card",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_license_element": {
+   "desc": "Provide a license for your work.",
+   "tag": "license-element",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/license-element",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/license-element"
+   },
+   "source": {
+    "label": "license-element HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/license-element"
+   },
+   "release": "npm:@haxtheweb/license-element",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_md_block": {
+   "desc": "A block of markdown content directly or remote loaded",
+   "tag": "md-block",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/md-block",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/md-block"
+   },
+   "source": {
+    "label": "md-block HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/md-block"
+   },
+   "release": "npm:@haxtheweb/md-block",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_page_anchor": {
+   "desc": "Link to specific points in media on the page.",
+   "tag": "page-anchor",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/page-break",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/page-break"
+   },
+   "source": {
+    "label": "page-anchor HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/page-break"
+   },
+   "release": "npm:@haxtheweb/page-break",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_page_break": {
+   "desc": "Define a visual split between pages which CMSs can use to create pages.",
+   "tag": "page-break",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/page-break",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/page-break"
+   },
+   "source": {
+    "label": "page-break HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/page-break"
+   },
+   "release": "npm:@haxtheweb/page-break",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_page_flag": {
+   "desc": "Editorial note for page authors.",
+   "tag": "page-flag",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/page-flag",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/page-flag"
+   },
+   "source": {
+    "label": "page-flag HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/page-flag"
+   },
+   "release": "npm:@haxtheweb/page-flag",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_q_r": {
+   "desc": "Code to scan from a smartphone.",
+   "tag": "q-r",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/q-r",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/q-r"
+   },
+   "source": {
+    "label": "q-r HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/q-r"
+   },
+   "release": "npm:@haxtheweb/q-r",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_site_remote_content": {
+   "desc": "Reuse content from one site in another.",
+   "tag": "site-remote-content",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/haxcms-elements",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/haxcms-elements"
+   },
+   "source": {
+    "label": "site-remote-content HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/haxcms-elements"
+   },
+   "release": "npm:@haxtheweb/haxcms-elements",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_rpg_character": {
+   "desc": "Fun character from HAX.",
+   "tag": "rpg-character",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/rpg-character",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/rpg-character"
+   },
+   "source": {
+    "label": "rpg-character HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/rpg-character"
+   },
+   "release": "npm:@haxtheweb/rpg-character",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_moar_sarcasm": {
+   "desc": "Presenting text in a trolly way",
+   "tag": "moar-sarcasm",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/moar-sarcasm",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/moar-sarcasm"
+   },
+   "source": {
+    "label": "moar-sarcasm HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/moar-sarcasm"
+   },
+   "release": "npm:@haxtheweb/moar-sarcasm",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_simple_tags": {
+   "desc": "Simple tag list for display on the page.",
+   "tag": "simple-tags",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/simple-fields",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/simple-fields"
+   },
+   "source": {
+    "label": "simple-tags HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/simple-fields"
+   },
+   "release": "npm:@haxtheweb/simple-fields",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_twitter_embed": {
+   "desc": "Embed a tweet from X in context.",
+   "tag": "twitter-embed",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/twitter-embed",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/twitter-embed"
+   },
+   "source": {
+    "label": "twitter-embed HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/twitter-embed"
+   },
+   "release": "npm:@haxtheweb/twitter-embed",
+   "status": "released",
+   "version": "26.8.0"
+  },
+  "b_wikipedia_query": {
+   "desc": "This can display a wikipedia article in context in a variety of formats.",
+   "tag": "wikipedia-query",
+   "links": {
+    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/wikipedia-query",
+    "npm": "https://www.npmjs.com/package/@haxtheweb/wikipedia-query"
+   },
+   "source": {
+    "label": "wikipedia-query HAX properties (gizmo)",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/wikipedia-query"
+   },
+   "release": "npm:@haxtheweb/wikipedia-query",
+   "status": "released",
+   "version": "26.8.0"
+  }
+ },
+ "evidence": {
+  "hanna>b_vocab_term": [
+   {
+    "label": "hax-lab README: Vocab web component (2021)",
+    "url": "https://github.com/haxtheweb/hax-lab"
+   },
+   {
+    "label": "haxtheweb/issues #848",
+    "url": "https://github.com/haxtheweb/issues/issues/848"
+   }
+  ],
+  "jimmykane>b_rpg_character": [
+   {
+    "label": "WINS.md: Site Dashboard (8-bit characters)",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
+   }
+  ],
+  "wins>b_accent_card": [
+   {
+    "label": "WINS.md: The seven accent-cards",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#the-seven-accent-cards"
+   }
+  ],
+  "b_course_model>eberly": [
+   {
+    "label": "course-model HAX properties tag: Eberly",
+    "url": "https://github.com/haxtheweb/webcomponents/tree/master/elements/course-model"
+   }
+  ]
+ },
+ "tours": [
+  {
+   "id": "blocks",
+   "label": "Blocks by what they do",
+   "message": "The blocks authors can place in HAX, grouped the way the editor groups them, and tied to the course ontology branch each one serves.",
+   "scenes": [
+    {
+     "caption": "Every block is a web component.",
+     "nodes": [
+      "components"
+     ]
+    },
+    {
+     "caption": "The editor groups blocks into six categories.",
+     "nodes": [
+      "cat_instructional",
+      "cat_media",
+      "cat_layout",
+      "cat_content",
+      "cat_text",
+      "cat_other"
+     ]
+    },
+    {
+     "caption": "Instructional blocks: questions, self checks, vocabulary, math and timelines.",
+     "nodes": [
+      "b_code_sample",
+      "b_ebook_button",
+      "b_fill_in_the_blanks",
+      "b_flash_card",
+      "b_h5p_element",
+      "b_learning_component",
+      "b_mark_the_words",
+      "b_matching_question",
+      "b_lrn_math",
+      "b_multiple_choice",
+      "b_self_check",
+      "b_short_answer_question",
+      "b_sorting_question",
+      "b_stop_note",
+      "b_tagging_question",
+      "b_lrndesign_timeline",
+      "b_true_false_question",
+      "b_vocab_term",
+      "b_worksheet_download",
+      "br_assessment",
+      "br_content",
+      "br_pedagogy"
+     ]
+    },
+    {
+     "caption": "Media blocks: video, audio, images, galleries and embeds.",
+     "nodes": [
+      "b_audio_player",
+      "b_media_image",
+      "b_a11y_gif_player",
+      "b_image_compare_slider",
+      "b_image_gallery",
+      "b_inline_audio",
+      "b_media_playlist",
+      "b_meme_maker",
+      "b_spotify_embed",
+      "b_tableau_embed",
+      "b_video_player",
+      "br_instruction",
+      "accessible"
+     ]
+    },
+    {
+     "caption": "Layout blocks give pages structure.",
+     "nodes": [
+      "b_block_quote",
+      "b_simple_cta",
+      "b_accent_card",
+      "b_a11y_collapse",
+      "b_grid_plate",
+      "b_person_testimonial",
+      "b_page_section",
+      "b_play_list",
+      "br_structure"
+     ]
+    },
+    {
+     "caption": "Content, text and other blocks fill out the set.",
+     "nodes": [
+      "b_bibliography_builder",
+      "b_bibliography_item",
+      "b_career_org_item",
+      "b_career_role_item",
+      "b_career_timeline",
+      "b_citation_element",
+      "b_place_holder",
+      "b_ai_usage_license",
+      "b_course_model",
+      "b_date_card",
+      "b_license_element",
+      "b_md_block",
+      "b_page_anchor",
+      "b_page_break",
+      "b_page_flag",
+      "b_q_r",
+      "b_site_remote_content",
+      "b_rpg_character",
+      "b_moar_sarcasm",
+      "b_simple_tags",
+      "b_twitter_embed",
+      "b_wikipedia_query",
+      "portfolio",
+      "course",
+      "remixable",
+      "eberly"
+     ]
+    },
+    {
+     "caption": "HAXSchema and the app store make every block editable, by people and agents alike.",
+     "nodes": [
+      "haxschema",
+      "appstore",
+      "editor",
+      "ddd"
+     ]
+    },
+    {
+     "caption": "People and wins behind the blocks.",
+     "nodes": [
+      "hanna",
+      "jimmykane",
+      "wins"
+     ]
+    },
+    {
+     "caption": "Every block points back into the ecosystem web.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

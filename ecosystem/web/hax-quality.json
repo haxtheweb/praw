@@ -1,0 +1,183 @@
+{
+ "meta": {
+  "name": "Quality control",
+  "parent": "main",
+  "noTimeline": true,
+  "sectionLabels": {
+   "stage": "stages",
+   "gate": "gates"
+  },
+  "about": "Every quality gate a change passes through, from a developer's machine to a published release, and which repos each guards. The red gate is the one that does not block merging yet.",
+  "kindLabels": {
+   "rel": "stage runs gate; gate guards repo"
+  }
+ },
+ "nodes": {
+  "testing": {
+   "always": true
+  },
+  "st_local": {
+   "desc": "Before a commit: lint, precheck and the test suite run locally; AGENTS.md in each repo says which.",
+   "kind": "stage"
+  },
+  "st_pr": {
+   "desc": "GitHub Actions on every PR: CodeQL, unit and conformance tests, the CLA check. A PR is expected to pass CodeQL on its first push.",
+   "kind": "stage"
+  },
+  "st_release": {
+   "desc": "Ubiquity builds and publishes every element; the drift check updates this web's versions.",
+   "kind": "stage"
+  },
+  "q_lint": {
+   "desc": "ESLint rules per repo. In webcomponents the rules ban optional chaining (?.) so elements keep running in older browsers; lint catches it.",
+   "kind": "gate",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
+   }
+  },
+  "q_precheck": {
+   "desc": "haxcms-nodejs's npm run precheck: Prettier, ESLint and the fast tests on the files changed against main. haxcms-php has no precheck; the nodejs one covers files the two share.",
+   "kind": "gate",
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/scripts/precheck.mjs"
+   }
+  },
+  "q_wtr": {
+   "desc": "web-test-runner suites in real browsers, with accessibility checks, for every element in the monorepo.",
+   "kind": "gate",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/web-test-runner.config.mjs"
+   }
+  },
+  "q_dddaudit": {
+   "desc": "hax audit: design-system and HAXSchema compliance for an element, run from the CLI before a PR.",
+   "kind": "gate",
+   "links": {
+    "source": "https://github.com/haxtheweb/create"
+   }
+  },
+  "q_unit": {
+   "desc": "node:test suites in haxcms-nodejs and the CLI; PHPUnit (about 3,900 tests) in haxcms-php with its committed vendor folder.",
+   "kind": "gate",
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-php/tree/master/system/backend/php/tests"
+   }
+  },
+  "q_parity": {
+   "desc": "Conformance tests check both backends against the same OpenAPI specs, so haxcms-nodejs and haxcms-php keep identical behavior. Matching test names on both sides.",
+   "kind": "gate",
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-nodejs/tree/main/test"
+   }
+  },
+  "q_codeql": {
+   "desc": "GitHub's security analysis (actions and javascript-typescript) on every PR to haxcms-nodejs, haxcms-php and webcomponents. Expected to pass on the first push.",
+   "kind": "gate",
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-nodejs/actions"
+   }
+  },
+  "q_audit": {
+   "desc": "Composer audit on haxcms-php and npm audit on the Node repos flag vulnerable dependencies.",
+   "kind": "gate",
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-php/actions"
+   }
+  },
+  "q_cla": {
+   "desc": "Every contributor signs the contributor license agreement once; the check runs on each PR.",
+   "kind": "gate",
+   "links": {
+    "source": "https://github.com/haxtheweb/issues/blob/master/CONTRIBUTING.md"
+   }
+  },
+  "q_e2e": {
+   "desc": "Playwright runs against the HAXcms UI (site creation, templates, outline operations). Non-gating while its flakiness is characterized; some failures recur across PRs.",
+   "kind": "gate",
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-nodejs/actions"
+   }
+  },
+  "q_ubiquity": {
+   "desc": "The release build: every element built, tested and published to npm together, and wc-registry.json regenerated.",
+   "kind": "gate",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/ubiquity.sh"
+   }
+  },
+  "q_drift": {
+   "desc": "drift.py pulls the latest source, reruns every generated web and flags new or missing CLI commands, API endpoints, MCP tools, field types, schema parts, skeletons, importers, tutorials, languages and release steps; graph-drift.mjs checks every released part's version against npm and GitHub tags. --strict fails a ubiquity build when anything drifted.",
+   "kind": "gate",
+   "links": {
+    "source": "https://github.com/haxtheweb/issues/issues/3173"
+   }
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "quality",
+   "label": "From commit to release",
+   "message": "Every gate a change passes through and which repos it guards.",
+   "scenes": [
+    {
+     "caption": "Three stages: your machine, the pull request, the release.",
+     "nodes": [
+      "st_local",
+      "st_pr",
+      "st_release"
+     ]
+    },
+    {
+     "caption": "Before you commit: lint, precheck, browser tests and the DDD audit.",
+     "nodes": [
+      "st_local",
+      "q_lint",
+      "q_precheck",
+      "q_wtr",
+      "q_dddaudit"
+     ]
+    },
+    {
+     "caption": "On the PR: unit tests, API conformance between the two backends, CodeQL, dependency audits, the CLA.",
+     "nodes": [
+      "st_pr",
+      "q_unit",
+      "q_parity",
+      "q_codeql",
+      "q_audit",
+      "q_cla"
+     ]
+    },
+    {
+     "caption": "The browser end-to-end suite runs too, but does not gate yet.",
+     "nodes": [
+      "q_e2e"
+     ]
+    },
+    {
+     "caption": "At release: Ubiquity ships every element; the drift check keeps this web honest.",
+     "nodes": [
+      "st_release",
+      "q_ubiquity",
+      "q_drift"
+     ]
+    },
+    {
+     "caption": "Which repos each gate guards.",
+     "nodes": [
+      "components",
+      "nodejs",
+      "php",
+      "cli",
+      "praw"
+     ]
+    },
+    {
+     "caption": "The whole pipeline.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

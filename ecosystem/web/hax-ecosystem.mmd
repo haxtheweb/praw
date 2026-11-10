@@ -1,0 +1,785 @@
+%% HAX ecosystem graph: plain Mermaid flowchart plus %%@ annotations.
+%% Mermaid ignores %% lines, so this renders anywhere Mermaid does (GitHub, docs).
+%% The hax player reads the same file and adds icons, DDD colors, motion and scenes.
+%% Edges:  ==> pillar   -.-> schema contract   --o organization / ecosystem   --- person worked on   --> relationship
+%% Details (descriptions, links, versions, evidence, tours, timeline) live in hax-ecosystem.json.
+flowchart TB
+  subgraph center ["People and their companion"]
+    human(("Humans"))
+    traveler(("HAX Future Traveler"))
+  end
+  subgraph pillars ["Pillars"]
+    accessible{{"Accessible"}}
+    efficient{{"Efficient"}}
+    extensible{{"Extensible"}}
+    open{{"Free and open"}}
+    agnostic{{"Platform agnostic"}}
+    remixable{{"Remixable"}}
+    sustainable{{"Sustainable"}}
+  end
+  subgraph core ["Core platform"]
+    haxcms["HAXcms"]
+    editor["HAX editor"]
+    merlin["Merlin"]
+    dashboard["Site dashboard"]
+    themes["Themes"]
+  end
+  subgraph backends ["Backends and identity"]
+    php["HAXcms PHP"]
+    nodejs["HAXcms Node.js"]
+    haxiam["HAXiam"]
+    haxpsu["hax.psu.edu"]
+    ssr["Lit SSR"]
+    importers["Importers"]
+    staticpub["Static export in core"]
+    insights["Insights"]
+    magiclink["One-time login links"]
+    hax11ty["HAX11ty"]
+  end
+  subgraph tooling ["Tooling and community"]
+    cli["HAX CLI"]
+    ubiquity["Ubiquity"]
+    deploy["Deploy targets"]
+    agents["Agent skills"]
+    ai["AI in HAX"]
+    mcp["HAX MCP"]
+    praw["PRAW"]
+    learnhax["Learn HAX"]
+    flows["Step by step"]
+    community["Community and governance"]
+    issues["Issue queue"]
+    wins["WINS"]
+    haxcamp["HAX Camp"]
+    ist256["IST 256"]
+    grants["Grants"]
+  end
+  subgraph content ["Content and design"]
+    components["Web components"]
+    ddd["DDD"]
+    plugins["Plugins"]
+    languages["Languages"]
+    games["Games"]
+  end
+  subgraph comms ["Communication"]
+    presentations["Presentations"]
+  end
+  subgraph practices ["Practices and standards"]
+    wcstandard["Web component standard"]
+    security["Security"]
+    testing["Automated testing"]
+    design["Design"]
+  end
+  subgraph schemas ["Schemas"]
+    jos[("JSON Outline Schema")]
+    haxschema[("HAXSchema")]
+    appstore[("App Store schema")]
+    oerschema[("OER Schema")]
+    openapi[("OpenAPI")]
+    xapi[("xAPI statements")]
+    contracts[("All data contracts")]
+    anatomy[("Site anatomy")]
+  end
+  subgraph reuse ["Skeletons and use cases"]
+    skeletons["Skeletons"]
+    course(["Course"])
+    portfolio(["Portfolio"])
+    dept(["Department site"])
+    textbook(["Open textbook"])
+  end
+  subgraph orgs ["Organizations and ecosystems"]
+    psu[["Penn State"]]
+    aa[["Arts and Architecture"]]
+    ist[["IST"]]
+    hhd[["HHD"]]
+    eberly[["Eberly College of Science"]]
+    libraries[["University Libraries"]]
+    haxlab[["HAX Lab"]]
+    ccso[["CCSO Cyber Security club"]]
+    uxdc[["UXDC"]]
+    apereo[["Apereo Foundation"]]
+    github[["GitHub"]]
+    npm[["npm"]]
+    duke[["Duke University"]]
+    reclaim[["Reclaim Hosting"]]
+    uvic[["University of Victoria"]]
+    drupalcon[["DrupalCon"]]
+    buttercups[["Buttercups Training"]]
+    innovationhub[["Innovation Hub"]]
+  end
+  subgraph history ["Foundations"]
+    elmsln["ELMS:LN"]
+  end
+  subgraph grantlist ["Funded work"]
+    g_fusco(["Canvas AI analysis grant"])
+    g_frank(["International Student Portfolio grant"])
+    g_hhd(["Games and platform grant"])
+  end
+  subgraph people ["People"]
+    bryan(("Bryan Ollendyke"))
+    billrose(("Bill Rose"))
+    keithbailey(("Keith Bailey"))
+    mikepotter(("Mike Potter"))
+    mcollins(("Michael Collins"))
+    fusco(("Dave Fusco"))
+    jfrank(("Jennifer Frank"))
+    blake(("Blake Colaianne"))
+    mark(("Mark Milutinović"))
+    tom(("Shiju Tom Varughese"))
+    tevin(("Tevin Julien"))
+    sara(("Sara Cunningham"))
+    collin(("Collin Kleest"))
+    hanna(("Hannah Kern"))
+    jimmykane(("James Kane IV"))
+    drewronk(("Drew Ronk"))
+    edelor(("Elizabeth Delor"))
+    liz(("Liz Blake"))
+    taylor(("Taylor Bracone"))
+    andrew(("Andrew Maier"))
+    agearhart(("Andrew Gearhart"))
+    kcharlton(("Keith Charlton"))
+    zach(("Zach Dodson"))
+    kai(("Kai Huang"))
+    ashley(("Ashley Santana"))
+    winston(("Winston White"))
+    skyler(("Skyler Koba"))
+    isabella(("Isabella Masso"))
+    josh(("Josh Owen-Guenther"))
+    aarya(("Aarya Awasthy"))
+    nazman(("Nazman Rosman"))
+    chloe(("Chloe Martin"))
+    alyssa(("Alyssa Foran"))
+    jskeete(("Jonathan Skeete"))
+    liam(("Liam Geyer"))
+    asa(("Asa Reynolds"))
+    robert(("Robert Roderick"))
+    maguire(("Maguire Younes"))
+    owen(("Owen Dransfield"))
+    nicholas(("Nicholas Thomas"))
+    kekoa(("Kekoa Merez"))
+    miles(("Miles Handelman"))
+    jackdavis(("Jack Davis"))
+    rhumphries(("Rick Humphries"))
+    nikkimk(("Nikki Massaro"))
+    gh_cgldevel(("Chuck Lavera"))
+    gh_jalbert2(("Jonah Albert"))
+    gh_sanikaa3(("Sanika Ainchwar"))
+    gh_christianmurphy(("Christian Murphy"))
+    gh_aam198(("Allie Martz"))
+    gh_firaol4(("Firaol Tulu"))
+  end
+
+  %% Humans hold every pillar
+  human ==>|keep it| accessible
+  human ==>|keep it| efficient
+  human ==>|keep it| extensible
+  human ==>|keep it| open
+  human ==>|keep it| agnostic
+  human ==>|keep it| remixable
+  human ==>|keep it| sustainable
+
+  %% The center
+  human -->|work alongside| traveler
+  human -->|build with| haxcms
+  traveler -->|builds with| haxcms
+  traveler -->|learns from| praw
+  traveler -->|uses| agents
+  traveler -->|connects through| mcp
+  traveler -->|drives| cli
+  human -->|shape the roadmap in| issues
+
+  %% Core platform
+  haxcms -->|edits pages with| editor
+  haxcms -->|runs commands through| merlin
+  merlin -->|works inside| editor
+  haxcms -->|manages sites in| dashboard
+  haxcms -->|renders with| themes
+  components -->|are placed with| editor
+
+  %% Backends and identity
+  php -->|serves| haxcms
+  nodejs -->|serves| haxcms
+  php -->|mirrors| nodejs
+  haxiam -->|hosts many sites of| haxcms
+  ssr -->|server-renders| components
+  ssr -->|runs inside| nodejs
+  staticpub -->|will build into| php
+  staticpub -->|will build into| nodejs
+  staticpub -->|will run from| cli
+  staticpub -->|makes a wrapper of| hax11ty
+  staticpub -->|uses| ssr
+  magiclink -->|will be issued by| cli
+  magiclink -->|signs in to| haxcms
+
+  %% Tooling and community
+  cli -->|runs sites on| nodejs
+  cli -->|publishes to| deploy
+  cli -->|scaffolds| components
+  cli -->|audits against| ddd
+  cli -->|creates sites from| skeletons
+  ubiquity -->|builds and releases| components
+  ubiquity -->|ships builds to| nodejs
+  praw -->|publishes| agents
+  issues -->|feeds conventions to| praw
+
+  %% Content and design
+  ddd -->|styles| components
+  ddd -->|styles| themes
+  plugins -->|extend| haxcms
+  languages -->|translate| components
+  languages -->|localize| haxcms
+
+  %% Communication
+  presentations -->|tell the story of| editor
+  presentations -->|tell the story of| haxcms
+  presentations -->|tell the story of| components
+  presentations --o|were given at| drupalcon
+  presentations --o|were given at| apereo
+  billrose ---|gives| presentations
+  mikepotter ---|co-presented| presentations
+
+  %% Schemas are the contracts between parts
+  jos -.->|structures| haxcms
+  jos -.->|outlines| skeletons
+  community -->|decides in| issues
+  community -->|meets at| haxcamp
+  psu -->|stewards| community
+  contracts -.->|gathers| jos
+  contracts -.->|gathers| haxschema
+  contracts -.->|gathers| appstore
+  contracts -.->|gathers| oerschema
+  contracts -.->|gathers| openapi
+  contracts -.->|gathers| xapi
+  anatomy -.->|is laid out by| jos
+  anatomy -.->|is served by| haxcms
+  oerschema -.->|is applied in| editor
+  appstore -->|will be extended by| plugins
+  haxschema -.->|describes editing for| components
+  haxschema -.->|builds forms in| editor
+  appstore -.->|loads blocks into| editor
+  oerschema -.->|tags| course
+  oerschema -.->|tags| textbook
+  openapi -.->|is the contract for| php
+  openapi -.->|is the contract for| nodejs
+  openapi -.->|is the contract for| cli
+  haxcms -->|brings content in with| importers
+  editor -->|drops files into| importers
+  cli -->|runs| importers
+  mcp -->|runs| importers
+  importers ==>|keep it| remixable
+  importers ==>|keep it| agnostic
+  flows -->|walks through| haxcms
+  flows -->|walks through| editor
+  flows -->|walks through| jos
+  flows -->|walks through| components
+  learnhax -->|points to| flows
+  learnhax -->|teaches| haxcms
+  learnhax -->|teaches| editor
+  learnhax -->|teaches| importers
+  learnhax -->|teaches| skeletons
+  human -->|learn from| learnhax
+  mcp -.->|speaks| openapi
+  xapi -.->|records learning in| course
+  xapi -.->|feeds| insights
+  insights -->|reports in| dashboard
+
+  %% Skeletons make use cases reusable
+  skeletons -->|start a| course
+  skeletons -->|start a| portfolio
+  skeletons -->|start a| dept
+  skeletons -->|start a| textbook
+  skeletons -->|bundle| themes
+
+  %% Pillar threads
+  ddd ==>|keeps it| accessible
+  components ==>|keep it| accessible
+  editor ==>|keeps it| accessible
+  languages ==>|keep it| accessible
+  ssr ==>|keeps it| efficient
+  ubiquity ==>|keeps it| efficient
+  deploy ==>|keep it| efficient
+  cli ==>|keeps it| efficient
+  plugins ==>|keep it| extensible
+  components ==>|keep it| extensible
+  themes ==>|keep it| extensible
+  haxschema ==>|keeps it| extensible
+  mcp ==>|keeps it| extensible
+  praw ==>|keeps it| open
+  issues ==>|keeps it| open
+  oerschema ==>|keeps it| open
+  textbook ==>|keeps it| open
+  php ==>|keeps it| agnostic
+  nodejs ==>|keeps it| agnostic
+  jos ==>|keeps it| agnostic
+  openapi ==>|keeps it| agnostic
+  openapi ==>|keeps it| extensible
+  deploy ==>|keep it| agnostic
+  oerschema ==>|keeps it| remixable
+  skeletons ==>|keep it| remixable
+  editor ==>|keeps it| remixable
+  jos ==>|keeps it| remixable
+  appstore ==>|keeps it| remixable
+  ubiquity ==>|keeps it| sustainable
+  praw ==>|keeps it| sustainable
+  issues ==>|keeps it| sustainable
+  agents ==>|keep it| sustainable
+
+  %% Organizations and ecosystems
+  psu --o|backs| human
+  psu --o|backs| traveler
+  psu -->|teaches with| course
+  aa --o|is part of| psu
+  ist --o|is part of| psu
+  hhd --o|is part of| psu
+  eberly --o|is part of| psu
+  libraries --o|is part of| psu
+  psu --o|runs| haxpsu
+  aa --o|publishes courses on| haxpsu
+  ist --o|publishes courses on| haxpsu
+  eberly --o|publishes courses on| haxpsu
+  hhd --o|publishes sites on| haxpsu
+  haxpsu -->|runs on| haxiam
+  hhd -->|runs a| dept
+  libraries -->|publishes with| hax11ty
+  haxlab --o|is based in| aa
+  haxlab -->|builds with| traveler
+  ccso --o|is a student club in| ist
+  ccso -->|audits| security
+  uxdc --o|is a student organization in| ist
+  uxdc -->|practices| design
+  apereo --o|supports| human
+  apereo --o|supports| traveler
+  github --o|hosts| issues
+  npm --o|distributes| components
+  npm --o|distributes| cli
+  npm --o|distributes| nodejs
+  psu ==>|keeps it| sustainable
+  psu ==>|keeps it| accessible
+  psu ==>|keeps it| open
+  psu ==>|keeps it| remixable
+  libraries ==>|keep it| sustainable
+  libraries ==>|keep it| agnostic
+  ccso ==>|keeps it| sustainable
+  ccso ==>|keeps it| open
+  apereo ==>|keeps it| open
+  github ==>|keeps it| open
+  github ==>|keeps it| extensible
+  github ==>|keeps it| sustainable
+  npm ==>|keeps it| open
+  npm ==>|keeps it| extensible
+  npm ==>|keeps it| sustainable
+
+  %% Practices and standards
+  wcstandard -->|is the basis of| components
+  wcstandard ==>|keeps it| efficient
+  wcstandard ==>|keeps it| agnostic
+  design -->|shapes| ddd
+  design ==>|keeps it| accessible
+  testing -->|checks work from| traveler
+  testing --o|runs on| github
+  testing -->|guards| security
+  testing -->|tests| components
+  testing -->|tests| nodejs
+  testing -->|tests| php
+  security -->|was audited in| php
+  security -->|was audited in| nodejs
+  security -->|was audited in| haxiam
+  hax11ty -->|publishes to| deploy
+  jos -.->|structures| hax11ty
+
+  %% WINS: proof the worldview works (PRAW WINS.md)
+  praw -->|keeps proof in| wins
+  wins -->|records a win for| hhd
+  wins -->|records a win for| dept
+  wins -->|records a win for| haxlab
+  wins -->|records a win for| ccso
+  wins -->|records a win for| security
+  wins -->|records a win for| uxdc
+  wins -->|records a win for| libraries
+  wins -->|records a win for| apereo
+  wins -->|records a win for| npm
+  wins -->|records a win for| ddd
+  wins -->|records a win for| cli
+  wins -->|records a win for| skeletons
+  wins -->|records a win for| dashboard
+  wins -->|records a win for| portfolio
+
+  %% HAX MCP (pre-release) reaches the backends and the CLI
+  mcp -->|connects to| nodejs
+  mcp -->|connects to| php
+  mcp -->|connects to| cli
+
+  %% Community
+  haxcamp -->|teaches| components
+  haxcamp ==>|keeps it| sustainable
+  haxcamp ==>|keeps it| open
+
+  %% Foundations: what came before HAX
+  elmsln -->|led to| haxcms
+  elmsln --o|was built at| psu
+
+  %% Events and hosts
+  haxcamp --o|was held at| duke
+  reclaim --o|hosted HAX Camp at Duke with| haxcamp
+  haxcms -->|installs on| reclaim
+  jfrank --o|is now at| uvic
+  jfrank --o|was in| hhd
+  haxcamp --o|was held at| ist
+  editor --o|was first presented at| drupalcon
+  haxcms --o|was announced at| drupalcon
+
+  %% IST 256: Bryan's course (btopro/edtechjoker)
+  ist256 --o|is taught in| ist
+  ist256 -->|sends its best students to| haxlab
+  ist256 -->|produced blocks in| components
+  winston ---|took| ist256
+  kcharlton ---|took| ist256
+
+  %% Buttercups Training
+  buttercups --o|contributed to| elmsln
+  buttercups --o|contributed to| editor
+  buttercups --o|contributed to| xapi
+  jackdavis --o|works at| buttercups
+  rhumphries --o|leads| buttercups
+  rhumphries ---|is the boss of| jackdavis
+  mcollins -.->|authored| oerschema
+  jackdavis ---|contributed to| elmsln
+
+  %% Innovation Hub
+  innovationhub --o|is part of| psu
+  innovationhub -->|built its earlier site on| haxpsu
+  wins -->|records a win for| innovationhub
+
+  %% Grants
+  grants -->|includes| g_fusco
+  grants -->|includes| g_frank
+  grants -->|includes| g_hhd
+  grants -->|are recorded in| wins
+  fusco ---|leads| g_fusco
+  g_fusco -->|funds| agents
+  g_fusco -->|funds| ai
+  ai -->|works inside| haxcms
+  ai -->|is built from| components
+  g_fusco -->|funds| cli
+  jfrank ---|funded| g_frank
+  winston ---|built through| g_frank
+  g_frank -->|funds| haxcms
+  g_frank -->|funds| skeletons
+  g_frank -->|funds| portfolio
+  billrose ---|is on| g_hhd
+  blake ---|is on| g_hhd
+  g_hhd --o|is with| hhd
+  g_hhd -->|funds| games
+  g_hhd -->|funds| components
+  g_hhd -->|funds| haxcms
+  games -->|are built from| components
+  games -->|star| traveler
+
+  %% Contributors from git history (GitHub contributors per repo; "claude" commits are credited to the Future Traveler)
+  nikkimk ---|made 1885 commits to| components
+  traveler ---|made 455 commits as Claude to| components
+  zach ---|made 288 commits to| components
+  winston ---|made 126 commits to| components
+  mikepotter ---|made 89 commits to| components
+  collin ---|made 79 commits to| components
+  nazman ---|made 53 commits to| components
+  isabella ---|made 46 commits to| components
+  gh_cgldevel ---|made 42 commits to| components
+  gh_jalbert2 ---|made 41 commits to| components
+  kai ---|made 36 commits to| components
+  josh ---|made 25 commits to| components
+  jackdavis ---|made 20 commits to| components
+  gh_aam198 ---|made 20 commits to| components
+  chloe ---|made 19 commits to| components
+  gh_christianmurphy ---|made 19 commits to| components
+  skyler ---|made 17 commits to| components
+  kcharlton ---|made 16 commits to| components
+  aarya ---|made 15 commits to| components
+  hanna ---|made 15 commits to| components
+  jimmykane ---|made 14 commits to| components
+  gh_firaol4 ---|made 14 commits to| components
+  gh_sanikaa3 ---|made 13 commits to| components
+  fusco ---|made 6 commits to| components
+  mcollins ---|made 3 commits to| components
+  traveler ---|made 154 commits as Claude to| nodejs
+  winston ---|made 18 commits to| nodejs
+  gh_sanikaa3 ---|made 9 commits to| nodejs
+  mcollins ---|made 6 commits to| nodejs
+  gh_firaol4 ---|made 4 commits to| nodejs
+  traveler ---|made 105 commits as Claude to| php
+  mikepotter ---|made 11 commits to| php
+  collin ---|made 4 commits to| php
+  gh_cgldevel ---|made 3 commits to| php
+  gh_sanikaa3 ---|made 3 commits to| php
+  traveler ---|made 78 commits as Claude to| cli
+  winston ---|made 57 commits to| cli
+  zach ---|made 53 commits to| cli
+  jimmykane ---|made 3 commits to| cli
+  traveler ---|made 60 commits as Claude to| praw
+  nikkimk ---|co-presented HAX at| drupalcon
+
+  %% People: who worked on what (hax-lab README, WINS.md, WORLDVIEW.md)
+  bryan ---|built| elmsln
+  bryan ---|works alongside, and is the model for,| traveler
+  billrose ---|built| elmsln
+  billrose ---|steers| haxcms
+  billrose ---|is product owner of| haxcms
+  billrose ---|wrote the course ontology for| course
+  keithbailey ---|championed| elmsln
+  keithbailey ---|worked with| billrose
+  keithbailey --o|led online learning at| psu
+  mikepotter ---|pointed Bryan to| wcstandard
+  mikepotter ---|was on the core team of| elmsln
+  mikepotter ---|co-presented the first talks on| editor
+  mikepotter ---|presented HAX at| drupalcon
+  mikepotter ---|was part of| haxcamp
+  mcollins ---|built the admin dashboard UI for| dashboard
+  mcollins ---|rebuilt the outline designer in| haxcms
+  mcollins ---|teaches with| course
+  mcollins ---|taught with| elmsln
+  mcollins --o|is faculty in| aa
+  fusco ---|integrated xAPI with| xapi
+  fusco ---|added AI integration to| ai
+  fusco ---|funded Canvas AI analysis in| cli
+  fusco --o|was in| haxlab
+  jfrank ---|funded the International Student Portfolio| portfolio
+  blake --o|directs the Learn to Flourish Hub in| hhd
+  blake ---|runs| dept
+  mark ---|contributed to| elmsln
+  mark --o|was in| haxlab
+  tom ---|helped plan| haxcamp
+  tom --o|was in| haxlab
+  tevin ---|ran a pre-release UX study of| haxcms
+  tevin --o|was in| haxlab
+  sara ---|prototyped media dashboard UX for| design
+  sara --o|was in| haxlab
+  collin ---|built the Bootstrap theme for| themes
+  collin --o|was in| haxlab
+  hanna --o|was in| haxlab
+  jimmykane ---|led Dashboard 1.0| dashboard
+  jimmykane --o|was in| haxlab
+  drewronk ---|designed the 8-bit site creation flow in| dashboard
+  drewronk --o|was in| haxlab
+  edelor ---|designed the 8-bit site creation flow in| dashboard
+  edelor --o|was in| haxlab
+  liz ---|planned HAX Camp 2022| haxcamp
+  liz --o|was in| haxlab
+  taylor ---|planned HAX Camp 2022| haxcamp
+  taylor --o|was in| haxlab
+  andrew ---|reviewed JWT policy for| security
+  andrew ---|prototyped headless login for| haxcms
+  andrew ---|planned HAX Camp 2022| haxcamp
+  andrew --o|was in| haxlab
+  agearhart --o|works with| libraries
+  agearhart ---|works with| hax11ty
+  fusco --o|teaches in| ist
+  billrose --o|worked in| aa
+  keithbailey --o|worked in| aa
+  apereo --o|works with| aa
+  kcharlton ---|created| ddd
+  kcharlton --o|was in| haxlab
+  zach ---|built an AI chat agent for| ai
+  zach ---|added the DDD audit to| cli
+  zach --o|was in| haxlab
+  kai ---|audited DDD usage in| ddd
+  kai ---|QA'd elements for| testing
+  kai --o|was in| haxlab
+  ashley ---|prototyped Dashboard 2.0| dashboard
+  winston ---|built Polaris themes| themes
+  winston ---|built much of| cli
+  winston ---|built the templating for| skeletons
+  winston ---|built the International Student Portfolio| portfolio
+  winston --o|was in| haxlab
+  skyler ---|built the Start Journey screen in| dashboard
+  skyler --o|was in| haxlab
+  isabella ---|built the Start Journey screen in| dashboard
+  isabella --o|was in| haxlab
+  josh ---|built a portfolio theme| themes
+  josh --o|was in| haxlab
+  aarya ---|built two portfolio themes| themes
+  aarya --o|was in| haxlab
+  nazman ---|built the Glossy Portfolio theme| themes
+  nazman --o|was in| haxlab
+  chloe ---|built Dashboard 3.0| dashboard
+  alyssa ---|shaped palettes and admin screens for| design
+  jskeete --o|was on the 2025 pentest team of| ccso
+  liam --o|was on the 2025 pentest team of| ccso
+  asa --o|was on the 2025 pentest team of| ccso
+  robert --o|was on the 2025 pentest team of| ccso
+  maguire --o|was on the 2025 pentest team of| ccso
+  owen --o|was on the 2025 pentest team of| ccso
+  nicholas --o|was on the 2025 pentest team of| ccso
+  kekoa --o|was on the 2025 pentest team of| ccso
+  miles --o|was on the 2025 pentest team of| ccso
+  jskeete ---|found and reported| security
+  liam ---|found and reported| security
+  asa ---|found and reported| security
+  robert ---|found and reported| security
+  maguire ---|found and reported| security
+  owen ---|reported| security
+  nicholas ---|reported| security
+  kekoa ---|reported| security
+  miles ---|reported| security
+  jimmykane ---|is featured in| wins
+  ashley ---|is featured in| wins
+  skyler ---|is featured in| wins
+  isabella ---|is featured in| wins
+  chloe ---|is featured in| wins
+  alyssa ---|is featured in| wins
+  winston ---|is featured in| wins
+  kcharlton ---|is featured in| wins
+  zach ---|is featured in| wins
+  mcollins ---|is featured in| wins
+  fusco ---|is featured in| wins
+  jfrank ---|is featured in| wins
+  blake ---|is featured in| wins
+
+  %%@ group center tier=0
+  %%@ group pillars tier=1
+  %%@ group core tier=2
+  %%@ group backends tier=2
+  %%@ group tooling tier=2
+  %%@ group content tier=2
+  %%@ group comms tier=2
+  %%@ group practices tier=2
+  %%@ group schemas tier=3
+  %%@ group reuse tier=3
+  %%@ group orgs tier=3
+  %%@ group history tier=3
+  %%@ group grantlist tier=3
+  %%@ group people tier=4
+
+  %%@ node human icon=social:people color=keystoneYellow motion=pulse
+  %%@ node traveler image=world-traveler-15 color=original87Pink motion=tilt web=skills
+  %%@ node accessible icon=icons:accessibility color=nittanyNavy motion=pop
+  %%@ node efficient icon=image:flash-on color=nittanyNavy motion=strike
+  %%@ node extensible icon=hax:add-brick color=nittanyNavy motion=lift
+  %%@ node open icon=icons:lock-open color=nittanyNavy motion=wiggle
+  %%@ node agnostic icon=device:devices color=nittanyNavy motion=nudge
+  %%@ node remixable icon=hax:remix color=nittanyNavy motion=spin
+  %%@ node sustainable icon=image:nature color=nittanyNavy motion=pulse
+  %%@ node haxcms icon=hax:site-map color=discoveryCoral motion=pop web=haxcms
+  %%@ node editor icon=hax:page-edit color=opportunityGreen motion=wiggle
+  %%@ node merlin icon=hax:wand color=wonderPurple motion=glow web=merlin
+  %%@ node dashboard icon=icons:dashboard color=roarGolden motion=pulse
+  %%@ node themes icon=lrn:palette color=original87Pink motion=tilt web=themes
+  %%@ node php icon=hax:php color=shrineTan motion=pulse new
+  %%@ node nodejs icon=hax:nodejs color=beaverBlue motion=spin new
+  %%@ node haxiam icon=icons:verified-user color=inventOrange motion=pulse
+  %%@ node haxpsu icon=social:school color=inventOrange motion=pulse web=sites
+  %%@ node ssr icon=icons:dns color=athertonViolet motion=lift
+  %%@ node importers icon=icons:cloud-upload color=inventOrange motion=lift web=importers
+  %%@ node learnhax icon=icons:book color=skyBlue motion=lift web=tutorials
+  %%@ node flows icon=hax:site-map color=nittanyNavy motion=pulse web=flows
+  %%@ node staticpub icon=icons:cloud-upload color=athertonViolet motion=lift
+  %%@ node magiclink icon=icons:lock-open color=athertonViolet motion=lift
+  %%@ node insights icon=hax:graph color=athertonViolet motion=pulse
+  %%@ node cli icon=hax:console-line color=landgrantBrown motion=nudge web=cli
+  %%@ node ubiquity icon=icons:build color=creekTeal motion=tilt web=release
+  %%@ node deploy icon=icons:cloud-upload color=pughBlue motion=lift
+  %%@ node agents icon=hax:file-ai color=roarGolden motion=pulse
+  %%@ node ai icon=hardware:memory color=roarGolden motion=glow
+  %%@ node mcp icon=hax:remote color=skyBlue motion=tilt web=mcptools
+  %%@ node praw icon=icons:gavel color=original87Pink motion=strike
+  %%@ node community icon=social:people color=futureLime motion=pulse web=community
+  %%@ node issues icon=icons:bug-report color=futureLime motion=wiggle
+  %%@ node components icon=hax:bricks color=wonderPurple motion=lift web=elements
+  %%@ node ddd icon=hax:blocks color=inventOrange motion=pop
+  %%@ node plugins icon=icons:extension color=shrineTan motion=nudge
+  %%@ node languages icon=icons:translate color=skyBlue motion=tilt web=languages
+  %%@ node presentations icon=image:slideshow color=wonderPurple motion=lift web=presentations
+  %%@ node ist256 icon=social:school color=skyBlue motion=lift web=ist256
+  %%@ node grants icon=editor:attach-money color=opportunityGreen motion=pulse
+  %%@ node games icon=places:casino color=discoveryCoral motion=wiggle
+  %%@ node buttercups mono=BT color=forestGreen motion=lift
+  %%@ node innovationhub mono=HUB color=inventOrange motion=lift
+  %%@ node g_fusco icon=editor:attach-money color=opportunityGreen motion=pulse
+  %%@ node g_frank icon=editor:attach-money color=opportunityGreen motion=pulse
+  %%@ node g_hhd icon=editor:attach-money color=opportunityGreen motion=pulse
+  %%@ node jackdavis mono=JD color=keystoneYellow motion=pop
+  %%@ node rhumphries mono=RH color=keystoneYellow motion=pop
+  %%@ node nikkimk mono=NK color=keystoneYellow motion=pop
+  %%@ node gh_cgldevel mono=CL color=keystoneYellow motion=pop
+  %%@ node gh_jalbert2 mono=JA color=keystoneYellow motion=pop
+  %%@ node gh_sanikaa3 mono=SA color=keystoneYellow motion=pop
+  %%@ node gh_christianmurphy mono=CM color=keystoneYellow motion=pop
+  %%@ node gh_aam198 mono=AM color=keystoneYellow motion=pop
+  %%@ node gh_firaol4 mono=FT color=keystoneYellow motion=pop
+  %%@ node jos icon=hax:outline-designer-indent color=opportunityGreen motion=nudge web=jos
+  %%@ node haxschema icon=hax:select-element color=slateGray motion=pop web=haxschema
+  %%@ node appstore icon=hax:apps color=pughBlue motion=pop web=appstore
+  %%@ node oerschema icon=hax:oerschema color=athertonViolet motion=pulse web=oerschema
+  %%@ node openapi icon=hax:code-json color=forestGreen motion=nudge web=openapi
+  %%@ node xapi icon=hax:clipboard-pulse color=roarGolden motion=pulse web=xapi
+  %%@ node contracts icon=hax:code-json color=slateGray motion=nudge web=contracts
+  %%@ node anatomy icon=hax:site-map color=slateGray motion=nudge web=anatomy
+  %%@ node skeletons icon=hax:templates color=original87Pink motion=lift web=skeletons
+  %%@ node course icon=hax:lesson color=beaverBlue motion=lift
+  %%@ node portfolio icon=hax:view-gallery color=wonderPurple motion=pop
+  %%@ node dept icon=icons:account-balance color=forestGreen motion=lift
+  %%@ node textbook icon=icons:book color=inventOrange motion=tilt
+  %%@ node hax11ty icon=hax:file-html color=pughBlue motion=lift
+  %%@ node wins icon=icons:stars color=roarGolden motion=pop
+  %%@ node wcstandard icon=hax:html-code color=inventOrange motion=nudge web=stack
+  %%@ node security icon=icons:lock color=slateGray motion=pulse
+  %%@ node testing icon=icons:assignment-turned-in color=forestGreen motion=pop web=quality
+  %%@ node design icon=image:brush color=athertonViolet motion=tilt
+  %%@ node psu mono=PSU color=nittanyNavy motion=pulse web=psu
+  %%@ node aa mono=A&A color=beaverBlue motion=lift
+  %%@ node ist mono=IST color=beaverBlue motion=lift
+  %%@ node hhd mono=HHD color=beaverBlue motion=lift
+  %%@ node eberly mono=SCI color=beaverBlue motion=lift
+  %%@ node libraries mono=LIB color=beaverBlue motion=lift
+  %%@ node haxlab icon=hax:hax2022 color=keystoneYellow motion=wiggle web=haxlab
+  %%@ node ccso mono=CCSO color=landgrantBrown motion=strike
+  %%@ node uxdc mono=UXDC color=creekTeal motion=tilt
+  %%@ node apereo mono=AP color=limestoneGray motion=pulse
+  %%@ node github mono=GH color=coalyGray motion=pop
+  %%@ node npm mono=npm color=discoveryCoral motion=nudge
+  %%@ node duke mono=DUKE color=slateGray motion=lift
+  %%@ node reclaim icon=icons:dns color=slateGray motion=lift
+  %%@ node uvic mono=UVic color=slateGray motion=lift
+  %%@ node drupalcon mono=DCon color=skyBlue motion=pop
+  %%@ node haxcamp icon=hax:collaborate color=skyBlue motion=wiggle
+  %%@ node elmsln icon=hax:ngdle color=limestoneGray motion=lift web=history
+  %%@ node bryan image=rpg-btopro color=keystoneYellow motion=pop
+  %%@ node billrose mono=BR color=keystoneYellow motion=pop
+  %%@ node keithbailey mono=KB color=keystoneYellow motion=pop
+  %%@ node mikepotter mono=MP color=keystoneYellow motion=pop
+  %%@ node mcollins mono=MC color=keystoneYellow motion=pop
+  %%@ node fusco mono=DF color=keystoneYellow motion=pop
+  %%@ node jfrank mono=JF color=keystoneYellow motion=pop
+  %%@ node blake mono=BC color=keystoneYellow motion=pop
+  %%@ node mark mono=MM color=keystoneYellow motion=pop
+  %%@ node tom mono=SV color=keystoneYellow motion=pop
+  %%@ node tevin mono=TJ color=keystoneYellow motion=pop
+  %%@ node sara mono=SC color=keystoneYellow motion=pop
+  %%@ node collin mono=CK color=keystoneYellow motion=pop
+  %%@ node hanna mono=HK color=keystoneYellow motion=pop
+  %%@ node jimmykane mono=JI color=keystoneYellow motion=pop
+  %%@ node drewronk mono=DR color=keystoneYellow motion=pop
+  %%@ node edelor mono=ED color=keystoneYellow motion=pop
+  %%@ node liz mono=LB color=keystoneYellow motion=pop
+  %%@ node taylor mono=TB color=keystoneYellow motion=pop
+  %%@ node andrew mono=AM color=keystoneYellow motion=pop
+  %%@ node agearhart mono=AG color=keystoneYellow motion=pop
+  %%@ node kcharlton mono=KC color=keystoneYellow motion=pop
+  %%@ node zach mono=ZD color=keystoneYellow motion=pop
+  %%@ node kai mono=KH color=keystoneYellow motion=pop
+  %%@ node ashley mono=AS color=keystoneYellow motion=pop
+  %%@ node winston mono=WW color=keystoneYellow motion=pop
+  %%@ node skyler mono=SK color=keystoneYellow motion=pop
+  %%@ node isabella mono=IM color=keystoneYellow motion=pop
+  %%@ node josh mono=JG color=keystoneYellow motion=pop
+  %%@ node aarya mono=AA color=keystoneYellow motion=pop
+  %%@ node nazman mono=NR color=keystoneYellow motion=pop
+  %%@ node chloe mono=CM color=keystoneYellow motion=pop
+  %%@ node alyssa mono=AF color=keystoneYellow motion=pop
+  %%@ node jskeete mono=JS color=keystoneYellow motion=pop
+  %%@ node liam mono=LG color=keystoneYellow motion=pop
+  %%@ node asa mono=AR color=keystoneYellow motion=pop
+  %%@ node robert mono=RR color=keystoneYellow motion=pop
+  %%@ node maguire mono=MY color=keystoneYellow motion=pop
+  %%@ node owen mono=OD color=keystoneYellow motion=pop
+  %%@ node nicholas mono=NT color=keystoneYellow motion=pop
+  %%@ node kekoa mono=KM color=keystoneYellow motion=pop
+  %%@ node miles mono=MH color=keystoneYellow motion=pop

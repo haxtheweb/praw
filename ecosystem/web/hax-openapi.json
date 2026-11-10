@@ -1,0 +1,931 @@
+{
+ "meta": {
+  "name": "OpenAPI endpoints",
+  "parent": "main",
+  "noTimeline": true,
+  "sectionLabels": {
+   "tag": "areas",
+   "operation": "operations"
+  },
+  "about": "Every endpoint HAXcms promises: 151 operations in 20 areas, generated from site-spec.yaml and system-spec.yaml. Both backends implement them; the MCP and the CLI call them. Tiles are colored by HTTP method.",
+  "kindLabels": {
+   "rel": "spec to area to operation",
+   "schema": "who implements or calls the contract"
+  }
+ },
+ "nodes": {
+  "openapi": {
+   "always": true
+  },
+  "spec_site": {
+   "desc": "59 operations on one site: pages, content, files, themes, search, reports.",
+   "links": {
+    "nodejs": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/openapi/site-spec.yaml",
+    "php": "https://github.com/haxtheweb/haxcms-php/blob/master/system/backend/php/lib/siteRoutes/openapi/site-spec.yaml"
+   }
+  },
+  "spec_system": {
+   "desc": "92 operations on the system: sessions, site lifecycle, settings, actions.",
+   "links": {
+    "nodejs": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/openapi/system-spec.yaml",
+    "php": "https://github.com/haxtheweb/haxcms-php/blob/master/system/backend/php/lib/systemRoutes/openapi/system-spec.yaml"
+   }
+  },
+  "tag_discovery": {
+   "desc": "Where the API describes itself: capabilities, the OpenAPI document, the api-catalog. 9 operations in the site spec.",
+   "kind": "tag"
+  },
+  "tag_site": {
+   "desc": "The site itself: manifest, summary, settings and info. 12 operations in the site spec.",
+   "kind": "tag"
+  },
+  "tag_reports": {
+   "desc": "Reports computed from the site. 3 operations in the site spec.",
+   "kind": "tag"
+  },
+  "tag_items": {
+   "desc": "Pages as items in the outline: list, create, update, move, delete. 10 operations in the site spec.",
+   "kind": "tag"
+  },
+  "tag_entities": {
+   "desc": "Entity lookups. 1 operations in the site spec.",
+   "kind": "tag"
+  },
+  "tag_schemas": {
+   "desc": "Schema documents the site exposes. 1 operations in the site spec.",
+   "kind": "tag"
+  },
+  "tag_content": {
+   "desc": "Page content as HTML, markdown and blocks. 4 operations in the site spec.",
+   "kind": "tag"
+  },
+  "tag_files": {
+   "desc": "Uploads: list, upload, rename, delete, transform. 5 operations in the site spec.",
+   "kind": "tag"
+  },
+  "tag_tags": {
+   "desc": "Tags across pages. 1 operations in the site spec.",
+   "kind": "tag"
+  },
+  "tag_search": {
+   "desc": "Full-text search. 1 operations in the site spec.",
+   "kind": "tag"
+  },
+  "tag_custom_elements": {
+   "desc": "The custom elements a site knows about. 2 operations in the site spec.",
+   "kind": "tag"
+  },
+  "tag_blocks": {
+   "desc": "Block definitions the editor can place. 3 operations in the site spec.",
+   "kind": "tag"
+  },
+  "tag_regions": {
+   "desc": "Theme regions. 2 operations in the site spec.",
+   "kind": "tag"
+  },
+  "tag_themes": {
+   "desc": "Themes and theme options. 3 operations in the site spec.",
+   "kind": "tag"
+  },
+  "tag_analytics": {
+   "desc": "Analytics the site records. 1 operations in the site spec.",
+   "kind": "tag"
+  },
+  "tag_views": {
+   "desc": "Saved views of the outline. 5 operations in the site spec.",
+   "kind": "tag"
+  },
+  "tag_session": {
+   "desc": "Login, logout, tokens and who you are. 12 operations in the system spec.",
+   "kind": "tag"
+  },
+  "tag_lifecycle": {
+   "desc": "Create, clone, delete, archive and list sites. 9 operations in the system spec.",
+   "kind": "tag"
+  },
+  "tag_settings": {
+   "desc": "Site settings written through the system: info, appearance, SEO, author, features, git, allowed blocks. 37 operations in the system spec.",
+   "kind": "tag"
+  },
+  "tag_actions": {
+   "desc": "Operations on a site: import, export, convert, rebuild, publish. 30 operations in the system spec.",
+   "kind": "tag"
+  },
+  "op_getsiteapidiscovery": {
+   "desc": "Get API capabilities and discovery links",
+   "note": "operationId getSiteApiDiscovery",
+   "kind": "operation"
+  },
+  "op_getsiteopenapi": {
+   "desc": "Get OpenAPI document (JSON by default)",
+   "note": "operationId getSiteOpenApi",
+   "kind": "operation"
+  },
+  "op_getsiteopenapijson": {
+   "desc": "Get OpenAPI document in JSON",
+   "note": "operationId getSiteOpenApiJson",
+   "kind": "operation"
+  },
+  "op_getsiteopenapiyaml": {
+   "desc": "Get OpenAPI document in YAML",
+   "note": "operationId getSiteOpenApiYaml",
+   "kind": "operation"
+  },
+  "op_getapicatalog": {
+   "desc": "Get API catalog linkset",
+   "note": "operationId getApiCatalog",
+   "kind": "operation"
+  },
+  "op_getsitesummary": {
+   "desc": "Get site-level metadata and counts",
+   "note": "operationId getSiteSummary",
+   "kind": "operation"
+  },
+  "op_updatesitesummary": {
+   "desc": "Update site summary and manifest-level metadata",
+   "note": "operationId updateSiteSummary",
+   "kind": "operation"
+  },
+  "op_updatesitealternativeformats": {
+   "desc": "Regenerate alternative output formats for the current site",
+   "note": "operationId updateSiteAlternativeFormats",
+   "kind": "operation"
+  },
+  "op_checksitelinks": {
+   "desc": "Checks up to 25 outside http(s) links per request. Only links that appear in this site's own page HTML are fetched; any other link is answered with state \"skipped\" and reason \"not-in-site\". Each link is requested server side with HEAD (GET when HEAD is refused) through the SSRF guard: private, loopback, link-local and metadata addresses are never contacted, the body is never read and only the status and final URL come back. Answers are cached for a while, and network checks are limited per user and site (config.security.linkCheckRateLimit); cached answers do not count against the limit.",
+   "note": "operationId checkSiteLinks",
+   "kind": "operation"
+  },
+  "op_updatesiteappearance": {
+   "desc": "Update site appearance settings",
+   "note": "operationId updateSiteAppearance",
+   "kind": "operation"
+  },
+  "op_updatesiteplatform": {
+   "desc": "Update site platform feature settings",
+   "note": "operationId updateSitePlatform",
+   "kind": "operation"
+  },
+  "op_updatesiteallowedblocks": {
+   "desc": "Update site allowed blocks settings",
+   "note": "operationId updateSiteAllowedBlocks",
+   "kind": "operation"
+  },
+  "op_updatesiteeditorsettings": {
+   "desc": "Update site editor settings",
+   "note": "operationId updateSiteEditorSettings",
+   "kind": "operation"
+  },
+  "op_updatesiteseo": {
+   "desc": "Update site SEO and author settings",
+   "note": "operationId updateSiteSeo",
+   "kind": "operation"
+  },
+  "op_updatesiteoutline": {
+   "desc": "Update site outline structure as a single atomic operation",
+   "note": "operationId updateSiteOutline",
+   "kind": "operation"
+  },
+  "op_normalizesiteslugs": {
+   "desc": "Normalize all site page slugs based on current titles and pathauto settings",
+   "note": "operationId normalizeSiteSlugs",
+   "kind": "operation"
+  },
+  "op_downloaditemexport": {
+   "desc": "Text formats are public for items visible to anonymous visitors. The pdf and docx formats are rendered per request and require authentication; anonymous requests receive 401.",
+   "note": "operationId downloadItemExport",
+   "kind": "operation"
+  },
+  "op_listentitydescriptors": {
+   "desc": "Returns the full merged set of entity descriptors sourced from the single entities.yaml registry (EntityRegistry getDefinitions()). Both /x/api/v1/entities and /system/api/v1/entities read from the same registry, so the API surface and the in-code object are one shape. Optional ?scope=site|system filters the merged set by scope. Each descriptor mirrors the extended EntityDescriptor schema, including the storage block that declares how the entity is (or will be) persisted.",
+   "note": "operationId listEntityDescriptors",
+   "kind": "operation"
+  },
+  "op_listschemas": {
+   "desc": "List schema descriptors and JSON schema fragments",
+   "note": "operationId listSchemas",
+   "kind": "operation"
+  },
+  "op_listitems": {
+   "desc": "Anonymous requests only return published items that are not hidden from navigation.",
+   "note": "operationId listItems",
+   "kind": "operation"
+  },
+  "op_createitem": {
+   "desc": "Create a new item in the outline",
+   "note": "operationId createItem",
+   "kind": "operation"
+  },
+  "op_getsiteexport": {
+   "desc": "The md format returns the whole site as one markdown document in outline order (also served as llms-full.txt), with an ETag for conditional requests. Anonymous callers may request the md and html formats (unpublished and hidden pages are excluded). The pdf, docx and epub formats render the whole site per request and require authentication; anonymous requests receive 401.",
+   "note": "operationId getSiteExport",
+   "kind": "operation"
+  },
+  "op_createsiteexport": {
+   "desc": "Get a site export descriptor for a format (metadata only, no binary download)",
+   "note": "operationId createSiteExport",
+   "kind": "operation"
+  },
+  "op_getitembyidorslug": {
+   "desc": "Anonymous requests only return items that are published and not hidden from navigation.",
+   "note": "operationId getItemByIdOrSlug",
+   "kind": "operation"
+  },
+  "op_updateitem": {
+   "desc": "Update an item using outline and page detail operations",
+   "note": "operationId updateItem",
+   "kind": "operation"
+  },
+  "op_deleteitem": {
+   "desc": "Delete an item by id or slug",
+   "note": "operationId deleteItem",
+   "kind": "operation"
+  },
+  "op_listitemrevisions": {
+   "desc": "List git-backed revision history for one item",
+   "note": "operationId listItemRevisions",
+   "kind": "operation"
+  },
+  "op_getitemrevisionbyid": {
+   "desc": "Get one item revision payload by git hash",
+   "note": "operationId getItemRevisionById",
+   "kind": "operation"
+  },
+  "op_compareitemrevisions": {
+   "desc": "Returns the page content at both revisions and the page detail fields (title, description, slug, published, hideInMenu, locked, from the .json variant) that differ. \"from\" is revisionId and \"to\" is compareRevisionId; either order works.",
+   "note": "operationId compareItemRevisions",
+   "kind": "operation"
+  },
+  "op_restoreitemrevision": {
+   "desc": "Restore one item revision as a new commit",
+   "note": "operationId restoreItemRevision",
+   "kind": "operation"
+  },
+  "op_listcontent": {
+   "desc": "Anonymous requests only return content for published items that are not hidden from navigation.",
+   "note": "operationId listContent",
+   "kind": "operation"
+  },
+  "op_replacecontent": {
+   "desc": "Replace text across site content in a single operation",
+   "note": "operationId replaceContent",
+   "kind": "operation"
+  },
+  "op_getcontentbyidorslug": {
+   "desc": "Anonymous requests only return content for items that are published and not hidden from navigation.",
+   "note": "operationId getContentByIdOrSlug",
+   "kind": "operation"
+  },
+  "op_updatecontentbyidorslug": {
+   "desc": "Update one item content payload by id or slug",
+   "note": "operationId updateContentByIdOrSlug",
+   "kind": "operation"
+  },
+  "op_listfiles": {
+   "desc": "Returns the site file collection sourced from the per-site files.json datastore (HAXCMS-FILE-SCHEMA-V1). Before returning, auto-indexes any on-disk files missing from the index so manually-dropped files appear with no separate reconcile endpoint. Also flags orphan records (whose disk file is gone) into a non-destructive 'orphans' array on the response; files.json is NOT mutated for orphans.",
+   "note": "operationId listFiles",
+   "kind": "operation"
+  },
+  "op_createfile": {
+   "desc": "Upload a file to the site files directory",
+   "note": "operationId createFile",
+   "kind": "operation"
+  },
+  "op_getfilebyuuid": {
+   "desc": "Get one file record by UUID",
+   "note": "operationId getFileByUuid",
+   "kind": "operation"
+  },
+  "op_updatefilebyuuid": {
+   "desc": "Supported operation values: rename, convert-jpg, scale, sepia, black-and-white, rotate-90, compress, duplicate. Use the DELETE method for the delete operation instead.",
+   "note": "operationId updateFileByUuid",
+   "kind": "operation"
+  },
+  "op_deletefilebyuuid": {
+   "desc": "Delete a file by UUID",
+   "note": "operationId deleteFileByUuid",
+   "kind": "operation"
+  },
+  "op_listtags": {
+   "desc": "List tags and frequencies",
+   "note": "operationId listTags",
+   "kind": "operation"
+  },
+  "op_searchcontent": {
+   "desc": "Anonymous requests only search published items that are not hidden from navigation. Send a bearer token to also search unpublished and hidden items (logged-in editors).",
+   "note": "operationId searchContent",
+   "kind": "operation"
+  },
+  "op_listcustomelements": {
+   "desc": "List custom element descriptors from registry",
+   "note": "operationId listCustomElements",
+   "kind": "operation"
+  },
+  "op_getcustomelementbyname": {
+   "desc": "Get one custom element descriptor",
+   "note": "operationId getCustomElementByName",
+   "kind": "operation"
+  },
+  "op_listblocks": {
+   "desc": "List block records and usage counts",
+   "note": "operationId listBlocks",
+   "kind": "operation"
+  },
+  "op_getblockbyname": {
+   "desc": "Get one block record by custom element name",
+   "note": "operationId getBlockByName",
+   "kind": "operation"
+  },
+  "op_listregions": {
+   "desc": "List regions and item counts",
+   "note": "operationId listRegions",
+   "kind": "operation"
+  },
+  "op_getregionbyname": {
+   "desc": "Get one region and member item records",
+   "note": "operationId getRegionByName",
+   "kind": "operation"
+  },
+  "op_listthemes": {
+   "desc": "List available themes",
+   "note": "operationId listThemes",
+   "kind": "operation"
+  },
+  "op_getactivetheme": {
+   "desc": "Get active theme",
+   "note": "operationId getActiveTheme",
+   "kind": "operation"
+  },
+  "op_getthemebyname": {
+   "desc": "Get one theme by machine name",
+   "note": "operationId getThemeByName",
+   "kind": "operation"
+  },
+  "op_listreports": {
+   "desc": "List report descriptors",
+   "note": "operationId listReports",
+   "kind": "operation"
+  },
+  "op_getreportbyname": {
+   "desc": "Get one report payload",
+   "note": "operationId getReportByName",
+   "kind": "operation"
+  },
+  "op_getanalyticscapabilities": {
+   "desc": "Get analytics capability metadata",
+   "note": "operationId getAnalyticsCapabilities",
+   "kind": "operation"
+  },
+  "op_listviews": {
+   "desc": "List saved views/displays",
+   "note": "operationId listViews",
+   "kind": "operation"
+  },
+  "op_getviewbyid": {
+   "desc": "Get one view descriptor",
+   "note": "operationId getViewById",
+   "kind": "operation"
+  },
+  "op_getviewresults": {
+   "desc": "Resolve and return results for a view",
+   "note": "operationId getViewResults",
+   "kind": "operation"
+  },
+  "op_listdisplaysalias": {
+   "desc": "Alias for listing views",
+   "note": "operationId listDisplaysAlias",
+   "kind": "operation"
+  },
+  "op_getdisplayresultsalias": {
+   "desc": "Alias for view results",
+   "note": "operationId getDisplayResultsAlias",
+   "kind": "operation"
+  },
+  "op_getblockusage": {
+   "desc": "List pages where the block is used",
+   "note": "operationId getBlockUsage",
+   "kind": "operation"
+  },
+  "op_systemapidiscovery": {
+   "desc": "Open discovery document. `data.mcp` publishes this instance's MCP policy so MCP clients can decide, before authenticating, whether they may operate the instance at all and whether they must stay read-only.",
+   "note": "operationId systemApiDiscovery",
+   "kind": "operation"
+  },
+  "op_systemopenapi": {
+   "desc": "Return the system OpenAPI document (JSON default, YAML supported)",
+   "note": "operationId systemOpenapi",
+   "kind": "operation"
+  },
+  "op_systemopenapijson": {
+   "desc": "Return the system OpenAPI document as JSON",
+   "note": "operationId systemOpenapiJson",
+   "kind": "operation"
+  },
+  "op_systemopenapiyaml": {
+   "desc": "Return the system OpenAPI document as YAML",
+   "note": "operationId systemOpenapiYaml",
+   "kind": "operation"
+  },
+  "op_sessionlogin": {
+   "desc": "Authenticate a user and establish a dashboard session",
+   "note": "operationId sessionLogin",
+   "kind": "operation"
+  },
+  "op_sessionauthget": {
+   "desc": "Anonymous login probe. Returns session details when a valid JWT is supplied and a minimal unauthenticated response otherwise. No bearer auth is required to reach this endpoint.",
+   "note": "operationId sessionAuthGet",
+   "kind": "operation"
+  },
+  "op_sessionauthpost": {
+   "desc": "Anonymous login probe. Returns session details when a valid JWT is supplied (body or query) and a minimal unauthenticated response otherwise. No bearer auth is required to reach this endpoint.",
+   "note": "operationId sessionAuthPost",
+   "kind": "operation"
+  },
+  "op_sessionlogout": {
+   "desc": "Log out the active dashboard session",
+   "note": "operationId sessionLogout",
+   "kind": "operation"
+  },
+  "op_sessionrefreshget": {
+   "desc": "Refresh dashboard access token",
+   "note": "operationId sessionRefreshGet",
+   "kind": "operation"
+  },
+  "op_sessionrefreshpost": {
+   "desc": "Refresh dashboard access token",
+   "note": "operationId sessionRefreshPost",
+   "kind": "operation"
+  },
+  "op_sessionuserget": {
+   "desc": "Return active user profile and dashboard preference data",
+   "note": "operationId sessionUserGet",
+   "kind": "operation"
+  },
+  "op_sessionuserpost": {
+   "desc": "Return active user profile and dashboard preference data",
+   "note": "operationId sessionUserPost",
+   "kind": "operation"
+  },
+  "op_sessionconnectionsettingsget": {
+   "desc": "Return frontend connection settings bootstrap payload",
+   "note": "operationId sessionConnectionSettingsGet",
+   "kind": "operation"
+  },
+  "op_sessionconnectionsettingspost": {
+   "desc": "Return frontend connection settings bootstrap payload",
+   "note": "operationId sessionConnectionSettingsPost",
+   "kind": "operation"
+  },
+  "op_sessionconnectiontestget": {
+   "desc": "Validate current auth state for dashboard bootstrap",
+   "note": "operationId sessionConnectionTestGet",
+   "kind": "operation"
+  },
+  "op_sessionconnectiontestpost": {
+   "desc": "Validate current auth state for dashboard bootstrap",
+   "note": "operationId sessionConnectionTestPost",
+   "kind": "operation"
+  },
+  "op_listsites": {
+   "desc": "List all sites available to the authenticated user",
+   "note": "operationId listSites",
+   "kind": "operation"
+  },
+  "op_createsite": {
+   "desc": "Create a new site",
+   "note": "operationId createSite",
+   "kind": "operation"
+  },
+  "op_siteinfoget": {
+   "desc": "Return metadata for a specific site",
+   "note": "operationId siteInfoGet",
+   "kind": "operation"
+  },
+  "op_siteinfopost": {
+   "desc": "Return metadata for a specific site",
+   "note": "operationId siteInfoPost",
+   "kind": "operation"
+  },
+  "op_clonesite": {
+   "desc": "Clone an existing site",
+   "note": "operationId cloneSite",
+   "kind": "operation"
+  },
+  "op_archivesite": {
+   "desc": "Archive a site",
+   "note": "operationId archiveSite",
+   "kind": "operation"
+  },
+  "op_downloadsite": {
+   "desc": "Generate and return a downloadable site archive reference",
+   "note": "operationId downloadSite",
+   "kind": "operation"
+  },
+  "op_downloadsiteskeleton": {
+   "desc": "Generate and return a reusable skeleton for a site",
+   "note": "operationId downloadSiteSkeleton",
+   "kind": "operation"
+  },
+  "op_savesiteastemplate": {
+   "desc": "Save a site as a reusable system template",
+   "note": "operationId saveSiteAsTemplate",
+   "kind": "operation"
+  },
+  "op_generateappstore": {
+   "desc": "Generate app-store provider manifest for the editor",
+   "note": "operationId generateAppStore",
+   "kind": "operation"
+  },
+  "op_searchappstoreprovider": {
+   "desc": "Proxies a search request to a registered app-store provider (e.g. product-card, media, etc.) and returns the provider's response payload. Moved to the system API in D38; documented here per D57. Requires a valid bearer JWT and site token so only authenticated site contexts can broker upstream provider searches.",
+   "note": "operationId searchAppStoreProvider",
+   "kind": "operation"
+  },
+  "op_haxiamadduseraccess": {
+   "desc": "PHP-only route exposed by HAXiam-managed deployments to add user access to a site. Documented here per D57 for cross-platform spec parity; NodeJS deployments that do not run HAXiam will return 404.",
+   "note": "operationId haxiamAddUserAccess",
+   "kind": "operation"
+  },
+  "op_systemstatusget": {
+   "desc": "Return system status and environment diagnostics",
+   "note": "operationId systemStatusGet",
+   "kind": "operation"
+  },
+  "op_systemstatuspost": {
+   "desc": "Return system status and environment diagnostics",
+   "note": "operationId systemStatusPost",
+   "kind": "operation"
+  },
+  "op_systemversionget": {
+   "desc": "Return installed system version details",
+   "note": "operationId systemVersionGet",
+   "kind": "operation"
+  },
+  "op_systemversionpost": {
+   "desc": "Return installed system version details",
+   "note": "operationId systemVersionPost",
+   "kind": "operation"
+  },
+  "op_systementitiesget": {
+   "desc": "Returns the full merged set of entity descriptors sourced from the single entities.yaml registry (EntityRegistry getDefinitions()). Both /x/api/v1/entities and /system/api/v1/entities read from the same registry, so the API surface and the in-code object are one shape. Optional ?scope=site|system filters the merged set by scope. Each descriptor mirrors the extended EntityDescriptor schema, including the storage block that declares how the entity is (or will be) persisted.",
+   "note": "operationId systemEntitiesGet",
+   "kind": "operation"
+  },
+  "op_systementitiespost": {
+   "desc": "Return system entity descriptors and links",
+   "note": "operationId systemEntitiesPost",
+   "kind": "operation"
+  },
+  "op_systemschemasget": {
+   "desc": "Return system schema descriptors and links",
+   "note": "operationId systemSchemasGet",
+   "kind": "operation"
+  },
+  "op_systemschemaspost": {
+   "desc": "Return system schema descriptors and links",
+   "note": "operationId systemSchemasPost",
+   "kind": "operation"
+  },
+  "op_getapikeys": {
+   "desc": "Returns all configured system API keys and provider connection statuses. security (F3/authz): this endpoint exposes system-wide credentials and is restricted to the superUser (admin) principal on the PHP backend (see SystemRoutesMap::getSystemV1SuperUserReadRoutes and the handler defense-in-depth superUser check); a non-superUser authenticated caller receives 403. The NodeJS single-user backend does not model an admin tier and allows the single authenticated dashboard user.",
+   "note": "operationId getApiKeys",
+   "kind": "operation"
+  },
+  "op_getapikeyspost": {
+   "desc": "Read-only alias of GET /configuration/api-keys. POST is accepted for callers that prefer POST over GET but does not write; use PATCH to update API key settings. security (F3/authz): like the GET, this endpoint exposes system-wide credentials and is restricted to the superUser (admin) principal on the PHP backend; a non-superUser authenticated caller receives 403. Single-user deployment assumption: the NodeJS backend does not model an admin/superUser tier; these settings are written by the single authenticated dashboard user.",
+   "note": "operationId getApiKeysPost",
+   "kind": "operation"
+  },
+  "op_saveapikeyspatch": {
+   "desc": "Write operation — updates API key settings. Single-user deployment assumption: the NodeJS backend does not model an admin/superUser tier; settings are written by the single authenticated dashboard user.",
+   "note": "operationId saveApiKeysPatch",
+   "kind": "operation"
+  },
+  "op_getmediasettings": {
+   "desc": "Return media and upload configuration",
+   "note": "operationId getMediaSettings",
+   "kind": "operation"
+  },
+  "op_getmediasettingspost": {
+   "desc": "Read-only alias of GET /configuration/media. POST is accepted for callers that prefer POST over GET but does not write; use PATCH to update media settings. Single-user deployment assumption: the NodeJS backend does not model an admin/superUser tier; these settings are written by the single authenticated dashboard user.",
+   "note": "operationId getMediaSettingsPost",
+   "kind": "operation"
+  },
+  "op_savemediasettingspatch": {
+   "desc": "Write operation — updates media and upload configuration. Single-user deployment assumption: the NodeJS backend does not model an admin/superUser tier; settings are written by the single authenticated dashboard user.",
+   "note": "operationId saveMediaSettingsPatch",
+   "kind": "operation"
+  },
+  "op_getlocalizationsettings": {
+   "desc": "Return localization and system default configuration",
+   "note": "operationId getLocalizationSettings",
+   "kind": "operation"
+  },
+  "op_getlocalizationsettingspost": {
+   "desc": "Read-only alias of GET /configuration/localization. POST is accepted for callers that prefer POST over GET but does not write; use PATCH to update localization settings. Single-user deployment assumption: the NodeJS backend does not model an admin/superUser tier; these settings are written by the single authenticated dashboard user.",
+   "note": "operationId getLocalizationSettingsPost",
+   "kind": "operation"
+  },
+  "op_savelocalizationsettingspatch": {
+   "desc": "Write operation — updates the system-wide default language (and future localization defaults). The persisted value seeds the default language applied to newly created sites and is editable post-install via the Configuration admin panel. Single-user deployment assumption: the NodeJS backend does not model an admin/superUser tier; settings are written by the single authenticated dashboard user.",
+   "note": "operationId saveLocalizationSettingsPatch",
+   "kind": "operation"
+  },
+  "op_schemafileoperation": {
+   "desc": "Write operation — performs schema file operations (rename, delete, upload) in system configuration storage. Single-user deployment assumption: the NodeJS backend does not model an admin/superUser tier; operations are performed by the single authenticated dashboard user.",
+   "note": "operationId schemaFileOperation",
+   "kind": "operation"
+  },
+  "op_systemblocksget": {
+   "desc": "Return available system blocks",
+   "note": "operationId systemBlocksGet",
+   "kind": "operation"
+  },
+  "op_systemblockspost": {
+   "desc": "Read-only alias of GET /blocks. POST is accepted for callers that prefer POST over GET but does not write; use PATCH to update enabled block configuration. Single-user deployment assumption: the NodeJS backend does not model an admin/superUser tier; these settings are written by the single authenticated dashboard user.",
+   "note": "operationId systemBlocksPost",
+   "kind": "operation"
+  },
+  "op_saveenabledblockspatch": {
+   "desc": "Write operation — updates enabled block configuration. Single-user deployment assumption: the NodeJS backend does not model an admin/superUser tier; settings are written by the single authenticated dashboard user.",
+   "note": "operationId saveEnabledBlocksPatch",
+   "kind": "operation"
+  },
+  "op_systemskeletonsget": {
+   "desc": "Return available system skeletons",
+   "note": "operationId systemSkeletonsGet",
+   "kind": "operation"
+  },
+  "op_systemskeletonspost": {
+   "desc": "Read-only alias of GET /skeletons. POST is accepted for callers that prefer POST over GET but does not write; use PATCH to update enabled skeleton configuration. Single-user deployment assumption: the NodeJS backend does not model an admin/superUser tier; these settings are written by the single authenticated dashboard user.",
+   "note": "operationId systemSkeletonsPost",
+   "kind": "operation"
+  },
+  "op_saveenabledskeletonspatch": {
+   "desc": "Write operation — updates enabled skeleton configuration. Single-user deployment assumption: the NodeJS backend does not model an admin/superUser tier; settings are written by the single authenticated dashboard user.",
+   "note": "operationId saveEnabledSkeletonsPatch",
+   "kind": "operation"
+  },
+  "op_systemskeletondetailget": {
+   "desc": "Return details for a named skeleton",
+   "note": "operationId systemSkeletonDetailGet",
+   "kind": "operation"
+  },
+  "op_systemskeletondetailpatch": {
+   "desc": "Rename a named skeleton",
+   "note": "operationId systemSkeletonDetailPatch",
+   "kind": "operation"
+  },
+  "op_systemskeletondetailput": {
+   "desc": "Rename a named skeleton (compatibility alias for PATCH)",
+   "note": "operationId systemSkeletonDetailPut",
+   "kind": "operation"
+  },
+  "op_systemskeletondetaildelete": {
+   "desc": "Delete a named skeleton",
+   "note": "operationId systemSkeletonDetailDelete",
+   "kind": "operation"
+  },
+  "op_systemlanguagesget": {
+   "desc": "The canonical language registry (the same languages.json the installer,\nsettings screens and CLI use). `regions` controls which regional\nvariants (en-GB, pt-BR...) are included.",
+   "note": "operationId systemLanguagesGet",
+   "kind": "operation"
+  },
+  "op_systemlanguageget": {
+   "desc": "Accepts a canonical code or an alias / underscore form (zh_CN, iw).\nThe returned `code` is always canonical.",
+   "note": "operationId systemLanguageGet",
+   "kind": "operation"
+  },
+  "op_systemlanguagetranslationsget": {
+   "desc": "Every translated string for the language, grouped by element\nnamespace (for translators, review tooling and LLMs). A full language\nis several hundred KB; use `namespace` to fetch a single element.",
+   "note": "operationId systemLanguageTranslationsGet",
+   "kind": "operation"
+  },
+  "op_systemthemesget": {
+   "desc": "Return available system themes",
+   "note": "operationId systemThemesGet",
+   "kind": "operation"
+  },
+  "op_systemthemespost": {
+   "desc": "Read-only alias of GET /themes. POST is accepted for callers that prefer POST over GET but does not write; use PATCH to update enabled theme configuration. Single-user deployment assumption: the NodeJS backend does not model an admin/superUser tier; these settings are written by the single authenticated dashboard user.",
+   "note": "operationId systemThemesPost",
+   "kind": "operation"
+  },
+  "op_saveenabledthemespatch": {
+   "desc": "Write operation — updates enabled theme configuration. Single-user deployment assumption: the NodeJS backend does not model an admin/superUser tier; settings are written by the single authenticated dashboard user.",
+   "note": "operationId saveEnabledThemesPatch",
+   "kind": "operation"
+  },
+  "op_docxtohtml": {
+   "desc": "Convert an uploaded .docx or .doc file to clean HTML",
+   "note": "operationId docxToHtml",
+   "kind": "operation"
+  },
+  "op_importdocx": {
+   "desc": "Convert an uploaded .docx or .doc file into a HAXcms site schema",
+   "note": "operationId importDocx",
+   "kind": "operation"
+  },
+  "op_importpptx": {
+   "desc": "Convert an uploaded .pptx file into a HAXcms site schema",
+   "note": "operationId importPptx",
+   "kind": "operation"
+  },
+  "op_importhtml": {
+   "desc": "Convert an uploaded HTML file into a HAXcms site schema",
+   "note": "operationId importHtml",
+   "kind": "operation"
+  },
+  "op_importxlsx": {
+   "desc": "Convert an uploaded Excel file into a HAXcms site schema",
+   "note": "operationId importXlsx",
+   "kind": "operation"
+  },
+  "op_importpdf": {
+   "desc": "Convert an uploaded PDF file into a HAXcms site schema",
+   "note": "operationId importPdf",
+   "kind": "operation"
+  },
+  "op_htmltodocx": {
+   "desc": "Convert HTML string to a DOCX document (returned as base64)",
+   "note": "operationId htmlToDocx",
+   "kind": "operation"
+  },
+  "op_mdtohtml": {
+   "desc": "Convert a Markdown string to HTML",
+   "note": "operationId mdToHtml",
+   "kind": "operation"
+  },
+  "op_htmltomd": {
+   "desc": "Convert an HTML string to Markdown",
+   "note": "operationId htmlToMd",
+   "kind": "operation"
+  },
+  "op_prettyhtml": {
+   "desc": "Pretty-print an HTML string",
+   "note": "operationId prettyHtml",
+   "kind": "operation"
+  },
+  "op_jsontoyaml": {
+   "desc": "Convert JSON to YAML",
+   "note": "operationId jsonToYaml",
+   "kind": "operation"
+  },
+  "op_yamltojson": {
+   "desc": "Convert YAML to JSON",
+   "note": "operationId yamlToJson",
+   "kind": "operation"
+  },
+  "op_htmltopdf": {
+   "desc": "Convert HTML string to a PDF document (returned as base64)",
+   "note": "operationId htmlToPdf",
+   "kind": "operation"
+  },
+  "op_xlsxtocsv": {
+   "desc": "Convert an uploaded Excel file to CSV",
+   "note": "operationId xlsxToCsv",
+   "kind": "operation"
+  },
+  "op_pdftohtml": {
+   "desc": "Convert an uploaded PDF file to semantic HTML",
+   "note": "operationId pdfToHtml",
+   "kind": "operation"
+  },
+  "op_pptxtohtml": {
+   "desc": "Convert an uploaded PPTX file to HTML",
+   "note": "operationId pptxToHtml",
+   "kind": "operation"
+  },
+  "op_docxtopdf": {
+   "desc": "Convert an uploaded DOCX file to a PDF document",
+   "note": "operationId docxToPdf",
+   "kind": "operation"
+  },
+  "op_haxcmstosite": {
+   "desc": "Import a HAXcms site as a new site",
+   "note": "operationId haxcmsToSite",
+   "kind": "operation"
+  },
+  "op_htmltosite": {
+   "desc": "Import an HTML page or site as a new site",
+   "note": "operationId htmlToSite",
+   "kind": "operation"
+  },
+  "op_pressbookstosite": {
+   "desc": "Import a Pressbooks site as a new site",
+   "note": "operationId pressbooksToSite",
+   "kind": "operation"
+  },
+  "op_gitbooktosite": {
+   "desc": "Import a GitBook site as a new site",
+   "note": "operationId gitbookToSite",
+   "kind": "operation"
+  },
+  "op_notiontosite": {
+   "desc": "Import a Notion site as a new site",
+   "note": "operationId notionToSite",
+   "kind": "operation"
+  },
+  "op_wordpresstosite": {
+   "desc": "Import a WordPress site as a new site",
+   "note": "operationId wordpressToSite",
+   "kind": "operation"
+  },
+  "op_elmslntosite": {
+   "desc": "Import an ELMSLN site as a new site",
+   "note": "operationId elmslnToSite",
+   "kind": "operation"
+  },
+  "op_drupaltosite": {
+   "desc": "Import a Drupal site as a new site",
+   "note": "operationId drupalToSite",
+   "kind": "operation"
+  },
+  "op_plonetosite": {
+   "desc": "Import a Plone site as a new site",
+   "note": "operationId ploneToSite",
+   "kind": "operation"
+  },
+  "op_vitepresstosite": {
+   "desc": "Import a VitePress documentation site as a new site",
+   "note": "operationId vitepressToSite",
+   "kind": "operation"
+  },
+  "op_quartotosite": {
+   "desc": "Import a Quarto project (book or website) as a new site",
+   "note": "operationId quartoToSite",
+   "kind": "operation"
+  },
+  "op_openstaxtosite": {
+   "desc": "Import an OpenStax textbook as a new site",
+   "note": "operationId openstaxToSite",
+   "kind": "operation"
+  },
+  "op_siteimportbyplatform": {
+   "desc": "Import a site from a supported platform by platform name",
+   "note": "operationId siteImportByPlatform",
+   "kind": "operation"
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "openapi",
+   "label": "Walk the API",
+   "message": "151 operations across 20 areas, generated from the two spec files both backends keep identical.",
+   "scenes": [
+    {
+     "caption": "HAXcms is built on one OpenAPI contract.",
+     "nodes": [
+      "openapi",
+      "php",
+      "nodejs",
+      "mcp",
+      "cli"
+     ]
+    },
+    {
+     "caption": "Two spec files: one for a site, one for the system.",
+     "nodes": [
+      "spec_site",
+      "spec_system"
+     ]
+    },
+    {
+     "caption": "The site spec: pages, content, files, themes, search, reports.",
+     "nodes": [
+      "tag_discovery",
+      "tag_site",
+      "tag_reports",
+      "tag_items",
+      "tag_entities",
+      "tag_schemas",
+      "tag_content",
+      "tag_files",
+      "tag_tags",
+      "tag_search",
+      "tag_custom_elements",
+      "tag_blocks",
+      "tag_regions",
+      "tag_themes",
+      "tag_analytics",
+      "tag_views"
+     ]
+    },
+    {
+     "caption": "The system spec: sessions, lifecycle, settings and actions.",
+     "nodes": [
+      "tag_session",
+      "tag_lifecycle",
+      "tag_settings",
+      "tag_actions"
+     ]
+    },
+    {
+     "caption": "Every one of the 151 operations. Select any for its summary.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

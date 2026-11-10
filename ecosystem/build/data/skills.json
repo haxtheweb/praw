@@ -1,0 +1,344 @@
+[
+ {
+  "repo": "praw",
+  "path": "plugins/hax-onboarding/skills/hax/SKILL.md",
+  "name": "hax",
+  "desc": "Onboard and drive the HAX CLI (@haxtheweb/create). Use when the user wants to set up the HAX development environment, create a HAX web component or HAXsite, scaffold a Lit/DDD component, audit DDD design-system compliance, run a HAXsite dev server, add/edit/delete pages or content, import or migrate content into a HAXsite, publish to surge/netlify/vercel/gh-pages, or otherwise run `hax` commands. Triggers include: hax, haxcms, haxsite, haxtheweb, web component, Lit element, DDD audit, \"hax site\", \"hax webcomponent\", onboarding, \"set up HAX\". allowed-tools: Bash, Read, Edit, Write, Glob, Grep"
+ },
+ {
+  "repo": "praw",
+  "path": "plugins/hax-site-ops/skills/hax-site-ops/SKILL.md",
+  "name": "hax-site-ops",
+  "desc": "Operate HAX sites from Claude Code using the HAX CLI and HAX web components. Use when the user wants to add pages, create a course, update page content, add lesson pages, add videos, inspect a site, list pages, validate, export, publish, improve site structure, add assessments, add interactive content, or use HAX web components. Triggers include: hax site, haxcms, add pages, create course, site operations, content authoring, HAX web components. allowed-tools: Bash, Read, Edit, Write, Glob, Grep"
+ },
+ {
+  "repo": "praw",
+  "path": "plugins/openstax2hax/skills/openstax2hax/SKILL.md",
+  "name": "openstax2hax",
+  "desc": "Inspect OpenStax books and prepare conversion files plus a HAX handoff prompt. Use when a user wants to turn an OpenStax book, chapter, or export into a HAX site. This skill prepares the conversion; it does NOT build the HAX site itself."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/audio-program-hax/SKILL.md",
+  "name": "audio-program-hax",
+  "desc": "Publish a transcribed audio/video program as a searchable HAXcms library site with transcript pages, distilled notes, inline playback and a quotes page. Use for \\\"publish this program to my HAX library\\\" or \\\"curate quotes\\\". Consumes the audio-program-transcribe staging tree."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/audio-program-transcribe/SKILL.md",
+  "name": "audio-program-transcribe",
+  "desc": "Transcribe and distill an owned audio or video program (CD rips, course downloads, lectures) into a markdown staging tree of per-track transcripts, per-disc notes and a summary. Use for \\\"transcribe this program\\\" or \\\"ingest this course\\\". Personal use; credit the publisher."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/grad-blooms/SKILL.md",
+  "name": "grad-blooms",
+  "desc": "Classify learning objectives and design assessments with Bloom's revised taxonomy (six cognitive levels). Use for writing objectives at a level, aligning assessment to goals, or checking a curriculum's cognitive balance."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-a11y-audit/SKILL.md",
+  "name": "hax-a11y-audit",
+  "desc": "READ-ONLY WCAG 2.0 AA audit of authored HAX pages (alt text, headings, landmarks, contrast, captions, keyboard, ARIA) with HAX remediation. Use for \\\"is this accessible\\\" or \\\"audit for WCAG\\\". Diagnoses only; hands off to hax-site-building."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-backend-dev/SKILL.md",
+  "name": "hax-backend-dev",
+  "desc": "Change the HAXcms backends in step: implement in haxcms-nodejs and haxcms-php, mirror site-spec and system-spec edits, use @site/ or @system/ MFR namespaces. Use for any API, route, operation, audit or security fix touching either backend."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-content-authoring/SKILL.md",
+  "name": "hax-content-authoring",
+  "desc": "Author HAX page HTML with valid HAX-capable web components and DDD attributes. Use when writing or editing pages/, choosing input, icon, button or media components, or creating pages via the hax CLI. Keeps content portable and editable in the HAX editor."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-content-chunking-audit/SKILL.md",
+  "name": "hax-content-chunking-audit",
+  "desc": "Audit a HAX page against cognitive-load and chunking standards and return HAX remediation. Use for \\\"wall of text\\\", overly long sections, list fatigue or \\\"make this page less overwhelming\\\"."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-design-system-sync/SKILL.md",
+  "name": "hax-design-system-sync",
+  "desc": "Maintain the DDD design system and its derived copies: lint --ddd-* tokens, check contrast, regenerate the DTCG export and skill references, republish the claude.ai design system, open PRs. Use for \\\"sync the design system\\\" or \\\"the token lint is failing\\\"."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-design-system/SKILL.md",
+  "name": "hax-design-system",
+  "desc": "Apply the DDD (Design, Develop, Destroy) design system and manage SimpleColors legacy usage. Use when styling components, auditing CSS for DDD compliance, migrating from SimpleColors, creating new themes, or building admin surfaces (site admin, outline-designer, system admin) with HAX UI, DDD's admin layer."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-element-demo/SKILL.md",
+  "name": "hax-element-demo",
+  "desc": "Build a throwaway demo of a HAX web component running inside the real HAX editor (h-a-x) as static files, to check the element is wired into the app store and editable. Use when asked to demo, preview, or play with a new or changed element in HAX, or to prove its haxProperties and light-DOM save round trip."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-feedback-design/SKILL.md",
+  "name": "hax-feedback-design",
+  "desc": "Write and audit feedback, hints and evidence for HAX question elements, matched to the learner's stage (right/wrong \u2192 explanation \u2192 advice \u2192 strategy hint \u2192 delayed). Use for \\\"improve my quiz feedback\\\", \\\"add hints\\\" or empty feedback slots."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-i18n-translate/SKILL.md",
+  "name": "hax-i18n-translate",
+  "desc": "Scaffold and translate HAX web component i18n locale files: extract this.t strings or haxProperties text, stub ~100 languages, translate, validate. Use for \\\"translate <element>\\\", \\\"i18n my component\\\" or work on an element's locales/ folder."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-importer-dev/SKILL.md",
+  "name": "hax-importer-dev",
+  "desc": "Build a new site importer (a platform-to-HAXcms converter such as Quarto, VitePress, GitBook or OpenStax) end to end: Node and PHP converters, dispatcher, OpenAPI spec, API error codes, client service and chooser card, i18n, and tests. Use when asked to add or change an importer, or to support migrating a new format or CMS into HAX."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-instructional-element/SKILL.md",
+  "name": "hax-instructional-element",
+  "desc": "Build or audit a HAX instructional element (a learning activity web component) against the instructional element contract: base class, light-DOM content and target ids, settings placement, haxHooks, accessibility, phone width, DDD and dark mode, reduced motion, i18n, xAPI vocabulary through user-action, learner-record restore, docs and tests. Use for \\\"make a new quiz/activity element\\\", \\\"is this element instructionally plumbed\\\", or a gap audit of existing activities."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-instructional-events-audit/SKILL.md",
+  "name": "hax-instructional-events-audit",
+  "desc": "READ-ONLY audit of a HAX lesson against Gagn\u00e9's nine events of instruction and Merrill's First Principles, with HAX remediation. Use for \\\"is this lesson complete\\\", \\\"what is missing from this lesson\\\" or lessons that only present content."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-issue-analysis/SKILL.md",
+  "name": "hax-issue-analysis",
+  "desc": "Fetch, analyze, and summarize GitHub issues across the HAX ecosystem using the unified issue queue. Use when tracking bugs, planning sprints, generating weekly productivity reports, or creating social media content from project activity."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-issue-research/SKILL.md",
+  "name": "hax-issue-research",
+  "desc": "Research a GitHub issue in the HAX ecosystem, propose a plan, and post it as a \\\"Plan Created\\\" comment. Use when given an issue URL to \\\"research\\\", \\\"scope\\\" or \\\"write a plan for\\\"; presents the plan for confirmation before posting."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-managed-files/SKILL.md",
+  "name": "hax-managed-files",
+  "desc": "Know which HAXcms files are generated (rebuild, never hand-edit) versus authored. Load before editing a managed file or running a build: no ubiquity script, no top-level monorepo build, local hax CLI instead of npx."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-mental-model/SKILL.md",
+  "name": "hax-mental-model",
+  "desc": "Explain how HAX fits together: portable site files, web components, HAXSchema, the editor, optional backends, DDD, and the hax CLI. Load first when someone is new to HAX, asks what HAX is or how the pieces relate, or an agent must decide which HAX skill to use."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-multimedia-principles-audit/SKILL.md",
+  "name": "hax-multimedia-principles-audit",
+  "desc": "READ-ONLY audit of how a HAX page combines words, images, audio and video against Mayer's multimedia principles, with HAX remediation. Use for \\\"is this media helping\\\", decorative images, long videos or text far from its diagram."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-openstax2hax/SKILL.md",
+  "name": "hax-openstax2hax",
+  "desc": "Convert OpenStax books into HAX sites using the openstax2hax plugin. Use when the user wants to import, inspect, or prepare an OpenStax book for conversion into a HAX site, or when working with OpenStax source files and HAX handoff prompts."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-pattern-library-audit/SKILL.md",
+  "name": "hax-pattern-library-audit",
+  "desc": "READ-ONLY audit of one HAX web component against the DDD Atomic Design pattern library: composition conformance, internal-contract conformance, library-ingest candidates. Use for \\\"does this element conform to DDD patterns\\\". Hands off to hax-webcomponent-dev."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-practice-and-retrieval/SKILL.md",
+  "name": "hax-practice-and-retrieval",
+  "desc": "Plan retrieval practice, spacing, interleaving and deliberate practice across a HAX site so learning lasts. Use for \\\"learners forget this\\\", \\\"add review\\\", \\\"build practice\\\" or a unit where each concept appears only once."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-proficiency-scaffolding/SKILL.md",
+  "name": "hax-proficiency-scaffolding",
+  "desc": "Match a HAX unit's scaffolding to its learners' skill stage (novice to expert) using ELEVATE-XR: objectives, learning loop, stress, complexity, assistance, feedback and fidelity. Use for \\\"who is this for\\\", \\\"too easy / too hard for experts\\\" or adaptive paths."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-reflection-prompts/SKILL.md",
+  "name": "hax-reflection-prompts",
+  "desc": "Write reflection prompts for HAX pages matched to the learner's stage (summarize \u2192 give an example \u2192 relate \u2192 find contradictions \u2192 self-critique). Use for \\\"add reflection\\\", \\\"metacognition\\\" or a unit with no reflection step."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-release-prep/SKILL.md",
+  "name": "hax-release-prep",
+  "desc": "Prepare HAX changes for a maintainer release: verify locally, then write the handoff for the ubiquity build and publish steps an agent must never run. Use when work is done and heading to release, or when asked what happens next."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-rule-management/SKILL.md",
+  "name": "hax-rule-management",
+  "desc": "Add, search, validate, and export PRAW (HAX ecosystem) rules stored in RULES.md. Use when managing HAX ecosystem development rules, adding new conventions, or updating existing rule entries in the PRAW repository."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-site-structure/SKILL.md",
+  "name": "hax-site-structure",
+  "desc": "Read and navigate an existing HAXcms site from its portable files: site.json, pages/, files/, theme, basePath, wc-registry.json. Load FIRST when an agent lands on any HAXsite or deployment."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-testing/SKILL.md",
+  "name": "hax-testing",
+  "desc": "Find and run the right tests per HAX repo and write the test for a new endpoint. Use before opening any PR in haxcms-nodejs, haxcms-php or webcomponents, or when asked how to test a backend or element change."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-theme-builder/SKILL.md",
+  "name": "hax-theme-builder",
+  "desc": "Turn a screenshot plus a short Q&A into an accessible, dark-mode-ready HAXcms theme extending HAXCMSLitElementTheme. Use for 'build a HAXcms theme' or a site-layout image; adds a custom site theme or a monorepo package."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-tutorial-site/SKILL.md",
+  "name": "hax-tutorial-site",
+  "desc": "Create a published HAXcms tutorial site from a YouTube video plus a DOCX transcript, then write LinkedIn / X posts and a YouTube SEO description. Use for \\\"hax tutorial skill\\\" or \\\"make a tutorial site from this video\\\". Bundled skeleton, portable."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-ubd-backward-design/SKILL.md",
+  "name": "hax-ubd-backward-design",
+  "desc": "Design HAX course units by Understanding by Design backward design, producing a UbD unit plan and a HAX site skeleton. Use for \\\"design a unit on X\\\" or \\\"build a course around big ideas\\\"."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-ubd-essential-questions/SKILL.md",
+  "name": "hax-ubd-essential-questions",
+  "desc": "Author UbD essential and entry questions from the six-facet starter bank, separating overarching from topical and essential from leading. Use for \\\"write essential questions\\\". Companion to hax-ubd-stage1."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-ubd-grasps/SKILL.md",
+  "name": "hax-ubd-grasps",
+  "desc": "Frame UbD GRASPS performance tasks (Goal, Role, Audience, Situation, Performance/Product, Standards) and select authentic-context HAX media. Use when the user says \"build a GRASPS task\", \"make this assessment authentic\", \"design a performance task\", or \"frame a real-world task\". Companion to hax-ubd-stage2."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-ubd-six-facets/SKILL.md",
+  "name": "hax-ubd-six-facets",
+  "desc": "Apply the UbD six facets of understanding to write understandings and facet-mapped rubric criteria. Use for \\\"what facet does this target\\\" or \\\"build a rubric for understanding\\\". Companion to hax-ubd-stage2."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-ubd-stage1/SKILL.md",
+  "name": "hax-ubd-stage1",
+  "desc": "UbD Stage 1: unpack standards into big ideas, enduring understandings, essential questions, knowledge/skills and misconceptions. Use for \\\"what are the big ideas in X\\\" or \\\"write enduring understandings\\\"."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-ubd-stage2/SKILL.md",
+  "name": "hax-ubd-stage2",
+  "desc": "UbD Stage 2: build the evidence scrapbook, a GRASPS performance task, facet-mapped rubric and validity self-test. Use for \\\"what evidence do I need\\\" or \\\"design a performance task\\\"."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-ubd-stage3/SKILL.md",
+  "name": "hax-ubd-stage3",
+  "desc": "UbD Stage 3: plan learning experiences with WHERETO, derived from Stages 1 and 2. Use for \\\"sequence this unit\\\" or \\\"plan the learning activities\\\"; points at Stage 2 evidence and never invents endpoints."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-ubd-unit-audit/SKILL.md",
+  "name": "hax-ubd-unit-audit",
+  "desc": "READ-ONLY review of an existing HAX unit against Understanding by Design with HAX remediation. Use for \\\"is my course backward-designed\\\" or \\\"are my assessments aligned\\\". Hands off to the stage skills."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/hax-udl-audit/SKILL.md",
+  "name": "hax-udl-audit",
+  "desc": "READ-ONLY audit of a HAX page against UDL 3.0 (Engagement, Representation, Action & Expression) with HAX component remediation. Use for \\\"audit for UDL\\\" or \\\"does this page reach everyone\\\"."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/haxcms-lrs-rater/SKILL.md",
+  "name": "haxcms-lrs-rater",
+  "desc": "Run BookLooky's Looky Rating System content rating and minimum-age recommendation on a HAXcms site, local or live URL, using the agent's own reasoning. Use for \\\"rate this HAXcms site\\\" or \\\"run an LRS scan\\\". Reads the site's llms.txt manifest."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/heosat-report-site/SKILL.md",
+  "name": "heosat-report-site",
+  "desc": "Run a HEOSAT assessment and publish it as a single-page HAXcms report site on surge with scorecard, evidence and LinkedIn / X copy. Use for \\\"make a HEOSAT report site\\\". Companion to heosat."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/heosat/SKILL.md",
+  "name": "heosat",
+  "desc": "Run the HEOSAT open source maturity assessment (9 sections, 47 questions, 0-5 scale) on a project and produce an evidence-backed scorecard. Use for \\\"run HEOSAT\\\", \\\"grade this open source project\\\" or a repo URL plus a health report request."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/oerschema-audit/SKILL.md",
+  "name": "oerschema-audit",
+  "desc": "READ-ONLY audit of authored content (HAX HTML, site.json, VitePress, JSON-LD, Docs export) against the OER Schema vocabulary, recommending class, properties and markup per finding. Use for \\\"audit this page for OER schema\\\"."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/oerschema-integration-finder/SKILL.md",
+  "name": "oerschema-integration-finder",
+  "desc": "READ-ONLY scan of webcomponents, themes, CMS backends and plugins for pedagogical-content code that should emit or consume OER Schema but doesn't, with a per-file hit-list. Use for \\\"which elements should emit oer schema\\\"."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/reading-notes/SKILL.md",
+  "name": "reading-notes",
+  "desc": "Draft paragraph-level Reading Notes for a book chapter or long reading: topic rows, page ranges, first\u2026last word anchors and one-sentence paraphrases, for human review. Use for \\\"make reading notes\\\", \\\"paraphrase this chapter paragraph by paragraph\\\" or notes to pair with a converted reading."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/siip-course-alignment/SKILL.md",
+  "name": "siip-course-alignment",
+  "desc": "Align a course with an open source project using the Sustainable Impact and Innovation Pipeline (SIIP): map course objectives to real contribution paths, shape a 40/20/20/20 term, and plan the lab, club and onboarding loop. Use for \\\"align my course with an open source project\\\", \\\"students contributing to OSS\\\", \\\"SIIP\\\" or \\\"turn class projects into real contributions\\\"."
+ },
+ {
+  "repo": "praw",
+  "path": "skills/youtube-vtt/SKILL.md",
+  "name": "youtube-vtt",
+  "desc": "Generate a WebVTT transcript from a YouTube URL with yt-dlp, without downloading the video. Use for 'youtube to vtt', subtitles or captions for a video; auto-provisions yt-dlp in an isolated venv."
+ },
+ {
+  "repo": "create",
+  "path": "src/skills/hax-claudehax/SKILL.md",
+  "name": "hax-claudehax",
+  "desc": "Operate HAX sites from Claude Code using the ClaudeHAX plugin, HAX CLI, and HAX web components. Use when the user wants to add pages, create courses, update content, add assessments, add quizzes, add videos, use HAX web components, analyze existing HAX sites, or suggest improvements using the ClaudeHAX /hax slash command or HAX CLI directly."
+ },
+ {
+  "repo": "create",
+  "path": "src/skills/hax-ecosystem-onboarding/SKILL.md",
+  "name": "hax-ecosystem-onboarding",
+  "desc": "Onboard new developers to the HAX ecosystem by cloning repositories, installing the CLI, and setting up the development environment. Use when a developer is new to HAX, needs a fresh environment setup, or wants to scaffold their first web component or HAXsite."
+ },
+ {
+  "repo": "create",
+  "path": "src/skills/hax-rpg-character/SKILL.md",
+  "name": "hax-rpg-character",
+  "desc": "Extend the rpg-character web component (haxtheweb/webcomponents, elements/rpg-character) with new pixel-art pieces: hats, masks, makeup, held items, off-hand items, feet, pets, outfit presets, expressions or poses. Use when someone asks to \"add a hat / costume / job / pet / outfit to rpg-character\", \"draw a new rpg-character piece\", \"make an 8-bit X for the HAX avatar\", \"add a holiday look\", or names `<rpg-character>`, `rpg-character-builder`, character codes, or the HAX user avatar, even if they don't say \"skill\". Covers drawing in the house style, the append-only character-code registry, labels in all locales, demo, tests, preview and PR."
+ },
+ {
+  "repo": "create",
+  "path": "src/skills/hax-site-building/SKILL.md",
+  "name": "hax-site-building",
+  "desc": "Build and maintain HAXcms sites with proper structure, themes, and JSON Outline Schema. Use when creating a new HAXsite, editing site.json, managing page content, or modifying themes in the HAXcms ecosystem. Use when the user says \"create a site\", \"add pages\", \"edit site.json\", or references HAXcms site structure."
+ },
+ {
+  "repo": "create",
+  "path": "src/skills/hax-webcomponent-dev/SKILL.md",
+  "name": "hax-webcomponent-dev",
+  "desc": "Develop HAX-capable web components using LitElement, DDD design system, and HAXSchema. Use when scaffolding new components, adding HAX editor support, auditing accessibility, or applying DDD tokens to elements in the webcomponents monorepo."
+ },
+ {
+  "repo": "create",
+  "path": "src/skills/hax-webcomponent-documentation-writer/SKILL.md",
+  "name": "hax-webcomponent-documentation-writer",
+  "desc": "Generate and maintain accurate README/reference documentation for HAX web components in the webcomponents monorepo by extracting facts from custom-elements.json and haxProperties. Use whenever the user asks to write, fix, regenerate, or update the README for a HAX element, document an element's properties/slots/events/methods, fix broken or boilerplate element READMEs, produce a reference table from a custom-elements.json, or validate that an element's README still matches its manifest. Triggers on element tag names (e.g. `<a11y-collapse>`, `<d-d-d>`, `<editable-table>`), `custom-elements.json`, `haxProperties` / `demoSchema`, `webcomponents/elements/`, or `@haxtheweb/` package context \u2014 even when the user does not say \"documentation\" or \"skill\". Composes with the global documentation-writer skill for Di\u00e1taxis craft; this skill supplies the HAX domain facts and writes the README file only."
+ }
+]

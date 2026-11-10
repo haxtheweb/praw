@@ -1,0 +1,171 @@
+{
+ "meta": {
+  "name": "App Store spec",
+  "parent": "contracts",
+  "noTimeline": true,
+  "sectionLabels": {
+   "part": "parts",
+   "app": "apps"
+  },
+  "about": "What the editor is told it may place, generated from haxcms-nodejs: the apps (external media sources, 10 built in), stax, and the autoloader list filtered by the site's allowed blocks.",
+  "kindLabels": {
+   "rel": "part, app, user",
+   "schema": "returned or included by"
+  }
+ },
+ "nodes": {
+  "appstore": {
+   "always": true
+  },
+  "as_apps": {
+   "desc": "External media sources the editor can search and place from: 10 built in, each with its own connection and API key handling.",
+   "kind": "part"
+  },
+  "as_stax": {
+   "desc": "Stax: saved groups of blocks that insert together, set per deployment.",
+   "kind": "part"
+  },
+  "as_autoloader": {
+   "desc": "The list of elements the editor loads as placeable blocks for this site.",
+   "kind": "part"
+  },
+  "as_conn": {
+   "desc": "How the editor talks to an app: protocol, url, operations (browse, search) and how to read the results.",
+   "kind": "part"
+  },
+  "as_gizmo": {
+   "desc": "How one search result becomes a block: which result fields fill the title, source and preview.",
+   "kind": "part"
+  },
+  "as_allowed": {
+   "desc": "Site settings can switch blocks off; the autoloader list is filtered to the allowed blocks before it reaches the editor.",
+   "kind": "part"
+  },
+  "ap_youtube": {
+   "desc": "Youtube: tagged video, crowdsourced.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/lib/HAXAppStoreService.js"
+   },
+   "kind": "app"
+  },
+  "ap_vimeo": {
+   "desc": "Vimeo: tagged video, crowdsourced.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/lib/HAXAppStoreService.js"
+   },
+   "kind": "app"
+  },
+  "ap_giphy": {
+   "desc": "Giphy: tagged gif, crowdsourced, meme.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/lib/HAXAppStoreService.js"
+   },
+   "kind": "app"
+  },
+  "ap_unsplash": {
+   "desc": "Unsplash: tagged images, crowdsourced, cc.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/lib/HAXAppStoreService.js"
+   },
+   "kind": "app"
+  },
+  "ap_flickr": {
+   "desc": "Flickr: tagged images, creative commons, crowdsourced.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/lib/HAXAppStoreService.js"
+   },
+   "kind": "app"
+  },
+  "ap_nasa": {
+   "desc": "NASA: tagged images, government, space.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/lib/HAXAppStoreService.js"
+   },
+   "kind": "app"
+  },
+  "ap_sketchfab": {
+   "desc": "Sketchfab: tagged 3D, creative commons, crowdsourced.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/lib/HAXAppStoreService.js"
+   },
+   "kind": "app"
+  },
+  "ap_dailymotion": {
+   "desc": "Dailymotion: tagged video, crowdsourced.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/lib/HAXAppStoreService.js"
+   },
+   "kind": "app"
+  },
+  "ap_wikipedia": {
+   "desc": "Wikipedia: tagged content, encyclopedia, wiki.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/lib/HAXAppStoreService.js"
+   },
+   "kind": "app"
+  },
+  "ap_cc_mixter": {
+   "desc": "CC Mixter: tagged audio, crowdsourced.",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/lib/HAXAppStoreService.js"
+   },
+   "kind": "app"
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "appstore",
+   "label": "What the editor may place",
+   "message": "The App Store manifest in parts, generated from the backend that serves it.",
+   "scenes": [
+    {
+     "caption": "Three parts: apps, stax and the autoloader.",
+     "nodes": [
+      "as_apps",
+      "as_stax",
+      "as_autoloader"
+     ]
+    },
+    {
+     "caption": "10 built-in apps the editor can search.",
+     "nodes": [
+      "ap_youtube",
+      "ap_vimeo",
+      "ap_giphy",
+      "ap_unsplash",
+      "ap_flickr",
+      "ap_nasa",
+      "ap_sketchfab",
+      "ap_dailymotion",
+      "ap_wikipedia",
+      "ap_cc_mixter"
+     ]
+    },
+    {
+     "caption": "Each app has a connection, and each result becomes a gizmo.",
+     "nodes": [
+      "as_conn",
+      "as_gizmo"
+     ]
+    },
+    {
+     "caption": "Site settings decide which blocks are allowed; plugins will extend the list.",
+     "nodes": [
+      "as_allowed",
+      "settings",
+      "plugins"
+     ]
+    },
+    {
+     "caption": "HAXcms serves it and the editor reads it.",
+     "nodes": [
+      "haxcms",
+      "editor",
+      "op_generateappstore"
+     ]
+    }
+   ]
+  }
+ ]
+}

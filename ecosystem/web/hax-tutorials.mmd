@@ -1,0 +1,219 @@
+%% Tutorials sub-web: Learn HAX, generated from haxtheweb/learn (site.json and pages), each tutorial tied to the part of HAX it teaches.
+%% Portals: ids from hax-ecosystem.mmd and the other sub-webs. Details in hax-tutorials.json.
+flowchart TB
+  %%@ layout rings=0,220,470,760 sizes=92,66,56,52
+  subgraph hub ["Learn HAX"]
+    learnhax["learnhax"]
+  end
+  subgraph catsg ["Sections"]
+    tu_start_here["Start Here"]
+    tu_tutorial_library_dashboard_site_basics["Dashboard & Site Basics"]
+    tu_tutorial_library_creating_structuring_content["Creating & Structuring Content"]
+    tu_tutorial_library_editing_authoring["Editing & Authoring"]
+    tu_tutorial_library_working_with_media["Working with Media"]
+    tu_tutorial_library_site_health_reports["Site Health & Reports"]
+    tu_tutorial_library_developer_onboarding["Developer Onboarding"]
+    tu_import_content["Import Content"]
+    tu_using_hax_for["Using HAX For…"]
+  end
+  subgraph tutsg ["Tutorials and personas"]
+    tu_start_here_cat>"Cat — Content Author"]
+    tu_start_here_chuck>"Chuck — Site Builder"]
+    tu_start_here_sven>"Sven — Creator"]
+    tu_start_here_luna>"Luna — Developer"]
+    tu_tutorial_library_dashboard_site_basics_haxcms_dashboard>"HAXcms Dashboard"]
+    tu_tutorial_library_dashboard_site_basics_site_admin_settings_dashboard>"Site Admin Settings Dashboard"]
+    tu_tutorial_library_dashboard_site_basics_system_settings_dashboard>"System Settings Dashboard"]
+    tu_tutorial_library_creating_structuring_content_create_a_new_page>"Create a New Page"]
+    tu_tutorial_library_creating_structuring_content_reorder_organize_pages>"Reorder & Organize Pages"]
+    tu_tutorial_library_creating_structuring_content_managing_course_structure>"Managing Course Structure"]
+    tu_tutorial_library_editing_authoring_edit_a_page>"Edit a Page"]
+    tu_tutorial_library_editing_authoring_adding_blocks>"Adding Blocks"]
+    tu_tutorial_library_editing_authoring_slash_commands>"Slash Commands"]
+    tu_tutorial_library_working_with_media_adding_video_blocks>"Adding Video Blocks"]
+    tu_tutorial_library_working_with_media_working_with_images>"Working with Images"]
+    tu_tutorial_library_site_health_reports_reports>"Reports"]
+    tu_tutorial_library_developer_onboarding_developer_onboarding>"Developer Onboarding"]
+    tu_import_content_create_site_from_docx>"Create Site from DOCX"]
+    tu_import_content_xlsx_data_table_and_site_import>"XLSX Data Table and Site Import"]
+    tu_import_content_migrate_data_to_hax>"Migrate Data to HAX"]
+    tu_using_hax_for_club_websites>"Club Websites"]
+    tu_using_hax_for_portfolios>"Portfolios"]
+    tu_using_hax_for_courses_and_resumes>"Courses & Resumes"]
+  end
+  subgraph about ["What they teach"]
+    dashboard["dashboard"]
+    settings["settings"]
+    haxiam["haxiam"]
+    editor["editor"]
+    jos["jos"]
+    outline["outline"]
+    course["course"]
+    components["components"]
+    appstore["appstore"]
+    merlin["merlin"]
+    b_video_player["b_video_player"]
+    f_url["f_url"]
+    b_media_image["b_media_image"]
+    files["files"]
+    insights["insights"]
+    xapi["xapi"]
+    wcstandard["wcstandard"]
+    cli["cli"]
+    issues["issues"]
+    f_docx["f_docx"]
+    w_file["w_file"]
+    f_xlsx["f_xlsx"]
+    importers["importers"]
+    k_club_website["k_club_website"]
+    portfolio["portfolio"]
+    k_portfolio["k_portfolio"]
+    k_online_course["k_online_course"]
+    k_resume_journey["k_resume_journey"]
+    themes["themes"]
+    skeletons["skeletons"]
+  end
+
+  learnhax -->|has| tu_start_here
+  learnhax -->|has| tu_tutorial_library_dashboard_site_basics
+  learnhax -->|has| tu_tutorial_library_creating_structuring_content
+  learnhax -->|has| tu_tutorial_library_editing_authoring
+  learnhax -->|has| tu_tutorial_library_working_with_media
+  learnhax -->|has| tu_tutorial_library_site_health_reports
+  learnhax -->|has| tu_tutorial_library_developer_onboarding
+  learnhax -->|has| tu_import_content
+  learnhax -->|has| tu_using_hax_for
+  tu_start_here -->|includes| tu_start_here_cat
+  tu_start_here -->|includes| tu_start_here_chuck
+  tu_start_here -->|includes| tu_start_here_sven
+  tu_start_here -->|includes| tu_start_here_luna
+  tu_tutorial_library_dashboard_site_basics -->|includes| tu_tutorial_library_dashboard_site_basics_haxcms_dashboard
+  tu_tutorial_library_dashboard_site_basics -->|includes| tu_tutorial_library_dashboard_site_basics_site_admin_settings_dashboard
+  tu_tutorial_library_dashboard_site_basics -->|includes| tu_tutorial_library_dashboard_site_basics_system_settings_dashboard
+  tu_tutorial_library_creating_structuring_content -->|includes| tu_tutorial_library_creating_structuring_content_create_a_new_page
+  tu_tutorial_library_creating_structuring_content -->|includes| tu_tutorial_library_creating_structuring_content_reorder_organize_pages
+  tu_tutorial_library_creating_structuring_content -->|includes| tu_tutorial_library_creating_structuring_content_managing_course_structure
+  tu_tutorial_library_editing_authoring -->|includes| tu_tutorial_library_editing_authoring_edit_a_page
+  tu_tutorial_library_editing_authoring -->|includes| tu_tutorial_library_editing_authoring_adding_blocks
+  tu_tutorial_library_editing_authoring -->|includes| tu_tutorial_library_editing_authoring_slash_commands
+  tu_tutorial_library_working_with_media -->|includes| tu_tutorial_library_working_with_media_adding_video_blocks
+  tu_tutorial_library_working_with_media -->|includes| tu_tutorial_library_working_with_media_working_with_images
+  tu_tutorial_library_site_health_reports -->|includes| tu_tutorial_library_site_health_reports_reports
+  tu_tutorial_library_developer_onboarding -->|includes| tu_tutorial_library_developer_onboarding_developer_onboarding
+  tu_import_content -->|includes| tu_import_content_create_site_from_docx
+  tu_import_content -->|includes| tu_import_content_xlsx_data_table_and_site_import
+  tu_import_content -->|includes| tu_import_content_migrate_data_to_hax
+  tu_using_hax_for -->|includes| tu_using_hax_for_club_websites
+  tu_using_hax_for -->|includes| tu_using_hax_for_portfolios
+  tu_using_hax_for -->|includes| tu_using_hax_for_courses_and_resumes
+  tu_start_here_cat -->|teaches| editor
+  tu_start_here_chuck -->|teaches| dashboard
+  tu_start_here_chuck -->|teaches| themes
+  tu_start_here_sven -->|teaches| skeletons
+  tu_start_here_sven -->|teaches| importers
+  tu_start_here_luna -->|teaches| wcstandard
+  tu_start_here_luna -->|teaches| cli
+  tu_tutorial_library_dashboard_site_basics_haxcms_dashboard -->|teaches| dashboard
+  tu_tutorial_library_dashboard_site_basics_site_admin_settings_dashboard -->|teaches| settings
+  tu_tutorial_library_dashboard_site_basics_site_admin_settings_dashboard -->|teaches| dashboard
+  tu_tutorial_library_dashboard_site_basics_system_settings_dashboard -->|teaches| haxiam
+  tu_tutorial_library_dashboard_site_basics_system_settings_dashboard -->|teaches| dashboard
+  tu_tutorial_library_creating_structuring_content_create_a_new_page -->|teaches| editor
+  tu_tutorial_library_creating_structuring_content_create_a_new_page -->|teaches| jos
+  tu_tutorial_library_creating_structuring_content_reorder_organize_pages -->|teaches| outline
+  tu_tutorial_library_creating_structuring_content_managing_course_structure -->|teaches| outline
+  tu_tutorial_library_creating_structuring_content_managing_course_structure -->|teaches| course
+  tu_tutorial_library_editing_authoring_edit_a_page -->|teaches| editor
+  tu_tutorial_library_editing_authoring_adding_blocks -->|teaches| editor
+  tu_tutorial_library_editing_authoring_adding_blocks -->|teaches| components
+  tu_tutorial_library_editing_authoring_adding_blocks -->|teaches| appstore
+  tu_tutorial_library_editing_authoring_slash_commands -->|teaches| merlin
+  tu_tutorial_library_editing_authoring_slash_commands -->|teaches| editor
+  tu_tutorial_library_working_with_media_adding_video_blocks -->|teaches| b_video_player
+  tu_tutorial_library_working_with_media_adding_video_blocks -->|teaches| f_url
+  tu_tutorial_library_working_with_media_working_with_images -->|teaches| b_media_image
+  tu_tutorial_library_working_with_media_working_with_images -->|teaches| files
+  tu_tutorial_library_site_health_reports_reports -->|teaches| insights
+  tu_tutorial_library_site_health_reports_reports -->|teaches| xapi
+  tu_tutorial_library_developer_onboarding_developer_onboarding -->|teaches| wcstandard
+  tu_tutorial_library_developer_onboarding_developer_onboarding -->|teaches| cli
+  tu_tutorial_library_developer_onboarding_developer_onboarding -->|teaches| issues
+  tu_import_content_create_site_from_docx -->|teaches| f_docx
+  tu_import_content_create_site_from_docx -->|teaches| w_file
+  tu_import_content_xlsx_data_table_and_site_import -->|teaches| f_xlsx
+  tu_import_content_migrate_data_to_hax -->|teaches| importers
+  tu_import_content_migrate_data_to_hax -->|teaches| jos
+  tu_using_hax_for_club_websites -->|teaches| k_club_website
+  tu_using_hax_for_portfolios -->|teaches| portfolio
+  tu_using_hax_for_portfolios -->|teaches| k_portfolio
+  tu_using_hax_for_courses_and_resumes -->|teaches| course
+  tu_using_hax_for_courses_and_resumes -->|teaches| k_online_course
+  tu_using_hax_for_courses_and_resumes -->|teaches| k_resume_journey
+
+  %%@ group hub tier=0
+  %%@ group catsg tier=1
+  %%@ group tutsg tier=2
+  %%@ group about tier=3
+  %%@ node learnhax portal
+  %%@ node tu_start_here icon=icons:book color=skyBlue motion=pop
+  %%@ node tu_tutorial_library_dashboard_site_basics icon=icons:book color=skyBlue motion=pop
+  %%@ node tu_tutorial_library_creating_structuring_content icon=icons:book color=skyBlue motion=pop
+  %%@ node tu_tutorial_library_editing_authoring icon=icons:book color=skyBlue motion=pop
+  %%@ node tu_tutorial_library_working_with_media icon=icons:book color=skyBlue motion=pop
+  %%@ node tu_tutorial_library_site_health_reports icon=icons:book color=skyBlue motion=pop
+  %%@ node tu_tutorial_library_developer_onboarding icon=icons:book color=skyBlue motion=pop
+  %%@ node tu_import_content icon=icons:book color=skyBlue motion=pop
+  %%@ node tu_using_hax_for icon=icons:book color=skyBlue motion=pop
+  %%@ node tu_start_here_cat icon=social:people color=keystoneYellow motion=nudge
+  %%@ node tu_start_here_chuck icon=social:people color=keystoneYellow motion=nudge
+  %%@ node tu_start_here_sven icon=social:people color=keystoneYellow motion=nudge
+  %%@ node tu_start_here_luna icon=social:people color=keystoneYellow motion=nudge
+  %%@ node tu_tutorial_library_dashboard_site_basics_haxcms_dashboard icon=image:slideshow color=skyBlue motion=nudge
+  %%@ node tu_tutorial_library_dashboard_site_basics_site_admin_settings_dashboard icon=image:slideshow color=skyBlue motion=nudge
+  %%@ node tu_tutorial_library_dashboard_site_basics_system_settings_dashboard icon=image:slideshow color=skyBlue motion=nudge
+  %%@ node tu_tutorial_library_creating_structuring_content_create_a_new_page icon=image:slideshow color=skyBlue motion=nudge
+  %%@ node tu_tutorial_library_creating_structuring_content_reorder_organize_pages icon=image:slideshow color=skyBlue motion=nudge
+  %%@ node tu_tutorial_library_creating_structuring_content_managing_course_structure icon=hax:documents color=skyBlue motion=nudge
+  %%@ node tu_tutorial_library_editing_authoring_edit_a_page icon=image:slideshow color=skyBlue motion=nudge
+  %%@ node tu_tutorial_library_editing_authoring_adding_blocks icon=image:slideshow color=skyBlue motion=nudge
+  %%@ node tu_tutorial_library_editing_authoring_slash_commands icon=image:slideshow color=skyBlue motion=nudge
+  %%@ node tu_tutorial_library_working_with_media_adding_video_blocks icon=image:slideshow color=skyBlue motion=nudge
+  %%@ node tu_tutorial_library_working_with_media_working_with_images icon=image:slideshow color=skyBlue motion=nudge
+  %%@ node tu_tutorial_library_site_health_reports_reports icon=image:slideshow color=skyBlue motion=nudge
+  %%@ node tu_tutorial_library_developer_onboarding_developer_onboarding icon=hax:documents color=skyBlue motion=nudge
+  %%@ node tu_import_content_create_site_from_docx icon=image:slideshow color=skyBlue motion=nudge
+  %%@ node tu_import_content_xlsx_data_table_and_site_import icon=image:slideshow color=skyBlue motion=nudge
+  %%@ node tu_import_content_migrate_data_to_hax icon=image:slideshow color=skyBlue motion=nudge
+  %%@ node tu_using_hax_for_club_websites icon=hax:documents color=skyBlue motion=nudge
+  %%@ node tu_using_hax_for_portfolios icon=hax:documents color=skyBlue motion=nudge
+  %%@ node tu_using_hax_for_courses_and_resumes icon=hax:documents color=skyBlue motion=nudge
+  %%@ node dashboard portal
+  %%@ node settings portal=haxcms
+  %%@ node haxiam portal
+  %%@ node editor portal
+  %%@ node jos portal
+  %%@ node outline portal=haxcms
+  %%@ node course portal
+  %%@ node components portal
+  %%@ node appstore portal
+  %%@ node merlin portal
+  %%@ node b_video_player portal=elements
+  %%@ node f_url portal=importers
+  %%@ node b_media_image portal=elements
+  %%@ node files portal=haxcms
+  %%@ node insights portal=haxcms
+  %%@ node xapi portal
+  %%@ node wcstandard portal
+  %%@ node cli portal
+  %%@ node issues portal
+  %%@ node f_docx portal=importers
+  %%@ node w_file portal=importers
+  %%@ node f_xlsx portal=importers
+  %%@ node importers portal
+  %%@ node k_club_website portal=skeletons
+  %%@ node portfolio portal
+  %%@ node k_portfolio portal=skeletons
+  %%@ node k_online_course portal=skeletons
+  %%@ node k_resume_journey portal=skeletons
+  %%@ node themes portal
+  %%@ node skeletons portal

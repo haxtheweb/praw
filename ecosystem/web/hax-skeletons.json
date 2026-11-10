@@ -1,0 +1,170 @@
+{
+ "meta": {
+  "name": "HAX skeletons",
+  "parent": "main",
+  "noTimeline": true,
+  "about": "9 starter sites shipped with HAXcms (from haxcms-nodejs, branch skeleton-names), the use case each serves and the theme each starts from.",
+  "kindLabels": {
+   "rel": "skeleton to use case and theme",
+   "schema": "data contracts",
+   "contrib": "people who built the system"
+  }
+ },
+ "nodes": {
+  "skeletons": {
+   "always": true
+  },
+  "k_art_portfolio": {
+   "desc": "Art portfolio theme skeleton use case",
+   "kind": "skeleton",
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/art-portfolio.json"
+   },
+   "note": "Machine name art-portfolio; theme clean-portfolio-theme; tags art, gallery, portfolio."
+  },
+  "k_blog": {
+   "desc": "A blog starter on the Clean One theme: posts, a journal and topic pages, shown with a sample coffee blog.",
+   "kind": "skeleton",
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/blog.json"
+   },
+   "note": "Machine name blog; theme clean-one; tags blog, journal, writing."
+  },
+  "k_club_website": {
+   "desc": "Club website starter using the Polaris Flex theme",
+   "kind": "skeleton",
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/club-website.json"
+   },
+   "note": "Machine name club-website; theme polaris-flex-theme; tags club, organization, community."
+  },
+  "k_default_starter": {
+   "desc": "Simple starter site with one page to get you started",
+   "kind": "skeleton",
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/default-starter.json"
+   },
+   "note": "Machine name default-starter; theme clean-two; tags default."
+  },
+  "k_docs": {
+   "desc": "HAXma themed documentation site with pages focused on documenting a coding project using HAX create.",
+   "kind": "skeleton",
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/docs.json"
+   },
+   "note": "Machine name docs; theme haxma-theme; tags docs, developer, reference."
+  },
+  "k_isc_graduate_portfolio": {
+   "desc": "A graduate competency portfolio on the Clean Portfolio theme: About Me, Competencies, three domains, Specialization and Publications.",
+   "kind": "skeleton",
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/isc-graduate-portfolio.json"
+   },
+   "note": "Machine name isc-graduate-portfolio; theme clean-portfolio-theme; tags portfolio, graduate, competencies."
+  },
+  "k_online_course": {
+   "desc": "Clean One themed online course skeleton with a syllabus and a Lesson 1 unit containing three subpages.",
+   "kind": "skeleton",
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/online-course.json"
+   },
+   "note": "Machine name online-course; theme clean-one; tags online, lesson, syllabus."
+  },
+  "k_portfolio": {
+   "desc": "A professional portfolio on the Glossy Portfolio theme: summary, projects, experience, and education and certifications.",
+   "kind": "skeleton",
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/portfolio.json"
+   },
+   "note": "Machine name portfolio; theme glossy-portfolio-theme; tags portfolio, career, professional."
+  },
+  "k_resume_journey": {
+   "desc": "A resume told as a journey on the Journey theme: education, experience, projects, skills and a way to reach out.",
+   "kind": "skeleton",
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/resume-journey.json"
+   },
+   "note": "Machine name resume-journey; theme journey-theme; tags resume, career, skills."
+  },
+  "blog": {
+   "desc": "Blogs and journals on HAXcms, like btopro.com, written in the same editor as courses.",
+   "links": {
+    "site": "https://btopro.com"
+   }
+  },
+  "docs": {
+   "desc": "Project documentation sites; haxtheweb.org's docs are being rebuilt as Learn HAX.",
+   "links": {
+    "site": "https://haxtheweb.org/documentation"
+   }
+  },
+  "club": {
+   "desc": "A website for a student club or group."
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "skeletons",
+   "label": "Start a site from a skeleton",
+   "message": "The 9 skeletons HAXcms ships, the use case each serves and the theme each starts from.",
+   "scenes": [
+    {
+     "caption": "A skeleton is a full working site you can start from and hand to someone else.",
+     "nodes": [
+      "skeletons"
+     ]
+    },
+    {
+     "caption": "Courses, portfolios, a blog, docs, a club site and a plain starter.",
+     "nodes": [
+      "k_art_portfolio",
+      "k_blog",
+      "k_club_website",
+      "k_default_starter",
+      "k_docs",
+      "k_isc_graduate_portfolio",
+      "k_online_course",
+      "k_portfolio",
+      "k_resume_journey"
+     ]
+    },
+    {
+     "caption": "Each one serves a use case.",
+     "nodes": [
+      "blog",
+      "docs",
+      "club",
+      "course",
+      "portfolio",
+      "dept"
+     ]
+    },
+    {
+     "caption": "Each one starts from a theme; open Themes to see them.",
+     "nodes": [
+      "t_clean_one",
+      "t_clean_portfolio_theme",
+      "t_clean_two",
+      "t_glossy_portfolio_theme",
+      "t_haxma_theme",
+      "t_journey_theme",
+      "t_polaris_flex_theme"
+     ]
+    },
+    {
+     "caption": "The CLI creates sites from skeletons; Winston built the templating.",
+     "nodes": [
+      "cli",
+      "jos",
+      "winston"
+     ]
+    },
+    {
+     "caption": "Skeletons, use cases and themes together.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

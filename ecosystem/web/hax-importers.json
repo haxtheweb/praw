@@ -1,0 +1,280 @@
+{
+ "meta": {
+  "name": "Importers",
+  "parent": "main",
+  "noTimeline": true,
+  "sectionLabels": {
+   "way": "ways in",
+   "cms": "content systems",
+   "docs": "documentation tools",
+   "publisher": "textbook publishers",
+   "format": "file formats"
+  },
+  "about": "Every way content gets into HAX: 12 platform importers, 5 file formats that become a site, and what the editor accepts dropped or pasted into a page. Generated from haxcms-nodejs and the site editor.",
+  "kindLabels": {
+   "rel": "way in to source; entry point to way in",
+   "org": "platform identity",
+   "schema": "served by the API"
+  }
+ },
+ "nodes": {
+  "importers": {
+   "always": true
+  },
+  "w_platform": {
+   "desc": "Point HAXcms at a site elsewhere and it becomes a new HAX site: one importer per platform, all behind site/import/{platform}.",
+   "kind": "way"
+  },
+  "w_file": {
+   "desc": "Upload a document and its structure becomes pages: headings in Word, slides in PowerPoint, rows in Excel.",
+   "kind": "way"
+  },
+  "w_page": {
+   "desc": "While editing, drop a file or paste a link; the editor converts it and places it where you are.",
+   "kind": "way"
+  },
+  "p_wordpress": {
+   "desc": "Pages and posts from a WordPress site, through its REST API. Import a WordPress site as a new site",
+   "kind": "cms",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/systemRoutes/v1/routes/imports/convertWordpressToSite.js"
+   },
+   "note": "POST /system/api/v1/site/import/wordpress"
+  },
+  "p_drupal": {
+   "desc": "Nodes from a Drupal site; the platform ELMS:LN and much of HAX's history were built on. Import a Drupal site as a new site",
+   "kind": "cms",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/systemRoutes/v1/routes/imports/convertDrupalToSite.js"
+   },
+   "note": "POST /system/api/v1/site/import/drupal"
+  },
+  "p_plone": {
+   "desc": "Content from a Plone site. Import a Plone site as a new site",
+   "kind": "cms",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/systemRoutes/v1/routes/imports/convertPloneToSite.js"
+   },
+   "note": "POST /system/api/v1/site/import/plone"
+  },
+  "p_elmsln": {
+   "desc": "Courses from an ELMS:LN network, the system HAXcms grew out of. Import an ELMSLN site as a new site",
+   "kind": "cms",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/systemRoutes/v1/routes/imports/convertElmslnToSite.js"
+   },
+   "note": "POST /system/api/v1/site/import/elmsln"
+  },
+  "p_haxcms": {
+   "desc": "Another HAXcms site or export: site.json plus pages, the same files a skeleton ships as. Import a HAXcms site as a new site",
+   "kind": "cms",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/systemRoutes/v1/routes/imports/convertHaxcmsToSite.js"
+   },
+   "note": "POST /system/api/v1/site/import/haxcms"
+  },
+  "p_notion": {
+   "desc": "A Notion export or workspace tree. Import a Notion site as a new site",
+   "kind": "docs",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/systemRoutes/v1/routes/imports/convertNotionToSite.js"
+   },
+   "note": "POST /system/api/v1/site/import/notion"
+  },
+  "p_gitbook": {
+   "desc": "A GitBook documentation site, from its summary and markdown. Import a GitBook site as a new site",
+   "kind": "docs",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/systemRoutes/v1/routes/imports/convertGitbookToSite.js"
+   },
+   "note": "POST /system/api/v1/site/import/gitbook"
+  },
+  "p_vitepress": {
+   "desc": "A VitePress documentation site, from its config and markdown. Import a VitePress documentation site as a new site",
+   "kind": "docs",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/systemRoutes/v1/routes/imports/convertVitepressToSite.js"
+   },
+   "note": "POST /system/api/v1/site/import/vitepress"
+  },
+  "p_quarto": {
+   "desc": "A Quarto book or website project. Import a Quarto project (book or website) as a new site",
+   "kind": "docs",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/systemRoutes/v1/routes/imports/convertQuartoToSite.js"
+   },
+   "note": "POST /system/api/v1/site/import/quarto"
+  },
+  "p_pressbooks": {
+   "desc": "An open textbook from Pressbooks. Import a Pressbooks site as a new site",
+   "kind": "publisher",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/systemRoutes/v1/routes/imports/convertPressbooksToSite.js"
+   },
+   "note": "POST /system/api/v1/site/import/pressbooks"
+  },
+  "p_openstax": {
+   "desc": "An OpenStax textbook; the openstax2hax plugin prepares the book for conversion. Import an OpenStax textbook as a new site",
+   "kind": "publisher",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/systemRoutes/v1/routes/imports/convertOpenstaxToSite.js"
+   },
+   "note": "POST /system/api/v1/site/import/openstax"
+  },
+  "p_html": {
+   "desc": "A plain HTML page or site, crawled from a URL. Import an HTML page or site as a new site",
+   "kind": "cms",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/systemRoutes/v1/routes/imports/convertHtmlToSite.js"
+   },
+   "note": "POST /system/api/v1/site/import/html"
+  },
+  "f_docx": {
+   "desc": "Word documents (.docx, .doc). Headings become pages when you import as a site; drop one into a page to insert its content. Drop it in the editor to insert as HTML, or create sibling or child pages from its headings.",
+   "kind": "format",
+   "note": "Site import: POST /system/api/v1/actions/import-docx. Page import: handled by the site editor."
+  },
+  "f_pptx": {
+   "desc": "PowerPoint files (.pptx). Each slide can become a page. Drop it in the editor: one page per slide, or inserted as HTML.",
+   "kind": "format",
+   "note": "Site import: POST /system/api/v1/actions/import-pptx. Page import: handled by the site editor."
+  },
+  "f_pdf": {
+   "desc": "PDF files, converted to semantic HTML. Drop it in the editor to insert as semantic HTML, or embed the PDF in the page.",
+   "kind": "format",
+   "note": "Site import: POST /system/api/v1/actions/import-pdf. Page import: handled by the site editor."
+  },
+  "f_xlsx": {
+   "desc": "Spreadsheets (.xlsx, .xls, .ods). Rows become pages when imported as a site, or a table inside a page. Drop it in the editor to insert as an editable table, or convert to CSV.",
+   "kind": "format",
+   "note": "Site import: POST /system/api/v1/actions/import-xlsx. Page import: handled by the site editor."
+  },
+  "f_html": {
+   "desc": "HTML files and pages. Drop or paste HTML into the editor.",
+   "kind": "format",
+   "note": "Site import: POST /system/api/v1/actions/import-html. Page import: handled by the site editor."
+  },
+  "f_md": {
+   "desc": "Markdown and plain text, converted to HTML on the way in. Drop a .md or .txt file in the editor; it is converted to HTML.",
+   "kind": "format",
+   "note": "Page import: handled by the site editor."
+  },
+  "f_media": {
+   "desc": "Media files become media-image, audio-player or video-player blocks, uploaded to the site's files folder. Drop or paste a file; it is uploaded to files/ and placed as the right block.",
+   "kind": "format",
+   "note": "Page import: handled by the site editor."
+  },
+  "f_url": {
+   "desc": "Any link: YouTube, Vimeo, Wikipedia and other sources the app store knows become embeds; other pages become link cards. Paste a link into the editor or Merlin: the page's metadata is read and it is embedded or linked.",
+   "kind": "format",
+   "note": "Page import: handled by the site editor."
+  },
+  "f_jos": {
+   "desc": "An item export in JSON Outline Schema, imported with hax site site:items-import.",
+   "kind": "format",
+   "note": ""
+  },
+  "dashboard": {
+   "note": "Create a site: pick Import and choose a platform or a file."
+  },
+  "editor": {
+   "note": "Drop a file or paste a URL while editing."
+  },
+  "merlin": {
+   "note": "Import from a URL, or drop a file on the top bar."
+  },
+  "cli": {
+   "note": "hax site --import-site <url> --import-structure <platform>, and site:items-import for JOS items."
+  },
+  "mcp": {
+   "note": "import_document, create_site_from_document and create_site_from_platform."
+  },
+  "tag_actions": {
+   "desc": "The converter and import actions in the OpenAPI system spec."
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "importers",
+   "label": "Get your content in",
+   "message": "Three ways in: a whole site from another platform, a site from one file, or content dropped into the page you are writing.",
+   "scenes": [
+    {
+     "caption": "Everything you already have can come into HAX.",
+     "nodes": [
+      "importers"
+     ]
+    },
+    {
+     "caption": "Three ways in.",
+     "nodes": [
+      "w_platform",
+      "w_file",
+      "w_page"
+     ]
+    },
+    {
+     "caption": "From another platform: the CMSs.",
+     "nodes": [
+      "w_platform",
+      "p_wordpress",
+      "p_drupal",
+      "p_plone",
+      "p_elmsln",
+      "p_haxcms",
+      "p_html"
+     ]
+    },
+    {
+     "caption": "From documentation tools and textbook publishers.",
+     "nodes": [
+      "p_notion",
+      "p_gitbook",
+      "p_vitepress",
+      "p_quarto",
+      "p_pressbooks",
+      "p_openstax"
+     ]
+    },
+    {
+     "caption": "From one file: Word headings, PowerPoint slides or Excel rows become pages.",
+     "nodes": [
+      "w_file",
+      "f_docx",
+      "f_pptx",
+      "f_xlsx",
+      "f_pdf",
+      "f_html"
+     ]
+    },
+    {
+     "caption": "Into the page you are writing: drop a document, a spreadsheet, media, or paste a link.",
+     "nodes": [
+      "w_page",
+      "f_docx",
+      "f_pdf",
+      "f_md",
+      "f_media",
+      "f_url"
+     ]
+    },
+    {
+     "caption": "Start from the dashboard, the editor, Merlin, the CLI or the MCP; the same OpenAPI actions do the work.",
+     "nodes": [
+      "dashboard",
+      "editor",
+      "merlin",
+      "cli",
+      "mcp",
+      "tag_actions"
+     ]
+    },
+    {
+     "caption": "All the ways in.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

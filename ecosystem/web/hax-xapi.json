@@ -1,0 +1,376 @@
+{
+ "meta": {
+  "name": "xAPI verbs",
+  "parent": "main",
+  "noTimeline": true,
+  "sectionLabels": {
+   "verb": "verbs",
+   "element": "elements"
+  },
+  "about": "The six xAPI verbs HAX elements send and which of 28 elements sends each, generated from user-action/lib/xapi-vocabulary.json. Green elements count toward completion.",
+  "kindLabels": {
+   "rel": "element sends verb",
+   "schema": "the vocabulary"
+  }
+ },
+ "nodes": {
+  "xapi": {
+   "always": true
+  },
+  "v_experienced": {
+   "desc": "The learner opened or saw it. Never required for completion. Sent by 6 elements.",
+   "links": {
+    "verb": "http://adlnet.gov/expapi/verbs/experienced"
+   },
+   "kind": "verb"
+  },
+  "v_attempted": {
+   "desc": "The learner started it. Sent by 9 elements.",
+   "links": {
+    "verb": "http://adlnet.gov/expapi/verbs/attempted"
+   },
+   "kind": "verb"
+  },
+  "v_progressed": {
+   "desc": "The learner got part way; media and multi-step activities report progress. Sent by 9 elements.",
+   "links": {
+    "verb": "http://adlnet.gov/expapi/verbs/progressed"
+   },
+   "kind": "verb"
+  },
+  "v_completed": {
+   "desc": "The learner finished it as the element defines done. Sent by 12 elements.",
+   "links": {
+    "verb": "http://adlnet.gov/expapi/verbs/completed"
+   },
+   "kind": "verb"
+  },
+  "v_answered": {
+   "desc": "The learner gave an answer; result carries success and the response. Sent by 15 elements.",
+   "links": {
+    "verb": "http://adlnet.gov/expapi/verbs/answered"
+   },
+   "kind": "verb"
+  },
+  "v_interacted": {
+   "desc": "The learner did something with it that is not an answer. Sent by 3 elements.",
+   "links": {
+    "verb": "http://adlnet.gov/expapi/verbs/interacted"
+   },
+   "kind": "verb"
+  },
+  "x_a11y_collapse": {
+   "desc": "Sends experienced on user-engagement. Done means: opened by the learner (one already open when the page loads has nothing to open and does not count) Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/a11y-collapse/a11y-collapse.js"
+   },
+   "kind": "element",
+   "note": "object type interaction; result: completion"
+  },
+  "x_a11y_media_player": {
+   "desc": "Sends attempted, progressed, completed on user-engagement. Done means: 95% of the media actually watched, or played on into the end after watching 80% (seeking ahead does not count) Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/a11y-media-player/a11y-media-player.js"
+   },
+   "kind": "element",
+   "note": "object type media; result: completion, duration, extensions.https://w3id.org/xapi/video/extensions/progress"
+  },
+  "x_audio_player": {
+   "desc": "Sends attempted, progressed, completed on user-engagement. Done means: 95% of the media actually watched, or played on into the end after watching 80% (seeking ahead does not count) Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/audio-player/audio-player.js"
+   },
+   "kind": "element",
+   "note": "object type media; result: completion, duration, extensions.https://w3id.org/xapi/video/extensions/progress"
+  },
+  "x_bullet_check_list": {
+   "desc": "Sends progressed, completed on user-engagement. Done means: every item ticked Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/bullet-check-list/bullet-check-list.js"
+   },
+   "kind": "element",
+   "note": "object type objective; result: completion, response, score"
+  },
+  "x_concept_map_game": {
+   "desc": "Sends attempted, progressed, completed on user-engagement. Done means: game completed Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/micro-game-base/lib/concept-map-game.js"
+   },
+   "kind": "element",
+   "note": "object type simulation; result: success, completion, response, score, duration"
+  },
+  "x_concept_quest_game": {
+   "desc": "Sends attempted, answered, completed on user-engagement. Done means: game completed Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/micro-game-base/lib/concept-quest-game.js"
+   },
+   "kind": "element",
+   "note": "object type simulation; result: success, completion, response, score, duration"
+  },
+  "x_concept_runner_game": {
+   "desc": "Sends attempted, answered, completed on user-engagement. Done means: game completed Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/micro-game-base/lib/concept-runner-game.js"
+   },
+   "kind": "element",
+   "note": "object type simulation; result: success, completion, response, score, duration"
+  },
+  "x_fill_in_the_blanks": {
+   "desc": "Sends answered on user-engagement. Done means: answered correctly or out of attempts Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/fill-in-the-blanks/fill-in-the-blanks.js"
+   },
+   "kind": "element",
+   "note": "object type cmi.interaction; result: success, completion, response, score, extensions.attempts, extensions.max-attempts"
+  },
+  "x_flash_card": {
+   "desc": "Sends answered on user-engagement. Done means: answered correctly Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/flash-card/flash-card.js"
+   },
+   "kind": "element",
+   "note": "object type cmi.interaction; result: success, completion, response, score"
+  },
+  "x_h5p_element": {
+   "desc": "Sends attempted, answered, completed on user-engagement. Done means: never required; not every H5P content type reports completion Does not count toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/h5p-element/h5p-element.js"
+   },
+   "kind": "element",
+   "note": "object type interaction; result: success, completion, response, score, duration"
+  },
+  "x_haxcms_page": {
+   "desc": "Sends experienced, progressed, completed on user-engagement. Done means: page content scrolled through to its end (each page counts its reading toward being done on its own) Does not count toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/haxcms-elements/lib/core/haxcms-reading-progress.js"
+   },
+   "kind": "element",
+   "note": "object type lesson; result: completion, duration, extensions.https://haxtheweb.org/xapi/extensions/progress"
+  },
+  "x_image_compare_slider": {
+   "desc": "Sends interacted on user-engagement. Done means: never required; records that the learner moved the slider Does not count toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/image-compare-slider/image-compare-slider.js"
+   },
+   "kind": "element",
+   "note": "object type interaction; result: none"
+  },
+  "x_lrndesign_imagemap": {
+   "desc": "Sends progressed, completed on user-engagement. Done means: never required; completed once every hotspot has been opened Does not count toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/lrndesign-imagemap/lrndesign-imagemap.js"
+   },
+   "kind": "element",
+   "note": "object type interaction; result: completion, score"
+  },
+  "x_lrs_emitter": {
+   "desc": "Sends experienced, interacted, answered, progressed, attempted, completed on user-engagement. Done means: never; records the authored verb when clicked or viewed Does not count toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/lrs-elements/lib/lrs-emitter.js"
+   },
+   "kind": "element",
+   "note": "object type interaction; result: none"
+  },
+  "x_mark_the_words": {
+   "desc": "Sends answered on user-engagement. Done means: answered correctly or out of attempts Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/mark-the-words/mark-the-words.js"
+   },
+   "kind": "element",
+   "note": "object type cmi.interaction; result: success, completion, response, score, extensions.attempts, extensions.max-attempts"
+  },
+  "x_matching_question": {
+   "desc": "Sends answered on user-engagement. Done means: answered correctly or out of attempts Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/matching-question/matching-question.js"
+   },
+   "kind": "element",
+   "note": "object type cmi.interaction; result: success, completion, response, score, extensions.attempts, extensions.max-attempts"
+  },
+  "x_multiple_choice": {
+   "desc": "Sends answered on user-engagement. Done means: answered correctly or out of attempts Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/multiple-choice/multiple-choice.js"
+   },
+   "kind": "element",
+   "note": "object type cmi.interaction; result: success, completion, response, score, extensions.attempts, extensions.max-attempts"
+  },
+  "x_reading_analysis": {
+   "desc": "Sends answered on user-engagement. Done means: every expected flag placed with no wrong ones (or the right passage selected), or out of attempts Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/reading-analysis/reading-analysis.js"
+   },
+   "kind": "element",
+   "note": "object type cmi.interaction; result: success, completion, response, score, extensions.attempts, extensions.max-attempts"
+  },
+  "x_self_check": {
+   "desc": "Sends experienced on user-engagement. Done means: the answer has been revealed Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/self-check/self-check.js"
+   },
+   "kind": "element",
+   "note": "object type interaction; result: completion"
+  },
+  "x_self_reflective_nudge": {
+   "desc": "Sends answered on user-engagement. Done means: a response was chosen Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/self-reflective-nudge/self-reflective-nudge.js"
+   },
+   "kind": "element",
+   "note": "object type cmi.interaction; result: completion, response"
+  },
+  "x_short_answer_question": {
+   "desc": "Sends answered on user-engagement. Done means: answered correctly or out of attempts Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/multiple-choice/lib/short-answer-question.js"
+   },
+   "kind": "element",
+   "note": "object type cmi.interaction; result: success, completion, response, score, extensions.attempts, extensions.max-attempts"
+  },
+  "x_slide_deck": {
+   "desc": "Sends attempted, progressed, completed on user-engagement. Done means: never required; completed once every slide has been shown Does not count toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/slide-deck/slide-deck.js"
+   },
+   "kind": "element",
+   "note": "object type interaction; result: completion, score"
+  },
+  "x_sorting_question": {
+   "desc": "Sends answered on user-engagement. Done means: answered correctly or out of attempts Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/sorting-question/sorting-question.js"
+   },
+   "kind": "element",
+   "note": "object type cmi.interaction; result: success, completion, response, score, extensions.attempts, extensions.max-attempts"
+  },
+  "x_tagging_question": {
+   "desc": "Sends answered on user-engagement. Done means: answered correctly or out of attempts Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/tagging-question/tagging-question.js"
+   },
+   "kind": "element",
+   "note": "object type cmi.interaction; result: success, completion, response, score, extensions.attempts, extensions.max-attempts"
+  },
+  "x_true_false_question": {
+   "desc": "Sends answered on user-engagement. Done means: answered correctly or out of attempts Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/multiple-choice/lib/true-false-question.js"
+   },
+   "kind": "element",
+   "note": "object type cmi.interaction; result: success, completion, response, score, extensions.attempts, extensions.max-attempts"
+  },
+  "x_user_action": {
+   "desc": "Sends experienced, interacted on user-engagement. Done means: never; records that something was seen (visibility) or used (click, keypress) Does not count toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/user-action/user-action.js"
+   },
+   "kind": "element",
+   "note": "object type interaction; result: none"
+  },
+  "x_video_player": {
+   "desc": "Sends attempted, progressed, completed on user-engagement. Done means: 95% of the media actually watched, or played on into the end after watching 80% (seeking ahead does not count) Counts toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/video-player/video-player.js"
+   },
+   "kind": "element",
+   "note": "object type media; result: completion, duration, extensions.https://w3id.org/xapi/video/extensions/progress"
+  },
+  "x_vocab_term": {
+   "desc": "Sends experienced on user-engagement. Done means: never required; records that the definition was opened Does not count toward completion.",
+   "links": {
+    "source": "https://github.com/haxtheweb/webcomponents/blob/master/elements/vocab-term/vocab-term.js"
+   },
+   "kind": "element",
+   "note": "object type interaction; result: none"
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "xapi",
+   "label": "What learners generate",
+   "message": "Six verbs, 28 elements that send them, all from one vocabulary file so every statement is shaped the same way.",
+   "scenes": [
+    {
+     "caption": "Every HAX activity speaks xAPI through one shared vocabulary.",
+     "nodes": [
+      "xapi"
+     ]
+    },
+    {
+     "caption": "Six verbs cover everything an element reports.",
+     "nodes": [
+      "v_experienced",
+      "v_attempted",
+      "v_progressed",
+      "v_completed",
+      "v_answered",
+      "v_interacted"
+     ]
+    },
+    {
+     "caption": "Answered: the question elements.",
+     "nodes": [
+      "v_answered",
+      "x_concept_quest_game",
+      "x_concept_runner_game",
+      "x_fill_in_the_blanks",
+      "x_flash_card",
+      "x_h5p_element",
+      "x_lrs_emitter",
+      "x_mark_the_words",
+      "x_matching_question",
+      "x_multiple_choice",
+      "x_reading_analysis",
+      "x_self_reflective_nudge",
+      "x_short_answer_question",
+      "x_sorting_question",
+      "x_tagging_question",
+      "x_true_false_question"
+     ]
+    },
+    {
+     "caption": "Attempted, progressed, completed: media, games and multi-step activities.",
+     "nodes": [
+      "v_attempted",
+      "v_progressed",
+      "v_completed",
+      "x_concept_map_game",
+      "x_bullet_check_list",
+      "x_lrndesign_imagemap",
+      "x_slide_deck",
+      "x_a11y_media_player",
+      "x_haxcms_page",
+      "x_video_player",
+      "x_audio_player"
+     ]
+    },
+    {
+     "caption": "Experienced and interacted: things a learner opened or touched.",
+     "nodes": [
+      "v_experienced",
+      "v_interacted",
+      "x_vocab_term",
+      "x_image_compare_slider",
+      "x_lrs_emitter",
+      "x_haxcms_page",
+      "x_user_action",
+      "x_a11y_collapse",
+      "x_self_check"
+     ]
+    },
+    {
+     "caption": "Statements feed Insights and describe learning in a course.",
+     "nodes": [
+      "insights",
+      "course"
+     ]
+    },
+    {
+     "caption": "The whole vocabulary.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

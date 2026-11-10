@@ -1,0 +1,251 @@
+{
+ "meta": {
+  "name": "Release and build",
+  "parent": "main",
+  "noTimeline": true,
+  "sectionLabels": {
+   "step": "steps",
+   "after": "after the tag",
+   "gate": "checks"
+  },
+  "about": "How a HAX release goes out, in order: generated from the ubiquity-push script in webcomponents and the GitHub workflows in each repo. One build of every element is copied into every platform, both backends are kept identical, and a shared version tag sets off release notes, containers and SBOMs.",
+  "kindLabels": {
+   "rel": "the order of steps and what triggers what",
+   "schema": "what each step updates"
+  }
+ },
+ "nodes": {
+  "ubiquity": {
+   "always": true
+  },
+  "rl_psucdn": {
+   "desc": "Penn State's copy of the HAX build, at both cdn/ and haxcms/ paths, which hax.psu.edu sites load from.",
+   "source": {
+    "label": "ubiquity-push.sh",
+    "url": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/ubiquity-push.sh"
+   }
+  },
+  "r0": {
+   "desc": "lerna publish sends every changed element to npm under @haxtheweb. It is the one step done by hand, because it needs a person to confirm versions.",
+   "kind": "step",
+   "source": {
+    "label": "ubiquity-push.sh",
+    "url": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/ubiquity-push.sh"
+   }
+  },
+  "r1": {
+   "desc": "yarn run ubiquity: one build of every element into build/, plus wc-registry.json (tag to file) and wc-registry-graph.json (what loads what), so any site can lazy-load any element.",
+   "kind": "step",
+   "source": {
+    "label": "ubiquity-push.sh",
+    "url": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/ubiquity-push.sh"
+   }
+  },
+  "r2": {
+   "desc": "PRAW is the source for HAX agent skills. The index is built and snapshotted into the site boilerplate and both deployment roots as .well-known/agent-skills.",
+   "kind": "step",
+   "source": {
+    "label": "ubiquity-push.sh",
+    "url": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/ubiquity-push.sh"
+   }
+  },
+  "r3": {
+   "desc": "The same build/, build.js, build-haxcms.js, wc-registry.json and version are copied into HAX11ty, haxcms-php, haxcms-nodejs, haxsite, HAXiam, the Penn State CDN, the waxam mirror and ELMS:LN.",
+   "kind": "step",
+   "source": {
+    "label": "ubiquity-push.sh",
+    "url": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/ubiquity-push.sh"
+   }
+  },
+  "r4": {
+   "desc": "The theme list from haxcms-elements is copied into both backends' coreConfig, so both offer the same themes.",
+   "kind": "step",
+   "source": {
+    "label": "ubiquity-push.sh",
+    "url": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/ubiquity-push.sh"
+   }
+  },
+  "r5": {
+   "desc": "Real outline-designer output is recaptured and replayed through both backends' saveOutline in a contract test, so the designer and the backends never drift.",
+   "kind": "step",
+   "source": {
+    "label": "ubiquity-push.sh",
+    "url": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/ubiquity-push.sh"
+   }
+  },
+  "r6": {
+   "desc": "haxcms-nodejs's site boilerplate and coreConfig are mirrored into haxcms-php, and the CLI gets wc-registry.json to validate tags.",
+   "kind": "step",
+   "source": {
+    "label": "ubiquity-push.sh",
+    "url": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/ubiquity-push.sh"
+   }
+  },
+  "r7": {
+   "desc": "The component gallery is rebuilt for CDN publishing; pull requests get a Vercel preview of it.",
+   "kind": "step",
+   "source": {
+    "label": "ubiquity-push.sh",
+    "url": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/ubiquity-push.sh"
+   }
+  },
+  "r8": {
+   "desc": "Every repo commits, takes the same version with commit-and-tag-version and pushes with its tag.",
+   "kind": "step",
+   "source": {
+    "label": "ubiquity-push.sh",
+    "url": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/ubiquity-push.sh"
+   }
+  },
+  "rl_notes": {
+   "desc": "On every version tag, GitHub Actions builds a source archive and SHA256SUMS and publishes a GitHub release with generated notes. Workflows: release-checksums.yml, release-notes.yml, release.yml.",
+   "kind": "after"
+  },
+  "rl_docker": {
+   "desc": "On every version tag, the Node.js and PHP platforms are published to the GitHub Container Registry (ghcr.io/haxtheweb/...), with latest following the newest release. Workflows: docker-publish.yml.",
+   "kind": "after"
+  },
+  "rl_sbom": {
+   "desc": "Every release gets an SBOM of its dependencies. Workflows: sbom.yml.",
+   "kind": "after"
+  },
+  "rl_npm": {
+   "desc": "The CLI and haxcms-nodejs publish to npm from npm run release: build, tag with commit-and-tag-version, push, publish.",
+   "kind": "after"
+  },
+  "rl_vercel": {
+   "desc": "Every webcomponents pull request deploys the component gallery to a Vercel preview, where changes are reviewed.",
+   "kind": "after"
+  },
+  "rl_build": {
+   "desc": "build.yml on webcomponents runs on every push to master and nightly: install, lint, stylelint, Prettier, the full test suite in Playwright, then the gallery.",
+   "kind": "gate",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/.github/workflows"
+   }
+  },
+  "rl_parity": {
+   "desc": "backend-parity.yml runs on both backends so the two stay identical.",
+   "kind": "gate",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/.github/workflows"
+   }
+  },
+  "rl_codeql": {
+   "desc": "CodeQL, dependency audits, license checks and OpenSSF Scorecard run on every repo.",
+   "kind": "gate",
+   "links": {
+    "code": "https://github.com/haxtheweb/webcomponents/tree/master/.github/workflows"
+   }
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "release",
+   "label": "How a release goes out",
+   "kind": "story",
+   "message": "One script carries a HAX release from npm to every platform, then a tag sets off the automation.",
+   "scenes": [
+    {
+     "caption": "1. Publish packages. lerna publish sends every changed element to npm under @haxtheweb. It is the one step done by hand, because it needs a person to confirm versions.",
+     "nodes": [
+      "r0",
+      "npm",
+      "components"
+     ]
+    },
+    {
+     "caption": "2. Ubiquity build. yarn run ubiquity: one build of every element into build/, plus wc-registry.json (tag to file) and wc-registry-graph.json (what loads what), so any site can lazy-load any element.",
+     "nodes": [
+      "r1",
+      "components"
+     ]
+    },
+    {
+     "caption": "3. Agent skills index. PRAW is the source for HAX agent skills. The index is built and snapshotted into the site boilerplate and both deployment roots as .well-known/agent-skills.",
+     "nodes": [
+      "r2",
+      "praw",
+      "agents"
+     ]
+    },
+    {
+     "caption": "4. Normalize every project. The same build/, build.js, build-haxcms.js, wc-registry.json and version are copied into HAX11ty, haxcms-php, haxcms-nodejs, haxsite, HAXiam, the Penn State CDN, the waxam mirror and ELMS:LN.",
+     "nodes": [
+      "r3",
+      "hax11ty",
+      "php",
+      "nodejs",
+      "haxiam",
+      "rl_psucdn",
+      "elmsln"
+     ]
+    },
+    {
+     "caption": "5. Sync themes.json. The theme list from haxcms-elements is copied into both backends' coreConfig, so both offer the same themes.",
+     "nodes": [
+      "r4",
+      "themes",
+      "php",
+      "nodejs"
+     ]
+    },
+    {
+     "caption": "6. Outline designer contract. Real outline-designer output is recaptured and replayed through both backends' saveOutline in a contract test, so the designer and the backends never drift.",
+     "nodes": [
+      "r5",
+      "outline",
+      "php",
+      "nodejs"
+     ]
+    },
+    {
+     "caption": "7. Node.js is the boilerplate. haxcms-nodejs's site boilerplate and coreConfig are mirrored into haxcms-php, and the CLI gets wc-registry.json to validate tags.",
+     "nodes": [
+      "r6",
+      "nodejs",
+      "php",
+      "cli"
+     ]
+    },
+    {
+     "caption": "8. Rebuild the gallery. The component gallery is rebuilt for CDN publishing; pull requests get a Vercel preview of it.",
+     "nodes": [
+      "r7",
+      "components"
+     ]
+    },
+    {
+     "caption": "9. Version and tag everything. Every repo commits, takes the same version with commit-and-tag-version and pushes with its tag.",
+     "nodes": [
+      "r8",
+      "github"
+     ]
+    },
+    {
+     "caption": "When the tag lands: release notes, checksums, containers, SBOMs and npm.",
+     "nodes": [
+      "rl_notes",
+      "rl_docker",
+      "rl_sbom",
+      "rl_npm",
+      "rl_vercel"
+     ]
+    },
+    {
+     "caption": "What guards it: nightly builds, backend parity, CodeQL and scorecards.",
+     "nodes": [
+      "rl_build",
+      "rl_parity",
+      "rl_codeql"
+     ]
+    },
+    {
+     "caption": "The whole release.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

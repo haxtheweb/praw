@@ -1,0 +1,207 @@
+%% History sub-web: how the ecosystem got here, from the Drupal years at Penn State to HAX, with a line from each early experiment to the piece of HAX it became.
+%% Sources: the 2015 thesis Information Altruism (in PRAW), PRAW's WORLDVIEW.md, WINS.md and talks/README.md. Portals: ids from hax-ecosystem.mmd. Details in hax-history.json.
+flowchart TB
+  %%@ layout rings=0,220,470,760 sizes=92,70,60,52
+  subgraph hub ["Where it came from"]
+    history(("History"))
+  end
+  subgraph eras ["Eras"]
+    e_drupal["The Drupal years"]
+    e_elmsln["ELMS:LN"]
+    e_turn["The turn to web components"]
+    e_hax["HAX and HAXcms"]
+    e_teach["Teaching"]
+  end
+  subgraph events ["What happened"]
+    h_hired>"Keith hires Bryan"]
+    h_elms>"ELMS is conceived"]
+    h_weekend>"The weekend Drupal course"]
+    h_altruism>"Donating effort"]
+    h_interviews>"The diffusion study"]
+    h_modules>"Hundreds of Drupal modules"]
+    h_elmsln>"ELMS becomes ELMS:LN"]
+    h_whitepaper>"ELMSLN white paper"]
+    h_thesis>"Information Altruism"]
+    h_sustaining>"Sustaining innovation"]
+    h_notecard>"A note card"]
+    h_standard>"Mike points at the standard"]
+    h_rewrite>"Three weeks off"]
+    h_stable>"The standard settles"]
+    h_haxcms>"HAXcms on PHP"]
+    h_2020>"Every site since still works"]
+    h_2023>"The classroom becomes the pipeline"]
+    h_node>"Node.js, the CLI, agents"]
+    h_ist256>"IST 256 begins"]
+  end
+  subgraph became ["What it became"]
+    keithbailey["keithbailey"]
+    aa["aa"]
+    elmsln["elmsln"]
+    psu["psu"]
+    open["open"]
+    sustainable["sustainable"]
+    wins["wins"]
+    plugins["plugins"]
+    extensible["extensible"]
+    billrose["billrose"]
+    agnostic["agnostic"]
+    praw["praw"]
+    ist["ist"]
+    mcollins["mcollins"]
+    editor["editor"]
+    mikepotter["mikepotter"]
+    wcstandard["wcstandard"]
+    components["components"]
+    drupalcon["drupalcon"]
+    haxcamp["haxcamp"]
+    haxcms["haxcms"]
+    php["php"]
+    jos["jos"]
+    haxpsu["haxpsu"]
+    haxiam["haxiam"]
+    remixable["remixable"]
+    bryan["bryan"]
+    haxlab["haxlab"]
+    nodejs["nodejs"]
+    cli["cli"]
+    traveler["traveler"]
+    mcp["mcp"]
+    ist256["ist256"]
+  end
+
+  history -->|has| e_drupal
+  history -->|has| e_elmsln
+  history -->|has| e_turn
+  history -->|has| e_hax
+  history -->|has| e_teach
+  e_drupal -->|includes| h_hired
+  h_hired -->|became| keithbailey
+  h_hired -->|became| aa
+  e_drupal -->|includes| h_elms
+  h_elms -->|became| elmsln
+  h_elms -->|became| aa
+  e_drupal -->|includes| h_weekend
+  h_weekend -->|became| psu
+  e_drupal -->|includes| h_altruism
+  h_altruism -->|became| open
+  h_altruism -->|became| sustainable
+  e_drupal -->|includes| h_interviews
+  h_interviews -->|became| wins
+  e_drupal -->|includes| h_modules
+  h_modules -->|became| plugins
+  h_modules -->|became| extensible
+  e_elmsln -->|includes| h_elmsln
+  h_elmsln -->|became| elmsln
+  h_elmsln -->|became| billrose
+  e_elmsln -->|includes| h_whitepaper
+  h_whitepaper -->|became| elmsln
+  h_whitepaper -->|became| agnostic
+  e_elmsln -->|includes| h_thesis
+  h_thesis -->|became| wins
+  h_thesis -->|became| praw
+  h_thesis -->|became| ist
+  e_elmsln -->|includes| h_sustaining
+  h_sustaining -->|became| mcollins
+  h_sustaining -->|became| sustainable
+  e_turn -->|includes| h_notecard
+  h_notecard -->|became| editor
+  e_turn -->|includes| h_standard
+  h_standard -->|became| mikepotter
+  h_standard -->|became| wcstandard
+  e_turn -->|includes| h_rewrite
+  h_rewrite -->|became| editor
+  h_rewrite -->|became| components
+  h_rewrite -->|became| drupalcon
+  e_turn -->|includes| h_stable
+  h_stable -->|became| wcstandard
+  h_stable -->|became| haxcamp
+  e_hax -->|includes| h_haxcms
+  h_haxcms -->|became| haxcms
+  h_haxcms -->|became| php
+  h_haxcms -->|became| jos
+  e_hax -->|includes| h_2020
+  h_2020 -->|became| haxpsu
+  h_2020 -->|became| haxiam
+  h_2020 -->|became| remixable
+  e_hax -->|includes| h_2023
+  h_2023 -->|became| billrose
+  h_2023 -->|became| bryan
+  h_2023 -->|became| haxlab
+  e_hax -->|includes| h_node
+  h_node -->|became| nodejs
+  h_node -->|became| cli
+  h_node -->|became| praw
+  h_node -->|became| traveler
+  h_node -->|became| mcp
+  e_teach -->|includes| h_ist256
+  h_ist256 -->|became| ist256
+  h_ist256 -->|became| ist
+  h_ist256 -->|became| components
+  h_elms -->|grew into| h_elmsln
+  h_elmsln -->|was rebuilt as| h_haxcms
+  h_altruism -->|is the pattern in| h_thesis
+  h_notecard -->|needed| h_standard
+  h_standard -->|led to| h_rewrite
+
+  %%@ group hub tier=0
+  %%@ group eras tier=1
+  %%@ group events tier=2
+  %%@ group became tier=3
+  %%@ node history icon=icons:book color=nittanyNavy motion=pulse
+  %%@ node e_drupal mono=DRPL color=wonderPurple motion=pop
+  %%@ node e_elmsln mono=ELMS color=creekTeal motion=pop
+  %%@ node e_turn mono=WC color=roarGolden motion=pop
+  %%@ node e_hax mono=HAX color=discoveryCoral motion=pop
+  %%@ node e_teach mono=IST color=forestGreen motion=pop
+  %%@ node h_hired icon=hax:documents color=wonderPurple motion=nudge
+  %%@ node h_elms icon=hax:documents color=wonderPurple motion=nudge
+  %%@ node h_weekend icon=hax:documents color=wonderPurple motion=nudge
+  %%@ node h_altruism icon=hax:documents color=wonderPurple motion=nudge
+  %%@ node h_interviews icon=hax:documents color=wonderPurple motion=nudge
+  %%@ node h_modules icon=hax:documents color=wonderPurple motion=nudge
+  %%@ node h_elmsln icon=hax:documents color=creekTeal motion=nudge
+  %%@ node h_whitepaper icon=hax:documents color=creekTeal motion=nudge
+  %%@ node h_thesis icon=hax:documents color=creekTeal motion=nudge
+  %%@ node h_sustaining icon=hax:documents color=creekTeal motion=nudge
+  %%@ node h_notecard icon=hax:documents color=roarGolden motion=nudge
+  %%@ node h_standard icon=hax:documents color=roarGolden motion=nudge
+  %%@ node h_rewrite icon=hax:documents color=roarGolden motion=nudge
+  %%@ node h_stable icon=hax:documents color=roarGolden motion=nudge
+  %%@ node h_haxcms icon=hax:documents color=discoveryCoral motion=nudge
+  %%@ node h_2020 icon=hax:documents color=discoveryCoral motion=nudge
+  %%@ node h_2023 icon=hax:documents color=discoveryCoral motion=nudge
+  %%@ node h_node icon=hax:documents color=discoveryCoral motion=nudge
+  %%@ node h_ist256 icon=hax:documents color=forestGreen motion=nudge
+  %%@ node keithbailey portal
+  %%@ node aa portal
+  %%@ node elmsln portal
+  %%@ node psu portal
+  %%@ node open portal
+  %%@ node sustainable portal
+  %%@ node wins portal
+  %%@ node plugins portal
+  %%@ node extensible portal
+  %%@ node billrose portal
+  %%@ node agnostic portal
+  %%@ node praw portal
+  %%@ node ist portal
+  %%@ node mcollins portal
+  %%@ node editor portal
+  %%@ node mikepotter portal
+  %%@ node wcstandard portal
+  %%@ node components portal
+  %%@ node drupalcon portal
+  %%@ node haxcamp portal
+  %%@ node haxcms portal
+  %%@ node php portal
+  %%@ node jos portal
+  %%@ node haxpsu portal
+  %%@ node haxiam portal
+  %%@ node remixable portal
+  %%@ node bryan portal
+  %%@ node haxlab portal
+  %%@ node nodejs portal
+  %%@ node cli portal
+  %%@ node traveler portal
+  %%@ node mcp portal
+  %%@ node ist256 portal

@@ -1,0 +1,126 @@
+%% Release and build sub-web: how a HAX release goes out, generated from webcomponents scripts/ubiquity-push.sh and each repo's GitHub workflows.
+flowchart TB
+  %%@ layout rings=0,250,500,760 sizes=92,64,58,52
+  subgraph hub ["Release and build"]
+    ubiquity["ubiquity"]
+  end
+  subgraph stepsg ["The release, in order"]
+    r0>"1. Publish packages"]
+    r1>"2. Ubiquity build"]
+    r2>"3. Agent skills index"]
+    r3>"4. Normalize every project"]
+    r4>"5. Sync themes.json"]
+    r5>"6. Outline designer contract"]
+    r6>"7. Node.js is the boilerplate"]
+    r7>"8. Rebuild the gallery"]
+    r8>"9. Version and tag everything"]
+  end
+  subgraph afterg ["When a tag lands"]
+    rl_notes["Release notes and checksums"]
+    rl_docker["Container images"]
+    rl_sbom["Software bill of materials"]
+    rl_npm["npm releases"]
+    rl_vercel["Gallery previews"]
+    rl_build["Nightly build and tests"]
+    rl_parity["Backend parity"]
+    rl_codeql["CodeQL and scorecards"]
+  end
+  subgraph dest ["Where it goes"]
+    haxpsu["haxpsu"]
+    npm["npm"]
+    components["components"]
+    praw["praw"]
+    agents["agents"]
+    hax11ty["hax11ty"]
+    php["php"]
+    nodejs["nodejs"]
+    haxiam["haxiam"]
+    rl_psucdn[("Penn State CDN")]
+    elmsln["elmsln"]
+    themes["themes"]
+    outline["outline"]
+    cli["cli"]
+    github["github"]
+  end
+
+  ubiquity -->|starts with| r0
+  r0 -->|then| r1
+  r1 -->|then| r2
+  r2 -->|then| r3
+  r3 -->|then| r4
+  r4 -->|then| r5
+  r5 -->|then| r6
+  r6 -->|then| r7
+  r7 -->|then| r8
+  r0 -.->|updates| npm
+  r0 -.->|updates| components
+  r1 -.->|updates| components
+  r2 -.->|updates| praw
+  r2 -.->|updates| agents
+  r3 -.->|updates| hax11ty
+  r3 -.->|updates| php
+  r3 -.->|updates| nodejs
+  r3 -.->|updates| haxiam
+  r3 -.->|updates| rl_psucdn
+  r3 -.->|updates| elmsln
+  r4 -.->|updates| themes
+  r4 -.->|updates| php
+  r4 -.->|updates| nodejs
+  r5 -.->|updates| outline
+  r5 -.->|updates| php
+  r5 -.->|updates| nodejs
+  r6 -.->|updates| nodejs
+  r6 -.->|updates| php
+  r6 -.->|updates| cli
+  r7 -.->|updates| components
+  r8 -.->|updates| github
+  r8 -->|triggers| rl_notes
+  r8 -->|triggers| rl_docker
+  r8 -->|triggers| rl_sbom
+  r8 -->|triggers| rl_npm
+  r7 -->|previews on| rl_vercel
+  rl_build -->|guards| r1
+  rl_parity -->|guards| r6
+  rl_codeql -->|guards| r8
+  rl_npm -.->|publishes| cli
+  rl_docker -.->|ships| php
+  rl_docker -.->|ships| nodejs
+  rl_psucdn -->|serves| haxpsu
+
+  %%@ group hub tier=0
+  %%@ group stepsg tier=1
+  %%@ group afterg tier=2
+  %%@ group dest tier=3
+  %%@ node ubiquity portal
+  %%@ node r0 mono=0 color=creekTeal motion=nudge
+  %%@ node r1 mono=1 color=creekTeal motion=nudge
+  %%@ node r2 mono=2 color=creekTeal motion=nudge
+  %%@ node r3 mono=3 color=creekTeal motion=nudge
+  %%@ node r4 mono=4 color=creekTeal motion=nudge
+  %%@ node r5 mono=5 color=creekTeal motion=nudge
+  %%@ node r6 mono=6 color=creekTeal motion=nudge
+  %%@ node r7 mono=7 color=creekTeal motion=nudge
+  %%@ node r8 mono=8 color=creekTeal motion=nudge
+  %%@ node rl_notes icon=icons:cloud-upload color=forestGreen motion=lift
+  %%@ node rl_docker icon=icons:cloud-upload color=forestGreen motion=lift
+  %%@ node rl_sbom icon=icons:cloud-upload color=forestGreen motion=lift
+  %%@ node rl_npm icon=icons:cloud-upload color=forestGreen motion=lift
+  %%@ node rl_vercel icon=icons:cloud-upload color=forestGreen motion=lift
+  %%@ node rl_build icon=icons:verified-user color=beaverBlue motion=pulse
+  %%@ node rl_parity icon=icons:verified-user color=beaverBlue motion=pulse
+  %%@ node rl_codeql icon=icons:verified-user color=beaverBlue motion=pulse
+  %%@ node npm portal
+  %%@ node components portal
+  %%@ node praw portal
+  %%@ node agents portal
+  %%@ node hax11ty portal
+  %%@ node php portal
+  %%@ node nodejs portal
+  %%@ node haxiam portal
+  %%@ node rl_psucdn icon=icons:dns color=nittanyNavy motion=lift
+  %%@ node elmsln portal
+  %%@ node themes portal
+  %%@ node outline portal=haxcms
+  %%@ node cli portal
+  %%@ node github portal
+  %%@ node haxpsu portal

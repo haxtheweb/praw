@@ -1,0 +1,767 @@
+{
+ "meta": {
+  "name": "HAX CLI commands",
+  "parent": "main",
+  "noTimeline": true,
+  "sectionLabels": {
+   "group": "areas",
+   "command": "commands"
+  },
+  "about": "Every command the hax CLI offers (92 in 8 areas), generated from haxtheweb/create: the top-level commands in create.js, the site, party and skills action menus, and the audits. Gray tiles are aliases or scripted-only actions.",
+  "kindLabels": {
+   "rel": "area to command, command to what it touches"
+  }
+ },
+ "nodes": {
+  "cli": {
+   "always": true
+  },
+  "g_top": {
+   "desc": "Top-level commands (hax …): 8 commands.",
+   "kind": "group"
+  },
+  "g_node": {
+   "desc": "Pages (node:*): 6 commands.",
+   "kind": "group"
+  },
+  "g_site": {
+   "desc": "Sites (site:*): 59 commands.",
+   "kind": "group"
+  },
+  "g_setup": {
+   "desc": "CI and hosting setup (setup:*): 3 commands.",
+   "kind": "group"
+  },
+  "g_issue": {
+   "desc": "Filing issues (issue:*): 2 commands.",
+   "kind": "group"
+  },
+  "g_audit": {
+   "desc": "Audits (audit*): 5 commands.",
+   "kind": "group"
+  },
+  "g_party": {
+   "desc": "Community (hax party): 7 commands.",
+   "kind": "group"
+  },
+  "g_skills": {
+   "desc": "Agent skills (hax skills): 2 commands.",
+   "kind": "group"
+  },
+  "c_start": {
+   "desc": "Launch site in browser (http://localhost)",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_update": {
+   "desc": "hax cli self update",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_serve": {
+   "desc": "Launch site in development mode",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site": {
+   "desc": "create or administer a HAXsite",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_wc": {
+   "desc": "Create Lit based web components, with HAX recommendations",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_audit": {
+   "desc": "DDD and HAXSchema compliance for an element",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_party": {
+   "desc": "Party time! Join the HAX community and get involved!",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_skills": {
+   "desc": "List and install bundled agent skills for HAX ecosystem agents",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_list": {
+   "desc": "List every command, action and option (--format json for tools and agents)",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_alias": {
+   "desc": "List, add and remove named sites (aliases) for `hax @name ...`",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_completion": {
+   "desc": "Print a shell completion script",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_node_stats": {
+   "desc": "Node Stats / data",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_node_add": {
+   "desc": "Add a new page",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_node_edit": {
+   "desc": "Edit a page",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_node_delete": {
+   "desc": "Delete a page",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_node_generate": {
+   "desc": "Generate placeholder pages",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_stats": {
+   "desc": "Site Status / stats",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_items": {
+   "desc": "Site items",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_items_import": {
+   "desc": "Import items (JOS / site.json)",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_list_files": {
+   "desc": "List site files",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_search": {
+   "desc": "Search site content",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_tags": {
+   "desc": "List site tags",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_blocks": {
+   "desc": "List site block usage",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_analytics": {
+   "desc": "Site analytics metadata",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_revisions": {
+   "desc": "List or restore item revisions",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_validate": {
+   "desc": "Validate site structure and content",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_rebuild": {
+   "desc": "Rebuild generated files (feeds, sitemap, search, llms.txt)",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_archive": {
+   "desc": "Archive the whole site to a .tar.gz",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_restore": {
+   "desc": "Restore the site from an archive",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_logs": {
+   "desc": "Show recent CLI log entries",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_list": {
+   "desc": "List sites in this folder",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_export": {
+   "desc": "Export site in a format",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_theme": {
+   "desc": "Change theme",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_element": {
+   "desc": "Add new Lit component to custom/src",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_html": {
+   "desc": "Full site as HTML",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_md": {
+   "desc": "Full site as Markdown",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_schema": {
+   "desc": "Full site as HAXElementSchema",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_skeleton_export": {
+   "desc": "Export site as skeleton template",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_skeleton_install": {
+   "desc": "Install skeleton template",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_sync": {
+   "desc": "Sync git repo",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_rsync": {
+   "desc": "Rsync site to remote/local directory",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_surge": {
+   "desc": "Publish site to Surge.sh",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_netlify": {
+   "desc": "Publish site to Netlify",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_vercel": {
+   "desc": "Publish site to Vercel",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_setup_github_actions": {
+   "desc": "Setup GitHub Actions deployment",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_setup_gitlab_ci": {
+   "desc": "Setup GitLab CI deployment",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_setup_replit": {
+   "desc": "Setup Replit configuration",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_issue_general": {
+   "desc": "Issue: Submit an issue or suggestion",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_issue_theme": {
+   "desc": "Issue: Suggest custom theme",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_to_remote": {
+   "desc": "Sync site to remote server",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_to_local": {
+   "desc": "Sync site to local directory",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_from_remote": {
+   "desc": "Sync from remote server to site",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_test": {
+   "desc": "Test sync (dry run)",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_base": {
+   "desc": "Vanilla Theme with Hearty Documentation",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_starter": {
+   "desc": "Starter Theme with the full HAXcms theme contract (best for AI agents)",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_polaris_flex": {
+   "desc": "Minimalist Theme with Horizontal Nav",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_polaris_sidebar": {
+   "desc": "Content-Focused Theme with Flexible Sidebar",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_skeleton": {
+   "desc": "Skeleton",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_details": {
+   "desc": "Details",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_html": {
+   "desc": "Page as HTML source",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_schema": {
+   "desc": "Page as HAXElementSchema",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_md": {
+   "desc": "Page as Markdown",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_title": {
+   "desc": "Title",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_content": {
+   "desc": "Page content",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_slug": {
+   "desc": "Path (slug)",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_published": {
+   "desc": "Publishing status",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_tags": {
+   "desc": "Tags",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_parent": {
+   "desc": "Parent",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_order": {
+   "desc": "Order",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_theme": {
+   "desc": "Theme",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_hideinmenu": {
+   "desc": "Hide in menu",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_custom_theme": {
+   "desc": "Create Custom Theme",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_status": {
+   "desc": "Scripted or alias action, not listed in the menu",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_node_status": {
+   "desc": "Scripted or alias action, not listed in the menu",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_file_list": {
+   "desc": "Scripted or alias action, not listed in the menu",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_files_upload": {
+   "desc": "Scripted or alias action, not listed in the menu",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_files_delete": {
+   "desc": "Scripted or alias action, not listed in the menu",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_search_replace": {
+   "desc": "Scripted or alias action, not listed in the menu",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_doctor": {
+   "desc": "Scripted or alias action, not listed in the menu",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_audit_i18n": {
+   "desc": "Translation coverage audit",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_audit_schema": {
+   "desc": "haxProperties schema audit",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_audit_ssr": {
+   "desc": "Lit SSR safety audit",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_audit_theme": {
+   "desc": "Theme audit",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_party_docs": {
+   "desc": "View the HAX documentation",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_party_playground": {
+   "desc": "Explore HAX.cloud playground",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_party_psu": {
+   "desc": "Visit official hax.psu.edu site",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_party_issues": {
+   "desc": "Engage with HAX issues on GitHub",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_party_discord": {
+   "desc": "Join the HAX Discord community",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_party_club": {
+   "desc": "Check out HAX The Club at PSU",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_party_github": {
+   "desc": "Contribute to core development for HAX",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_skills_list": {
+   "desc": "List bundled agent skills",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_skills_all": {
+   "desc": "All bundled skills",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "cli",
+   "label": "Everything the CLI does",
+   "message": "92 commands in 8 areas, generated from the create repo so it never drifts from the real CLI.",
+   "scenes": [
+    {
+     "caption": "One CLI for sites, elements, audits and the community.",
+     "nodes": [
+      "cli"
+     ]
+    },
+    {
+     "caption": "Top-level commands.",
+     "nodes": [
+      "g_top",
+      "c_update",
+      "c_site",
+      "c_wc",
+      "c_party",
+      "c_skills",
+      "c_list",
+      "c_alias",
+      "c_completion"
+     ]
+    },
+    {
+     "caption": "Pages and sites, drush-style.",
+     "nodes": [
+      "g_node",
+      "g_site"
+     ]
+    },
+    {
+     "caption": "Publishing and CI setup.",
+     "nodes": [
+      "g_setup",
+      "c_site_surge",
+      "c_site_netlify",
+      "c_site_vercel",
+      "deploy"
+     ]
+    },
+    {
+     "caption": "Audits keep elements honest.",
+     "nodes": [
+      "g_audit",
+      "ddd",
+      "haxschema",
+      "testing"
+     ]
+    },
+    {
+     "caption": "Community and agent skills.",
+     "nodes": [
+      "g_party",
+      "g_skills",
+      "g_issue",
+      "issues",
+      "agents",
+      "praw"
+     ]
+    },
+    {
+     "caption": "All of it.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

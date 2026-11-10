@@ -1,0 +1,122 @@
+%% JSON Outline Schema sub-web: the core outline, the HAXcms site.json layer and the skeleton format, with what reads and writes each
+%% Generated from json-outline-schema/schema. Details in the matching .json.
+flowchart TB
+  %%@ layout rings=0,210,430,680 sizes=92,64,54,50
+  subgraph hub ["JSON Outline Schema"]
+    jos[("jos")]
+  end
+  subgraph files ["Three schema files"]
+    js_core[("json-outline-schema.schema.json")]
+    js_site[("haxcms-site.schema.json")]
+    js_skel[("skeleton.schema.json")]
+  end
+  subgraph partsg ["Parts"]
+    jp_outline["the outline (id, title, author, license, metadata)"]
+    jp_items["items"]
+    ji_id["item.id"]
+    ji_title["item.title"]
+    ji_description["item.description"]
+    ji_parent["item.parent"]
+    ji_order["item.order"]
+    ji_indent["item.indent"]
+    ji_location["item.location"]
+    ji_slug["item.slug"]
+    ji_metadata["item.metadata"]
+    jm_author["metadata.author"]
+    jm_site["metadata.site"]
+    jm_theme["metadata.theme"]
+    jm_platform["metadata.platform"]
+    jm_node["metadata.node"]
+    jm_build["metadata.build"]
+    jm_plugins["metadata.plugins"]
+    jp_itemmeta["item.metadata"]
+    jp_skelbuild["skeleton build.items"]
+  end
+  subgraph who ["Who reads and writes it"]
+    outline["outline"]
+    haxcms["haxcms"]
+    editor["editor"]
+    cli["cli"]
+    hax11ty["hax11ty"]
+    skeletons["skeletons"]
+    importers["importers"]
+    themes["themes"]
+    mcp["mcp"]
+    contracts["contracts"]
+  end
+
+  jos -.->|is defined by| js_core
+  js_site -.->|extends| js_core
+  js_skel -.->|extends| js_core
+  js_core -->|defines| jp_outline
+  js_core -->|defines| jp_items
+  jp_items -->|each has| ji_id
+  jp_items -->|each has| ji_title
+  jp_items -->|each has| ji_description
+  jp_items -->|each has| ji_parent
+  jp_items -->|each has| ji_order
+  jp_items -->|each has| ji_indent
+  jp_items -->|each has| ji_location
+  jp_items -->|each has| ji_slug
+  jp_items -->|each has| ji_metadata
+  js_site -->|adds| jm_author
+  js_site -->|adds| jm_site
+  js_site -->|adds| jm_theme
+  js_site -->|adds| jm_platform
+  js_site -->|adds| jm_node
+  js_site -->|adds| jm_build
+  js_site -->|adds| jm_plugins
+  js_site -->|adds| jp_itemmeta
+  ji_metadata -->|is detailed by| jp_itemmeta
+  js_skel -->|adds| jp_skelbuild
+  ji_parent -.->|with| ji_order
+  ji_location -.->|points to| ji_slug
+  outline -->|writes| jp_items
+  haxcms -->|reads and writes| js_site
+  editor -->|writes page metadata to| js_site
+  cli -->|validates| js_site
+  hax11ty -->|renders from| js_site
+  skeletons -->|ship as| js_skel
+  importers -->|produce| jp_items
+  themes -->|draw menus from| js_site
+  mcp -->|edits through| js_site
+  contracts -.->|includes| jos
+
+  %%@ group hub tier=0
+  %%@ group files tier=1
+  %%@ group partsg tier=2
+  %%@ group who tier=3
+  %%@ node jos portal
+  %%@ node js_core icon=hax:code-json color=forestGreen motion=nudge
+  %%@ node js_site icon=hax:code-json color=forestGreen motion=nudge
+  %%@ node js_skel icon=hax:code-json color=forestGreen motion=nudge
+  %%@ node jp_outline icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node jp_items icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node jp_itemmeta icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node jp_skelbuild icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node ji_id icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node ji_title icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node ji_description icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node ji_parent icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node ji_order icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node ji_indent icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node ji_location icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node ji_slug icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node ji_metadata icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node jm_author icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node jm_site icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node jm_theme icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node jm_platform icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node jm_node icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node jm_build icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node jm_plugins icon=hax:site-map color=forestGreen motion=nudge
+  %%@ node outline portal=haxcms
+  %%@ node haxcms portal
+  %%@ node editor portal
+  %%@ node cli portal
+  %%@ node hax11ty portal
+  %%@ node skeletons portal
+  %%@ node importers portal
+  %%@ node themes portal
+  %%@ node mcp portal
+  %%@ node contracts portal=contracts

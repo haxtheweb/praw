@@ -1,0 +1,379 @@
+%% Future Traveler skills sub-web: the agent skills in PRAW and create, grouped by what they help with.
+%% Portals: ids from hax-ecosystem.mmd. Details in hax-skills.json.
+flowchart TB
+  %%@ layout rings=0,250,540,780,1000 sizes=92,56,42,42,46
+  subgraph hub ["HAX Future Traveler"]
+    traveler(("traveler"))
+  end
+  subgraph groups ["Skill groups"]
+    g_use["Using HAX"]
+    g_dev["Building HAX"]
+    g_id["Instructional design"]
+    g_audit["Audits and quality"]
+    g_media["Media and import"]
+    g_community["Community and admin"]
+  end
+  subgraph sa ["Skills"]
+    s_hax["hax"]
+    s_hax_ecosystem_onboarding["hax-ecosystem-onboarding"]
+    s_hax_site_building["hax-site-building"]
+    s_hax_site_structure["hax-site-structure"]
+    s_hax_tutorial_site["hax-tutorial-site"]
+    s_hax_claudehax["hax-claudehax"]
+    s_hax_design_system_sync["hax-design-system-sync"]
+    s_hax_i18n_translate["hax-i18n-translate"]
+    s_hax_rpg_character["hax-rpg-character"]
+    s_hax_webcomponent_dev["hax-webcomponent-dev"]
+    s_grad_blooms["grad-blooms"]
+    s_hax_feedback_design["hax-feedback-design"]
+    s_hax_instructional_events_audit["hax-instructional-events-audit"]
+    s_hax_practice_and_retrieval["hax-practice-and-retrieval"]
+    s_hax_reflection_prompts["hax-reflection-prompts"]
+    s_hax_ubd_essential_questions["hax-ubd-essential-questions"]
+    s_hax_ubd_six_facets["hax-ubd-six-facets"]
+    s_hax_ubd_stage2["hax-ubd-stage2"]
+    s_hax_ubd_unit_audit["hax-ubd-unit-audit"]
+    s_haxcms_lrs_rater["haxcms-lrs-rater"]
+    s_siip_course_alignment["siip-course-alignment"]
+    s_hax_pattern_library_audit["hax-pattern-library-audit"]
+    s_heosat_report_site["heosat-report-site"]
+    s_oerschema_integration_finder["oerschema-integration-finder"]
+    s_audio_program_transcribe["audio-program-transcribe"]
+    s_openstax2hax["openstax2hax"]
+    s_hax_issue_analysis["hax-issue-analysis"]
+    s_hax_release_prep["hax-release-prep"]
+  end
+  subgraph sb ["Skills"]
+    s_hax_content_authoring["hax-content-authoring"]
+    s_hax_managed_files["hax-managed-files"]
+    s_hax_site_ops["hax-site-ops"]
+    s_hax_theme_builder["hax-theme-builder"]
+    s_hax_backend_dev["hax-backend-dev"]
+    s_hax_design_system["hax-design-system"]
+    s_hax_element_demo["hax-element-demo"]
+    s_hax_mental_model["hax-mental-model"]
+    s_hax_testing["hax-testing"]
+    s_hax_webcomponent_documentation_writer["hax-webcomponent-documentation-writer"]
+    s_hax_content_chunking_audit["hax-content-chunking-audit"]
+    s_hax_instructional_element["hax-instructional-element"]
+    s_hax_multimedia_principles_audit["hax-multimedia-principles-audit"]
+    s_hax_proficiency_scaffolding["hax-proficiency-scaffolding"]
+    s_hax_ubd_backward_design["hax-ubd-backward-design"]
+    s_hax_ubd_grasps["hax-ubd-grasps"]
+    s_hax_ubd_stage1["hax-ubd-stage1"]
+    s_hax_ubd_stage3["hax-ubd-stage3"]
+    s_hax_udl_audit["hax-udl-audit"]
+    s_reading_notes["reading-notes"]
+    s_hax_a11y_audit["hax-a11y-audit"]
+    s_heosat["heosat"]
+    s_oerschema_audit["oerschema-audit"]
+    s_audio_program_hax["audio-program-hax"]
+    s_hax_importer_dev["hax-importer-dev"]
+    s_youtube_vtt["youtube-vtt"]
+    s_hax_issue_research["hax-issue-research"]
+    s_hax_rule_management["hax-rule-management"]
+  end
+  subgraph parts ["Where skills live and what they work on"]
+    praw["praw"]
+    cli["cli"]
+    haxcms["haxcms"]
+    editor["editor"]
+    components["components"]
+    themes["themes"]
+    learnhax(["learnhax"])
+    nodejs["nodejs"]
+    php["php"]
+    openapi[("openapi")]
+    ddd["ddd"]
+    languages["languages"]
+    testing["testing"]
+    course(["course"])
+    xapi[("xapi")]
+    accessible{{"accessible"}}
+    oerschema[("oerschema")]
+    textbook(["textbook"])
+    issues["issues"]
+    ubiquity["ubiquity"]
+  end
+
+  traveler -->|uses| g_use
+  traveler -->|uses| g_dev
+  traveler -->|uses| g_id
+  traveler -->|uses| g_audit
+  traveler -->|uses| g_media
+  traveler -->|uses| g_community
+  g_use -->|includes| s_hax
+  s_hax --o|lives in| praw
+  s_hax -->|works on| haxcms
+  s_hax -->|works on| cli
+  g_use -->|includes| s_hax_content_authoring
+  s_hax_content_authoring --o|lives in| praw
+  s_hax_content_authoring -->|works on| haxcms
+  s_hax_content_authoring -->|works on| cli
+  s_hax_content_authoring -->|works on| editor
+  s_hax_content_authoring -->|works on| components
+  g_use -->|includes| s_hax_ecosystem_onboarding
+  s_hax_ecosystem_onboarding --o|lives in| cli
+  s_hax_ecosystem_onboarding -->|works on| haxcms
+  s_hax_ecosystem_onboarding -->|works on| cli
+  g_use -->|includes| s_hax_managed_files
+  s_hax_managed_files --o|lives in| praw
+  s_hax_managed_files -->|works on| haxcms
+  s_hax_managed_files -->|works on| cli
+  g_use -->|includes| s_hax_site_building
+  s_hax_site_building --o|lives in| cli
+  s_hax_site_building -->|works on| haxcms
+  s_hax_site_building -->|works on| cli
+  g_use -->|includes| s_hax_site_ops
+  s_hax_site_ops --o|lives in| praw
+  s_hax_site_ops -->|works on| haxcms
+  s_hax_site_ops -->|works on| cli
+  g_use -->|includes| s_hax_site_structure
+  s_hax_site_structure --o|lives in| praw
+  s_hax_site_structure -->|works on| haxcms
+  s_hax_site_structure -->|works on| cli
+  g_use -->|includes| s_hax_theme_builder
+  s_hax_theme_builder --o|lives in| praw
+  s_hax_theme_builder -->|works on| themes
+  g_use -->|includes| s_hax_tutorial_site
+  s_hax_tutorial_site --o|lives in| praw
+  s_hax_tutorial_site -->|works on| haxcms
+  s_hax_tutorial_site -->|works on| cli
+  s_hax_tutorial_site -->|works on| learnhax
+  g_dev -->|includes| s_hax_backend_dev
+  s_hax_backend_dev --o|lives in| praw
+  s_hax_backend_dev -->|works on| nodejs
+  s_hax_backend_dev -->|works on| php
+  s_hax_backend_dev -->|works on| openapi
+  g_dev -->|includes| s_hax_claudehax
+  s_hax_claudehax --o|lives in| cli
+  s_hax_claudehax -->|works on| haxcms
+  g_dev -->|includes| s_hax_design_system
+  s_hax_design_system --o|lives in| praw
+  s_hax_design_system -->|works on| ddd
+  g_dev -->|includes| s_hax_design_system_sync
+  s_hax_design_system_sync --o|lives in| praw
+  s_hax_design_system_sync -->|works on| ddd
+  g_dev -->|includes| s_hax_element_demo
+  s_hax_element_demo --o|lives in| praw
+  s_hax_element_demo -->|works on| editor
+  s_hax_element_demo -->|works on| components
+  g_dev -->|includes| s_hax_i18n_translate
+  s_hax_i18n_translate --o|lives in| praw
+  s_hax_i18n_translate -->|works on| languages
+  g_dev -->|includes| s_hax_mental_model
+  s_hax_mental_model --o|lives in| praw
+  s_hax_mental_model -->|works on| praw
+  g_dev -->|includes| s_hax_rpg_character
+  s_hax_rpg_character --o|lives in| cli
+  s_hax_rpg_character -->|works on| components
+  g_dev -->|includes| s_hax_testing
+  s_hax_testing --o|lives in| praw
+  s_hax_testing -->|works on| testing
+  g_dev -->|includes| s_hax_webcomponent_dev
+  s_hax_webcomponent_dev --o|lives in| cli
+  s_hax_webcomponent_dev -->|works on| components
+  g_dev -->|includes| s_hax_webcomponent_documentation_writer
+  s_hax_webcomponent_documentation_writer --o|lives in| cli
+  s_hax_webcomponent_documentation_writer -->|works on| components
+  g_id -->|includes| s_grad_blooms
+  s_grad_blooms --o|lives in| praw
+  s_grad_blooms -->|works on| course
+  g_id -->|includes| s_hax_content_chunking_audit
+  s_hax_content_chunking_audit --o|lives in| praw
+  s_hax_content_chunking_audit -->|works on| course
+  g_id -->|includes| s_hax_feedback_design
+  s_hax_feedback_design --o|lives in| praw
+  s_hax_feedback_design -->|works on| course
+  g_id -->|includes| s_hax_instructional_element
+  s_hax_instructional_element --o|lives in| praw
+  s_hax_instructional_element -->|works on| course
+  g_id -->|includes| s_hax_instructional_events_audit
+  s_hax_instructional_events_audit --o|lives in| praw
+  s_hax_instructional_events_audit -->|works on| xapi
+  s_hax_instructional_events_audit -->|works on| course
+  g_id -->|includes| s_hax_multimedia_principles_audit
+  s_hax_multimedia_principles_audit --o|lives in| praw
+  s_hax_multimedia_principles_audit -->|works on| course
+  g_id -->|includes| s_hax_practice_and_retrieval
+  s_hax_practice_and_retrieval --o|lives in| praw
+  s_hax_practice_and_retrieval -->|works on| course
+  g_id -->|includes| s_hax_proficiency_scaffolding
+  s_hax_proficiency_scaffolding --o|lives in| praw
+  s_hax_proficiency_scaffolding -->|works on| course
+  g_id -->|includes| s_hax_reflection_prompts
+  s_hax_reflection_prompts --o|lives in| praw
+  s_hax_reflection_prompts -->|works on| course
+  g_id -->|includes| s_hax_ubd_backward_design
+  s_hax_ubd_backward_design --o|lives in| praw
+  s_hax_ubd_backward_design -->|works on| course
+  g_id -->|includes| s_hax_ubd_essential_questions
+  s_hax_ubd_essential_questions --o|lives in| praw
+  s_hax_ubd_essential_questions -->|works on| course
+  g_id -->|includes| s_hax_ubd_grasps
+  s_hax_ubd_grasps --o|lives in| praw
+  s_hax_ubd_grasps -->|works on| course
+  g_id -->|includes| s_hax_ubd_six_facets
+  s_hax_ubd_six_facets --o|lives in| praw
+  s_hax_ubd_six_facets -->|works on| course
+  g_id -->|includes| s_hax_ubd_stage1
+  s_hax_ubd_stage1 --o|lives in| praw
+  s_hax_ubd_stage1 -->|works on| course
+  g_id -->|includes| s_hax_ubd_stage2
+  s_hax_ubd_stage2 --o|lives in| praw
+  s_hax_ubd_stage2 -->|works on| course
+  g_id -->|includes| s_hax_ubd_stage3
+  s_hax_ubd_stage3 --o|lives in| praw
+  s_hax_ubd_stage3 -->|works on| course
+  g_id -->|includes| s_hax_ubd_unit_audit
+  s_hax_ubd_unit_audit --o|lives in| praw
+  s_hax_ubd_unit_audit -->|works on| course
+  g_id -->|includes| s_hax_udl_audit
+  s_hax_udl_audit --o|lives in| praw
+  s_hax_udl_audit -->|works on| accessible
+  g_id -->|includes| s_haxcms_lrs_rater
+  s_haxcms_lrs_rater --o|lives in| praw
+  s_haxcms_lrs_rater -->|works on| xapi
+  g_id -->|includes| s_reading_notes
+  s_reading_notes --o|lives in| praw
+  s_reading_notes -->|works on| course
+  g_id -->|includes| s_siip_course_alignment
+  s_siip_course_alignment --o|lives in| praw
+  s_siip_course_alignment -->|works on| course
+  g_audit -->|includes| s_hax_a11y_audit
+  s_hax_a11y_audit --o|lives in| praw
+  s_hax_a11y_audit -->|works on| accessible
+  g_audit -->|includes| s_hax_pattern_library_audit
+  s_hax_pattern_library_audit --o|lives in| praw
+  s_hax_pattern_library_audit -->|works on| components
+  s_hax_pattern_library_audit -->|works on| ddd
+  g_audit -->|includes| s_heosat
+  s_heosat --o|lives in| praw
+  s_heosat -->|works on| course
+  g_audit -->|includes| s_heosat_report_site
+  s_heosat_report_site --o|lives in| praw
+  s_heosat_report_site -->|works on| course
+  g_audit -->|includes| s_oerschema_audit
+  s_oerschema_audit --o|lives in| praw
+  s_oerschema_audit -->|works on| oerschema
+  g_audit -->|includes| s_oerschema_integration_finder
+  s_oerschema_integration_finder --o|lives in| praw
+  s_oerschema_integration_finder -->|works on| oerschema
+  g_media -->|includes| s_audio_program_hax
+  s_audio_program_hax --o|lives in| praw
+  s_audio_program_hax -->|works on| haxcms
+  s_audio_program_hax -->|works on| cli
+  s_audio_program_hax -->|works on| textbook
+  g_media -->|includes| s_audio_program_transcribe
+  s_audio_program_transcribe --o|lives in| praw
+  s_audio_program_transcribe -->|works on| textbook
+  g_media -->|includes| s_hax_importer_dev
+  s_hax_importer_dev --o|lives in| praw
+  s_hax_importer_dev -->|works on| textbook
+  g_media -->|includes| s_openstax2hax
+  s_openstax2hax --o|lives in| praw
+  s_openstax2hax -->|works on| textbook
+  g_media -->|includes| s_youtube_vtt
+  s_youtube_vtt --o|lives in| praw
+  s_youtube_vtt -->|works on| haxcms
+  g_community -->|includes| s_hax_issue_analysis
+  s_hax_issue_analysis --o|lives in| praw
+  s_hax_issue_analysis -->|works on| issues
+  g_community -->|includes| s_hax_issue_research
+  s_hax_issue_research --o|lives in| praw
+  s_hax_issue_research -->|works on| issues
+  g_community -->|includes| s_hax_release_prep
+  s_hax_release_prep --o|lives in| praw
+  s_hax_release_prep -->|works on| ubiquity
+  g_community -->|includes| s_hax_rule_management
+  s_hax_rule_management --o|lives in| praw
+  s_hax_rule_management -->|works on| praw
+
+  %%@ group hub tier=0
+  %%@ group groups tier=1
+  %%@ group sa tier=2
+  %%@ group sb tier=3
+  %%@ group parts tier=4
+  %%@ node traveler portal
+  %%@ node g_use icon=hax:site-map color=discoveryCoral motion=pop
+  %%@ node g_dev icon=hax:code-json color=beaverBlue motion=pop
+  %%@ node g_id icon=hax:lesson color=opportunityGreen motion=pop
+  %%@ node g_audit icon=icons:verified-user color=inventOrange motion=pop
+  %%@ node g_media icon=hax:multimedia color=skyBlue motion=pop
+  %%@ node g_community icon=icons:gavel color=original87Pink motion=pop
+  %%@ node s_hax icon=hax:file-ai color=discoveryCoral motion=pulse
+  %%@ node s_hax_content_authoring icon=hax:file-ai color=discoveryCoral motion=pulse
+  %%@ node s_hax_ecosystem_onboarding icon=hax:file-ai color=discoveryCoral motion=pulse
+  %%@ node s_hax_managed_files icon=hax:file-ai color=discoveryCoral motion=pulse
+  %%@ node s_hax_site_building icon=hax:file-ai color=discoveryCoral motion=pulse
+  %%@ node s_hax_site_ops icon=hax:file-ai color=discoveryCoral motion=pulse
+  %%@ node s_hax_site_structure icon=hax:file-ai color=discoveryCoral motion=pulse
+  %%@ node s_hax_theme_builder icon=hax:file-ai color=discoveryCoral motion=pulse
+  %%@ node s_hax_tutorial_site icon=hax:file-ai color=discoveryCoral motion=pulse
+  %%@ node s_hax_backend_dev icon=hax:file-ai color=beaverBlue motion=pulse
+  %%@ node s_hax_claudehax icon=hax:file-ai color=beaverBlue motion=pulse
+  %%@ node s_hax_design_system icon=hax:file-ai color=beaverBlue motion=pulse
+  %%@ node s_hax_design_system_sync icon=hax:file-ai color=beaverBlue motion=pulse
+  %%@ node s_hax_element_demo icon=hax:file-ai color=beaverBlue motion=pulse
+  %%@ node s_hax_i18n_translate icon=hax:file-ai color=beaverBlue motion=pulse
+  %%@ node s_hax_mental_model icon=hax:file-ai color=beaverBlue motion=pulse
+  %%@ node s_hax_rpg_character icon=hax:file-ai color=beaverBlue motion=pulse
+  %%@ node s_hax_testing icon=hax:file-ai color=beaverBlue motion=pulse
+  %%@ node s_hax_webcomponent_dev icon=hax:file-ai color=beaverBlue motion=pulse
+  %%@ node s_hax_webcomponent_documentation_writer icon=hax:file-ai color=beaverBlue motion=pulse
+  %%@ node s_grad_blooms icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_hax_content_chunking_audit icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_hax_feedback_design icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_hax_instructional_element icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_hax_instructional_events_audit icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_hax_multimedia_principles_audit icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_hax_practice_and_retrieval icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_hax_proficiency_scaffolding icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_hax_reflection_prompts icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_hax_ubd_backward_design icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_hax_ubd_essential_questions icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_hax_ubd_grasps icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_hax_ubd_six_facets icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_hax_ubd_stage1 icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_hax_ubd_stage2 icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_hax_ubd_stage3 icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_hax_ubd_unit_audit icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_hax_udl_audit icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_haxcms_lrs_rater icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_reading_notes icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_siip_course_alignment icon=hax:file-ai color=opportunityGreen motion=pulse
+  %%@ node s_hax_a11y_audit icon=hax:file-ai color=inventOrange motion=pulse
+  %%@ node s_hax_pattern_library_audit icon=hax:file-ai color=inventOrange motion=pulse
+  %%@ node s_heosat icon=hax:file-ai color=inventOrange motion=pulse
+  %%@ node s_heosat_report_site icon=hax:file-ai color=inventOrange motion=pulse
+  %%@ node s_oerschema_audit icon=hax:file-ai color=inventOrange motion=pulse
+  %%@ node s_oerschema_integration_finder icon=hax:file-ai color=inventOrange motion=pulse
+  %%@ node s_audio_program_hax icon=hax:file-ai color=skyBlue motion=pulse
+  %%@ node s_audio_program_transcribe icon=hax:file-ai color=skyBlue motion=pulse
+  %%@ node s_hax_importer_dev icon=hax:file-ai color=skyBlue motion=pulse
+  %%@ node s_openstax2hax icon=hax:file-ai color=skyBlue motion=pulse
+  %%@ node s_youtube_vtt icon=hax:file-ai color=skyBlue motion=pulse
+  %%@ node s_hax_issue_analysis icon=hax:file-ai color=original87Pink motion=pulse
+  %%@ node s_hax_issue_research icon=hax:file-ai color=original87Pink motion=pulse
+  %%@ node s_hax_release_prep icon=hax:file-ai color=original87Pink motion=pulse
+  %%@ node s_hax_rule_management icon=hax:file-ai color=original87Pink motion=pulse
+  %%@ node praw portal
+  %%@ node cli portal
+  %%@ node haxcms portal
+  %%@ node editor portal
+  %%@ node components portal
+  %%@ node themes portal
+  %%@ node learnhax portal
+  %%@ node nodejs portal
+  %%@ node php portal
+  %%@ node openapi portal
+  %%@ node ddd portal
+  %%@ node languages portal
+  %%@ node testing portal
+  %%@ node course portal
+  %%@ node xapi portal
+  %%@ node accessible portal
+  %%@ node oerschema portal
+  %%@ node textbook portal
+  %%@ node issues portal
+  %%@ node ubiquity portal

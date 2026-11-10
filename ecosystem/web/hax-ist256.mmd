@@ -1,0 +1,227 @@
+%% IST 256 sub-web: Bryan's course (repo btopro/edtechjoker), by semester, with class projects and what they became.
+%% Portals: ids from hax-ecosystem.mmd (portal) and hax-elements.mmd (portal=elements). Details in hax-ist256.json.
+flowchart TB
+  %%@ layout rings=0,330,640,900 sizes=92,48,44,44
+  subgraph hub ["IST 256"]
+    ist256["ist256"]
+  end
+  subgraph sems ["Semesters"]
+    s19f(["Fall 2019"])
+    s20s(["Spring 2020"])
+    s20f(["Fall 2020"])
+    s21s(["Spring 2021"])
+    s21f(["Fall 2021"])
+    s22s(["Spring 2022"])
+    s23s(["Spring 2023"])
+    s23f(["Fall 2023"])
+    s24s(["Spring 2024"])
+    s24f(["Fall 2024"])
+    s25s(["Spring 2025"])
+    s25f(["Fall 2025"])
+    s26s(["Spring 2026"])
+  end
+  subgraph projects ["Class projects"]
+    p_service["service-card widget"]
+    p_datecard["small date element"]
+    p_ghpreview["github-preview element"]
+    p_tvguide["TV-guide style web component app"]
+    p_sorting["sorting-question"]
+    p_flash["flash-card"]
+    p_mark["mark-the-words"]
+    p_vocab["vocab-term in the HAX editor"]
+    p_apa["APA style element"]
+    p_dragdrop["drag and drop activity"]
+    p_rpg["RPG character that looks like... someone"]
+    p_linkpreview["link-preview-card"]
+    p_lecture["lecture-player"]
+    p_inline["inline-audio"]
+    p_playlist["play-list"]
+    p_testimonial["block-quote with an image"]
+    p_gallery["image gallery presentation"]
+    p_party["haxcms-party-ui"]
+    p_search["HAXsite search and visualization engine"]
+    p_unsdg["un-sdg goal icons"]
+    p_usecases["use-cases dashboard"]
+    p_steps["ddd-steps-list and ddd-card-list"]
+    p_aiul["AI Usage License tag"]
+    p_portthemes["portfolio-sidebar and portfolio-very themes"]
+    p_fox["What the fox say"]
+    p_dyngallery["dynamic image gallery app"]
+  end
+  subgraph outcomes ["What they became, and who"]
+    components["components"]
+    b_date_card["b_date_card"]
+    b_sorting_question["b_sorting_question"]
+    b_flash_card["b_flash_card"]
+    b_mark_the_words["b_mark_the_words"]
+    b_vocab_term["b_vocab_term"]
+    b_matching_question["b_matching_question"]
+    b_rpg_character["b_rpg_character"]
+    b_inline_audio["b_inline_audio"]
+    b_play_list["b_play_list"]
+    b_person_testimonial["b_person_testimonial"]
+    b_image_gallery["b_image_gallery"]
+    dashboard["dashboard"]
+    haxcms["haxcms"]
+    skeletons["skeletons"]
+    ddd["ddd"]
+    b_ai_usage_license["b_ai_usage_license"]
+    themes["themes"]
+    bryan(("bryan"))
+    winston(("winston"))
+    kcharlton(("kcharlton"))
+    ist[["ist"]]
+    haxlab[["haxlab"]]
+  end
+
+  ist256 --o|is taught in| ist
+  ist256 -->|sends its best students to| haxlab
+  ist256 -->|was taught in| s19f
+  bryan ---|taught| s19f
+  ist256 -->|was taught in| s20s
+  bryan ---|taught| s20s
+  ist256 -->|was taught in| s20f
+  bryan ---|taught| s20f
+  ist256 -->|was taught in| s21s
+  bryan ---|taught| s21s
+  ist256 -->|was taught in| s21f
+  bryan ---|taught| s21f
+  ist256 -->|was taught in| s22s
+  bryan ---|taught| s22s
+  ist256 -->|was taught in| s23s
+  bryan ---|taught| s23s
+  ist256 -->|was taught in| s23f
+  bryan ---|taught| s23f
+  ist256 -->|was taught in| s24s
+  bryan ---|taught| s24s
+  ist256 -->|was taught in| s24f
+  bryan ---|taught| s24f
+  ist256 -->|was taught in| s25s
+  bryan ---|taught| s25s
+  ist256 -->|was taught in| s25f
+  bryan ---|taught| s25f
+  ist256 -->|was taught in| s26s
+  bryan ---|taught| s26s
+  s19f -->|assigned| p_service
+  p_service -->|fed into| components
+  s20s -->|assigned| p_datecard
+  p_datecard -->|became| b_date_card
+  s20f -->|assigned| p_ghpreview
+  p_ghpreview -->|fed into| components
+  s21s -->|assigned| p_tvguide
+  p_tvguide -->|fed into| components
+  s21f -->|assigned| p_sorting
+  p_sorting -->|became| b_sorting_question
+  s21f -->|assigned| p_flash
+  p_flash -->|became| b_flash_card
+  s21f -->|assigned| p_mark
+  p_mark -->|became| b_mark_the_words
+  s22s -->|assigned| p_vocab
+  p_vocab -->|became| b_vocab_term
+  s23s -->|assigned| p_apa
+  s23s -->|assigned| p_dragdrop
+  p_dragdrop -->|led to| b_matching_question
+  s23f -->|assigned| p_rpg
+  p_rpg -->|extended| b_rpg_character
+  s23f -->|assigned| p_linkpreview
+  p_linkpreview -->|fed into| components
+  s23f -->|assigned| p_lecture
+  p_lecture -->|fed into| components
+  s24s -->|assigned| p_inline
+  p_inline -->|became| b_inline_audio
+  winston ---|built| p_inline
+  s24s -->|assigned| p_playlist
+  p_playlist -->|became| b_play_list
+  s24s -->|assigned| p_testimonial
+  p_testimonial -->|became| b_person_testimonial
+  s24s -->|assigned| p_gallery
+  p_gallery -->|became| b_image_gallery
+  s24s -->|assigned| p_party
+  p_party -->|fed into| dashboard
+  s24f -->|assigned| p_search
+  p_search -->|fed into| haxcms
+  s24f -->|assigned| p_unsdg
+  p_unsdg -->|fed into| components
+  s24f -->|assigned| p_usecases
+  p_usecases -->|fed into| dashboard
+  p_usecases -->|fed into| skeletons
+  s25s -->|assigned| p_steps
+  p_steps -->|became part of| ddd
+  s25s -->|assigned| p_aiul
+  p_aiul -->|became| b_ai_usage_license
+  s25s -->|assigned| p_portthemes
+  p_portthemes -->|became| themes
+  s25f -->|assigned| p_fox
+  p_fox -->|fed into| components
+  s26s -->|assigned| p_dyngallery
+  p_dyngallery -->|fed into| components
+  kcharlton ---|turned a class project into| ddd
+  winston --o|went on to intern in| haxlab
+
+  %%@ group hub tier=0
+  %%@ group sems tier=1
+  %%@ group projects tier=2
+  %%@ group outcomes tier=3
+  %%@ node ist256 portal
+  %%@ node s19f icon=hax:calendar color=beaverBlue motion=pop
+  %%@ node s20s icon=hax:calendar color=beaverBlue motion=pop
+  %%@ node s20f icon=hax:calendar color=beaverBlue motion=pop
+  %%@ node s21s icon=hax:calendar color=beaverBlue motion=pop
+  %%@ node s21f icon=hax:calendar color=beaverBlue motion=pop
+  %%@ node s22s icon=hax:calendar color=creekTeal motion=pop
+  %%@ node s23s icon=hax:calendar color=creekTeal motion=pop
+  %%@ node s23f icon=hax:calendar color=creekTeal motion=pop
+  %%@ node s24s icon=hax:calendar color=inventOrange motion=pop
+  %%@ node s24f icon=hax:calendar color=inventOrange motion=pop
+  %%@ node s25s icon=hax:calendar color=inventOrange motion=pop
+  %%@ node s25f icon=hax:calendar color=inventOrange motion=pop
+  %%@ node s26s icon=hax:calendar color=inventOrange motion=pop
+  %%@ node p_service icon=hax:task color=beaverBlue motion=lift
+  %%@ node p_datecard icon=hax:task color=beaverBlue motion=lift
+  %%@ node p_ghpreview icon=hax:task color=beaverBlue motion=lift
+  %%@ node p_tvguide icon=hax:task color=beaverBlue motion=lift
+  %%@ node p_sorting icon=hax:task color=beaverBlue motion=lift
+  %%@ node p_flash icon=hax:task color=beaverBlue motion=lift
+  %%@ node p_mark icon=hax:task color=beaverBlue motion=lift
+  %%@ node p_vocab icon=hax:task color=creekTeal motion=lift
+  %%@ node p_apa icon=hax:task color=creekTeal motion=lift
+  %%@ node p_dragdrop icon=hax:task color=creekTeal motion=lift
+  %%@ node p_rpg icon=hax:task color=creekTeal motion=lift
+  %%@ node p_linkpreview icon=hax:task color=creekTeal motion=lift
+  %%@ node p_lecture icon=hax:task color=creekTeal motion=lift
+  %%@ node p_inline icon=hax:task color=inventOrange motion=lift
+  %%@ node p_playlist icon=hax:task color=inventOrange motion=lift
+  %%@ node p_testimonial icon=hax:task color=inventOrange motion=lift
+  %%@ node p_gallery icon=hax:task color=inventOrange motion=lift
+  %%@ node p_party icon=hax:task color=inventOrange motion=lift
+  %%@ node p_search icon=hax:task color=inventOrange motion=lift
+  %%@ node p_unsdg icon=hax:task color=inventOrange motion=lift
+  %%@ node p_usecases icon=hax:task color=inventOrange motion=lift
+  %%@ node p_steps icon=hax:task color=inventOrange motion=lift
+  %%@ node p_aiul icon=hax:task color=inventOrange motion=lift
+  %%@ node p_portthemes icon=hax:task color=inventOrange motion=lift
+  %%@ node p_fox icon=hax:task color=inventOrange motion=lift
+  %%@ node p_dyngallery icon=hax:task color=inventOrange motion=lift
+  %%@ node components portal
+  %%@ node b_date_card portal=elements
+  %%@ node b_sorting_question portal=elements
+  %%@ node b_flash_card portal=elements
+  %%@ node b_mark_the_words portal=elements
+  %%@ node b_vocab_term portal=elements
+  %%@ node b_matching_question portal=elements
+  %%@ node b_rpg_character portal=elements
+  %%@ node b_inline_audio portal=elements
+  %%@ node b_play_list portal=elements
+  %%@ node b_person_testimonial portal=elements
+  %%@ node b_image_gallery portal=elements
+  %%@ node dashboard portal
+  %%@ node haxcms portal
+  %%@ node skeletons portal
+  %%@ node ddd portal
+  %%@ node b_ai_usage_license portal=elements
+  %%@ node themes portal
+  %%@ node bryan portal
+  %%@ node winston portal
+  %%@ node kcharlton portal
+  %%@ node ist portal
+  %%@ node haxlab portal

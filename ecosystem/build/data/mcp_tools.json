@@ -1,0 +1,1429 @@
+{
+ "add_image": {
+  "module": "blocks_typed",
+  "title": "Add image",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_video": {
+  "module": "blocks_typed",
+  "title": "Add video",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_audio": {
+  "module": "blocks_typed",
+  "title": "Add audio",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_image_compare": {
+  "module": "blocks_typed",
+  "title": "Add image compare slider",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_image_gallery": {
+  "module": "blocks_typed",
+  "title": "Add image gallery",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "schemas"
+  ]
+ },
+ "add_collapse": {
+  "module": "blocks_typed",
+  "title": "Add collapse",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_stop_note": {
+  "module": "blocks_typed",
+  "title": "Add stop note",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_code_sample": {
+  "module": "blocks_typed",
+  "title": "Add code sample",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_markdown_block": {
+  "module": "blocks_typed",
+  "title": "Add markdown block",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_accent_card": {
+  "module": "blocks_typed",
+  "title": "Add accent card",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_grid": {
+  "module": "blocks_typed",
+  "title": "Add grid",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_page_section": {
+  "module": "blocks_typed",
+  "title": "Add page section",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_placeholder": {
+  "module": "blocks_typed",
+  "title": "Add placeholder",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_cta": {
+  "module": "blocks_typed",
+  "title": "Add call to action",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_self_check": {
+  "module": "blocks_typed",
+  "title": "Add self check",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_multiple_choice": {
+  "module": "blocks_typed",
+  "title": "Add multiple choice",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "schemas"
+  ]
+ },
+ "add_true_false": {
+  "module": "blocks_typed",
+  "title": "Add true/false question",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_short_answer": {
+  "module": "blocks_typed",
+  "title": "Add short answer question",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_sorting_question": {
+  "module": "blocks_typed",
+  "title": "Add sorting question",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_matching_question": {
+  "module": "blocks_typed",
+  "title": "Add matching question",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_fill_in_the_blanks": {
+  "module": "blocks_typed",
+  "title": "Add fill in the blanks",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_mark_the_words": {
+  "module": "blocks_typed",
+  "title": "Add mark the words",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_tagging_question": {
+  "module": "blocks_typed",
+  "title": "Add tagging question",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "schemas"
+  ]
+ },
+ "add_flash_card": {
+  "module": "blocks_typed",
+  "title": "Add flash card",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_vocab_term": {
+  "module": "blocks_typed",
+  "title": "Add vocab term",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_learning_component": {
+  "module": "blocks_typed",
+  "title": "Add learning component",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_timeline": {
+  "module": "blocks_typed",
+  "title": "Add timeline",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "schemas"
+  ]
+ },
+ "add_styled_quote": {
+  "module": "blocks_typed",
+  "title": "Add styled quote",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_citation": {
+  "module": "blocks_typed",
+  "title": "Add citation",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_license": {
+  "module": "blocks_typed",
+  "title": "Add license",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_wikipedia_query": {
+  "module": "blocks_typed",
+  "title": "Add Wikipedia query",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_paragraph": {
+  "module": "blocks_typed",
+  "title": "Add paragraph",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_heading": {
+  "module": "blocks_typed",
+  "title": "Add heading",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_list": {
+  "module": "blocks_typed",
+  "title": "Add list",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_table": {
+  "module": "blocks_typed",
+  "title": "Add table",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_blockquote": {
+  "module": "blocks_typed",
+  "title": "Add blockquote",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "add_divider": {
+  "module": "blocks_typed",
+  "title": "Add divider",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "get_page_content": {
+  "module": "content",
+  "title": "Get page content",
+  "ops": [
+   "getItemByIdOrSlug",
+   "listItems"
+  ],
+  "tags": [
+   "items"
+  ]
+ },
+ "set_page_content": {
+  "module": "content",
+  "title": "Set page content",
+  "ops": [
+   "getCustomElementByName",
+   "getItemByIdOrSlug",
+   "updateContentByIdOrSlug"
+  ],
+  "tags": [
+   "content",
+   "custom-elements",
+   "items"
+  ]
+ },
+ "get_page_blocks": {
+  "module": "content",
+  "title": "Get page blocks",
+  "ops": [
+   "getItemByIdOrSlug"
+  ],
+  "tags": [
+   "items"
+  ]
+ },
+ "add_block": {
+  "module": "content",
+  "title": "Add block",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "schemas"
+  ]
+ },
+ "replace_block": {
+  "module": "content",
+  "title": "Replace block",
+  "ops": [
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "items"
+  ]
+ },
+ "remove_block": {
+  "module": "content",
+  "title": "Remove block",
+  "ops": [
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "items"
+  ]
+ },
+ "move_block": {
+  "module": "content",
+  "title": "Move block",
+  "ops": [
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "items"
+  ]
+ },
+ "update_block": {
+  "module": "content",
+  "title": "Update block attributes",
+  "ops": [
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "items"
+  ]
+ },
+ "set_block_text": {
+  "module": "content",
+  "title": "Set block text",
+  "ops": [
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "items"
+  ]
+ },
+ "add_link": {
+  "module": "content",
+  "title": "Add link",
+  "ops": [
+   "getItemByIdOrSlug",
+   "updateItem"
+  ],
+  "tags": [
+   "items"
+  ]
+ },
+ "list_blocks": {
+  "module": "content",
+  "title": "List blocks",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listBlocks",
+   "listSchemas"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "schemas"
+  ]
+ },
+ "get_block_schema": {
+  "module": "content",
+  "title": "Get block schema",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "schemas"
+  ]
+ },
+ "export_site": {
+  "module": "exports",
+  "title": "Export site",
+  "ops": [
+   "downloadSite",
+   "downloadSiteSkeleton",
+   "getBlockByName",
+   "getCustomElementByName",
+   "getSiteExport",
+   "listContent",
+   "listSchemas"
+  ],
+  "tags": [
+   "blocks",
+   "content",
+   "custom-elements",
+   "lifecycle",
+   "schemas",
+   "site"
+  ]
+ },
+ "export_page": {
+  "module": "exports",
+  "title": "Export page",
+  "ops": [
+   "downloadItemExport",
+   "getBlockByName",
+   "getCustomElementByName",
+   "getItemByIdOrSlug",
+   "listSchemas"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "download_site_zip": {
+  "module": "exports",
+  "title": "Download site zip",
+  "ops": [
+   "downloadSite",
+   "downloadSiteSkeleton",
+   "getBlockByName",
+   "getCustomElementByName",
+   "getSiteExport",
+   "listContent",
+   "listSchemas"
+  ],
+  "tags": [
+   "blocks",
+   "content",
+   "custom-elements",
+   "lifecycle",
+   "schemas",
+   "site"
+  ]
+ },
+ "save_site_as_template": {
+  "module": "exports",
+  "title": "Save site as template",
+  "ops": [
+   "saveSiteAsTemplate"
+  ],
+  "tags": [
+   "lifecycle"
+  ]
+ },
+ "download_site_skeleton": {
+  "module": "exports",
+  "title": "Download site skeleton",
+  "ops": [
+   "downloadSite",
+   "downloadSiteSkeleton",
+   "getBlockByName",
+   "getCustomElementByName",
+   "getSiteExport",
+   "listContent",
+   "listSchemas"
+  ],
+  "tags": [
+   "blocks",
+   "content",
+   "custom-elements",
+   "lifecycle",
+   "schemas",
+   "site"
+  ]
+ },
+ "list_files": {
+  "module": "files",
+  "title": "List files",
+  "ops": [
+   "listFiles"
+  ],
+  "tags": [
+   "files"
+  ]
+ },
+ "upload_file": {
+  "module": "files",
+  "title": "Upload file",
+  "ops": [
+   "createFile",
+   "getBlockByName",
+   "getCustomElementByName",
+   "getItemByIdOrSlug",
+   "listSchemas"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "files",
+   "items",
+   "schemas"
+  ]
+ },
+ "get_file": {
+  "module": "files",
+  "title": "Get file",
+  "ops": [
+   "getFileByUuid"
+  ],
+  "tags": [
+   "files"
+  ]
+ },
+ "rename_file": {
+  "module": "files",
+  "title": "Rename file",
+  "ops": [
+   "updateFileByUuid"
+  ],
+  "tags": [
+   "files"
+  ]
+ },
+ "transform_file": {
+  "module": "files",
+  "title": "Transform file",
+  "ops": [
+   "updateFileByUuid"
+  ],
+  "tags": [
+   "files"
+  ]
+ },
+ "duplicate_file": {
+  "module": "files",
+  "title": "Duplicate file",
+  "ops": [
+   "updateFileByUuid"
+  ],
+  "tags": [
+   "files"
+  ]
+ },
+ "delete_file": {
+  "module": "files",
+  "title": "Delete file",
+  "ops": [
+   "deleteFileByUuid"
+  ],
+  "tags": [
+   "files"
+  ]
+ },
+ "get_outline": {
+  "module": "outline",
+  "title": "Get outline",
+  "ops": [
+   "getCustomElementByName",
+   "listItems"
+  ],
+  "tags": [
+   "custom-elements",
+   "items"
+  ]
+ },
+ "reorder_pages": {
+  "module": "outline",
+  "title": "Reorder pages",
+  "ops": [
+   "getCustomElementByName",
+   "listItems",
+   "updateSiteOutline"
+  ],
+  "tags": [
+   "custom-elements",
+   "items",
+   "site"
+  ]
+ },
+ "move_page": {
+  "module": "outline",
+  "title": "Move page",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "set_page_parent": {
+  "module": "outline",
+  "title": "Set page parent",
+  "ops": [
+   "getCustomElementByName",
+   "listItems",
+   "updateItem"
+  ],
+  "tags": [
+   "custom-elements",
+   "items"
+  ]
+ },
+ "normalize_slugs": {
+  "module": "outline",
+  "title": "Normalize slugs",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "normalizeSiteSlugs",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas",
+   "site"
+  ]
+ },
+ "list_pages": {
+  "module": "pages",
+  "title": "List pages",
+  "ops": [
+   "listItems"
+  ],
+  "tags": [
+   "items"
+  ]
+ },
+ "get_page": {
+  "module": "pages",
+  "title": "Get page",
+  "ops": [
+   "getCustomElementByName",
+   "getItemByIdOrSlug",
+   "listItems"
+  ],
+  "tags": [
+   "custom-elements",
+   "items"
+  ]
+ },
+ "create_page": {
+  "module": "pages",
+  "title": "Create page",
+  "ops": [
+   "createItem",
+   "getCustomElementByName",
+   "listItems",
+   "updateItem"
+  ],
+  "tags": [
+   "custom-elements",
+   "items"
+  ]
+ },
+ "create_pages": {
+  "module": "pages",
+  "title": "Create pages (bulk)",
+  "ops": [
+   "createItem",
+   "getBlockByName",
+   "getCustomElementByName",
+   "listItems",
+   "listSchemas"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "update_page_details": {
+  "module": "pages",
+  "title": "Update page details",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "updateItem"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "delete_page": {
+  "module": "pages",
+  "title": "Delete page",
+  "ops": [
+   "deleteItem",
+   "getItemByIdOrSlug",
+   "listItems"
+  ],
+  "tags": [
+   "items"
+  ]
+ },
+ "list_page_revisions": {
+  "module": "pages",
+  "title": "List page revisions",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listItemRevisions",
+   "listSchemas"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "get_page_revision": {
+  "module": "pages",
+  "title": "Get page revision",
+  "ops": [
+   "getItemRevisionById"
+  ],
+  "tags": [
+   "items"
+  ]
+ },
+ "restore_page_revision": {
+  "module": "pages",
+  "title": "Restore page revision",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "restoreItemRevision"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "items",
+   "schemas"
+  ]
+ },
+ "search_site": {
+  "module": "pages",
+  "title": "Search site",
+  "ops": [
+   "searchContent"
+  ],
+  "tags": [
+   "search"
+  ]
+ },
+ "list_tags": {
+  "module": "pages",
+  "title": "List tags",
+  "ops": [
+   "listItems",
+   "listTags",
+   "searchContent"
+  ],
+  "tags": [
+   "items",
+   "search",
+   "tags"
+  ]
+ },
+ "get_site_settings": {
+  "module": "settings",
+  "title": "Get site settings",
+  "ops": [],
+  "tags": []
+ },
+ "update_site_info": {
+  "module": "settings",
+  "title": "Update site info",
+  "ops": [
+   "getItemByIdOrSlug",
+   "listItems",
+   "updateSiteSeo",
+   "updateSiteSummary"
+  ],
+  "tags": [
+   "items",
+   "site"
+  ]
+ },
+ "update_author_info": {
+  "module": "settings",
+  "title": "Update author info",
+  "ops": [
+   "updateSiteSeo"
+  ],
+  "tags": [
+   "site"
+  ]
+ },
+ "set_site_theme": {
+  "module": "settings",
+  "title": "Set site theme",
+  "ops": [
+   "systemThemesGet",
+   "updateSiteAppearance"
+  ],
+  "tags": [
+   "settings",
+   "site"
+  ]
+ },
+ "set_theme_regions": {
+  "module": "settings",
+  "title": "Set theme regions",
+  "ops": [
+   "getItemByIdOrSlug",
+   "listItems",
+   "updateSiteAppearance"
+  ],
+  "tags": [
+   "items",
+   "site"
+  ]
+ },
+ "update_seo_settings": {
+  "module": "settings",
+  "title": "Update SEO settings",
+  "ops": [
+   "updateSiteSeo"
+  ],
+  "tags": [
+   "site"
+  ]
+ },
+ "set_editor_audience": {
+  "module": "settings",
+  "title": "Set editor audience",
+  "ops": [
+   "updateSiteEditorSettings"
+  ],
+  "tags": [
+   "site"
+  ]
+ },
+ "set_allowed_blocks": {
+  "module": "settings",
+  "title": "Set allowed blocks",
+  "ops": [
+   "getCustomElementByName",
+   "updateSiteAllowedBlocks"
+  ],
+  "tags": [
+   "custom-elements",
+   "site"
+  ]
+ },
+ "set_platform_features": {
+  "module": "settings",
+  "title": "Set platform features",
+  "ops": [
+   "getBlockByName",
+   "getCustomElementByName",
+   "listSchemas",
+   "updateSitePlatform"
+  ],
+  "tags": [
+   "blocks",
+   "custom-elements",
+   "schemas",
+   "site"
+  ]
+ },
+ "configure_site_git": {
+  "module": "settings",
+  "title": "Configure site git",
+  "ops": [],
+  "tags": []
+ },
+ "regenerate_alternate_formats": {
+  "module": "settings",
+  "title": "Regenerate alternate formats",
+  "ops": [
+   "updateSiteAlternativeFormats"
+  ],
+  "tags": [
+   "site"
+  ]
+ },
+ "list_sites": {
+  "module": "sites",
+  "title": "List sites",
+  "ops": [
+   "listSites"
+  ],
+  "tags": [
+   "lifecycle"
+  ]
+ },
+ "get_site": {
+  "module": "sites",
+  "title": "Get site",
+  "ops": [
+   "getSiteSummary",
+   "siteInfoGet"
+  ],
+  "tags": [
+   "lifecycle",
+   "site"
+  ]
+ },
+ "create_site": {
+  "module": "sites",
+  "title": "Create site",
+  "ops": [
+   "createSite",
+   "getCustomElementByName",
+   "getSiteSummary",
+   "siteInfoGet",
+   "systemThemesGet"
+  ],
+  "tags": [
+   "custom-elements",
+   "lifecycle",
+   "settings",
+   "site"
+  ]
+ },
+ "list_skeletons": {
+  "module": "sites",
+  "title": "List skeletons",
+  "ops": [
+   "systemSkeletonsGet"
+  ],
+  "tags": [
+   "settings"
+  ]
+ },
+ "get_skeleton": {
+  "module": "sites",
+  "title": "Get skeleton",
+  "ops": [
+   "systemSkeletonDetailGet"
+  ],
+  "tags": [
+   "settings"
+  ]
+ },
+ "list_themes": {
+  "module": "sites",
+  "title": "List themes",
+  "ops": [
+   "systemThemesGet"
+  ],
+  "tags": [
+   "settings"
+  ]
+ },
+ "clone_site": {
+  "module": "sites",
+  "title": "Clone site",
+  "ops": [
+   "cloneSite",
+   "getCustomElementByName",
+   "getSiteSummary",
+   "siteInfoGet"
+  ],
+  "tags": [
+   "custom-elements",
+   "lifecycle",
+   "site"
+  ]
+ },
+ "login": {
+  "module": "auth",
+  "title": "Login",
+  "ops": [],
+  "tags": [
+   "session"
+  ]
+ },
+ "logout": {
+  "module": "auth",
+  "title": "Logout",
+  "ops": [],
+  "tags": [
+   "session"
+  ]
+ },
+ "whoami": {
+  "module": "auth",
+  "title": "Who am I",
+  "ops": [],
+  "tags": [
+   "session"
+  ]
+ },
+ "get_server_info": {
+  "module": "auth",
+  "title": "Server info",
+  "ops": [],
+  "tags": [
+   "session"
+  ]
+ },
+ "import_document": {
+  "module": "imports",
+  "title": "Import document into site",
+  "ops": [],
+  "tags": [
+   "actions"
+  ]
+ },
+ "create_site_from_document": {
+  "module": "imports",
+  "title": "Create site from document",
+  "ops": [],
+  "tags": [
+   "actions"
+  ]
+ },
+ "create_site_from_platform": {
+  "module": "imports",
+  "title": "Create site from platform",
+  "ops": [],
+  "tags": [
+   "actions"
+  ]
+ },
+ "create_site_from_skeleton": {
+  "module": "sites",
+  "title": "Create site from skeleton",
+  "ops": [],
+  "tags": []
+ },
+ "archive_site": {
+  "module": "sites",
+  "title": "Archive site",
+  "ops": [],
+  "tags": []
+ },
+ "add_image_from_file": {
+  "module": "files",
+  "title": "Add image from file",
+  "ops": [],
+  "tags": []
+ }
+}

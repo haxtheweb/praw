@@ -1,0 +1,471 @@
+{
+ "meta": {
+  "name": "History",
+  "parent": "main",
+  "timelineTier": 2,
+  "sectionLabels": {
+   "era": "eras",
+   "event": "events"
+  },
+  "about": "How the ecosystem got here, in five eras from 2007 to 2026. The Drupal and ELMS:LN years are drawn from Bryan Ollendyke's 2015 M.S. thesis, Information Altruism (kept in PRAW), where Penn State appears as CentralU, ELMS as YourNetwork and Bryan as Technologist Zero; the HAX years from PRAW's WORLDVIEW, WINS and talks. Each event points at the piece of HAX it became.",
+  "kindLabels": {
+   "rel": "era to event; event to what it became"
+  }
+ },
+ "nodes": {
+  "history": {
+   "always": true,
+   "desc": "How the ecosystem got here. The Drupal and ELMS:LN years come from Bryan's 2015 thesis, where Penn State is CentralU, ELMS is YourNetwork and Bryan is Technologist Zero; the rest from PRAW."
+  },
+  "e_drupal": {
+   "desc": "2005 to 2012: a weekend Drupal course, a community of practice, and a learning platform built in the open at Penn State.",
+   "kind": "era",
+   "always": true
+  },
+  "e_elmsln": {
+   "desc": "2012 to 2016: the e-Learning Management System becomes a network of small Drupal apps; the thesis names what made it spread.",
+   "kind": "era",
+   "always": true
+  },
+  "e_turn": {
+   "desc": "2015 to 2019: a note card, a friend pointing at a standard, three weeks off to rewrite a career, and a standard that settled in 2019.",
+   "kind": "era",
+   "always": true
+  },
+  "e_hax": {
+   "desc": "2017 on: the editor, then HAXcms on PHP, Node.js, the CLI and the MCP.",
+   "kind": "era",
+   "always": true
+  },
+  "e_teach": {
+   "desc": "2019 on: IST 256 every semester, where class projects become HAX components.",
+   "kind": "era",
+   "always": true
+  },
+  "h_hired": {
+   "desc": "Keith Bailey, the director who wrote pagination JavaScript himself, hires Bryan into online learning in the College of Arts and Architecture. Bryan begins contributing open source code the same year.",
+   "kind": "event",
+   "year": 2007,
+   "yearLabel": "2007",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md"
+   },
+   "links": {
+    "source": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md"
+   }
+  },
+  "h_elms": {
+   "desc": "The e-Learning Management System, YourNetwork in the thesis, is conceived inside Transformational Learning Services in the College of Arts and Architecture: a learning platform built by the people who teach with it. The thesis's record of it starts July 18, 2007.",
+   "kind": "event",
+   "year": 2007,
+   "yearLabel": "2007",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/haxtheweb/praw/blob/main/thesis-bryan-ollendyke-information-altruism.pdf"
+   },
+   "links": {
+    "source": "https://github.com/haxtheweb/praw/blob/main/thesis-bryan-ollendyke-information-altruism.pdf"
+   }
+  },
+  "h_weekend": {
+   "desc": "Bryan's weekend Drupal course, the start of a Drupal community at Penn State that grew to more than 50 developers and 1,000 sites by 2015.",
+   "kind": "event",
+   "year": 2008,
+   "yearLabel": "about 2008",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   },
+   "links": {
+    "source": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   }
+  },
+  "h_altruism": {
+   "desc": "Building and sharing Drupal work with other units freely, so each could grow its own capacity. Units that received it went on to hire and build; the pattern the thesis later names information altruism.",
+   "kind": "event",
+   "year": 2009,
+   "yearLabel": "2007 to 2010",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/haxtheweb/praw/blob/main/thesis-bryan-ollendyke-information-altruism.pdf"
+   },
+   "links": {
+    "source": "https://github.com/haxtheweb/praw/blob/main/thesis-bryan-ollendyke-information-altruism.pdf"
+   }
+  },
+  "h_interviews": {
+   "desc": "Interviews across the units that adopted ELMS: what made it approachable, the pull of a community, independence and empowerment, and the 'many hats' small teams wear.",
+   "kind": "event",
+   "year": 2010,
+   "yearLabel": "March to June 2010",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/haxtheweb/praw/blob/main/thesis-bryan-ollendyke-information-altruism.pdf"
+   },
+   "links": {
+    "source": "https://github.com/haxtheweb/praw/blob/main/thesis-bryan-ollendyke-information-altruism.pdf"
+   }
+  },
+  "h_modules": {
+   "desc": "A Drupal core maintainer with hundreds of contributed modules. The plugin lessons from those years are why HAX waited so long on a plugin architecture.",
+   "kind": "event",
+   "year": 2011,
+   "yearLabel": "the Drupal years",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md"
+   },
+   "links": {
+    "source": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md"
+   }
+  },
+  "h_elmsln": {
+   "desc": "ELMS is rebuilt as the ELMS Learning Network: many small Drupal distributions (courses, studio, blog, interact, discussion) wired together, deployed with Drush recipes.",
+   "kind": "event",
+   "year": 2012,
+   "yearLabel": "2012",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/elmsln/elmsln"
+   },
+   "links": {
+    "source": "https://github.com/elmsln/elmsln"
+   }
+  },
+  "h_whitepaper": {
+   "desc": "'ELMSLN: A Disruptive Learning Technology.' ELMS for Drupal 6 had passed 780,000 downloads on 12,000 Drupal systems; ELMS:LN is in use at Penn State and UW-Madison.",
+   "kind": "event",
+   "year": 2014,
+   "yearLabel": "August 2014",
+   "source": {
+    "label": "Source",
+    "url": "https://oer.hax.psu.edu/bto108/sites/haxcellence/files/ELMSLN-whitepaper-08-28-2014.pdf"
+   },
+   "links": {
+    "source": "https://oer.hax.psu.edu/bto108/sites/haxcellence/files/ELMSLN-whitepaper-08-28-2014.pdf"
+   }
+  },
+  "h_thesis": {
+   "desc": "Bryan's M.S. thesis in IST, advised by Andrea Tapia: how donating effort, a community of practice and a technology built in the open let a grassroots system spread across a university. Written in first and third person as Technologist Zero.",
+   "kind": "event",
+   "year": 2015,
+   "yearLabel": "December 2015",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/haxtheweb/praw/blob/main/thesis-bryan-ollendyke-information-altruism.pdf"
+   },
+   "links": {
+    "source": "https://github.com/haxtheweb/praw/blob/main/thesis-bryan-ollendyke-information-altruism.pdf"
+   }
+  },
+  "h_sustaining": {
+   "desc": "'ELMS Learning Network: An EdTech Platform for Sustaining Innovation,' with Michael Collins.",
+   "kind": "event",
+   "year": 2015,
+   "yearLabel": "May 2015",
+   "source": {
+    "label": "Source",
+    "url": "https://oer.hax.psu.edu/bto108/sites/haxcellence/files/ELMSLN-sustaining-innovation-05-08-2015.pdf"
+   },
+   "links": {
+    "source": "https://oer.hax.psu.edu/bto108/sites/haxcellence/files/ELMSLN-sustaining-innovation-05-08-2015.pdf"
+   }
+  },
+  "h_notecard": {
+   "desc": "HAX starts as a note card, a napkin idea: an editor where you talk to the screen, in the Kinect era.",
+   "kind": "event",
+   "year": 2015,
+   "yearLabel": "2015",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
+   },
+   "links": {
+    "source": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
+   }
+  },
+  "h_standard": {
+   "desc": "Mike Potter points Bryan to the web component standard itself, not a component library. It is what made HAX possible.",
+   "kind": "event",
+   "year": 2016,
+   "yearLabel": "2016",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md"
+   },
+   "links": {
+    "source": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md"
+   }
+  },
+  "h_rewrite": {
+   "desc": "Bryan takes three weeks off to rewrite his career on a standard that would not stabilize until 2019. HAX becomes a proof of concept; the first element ships; DrupalCon DC hears about it.",
+   "kind": "event",
+   "year": 2017,
+   "yearLabel": "2017",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   },
+   "links": {
+    "source": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   }
+  },
+  "h_stable": {
+   "desc": "Web components stabilize across browsers: 198 elements, the first site, 29 contributors, HAX Camp.",
+   "kind": "event",
+   "year": 2019,
+   "yearLabel": "2019",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
+   },
+   "links": {
+    "source": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
+   }
+  },
+  "h_haxcms": {
+   "desc": "The smallest possible backend to make HAX work, writing sites to disk as JSON Outline Schema and HTML. DrupalCon Nashville.",
+   "kind": "event",
+   "year": 2018,
+   "yearLabel": "2018",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/haxtheweb/haxcms-php"
+   },
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-php"
+   }
+  },
+  "h_2020": {
+   "desc": "hax.psu.edu opens on HAXiam; 582 elements and the first 11 sites. Because HAX saves HTML and ships the tag definitions separately, every site made since about 2020 still works.",
+   "kind": "event",
+   "year": 2020,
+   "yearLabel": "2020",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
+   },
+   "links": {
+    "source": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
+   }
+  },
+  "h_2023": {
+   "desc": "Bill Rose's course ontology gives HAX its instructional backbone, and student contributors from IST 256 and HAX Lab carry feature output to its highest levels from 2024 on.",
+   "kind": "event",
+   "year": 2023,
+   "yearLabel": "2023",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
+   },
+   "links": {
+    "source": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
+   }
+  },
+  "h_node": {
+   "desc": "HAXcms on Node.js with the same OpenAPI contract, the CLI, PRAW and the Future Traveler, the MCP.",
+   "kind": "event",
+   "year": 2024,
+   "yearLabel": "2024 to 2026",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/haxtheweb/haxcms-nodejs"
+   },
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-nodejs"
+   }
+  },
+  "h_ist256": {
+   "desc": "Bryan teaches IST 256 every semester from fall 2019 to spring 2026. Class projects become HAX components and students become contributors.",
+   "kind": "event",
+   "year": 2019,
+   "yearLabel": "Fall 2019",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/btopro/edtechjoker"
+   },
+   "links": {
+    "source": "https://github.com/btopro/edtechjoker"
+   }
+  },
+  "keithbailey": {
+   "always": true
+  },
+  "aa": {
+   "always": true
+  },
+  "elmsln": {
+   "always": true
+  },
+  "psu": {
+   "always": true
+  },
+  "open": {
+   "always": true
+  },
+  "sustainable": {
+   "always": true
+  },
+  "wins": {
+   "always": true
+  },
+  "plugins": {
+   "always": true
+  },
+  "extensible": {
+   "always": true
+  },
+  "billrose": {
+   "always": true
+  },
+  "agnostic": {
+   "always": true
+  },
+  "praw": {
+   "always": true
+  },
+  "ist": {
+   "always": true
+  },
+  "mcollins": {
+   "always": true
+  },
+  "editor": {
+   "always": true
+  },
+  "mikepotter": {
+   "always": true
+  },
+  "wcstandard": {
+   "always": true
+  },
+  "components": {
+   "always": true
+  },
+  "drupalcon": {
+   "always": true
+  },
+  "haxcamp": {
+   "always": true
+  },
+  "haxcms": {
+   "always": true
+  },
+  "php": {
+   "always": true
+  },
+  "jos": {
+   "always": true
+  },
+  "haxpsu": {
+   "always": true
+  },
+  "haxiam": {
+   "always": true
+  },
+  "remixable": {
+   "always": true
+  },
+  "bryan": {
+   "always": true
+  },
+  "haxlab": {
+   "always": true
+  },
+  "nodejs": {
+   "always": true
+  },
+  "cli": {
+   "always": true
+  },
+  "traveler": {
+   "always": true
+  },
+  "mcp": {
+   "always": true
+  },
+  "ist256": {
+   "always": true
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "history",
+   "label": "Where it came from",
+   "message": "From a weekend Drupal course to the Future Traveler, in five eras. Over time plays it year by year.",
+   "scenes": [
+    {
+     "caption": "Five eras.",
+     "nodes": [
+      "e_drupal",
+      "e_elmsln",
+      "e_turn",
+      "e_hax",
+      "e_teach"
+     ]
+    },
+    {
+     "caption": "The Drupal years: Keith hires Bryan, ELMS is conceived, a weekend course seeds a community.",
+     "nodes": [
+      "h_hired",
+      "h_elms",
+      "h_weekend",
+      "keithbailey",
+      "aa"
+     ]
+    },
+    {
+     "caption": "Donating effort builds capacity everywhere it lands; the thesis calls this information altruism.",
+     "nodes": [
+      "h_altruism",
+      "h_interviews",
+      "h_modules",
+      "h_thesis"
+     ]
+    },
+    {
+     "caption": "ELMS becomes ELMS:LN, a network of small apps.",
+     "nodes": [
+      "h_elmsln",
+      "h_whitepaper",
+      "h_sustaining",
+      "elmsln"
+     ]
+    },
+    {
+     "caption": "A note card, a friend pointing at a standard, three weeks off.",
+     "nodes": [
+      "h_notecard",
+      "h_standard",
+      "h_rewrite",
+      "h_stable",
+      "mikepotter",
+      "wcstandard"
+     ]
+    },
+    {
+     "caption": "HAXcms, then every site since 2020 still works, then the classroom becomes the pipeline, then Node.js and agents.",
+     "nodes": [
+      "h_haxcms",
+      "h_2020",
+      "h_2023",
+      "h_node"
+     ]
+    },
+    {
+     "caption": "And the classroom becomes the pipeline.",
+     "nodes": [
+      "h_ist256",
+      "ist256"
+     ]
+    },
+    {
+     "caption": "The whole story.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

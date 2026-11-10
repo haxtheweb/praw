@@ -1,0 +1,376 @@
+{
+ "meta": {
+  "name": "HAX Lab",
+  "parent": "main",
+  "timelineTier": 2,
+  "sectionLabels": {
+   "project": "projects",
+   "year": "years"
+  },
+  "about": "Everyone the HAX Lab README credits, what they built and when: 19 projects and 30 people from 2016 to 2025. Choose Over time to watch the lab grow, term by term.",
+  "kindLabels": {
+   "rel": "years and projects",
+   "contrib": "who worked on it",
+   "schema": "what it added to"
+  }
+ },
+ "nodes": {
+  "haxlab": {
+   "always": true
+  },
+  "hl_y2016": {
+   "desc": "1 HAX Lab projects in 2016.",
+   "year": 2016,
+   "kind": "year"
+  },
+  "hl_y2017": {
+   "desc": "1 HAX Lab projects in 2017.",
+   "year": 2017,
+   "kind": "year"
+  },
+  "hl_y2019": {
+   "desc": "1 HAX Lab projects in 2019.",
+   "year": 2019,
+   "kind": "year"
+  },
+  "hl_y2020": {
+   "desc": "2 HAX Lab projects in 2020.",
+   "year": 2020,
+   "kind": "year"
+  },
+  "hl_y2021": {
+   "desc": "2 HAX Lab projects in 2021.",
+   "year": 2021,
+   "kind": "year"
+  },
+  "hl_y2022": {
+   "desc": "2 HAX Lab projects in 2022.",
+   "year": 2022,
+   "kind": "year"
+  },
+  "hl_y2023": {
+   "desc": "1 HAX Lab projects in 2023.",
+   "year": 2023,
+   "kind": "year"
+  },
+  "hl_y2024": {
+   "desc": "4 HAX Lab projects in 2024.",
+   "year": 2024,
+   "kind": "year"
+  },
+  "hl_y2025": {
+   "desc": "5 HAX Lab projects in 2025.",
+   "year": 2025,
+   "kind": "year"
+  },
+  "hl_p0": {
+   "desc": "2025 HAX Pentest. CCSO: Jonathan Skeete (Lead, Discovery, Reporting); Liam Geyer (Lead, Discovery, Reporting); Asa Reynolds (Discovery, Reporting); Robert Roderick (Discovery, Reporting); Maguire Younes (Discovery, Reporting); Owen Dransfield (Reporting); Nicholas Thomas (Reporting); Kekoa Merez (Reporting); Miles Handelman (Reporting). Spring 2025.",
+   "year": 2025,
+   "yearLabel": "Spring 2025",
+   "kind": "project",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab#hax-lab-past-contributors"
+   }
+  },
+  "hl_p1": {
+   "desc": "Portfolio Theme. Josh Owen-Guenther. Spring 2025.",
+   "year": 2025,
+   "yearLabel": "Spring 2025",
+   "kind": "project",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab#hax-lab-past-contributors"
+   }
+  },
+  "hl_p2": {
+   "desc": "Theme CLI workflow. Winston White. Spring 2025.",
+   "year": 2025,
+   "yearLabel": "Spring 2025",
+   "kind": "project",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab#hax-lab-past-contributors"
+   }
+  },
+  "hl_p3": {
+   "desc": "Start Journey Screen. Skyler Koba. Spring 2025.",
+   "year": 2025,
+   "yearLabel": "Spring 2025",
+   "kind": "project",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab#hax-lab-past-contributors"
+   }
+  },
+  "hl_p4": {
+   "desc": "Start Journey Screen. Isabella Masso. Spring 2025.",
+   "year": 2025,
+   "yearLabel": "Spring 2025",
+   "kind": "project",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab#hax-lab-past-contributors"
+   }
+  },
+  "hl_p5": {
+   "desc": "Polaris Themes, Flex Map Menu. Winston White. Fall 2024.",
+   "year": 2024,
+   "yearLabel": "Fall 2024",
+   "kind": "project",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab#hax-lab-past-contributors"
+   }
+  },
+  "hl_p6": {
+   "desc": "Auditing DDD Usage, QA Elements in Monorepo. Kai Huang. Fall 2024.",
+   "year": 2024,
+   "yearLabel": "Fall 2024",
+   "kind": "project",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab#hax-lab-past-contributors"
+   }
+  },
+  "hl_p7": {
+   "desc": "AI Chat Agent. Zach Dodson. Summer 2024.",
+   "year": 2024,
+   "yearLabel": "Summer 2024",
+   "kind": "project",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab#hax-lab-past-contributors"
+   }
+  },
+  "hl_p8": {
+   "desc": "DDD Creation. Keith Charlton. Spring 2024.",
+   "year": 2024,
+   "yearLabel": "Spring 2024",
+   "kind": "project",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab#hax-lab-past-contributors"
+   }
+  },
+  "hl_p9": {
+   "desc": "JWT policy review and build Headless user authentication prototype. Andrew Maier. 2023.",
+   "year": 2023,
+   "yearLabel": "2023",
+   "kind": "project",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab#hax-lab-past-contributors"
+   }
+  },
+  "hl_p10": {
+   "desc": "HAX Camp 2022 planning committee. Liz Blake, Andrew Maier, Taylor Bracone. 2022.",
+   "year": 2022,
+   "yearLabel": "2022",
+   "kind": "project",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab#hax-lab-past-contributors"
+   }
+  },
+  "hl_p11": {
+   "desc": "8-bit video game aesthetic and user flow for site creation. James Kane IV, Drew Ronk, Elizabeth Delor. Spring 2022.",
+   "year": 2022,
+   "yearLabel": "Spring 2022",
+   "kind": "project",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab#hax-lab-past-contributors"
+   }
+  },
+  "hl_p12": {
+   "desc": "Vocab web component for presenting terms. Hanna Kern. 2021.",
+   "year": 2021,
+   "yearLabel": "2021",
+   "kind": "project",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab#hax-lab-past-contributors"
+   }
+  },
+  "hl_p13": {
+   "desc": "Bootstrap Theme for HAXcms. Collin Kleest. Spring 2021.",
+   "year": 2021,
+   "yearLabel": "Spring 2021",
+   "kind": "project",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab#hax-lab-past-contributors"
+   }
+  },
+  "hl_p14": {
+   "desc": "Media dashboard UX prototype development. Sara Cunningham. 2020.",
+   "year": 2020,
+   "yearLabel": "2020",
+   "kind": "project",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab#hax-lab-past-contributors"
+   }
+  },
+  "hl_p15": {
+   "desc": "Pre-release HAX UX study. Tevin Julien. 2020.",
+   "year": 2020,
+   "yearLabel": "2020",
+   "kind": "project",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab#hax-lab-past-contributors"
+   }
+  },
+  "hl_p16": {
+   "desc": "HAX Multimedia production, HAX Camp Duke planning committee, social media. Shiju \"Tom\" Varughese. 2019.",
+   "year": 2019,
+   "yearLabel": "2019",
+   "kind": "project",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab#hax-lab-past-contributors"
+   }
+  },
+  "hl_p17": {
+   "desc": "Original ELMS:LN / Drupal student contributor. Mark Milutinović. 2017.",
+   "year": 2017,
+   "yearLabel": "2017",
+   "kind": "project",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab#hax-lab-past-contributors"
+   }
+  },
+  "hl_p18": {
+   "desc": "xAPI and AI Integration. Dave Fusco. Fall 2016.",
+   "year": 2016,
+   "yearLabel": "Fall 2016",
+   "kind": "project",
+   "source": {
+    "label": "hax-lab README",
+    "url": "https://github.com/haxtheweb/hax-lab#hax-lab-past-contributors"
+   }
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "haxlab",
+   "label": "Who built what, and when",
+   "message": "19 HAX Lab projects from 2016 to 2025, from the hax-lab README.",
+   "scenes": [
+    {
+     "caption": "2016: xAPI and AI Integration.",
+     "nodes": [
+      "hl_y2016",
+      "hl_p18",
+      "fusco"
+     ]
+    },
+    {
+     "caption": "2017: Original ELMS:LN / Drupal student contributor.",
+     "nodes": [
+      "hl_y2017",
+      "hl_p17",
+      "mark"
+     ]
+    },
+    {
+     "caption": "2019: HAX Multimedia production, HAX Camp Duke planning committee, social media.",
+     "nodes": [
+      "hl_y2019",
+      "hl_p16",
+      "tom"
+     ]
+    },
+    {
+     "caption": "2020: Media dashboard UX prototype development; Pre-release HAX UX study.",
+     "nodes": [
+      "hl_y2020",
+      "hl_p14",
+      "hl_p15",
+      "sara",
+      "tevin"
+     ]
+    },
+    {
+     "caption": "2021: Vocab web component for presenting terms; Bootstrap Theme for HAXcms.",
+     "nodes": [
+      "hl_y2021",
+      "hl_p12",
+      "hl_p13",
+      "hanna",
+      "collin"
+     ]
+    },
+    {
+     "caption": "2022: HAX Camp 2022 planning committee; 8-bit video game aesthetic and user flow for site creation.",
+     "nodes": [
+      "hl_y2022",
+      "hl_p10",
+      "hl_p11",
+      "liz",
+      "andrew",
+      "taylor",
+      "jimmykane",
+      "drewronk",
+      "edelor"
+     ]
+    },
+    {
+     "caption": "2023: JWT policy review and build Headless user authentication prototype.",
+     "nodes": [
+      "hl_y2023",
+      "hl_p9",
+      "andrew"
+     ]
+    },
+    {
+     "caption": "2024: Polaris Themes, Flex Map Menu; Auditing DDD Usage, QA Elements in Monorepo; AI Chat Agent; DDD Creation.",
+     "nodes": [
+      "hl_y2024",
+      "hl_p5",
+      "hl_p6",
+      "hl_p7",
+      "hl_p8",
+      "winston",
+      "kai",
+      "zach",
+      "kcharlton"
+     ]
+    },
+    {
+     "caption": "2025: 2025 HAX Pentest; Portfolio Theme; Theme CLI workflow; Start Journey Screen; Start Journey Screen.",
+     "nodes": [
+      "hl_y2025",
+      "hl_p0",
+      "hl_p1",
+      "hl_p2",
+      "hl_p3",
+      "hl_p4",
+      "ccso",
+      "jskeete",
+      "liam",
+      "asa",
+      "robert",
+      "maguire",
+      "owen",
+      "nicholas",
+      "kekoa",
+      "miles",
+      "josh",
+      "winston",
+      "skyler",
+      "isabella"
+     ]
+    },
+    {
+     "caption": "Everyone, every year.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

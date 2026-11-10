@@ -1,0 +1,670 @@
+{
+ "meta": {
+  "name": "IST 256",
+  "parent": "main",
+  "timelineTier": 1,
+  "about": "Bryan's IST 256 course, 13 semesters from fall 2019 to spring 2026, and 26 class projects from the issue queue with what they became. Semesters are inferred from issue dates.",
+  "kindLabels": {
+   "rel": "semesters, projects and outcomes",
+   "contrib": "teaching and student credits",
+   "org": "where it's taught"
+  },
+  "links": {
+   "repo": "https://github.com/btopro/edtechjoker"
+  }
+ },
+ "nodes": {
+  "ist256": {
+   "always": true
+  },
+  "s19f": {
+   "year": 2019.8,
+   "yearLabel": "Fall 2019",
+   "kind": "semester",
+   "desc": "Bryan taught IST 256 in Fall 2019."
+  },
+  "s20s": {
+   "year": 2020.2,
+   "yearLabel": "Spring 2020",
+   "kind": "semester",
+   "desc": "Bryan taught IST 256 in Spring 2020."
+  },
+  "s20f": {
+   "year": 2020.8,
+   "yearLabel": "Fall 2020",
+   "kind": "semester",
+   "desc": "Bryan taught IST 256 in Fall 2020."
+  },
+  "s21s": {
+   "year": 2021.2,
+   "yearLabel": "Spring 2021",
+   "kind": "semester",
+   "desc": "Bryan taught IST 256 in Spring 2021."
+  },
+  "s21f": {
+   "year": 2021.8,
+   "yearLabel": "Fall 2021",
+   "kind": "semester",
+   "desc": "Bryan taught IST 256 in Fall 2021."
+  },
+  "s22s": {
+   "year": 2022.2,
+   "yearLabel": "Spring 2022",
+   "kind": "semester",
+   "desc": "Bryan taught IST 256 in Spring 2022."
+  },
+  "s23s": {
+   "year": 2023.2,
+   "yearLabel": "Spring 2023",
+   "kind": "semester",
+   "desc": "Bryan taught IST 256 in Spring 2023."
+  },
+  "s23f": {
+   "year": 2023.8,
+   "yearLabel": "Fall 2023",
+   "kind": "semester",
+   "desc": "Bryan taught IST 256 in Fall 2023."
+  },
+  "s24s": {
+   "year": 2024.2,
+   "yearLabel": "Spring 2024",
+   "kind": "semester",
+   "desc": "Bryan taught IST 256 in Spring 2024."
+  },
+  "s24f": {
+   "year": 2024.8,
+   "yearLabel": "Fall 2024",
+   "kind": "semester",
+   "desc": "Bryan taught IST 256 in Fall 2024."
+  },
+  "s25s": {
+   "year": 2025.2,
+   "yearLabel": "Spring 2025",
+   "kind": "semester",
+   "desc": "Bryan taught IST 256 in Spring 2025."
+  },
+  "s25f": {
+   "year": 2025.8,
+   "yearLabel": "Fall 2025",
+   "kind": "semester",
+   "desc": "Bryan taught IST 256 in Fall 2025."
+  },
+  "s26s": {
+   "year": 2026.2,
+   "yearLabel": "Spring 2026",
+   "kind": "semester",
+   "desc": "Bryan taught IST 256 in Spring 2026."
+  },
+  "p_service": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Fall 2019.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/32"
+   },
+   "source": {
+    "label": "haxtheweb/issues #32",
+    "url": "https://github.com/haxtheweb/issues/issues/32"
+   }
+  },
+  "p_datecard": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Spring 2020.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/199"
+   },
+   "source": {
+    "label": "haxtheweb/issues #199",
+    "url": "https://github.com/haxtheweb/issues/issues/199"
+   }
+  },
+  "p_ghpreview": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Fall 2020.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/388"
+   },
+   "source": {
+    "label": "haxtheweb/issues #388",
+    "url": "https://github.com/haxtheweb/issues/issues/388"
+   }
+  },
+  "p_tvguide": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Spring 2021.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/656"
+   },
+   "source": {
+    "label": "haxtheweb/issues #656",
+    "url": "https://github.com/haxtheweb/issues/issues/656"
+   }
+  },
+  "p_sorting": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Fall 2021.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/872"
+   },
+   "source": {
+    "label": "haxtheweb/issues #872",
+    "url": "https://github.com/haxtheweb/issues/issues/872"
+   }
+  },
+  "p_flash": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Fall 2021.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/881"
+   },
+   "source": {
+    "label": "haxtheweb/issues #881",
+    "url": "https://github.com/haxtheweb/issues/issues/881"
+   }
+  },
+  "p_mark": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Fall 2021.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/882"
+   },
+   "source": {
+    "label": "haxtheweb/issues #882",
+    "url": "https://github.com/haxtheweb/issues/issues/882"
+   }
+  },
+  "p_vocab": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Spring 2022.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/965"
+   },
+   "source": {
+    "label": "haxtheweb/issues #965",
+    "url": "https://github.com/haxtheweb/issues/issues/965"
+   }
+  },
+  "p_apa": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Spring 2023.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/1285"
+   },
+   "source": {
+    "label": "haxtheweb/issues #1285",
+    "url": "https://github.com/haxtheweb/issues/issues/1285"
+   }
+  },
+  "p_dragdrop": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Spring 2023.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/1332"
+   },
+   "source": {
+    "label": "haxtheweb/issues #1332",
+    "url": "https://github.com/haxtheweb/issues/issues/1332"
+   },
+   "note": "The start of the matching question."
+  },
+  "p_rpg": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Fall 2023.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/1733"
+   },
+   "source": {
+    "label": "haxtheweb/issues #1733",
+    "url": "https://github.com/haxtheweb/issues/issues/1733"
+   }
+  },
+  "p_linkpreview": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Fall 2023.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/1764"
+   },
+   "source": {
+    "label": "haxtheweb/issues #1764",
+    "url": "https://github.com/haxtheweb/issues/issues/1764"
+   }
+  },
+  "p_lecture": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Fall 2023.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/1788"
+   },
+   "source": {
+    "label": "haxtheweb/issues #1788",
+    "url": "https://github.com/haxtheweb/issues/issues/1788"
+   }
+  },
+  "p_inline": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Spring 2024.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/1102"
+   },
+   "source": {
+    "label": "haxtheweb/issues #1102",
+    "url": "https://github.com/haxtheweb/issues/issues/1102"
+   },
+   "note": "Winston White's class project; the issue was opened in December 2022."
+  },
+  "p_playlist": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Spring 2024.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/1914"
+   },
+   "source": {
+    "label": "haxtheweb/issues #1914",
+    "url": "https://github.com/haxtheweb/issues/issues/1914"
+   }
+  },
+  "p_testimonial": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Spring 2024.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/1915"
+   },
+   "source": {
+    "label": "haxtheweb/issues #1915",
+    "url": "https://github.com/haxtheweb/issues/issues/1915"
+   }
+  },
+  "p_gallery": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Spring 2024.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/1946"
+   },
+   "source": {
+    "label": "haxtheweb/issues #1946",
+    "url": "https://github.com/haxtheweb/issues/issues/1946"
+   }
+  },
+  "p_party": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Spring 2024.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/1950"
+   },
+   "source": {
+    "label": "haxtheweb/issues #1950",
+    "url": "https://github.com/haxtheweb/issues/issues/1950"
+   }
+  },
+  "p_search": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Fall 2024.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/2174"
+   },
+   "source": {
+    "label": "haxtheweb/issues #2174",
+    "url": "https://github.com/haxtheweb/issues/issues/2174"
+   }
+  },
+  "p_unsdg": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Fall 2024.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/2147"
+   },
+   "source": {
+    "label": "haxtheweb/issues #2147",
+    "url": "https://github.com/haxtheweb/issues/issues/2147"
+   }
+  },
+  "p_usecases": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Fall 2024.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/2182"
+   },
+   "source": {
+    "label": "haxtheweb/issues #2182",
+    "url": "https://github.com/haxtheweb/issues/issues/2182"
+   }
+  },
+  "p_steps": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Spring 2025.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/2256"
+   },
+   "source": {
+    "label": "haxtheweb/issues #2256",
+    "url": "https://github.com/haxtheweb/issues/issues/2256"
+   }
+  },
+  "p_aiul": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Spring 2025.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/2288"
+   },
+   "source": {
+    "label": "haxtheweb/issues #2288",
+    "url": "https://github.com/haxtheweb/issues/issues/2288"
+   }
+  },
+  "p_portthemes": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Spring 2025.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/2283"
+   },
+   "source": {
+    "label": "haxtheweb/issues #2283",
+    "url": "https://github.com/haxtheweb/issues/issues/2283"
+   }
+  },
+  "p_fox": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Fall 2025.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/2476"
+   },
+   "source": {
+    "label": "haxtheweb/issues #2476",
+    "url": "https://github.com/haxtheweb/issues/issues/2476"
+   }
+  },
+  "p_dyngallery": {
+   "desc": "Projects developed and implemented as a result of btopro's IST 256 course and SIIP. From Spring 2026.",
+   "links": {
+    "issue": "https://github.com/haxtheweb/issues/issues/2617"
+   },
+   "source": {
+    "label": "haxtheweb/issues #2617",
+    "url": "https://github.com/haxtheweb/issues/issues/2617"
+   }
+  }
+ },
+ "evidence": {
+  "s19f>p_service": [
+   {
+    "label": "Issue #32",
+    "url": "https://github.com/haxtheweb/issues/issues/32"
+   }
+  ],
+  "s20s>p_datecard": [
+   {
+    "label": "Issue #199",
+    "url": "https://github.com/haxtheweb/issues/issues/199"
+   },
+   {
+    "label": "Issue #200",
+    "url": "https://github.com/haxtheweb/issues/issues/200"
+   }
+  ],
+  "s20f>p_ghpreview": [
+   {
+    "label": "Issue #388",
+    "url": "https://github.com/haxtheweb/issues/issues/388"
+   }
+  ],
+  "s21s>p_tvguide": [
+   {
+    "label": "Issue #656",
+    "url": "https://github.com/haxtheweb/issues/issues/656"
+   }
+  ],
+  "s21f>p_sorting": [
+   {
+    "label": "Issue #872",
+    "url": "https://github.com/haxtheweb/issues/issues/872"
+   }
+  ],
+  "s21f>p_flash": [
+   {
+    "label": "Issue #881",
+    "url": "https://github.com/haxtheweb/issues/issues/881"
+   }
+  ],
+  "s21f>p_mark": [
+   {
+    "label": "Issue #882",
+    "url": "https://github.com/haxtheweb/issues/issues/882"
+   }
+  ],
+  "s22s>p_vocab": [
+   {
+    "label": "Issue #965",
+    "url": "https://github.com/haxtheweb/issues/issues/965"
+   }
+  ],
+  "s23s>p_apa": [
+   {
+    "label": "Issue #1285",
+    "url": "https://github.com/haxtheweb/issues/issues/1285"
+   }
+  ],
+  "s23s>p_dragdrop": [
+   {
+    "label": "Issue #1332",
+    "url": "https://github.com/haxtheweb/issues/issues/1332"
+   }
+  ],
+  "s23f>p_rpg": [
+   {
+    "label": "Issue #1733",
+    "url": "https://github.com/haxtheweb/issues/issues/1733"
+   }
+  ],
+  "s23f>p_linkpreview": [
+   {
+    "label": "Issue #1764",
+    "url": "https://github.com/haxtheweb/issues/issues/1764"
+   }
+  ],
+  "s23f>p_lecture": [
+   {
+    "label": "Issue #1788",
+    "url": "https://github.com/haxtheweb/issues/issues/1788"
+   }
+  ],
+  "s24s>p_inline": [
+   {
+    "label": "Issue #1102",
+    "url": "https://github.com/haxtheweb/issues/issues/1102"
+   }
+  ],
+  "s24s>p_playlist": [
+   {
+    "label": "Issue #1914",
+    "url": "https://github.com/haxtheweb/issues/issues/1914"
+   }
+  ],
+  "s24s>p_testimonial": [
+   {
+    "label": "Issue #1915",
+    "url": "https://github.com/haxtheweb/issues/issues/1915"
+   }
+  ],
+  "s24s>p_gallery": [
+   {
+    "label": "Issue #1946",
+    "url": "https://github.com/haxtheweb/issues/issues/1946"
+   }
+  ],
+  "s24s>p_party": [
+   {
+    "label": "Issue #1950",
+    "url": "https://github.com/haxtheweb/issues/issues/1950"
+   }
+  ],
+  "s24f>p_search": [
+   {
+    "label": "Issue #2174",
+    "url": "https://github.com/haxtheweb/issues/issues/2174"
+   }
+  ],
+  "s24f>p_unsdg": [
+   {
+    "label": "Issue #2147",
+    "url": "https://github.com/haxtheweb/issues/issues/2147"
+   }
+  ],
+  "s24f>p_usecases": [
+   {
+    "label": "Issue #2182",
+    "url": "https://github.com/haxtheweb/issues/issues/2182"
+   }
+  ],
+  "s25s>p_steps": [
+   {
+    "label": "Issue #2256",
+    "url": "https://github.com/haxtheweb/issues/issues/2256"
+   },
+   {
+    "label": "Issue #2257",
+    "url": "https://github.com/haxtheweb/issues/issues/2257"
+   }
+  ],
+  "s25s>p_aiul": [
+   {
+    "label": "Issue #2288",
+    "url": "https://github.com/haxtheweb/issues/issues/2288"
+   }
+  ],
+  "s25s>p_portthemes": [
+   {
+    "label": "Issue #2283",
+    "url": "https://github.com/haxtheweb/issues/issues/2283"
+   },
+   {
+    "label": "Issue #2284",
+    "url": "https://github.com/haxtheweb/issues/issues/2284"
+   }
+  ],
+  "s25f>p_fox": [
+   {
+    "label": "Issue #2476",
+    "url": "https://github.com/haxtheweb/issues/issues/2476"
+   }
+  ],
+  "s26s>p_dyngallery": [
+   {
+    "label": "Issue #2617",
+    "url": "https://github.com/haxtheweb/issues/issues/2617"
+   }
+  ],
+  "kcharlton>ddd": [
+   {
+    "label": "WINS.md: Students built the design system",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#students-built-the-design-system"
+   }
+  ],
+  "winston>haxlab": [
+   {
+    "label": "WINS.md: Winston White, student to trainer",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#winston-white-student-to-trainer"
+   }
+  ],
+  "ist256>haxlab": [
+   {
+    "label": "WORLDVIEW.md: SIIP",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md"
+   }
+  ]
+ },
+ "tours": [
+  {
+   "id": "semesters",
+   "label": "Semester by semester",
+   "message": "IST 256 from fall 2019 to spring 2026: what each class built, and which projects became parts of HAX.",
+   "scenes": [
+    {
+     "caption": "IST 256 is taught in IST, and its best students go on to HAX Lab.",
+     "nodes": [
+      "ist256",
+      "ist",
+      "haxlab",
+      "bryan"
+     ]
+    },
+    {
+     "caption": "2019–2020: the first semesters, and the date element that became Date card.",
+     "nodes": [
+      "s19f",
+      "s20s",
+      "s20f",
+      "p_service",
+      "p_datecard",
+      "p_ghpreview",
+      "b_date_card",
+      "components"
+     ]
+    },
+    {
+     "caption": "2021: question types built in class become blocks: sorting, flash cards, mark the words.",
+     "nodes": [
+      "s21s",
+      "s21f",
+      "p_tvguide",
+      "p_sorting",
+      "p_flash",
+      "p_mark",
+      "b_sorting_question",
+      "b_flash_card",
+      "b_mark_the_words"
+     ]
+    },
+    {
+     "caption": "2022: vocabulary lands in the HAX editor.",
+     "nodes": [
+      "s22s",
+      "p_vocab",
+      "b_vocab_term"
+     ]
+    },
+    {
+     "caption": "2023: citations, drag and drop, link previews and the lecture player.",
+     "nodes": [
+      "s23s",
+      "s23f",
+      "p_apa",
+      "p_dragdrop",
+      "p_rpg",
+      "p_linkpreview",
+      "p_lecture",
+      "b_matching_question",
+      "b_rpg_character"
+     ]
+    },
+    {
+     "caption": "Spring 2024: Winston White's inline audio, play lists, image quotes and galleries.",
+     "nodes": [
+      "s24s",
+      "p_inline",
+      "p_playlist",
+      "p_testimonial",
+      "p_gallery",
+      "p_party",
+      "winston",
+      "b_inline_audio",
+      "b_play_list",
+      "b_person_testimonial",
+      "b_image_gallery",
+      "dashboard"
+     ]
+    },
+    {
+     "caption": "Fall 2024: site search, the use-cases dashboard and skeletons.",
+     "nodes": [
+      "s24f",
+      "p_search",
+      "p_unsdg",
+      "p_usecases",
+      "haxcms",
+      "skeletons"
+     ]
+    },
+    {
+     "caption": "2025: DDD lists, the AI Usage License and portfolio themes.",
+     "nodes": [
+      "s25s",
+      "s25f",
+      "p_steps",
+      "p_aiul",
+      "p_portthemes",
+      "p_fox",
+      "ddd",
+      "kcharlton",
+      "b_ai_usage_license",
+      "themes"
+     ]
+    },
+    {
+     "caption": "Spring 2026: the latest class builds on the gallery.",
+     "nodes": [
+      "s26s",
+      "p_dyngallery"
+     ]
+    },
+    {
+     "caption": "Seven years of classes, feeding the blocks, themes and dashboard people use every day.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

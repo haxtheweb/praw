@@ -1,0 +1,274 @@
+%% OER Schema sub-web: the vocabulary for open educational resources, how it extends schema.org, and where it shows up in HAX
+%% Generated from oer-schema/lib/oerschema.js (OER Schema 1.2.0). Details in the matching .json.
+flowchart TB
+  %%@ layout rings=0,200,480,700,900 sizes=92,64,46,44,48
+  subgraph hub ["OER Schema"]
+    oerschema[("oerschema")]
+  end
+  subgraph rel ["Builds on"]
+    schemaorg[["schema.org"]]
+    ccrel[["Creative Commons ccREL"]]
+  end
+  subgraph grps ["What it describes"]
+    og_structure["Course structure"]
+    og_patterns["Instructional patterns"]
+    og_materials["Materials"]
+    og_grading["Grading and rubrics"]
+    og_actions["Learner actions"]
+    og_format["Formats"]
+  end
+  subgraph clsg ["Classes"]
+    oc_resource["Resource"]
+    oc_tableofcontents["TableOfContents"]
+    oc_tableofcontentsentry["TableOfContentsEntry"]
+    oc_course["Course"]
+    oc_coursesection["CourseSection"]
+    oc_coursesyllabus["CourseSyllabus"]
+    oc_topic["Topic"]
+    oc_classstanding["ClassStanding"]
+    oc_learningcomponent["LearningComponent"]
+    oc_learningobjective["LearningObjective"]
+    oc_associatedmaterial["AssociatedMaterial"]
+    oc_supportingmaterial["SupportingMaterial"]
+    oc_supplementalmaterial["SupplementalMaterial"]
+    oc_referencedmaterial["ReferencedMaterial"]
+    oc_instructionalpattern["InstructionalPattern"]
+    oc_lesson["Lesson"]
+    oc_unit["Unit"]
+    oc_module["Module"]
+    oc_assessment["Assessment"]
+    oc_quiz["Quiz"]
+    oc_submission["Submission"]
+    oc_rubric["Rubric"]
+    oc_rubriccriterion["RubricCriterion"]
+    oc_rubricscale["RubricScale"]
+    oc_rubriclevel["RubricLevel"]
+    oc_task["Task"]
+    oc_activity["Activity"]
+    oc_project["Project"]
+    oc_practice["Practice"]
+    oc_format["Format"]
+    oc_facetofaceformat["FaceToFaceFormat"]
+    oc_gradeformat["GradeFormat"]
+    oc_pointgradeformat["PointGradeFormat"]
+    oc_lettergradeformat["LetterGradeFormat"]
+    oc_percentgradeformat["PercentGradeFormat"]
+    oc_completiongradeformat["CompletionGradeFormat"]
+    oc_actiontype["ActionType"]
+    oc_writing["Writing"]
+    oc_reading["Reading"]
+    oc_making["Making"]
+    oc_researching["Researching"]
+    oc_listening["Listening"]
+    oc_watching["Watching"]
+    oc_reflecting["Reflecting"]
+    oc_discussing["Discussing"]
+    oc_observing["Observing"]
+    oc_presenting["Presenting"]
+    oc_assess["Assess"]
+  end
+  subgraph sorg ["schema.org types it extends"]
+    so_action["schema.org/Action"]
+    so_alignmentobject["schema.org/AlignmentObject"]
+    so_course["schema.org/Course"]
+    so_courseinstance["schema.org/CourseInstance"]
+    so_creativework["schema.org/CreativeWork"]
+    so_thing["schema.org/Thing"]
+  end
+  subgraph used ["Where it shows up in HAX"]
+    b_oer_schema["b_oer_schema"]
+    course["course"]
+    textbook["textbook"]
+    editor["editor"]
+    oervocab["oervocab"]
+    mcollins(("mcollins"))
+  end
+
+  oerschema -.->|extends| schemaorg
+  oerschema -.->|credits works with| ccrel
+  oerschema -->|describes| og_structure
+  oerschema -->|describes| og_patterns
+  oerschema -->|describes| og_materials
+  oerschema -->|describes| og_grading
+  oerschema -->|describes| og_actions
+  oerschema -->|describes| og_format
+  og_structure -->|includes| oc_resource
+  oc_resource -.->|extends| so_thing
+  og_structure -->|includes| oc_tableofcontents
+  oc_tableofcontents -.->|extends| so_thing
+  og_structure -->|includes| oc_tableofcontentsentry
+  oc_tableofcontentsentry -->|is a kind of| oc_tableofcontents
+  og_structure -->|includes| oc_course
+  oc_course -->|is a kind of| oc_resource
+  oc_course -.->|extends| so_course
+  og_structure -->|includes| oc_coursesection
+  oc_coursesection -->|is a kind of| oc_resource
+  oc_coursesection -.->|extends| so_courseinstance
+  og_structure -->|includes| oc_coursesyllabus
+  oc_coursesyllabus -->|is a kind of| oc_resource
+  og_structure -->|includes| oc_topic
+  oc_topic -->|is a kind of| oc_resource
+  og_structure -->|includes| oc_classstanding
+  og_patterns -->|includes| oc_learningcomponent
+  oc_learningcomponent -.->|extends| so_creativework
+  oc_learningcomponent -.->|extends| so_alignmentobject
+  og_structure -->|includes| oc_learningobjective
+  oc_learningobjective -->|is a kind of| oc_resource
+  og_materials -->|includes| oc_associatedmaterial
+  og_materials -->|includes| oc_supportingmaterial
+  oc_supportingmaterial -->|is a kind of| oc_associatedmaterial
+  og_materials -->|includes| oc_supplementalmaterial
+  oc_supplementalmaterial -->|is a kind of| oc_associatedmaterial
+  og_materials -->|includes| oc_referencedmaterial
+  oc_referencedmaterial -->|is a kind of| oc_associatedmaterial
+  og_patterns -->|includes| oc_instructionalpattern
+  oc_instructionalpattern -->|is a kind of| oc_learningcomponent
+  og_patterns -->|includes| oc_lesson
+  oc_lesson -->|is a kind of| oc_instructionalpattern
+  og_patterns -->|includes| oc_unit
+  oc_unit -->|is a kind of| oc_instructionalpattern
+  og_patterns -->|includes| oc_module
+  oc_module -->|is a kind of| oc_instructionalpattern
+  og_patterns -->|includes| oc_assessment
+  oc_assessment -->|is a kind of| oc_instructionalpattern
+  oc_assessment -.->|extends| so_action
+  og_patterns -->|includes| oc_quiz
+  oc_quiz -->|is a kind of| oc_assessment
+  og_patterns -->|includes| oc_submission
+  oc_submission -->|is a kind of| oc_assessment
+  og_grading -->|includes| oc_rubric
+  og_grading -->|includes| oc_rubriccriterion
+  og_grading -->|includes| oc_rubricscale
+  og_grading -->|includes| oc_rubriclevel
+  og_patterns -->|includes| oc_task
+  oc_task -->|is a kind of| oc_instructionalpattern
+  oc_task -.->|extends| so_action
+  og_patterns -->|includes| oc_activity
+  oc_activity -->|is a kind of| oc_task
+  og_patterns -->|includes| oc_project
+  oc_project -->|is a kind of| oc_activity
+  og_patterns -->|includes| oc_practice
+  oc_practice -->|is a kind of| oc_task
+  og_format -->|includes| oc_format
+  og_format -->|includes| oc_facetofaceformat
+  oc_facetofaceformat -->|is a kind of| oc_format
+  og_grading -->|includes| oc_gradeformat
+  og_grading -->|includes| oc_pointgradeformat
+  oc_pointgradeformat -->|is a kind of| oc_gradeformat
+  og_grading -->|includes| oc_lettergradeformat
+  oc_lettergradeformat -->|is a kind of| oc_gradeformat
+  og_grading -->|includes| oc_percentgradeformat
+  oc_percentgradeformat -->|is a kind of| oc_gradeformat
+  og_grading -->|includes| oc_completiongradeformat
+  oc_completiongradeformat -->|is a kind of| oc_gradeformat
+  og_actions -->|includes| oc_actiontype
+  og_actions -->|includes| oc_writing
+  oc_writing -->|is a kind of| oc_actiontype
+  og_actions -->|includes| oc_reading
+  oc_reading -->|is a kind of| oc_actiontype
+  og_actions -->|includes| oc_making
+  oc_making -->|is a kind of| oc_actiontype
+  og_actions -->|includes| oc_researching
+  oc_researching -->|is a kind of| oc_actiontype
+  og_actions -->|includes| oc_listening
+  oc_listening -->|is a kind of| oc_actiontype
+  og_actions -->|includes| oc_watching
+  oc_watching -->|is a kind of| oc_actiontype
+  og_actions -->|includes| oc_reflecting
+  oc_reflecting -->|is a kind of| oc_actiontype
+  og_actions -->|includes| oc_discussing
+  oc_discussing -->|is a kind of| oc_actiontype
+  og_actions -->|includes| oc_observing
+  oc_observing -->|is a kind of| oc_actiontype
+  og_actions -->|includes| oc_presenting
+  oc_presenting -->|is a kind of| oc_actiontype
+  og_actions -->|includes| oc_assess
+  oc_assess -->|is a kind of| oc_actiontype
+  so_action -.->|is part of| schemaorg
+  so_alignmentobject -.->|is part of| schemaorg
+  so_course -.->|is part of| schemaorg
+  so_courseinstance -.->|is part of| schemaorg
+  so_creativework -.->|is part of| schemaorg
+  so_thing -.->|is part of| schemaorg
+  b_oer_schema -->|tags content with| oerschema
+  course -->|is described by| oc_course
+  textbook -->|is described by| oc_learningcomponent
+  editor -->|wraps content in| b_oer_schema
+  mcollins -.->|authored| oerschema
+  oervocab -.->|is| oerschema
+
+  %%@ group hub tier=0
+  %%@ group rel tier=1
+  %%@ group grps tier=1
+  %%@ group clsg tier=2
+  %%@ group sorg tier=3
+  %%@ group used tier=4
+  %%@ node oerschema portal
+  %%@ node schemaorg mono=SORG color=slateGray motion=lift
+  %%@ node ccrel mono=CC color=slateGray motion=lift
+  %%@ node og_structure icon=icons:book color=forestGreen motion=pop
+  %%@ node og_patterns icon=icons:book color=creekTeal motion=pop
+  %%@ node og_materials icon=icons:book color=skyBlue motion=pop
+  %%@ node og_grading icon=icons:book color=roarGolden motion=pop
+  %%@ node og_actions icon=icons:book color=athertonViolet motion=pop
+  %%@ node og_format icon=icons:book color=slateGray motion=pop
+  %%@ node oc_resource mono=R color=forestGreen motion=nudge
+  %%@ node oc_tableofcontents mono=TOC color=forestGreen motion=nudge
+  %%@ node oc_tableofcontentsentry mono=TOCE color=forestGreen motion=nudge
+  %%@ node oc_course mono=C color=forestGreen motion=nudge
+  %%@ node oc_coursesection mono=CS color=forestGreen motion=nudge
+  %%@ node oc_coursesyllabus mono=CS color=forestGreen motion=nudge
+  %%@ node oc_topic mono=T color=forestGreen motion=nudge
+  %%@ node oc_classstanding mono=CS color=forestGreen motion=nudge
+  %%@ node oc_learningcomponent mono=LC color=creekTeal motion=nudge
+  %%@ node oc_learningobjective mono=LO color=forestGreen motion=nudge
+  %%@ node oc_associatedmaterial mono=AM color=skyBlue motion=nudge
+  %%@ node oc_supportingmaterial mono=SM color=skyBlue motion=nudge
+  %%@ node oc_supplementalmaterial mono=SM color=skyBlue motion=nudge
+  %%@ node oc_referencedmaterial mono=RM color=skyBlue motion=nudge
+  %%@ node oc_instructionalpattern mono=IP color=creekTeal motion=nudge
+  %%@ node oc_lesson mono=L color=creekTeal motion=nudge
+  %%@ node oc_unit mono=U color=creekTeal motion=nudge
+  %%@ node oc_module mono=M color=creekTeal motion=nudge
+  %%@ node oc_assessment mono=A color=creekTeal motion=nudge
+  %%@ node oc_quiz mono=Q color=creekTeal motion=nudge
+  %%@ node oc_submission mono=S color=creekTeal motion=nudge
+  %%@ node oc_rubric mono=R color=roarGolden motion=nudge
+  %%@ node oc_rubriccriterion mono=RC color=roarGolden motion=nudge
+  %%@ node oc_rubricscale mono=RS color=roarGolden motion=nudge
+  %%@ node oc_rubriclevel mono=RL color=roarGolden motion=nudge
+  %%@ node oc_task mono=T color=creekTeal motion=nudge
+  %%@ node oc_activity mono=A color=creekTeal motion=nudge
+  %%@ node oc_project mono=P color=creekTeal motion=nudge
+  %%@ node oc_practice mono=P color=creekTeal motion=nudge
+  %%@ node oc_format mono=F color=slateGray motion=nudge
+  %%@ node oc_facetofaceformat mono=FTFF color=slateGray motion=nudge
+  %%@ node oc_gradeformat mono=GF color=roarGolden motion=nudge
+  %%@ node oc_pointgradeformat mono=PGF color=roarGolden motion=nudge
+  %%@ node oc_lettergradeformat mono=LGF color=roarGolden motion=nudge
+  %%@ node oc_percentgradeformat mono=PGF color=roarGolden motion=nudge
+  %%@ node oc_completiongradeformat mono=CGF color=roarGolden motion=nudge
+  %%@ node oc_actiontype mono=AT color=athertonViolet motion=nudge
+  %%@ node oc_writing mono=W color=athertonViolet motion=nudge
+  %%@ node oc_reading mono=R color=athertonViolet motion=nudge
+  %%@ node oc_making mono=M color=athertonViolet motion=nudge
+  %%@ node oc_researching mono=R color=athertonViolet motion=nudge
+  %%@ node oc_listening mono=L color=athertonViolet motion=nudge
+  %%@ node oc_watching mono=W color=athertonViolet motion=nudge
+  %%@ node oc_reflecting mono=R color=athertonViolet motion=nudge
+  %%@ node oc_discussing mono=D color=athertonViolet motion=nudge
+  %%@ node oc_observing mono=O color=athertonViolet motion=nudge
+  %%@ node oc_presenting mono=P color=athertonViolet motion=nudge
+  %%@ node oc_assess mono=A color=athertonViolet motion=nudge
+  %%@ node so_action mono=SO color=limestoneGray motion=nudge
+  %%@ node so_alignmentobject mono=SO color=limestoneGray motion=nudge
+  %%@ node so_course mono=SO color=limestoneGray motion=nudge
+  %%@ node so_courseinstance mono=SO color=limestoneGray motion=nudge
+  %%@ node so_creativework mono=SO color=limestoneGray motion=nudge
+  %%@ node so_thing mono=SO color=limestoneGray motion=nudge
+  %%@ node b_oer_schema icon=hax:bricks color=slateGray motion=nudge
+  %%@ node course portal
+  %%@ node textbook portal
+  %%@ node editor portal
+  %%@ node oervocab portal=contracts
+  %%@ node mcollins portal

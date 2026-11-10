@@ -1,0 +1,438 @@
+%% HAX MCP tools sub-web: every tool the HAXcms MCP server exposes, grouped by module, with the OpenAPI areas each one calls. Generated from haxcms-mcp.
+%% Portals: ids from hax-ecosystem.mmd and hax-openapi.mmd. Details in hax-mcptools.json.
+flowchart TB
+  %%@ layout rings=0,230,500,800 sizes=92,64,44,52
+  subgraph hub ["HAX MCP"]
+    mcp["mcp"]
+  end
+  subgraph modsg ["Tool groups"]
+    mod_blocks_typed["Typed block tools, one per HAX element"]
+    mod_content["Page content and blocks"]
+    mod_exports["Exports"]
+    mod_files["Files"]
+    mod_outline["Outline"]
+    mod_pages["Pages"]
+    mod_settings["Settings"]
+    mod_sites["Sites"]
+    mod_auth["Sign in and sessions"]
+    mod_imports["Imports"]
+  end
+  subgraph toolsg ["Tools"]
+    t_add_image["add_image"]
+    t_add_video["add_video"]
+    t_add_audio["add_audio"]
+    t_add_image_compare["add_image_compare"]
+    t_add_image_gallery["add_image_gallery"]
+    t_add_collapse["add_collapse"]
+    t_add_stop_note["add_stop_note"]
+    t_add_code_sample["add_code_sample"]
+    t_add_markdown_block["add_markdown_block"]
+    t_add_accent_card["add_accent_card"]
+    t_add_grid["add_grid"]
+    t_add_page_section["add_page_section"]
+    t_add_placeholder["add_placeholder"]
+    t_add_cta["add_cta"]
+    t_add_self_check["add_self_check"]
+    t_add_multiple_choice["add_multiple_choice"]
+    t_add_true_false["add_true_false"]
+    t_add_short_answer["add_short_answer"]
+    t_add_sorting_question["add_sorting_question"]
+    t_add_matching_question["add_matching_question"]
+    t_add_fill_in_the_blanks["add_fill_in_the_blanks"]
+    t_add_mark_the_words["add_mark_the_words"]
+    t_add_tagging_question["add_tagging_question"]
+    t_add_flash_card["add_flash_card"]
+    t_add_vocab_term["add_vocab_term"]
+    t_add_learning_component["add_learning_component"]
+    t_add_timeline["add_timeline"]
+    t_add_styled_quote["add_styled_quote"]
+    t_add_citation["add_citation"]
+    t_add_license["add_license"]
+    t_add_wikipedia_query["add_wikipedia_query"]
+    t_add_paragraph["add_paragraph"]
+    t_add_heading["add_heading"]
+    t_add_list["add_list"]
+    t_add_table["add_table"]
+    t_add_blockquote["add_blockquote"]
+    t_add_divider["add_divider"]
+    t_get_page_content["get_page_content"]
+    t_set_page_content["set_page_content"]
+    t_get_page_blocks["get_page_blocks"]
+    t_add_block["add_block"]
+    t_replace_block["replace_block"]
+    t_remove_block["remove_block"]
+    t_move_block["move_block"]
+    t_update_block["update_block"]
+    t_set_block_text["set_block_text"]
+    t_add_link["add_link"]
+    t_list_blocks["list_blocks"]
+    t_get_block_schema["get_block_schema"]
+    t_export_site["export_site"]
+    t_export_page["export_page"]
+    t_download_site_zip["download_site_zip"]
+    t_save_site_as_template["save_site_as_template"]
+    t_download_site_skeleton["download_site_skeleton"]
+    t_list_files["list_files"]
+    t_upload_file["upload_file"]
+    t_get_file["get_file"]
+    t_rename_file["rename_file"]
+    t_transform_file["transform_file"]
+    t_duplicate_file["duplicate_file"]
+    t_delete_file["delete_file"]
+    t_get_outline["get_outline"]
+    t_reorder_pages["reorder_pages"]
+    t_move_page["move_page"]
+    t_set_page_parent["set_page_parent"]
+    t_normalize_slugs["normalize_slugs"]
+    t_list_pages["list_pages"]
+    t_get_page["get_page"]
+    t_create_page["create_page"]
+    t_create_pages["create_pages"]
+    t_update_page_details["update_page_details"]
+    t_delete_page["delete_page"]
+    t_list_page_revisions["list_page_revisions"]
+    t_get_page_revision["get_page_revision"]
+    t_restore_page_revision["restore_page_revision"]
+    t_search_site["search_site"]
+    t_list_tags["list_tags"]
+    t_get_site_settings["get_site_settings"]
+    t_update_site_info["update_site_info"]
+    t_update_author_info["update_author_info"]
+    t_set_site_theme["set_site_theme"]
+    t_set_theme_regions["set_theme_regions"]
+    t_update_seo_settings["update_seo_settings"]
+    t_set_editor_audience["set_editor_audience"]
+    t_set_allowed_blocks["set_allowed_blocks"]
+    t_set_platform_features["set_platform_features"]
+    t_configure_site_git["configure_site_git"]
+    t_regenerate_alternate_formats["regenerate_alternate_formats"]
+    t_list_sites["list_sites"]
+    t_get_site["get_site"]
+    t_create_site["create_site"]
+    t_list_skeletons["list_skeletons"]
+    t_get_skeleton["get_skeleton"]
+    t_list_themes["list_themes"]
+    t_clone_site["clone_site"]
+    t_login["login"]
+    t_logout["logout"]
+    t_whoami["whoami"]
+    t_get_server_info["get_server_info"]
+    t_import_document["import_document"]
+    t_create_site_from_document["create_site_from_document"]
+    t_create_site_from_platform["create_site_from_platform"]
+    t_create_site_from_skeleton["create_site_from_skeleton"]
+    t_archive_site["archive_site"]
+    t_add_image_from_file["add_image_from_file"]
+  end
+  subgraph api ["OpenAPI areas called"]
+    tag_actions["actions"]
+    tag_blocks["blocks"]
+    tag_content["content"]
+    tag_custom_elements["custom-elements"]
+    tag_files["files"]
+    tag_items["items"]
+    tag_lifecycle["lifecycle"]
+    tag_schemas["schemas"]
+    tag_search["search"]
+    tag_session["session"]
+    tag_settings["settings"]
+    tag_site["site"]
+    tag_tags["tags"]
+    traveler(("traveler"))
+  end
+
+  mcp -->|offers| mod_blocks_typed
+  mod_blocks_typed -->|includes| t_add_image
+  mod_blocks_typed -->|includes| t_add_video
+  mod_blocks_typed -->|includes| t_add_audio
+  mod_blocks_typed -->|includes| t_add_image_compare
+  mod_blocks_typed -->|includes| t_add_image_gallery
+  mod_blocks_typed -->|includes| t_add_collapse
+  mod_blocks_typed -->|includes| t_add_stop_note
+  mod_blocks_typed -->|includes| t_add_code_sample
+  mod_blocks_typed -->|includes| t_add_markdown_block
+  mod_blocks_typed -->|includes| t_add_accent_card
+  mod_blocks_typed -->|includes| t_add_grid
+  mod_blocks_typed -->|includes| t_add_page_section
+  mod_blocks_typed -->|includes| t_add_placeholder
+  mod_blocks_typed -->|includes| t_add_cta
+  mod_blocks_typed -->|includes| t_add_self_check
+  mod_blocks_typed -->|includes| t_add_multiple_choice
+  mod_blocks_typed -->|includes| t_add_true_false
+  mod_blocks_typed -->|includes| t_add_short_answer
+  mod_blocks_typed -->|includes| t_add_sorting_question
+  mod_blocks_typed -->|includes| t_add_matching_question
+  mod_blocks_typed -->|includes| t_add_fill_in_the_blanks
+  mod_blocks_typed -->|includes| t_add_mark_the_words
+  mod_blocks_typed -->|includes| t_add_tagging_question
+  mod_blocks_typed -->|includes| t_add_flash_card
+  mod_blocks_typed -->|includes| t_add_vocab_term
+  mod_blocks_typed -->|includes| t_add_learning_component
+  mod_blocks_typed -->|includes| t_add_timeline
+  mod_blocks_typed -->|includes| t_add_styled_quote
+  mod_blocks_typed -->|includes| t_add_citation
+  mod_blocks_typed -->|includes| t_add_license
+  mod_blocks_typed -->|includes| t_add_wikipedia_query
+  mod_blocks_typed -->|includes| t_add_paragraph
+  mod_blocks_typed -->|includes| t_add_heading
+  mod_blocks_typed -->|includes| t_add_list
+  mod_blocks_typed -->|includes| t_add_table
+  mod_blocks_typed -->|includes| t_add_blockquote
+  mod_blocks_typed -->|includes| t_add_divider
+  mcp -->|offers| mod_content
+  mod_content -->|includes| t_get_page_content
+  mod_content -->|includes| t_set_page_content
+  mod_content -->|includes| t_get_page_blocks
+  mod_content -->|includes| t_add_block
+  mod_content -->|includes| t_replace_block
+  mod_content -->|includes| t_remove_block
+  mod_content -->|includes| t_move_block
+  mod_content -->|includes| t_update_block
+  mod_content -->|includes| t_set_block_text
+  mod_content -->|includes| t_add_link
+  mod_content -->|includes| t_list_blocks
+  mod_content -->|includes| t_get_block_schema
+  mcp -->|offers| mod_exports
+  mod_exports -->|includes| t_export_site
+  mod_exports -->|includes| t_export_page
+  mod_exports -->|includes| t_download_site_zip
+  mod_exports -->|includes| t_save_site_as_template
+  mod_exports -->|includes| t_download_site_skeleton
+  mcp -->|offers| mod_files
+  mod_files -->|includes| t_list_files
+  mod_files -->|includes| t_upload_file
+  mod_files -->|includes| t_get_file
+  mod_files -->|includes| t_rename_file
+  mod_files -->|includes| t_transform_file
+  mod_files -->|includes| t_duplicate_file
+  mod_files -->|includes| t_delete_file
+  mod_files -->|includes| t_add_image_from_file
+  mcp -->|offers| mod_outline
+  mod_outline -->|includes| t_get_outline
+  mod_outline -->|includes| t_reorder_pages
+  mod_outline -->|includes| t_move_page
+  mod_outline -->|includes| t_set_page_parent
+  mod_outline -->|includes| t_normalize_slugs
+  mcp -->|offers| mod_pages
+  mod_pages -->|includes| t_list_pages
+  mod_pages -->|includes| t_get_page
+  mod_pages -->|includes| t_create_page
+  mod_pages -->|includes| t_create_pages
+  mod_pages -->|includes| t_update_page_details
+  mod_pages -->|includes| t_delete_page
+  mod_pages -->|includes| t_list_page_revisions
+  mod_pages -->|includes| t_get_page_revision
+  mod_pages -->|includes| t_restore_page_revision
+  mod_pages -->|includes| t_search_site
+  mod_pages -->|includes| t_list_tags
+  mcp -->|offers| mod_settings
+  mod_settings -->|includes| t_get_site_settings
+  mod_settings -->|includes| t_update_site_info
+  mod_settings -->|includes| t_update_author_info
+  mod_settings -->|includes| t_set_site_theme
+  mod_settings -->|includes| t_set_theme_regions
+  mod_settings -->|includes| t_update_seo_settings
+  mod_settings -->|includes| t_set_editor_audience
+  mod_settings -->|includes| t_set_allowed_blocks
+  mod_settings -->|includes| t_set_platform_features
+  mod_settings -->|includes| t_configure_site_git
+  mod_settings -->|includes| t_regenerate_alternate_formats
+  mcp -->|offers| mod_sites
+  mod_sites -->|includes| t_list_sites
+  mod_sites -->|includes| t_get_site
+  mod_sites -->|includes| t_create_site
+  mod_sites -->|includes| t_list_skeletons
+  mod_sites -->|includes| t_get_skeleton
+  mod_sites -->|includes| t_list_themes
+  mod_sites -->|includes| t_clone_site
+  mod_sites -->|includes| t_create_site_from_skeleton
+  mod_sites -->|includes| t_archive_site
+  mcp -->|offers| mod_auth
+  mod_auth -->|includes| t_login
+  mod_auth -->|includes| t_logout
+  mod_auth -->|includes| t_whoami
+  mod_auth -->|includes| t_get_server_info
+  mcp -->|offers| mod_imports
+  mod_imports -->|includes| t_import_document
+  mod_imports -->|includes| t_create_site_from_document
+  mod_imports -->|includes| t_create_site_from_platform
+  mod_blocks_typed -.->|calls| tag_blocks
+  mod_blocks_typed -.->|calls| tag_custom_elements
+  mod_blocks_typed -.->|calls| tag_items
+  mod_blocks_typed -.->|calls| tag_schemas
+  mod_content -.->|calls| tag_blocks
+  mod_content -.->|calls| tag_content
+  mod_content -.->|calls| tag_custom_elements
+  mod_content -.->|calls| tag_items
+  mod_content -.->|calls| tag_schemas
+  mod_exports -.->|calls| tag_blocks
+  mod_exports -.->|calls| tag_content
+  mod_exports -.->|calls| tag_custom_elements
+  mod_exports -.->|calls| tag_items
+  mod_exports -.->|calls| tag_lifecycle
+  mod_exports -.->|calls| tag_schemas
+  mod_exports -.->|calls| tag_site
+  mod_files -.->|calls| tag_blocks
+  mod_files -.->|calls| tag_custom_elements
+  mod_files -.->|calls| tag_files
+  mod_files -.->|calls| tag_items
+  mod_files -.->|calls| tag_schemas
+  mod_outline -.->|calls| tag_blocks
+  mod_outline -.->|calls| tag_custom_elements
+  mod_outline -.->|calls| tag_items
+  mod_outline -.->|calls| tag_schemas
+  mod_outline -.->|calls| tag_site
+  mod_pages -.->|calls| tag_blocks
+  mod_pages -.->|calls| tag_custom_elements
+  mod_pages -.->|calls| tag_items
+  mod_pages -.->|calls| tag_schemas
+  mod_pages -.->|calls| tag_search
+  mod_pages -.->|calls| tag_tags
+  mod_settings -.->|calls| tag_blocks
+  mod_settings -.->|calls| tag_custom_elements
+  mod_settings -.->|calls| tag_items
+  mod_settings -.->|calls| tag_schemas
+  mod_settings -.->|calls| tag_settings
+  mod_settings -.->|calls| tag_site
+  mod_sites -.->|calls| tag_custom_elements
+  mod_sites -.->|calls| tag_lifecycle
+  mod_sites -.->|calls| tag_settings
+  mod_sites -.->|calls| tag_site
+  mod_auth -.->|calls| tag_session
+  mod_imports -.->|calls| tag_actions
+  traveler -->|works through| mcp
+
+  %%@ group hub tier=0
+  %%@ group modsg tier=1
+  %%@ group toolsg tier=2
+  %%@ group api tier=3
+  %%@ node mcp portal
+  %%@ node mod_blocks_typed icon=hax:file-ai color=roarGolden motion=pop
+  %%@ node mod_content icon=hax:file-ai color=roarGolden motion=pop
+  %%@ node mod_exports icon=hax:file-ai color=roarGolden motion=pop
+  %%@ node mod_files icon=hax:file-ai color=roarGolden motion=pop
+  %%@ node mod_outline icon=hax:file-ai color=roarGolden motion=pop
+  %%@ node mod_pages icon=hax:file-ai color=roarGolden motion=pop
+  %%@ node mod_settings icon=hax:file-ai color=roarGolden motion=pop
+  %%@ node mod_sites icon=hax:file-ai color=roarGolden motion=pop
+  %%@ node mod_auth icon=hax:file-ai color=roarGolden motion=pop
+  %%@ node mod_imports icon=hax:file-ai color=roarGolden motion=pop
+  %%@ node t_add_image mono=AI color=wonderPurple motion=nudge
+  %%@ node t_add_video mono=AV color=wonderPurple motion=nudge
+  %%@ node t_add_audio mono=AA color=wonderPurple motion=nudge
+  %%@ node t_add_image_compare mono=AIC color=wonderPurple motion=nudge
+  %%@ node t_add_image_gallery mono=AIG color=wonderPurple motion=nudge
+  %%@ node t_add_collapse mono=AC color=wonderPurple motion=nudge
+  %%@ node t_add_stop_note mono=ASN color=wonderPurple motion=nudge
+  %%@ node t_add_code_sample mono=ACS color=wonderPurple motion=nudge
+  %%@ node t_add_markdown_block mono=AMB color=wonderPurple motion=nudge
+  %%@ node t_add_accent_card mono=AAC color=wonderPurple motion=nudge
+  %%@ node t_add_grid mono=AG color=wonderPurple motion=nudge
+  %%@ node t_add_page_section mono=APS color=wonderPurple motion=nudge
+  %%@ node t_add_placeholder mono=AP color=wonderPurple motion=nudge
+  %%@ node t_add_cta mono=AC color=wonderPurple motion=nudge
+  %%@ node t_add_self_check mono=ASC color=wonderPurple motion=nudge
+  %%@ node t_add_multiple_choice mono=AMC color=wonderPurple motion=nudge
+  %%@ node t_add_true_false mono=ATF color=wonderPurple motion=nudge
+  %%@ node t_add_short_answer mono=ASA color=wonderPurple motion=nudge
+  %%@ node t_add_sorting_question mono=ASQ color=wonderPurple motion=nudge
+  %%@ node t_add_matching_question mono=AMQ color=wonderPurple motion=nudge
+  %%@ node t_add_fill_in_the_blanks mono=AFIT color=wonderPurple motion=nudge
+  %%@ node t_add_mark_the_words mono=AMTW color=wonderPurple motion=nudge
+  %%@ node t_add_tagging_question mono=ATQ color=wonderPurple motion=nudge
+  %%@ node t_add_flash_card mono=AFC color=wonderPurple motion=nudge
+  %%@ node t_add_vocab_term mono=AVT color=wonderPurple motion=nudge
+  %%@ node t_add_learning_component mono=ALC color=wonderPurple motion=nudge
+  %%@ node t_add_timeline mono=AT color=wonderPurple motion=nudge
+  %%@ node t_add_styled_quote mono=ASQ color=wonderPurple motion=nudge
+  %%@ node t_add_citation mono=AC color=wonderPurple motion=nudge
+  %%@ node t_add_license mono=AL color=wonderPurple motion=nudge
+  %%@ node t_add_wikipedia_query mono=AWQ color=wonderPurple motion=nudge
+  %%@ node t_add_paragraph mono=AP color=wonderPurple motion=nudge
+  %%@ node t_add_heading mono=AH color=wonderPurple motion=nudge
+  %%@ node t_add_list mono=AL color=wonderPurple motion=nudge
+  %%@ node t_add_table mono=AT color=wonderPurple motion=nudge
+  %%@ node t_add_blockquote mono=AB color=wonderPurple motion=nudge
+  %%@ node t_add_divider mono=AD color=wonderPurple motion=nudge
+  %%@ node t_get_page_content mono=GPC color=roarGolden motion=nudge
+  %%@ node t_set_page_content mono=SPC color=roarGolden motion=nudge
+  %%@ node t_get_page_blocks mono=GPB color=roarGolden motion=nudge
+  %%@ node t_add_block mono=AB color=roarGolden motion=nudge
+  %%@ node t_replace_block mono=RB color=roarGolden motion=nudge
+  %%@ node t_remove_block mono=RB color=roarGolden motion=nudge
+  %%@ node t_move_block mono=MB color=roarGolden motion=nudge
+  %%@ node t_update_block mono=UB color=roarGolden motion=nudge
+  %%@ node t_set_block_text mono=SBT color=roarGolden motion=nudge
+  %%@ node t_add_link mono=AL color=roarGolden motion=nudge
+  %%@ node t_list_blocks mono=LB color=roarGolden motion=nudge
+  %%@ node t_get_block_schema mono=GBS color=roarGolden motion=nudge
+  %%@ node t_export_site mono=ES color=roarGolden motion=nudge
+  %%@ node t_export_page mono=EP color=roarGolden motion=nudge
+  %%@ node t_download_site_zip mono=DSZ color=roarGolden motion=nudge
+  %%@ node t_save_site_as_template mono=SSAT color=roarGolden motion=nudge
+  %%@ node t_download_site_skeleton mono=DSS color=roarGolden motion=nudge
+  %%@ node t_list_files mono=LF color=roarGolden motion=nudge
+  %%@ node t_upload_file mono=UF color=roarGolden motion=nudge
+  %%@ node t_get_file mono=GF color=roarGolden motion=nudge
+  %%@ node t_rename_file mono=RF color=roarGolden motion=nudge
+  %%@ node t_transform_file mono=TF color=roarGolden motion=nudge
+  %%@ node t_duplicate_file mono=DF color=roarGolden motion=nudge
+  %%@ node t_delete_file mono=DF color=roarGolden motion=nudge
+  %%@ node t_get_outline mono=GO color=roarGolden motion=nudge
+  %%@ node t_reorder_pages mono=RP color=roarGolden motion=nudge
+  %%@ node t_move_page mono=MP color=roarGolden motion=nudge
+  %%@ node t_set_page_parent mono=SPP color=roarGolden motion=nudge
+  %%@ node t_normalize_slugs mono=NS color=roarGolden motion=nudge
+  %%@ node t_list_pages mono=LP color=roarGolden motion=nudge
+  %%@ node t_get_page mono=GP color=roarGolden motion=nudge
+  %%@ node t_create_page mono=CP color=roarGolden motion=nudge
+  %%@ node t_create_pages mono=CP color=roarGolden motion=nudge
+  %%@ node t_update_page_details mono=UPD color=roarGolden motion=nudge
+  %%@ node t_delete_page mono=DP color=roarGolden motion=nudge
+  %%@ node t_list_page_revisions mono=LPR color=roarGolden motion=nudge
+  %%@ node t_get_page_revision mono=GPR color=roarGolden motion=nudge
+  %%@ node t_restore_page_revision mono=RPR color=roarGolden motion=nudge
+  %%@ node t_search_site mono=SS color=roarGolden motion=nudge
+  %%@ node t_list_tags mono=LT color=roarGolden motion=nudge
+  %%@ node t_get_site_settings mono=GSS color=roarGolden motion=nudge
+  %%@ node t_update_site_info mono=USI color=roarGolden motion=nudge
+  %%@ node t_update_author_info mono=UAI color=roarGolden motion=nudge
+  %%@ node t_set_site_theme mono=SST color=roarGolden motion=nudge
+  %%@ node t_set_theme_regions mono=STR color=roarGolden motion=nudge
+  %%@ node t_update_seo_settings mono=USS color=roarGolden motion=nudge
+  %%@ node t_set_editor_audience mono=SEA color=roarGolden motion=nudge
+  %%@ node t_set_allowed_blocks mono=SAB color=roarGolden motion=nudge
+  %%@ node t_set_platform_features mono=SPF color=roarGolden motion=nudge
+  %%@ node t_configure_site_git mono=CSG color=roarGolden motion=nudge
+  %%@ node t_regenerate_alternate_formats mono=RAF color=roarGolden motion=nudge
+  %%@ node t_list_sites mono=LS color=roarGolden motion=nudge
+  %%@ node t_get_site mono=GS color=roarGolden motion=nudge
+  %%@ node t_create_site mono=CS color=roarGolden motion=nudge
+  %%@ node t_list_skeletons mono=LS color=roarGolden motion=nudge
+  %%@ node t_get_skeleton mono=GS color=roarGolden motion=nudge
+  %%@ node t_list_themes mono=LT color=roarGolden motion=nudge
+  %%@ node t_clone_site mono=CS color=roarGolden motion=nudge
+  %%@ node t_login mono=L color=roarGolden motion=nudge
+  %%@ node t_logout mono=L color=roarGolden motion=nudge
+  %%@ node t_whoami mono=W color=roarGolden motion=nudge
+  %%@ node t_get_server_info mono=GSI color=roarGolden motion=nudge
+  %%@ node t_import_document mono=ID color=roarGolden motion=nudge
+  %%@ node t_create_site_from_document mono=CSFD color=roarGolden motion=nudge
+  %%@ node t_create_site_from_platform mono=CSFP color=roarGolden motion=nudge
+  %%@ node t_create_site_from_skeleton mono=CSFS color=roarGolden motion=nudge
+  %%@ node t_archive_site mono=AS color=roarGolden motion=nudge
+  %%@ node t_add_image_from_file mono=AIFF color=roarGolden motion=nudge
+  %%@ node tag_actions portal=openapi
+  %%@ node tag_blocks portal=openapi
+  %%@ node tag_content portal=openapi
+  %%@ node tag_custom_elements portal=openapi
+  %%@ node tag_files portal=openapi
+  %%@ node tag_items portal=openapi
+  %%@ node tag_lifecycle portal=openapi
+  %%@ node tag_schemas portal=openapi
+  %%@ node tag_search portal=openapi
+  %%@ node tag_session portal=openapi
+  %%@ node tag_settings portal=openapi
+  %%@ node tag_site portal=openapi
+  %%@ node tag_tags portal=openapi
+  %%@ node traveler portal

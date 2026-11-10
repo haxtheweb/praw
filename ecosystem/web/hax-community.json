@@ -1,0 +1,285 @@
+{
+ "meta": {
+  "name": "Community and governance",
+  "parent": "main",
+  "noTimeline": true,
+  "sectionLabels": {
+   "step": "how a decision is made",
+   "doc": "the rules",
+   "channel": "templates and labels"
+  },
+  "about": "How HAX is run, generated from the governance files in the unified issue queue: roles and succession, the four steps every decision goes through, the documents every repo keeps, and the places people meet.",
+  "kindLabels": {
+   "rel": "roles, steps and documents",
+   "schema": "what a step relies on"
+  }
+ },
+ "nodes": {
+  "community": {
+   "always": true
+  },
+  "cg_contributors": {
+   "desc": "Anyone who files issues, submits pull requests, reviews, writes docs or translations, or helps on Discord. Maintainership is earned through contribution, not granted by affiliation; six months inactive and a maintainer is thanked and can return the same way.",
+   "source": {
+    "label": "GOVERNANCE.md",
+    "url": "https://github.com/haxtheweb/issues/blob/main/GOVERNANCE.md"
+   }
+  },
+  "cg_discord": {
+   "desc": "The HAXTheWeb Discord: real-time help and discussion. Decisions made here are written back to an issue.",
+   "links": {
+    "site": "https://discord.gg/aCGxmRHEJP"
+   },
+   "source": {
+    "label": "SUPPORT.md",
+    "url": "https://github.com/haxtheweb/issues/blob/main/SUPPORT.md"
+   }
+  },
+  "billrose": {
+   "note": "Backup owner: the second name in every CODEOWNERS file; takes over merges and releases if the primary maintainer is away."
+  },
+  "bryan": {
+   "note": "Primary maintainer: holds the * slot in every CODEOWNERS file, merges, cuts releases and breaks ties."
+  },
+  "psu": {
+   "note": "Institutional steward: employs the primary maintainer, holds the copyright and keeps the infrastructure going."
+  },
+  "cg_d1": {
+   "desc": "Anyone can open an issue in the unified queue; it is the single source of truth for the whole ecosystem.",
+   "kind": "step",
+   "source": {
+    "label": "GOVERNANCE.md",
+    "url": "https://github.com/haxtheweb/issues/blob/main/GOVERNANCE.md"
+   }
+  },
+  "cg_d2": {
+   "desc": "Discussion happens on the issue. Larger work gets a written plan as a comment, labeled Plan Created.",
+   "kind": "step",
+   "source": {
+    "label": "GOVERNANCE.md",
+    "url": "https://github.com/haxtheweb/issues/blob/main/GOVERNANCE.md"
+   }
+  },
+  "cg_d3": {
+   "desc": "Work lands as a pull request that says which issue it fixes, through CLA, CodeQL and review.",
+   "kind": "step",
+   "source": {
+    "label": "GOVERNANCE.md",
+    "url": "https://github.com/haxtheweb/issues/blob/main/GOVERNANCE.md"
+   }
+  },
+  "cg_d4": {
+   "desc": "Breaking changes are called out on the issue and in release notes; decisions made on Discord or in person are written back to an issue.",
+   "kind": "step",
+   "source": {
+    "label": "GOVERNANCE.md",
+    "url": "https://github.com/haxtheweb/issues/blob/main/GOVERNANCE.md"
+   }
+  },
+  "cg_governance": {
+   "desc": "Roles, how decisions are made, the maintainer lifecycle, succession, conflicts of interest and a yearly governance review. In webcomponents, haxcms-nodejs, haxcms-php, create, praw, issues.",
+   "kind": "doc",
+   "links": {
+    "doc": "https://github.com/haxtheweb/issues/blob/main/GOVERNANCE.md"
+   }
+  },
+  "cg_contributing": {
+   "desc": "How to contribute: an issue first, then a pull request that says which issue it fixes. In webcomponents, haxcms-nodejs, haxcms-php, create, praw, issues.",
+   "kind": "doc",
+   "links": {
+    "doc": "https://github.com/haxtheweb/issues/blob/main/CONTRIBUTING.md"
+   }
+  },
+  "cg_conduct": {
+   "desc": "The code of conduct every space follows. In webcomponents, haxcms-nodejs, haxcms-php, create, praw, issues.",
+   "kind": "doc",
+   "links": {
+    "doc": "https://github.com/haxtheweb/issues/blob/main/CODE_OF_CONDUCT.md"
+   }
+  },
+  "cg_security": {
+   "desc": "How to report a vulnerability privately, and the incident response that follows (INCIDENT_RESPONSE.md). In webcomponents, haxcms-nodejs, haxcms-php, create, praw, issues.",
+   "kind": "doc",
+   "links": {
+    "doc": "https://github.com/haxtheweb/issues/blob/main/SECURITY.md"
+   }
+  },
+  "cg_support": {
+   "desc": "Where to get help: Discord, the documentation, then the unified issue queue. In webcomponents, haxcms-nodejs, haxcms-php, create, praw, issues.",
+   "kind": "doc",
+   "links": {
+    "doc": "https://github.com/haxtheweb/issues/blob/main/SUPPORT.md"
+   }
+  },
+  "cg_sustain": {
+   "desc": "How HAX is resourced: Penn State employment and student interns, hosting partnerships, grants and community contributions; what free support covers. In webcomponents, haxcms-nodejs, haxcms-php, create, praw, issues.",
+   "kind": "doc",
+   "links": {
+    "doc": "https://github.com/haxtheweb/issues/blob/main/SUSTAINABILITY.md"
+   }
+  },
+  "cg_trademark": {
+   "desc": "How the HAX name and marks may be used. In webcomponents, haxcms-nodejs, haxcms-php, create, praw, issues.",
+   "kind": "doc",
+   "links": {
+    "doc": "https://github.com/haxtheweb/issues/blob/main/TRADEMARK.md"
+   }
+  },
+  "cg_agents": {
+   "desc": "Rules for AI agents and people working in each repo: lint, precheck and the conventions the code keeps. In webcomponents, haxcms-nodejs, haxcms-php, create, issues.",
+   "kind": "doc",
+   "links": {
+    "doc": "https://github.com/haxtheweb/issues/blob/main/AGENTS.md"
+   }
+  },
+  "cg_cla": {
+   "desc": "Apache-2.0 plus a contributor license agreement; CLA Assistant runs on every repo and signatures live in haxtheweb/cla. In webcomponents.",
+   "kind": "doc",
+   "links": {
+    "doc": "https://github.com/haxtheweb/webcomponents/blob/master/CLA.md"
+   }
+  },
+  "cg_t_bug_report_yml": {
+   "desc": "Issue template: bug report.",
+   "links": {
+    "code": "https://github.com/haxtheweb/issues/blob/main/.github/ISSUE_TEMPLATE/bug_report.yml"
+   },
+   "kind": "channel"
+  },
+  "cg_t_feature_request_yml": {
+   "desc": "Issue template: feature request.",
+   "links": {
+    "code": "https://github.com/haxtheweb/issues/blob/main/.github/ISSUE_TEMPLATE/feature_request.yml"
+   },
+   "kind": "channel"
+  },
+  "cg_l_community": {
+   "desc": "Issue label \"Community\" in the unified queue (24 labels in all).",
+   "links": {
+    "issues": "https://github.com/haxtheweb/issues/issues?q=label%3A%22Community%22"
+   },
+   "kind": "channel"
+  },
+  "cg_l_design_challenge": {
+   "desc": "Issue label \"Design Challenge\" in the unified queue (24 labels in all).",
+   "links": {
+    "issues": "https://github.com/haxtheweb/issues/issues?q=label%3A%22Design+Challenge%22"
+   },
+   "kind": "channel"
+  },
+  "cg_l_documentation": {
+   "desc": "Issue label \"Documentation\" in the unified queue (24 labels in all).",
+   "links": {
+    "issues": "https://github.com/haxtheweb/issues/issues?q=label%3A%22Documentation%22"
+   },
+   "kind": "channel"
+  },
+  "cg_l_good_first_issue": {
+   "desc": "Issue label \"Good first issue\" in the unified queue (24 labels in all).",
+   "links": {
+    "issues": "https://github.com/haxtheweb/issues/issues?q=label%3A%22Good+first+issue%22"
+   },
+   "kind": "channel"
+  },
+  "cg_l_help_wanted": {
+   "desc": "Issue label \"Help Wanted\" in the unified queue (24 labels in all).",
+   "links": {
+    "issues": "https://github.com/haxtheweb/issues/issues?q=label%3A%22Help+Wanted%22"
+   },
+   "kind": "channel"
+  },
+  "cg_l_pillars_values": {
+   "desc": "Issue label \"Pillars / Values\" in the unified queue (24 labels in all).",
+   "links": {
+    "issues": "https://github.com/haxtheweb/issues/issues?q=label%3A%22Pillars+%2F+Values%22"
+   },
+   "kind": "channel"
+  },
+  "cg_l_plan_created": {
+   "desc": "Issue label \"Plan Created\" in the unified queue (24 labels in all).",
+   "links": {
+    "issues": "https://github.com/haxtheweb/issues/issues?q=label%3A%22Plan+Created%22"
+   },
+   "kind": "channel"
+  },
+  "cg_l_research_ideas": {
+   "desc": "Issue label \"Research / Ideas\" in the unified queue (24 labels in all).",
+   "links": {
+    "issues": "https://github.com/haxtheweb/issues/issues?q=label%3A%22Research+%2F+Ideas%22"
+   },
+   "kind": "channel"
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "community",
+   "label": "How HAX is run",
+   "message": "Roles, how a decision is made, the rules in writing, and where people meet.",
+   "scenes": [
+    {
+     "caption": "A primary maintainer, a backup owner, Penn State as steward, and contributors.",
+     "nodes": [
+      "bryan",
+      "billrose",
+      "psu",
+      "cg_contributors"
+     ]
+    },
+    {
+     "caption": "1. Open an issue. Anyone can open an issue in the unified queue; it is the single source of truth for the whole ecosystem.",
+     "nodes": [
+      "cg_d1"
+     ]
+    },
+    {
+     "caption": "2. Discuss and plan. Discussion happens on the issue. Larger work gets a written plan as a comment, labeled Plan Created.",
+     "nodes": [
+      "cg_d2"
+     ]
+    },
+    {
+     "caption": "3. Pull request. Work lands as a pull request that says which issue it fixes, through CLA, CodeQL and review.",
+     "nodes": [
+      "cg_d3"
+     ]
+    },
+    {
+     "caption": "4. Record it. Breaking changes are called out on the issue and in release notes; decisions made on Discord or in person are written back to an issue.",
+     "nodes": [
+      "cg_d4"
+     ]
+    },
+    {
+     "caption": "The rules, in writing, in every repo.",
+     "nodes": [
+      "cg_governance",
+      "cg_contributing",
+      "cg_conduct",
+      "cg_security",
+      "cg_support",
+      "cg_sustain",
+      "cg_trademark",
+      "cg_agents",
+      "cg_cla"
+     ]
+    },
+    {
+     "caption": "Where people meet: Discord, Learn HAX, HAX Camp and the issue queue.",
+     "nodes": [
+      "cg_discord",
+      "learnhax",
+      "haxcamp",
+      "issues",
+      "cg_t_bug_report_yml",
+      "cg_t_feature_request_yml"
+     ]
+    },
+    {
+     "caption": "All of it.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

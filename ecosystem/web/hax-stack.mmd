@@ -1,0 +1,98 @@
+%% Web component stack sub-web: what a HAX element is built on, from HTML up to the HAX layer, and where people learn it.
+%% Portals: ids from hax-ecosystem.mmd. Details in hax-stack.json.
+flowchart TB
+  %%@ layout rings=0,220,440,660,880 sizes=92,72,62,58,52
+  subgraph hub ["Web component standard"]
+    wcstandard["wcstandard"]
+  end
+  subgraph web ["The web platform"]
+    html["HTML"]
+    css["CSS"]
+    js["JavaScript"]
+  end
+  subgraph std ["Web component standards and Lit"]
+    customel["Custom Elements"]
+    shadow["Shadow DOM"]
+    slots["Templates and slots"]
+    esm["ES modules"]
+    lit["Lit"]
+  end
+  subgraph hax ["The HAX layer"]
+    simpleicon["simple-icon"]
+    schemabeh["SchemaBehaviors"]
+    ddd["ddd"]
+    haxschema["haxschema"]
+    languages["languages"]
+    components["components"]
+  end
+  subgraph tools ["Tools that build, test and ship one, and where people learn it"]
+    cli["cli"]
+    testing["testing"]
+    ubiquity["ubiquity"]
+    ssr["ssr"]
+    ist256["ist256"]
+    haxcamp["haxcamp"]
+    docs["docs"]
+  end
+
+  wcstandard -->|is written in| html
+  wcstandard -->|is written in| css
+  wcstandard -->|is written in| js
+  customel -->|builds on| js
+  shadow -->|builds on| html
+  shadow -->|scopes| css
+  slots -->|builds on| html
+  esm -->|builds on| js
+  wcstandard -->|defines| customel
+  wcstandard -->|defines| shadow
+  wcstandard -->|defines| slots
+  lit -->|builds on| customel
+  lit -->|builds on| shadow
+  lit -->|renders through| slots
+  lit -->|ships as| esm
+  components -->|extend| lit
+  components -->|load as| esm
+  ddd -->|styles through| css
+  components -->|style with| ddd
+  haxschema -.->|describes| components
+  languages -->|translate| components
+  simpleicon -->|draws icons in| components
+  schemabeh -.->|adds metadata to| components
+  cli -->|scaffolds| components
+  cli -->|audits against| ddd
+  cli -->|audits against| haxschema
+  testing -->|tests| components
+  ubiquity -->|builds and releases| components
+  ssr -->|server-renders| components
+  ist256 -->|teaches| wcstandard
+  ist256 -->|teaches| lit
+  haxcamp -->|teaches| wcstandard
+  docs -->|documents| wcstandard
+
+  %%@ group hub tier=0
+  %%@ group web tier=1
+  %%@ group std tier=2
+  %%@ group hax tier=3
+  %%@ group tools tier=4
+  %%@ node wcstandard portal
+  %%@ node html mono=HTML color=inventOrange motion=lift
+  %%@ node css mono=CSS color=skyBlue motion=lift
+  %%@ node js mono=JS color=keystoneYellow motion=lift
+  %%@ node customel icon=hax:html-code color=wonderPurple motion=lift
+  %%@ node shadow icon=icons:code color=wonderPurple motion=lift
+  %%@ node slots icon=hax:format-textblock color=wonderPurple motion=lift
+  %%@ node esm icon=hax:code-json color=wonderPurple motion=lift
+  %%@ node lit mono=Lit color=beaverBlue motion=lift
+  %%@ node simpleicon icon=hax:hax2022 color=creekTeal motion=lift
+  %%@ node schemabeh icon=hax:code-json color=athertonViolet motion=lift
+  %%@ node ddd portal
+  %%@ node haxschema portal
+  %%@ node languages portal
+  %%@ node components portal
+  %%@ node cli portal
+  %%@ node testing portal
+  %%@ node ubiquity portal
+  %%@ node ssr portal
+  %%@ node ist256 portal
+  %%@ node haxcamp portal
+  %%@ node docs portal=skeletons

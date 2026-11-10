@@ -1,0 +1,554 @@
+%% OpenAPI sub-web: every endpoint HAXcms promises, grouped by tag, generated from site-spec.yaml and system-spec.yaml (identical in haxcms-nodejs and haxcms-php).
+%% Portals: ids from hax-ecosystem.mmd. Regenerate with build_generated.py after a release; details in hax-openapi.json.
+flowchart TB
+  %%@ layout rings=0,230,470,760 sizes=92,66,58,34
+  subgraph hub ["OpenAPI"]
+    openapi[("openapi")]
+  end
+  subgraph specs ["The two spec files"]
+    spec_site[("site-spec.yaml")]
+    spec_system[("system-spec.yaml")]
+  end
+  subgraph tagsg ["Areas (tags)"]
+    tag_discovery["discovery"]
+    tag_site["site"]
+    tag_reports["reports"]
+    tag_items["items"]
+    tag_entities["entities"]
+    tag_schemas["schemas"]
+    tag_content["content"]
+    tag_files["files"]
+    tag_tags["tags"]
+    tag_search["search"]
+    tag_custom_elements["custom-elements"]
+    tag_blocks["blocks"]
+    tag_regions["regions"]
+    tag_themes["themes"]
+    tag_analytics["analytics"]
+    tag_views["views"]
+    tag_session["session"]
+    tag_lifecycle["lifecycle"]
+    tag_settings["settings"]
+    tag_actions["actions"]
+  end
+  subgraph opsg ["Operations"]
+    op_getsiteapidiscovery["GET /x/api"]
+    op_getsiteopenapi["GET /x/api/openapi"]
+    op_getsiteopenapijson["GET /x/api/openapi.json"]
+    op_getsiteopenapiyaml["GET /x/api/openapi.yaml"]
+    op_getapicatalog["GET /.well-known/api-catalog"]
+    op_getsitesummary["GET /x/api/v1/site"]
+    op_updatesitesummary["PATCH /x/api/v1/site"]
+    op_updatesitealternativeformats["POST /x/api/v1/site/updateAlternativeFormats"]
+    op_checksitelinks["POST /x/api/v1/site/check-links"]
+    op_updatesiteappearance["PATCH /x/api/v1/site/appearance"]
+    op_updatesiteplatform["PATCH /x/api/v1/site/platform"]
+    op_updatesiteallowedblocks["PATCH /x/api/v1/site/blocks"]
+    op_updatesiteeditorsettings["PATCH /x/api/v1/site/editor"]
+    op_updatesiteseo["PATCH /x/api/v1/site/seo"]
+    op_updatesiteoutline["PATCH /x/api/v1/site/outline"]
+    op_normalizesiteslugs["POST /x/api/v1/site/normalize-slugs"]
+    op_downloaditemexport["GET /x/api/v1/items/{idOrSlug}/export/{format}"]
+    op_listentitydescriptors["GET /x/api/v1/entities"]
+    op_listschemas["GET /x/api/v1/schemas"]
+    op_listitems["GET /x/api/v1/items"]
+    op_createitem["POST /x/api/v1/items"]
+    op_getsiteexport["GET /x/api/v1/site/export/{format}"]
+    op_createsiteexport["POST /x/api/v1/site/export/{format}"]
+    op_getitembyidorslug["GET /x/api/v1/items/{idOrSlug}"]
+    op_updateitem["PATCH /x/api/v1/items/{idOrSlug}"]
+    op_deleteitem["DELETE /x/api/v1/items/{idOrSlug}"]
+    op_listitemrevisions["GET /x/api/v1/items/{idOrSlug}/revisions"]
+    op_getitemrevisionbyid["GET /x/api/v1/items/{idOrSlug}/revisions/{revisionId}"]
+    op_compareitemrevisions["GET /x/api/v1/items/{idOrSlug}/revisions/{revisionId}/compare/{compareRevisionId}"]
+    op_restoreitemrevision["POST /x/api/v1/items/{idOrSlug}/revisions/{revisionId}/restore"]
+    op_listcontent["GET /x/api/v1/content"]
+    op_replacecontent["PATCH /x/api/v1/content"]
+    op_getcontentbyidorslug["GET /x/api/v1/content/{idOrSlug}"]
+    op_updatecontentbyidorslug["PATCH /x/api/v1/content/{idOrSlug}"]
+    op_listfiles["GET /x/api/v1/files"]
+    op_createfile["POST /x/api/v1/files"]
+    op_getfilebyuuid["GET /x/api/v1/files/{fileUuid}"]
+    op_updatefilebyuuid["PATCH /x/api/v1/files/{fileUuid}"]
+    op_deletefilebyuuid["DELETE /x/api/v1/files/{fileUuid}"]
+    op_listtags["GET /x/api/v1/tags"]
+    op_searchcontent["GET /x/api/v1/search"]
+    op_listcustomelements["GET /x/api/v1/custom-elements"]
+    op_getcustomelementbyname["GET /x/api/v1/custom-elements/{webcomponentName}"]
+    op_listblocks["GET /x/api/v1/blocks"]
+    op_getblockbyname["GET /x/api/v1/blocks/{webcomponentName}"]
+    op_listregions["GET /x/api/v1/regions"]
+    op_getregionbyname["GET /x/api/v1/regions/{regionName}"]
+    op_listthemes["GET /x/api/v1/themes"]
+    op_getactivetheme["GET /x/api/v1/themes/active"]
+    op_getthemebyname["GET /x/api/v1/themes/{themeName}"]
+    op_listreports["GET /x/api/v1/reports"]
+    op_getreportbyname["GET /x/api/v1/reports/{report}"]
+    op_getanalyticscapabilities["GET /x/api/v1/analytics"]
+    op_listviews["GET /x/api/v1/views"]
+    op_getviewbyid["GET /x/api/v1/views/{viewId}"]
+    op_getviewresults["GET /x/api/v1/views/{viewId}/results"]
+    op_listdisplaysalias["GET /x/api/v1/displays"]
+    op_getdisplayresultsalias["GET /x/api/v1/displays/{viewId}/results"]
+    op_getblockusage["GET /x/api/v1/blocks/{webcomponentName}/usage"]
+    op_systemapidiscovery["GET /system/api/v1"]
+    op_systemopenapi["GET /system/api/v1/openapi"]
+    op_systemopenapijson["GET /system/api/v1/openapi.json"]
+    op_systemopenapiyaml["GET /system/api/v1/openapi.yaml"]
+    op_sessionlogin["POST /system/api/v1/session/login"]
+    op_sessionauthget["GET /system/api/v1/session"]
+    op_sessionauthpost["POST /system/api/v1/session"]
+    op_sessionlogout["POST /system/api/v1/session/logout"]
+    op_sessionrefreshget["GET /system/api/v1/session/refresh"]
+    op_sessionrefreshpost["POST /system/api/v1/session/refresh"]
+    op_sessionuserget["GET /system/api/v1/session/user"]
+    op_sessionuserpost["POST /system/api/v1/session/user"]
+    op_sessionconnectionsettingsget["GET /system/api/v1/session/connection-settings"]
+    op_sessionconnectionsettingspost["POST /system/api/v1/session/connection-settings"]
+    op_sessionconnectiontestget["GET /system/api/v1/session/connection-test"]
+    op_sessionconnectiontestpost["POST /system/api/v1/session/connection-test"]
+    op_listsites["GET /system/api/v1/sites"]
+    op_createsite["POST /system/api/v1/sites"]
+    op_siteinfoget["GET /system/api/v1/sites/{siteName}"]
+    op_siteinfopost["POST /system/api/v1/sites/{siteName}"]
+    op_clonesite["POST /system/api/v1/sites/{siteName}/clone"]
+    op_archivesite["POST /system/api/v1/sites/{siteName}/archive"]
+    op_downloadsite["POST /system/api/v1/sites/{siteName}/download"]
+    op_downloadsiteskeleton["POST /system/api/v1/sites/{siteName}/download-skeleton"]
+    op_savesiteastemplate["POST /system/api/v1/sites/{siteName}/save-as-template"]
+    op_generateappstore["GET /system/api/v1/integrations/app-store"]
+    op_searchappstoreprovider["GET /system/api/v1/integrations/app-store/providers/{provider}/search"]
+    op_haxiamadduseraccess["POST /system/api/v1/haxiamAddUserAccess"]
+    op_systemstatusget["GET /system/api/v1/status"]
+    op_systemstatuspost["POST /system/api/v1/status"]
+    op_systemversionget["GET /system/api/v1/system/version"]
+    op_systemversionpost["POST /system/api/v1/system/version"]
+    op_systementitiesget["GET /system/api/v1/entities"]
+    op_systementitiespost["POST /system/api/v1/entities"]
+    op_systemschemasget["GET /system/api/v1/schemas"]
+    op_systemschemaspost["POST /system/api/v1/schemas"]
+    op_getapikeys["GET /system/api/v1/configuration/api-keys"]
+    op_getapikeyspost["POST /system/api/v1/configuration/api-keys"]
+    op_saveapikeyspatch["PATCH /system/api/v1/configuration/api-keys"]
+    op_getmediasettings["GET /system/api/v1/configuration/media"]
+    op_getmediasettingspost["POST /system/api/v1/configuration/media"]
+    op_savemediasettingspatch["PATCH /system/api/v1/configuration/media"]
+    op_getlocalizationsettings["GET /system/api/v1/configuration/localization"]
+    op_getlocalizationsettingspost["POST /system/api/v1/configuration/localization"]
+    op_savelocalizationsettingspatch["PATCH /system/api/v1/configuration/localization"]
+    op_schemafileoperation["POST /system/api/v1/configuration/schema-files/operations"]
+    op_systemblocksget["GET /system/api/v1/blocks"]
+    op_systemblockspost["POST /system/api/v1/blocks"]
+    op_saveenabledblockspatch["PATCH /system/api/v1/blocks"]
+    op_systemskeletonsget["GET /system/api/v1/skeletons"]
+    op_systemskeletonspost["POST /system/api/v1/skeletons"]
+    op_saveenabledskeletonspatch["PATCH /system/api/v1/skeletons"]
+    op_systemskeletondetailget["GET /system/api/v1/skeletons/{skeletonName}"]
+    op_systemskeletondetailpatch["PATCH /system/api/v1/skeletons/{skeletonName}"]
+    op_systemskeletondetailput["PUT /system/api/v1/skeletons/{skeletonName}"]
+    op_systemskeletondetaildelete["DELETE /system/api/v1/skeletons/{skeletonName}"]
+    op_systemlanguagesget["GET /system/api/v1/languages"]
+    op_systemlanguageget["GET /system/api/v1/languages/{code}"]
+    op_systemlanguagetranslationsget["GET /system/api/v1/languages/{code}/translations"]
+    op_systemthemesget["GET /system/api/v1/themes"]
+    op_systemthemespost["POST /system/api/v1/themes"]
+    op_saveenabledthemespatch["PATCH /system/api/v1/themes"]
+    op_docxtohtml["POST /system/api/v1/actions/docx-to-html"]
+    op_importdocx["POST /system/api/v1/actions/import-docx"]
+    op_importpptx["POST /system/api/v1/actions/import-pptx"]
+    op_importhtml["POST /system/api/v1/actions/import-html"]
+    op_importxlsx["POST /system/api/v1/actions/import-xlsx"]
+    op_importpdf["POST /system/api/v1/actions/import-pdf"]
+    op_htmltodocx["POST /system/api/v1/actions/html-to-docx"]
+    op_mdtohtml["POST /system/api/v1/actions/md-to-html"]
+    op_htmltomd["POST /system/api/v1/actions/html-to-md"]
+    op_prettyhtml["POST /system/api/v1/actions/pretty-html"]
+    op_jsontoyaml["POST /system/api/v1/actions/json-to-yaml"]
+    op_yamltojson["POST /system/api/v1/actions/yaml-to-json"]
+    op_htmltopdf["POST /system/api/v1/actions/html-to-pdf"]
+    op_xlsxtocsv["POST /system/api/v1/actions/xlsx-to-csv"]
+    op_pdftohtml["POST /system/api/v1/actions/pdf-to-html"]
+    op_pptxtohtml["POST /system/api/v1/actions/pptx-to-html"]
+    op_docxtopdf["POST /system/api/v1/actions/docx-to-pdf"]
+    op_haxcmstosite["POST /system/api/v1/site/import/haxcms"]
+    op_htmltosite["POST /system/api/v1/site/import/html"]
+    op_pressbookstosite["POST /system/api/v1/site/import/pressbooks"]
+    op_gitbooktosite["POST /system/api/v1/site/import/gitbook"]
+    op_notiontosite["POST /system/api/v1/site/import/notion"]
+    op_wordpresstosite["POST /system/api/v1/site/import/wordpress"]
+    op_elmslntosite["POST /system/api/v1/site/import/elmsln"]
+    op_drupaltosite["POST /system/api/v1/site/import/drupal"]
+    op_plonetosite["POST /system/api/v1/site/import/plone"]
+    op_vitepresstosite["POST /system/api/v1/site/import/vitepress"]
+    op_quartotosite["POST /system/api/v1/site/import/quarto"]
+    op_openstaxtosite["POST /system/api/v1/site/import/openstax"]
+    op_siteimportbyplatform["POST /system/api/v1/site/import/{platform}"]
+  end
+  subgraph who ["Who implements and calls it"]
+    php["php"]
+    nodejs["nodejs"]
+    mcp["mcp"]
+    cli["cli"]
+  end
+
+  openapi -.->|is written as| spec_site
+  openapi -.->|is written as| spec_system
+  spec_site -->|groups| tag_discovery
+  spec_site -->|groups| tag_site
+  spec_site -->|groups| tag_reports
+  spec_site -->|groups| tag_items
+  spec_site -->|groups| tag_entities
+  spec_site -->|groups| tag_schemas
+  spec_site -->|groups| tag_content
+  spec_site -->|groups| tag_files
+  spec_site -->|groups| tag_tags
+  spec_site -->|groups| tag_search
+  spec_site -->|groups| tag_custom_elements
+  spec_site -->|groups| tag_blocks
+  spec_site -->|groups| tag_regions
+  spec_site -->|groups| tag_themes
+  spec_site -->|groups| tag_analytics
+  spec_site -->|groups| tag_views
+  spec_system -->|groups| tag_session
+  spec_system -->|groups| tag_lifecycle
+  spec_system -->|groups| tag_settings
+  spec_system -->|groups| tag_actions
+  tag_discovery -->|offers| op_getsiteapidiscovery
+  tag_discovery -->|offers| op_getsiteopenapi
+  tag_discovery -->|offers| op_getsiteopenapijson
+  tag_discovery -->|offers| op_getsiteopenapiyaml
+  tag_discovery -->|offers| op_getapicatalog
+  tag_site -->|offers| op_getsitesummary
+  tag_site -->|offers| op_updatesitesummary
+  tag_site -->|offers| op_updatesitealternativeformats
+  tag_reports -->|offers| op_checksitelinks
+  tag_site -->|offers| op_updatesiteappearance
+  tag_site -->|offers| op_updatesiteplatform
+  tag_site -->|offers| op_updatesiteallowedblocks
+  tag_site -->|offers| op_updatesiteeditorsettings
+  tag_site -->|offers| op_updatesiteseo
+  tag_site -->|offers| op_updatesiteoutline
+  tag_site -->|offers| op_normalizesiteslugs
+  tag_items -->|offers| op_downloaditemexport
+  tag_entities -->|offers| op_listentitydescriptors
+  tag_schemas -->|offers| op_listschemas
+  tag_items -->|offers| op_listitems
+  tag_items -->|offers| op_createitem
+  tag_site -->|offers| op_getsiteexport
+  tag_site -->|offers| op_createsiteexport
+  tag_items -->|offers| op_getitembyidorslug
+  tag_items -->|offers| op_updateitem
+  tag_items -->|offers| op_deleteitem
+  tag_items -->|offers| op_listitemrevisions
+  tag_items -->|offers| op_getitemrevisionbyid
+  tag_items -->|offers| op_compareitemrevisions
+  tag_items -->|offers| op_restoreitemrevision
+  tag_content -->|offers| op_listcontent
+  tag_content -->|offers| op_replacecontent
+  tag_content -->|offers| op_getcontentbyidorslug
+  tag_content -->|offers| op_updatecontentbyidorslug
+  tag_files -->|offers| op_listfiles
+  tag_files -->|offers| op_createfile
+  tag_files -->|offers| op_getfilebyuuid
+  tag_files -->|offers| op_updatefilebyuuid
+  tag_files -->|offers| op_deletefilebyuuid
+  tag_tags -->|offers| op_listtags
+  tag_search -->|offers| op_searchcontent
+  tag_custom_elements -->|offers| op_listcustomelements
+  tag_custom_elements -->|offers| op_getcustomelementbyname
+  tag_blocks -->|offers| op_listblocks
+  tag_blocks -->|offers| op_getblockbyname
+  tag_regions -->|offers| op_listregions
+  tag_regions -->|offers| op_getregionbyname
+  tag_themes -->|offers| op_listthemes
+  tag_themes -->|offers| op_getactivetheme
+  tag_themes -->|offers| op_getthemebyname
+  tag_reports -->|offers| op_listreports
+  tag_reports -->|offers| op_getreportbyname
+  tag_analytics -->|offers| op_getanalyticscapabilities
+  tag_views -->|offers| op_listviews
+  tag_views -->|offers| op_getviewbyid
+  tag_views -->|offers| op_getviewresults
+  tag_views -->|offers| op_listdisplaysalias
+  tag_views -->|offers| op_getdisplayresultsalias
+  tag_blocks -->|offers| op_getblockusage
+  tag_discovery -->|offers| op_systemapidiscovery
+  tag_discovery -->|offers| op_systemopenapi
+  tag_discovery -->|offers| op_systemopenapijson
+  tag_discovery -->|offers| op_systemopenapiyaml
+  tag_session -->|offers| op_sessionlogin
+  tag_session -->|offers| op_sessionauthget
+  tag_session -->|offers| op_sessionauthpost
+  tag_session -->|offers| op_sessionlogout
+  tag_session -->|offers| op_sessionrefreshget
+  tag_session -->|offers| op_sessionrefreshpost
+  tag_session -->|offers| op_sessionuserget
+  tag_session -->|offers| op_sessionuserpost
+  tag_session -->|offers| op_sessionconnectionsettingsget
+  tag_session -->|offers| op_sessionconnectionsettingspost
+  tag_session -->|offers| op_sessionconnectiontestget
+  tag_session -->|offers| op_sessionconnectiontestpost
+  tag_lifecycle -->|offers| op_listsites
+  tag_lifecycle -->|offers| op_createsite
+  tag_lifecycle -->|offers| op_siteinfoget
+  tag_lifecycle -->|offers| op_siteinfopost
+  tag_lifecycle -->|offers| op_clonesite
+  tag_lifecycle -->|offers| op_archivesite
+  tag_lifecycle -->|offers| op_downloadsite
+  tag_lifecycle -->|offers| op_downloadsiteskeleton
+  tag_lifecycle -->|offers| op_savesiteastemplate
+  tag_settings -->|offers| op_generateappstore
+  tag_settings -->|offers| op_searchappstoreprovider
+  tag_settings -->|offers| op_haxiamadduseraccess
+  tag_settings -->|offers| op_systemstatusget
+  tag_settings -->|offers| op_systemstatuspost
+  tag_settings -->|offers| op_systemversionget
+  tag_settings -->|offers| op_systemversionpost
+  tag_settings -->|offers| op_systementitiesget
+  tag_settings -->|offers| op_systementitiespost
+  tag_settings -->|offers| op_systemschemasget
+  tag_settings -->|offers| op_systemschemaspost
+  tag_settings -->|offers| op_getapikeys
+  tag_settings -->|offers| op_getapikeyspost
+  tag_settings -->|offers| op_saveapikeyspatch
+  tag_settings -->|offers| op_getmediasettings
+  tag_settings -->|offers| op_getmediasettingspost
+  tag_settings -->|offers| op_savemediasettingspatch
+  tag_settings -->|offers| op_getlocalizationsettings
+  tag_settings -->|offers| op_getlocalizationsettingspost
+  tag_settings -->|offers| op_savelocalizationsettingspatch
+  tag_settings -->|offers| op_schemafileoperation
+  tag_settings -->|offers| op_systemblocksget
+  tag_settings -->|offers| op_systemblockspost
+  tag_settings -->|offers| op_saveenabledblockspatch
+  tag_settings -->|offers| op_systemskeletonsget
+  tag_settings -->|offers| op_systemskeletonspost
+  tag_settings -->|offers| op_saveenabledskeletonspatch
+  tag_settings -->|offers| op_systemskeletondetailget
+  tag_settings -->|offers| op_systemskeletondetailpatch
+  tag_settings -->|offers| op_systemskeletondetailput
+  tag_settings -->|offers| op_systemskeletondetaildelete
+  tag_settings -->|offers| op_systemlanguagesget
+  tag_settings -->|offers| op_systemlanguageget
+  tag_settings -->|offers| op_systemlanguagetranslationsget
+  tag_settings -->|offers| op_systemthemesget
+  tag_settings -->|offers| op_systemthemespost
+  tag_settings -->|offers| op_saveenabledthemespatch
+  tag_actions -->|offers| op_docxtohtml
+  tag_actions -->|offers| op_importdocx
+  tag_actions -->|offers| op_importpptx
+  tag_actions -->|offers| op_importhtml
+  tag_actions -->|offers| op_importxlsx
+  tag_actions -->|offers| op_importpdf
+  tag_actions -->|offers| op_htmltodocx
+  tag_actions -->|offers| op_mdtohtml
+  tag_actions -->|offers| op_htmltomd
+  tag_actions -->|offers| op_prettyhtml
+  tag_actions -->|offers| op_jsontoyaml
+  tag_actions -->|offers| op_yamltojson
+  tag_actions -->|offers| op_htmltopdf
+  tag_actions -->|offers| op_xlsxtocsv
+  tag_actions -->|offers| op_pdftohtml
+  tag_actions -->|offers| op_pptxtohtml
+  tag_actions -->|offers| op_docxtopdf
+  tag_actions -->|offers| op_haxcmstosite
+  tag_actions -->|offers| op_htmltosite
+  tag_actions -->|offers| op_pressbookstosite
+  tag_actions -->|offers| op_gitbooktosite
+  tag_actions -->|offers| op_notiontosite
+  tag_actions -->|offers| op_wordpresstosite
+  tag_actions -->|offers| op_elmslntosite
+  tag_actions -->|offers| op_drupaltosite
+  tag_actions -->|offers| op_plonetosite
+  tag_actions -->|offers| op_vitepresstosite
+  tag_actions -->|offers| op_quartotosite
+  tag_actions -->|offers| op_openstaxtosite
+  tag_actions -->|offers| op_siteimportbyplatform
+  php -.->|implements| openapi
+  nodejs -.->|implements| openapi
+  mcp -.->|calls| openapi
+  cli -.->|calls| openapi
+
+  %%@ group hub tier=0
+  %%@ group specs tier=1
+  %%@ group tagsg tier=2
+  %%@ group opsg tier=3
+  %%@ group who tier=1
+  %%@ node openapi portal
+  %%@ node spec_site icon=hax:code-json color=forestGreen motion=nudge
+  %%@ node spec_system icon=hax:code-json color=forestGreen motion=nudge
+  %%@ node tag_discovery icon=hax:code-json color=creekTeal motion=pop
+  %%@ node tag_site icon=hax:code-json color=creekTeal motion=pop
+  %%@ node tag_reports icon=hax:code-json color=creekTeal motion=pop
+  %%@ node tag_items icon=hax:code-json color=creekTeal motion=pop
+  %%@ node tag_entities icon=hax:code-json color=creekTeal motion=pop
+  %%@ node tag_schemas icon=hax:code-json color=creekTeal motion=pop
+  %%@ node tag_content icon=hax:code-json color=creekTeal motion=pop
+  %%@ node tag_files icon=hax:code-json color=creekTeal motion=pop
+  %%@ node tag_tags icon=hax:code-json color=creekTeal motion=pop
+  %%@ node tag_search icon=hax:code-json color=creekTeal motion=pop
+  %%@ node tag_custom_elements icon=hax:code-json color=creekTeal motion=pop
+  %%@ node tag_blocks icon=hax:code-json color=creekTeal motion=pop
+  %%@ node tag_regions icon=hax:code-json color=creekTeal motion=pop
+  %%@ node tag_themes icon=hax:code-json color=creekTeal motion=pop
+  %%@ node tag_analytics icon=hax:code-json color=creekTeal motion=pop
+  %%@ node tag_views icon=hax:code-json color=creekTeal motion=pop
+  %%@ node tag_session icon=hax:code-json color=beaverBlue motion=pop
+  %%@ node tag_lifecycle icon=hax:code-json color=beaverBlue motion=pop
+  %%@ node tag_settings icon=hax:code-json color=beaverBlue motion=pop
+  %%@ node tag_actions icon=hax:code-json color=beaverBlue motion=pop
+  %%@ node op_getsiteapidiscovery mono=GET color=skyBlue motion=nudge
+  %%@ node op_getsiteopenapi mono=GET color=skyBlue motion=nudge
+  %%@ node op_getsiteopenapijson mono=GET color=skyBlue motion=nudge
+  %%@ node op_getsiteopenapiyaml mono=GET color=skyBlue motion=nudge
+  %%@ node op_getapicatalog mono=GET color=skyBlue motion=nudge
+  %%@ node op_getsitesummary mono=GET color=skyBlue motion=nudge
+  %%@ node op_updatesitesummary mono=PATCH color=roarGolden motion=nudge
+  %%@ node op_updatesitealternativeformats mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_checksitelinks mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_updatesiteappearance mono=PATCH color=roarGolden motion=nudge
+  %%@ node op_updatesiteplatform mono=PATCH color=roarGolden motion=nudge
+  %%@ node op_updatesiteallowedblocks mono=PATCH color=roarGolden motion=nudge
+  %%@ node op_updatesiteeditorsettings mono=PATCH color=roarGolden motion=nudge
+  %%@ node op_updatesiteseo mono=PATCH color=roarGolden motion=nudge
+  %%@ node op_updatesiteoutline mono=PATCH color=roarGolden motion=nudge
+  %%@ node op_normalizesiteslugs mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_downloaditemexport mono=GET color=skyBlue motion=nudge
+  %%@ node op_listentitydescriptors mono=GET color=skyBlue motion=nudge
+  %%@ node op_listschemas mono=GET color=skyBlue motion=nudge
+  %%@ node op_listitems mono=GET color=skyBlue motion=nudge
+  %%@ node op_createitem mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_getsiteexport mono=GET color=skyBlue motion=nudge
+  %%@ node op_createsiteexport mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_getitembyidorslug mono=GET color=skyBlue motion=nudge
+  %%@ node op_updateitem mono=PATCH color=roarGolden motion=nudge
+  %%@ node op_deleteitem mono=DELET color=original87Pink motion=nudge
+  %%@ node op_listitemrevisions mono=GET color=skyBlue motion=nudge
+  %%@ node op_getitemrevisionbyid mono=GET color=skyBlue motion=nudge
+  %%@ node op_compareitemrevisions mono=GET color=skyBlue motion=nudge
+  %%@ node op_restoreitemrevision mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_listcontent mono=GET color=skyBlue motion=nudge
+  %%@ node op_replacecontent mono=PATCH color=roarGolden motion=nudge
+  %%@ node op_getcontentbyidorslug mono=GET color=skyBlue motion=nudge
+  %%@ node op_updatecontentbyidorslug mono=PATCH color=roarGolden motion=nudge
+  %%@ node op_listfiles mono=GET color=skyBlue motion=nudge
+  %%@ node op_createfile mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_getfilebyuuid mono=GET color=skyBlue motion=nudge
+  %%@ node op_updatefilebyuuid mono=PATCH color=roarGolden motion=nudge
+  %%@ node op_deletefilebyuuid mono=DELET color=original87Pink motion=nudge
+  %%@ node op_listtags mono=GET color=skyBlue motion=nudge
+  %%@ node op_searchcontent mono=GET color=skyBlue motion=nudge
+  %%@ node op_listcustomelements mono=GET color=skyBlue motion=nudge
+  %%@ node op_getcustomelementbyname mono=GET color=skyBlue motion=nudge
+  %%@ node op_listblocks mono=GET color=skyBlue motion=nudge
+  %%@ node op_getblockbyname mono=GET color=skyBlue motion=nudge
+  %%@ node op_listregions mono=GET color=skyBlue motion=nudge
+  %%@ node op_getregionbyname mono=GET color=skyBlue motion=nudge
+  %%@ node op_listthemes mono=GET color=skyBlue motion=nudge
+  %%@ node op_getactivetheme mono=GET color=skyBlue motion=nudge
+  %%@ node op_getthemebyname mono=GET color=skyBlue motion=nudge
+  %%@ node op_listreports mono=GET color=skyBlue motion=nudge
+  %%@ node op_getreportbyname mono=GET color=skyBlue motion=nudge
+  %%@ node op_getanalyticscapabilities mono=GET color=skyBlue motion=nudge
+  %%@ node op_listviews mono=GET color=skyBlue motion=nudge
+  %%@ node op_getviewbyid mono=GET color=skyBlue motion=nudge
+  %%@ node op_getviewresults mono=GET color=skyBlue motion=nudge
+  %%@ node op_listdisplaysalias mono=GET color=skyBlue motion=nudge
+  %%@ node op_getdisplayresultsalias mono=GET color=skyBlue motion=nudge
+  %%@ node op_getblockusage mono=GET color=skyBlue motion=nudge
+  %%@ node op_systemapidiscovery mono=GET color=skyBlue motion=nudge
+  %%@ node op_systemopenapi mono=GET color=skyBlue motion=nudge
+  %%@ node op_systemopenapijson mono=GET color=skyBlue motion=nudge
+  %%@ node op_systemopenapiyaml mono=GET color=skyBlue motion=nudge
+  %%@ node op_sessionlogin mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_sessionauthget mono=GET color=skyBlue motion=nudge
+  %%@ node op_sessionauthpost mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_sessionlogout mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_sessionrefreshget mono=GET color=skyBlue motion=nudge
+  %%@ node op_sessionrefreshpost mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_sessionuserget mono=GET color=skyBlue motion=nudge
+  %%@ node op_sessionuserpost mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_sessionconnectionsettingsget mono=GET color=skyBlue motion=nudge
+  %%@ node op_sessionconnectionsettingspost mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_sessionconnectiontestget mono=GET color=skyBlue motion=nudge
+  %%@ node op_sessionconnectiontestpost mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_listsites mono=GET color=skyBlue motion=nudge
+  %%@ node op_createsite mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_siteinfoget mono=GET color=skyBlue motion=nudge
+  %%@ node op_siteinfopost mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_clonesite mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_archivesite mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_downloadsite mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_downloadsiteskeleton mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_savesiteastemplate mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_generateappstore mono=GET color=skyBlue motion=nudge
+  %%@ node op_searchappstoreprovider mono=GET color=skyBlue motion=nudge
+  %%@ node op_haxiamadduseraccess mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_systemstatusget mono=GET color=skyBlue motion=nudge
+  %%@ node op_systemstatuspost mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_systemversionget mono=GET color=skyBlue motion=nudge
+  %%@ node op_systemversionpost mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_systementitiesget mono=GET color=skyBlue motion=nudge
+  %%@ node op_systementitiespost mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_systemschemasget mono=GET color=skyBlue motion=nudge
+  %%@ node op_systemschemaspost mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_getapikeys mono=GET color=skyBlue motion=nudge
+  %%@ node op_getapikeyspost mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_saveapikeyspatch mono=PATCH color=roarGolden motion=nudge
+  %%@ node op_getmediasettings mono=GET color=skyBlue motion=nudge
+  %%@ node op_getmediasettingspost mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_savemediasettingspatch mono=PATCH color=roarGolden motion=nudge
+  %%@ node op_getlocalizationsettings mono=GET color=skyBlue motion=nudge
+  %%@ node op_getlocalizationsettingspost mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_savelocalizationsettingspatch mono=PATCH color=roarGolden motion=nudge
+  %%@ node op_schemafileoperation mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_systemblocksget mono=GET color=skyBlue motion=nudge
+  %%@ node op_systemblockspost mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_saveenabledblockspatch mono=PATCH color=roarGolden motion=nudge
+  %%@ node op_systemskeletonsget mono=GET color=skyBlue motion=nudge
+  %%@ node op_systemskeletonspost mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_saveenabledskeletonspatch mono=PATCH color=roarGolden motion=nudge
+  %%@ node op_systemskeletondetailget mono=GET color=skyBlue motion=nudge
+  %%@ node op_systemskeletondetailpatch mono=PATCH color=roarGolden motion=nudge
+  %%@ node op_systemskeletondetailput mono=PUT color=roarGolden motion=nudge
+  %%@ node op_systemskeletondetaildelete mono=DELET color=original87Pink motion=nudge
+  %%@ node op_systemlanguagesget mono=GET color=skyBlue motion=nudge
+  %%@ node op_systemlanguageget mono=GET color=skyBlue motion=nudge
+  %%@ node op_systemlanguagetranslationsget mono=GET color=skyBlue motion=nudge
+  %%@ node op_systemthemesget mono=GET color=skyBlue motion=nudge
+  %%@ node op_systemthemespost mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_saveenabledthemespatch mono=PATCH color=roarGolden motion=nudge
+  %%@ node op_docxtohtml mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_importdocx mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_importpptx mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_importhtml mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_importxlsx mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_importpdf mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_htmltodocx mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_mdtohtml mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_htmltomd mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_prettyhtml mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_jsontoyaml mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_yamltojson mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_htmltopdf mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_xlsxtocsv mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_pdftohtml mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_pptxtohtml mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_docxtopdf mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_haxcmstosite mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_htmltosite mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_pressbookstosite mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_gitbooktosite mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_notiontosite mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_wordpresstosite mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_elmslntosite mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_drupaltosite mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_plonetosite mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_vitepresstosite mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_quartotosite mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_openstaxtosite mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_siteimportbyplatform mono=POST color=opportunityGreen motion=nudge
+  %%@ node php portal
+  %%@ node nodejs portal
+  %%@ node mcp portal
+  %%@ node cli portal

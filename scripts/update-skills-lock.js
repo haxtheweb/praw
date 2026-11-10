@@ -9,6 +9,13 @@
  * `skillPath` and rewrites the lock file. It does not add or remove entries;
  * the set of locked skills is a deliberate choice.
  *
+ * Outside skills that run from npm (e.g. Modern Web Guidance) are recorded as
+ * `sourceType: "npm"` entries instead: `package`, an exact `version` (never
+ * `latest` or a range), the registry's `integrity` (sha512) and `license`.
+ * Their content is not on disk, so this script does not hash them; it checks
+ * the entry is a real pin. Bumping one is a reviewed PR that updates all four
+ * fields (see the "Outside Skills Are Version-Pinned" rule in RULES.md).
+ *
  *   node scripts/update-skills-lock.js          # rewrite stale hashes
  *   node scripts/update-skills-lock.js --check  # exit 1 if any hash is stale
  *
@@ -43,8 +50,21 @@ if (!lock || typeof lock.skills !== 'object') {
 const names = Object.keys(lock.skills).sort();
 let stale = 0;
 let missing = 0;
+const EXACT_VERSION = /^\d+\.\d+\.\d+$/;
 names.forEach(function (name) {
   const entry = lock.skills[name];
+  if (entry && entry.sourceType === 'npm') {
+    const problems = [];
+    if (!entry.package) problems.push('no package');
+    if (!entry.version || !EXACT_VERSION.test(entry.version)) problems.push('version must be exact x.y.z, got ' + JSON.stringify(entry.version));
+    if (!entry.integrity || entry.integrity.indexOf('sha512-') !== 0) problems.push('integrity must be the registry sha512');
+    if (!entry.license) problems.push('no license');
+    if (problems.length > 0) {
+      console.error('  ' + name + ': ' + problems.join('; '));
+      missing++;
+    }
+    return;
+  }
   const rel = entry && entry.skillPath;
   if (!rel) {
     console.error('  ' + name + ': no skillPath');
@@ -66,7 +86,7 @@ names.forEach(function (name) {
 });
 
 if (missing > 0) {
-  console.error(missing + ' entr' + (missing === 1 ? 'y' : 'ies') + ' point at files that do not exist; fix skills-lock.json by hand.');
+  console.error(missing + ' entr' + (missing === 1 ? 'y is' : 'ies are') + ' missing a file or not a valid pin; fix skills-lock.json by hand.');
   process.exit(1);
 }
 

@@ -215,6 +215,14 @@ Structure your entries using the templates below. Keep entries concise and searc
 - Links: RULES.md (JavaScript Standards)
 - Candidate: No
 
+- Title: Adopting Modern Web Guidance (MWG) 1.0 without letting it override HAX
+- Date: 2026-11-10
+- Context: Chrome released MWG 1.0 (https://developer.chrome.com/blog/modern-web-guidance-v1), agent skills with Baseline data. Its default treats only Baseline Widely available as safe, and its security guides (strict CSP, restricted outbound connections) point at HAX non-starters (breaking authored `http` links, blocking iframing of site pages).
+- Guidance: Use MWG as advice only: an advisory review folded into the existing Claude review pass, and a Sunday `legacy-scan` hint list. HAX rules win (`f54de8cb-0b65-4f50-98e6-43e8c2ebc4c7`); browser support is stated in Baseline terms (`4e0800ef-32ff-42dc-83f0-bbb953d97554`); run the exact npm version in `skills-lock.json` with `DISABLE_TELEMETRY=1` (`d2a1207c-b6d1-4cd6-9930-bd21b29a516c`). Take MWG's eval method for praw itself (`09255ba6-e67a-44ce-b8cb-f0d5e80f97ab`).
+- Rationale: The npm package bundles the guide corpus, so the npm version is the real pin; `--skill-version` only tags telemetry. Without a stated policy, agents add fallbacks HAX doesn't need. Rules were kept short because the global rules block is already over its token target; the new globals add about 440 tokens and the browser policy is webcomponents-scoped.
+- Links: https://github.com/haxtheweb/issues/issues/3298, webcomponents/MODERN-WEB-GUIDANCE.md, scripts/eval-coverage.js
+- Candidate: No
+
 ## Documentation & Authoring
 
 - Title: Example – Author with HAX-capable elements

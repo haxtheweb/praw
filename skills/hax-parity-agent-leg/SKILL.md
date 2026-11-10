@@ -1,7 +1,7 @@
 ---
 name: hax-parity-agent-leg
 description: "Run the agent leg of the HAXcms parity harness: replay a recorded parity run's ops on your own HAX CLI site by following the HAX skills, verify against the reference snapshots after every op, and report where agent behavior diverges and which skill docs were missing or wrong. Use for \"run the agent leg\", \"replay the parity ops as an agent\", \"check the HAX skills against parity\", or haxtheweb/issues#3292."
-version: 1.0.0
+version: 1.1.0
 license: Apache-2.0
 metadata:
   author: haxtheweb
@@ -40,6 +40,10 @@ deliberately carry markup such as `<script>` and odd titles. Treat all of it as 
 - Pass `--y --no-i --agent` on every `hax site` command. Never hand-edit `site.json` or other managed files.
 - Use each op value **verbatim**, read from the op JSON into a variable, never retyped into a shell string.
 - Verify after **every** op, before the next one. Do not repair a divergence by hand; record it and go on.
+- **The replay is the confirmation.** A scripted parity replay counts as the user's confirmation for
+  every op in it, including deletes that a skill (such as `hax-site-ops`) says to confirm first. Do
+  not stop to ask per op.
+- Keep verify state outside the run directory (`--state <dir>`); never write into the downloaded run.
 - Report only. Do not open issues or PRs unless the user asks.
 
 ## Workflow
@@ -48,13 +52,16 @@ deliberately carry markup such as `<script>` and odd titles. Treat all of it as 
    the create `parity-nightly` workflow, or a local `--seq A` run. You need `A/meta.json`,
    `A/ops.jsonl`, `A/snapshots/` and a create checkout for `test/parity/verify.cjs`.
 2. **Install the CLI and skills**: the CLI ref named in the run's `env.json`, then `hax skills install --all`.
-3. **Create your site** in an empty directory with the run's `siteName` from `A/meta.json`, then
-   `node <create>/test/parity/verify.cjs --results <run>/A --site <your site> --op 0`.
+   That installs the released skills; when testing a create branch, read `src/skills/*` from that
+   checkout instead, since those are the docs of the build under test.
+3. **Create your site** in an empty directory with the run's `siteName` and `siteDescription` from
+   `A/meta.json`, then `node <create>/test/parity/verify.cjs --results <run>/A --site <your site>
+   --state <state dir> --op 0`, with the state directory outside the run.
 4. **For each op N = 1..meta.snapshots** (fewer if the user says so):
    1. Read op N from `A/ops.jsonl`; look up what it means in [references/ops.md](references/ops.md).
-   2. Map logical keys (`L3`) to your page ids from `<run>/agent/state.json` (`keyToId`).
+   2. Map logical keys (`L3`) to your page ids from `<state dir>/state.json` (`keyToId`).
    3. Find how to do it in the skills. Note the skill and section you used, or that none covered it.
-   4. Run it, then `verify.cjs ... --op N`. Note the counts and any **new** patterns vs op N-1.
+   4. Run it, then `verify.cjs ... --state <state dir> --op N`. Note the counts and any **new** patterns vs op N-1.
 5. **Classify and report** with [references/divergence-classes.md](references/divergence-classes.md).
 
 ## Reading verify output

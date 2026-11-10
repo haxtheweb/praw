@@ -13,6 +13,7 @@ flowchart TB
     oerschema[("oerschema")]
     xapi[("xapi")]
     openapi[("openapi")]
+    skillsindex[("skillsindex")]
   end
   subgraph files ["Files that conform"]
     sitejson[("site.json")]
@@ -25,6 +26,7 @@ flowchart TB
     systemspec[("system-spec.yaml")]
     xapivocab[("xapi-vocabulary.json")]
     merlinoption[("Merlin options")]
+    skillsjson[(".well-known/agent-skills/index.json")]
     oervocab[("oerschema.org vocabulary")]
   end
   subgraph rw ["Readers and writers"]
@@ -39,6 +41,8 @@ flowchart TB
     mcp["mcp"]
     php["php"]
     nodejs["nodejs"]
+    praw["praw"]
+    traveler["traveler"]
     insights["insights"]
     course["course"]
     mcollins["mcollins"]
@@ -51,6 +55,7 @@ flowchart TB
   contracts -.->|includes| oerschema
   contracts -.->|includes| xapi
   contracts -.->|includes| openapi
+  contracts -.->|includes| skillsindex
   sitejson -.->|conforms to| jos
   josspec -.->|conforms to| jos
   haxprops -.->|conforms to| haxschema
@@ -61,6 +66,7 @@ flowchart TB
   systemspec -.->|conforms to| openapi
   xapivocab -.->|conforms to| xapi
   merlinoption -.->|conforms to| merlin
+  skillsjson -.->|conforms to| skillsindex
   oervocab -.->|conforms to| oerschema
   outline -->|writes| sitejson
   haxcms -->|reads| sitejson
@@ -83,8 +89,12 @@ flowchart TB
   mcp -->|reads| systemspec
   php -->|implements| sitespec
   php -->|implements| systemspec
+  php -->|serves| skillsjson
   nodejs -->|implements| sitespec
   nodejs -->|implements| systemspec
+  nodejs -->|serves| skillsjson
+  praw -->|writes| skillsjson
+  traveler -->|is found through| skillsjson
   insights -->|consumes| xapivocab
   course -->|is described by| oervocab
   mcollins -->|authored| oervocab
@@ -101,6 +111,7 @@ flowchart TB
   %%@ node oerschema portal
   %%@ node xapi portal
   %%@ node openapi portal
+  %%@ node skillsindex portal
   %%@ node sitejson icon=hax:code-json color=creekTeal motion=nudge
   %%@ node josspec icon=hax:code-json color=creekTeal motion=nudge
   %%@ node haxprops icon=hax:code-json color=creekTeal motion=nudge
@@ -111,6 +122,7 @@ flowchart TB
   %%@ node systemspec icon=hax:code-json color=creekTeal motion=nudge
   %%@ node xapivocab icon=hax:code-json color=creekTeal motion=nudge
   %%@ node merlinoption icon=hax:code-json color=creekTeal motion=nudge
+  %%@ node skillsjson icon=hax:code-json color=creekTeal motion=nudge
   %%@ node oervocab icon=hax:code-json color=creekTeal motion=nudge
   %%@ node outline portal=haxcms
   %%@ node haxcms portal
@@ -123,6 +135,8 @@ flowchart TB
   %%@ node mcp portal
   %%@ node php portal
   %%@ node nodejs portal
+  %%@ node praw portal
+  %%@ node traveler portal
   %%@ node insights portal=haxcms
   %%@ node course portal
   %%@ node mcollins portal

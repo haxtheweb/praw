@@ -1,0 +1,265 @@
+{
+ "meta": {
+  "name": "Agent skills index",
+  "parent": "main",
+  "noTimeline": true,
+  "sectionLabels": {
+   "field": "fields",
+   "set": "skill sets",
+   "copy": "files that conform",
+   "tool": "readers and writers"
+  },
+  "about": "The agentskills.io discovery index HAX publishes, generated from PRAW's .well-known/agent-skills and every copy in the two backends: 8 fields, 3 sets, 6 files. Each copy is checked skill by skill against PRAW; 4 are out of step. The skills themselves are in the Future Traveler skills web.",
+  "kindLabels": {
+   "rel": "fields, sets and copies",
+   "schema": "conforms to"
+  },
+  "links": {
+   "spec": "https://github.com/cloudflare/agent-skills-discovery-rfc",
+   "sets": "https://github.com/haxtheweb/praw/blob/main/.well-known/agent-skills/agent-skills-sets.json"
+  }
+ },
+ "nodes": {
+  "skillsindex": {
+   "always": true,
+   "desc": "The agentskills.io discovery index (0.2.0): one JSON file that tells an agent which skills a place offers and where to read each one. PRAW keeps the canonical index of all 52 skills; HAXcms deployment roots carry the system set and every site carries the site set.",
+   "links": {
+    "spec": "https://github.com/cloudflare/agent-skills-discovery-rfc",
+    "index": "https://github.com/haxtheweb/praw/blob/main/.well-known/agent-skills/index.json"
+   }
+  },
+  "f_dollar_schema": {
+   "desc": "The discovery spec the index follows; HAX uses agentskills.io discovery v0.2.0.",
+   "kind": "field"
+  },
+  "f_skills": {
+   "desc": "The list of skills this place offers.",
+   "kind": "field"
+  },
+  "f_name": {
+   "desc": "The skill's name: lowercase letters, digits and hyphens, at most 64 characters. On 52 of 52 skills.",
+   "kind": "field"
+  },
+  "f_type": {
+   "desc": "How the skill is packaged; every HAX skill is skill-md (a SKILL.md with YAML frontmatter). On 52 of 52 skills.",
+   "kind": "field"
+  },
+  "f_description": {
+   "desc": "What the skill does and when to use it, from the SKILL.md frontmatter (at most 1,024 characters). On 52 of 52 skills.",
+   "kind": "field"
+  },
+  "f_url": {
+   "desc": "Where the SKILL.md is, relative to the index, so the same entry works from PRAW, a deployment root or a site. On 52 of 52 skills.",
+   "kind": "field"
+  },
+  "f_digest": {
+   "desc": "The sha256 of the SKILL.md, so a client can tell whether its copy is current. On 52 of 52 skills.",
+   "kind": "field"
+  },
+  "f_files": {
+   "desc": "Not in the spec: the skill's other files (references and the like) with their own digests, so the HAXcms copy step can copy and verify each one. Spec clients ignore it. On 22 of 52 skills.",
+   "kind": "field",
+   "status": "in-progress",
+   "note": "A HAX extension, not part of the discovery spec."
+  },
+  "set_all": {
+   "desc": "Every skill in PRAW: 52. Served from PRAW itself; developer and ecosystem tooling stays here only.",
+   "kind": "set",
+   "links": {
+    "skills": "https://github.com/haxtheweb/praw/blob/main/skills"
+   }
+  },
+  "set_site": {
+   "desc": "Skills shipped to every HAXsite (per-site boilerplate). Curated explicit list — nothing ships to a site unless named here. Site skills are only about using the site itself (structure, authoring, managed files, design system, accessibility). Education-specific skills (UbD, UDL, OER Schema, content chunking, learning-science design and audits) are deliberately excluded because not every HAXsite is instructional; they ship to deployment roots (system) and are always available from praw. 5 skills: hax-a11y-audit, hax-content-authoring, hax-design-system, hax-managed-files, hax-site-structure.",
+   "kind": "set",
+   "links": {
+    "sets": "https://github.com/haxtheweb/praw/blob/main/.well-known/agent-skills/agent-skills-sets.json"
+   }
+  },
+  "set_system": {
+   "desc": "Skills shipped to HAXcms deployment roots (NodeJS app root + PHP root) — a superset of site for an agent operating a HAXcms deployment (creating/managing sites, CLI/plugin operation, rating, code-level schema audits, granular UbD course design, learning-science design and audits). Excludes developer/ecosystem tooling (onboarding, issues, rules, importers, tutorial/audio publishing) which stays in praw only. 25 skills: grad-blooms, hax-a11y-audit, hax-content-authoring, hax-content-chunking-audit, hax-design-system, hax-feedback-design, hax-instructional-events-audit, hax-managed-files, hax-multimedia-principles-audit, hax-practice-and-retrieval, hax-proficiency-scaffolding, hax-reflection-prompts, hax-site-structure, hax-ubd-backward-design, hax-ubd-essential-questions, hax-ubd-grasps, hax-ubd-six-facets, hax-ubd-stage1, hax-ubd-stage2, hax-ubd-stage3, hax-ubd-unit-audit, hax-udl-audit, haxcms-lrs-rater, oerschema-audit, oerschema-integration-finder.",
+   "kind": "set",
+   "links": {
+    "sets": "https://github.com/haxtheweb/praw/blob/main/.well-known/agent-skills/agent-skills-sets.json"
+   }
+  },
+  "praw_index": {
+   "desc": "The canonical index: 52 skills, written by build-agent-skills-index.js.",
+   "kind": "copy",
+   "links": {
+    "file": "https://github.com/haxtheweb/praw/blob/main/.well-known/agent-skills/index.json"
+   }
+  },
+  "praw_full": {
+   "desc": "The same skills with files[] filled in (22 skills have extra files), read by the copy step.",
+   "kind": "copy",
+   "links": {
+    "file": "https://github.com/haxtheweb/praw/blob/main/skills/index.json"
+   }
+  },
+  "nodejs_site": {
+   "desc": "haxcms-nodejs, src/boilerplate/site/.well-known/agent-skills: the site set, 5 skills.",
+   "kind": "copy",
+   "links": {
+    "file": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/boilerplate/site/.well-known/agent-skills/index.json"
+   },
+   "status": "in-progress",
+   "note": "Out of step with PRAW (older than PRAW: hax-a11y-audit, hax-content-authoring). The next ubiquity build's snapshot step refreshes it.",
+   "stale": [
+    "hax-a11y-audit",
+    "hax-content-authoring"
+   ]
+  },
+  "nodejs_system": {
+   "desc": "haxcms-nodejs, .well-known/agent-skills: the system set, 25 skills.",
+   "kind": "copy",
+   "links": {
+    "file": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.well-known/agent-skills/index.json"
+   },
+   "status": "in-progress",
+   "note": "Out of step with PRAW (older than PRAW: hax-a11y-audit, hax-content-authoring). The next ubiquity build's snapshot step refreshes it.",
+   "stale": [
+    "hax-a11y-audit",
+    "hax-content-authoring"
+   ]
+  },
+  "php_site": {
+   "desc": "haxcms-php, system/boilerplate/site/.well-known/agent-skills: the site set, 5 skills.",
+   "kind": "copy",
+   "links": {
+    "file": "https://github.com/haxtheweb/haxcms-php/blob/master/system/boilerplate/site/.well-known/agent-skills/index.json"
+   },
+   "status": "in-progress",
+   "note": "Out of step with PRAW (older than PRAW: hax-a11y-audit, hax-content-authoring). The next ubiquity build's snapshot step refreshes it.",
+   "stale": [
+    "hax-a11y-audit",
+    "hax-content-authoring"
+   ]
+  },
+  "php_system": {
+   "desc": "haxcms-php, .well-known/agent-skills: the system set, 25 skills.",
+   "kind": "copy",
+   "links": {
+    "file": "https://github.com/haxtheweb/haxcms-php/blob/master/.well-known/agent-skills/index.json"
+   },
+   "status": "in-progress",
+   "note": "Out of step with PRAW (older than PRAW: hax-a11y-audit, hax-content-authoring). The next ubiquity build's snapshot step refreshes it.",
+   "stale": [
+    "hax-a11y-audit",
+    "hax-content-authoring"
+   ]
+  },
+  "w_build": {
+   "desc": "Scans PRAW's skills folder, reads each SKILL.md's frontmatter, computes the digests and writes the index.",
+   "kind": "tool",
+   "links": {
+    "code": "https://github.com/haxtheweb/praw/blob/main/scripts/build-agent-skills-index.js"
+   }
+  },
+  "w_snapshot": {
+   "desc": "Copies one set (site or system) into a .well-known/agent-skills folder for the ubiquity build: a filtered index plus every file, each checked against its digest.",
+   "kind": "tool",
+   "links": {
+    "code": "https://github.com/haxtheweb/praw/blob/main/scripts/snapshot-agent-skills.js"
+   }
+  },
+  "w_php": {
+   "desc": "Copies the site set into each new site as a managed file, links it from llms.txt and the page head.",
+   "kind": "tool",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-php/blob/master/system/backend/php/lib/HAXCMSSite.php"
+   }
+  },
+  "w_node": {
+   "desc": "Serves the system set from the deployment root and advertises it in a Link header.",
+   "kind": "tool",
+   "links": {
+    "code": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/app.js"
+   }
+  },
+  "w_cli": {
+   "desc": "Lists the index among a site's managed files, so the CLI keeps it when it rebuilds a site.",
+   "kind": "tool",
+   "links": {
+    "code": "https://github.com/haxtheweb/create/blob/main/src/lib/programs/site.js"
+   }
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "skillsindex",
+   "label": "How an agent finds HAX skills",
+   "kind": "story",
+   "message": "52 skills in PRAW, cut into 2 sets and copied to 4 places; 4 copies are out of step.",
+   "scenes": [
+    {
+     "caption": "The index is one JSON file in .well-known: the spec it follows and a list of skills.",
+     "nodes": [
+      "skillsindex",
+      "f_dollar_schema",
+      "f_skills"
+     ]
+    },
+    {
+     "caption": "Each skill entry carries a name, a description, where to read it and a digest.",
+     "nodes": [
+      "f_name",
+      "f_type",
+      "f_description",
+      "f_url",
+      "f_digest",
+      "f_files"
+     ]
+    },
+    {
+     "caption": "PRAW writes the canonical index from its skills folder.",
+     "nodes": [
+      "w_build",
+      "praw_index",
+      "praw_full",
+      "set_all",
+      "praw"
+     ]
+    },
+    {
+     "caption": "The sets decide what ships where: a deployment root gets the system set, every site the smaller site set.",
+     "nodes": [
+      "set_all",
+      "set_site",
+      "set_system",
+      "w_snapshot"
+     ]
+    },
+    {
+     "caption": "The copies in each backend, and what serves or keeps them.",
+     "nodes": [
+      "nodejs_site",
+      "nodejs_system",
+      "php_site",
+      "php_system",
+      "w_php",
+      "w_node",
+      "w_cli",
+      "nodejs",
+      "php",
+      "cli"
+     ]
+    },
+    {
+     "caption": "Copies out of step with PRAW.",
+     "nodes": [
+      "nodejs_site",
+      "nodejs_system",
+      "php_site",
+      "php_system"
+     ]
+    },
+    {
+     "caption": "The whole index.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

@@ -712,6 +712,13 @@
     "url": "https://github.com/haxtheweb/hax-lab"
    }
   },
+  "skillsindex": {
+   "desc": "The agentskills.io discovery index: one JSON file at .well-known/agent-skills/index.json that tells any agent which HAX skills a place offers. PRAW keeps the full index; every HAXcms deployment and every site carries a copy of its set.",
+   "links": {
+    "index": "https://github.com/haxtheweb/praw/blob/main/.well-known/agent-skills/index.json",
+    "spec": "https://github.com/cloudflare/agent-skills-discovery-rfc"
+   }
+  },
   "skeletons": {
    "desc": "Full working starter sites anyone can export and hand to someone else, \"hundreds of clicks closer to done.\"",
    "source": {

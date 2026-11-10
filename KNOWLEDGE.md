@@ -135,6 +135,15 @@ Structure your entries using the templates below. Keep entries concise and searc
 - Links: RULES.md (SSR Safety & Enhancement Audit), https://github.com/haxtheweb/webcomponents/pull/965, https://github.com/haxtheweb/webcomponents/pull/966, https://github.com/haxtheweb/webcomponents/pull/968, https://github.com/haxtheweb/webcomponents/pull/972, https://github.com/haxtheweb/create/pull/87
 - Candidate: Yes
 
+- Title: Meaning channels standard
+- Date: 2026-11-10
+- Context: Quiz feedback, confirm/deny actions, status chips, outline states and similar UI carry meaning or consequences that some users miss when it rides on one cue (color in grayscale or with a color vision deficiency, hover-only labels for keyboard users, icons without text).
+- Guidance: Convey such meaning through five channels: hover/focus label, distinguishable color, focus state, grayscale-safe texture, unique icon. Easily undone edits and navigational or aesthetic controls need only label, focus state and contrast.
+- Rationale: With every channel present, losing any one (color, hover, sight of an icon) never removes the meaning.
+- Links: RULES.md (Meaning Channels — Meaning and Consequential Decisions Use All Five), https://github.com/haxtheweb/issues/issues/3262
+- Candidate: No
+- Promoted: rule `8d0c033b-7c96-4c6e-aafc-7dfff8ad9123` in RULES.md
+
 ## HAXcms
 
 - Title: Example – Keep metadata.site.name aligned

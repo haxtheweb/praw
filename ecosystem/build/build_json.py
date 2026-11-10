@@ -47,7 +47,7 @@ def N(id, **kw):
 
 # ---- center and pillars
 N("human", desc="People are the center of HAX: authors, students, faculty, staff and contributors. Every pillar exists for them.", source=L("PRAW WORLDVIEW.md", WORLDVIEW), always=True)
-N("traveler", desc="The HAX mascot, a.k.a. World Changer: \"Dream it, remix it, have it, share it.\" Here he stands for your AI companion, working alongside people.", source=L("haxtheweb/art world-traveler", ART), links={"repo": ART}, always=True)
+N("traveler", desc="The HAX mascot, the Future Traveler: \"Dream it, remix it, have it, share it.\" Here he stands for your AI companion, working alongside people.", source=L("haxtheweb/art: the Future Traveler", ART), links={"repo": ART}, always=True)
 # the seven pillars: phrase, description, icon and color live in build/data/pillars.json (the Why layer)
 _PD = json.load(open("ext/pillars.json"))
 P = {p["id"]: p["phrase"] for p in _PD["pillars"]}

@@ -20,7 +20,7 @@ The ecosystem web itself lives here too: every sub-web's structure and details, 
 | [`build/`](build) | The generators (`build_*.py`), `drift.py`, `graph-drift.mjs`, `assemble.py`, `sources.sh` and `run.sh`. |
 | [`build/data/`](build/data) | Extracts the generators read that don't come from a repo checkout: MCP tools, xAPI verbs, field and Merlin usage, OER Schema, the release script, the HAX Lab README, layer data and a hax.psu.edu snapshot with site owners removed. |
 | [`player/`](player) | The page template and the icons, image and mascot it embeds. |
-| [`test/`](test) | `parse-check.js` (every web parses with no errors) and `layout-check.js` (no overflow at desktop and phone widths). Both need Playwright. |
+| [`test/`](test) | `parse-check.js` (every web parses with no errors and every icon is in the inlined set) and `layout-check.js` (no overflow at desktop and phone widths). Both need Playwright. |
 
 ### Data format
 

@@ -648,6 +648,13 @@
    },
    "always": true
   },
+  "quality": {
+   "desc": "Every safeguard on what enters HAX: blocking pull request gates, advisory checks, and nightly and weekly jobs, generated from the CI that actually runs.",
+   "links": {
+    "tracking": "https://github.com/haxtheweb/issues/issues/3262"
+   },
+   "always": true
+  },
   "contracts": {
    "desc": "Every data contract in one view: the schema files each HAX format is defined by, and who reads and writes them.",
    "always": true

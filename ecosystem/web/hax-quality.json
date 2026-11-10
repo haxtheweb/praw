@@ -4,112 +4,441 @@
   "parent": "main",
   "noTimeline": true,
   "sectionLabels": {
-   "stage": "stages",
-   "gate": "gates"
+   "group": "kinds",
+   "gate": "blocking gates",
+   "advisory": "advisory checks",
+   "planned": "planned",
+   "scheduled": "scheduled jobs",
+   "task": "Claude scheduled tasks"
   },
-  "about": "Every quality gate a change passes through, from a developer's machine to a published release, and which repos each guards. The red gate is the one that does not block merging yet.",
+  "about": "Every safeguard on what enters HAX, generated from the workflow files on each repo's default branch, so only checks that are merged and running appear: 22 blocking gates, 5 advisory checks, 9 scheduled jobs and 7 Claude scheduled tasks. Planned tiles are open pull requests. Element test suites include axe accessibility tests where an element has them; whole-project accessibility is covered by the weekly sweep, not a blocking gate.",
   "kindLabels": {
-   "rel": "stage runs gate; gate guards repo"
-  }
+   "rel": "kind of safeguard",
+   "schema": "where it runs"
+  },
+  "generated": "2026-11-10"
  },
  "nodes": {
-  "testing": {
+  "quality": {
    "always": true
   },
-  "st_local": {
-   "desc": "Before a commit: lint, precheck and the test suite run locally; AGENTS.md in each repo says which.",
-   "kind": "stage"
+  "testing": {},
+  "qg_block": {
+   "desc": "22 checks that fail a pull request when they fail, in at least one repo; whether a failing check stops the merge is up to each repo's branch rules. Each is read from the repo's workflow files on its default branch, so only checks that are merged and running appear.",
+   "kind": "group"
   },
-  "st_pr": {
-   "desc": "GitHub Actions on every PR: CodeQL, unit and conformance tests, the CLA check. A PR is expected to pass CodeQL on its first push.",
-   "kind": "stage"
+  "qg_adv": {
+   "desc": "5 checks that run on pull requests but don't stop a merge (continue-on-error, warning only or report only), plus 3 planned checks still in open pull requests. ESLint stays here until it blocks.",
+   "kind": "group"
   },
-  "st_release": {
-   "desc": "Ubiquity builds and publishes every element; the drift check updates this web's versions.",
-   "kind": "stage"
+  "qg_sched": {
+   "desc": "9 GitHub Actions jobs on a schedule and 7 Claude scheduled tasks. Nothing auto-merges: every PR waits for review, and every flag lands in the unified issue queue.",
+   "kind": "group",
+   "links": {
+    "tracking": "https://github.com/haxtheweb/issues/issues/3262"
+   }
+  },
+  "q_element_api_snapshot": {
+   "desc": "The front-end API of authorable elements doesn't change, so all content ever made keeps working. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/api-snapshot.yml"
+   }
+  },
+  "q_script_tests": {
+   "desc": "The repo's build and maintenance scripts keep working. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/build.yml"
+   }
+  },
+  "q_stylelint": {
+   "desc": "CSS follows the stylesheet rules. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/build.yml"
+   }
+  },
+  "q_test_all_elements": {
+   "desc": "Every element's test suite passes in Chromium; element suites include axe accessibility tests where an element has them. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/build.yml"
+   }
+  },
+  "q_format_check": {
+   "desc": "Formatting stays consistent (Prettier). Reports without failing the pull request in webcomponents. Fails the pull request when it fails in create, haxcms-nodejs.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml",
+    "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/build.yml",
+    "workflow 3": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/build.yml"
+   }
   },
   "q_lint": {
-   "desc": "ESLint rules per repo. In webcomponents the rules ban optional chaining (?.) so elements keep running in older browsers; lint catches it.",
-   "kind": "gate",
+   "desc": "Code follows the repo's lint rules, such as no optional chaining in webcomponents. Reports without failing the pull request in create, haxcms-nodejs, webcomponents.",
+   "kind": "advisory",
+   "status": "deployed",
    "links": {
-    "source": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
+    "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml",
+    "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/build.yml",
+    "workflow 3": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/build.yml"
    }
   },
-  "q_precheck": {
-   "desc": "haxcms-nodejs's npm run precheck: Prettier, ESLint and the fast tests on the files changed against main. haxcms-php has no precheck; the nodejs one covers files the two share.",
+  "q_gallery_build": {
+   "desc": "The component gallery still builds. Fails the pull request when it fails in webcomponents.",
    "kind": "gate",
+   "status": "deployed",
    "links": {
-    "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/scripts/precheck.mjs"
-   }
-  },
-  "q_wtr": {
-   "desc": "web-test-runner suites in real browsers, with accessibility checks, for every element in the monorepo.",
-   "kind": "gate",
-   "links": {
-    "source": "https://github.com/haxtheweb/webcomponents/blob/master/web-test-runner.config.mjs"
-   }
-  },
-  "q_dddaudit": {
-   "desc": "hax audit: design-system and HAXSchema compliance for an element, run from the CLI before a PR.",
-   "kind": "gate",
-   "links": {
-    "source": "https://github.com/haxtheweb/create"
-   }
-  },
-  "q_unit": {
-   "desc": "node:test suites in haxcms-nodejs and the CLI; PHPUnit (about 3,900 tests) in haxcms-php with its committed vendor folder.",
-   "kind": "gate",
-   "links": {
-    "source": "https://github.com/haxtheweb/haxcms-php/tree/master/system/backend/php/tests"
-   }
-  },
-  "q_parity": {
-   "desc": "Conformance tests check both backends against the same OpenAPI specs, so haxcms-nodejs and haxcms-php keep identical behavior. Matching test names on both sides.",
-   "kind": "gate",
-   "links": {
-    "source": "https://github.com/haxtheweb/haxcms-nodejs/tree/main/test"
-   }
-  },
-  "q_codeql": {
-   "desc": "GitHub's security analysis (actions and javascript-typescript) on every PR to haxcms-nodejs, haxcms-php and webcomponents. Expected to pass on the first push.",
-   "kind": "gate",
-   "links": {
-    "source": "https://github.com/haxtheweb/haxcms-nodejs/actions"
-   }
-  },
-  "q_audit": {
-   "desc": "Composer audit on haxcms-php and npm audit on the Node repos flag vulnerable dependencies.",
-   "kind": "gate",
-   "links": {
-    "source": "https://github.com/haxtheweb/haxcms-php/actions"
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/build.yml"
    }
   },
   "q_cla": {
-   "desc": "Every contributor signs the contributor license agreement once; the check runs on each PR.",
+   "desc": "Every contributor has signed the contributor license agreement. Fails the pull request when it fails in create, haxcms-nodejs, haxcms-php, issues, praw, webcomponents.",
    "kind": "gate",
+   "status": "deployed",
    "links": {
-    "source": "https://github.com/haxtheweb/issues/blob/master/CONTRIBUTING.md"
+    "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/cla.yml",
+    "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/cla.yml",
+    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/cla.yml",
+    "workflow 4": "https://github.com/haxtheweb/issues/blob/master/.github/workflows/cla.yml"
+   }
+  },
+  "q_codeql": {
+   "desc": "Code with known vulnerability patterns doesn't merge. Fails the pull request when it fails in create, haxcms-nodejs, haxcms-php, webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/codeql-analysis.yml",
+    "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/codeql-analysis.yml",
+    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/codeql.yml",
+    "workflow 4": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/codeql-analysis.yml"
+   }
+  },
+  "q_ddd_token_lint": {
+   "desc": "Only real DDD design tokens are referenced, and the token export stays current. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/ddd-token-lint.yml"
+   }
+  },
+  "q_audit": {
+   "desc": "Dependencies with known security advisories are caught. Reports without failing the pull request in haxcms-php, webcomponents. Fails the pull request when it fails in create, haxcms-nodejs.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml",
+    "workflow 2": "https://github.com/haxtheweb/create/blob/main/.github/workflows/dependency-audit.yml",
+    "workflow 3": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/build.yml",
+    "workflow 4": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/tests.yml"
+   }
+  },
+  "q_pseudo_locale_and_rtl_layout": {
+   "desc": "Changed elements still lay out with long pseudo-locale strings and right to left. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/i18n-layout.yml"
+   }
+  },
+  "q_unused_code_knip": {
+   "desc": "Unused files, exports and dependencies are found. Reports without failing the pull request in webcomponents.",
+   "kind": "advisory",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/knip.yml"
+   }
+  },
+  "q_memory_leaks": {
+   "desc": "Changed elements don't leak memory when added and removed. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/leak-check.yml"
+   }
+  },
+  "q_dependency_licenses": {
+   "desc": "No dependency under an incompatible license enters the repo, and the project stays Apache-2.0. Fails the pull request when it fails in create, haxcms-nodejs, haxcms-php, webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/license-check.yml",
+    "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/license-check.yml",
+    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/dependency-license.yml",
+    "workflow 4": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/license-check.yml"
+   }
+  },
+  "q_locale_guard": {
+   "desc": "Feature PRs change English strings only; translations come from the nightly job. Reports without failing the pull request in webcomponents.",
+   "kind": "advisory",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/locale-guard.yml"
+   }
+  },
+  "q_render_benchmarks": {
+   "desc": "Render performance of changed elements is measured on the PR. Reports without failing the pull request in webcomponents.",
+   "kind": "advisory",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/render-bench.yml"
+   }
+  },
+  "q_template_lint": {
+   "desc": "CSS and HTML templates inside elements are well formed. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/template-lint.yml"
+   }
+  },
+  "q_walkthrough_status": {
+   "desc": "Element walkthroughs are flagged when the element they show has changed. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/walkthrough-status.yml"
+   }
+  },
+  "q_build": {
+   "desc": "The project still builds. Fails the pull request when it fails in create, haxcms-nodejs.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml",
+    "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/build.yml"
+   }
+  },
+  "q_unit_and_api_conformance_tests": {
+   "desc": "Changes don't break existing behavior. Fails the pull request when it fails in haxcms-nodejs.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/build.yml"
    }
   },
   "q_e2e": {
-   "desc": "Playwright runs against the HAXcms UI (site creation, templates, outline operations). Non-gating while its flakiness is characterized; some failures recur across PRs.",
-   "kind": "gate",
+   "desc": "End-to-end flows in the real UI keep working. Reports without failing the pull request in haxcms-nodejs, haxcms-php.",
+   "kind": "advisory",
+   "status": "deployed",
    "links": {
-    "source": "https://github.com/haxtheweb/haxcms-nodejs/actions"
+    "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/build.yml",
+    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/tests.yml"
    }
   },
-  "q_ubiquity": {
-   "desc": "The release build: every element built, tested and published to npm together, and wc-registry.json regenerated.",
+  "q_phpstan": {
+   "desc": "New PHP static-analysis errors don't merge. Fails the pull request when it fails in haxcms-php.",
    "kind": "gate",
+   "status": "deployed",
    "links": {
-    "source": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/ubiquity.sh"
+    "workflow": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/phpstan.yml"
    }
   },
-  "q_drift": {
-   "desc": "drift.py pulls the latest source, reruns every generated web and flags new or missing CLI commands, API endpoints, MCP tools, field types, schema parts, skeletons, importers, tutorials, languages and release steps; graph-drift.mjs checks every released part's version against npm and GitHub tags. --strict fails a ubiquity build when anything drifted.",
+  "q_phpunit": {
+   "desc": "Changes don't break existing behavior. Fails the pull request when it fails in haxcms-php.",
    "kind": "gate",
+   "status": "deployed",
    "links": {
-    "source": "https://github.com/haxtheweb/issues/issues/3173"
+    "workflow": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/tests.yml"
+   }
+  },
+  "q_unit_tests": {
+   "desc": "Changes don't break existing behavior. Fails the pull request when it fails in create.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml"
+   }
+  },
+  "q_security_lint": {
+   "desc": "Unsafe patterns (eval, shell injection and the like) don't merge into the CLI. Fails the pull request when it fails in create.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml"
+   }
+  },
+  "q_smoke_tests": {
+   "desc": "A fresh install can create a site, add a page and serve it. Fails the pull request when it fails in create.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml"
+   }
+  },
+  "qp_haxcms_nodejs_190": {
+   "desc": "In an open pull request, not running yet.",
+   "status": "planned",
+   "kind": "planned",
+   "links": {
+    "pr": "https://github.com/haxtheweb/haxcms-nodejs/pull/190"
+   }
+  },
+  "qp_create_123": {
+   "desc": "In an open pull request, not running yet. haxcms-nodejs and haxcms-php give the same results for the same operations.",
+   "status": "planned",
+   "kind": "planned",
+   "links": {
+    "pr": "https://github.com/haxtheweb/create/pull/123"
+   }
+  },
+  "qp_haxcms_nodejs_189": {
+   "desc": "In an open pull request, not running yet.",
+   "status": "planned",
+   "kind": "planned",
+   "links": {
+    "pr": "https://github.com/haxtheweb/haxcms-nodejs/pull/189"
+   }
+  },
+  "q_build_and_tests": {
+   "desc": "Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create. webcomponents: last scheduled run 2026-11-10, success; haxcms-nodejs: last scheduled run 2026-11-10, success; haxcms-php: last scheduled run 2026-11-10, failure; create: last scheduled run 2026-11-10, success.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml",
+    "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/build.yml",
+    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/tests.yml",
+    "workflow 4": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/build.yml"
+   }
+  },
+  "q_codeql_sched": {
+   "desc": "Code with known vulnerability patterns in main is caught, including patterns found after it merged. Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create. webcomponents: last scheduled run 2026-11-10, success; haxcms-nodejs: last scheduled run 2026-11-10, success; haxcms-php: last scheduled run 2026-11-10, success; create: last scheduled run 2026-11-10, success.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/codeql-analysis.yml",
+    "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/codeql-analysis.yml",
+    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/codeql.yml",
+    "workflow 4": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/codeql-analysis.yml"
+   }
+  },
+  "q_audit_sched": {
+   "desc": "Dependencies with known security advisories are caught. Runs nightly in webcomponents, nightly in create. webcomponents: last scheduled run 2026-11-10, success; create: last scheduled run 2026-11-10, success.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/dependency-audit.yml",
+    "workflow 2": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/dependency-audit.yml"
+   }
+  },
+  "q_unused_code_knip_sched": {
+   "desc": "Unused files, exports and dependencies are found. Runs weekly in webcomponents.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/knip.yml"
+   }
+  },
+  "q_dependency_licenses_sched": {
+   "desc": "No dependency under an incompatible license enters the repo, and the project stays Apache-2.0. Runs weekly in webcomponents, weekly in haxcms-nodejs, weekly in haxcms-php, weekly in create.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/license-check.yml",
+    "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/license-check.yml",
+    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/dependency-license.yml",
+    "workflow 4": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/license-check.yml"
+   }
+  },
+  "q_mutation_testing": {
+   "desc": "The tests catch real faults: deliberate mutations of the code must make them fail. Runs weekly in webcomponents, weekly in haxcms-nodejs.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/mutation-testing.yml",
+    "workflow 2": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/mutation-outline-designer.yml"
+   }
+  },
+  "q_openssf_scorecard": {
+   "desc": "Supply-chain security practices are scored (OpenSSF Scorecard). Runs weekly in webcomponents, weekly in haxcms-nodejs, weekly in haxcms-php, weekly in create. webcomponents: last scheduled run 2026-11-09, success; haxcms-nodejs: last scheduled run 2026-11-09, success; haxcms-php: last scheduled run 2026-11-09, success; create: last scheduled run 2026-11-09, success.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/ossf_scorecard.yml",
+    "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/ossf_scorecard.yml",
+    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/ossf_scorecard.yml",
+    "workflow 4": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/ossf_scorecard.yml"
+   }
+  },
+  "q_parity": {
+   "desc": "haxcms-nodejs and haxcms-php give the same results for the same operations. Runs nightly in haxcms-nodejs, nightly in haxcms-php. haxcms-nodejs: last scheduled run 2026-11-10, failure; haxcms-php: last scheduled run 2026-11-10, failure.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/backend-parity.yml",
+    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/backend-parity.yml"
+   }
+  },
+  "q_fresh_install_smoke_test": {
+   "desc": "A fresh install can create a site, add a page and serve it. Runs nightly in create. create: last scheduled run 2026-11-10, success.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/create/blob/main/.github/workflows/fresh-install-smoke.yml"
+   }
+  },
+  "ct_translations": {
+   "desc": "Claude scheduled task, nightly. New and changed English strings reach every language, in one rolling PR. Scheduled, but no output on GitHub yet.",
+   "kind": "task",
+   "status": "in-progress",
+   "links": {
+    "tracking": "https://github.com/haxtheweb/issues/issues/3262"
+   }
+  },
+  "ct_docs": {
+   "desc": "Claude scheduled task, weekly. Element docs and demos keep up with their properties and HAXSchema; broken links are fixed. Ecosystem web PRs in praw start once the graph data lives there. Scheduled, but no output on GitHub yet.",
+   "kind": "task",
+   "status": "in-progress",
+   "links": {
+    "tracking": "https://github.com/haxtheweb/issues/issues/3262"
+   }
+  },
+  "ct_whatsnew": {
+   "desc": "Claude scheduled task, weekly. Merged changes people would notice are drafted as What's New and Tips entries. Running and producing output.",
+   "kind": "task",
+   "status": "deployed",
+   "links": {
+    "latest output": "https://github.com/haxtheweb/praw/pull/73",
+    "tracking": "https://github.com/haxtheweb/issues/issues/3262"
+   }
+  },
+  "ct_tours": {
+   "desc": "Claude scheduled task, weekly. Element walkthroughs are redrafted when an element's surface changes; approved ones are listed for review. Scheduled, but no output on GitHub yet.",
+   "kind": "task",
+   "status": "in-progress",
+   "links": {
+    "tracking": "https://github.com/haxtheweb/issues/issues/3262"
+   }
+  },
+  "ct_a11y": {
+   "desc": "Claude scheduled task, weekly. Element demos are checked with axe in light, dark and reduced motion; clear fixes come in one rolling PR. Scheduled, but no output on GitHub yet.",
+   "kind": "task",
+   "status": "in-progress",
+   "links": {
+    "tracking": "https://github.com/haxtheweb/issues/issues/3262"
+   }
+  },
+  "ct_sweep": {
+   "desc": "Claude scheduled task, weekly. Stale and duplicate issues, stale PRs and branches, bot job health and agent drift are flagged in one report. Flag only. Running and producing output.",
+   "kind": "task",
+   "status": "deployed",
+   "links": {
+    "latest output": "https://github.com/haxtheweb/issues/issues/3262#issuecomment-6731170066",
+    "tracking": "https://github.com/haxtheweb/issues/issues/3262"
+   }
+  },
+  "ct_fuzz": {
+   "desc": "Claude scheduled task, nightly. Seeded property-based tests look for inputs that break the CLI, haxcms-nodejs and webcomponents (https://github.com/haxtheweb/issues/issues/3272). Running; it only produces output when it finds something.",
+   "kind": "task",
+   "status": "deployed",
+   "links": {
+    "tracking": "https://github.com/haxtheweb/issues/issues/3262"
    }
   }
  },
@@ -117,64 +446,86 @@
  "tours": [
   {
    "id": "quality",
-   "label": "From commit to release",
-   "message": "Every gate a change passes through and which repos it guards.",
+   "label": "What guards a change",
+   "message": "Every safeguard on what enters HAX, read from the CI that actually runs.",
    "scenes": [
     {
-     "caption": "Three stages: your machine, the pull request, the release.",
+     "caption": "22 blocking gates: a pull request can't merge until these pass.",
      "nodes": [
-      "st_local",
-      "st_pr",
-      "st_release"
-     ]
-    },
-    {
-     "caption": "Before you commit: lint, precheck, browser tests and the DDD audit.",
-     "nodes": [
-      "st_local",
-      "q_lint",
-      "q_precheck",
-      "q_wtr",
-      "q_dddaudit"
-     ]
-    },
-    {
-     "caption": "On the PR: unit tests, API conformance between the two backends, CodeQL, dependency audits, the CLA.",
-     "nodes": [
-      "st_pr",
-      "q_unit",
-      "q_parity",
+      "qg_block",
+      "q_element_api_snapshot",
+      "q_script_tests",
+      "q_stylelint",
+      "q_test_all_elements",
+      "q_format_check",
+      "q_gallery_build",
+      "q_cla",
       "q_codeql",
+      "q_ddd_token_lint",
       "q_audit",
-      "q_cla"
+      "q_pseudo_locale_and_rtl_layout",
+      "q_memory_leaks",
+      "q_dependency_licenses",
+      "q_template_lint",
+      "q_walkthrough_status",
+      "q_build",
+      "q_unit_and_api_conformance_tests",
+      "q_phpstan",
+      "q_phpunit",
+      "q_unit_tests",
+      "q_security_lint",
+      "q_smoke_tests"
      ]
     },
     {
-     "caption": "The browser end-to-end suite runs too, but does not gate yet.",
+     "caption": "5 advisory checks report on the pull request without stopping it.",
      "nodes": [
+      "qg_adv",
+      "q_lint",
+      "q_unused_code_knip",
+      "q_locale_guard",
+      "q_render_benchmarks",
       "q_e2e"
      ]
     },
     {
-     "caption": "At release: Ubiquity ships every element; the drift check keeps this web honest.",
+     "caption": "Planned checks, still in open pull requests.",
      "nodes": [
-      "st_release",
-      "q_ubiquity",
-      "q_drift"
+      "qp_haxcms_nodejs_190",
+      "qp_create_123",
+      "qp_haxcms_nodejs_189"
      ]
     },
     {
-     "caption": "Which repos each gate guards.",
+     "caption": "Scheduled GitHub Actions run nightly and weekly against main.",
      "nodes": [
-      "components",
-      "nodejs",
-      "php",
-      "cli",
-      "praw"
+      "qg_sched",
+      "q_build_and_tests",
+      "q_codeql_sched",
+      "q_audit_sched",
+      "q_unused_code_knip_sched",
+      "q_dependency_licenses_sched",
+      "q_mutation_testing",
+      "q_openssf_scorecard",
+      "q_parity",
+      "q_fresh_install_smoke_test"
      ]
     },
     {
-     "caption": "The whole pipeline.",
+     "caption": "Claude scheduled tasks take the jobs that need judgment: translating, docs, triage. Not producing output yet: Nightly translations, Documentation pass, Element tours, Accessibility sweep.",
+     "nodes": [
+      "qg_sched",
+      "ct_translations",
+      "ct_docs",
+      "ct_whatsnew",
+      "ct_tours",
+      "ct_a11y",
+      "ct_sweep",
+      "ct_fuzz"
+     ]
+    },
+    {
+     "caption": "Everything that guards HAX.",
      "nodes": []
     }
    ]

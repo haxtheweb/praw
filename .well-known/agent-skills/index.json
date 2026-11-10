@@ -223,7 +223,7 @@
       "type": "skill-md",
       "description": "Run the agent leg of the HAXcms parity harness: replay a recorded parity run's ops on your own HAX CLI site by following the HAX skills, verify against the reference snapshots after every op, and report where agent behavior diverges and which skill docs were missing or wrong. Use for \"run the agent leg\", \"replay the parity ops as an agent\", \"check the HAX skills against parity\", or haxtheweb/issues#3292.",
       "url": "hax-parity-agent-leg/SKILL.md",
-      "digest": "sha256:c9f4483e7bc8814611c3661b84d8e81b0c75e4213cff0ac7794cfaa2360c0f54",
+      "digest": "sha256:f713d0aec302f11eb7e164edcc9cb462968702e1c5cff0353e1ddf487a364f87",
       "files": [
         {
           "path": "references/divergence-classes.md",
@@ -231,11 +231,11 @@
         },
         {
           "path": "references/ops.md",
-          "digest": "sha256:27520b0470101effba1395c3ce1269cf26b9aab1a22e3cc558410fbe67ce3b10"
+          "digest": "sha256:b3ee193e20030f6dd0302aca9203ad12bab4695b3adf8d2810a0edc9d313e7c9"
         },
         {
           "path": "references/setup.md",
-          "digest": "sha256:443e08b2f3906ec3ef8c987eb8cd00dfcd01b74bc5eaecb989523f11048d746a"
+          "digest": "sha256:92915b9b715cffa273b351ed913be45b84a8a477e7f97c5749440c621d708ef4"
         }
       ]
     },

@@ -2,8 +2,8 @@
 
 Each line of `ops.jsonl` is one op: `i` (its number), `type`, and the fields below. Pages are named
 by **logical key**: `L0` is the site's welcome page, `L1`, `L2`, ... are pages earlier `addPage` ops
-created, in order. Your page id for a key is `keyToId[key]` in the agent `state.json` that
-`verify.cjs` maintains.
+created, in order. Your page id for a key is `keyToId[key]` in the `state.json` that `verify.cjs`
+maintains in your `--state` directory.
 
 This file says what the outcome should be, not which command produces it. Finding the command is the
 point of the exercise: use the skills. Values are deliberately awkward (markup in titles, unicode,
@@ -26,7 +26,7 @@ and site language, which the CLI does not express.)
 | `editHideInMenu` | `key`, `hideInMenu` (true / false) | The page is hidden from, or shown in, the site menu. |
 | `editParent` | `key`, `parent` (a key, or `null`) | The page moves under `parent`, or to the top level for `null`, after the pages already at that level. Its own children move with it. |
 | `editOrder` | `key`, `order` (a number) | The page's order value among its siblings is set to `order`. Its parent does not change. |
-| `deletePage` | `key` | The page is deleted. Ops only delete pages that have no children. |
+| `deletePage` | `key` | The page is deleted. Ops only delete pages that have no children. The replay is your confirmation; do not stop to ask. |
 | `setTheme` | `theme` | The site's theme is the theme with that machine name. |
 
 If an op names a key you never bound (an earlier `addPage` diverged), record it as blocked by that

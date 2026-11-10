@@ -49,6 +49,11 @@ Then install the interface skills that ship with the CLI and load the site skill
 hax skills install --all     # hax-site-building and the other interface skills
 ```
 
+`hax skills install --all` installs the **released** skills. When you are testing a create branch (a
+pull request, or a nightly built from the default branch), read `src/skills/*` from that create
+checkout instead (for example `src/skills/hax-site-building/SKILL.md`), since those are the docs of
+the build under test; the released ones may describe older options.
+
 Read `hax-site-building`, and from [PRAW](https://github.com/haxtheweb/praw/tree/main/skills)
 `hax-site-structure`, `hax-managed-files` and `hax-content-authoring`. `hax list --format json` and
 `hax site --help` describe every action and option.
@@ -56,19 +61,27 @@ Read `hax-site-building`, and from [PRAW](https://github.com/haxtheweb/praw/tree
 ## Create the site and initialize verify
 
 ```bash
-site_name="$(node -p "require('./parity-results/A/meta.json').siteName")"
+meta=parity-results/A/meta.json
+site_name="$(node -p "require('./$meta').siteName")"
+site_description="$(node -p "require('./$meta').siteDescription")"
+state_dir=parity-agent-state      # outside parity-results/
 mkdir -p agent-sites && cd agent-sites
-hax site "$site_name" --y --no-i --agent
+hax site "$site_name" --description="$site_description" --y --no-i --agent
 cd ..
 node create/test/parity/verify.cjs --results parity-results/A \
-  --site "agent-sites/$site_name" --op 0
+  --site "agent-sites/$site_name" --state "$state_dir" --op 0
 ```
 
-Create the site however the skills say to create a new site with that name. Op 0 should show 0 diffs
-vs the scripted CLI; if it does not, the site was created differently (record it as op 0 in the
-report). `verify.cjs` writes `parity-results/agent/state.json` (logical key to page id) and appends
-every result to `parity-results/agent/verify.jsonl`. Pass `--state <dir>` to keep several agent
-attempts apart, and `--json` for machine-readable output.
+Every leg of the run created its site with that name and description (older runs without
+`siteDescription` in `meta.json` used `Parity test site`). Create the site however the skills say to
+create a new site with that name and description. Op 0 should show 0 diffs vs the scripted CLI; if it
+does not, the site was created differently (record it as op 0 in the write-up).
+
+Always pass `--state <dir>` with a directory **outside** the run directory, and the same one on every
+call. `verify.cjs` keeps `state.json` (logical key to page id) there and appends every result to
+`verify.jsonl`; it refuses a state directory inside the run, so a downloaded run stays exactly as
+recorded. Use a new state directory (and a new site) for each attempt, and `--json` for
+machine-readable output.
 
 ## Reading one op safely
 
@@ -84,4 +97,4 @@ title="$(node -p "require('./op.json').title")"
 ```
 
 Read each field into a shell variable like this and pass `"$title"` quoted, so quotes, `&`, `<b>` and
-leading spaces reach the CLI unchanged. Look page ids up the same way from `state.json`.
+leading spaces reach the CLI unchanged. Look page ids up the same way from `$state_dir/state.json`.

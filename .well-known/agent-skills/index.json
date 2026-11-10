@@ -437,7 +437,7 @@
       "type": "skill-md",
       "description": "Analyze a website from its address for migration into HAXcms: fingerprint the platform (WordPress, Elementor, Drupal, Grav, Astro, EmDash, 11ty, Hugo, Docusaurus, Squarespace, Webflow and more), convert sampled pages with block maps to HAX elements, classify the site (course, PSU/DDD, docs, blog, general), recommend a theme, and propose new blocks or a custom theme for what HAX lacks. Also scores accuracy across a labeled trial set. Use for \"migrate this site to HAX\", \"what is this site built with\", \"what would this look like in HAX\", or improving migration accuracy.",
       "url": "hax-url-migration/SKILL.md",
-      "digest": "sha256:594cdcfd3633764a0d6001a40d235df8232df6fea614d2fa49452e33eefe5cd9",
+      "digest": "sha256:8559b82b4942852a59c8b7ddf5377e818d5adede4e49fbb67c7013efb23e9e9f",
       "files": [
         {
           "path": "references/block-maps/astro-starlight.json",

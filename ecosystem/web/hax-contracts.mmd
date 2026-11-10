@@ -15,6 +15,7 @@ flowchart TB
     openapi[("openapi")]
     skillsindex[("skillsindex")]
     registry[("registry")]
+    dtcg[("dtcg")]
   end
   subgraph files ["Files that conform"]
     sitejson[("site.json")]
@@ -31,6 +32,7 @@ flowchart TB
     wcregjson[("wc-registry.json")]
     cemjson[("custom-elements.json")]
     translationsjson[("translation-manifest.json")]
+    dtcgjson[("ddd.tokens.json")]
     oervocab[("oerschema.org vocabulary")]
   end
   subgraph rw ["Readers and writers"]
@@ -42,6 +44,8 @@ flowchart TB
     editor["editor"]
     components["components"]
     languages["languages"]
+    ddd["ddd"]
+    design["design"]
     ubiquity["ubiquity"]
     mcp["mcp"]
     php["php"]
@@ -62,6 +66,7 @@ flowchart TB
   contracts -.->|includes| openapi
   contracts -.->|includes| skillsindex
   contracts -.->|includes| registry
+  contracts -.->|includes| dtcg
   sitejson -.->|conforms to| jos
   josspec -.->|conforms to| jos
   haxprops -.->|conforms to| haxschema
@@ -76,6 +81,7 @@ flowchart TB
   wcregjson -.->|conforms to| registry
   cemjson -.->|conforms to| registry
   translationsjson -.->|conforms to| registry
+  dtcgjson -.->|conforms to| dtcg
   oervocab -.->|conforms to| oerschema
   outline -->|writes| sitejson
   haxcms -->|loads elements through| wcregjson
@@ -97,6 +103,8 @@ flowchart TB
   components -->|tag content with| oervocab
   languages -->|produce| localeoverlay
   languages -->|are counted in| translationsjson
+  ddd -->|is exported to| dtcgjson
+  design -->|reads| dtcgjson
   ubiquity -->|writes| wcregjson
   ubiquity -->|writes| translationsjson
   mcp -->|reads| sitespec
@@ -127,6 +135,7 @@ flowchart TB
   %%@ node openapi portal
   %%@ node skillsindex portal
   %%@ node registry portal
+  %%@ node dtcg portal
   %%@ node sitejson icon=hax:code-json color=creekTeal motion=nudge
   %%@ node josspec icon=hax:code-json color=creekTeal motion=nudge
   %%@ node haxprops icon=hax:code-json color=creekTeal motion=nudge
@@ -141,6 +150,7 @@ flowchart TB
   %%@ node wcregjson icon=hax:code-json color=creekTeal motion=nudge
   %%@ node cemjson icon=hax:code-json color=creekTeal motion=nudge
   %%@ node translationsjson icon=hax:code-json color=creekTeal motion=nudge
+  %%@ node dtcgjson icon=hax:code-json color=creekTeal motion=nudge
   %%@ node oervocab icon=hax:code-json color=creekTeal motion=nudge
   %%@ node outline portal=haxcms
   %%@ node haxcms portal
@@ -150,6 +160,8 @@ flowchart TB
   %%@ node editor portal
   %%@ node components portal
   %%@ node languages portal
+  %%@ node ddd portal
+  %%@ node design portal
   %%@ node ubiquity portal
   %%@ node mcp portal
   %%@ node php portal

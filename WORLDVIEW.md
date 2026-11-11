@@ -80,10 +80,17 @@ This document captures a normalized worldview profile derived from two aligned s
 - Treat students as junior developers and future contributors; label beginner issues.
 - Spotlight students, alumni and faculty by name, with their permission ([template and checklist](skills/siip-course-alignment/references/spotlight-template.md)); HAX's are in [WINS.md](WINS.md).
 - Solve problems at your institution, in its context, by contributing to problem spaces larger than the institution.
+### 9) Automation begets automation
+- Be professionally lazy: it's process optimization. Less time on a task means more time for more important things, more fun and more growth.
+- Every automation makes the next one possible. The compounding is the method, not a side effect.
+- The thread runs the length of the work. In 2015 a keynote ended with a bash script running for 25 minutes and the question "what is our job when work is automated?" ("Last week I did 6 months of work.") In 2026, AI does six months of work in about three days.
+- AI is not a pivot. In Bryan's words: "automation begets automation and AI just allows me to amplify that process to solve the problem."
+
 ## Information Altruism thesis lens (explicit additions)
 ### A) Information altruism is a practical strategy, not just an ethic
 - The donation of code, time, support, and knowledge can change institutional decision-making by changing the cost structure of innovation.
 - Giving away working capability can outperform arguments alone when organizations are stuck in gatekeeper models.
+- The free release of information is how whole industries get transformed, not only institutions.
 ### B) Technology artifacts carry worldview
 - Systems are political artifacts: they encode assumptions about agency, ownership, collaboration, and control.
 - The goal is to imprint empowering values into tools so adoption shifts norms organically.
@@ -150,6 +157,7 @@ Run these for any new feature, skill, plugin, integration or architectural decis
 | 6 | Community is architecture | Sustainable (community) | Is the work tracked in the unified issue queue, documented, and approachable for a first-time contributor (clear README, "good first issue" where possible)? |
 | 7 | Sustainable | Sustainable, Efficient | Could a regular practitioner (not the author) understand, maintain and deploy it? Does it remove or avoid complexity rather than add a new dependency or build step without reason? |
 | 8 | Learning by building | Sustainable (community) | Could a student contribute to or learn from this (SIIP)? Is there a path from a course assignment to this code? |
+| 9 | Automation begets automation | Efficient, Sustainable | Does it automate a task people (or agents) repeat, so the next person starts further ahead? Can the automation itself be reused and built on, rather than being a one-off? |
 | A | Information altruism | Free and open | Does it give capability away freely (open license, public docs, no lock-in) so others can build on it? |
 | B | Values encoded in tools | All | Does the default behavior embody the value, rather than relying on a policy or a setting people must find? |
 | C | Human creativity first | Free and open, Remixable | Does AI speed the work while people keep the creative and editorial decisions? Does the output stay open and portable rather than depending on a single AI service ("supplemented by AI, not forever powered by it")? |

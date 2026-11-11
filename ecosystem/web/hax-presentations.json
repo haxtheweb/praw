@@ -205,6 +205,19 @@
    "year": 2026,
    "yearNote": "SIIP: a Conversation with HAX"
   },
+  "t26tools": {
+   "desc": "The talk Bryan ends his courses with: his career as one storyline, the retirement of the EdTechJoker persona, and the family saying in its title. Automation begets automation, from a 2015 bash-script keynote to AI in 2026.",
+   "links": {
+    "recording": "https://www.youtube.com/watch?v=G5yEgFIxzl0"
+   },
+   "source": {
+    "label": "PRAW talks",
+    "url": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   },
+   "kind": "talk",
+   "year": 2026,
+   "yearNote": "With the right tools, you can do anything"
+  },
   "tmanymes": {
    "desc": "A workshop for instructional and learning design staff: build a digital \"you\" from context, skills, inputs, rules and outputs. PRAW is the worked example.",
    "links": {
@@ -381,6 +394,14 @@
       "alyssa",
       "skeletons",
       "textbook"
+     ]
+    },
+    {
+     "caption": "And the talk that ends every course: with the right tools, you can do anything.",
+     "nodes": [
+      "t26tools",
+      "family",
+      "efficient"
      ]
     },
     {

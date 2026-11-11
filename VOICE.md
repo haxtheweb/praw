@@ -84,6 +84,9 @@ Reach for these before inventing new ones. They already carry meaning in the cor
 
 - "My social cause: reduce the cost of web publishing to zero, regardless of ability."
 - "Enable creativity to flow like water."
+- "With the right tools you can do anything." (a family saying)
+- "Automation begets automation."
+- "It's not lazy, it's process optimization."
 - "Simple. 99% invisible."
 - "The web is super confusing, and it should 'JustWork'™ for everyone."
 - "Make web dev feel like playing a video game."

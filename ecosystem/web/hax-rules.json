@@ -9,7 +9,7 @@
    "gap": "nothing enforces it yet",
    "proposed": "proposed"
   },
-  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (69 rules) and each repo's AGENTS.md (23), plus 9 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 19 are enforced; 82 are gaps, the backlog of what to automate next.",
+  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (69 rules) and each repo's AGENTS.md (24), plus 9 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 19 are enforced; 83 are gaps, the backlog of what to automate next.",
   "kindLabels": {
    "rel": "where a rule comes from and what enforces it",
    "pillar": "pillars a rule serves",
@@ -49,7 +49,7 @@
    "kind": "group"
   },
   "rg_agents_md_code_style": {
-   "desc": "AGENTS.md: code style: 15 rules, 2 enforced by a check.",
+   "desc": "AGENTS.md: code style: 16 rules, 2 enforced by a check.",
    "kind": "group"
   },
   "rg_agents_md_security": {
@@ -663,6 +663,14 @@
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
+  "ra_license_header": {
+   "desc": "every new `.js` source file under `elements/<name>/` starts with the Apache-2.0 header `hax webcomponent` writes (`Copyright <year> <holder>` and `@license Apache-2.0, see License.md for full text.` in a leading `/** */` block). The `license-check` workflow and `yarn precheck` fail a PR that adds a file without it; tests, demos, generated and vendored files are exempt. See CONTRIBUTING.md, \"License header on new files\". In the AGENTS.md of components. Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
+   }
+  },
   "ra_modern_javascript": {
    "desc": "Leverage ES2018+ features while maintaining browser compatibility In the AGENTS.md of cli, components. Nothing enforces this yet.",
    "kind": "gap",
@@ -847,7 +855,7 @@
    "id": "rules",
    "label": "Rules and what guarantees them",
    "kind": "story",
-   "message": "101 rules: 19 enforced by a check, 82 not yet.",
+   "message": "102 rules: 19 enforced by a check, 83 not yet.",
    "scenes": [
     {
      "caption": "Rules come from PRAW's RULES.md, each repo's AGENTS.md, and the plan's proposals.",
@@ -954,7 +962,7 @@
      ]
     },
     {
-     "caption": "82 rules nothing enforces yet: the backlog of what to automate next.",
+     "caption": "83 rules nothing enforces yet: the backlog of what to automate next.",
      "nodes": [
       "r_zvem3yg7jtxbsxbop3ypzy",
       "r_rhq7llrzmzlnfvelrwslun",
@@ -1018,6 +1026,7 @@
       "ra_unbundled_approach",
       "ra_third_party_libraries",
       "ra_es_modules",
+      "ra_license_header",
       "ra_modern_javascript",
       "ra_css_template_literals",
       "ra_theme_development",

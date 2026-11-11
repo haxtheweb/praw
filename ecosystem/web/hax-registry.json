@@ -8,7 +8,7 @@
    "step": "steps that write and read them",
    "reader": "who reads them"
   },
-  "about": "The manifests HAX generates about its own elements, from the webcomponents source: wc-registry.json: 614 tags, 609 of them HAX packages; wc-registry-graph.json: 614 tags over 1167 module paths; custom-elements.json: 138 packages declare 273 elements; elements-catalog.json: 602 elements, 166 HAX can author; hax-elements-registry.json: 187 authorable tags; translation-manifest.json: 149 of 234 elements translated, 41,015 files, 104 languages; languages.json: 134 languages. Steps are read from the ubiquity build and each element's build script; readers are found by scanning the built packages and the backends.",
+  "about": "The manifests HAX generates about its own elements, from the webcomponents source: wc-registry.json: 614 tags, 609 of them HAX packages; wc-registry-graph.json: 614 tags over 1167 module paths; custom-elements.json: 138 packages declare 273 elements; elements-catalog.json: 602 elements, 166 HAX can author; hax-elements-registry.json: 183 authorable tags; translation-manifest.json: 149 of 234 elements translated, 41,015 files, 104 languages; languages.json: 134 languages. Steps are read from the ubiquity build and each element's build script; readers are found by scanning the built packages and the backends.",
   "kindLabels": {
    "rel": "writes and includes",
    "schema": "is read by"
@@ -52,7 +52,7 @@
    }
   },
   "m_haxreg": {
-   "desc": "The tags HAX can author, with their display titles. Today: 187 authorable tags.",
+   "desc": "The tags HAX can author, with their display titles. Today: 183 authorable tags.",
    "kind": "manifest",
    "links": {
     "file": "https://github.com/haxtheweb/webcomponents/blob/master/hax-elements-registry.json"
@@ -138,6 +138,13 @@
     "build-component-gallery.js": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/build-component-gallery.js"
    }
   },
+  "sc_dead_code_check": {
+   "desc": "A script outside the ubiquity build. Reads wc-registry.json.",
+   "kind": "step",
+   "links": {
+    "dead-code-check.mjs": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/dead-code-check.mjs"
+   }
+  },
   "sc_extract_element_docs": {
    "desc": "A script outside the ubiquity build. Reads custom-elements.json.",
    "kind": "step",
@@ -150,6 +157,13 @@
    "kind": "step",
    "links": {
     "gallery-dev-server.js": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/gallery-dev-server.js"
+   }
+  },
+  "sc_haxschema_check": {
+   "desc": "A script outside the ubiquity build. Reads hax-elements-registry.json.",
+   "kind": "step",
+   "links": {
+    "haxschema-check.mjs": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/haxschema-check.mjs"
    }
   },
   "sc_i18n_layout_check": {
@@ -171,6 +185,20 @@
    "kind": "step",
    "links": {
     "leak-check.mjs": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/leak-check.mjs"
+   }
+  },
+  "sc_runtime_deps_check": {
+   "desc": "A script outside the ubiquity build. Reads custom-elements.json.",
+   "kind": "step",
+   "links": {
+    "runtime-deps-check.mjs": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/runtime-deps-check.mjs"
+   }
+  },
+  "sc_size_report": {
+   "desc": "A script outside the ubiquity build. Reads wc-registry.json.",
+   "kind": "step",
+   "links": {
+    "size-report.mjs": "https://github.com/haxtheweb/webcomponents/blob/master/scripts/size-report.mjs"
    }
   },
   "st_cem_analyze": {
@@ -242,8 +270,10 @@
       "st_hax_elements_demo_page",
       "sc_api_snapshot",
       "sc_extract_element_docs",
+      "sc_haxschema_check",
       "sc_i18n_layout_check",
       "sc_leak_check",
+      "sc_runtime_deps_check",
       "st_cem_analyze"
      ]
     },

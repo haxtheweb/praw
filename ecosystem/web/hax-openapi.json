@@ -182,7 +182,7 @@
    "kind": "operation"
   },
   "op_updatesiteoutline": {
-   "desc": "Update site outline structure as a single atomic operation",
+   "desc": "The whole payload is validated before anything is written. `items`\nmust be an array of objects, a new page's id may appear only once,\nand no page may become its own ancestor (the site's parents with the\nsent ones applied); an invalid payload answers 400 and changes\nnothing. An existing id sent twice is one page (the last entry wins);\na parent that does not exist puts the page at the top level.\n\nThe save is checkpointed, not atomic as a whole: the new structure\n(titles, parents, order, new pages) is written to site.json in one\nwrite, then page contents, duplicates and deletions are applied. A\nfailure after that write answers an error and leaves the new\nstructure saved. Every site.json write is atomic (a temp file renamed\nover it), so a failed write leaves the previous site.json as it was,\nand a failed save leaves no page folder that site.json does not list.",
    "note": "operationId updateSiteOutline",
    "kind": "operation"
   },

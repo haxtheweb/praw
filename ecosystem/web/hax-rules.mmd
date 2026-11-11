@@ -98,6 +98,7 @@ flowchart TB
     ra_third_party_libraries["Third-party Libraries"]
     ra_formatting["Formatting"]
     ra_es_modules["ES Modules"]
+    ra_license_header["License header"]
     ra_modern_javascript["Modern JavaScript"]
     ra_css_template_literals["CSS template literals"]
     ra_theme_development["Theme Development"]
@@ -355,6 +356,8 @@ flowchart TB
   rg_agents_md_code_style -->|includes| ra_es_modules
   ra_es_modules -.->|is written in| components
   ra_es_modules -.->|is written in| cli
+  rg_agents_md_code_style -->|includes| ra_license_header
+  ra_license_header -.->|is written in| components
   rg_agents_md_code_style -->|includes| ra_modern_javascript
   ra_modern_javascript -.->|is written in| components
   ra_modern_javascript -.->|is written in| cli
@@ -565,6 +568,7 @@ flowchart TB
   %%@ node ra_third_party_libraries icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_formatting icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node ra_es_modules icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node ra_license_header icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_modern_javascript icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_css_template_literals icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_theme_development icon=icons:gavel color=limestoneGray motion=nudge

@@ -24,11 +24,15 @@ flowchart TB
     st_language_registry_report["14. language-registry-report"]
     sc_api_snapshot["api-snapshot.mjs"]
     sc_build_component_gallery["build-component-gallery.js"]
+    sc_dead_code_check["dead-code-check.mjs"]
     sc_extract_element_docs["extract-element-docs.mjs"]
     sc_gallery_dev_server["gallery-dev-server.js"]
+    sc_haxschema_check["haxschema-check.mjs"]
     sc_i18n_layout_check["i18n-layout-check.mjs"]
     sc_knip_report["knip-report.mjs"]
     sc_leak_check["leak-check.mjs"]
+    sc_runtime_deps_check["runtime-deps-check.mjs"]
+    sc_size_report["size-report.mjs"]
     st_cem_analyze["cem analyze"]
   end
   subgraph readg ["Who reads them"]
@@ -75,11 +79,15 @@ flowchart TB
   m_cem -.->|is read by| sc_api_snapshot
   m_haxreg -.->|is read by| sc_api_snapshot
   m_wcregistry -.->|is read by| sc_build_component_gallery
+  m_wcregistry -.->|is read by| sc_dead_code_check
   m_cem -.->|is read by| sc_extract_element_docs
   m_wcregistry -.->|is read by| sc_gallery_dev_server
+  m_haxreg -.->|is read by| sc_haxschema_check
   m_haxreg -.->|is read by| sc_i18n_layout_check
   m_wcregistry -.->|is read by| sc_knip_report
   m_haxreg -.->|is read by| sc_leak_check
+  m_cem -.->|is read by| sc_runtime_deps_check
+  m_wcregistry -.->|is read by| sc_size_report
   st_cem_analyze -->|writes| m_cem
   m_wcregistry -.->|is read by| nodejs
   m_wcgraph -.->|is read by| nodejs
@@ -123,11 +131,15 @@ flowchart TB
   %%@ node st_language_registry_report icon=hax:code-json color=beaverBlue motion=nudge
   %%@ node sc_api_snapshot icon=hax:code-json color=slateGray motion=nudge
   %%@ node sc_build_component_gallery icon=hax:code-json color=slateGray motion=nudge
+  %%@ node sc_dead_code_check icon=hax:code-json color=slateGray motion=nudge
   %%@ node sc_extract_element_docs icon=hax:code-json color=slateGray motion=nudge
   %%@ node sc_gallery_dev_server icon=hax:code-json color=slateGray motion=nudge
+  %%@ node sc_haxschema_check icon=hax:code-json color=slateGray motion=nudge
   %%@ node sc_i18n_layout_check icon=hax:code-json color=slateGray motion=nudge
   %%@ node sc_knip_report icon=hax:code-json color=slateGray motion=nudge
   %%@ node sc_leak_check icon=hax:code-json color=slateGray motion=nudge
+  %%@ node sc_runtime_deps_check icon=hax:code-json color=slateGray motion=nudge
+  %%@ node sc_size_report icon=hax:code-json color=slateGray motion=nudge
   %%@ node st_cem_analyze icon=hax:code-json color=slateGray motion=nudge
   %%@ node nodejs portal
   %%@ node php portal

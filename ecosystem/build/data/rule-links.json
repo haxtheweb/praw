@@ -6,6 +6,17 @@
   "agents:HAX Properties": "rVsCTS"
  },
  "rules": {
+  "40983ddf-40b7-4a5e-a600-8f9fcb58da83": {
+   "pillars": [
+    "agnostic",
+    "remixable",
+    "sustainable"
+   ],
+   "touches": [
+    "components"
+   ],
+   "how": "Not enforced yet: no check renders elements without HAX loaded. A gap to automate."
+  },
   "nJF4SY": {
    "enforced_by": [
     "q_lint"

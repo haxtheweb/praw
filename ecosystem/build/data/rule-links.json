@@ -129,7 +129,8 @@
   },
   "4e5b25": {
    "enforced_by": [
-    "ct_fuzz"
+    "ct_fuzz",
+    "q_fuzz_nightly"
    ],
    "pillars": [
     "sustainable"
@@ -199,13 +200,17 @@
    ]
   },
   "rVsCTS": {
+   "enforced_by": [
+    "q_haxschema"
+   ],
    "pillars": [
     "extensible"
    ],
    "touches": [
-    "haxschema",
-    "components"
-   ]
+    "components",
+    "haxschema"
+   ],
+   "how": "The HAXSchema check fails a webcomponents pull request when a changed element's haxProperties don't validate or don't match what it declares; known problems are baselined and the baseline only shrinks."
   },
   "199290": {
    "pillars": [
@@ -398,6 +403,31 @@
     "components"
    ],
    "how": ""
+  },
+  "34ef39a0": {
+   "enforced_by": [
+    "q_dark_motion"
+   ],
+   "pillars": [
+    "accessible"
+   ],
+   "touches": [
+    "components",
+    "ddd"
+   ],
+   "how": "The dark-motion check opens each changed element's demo in light and dark with reduced motion on, and fails the pull request on a new failure."
+  },
+  "agents:Unbundled Approach": {
+   "enforced_by": [
+    "q_size_report"
+   ],
+   "pillars": [
+    "efficient"
+   ],
+   "touches": [
+    "components"
+   ],
+   "how": "Partly, and only as a report: the size report measures what an unbundled page downloads for each changed element, without failing the pull request."
   }
  },
  "candidates": [

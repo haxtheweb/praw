@@ -43,6 +43,7 @@ flowchart TB
     r_7cpveferpsf0az8tkqxw0y["Accessibility Audits"]
     r_13a03330_483e_404e_9e48_b0d9f16432d3["Color Vision — Opposing Actions Read Apart Without Color"]
     r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123["Meaning Channels — Meaning and Consequential Decisions Use All Five"]
+    r_34ef39a0_b970_43ba_b68a_251f99d64424["Dark Mode and Reduced Motion"]
     r_cehsaztyfb2vtcwthggnbk["JavaScript Standards — globalThis"]
     r_njf4syugdn5wr5tevadtgy["JavaScript Standards — No optional chaining"]
     r_410c4334_a186_4356_9584_0796e5d2bc2d["Shadow-Boundary ARIA References"]
@@ -132,16 +133,20 @@ flowchart TB
     q_audit["q_audit"]
     q_codeql["q_codeql"]
     q_color_contrast_light_and_dark["q_color_contrast_light_and_dark"]
+    q_dark_motion["q_dark_motion"]
     q_ddd_token_lint["q_ddd_token_lint"]
     q_dependency_licenses["q_dependency_licenses"]
     q_element_api_snapshot["q_element_api_snapshot"]
     q_format_check["q_format_check"]
+    q_fuzz_nightly["q_fuzz_nightly"]
+    q_haxschema["q_haxschema"]
     q_lint["q_lint"]
     q_locale_guard["q_locale_guard"]
     q_memory_leaks["q_memory_leaks"]
     q_mutation_testing["q_mutation_testing"]
     q_parity["q_parity"]
     q_render_benchmarks["q_render_benchmarks"]
+    q_size_report["q_size_report"]
     q_test_all_elements["q_test_all_elements"]
     q_unit_and_api_conformance_tests["q_unit_and_api_conformance_tests"]
     q_unused_code_knip["q_unused_code_knip"]
@@ -222,9 +227,10 @@ flowchart TB
   r_1992902d74844c908ab446 -.->|applies to| haxcms
   rg_design_system_standards -->|includes| r_ccca6768_05e0_4d4d_b3a1_4b9895531558
   rg_web_component_development -->|includes| r_rvsctsdjae8lrmsjmpo3mk
+  q_haxschema -->|enforces| r_rvsctsdjae8lrmsjmpo3mk
   r_rvsctsdjae8lrmsjmpo3mk ==>|serves| extensible
-  r_rvsctsdjae8lrmsjmpo3mk -.->|applies to| haxschema
   r_rvsctsdjae8lrmsjmpo3mk -.->|applies to| components
+  r_rvsctsdjae8lrmsjmpo3mk -.->|applies to| haxschema
   rg_web_component_development -->|includes| r_7cpveferpsf0az8tkqxw0y
   q_color_contrast_light_and_dark -->|enforces| r_7cpveferpsf0az8tkqxw0y
   q_test_all_elements -->|enforces| r_7cpveferpsf0az8tkqxw0y
@@ -241,6 +247,11 @@ flowchart TB
   r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123 -.->|applies to| meaningchannels
   r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123 -.->|applies to| ddd
   r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123 -.->|applies to| components
+  rg_web_component_development -->|includes| r_34ef39a0_b970_43ba_b68a_251f99d64424
+  q_dark_motion -->|enforces| r_34ef39a0_b970_43ba_b68a_251f99d64424
+  r_34ef39a0_b970_43ba_b68a_251f99d64424 ==>|serves| accessible
+  r_34ef39a0_b970_43ba_b68a_251f99d64424 -.->|applies to| components
+  r_34ef39a0_b970_43ba_b68a_251f99d64424 -.->|applies to| ddd
   rg_web_component_development -->|includes| r_cehsaztyfb2vtcwthggnbk
   q_lint -->|enforces| r_cehsaztyfb2vtcwthggnbk
   r_cehsaztyfb2vtcwthggnbk -.->|applies to| components
@@ -263,6 +274,7 @@ flowchart TB
   rg_build_development_workflow -->|includes| r_932f6cd4_90a9_451c_98af_4fb577007f9d
   rg_build_development_workflow -->|includes| r_4e5b2533_8d87_4d77_b303_2d2907a78339
   ct_fuzz -->|enforces| r_4e5b2533_8d87_4d77_b303_2d2907a78339
+  q_fuzz_nightly -->|enforces| r_4e5b2533_8d87_4d77_b303_2d2907a78339
   r_4e5b2533_8d87_4d77_b303_2d2907a78339 ==>|serves| sustainable
   r_4e5b2533_8d87_4d77_b303_2d2907a78339 -.->|applies to| cli
   r_4e5b2533_8d87_4d77_b303_2d2907a78339 -.->|applies to| nodejs
@@ -344,7 +356,9 @@ flowchart TB
   ra_no_typescript -.->|is written in| components
   ra_no_typescript -.->|is written in| cli
   rg_agents_md_code_style -->|includes| ra_unbundled_approach
-  ra_unbundled_approach -.->|is written in| components
+  q_size_report -->|enforces| ra_unbundled_approach
+  ra_unbundled_approach ==>|serves| efficient
+  ra_unbundled_approach -.->|applies to| components
   ra_unbundled_approach -.->|is written in| cli
   rg_agents_md_code_style -->|includes| ra_third_party_libraries
   ra_third_party_libraries -.->|is written in| components
@@ -511,10 +525,11 @@ flowchart TB
   %%@ node r_447f8d9bc5484749b1188e icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_1992902d74844c908ab446 icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_ccca6768_05e0_4d4d_b3a1_4b9895531558 icon=icons:gavel color=limestoneGray motion=nudge
-  %%@ node r_rvsctsdjae8lrmsjmpo3mk icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_rvsctsdjae8lrmsjmpo3mk icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_7cpveferpsf0az8tkqxw0y icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_13a03330_483e_404e_9e48_b0d9f16432d3 icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123 icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_34ef39a0_b970_43ba_b68a_251f99d64424 icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_cehsaztyfb2vtcwthggnbk icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_njf4syugdn5wr5tevadtgy icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_410c4334_a186_4356_9584_0796e5d2bc2d icon=icons:gavel color=limestoneGray motion=nudge
@@ -564,7 +579,7 @@ flowchart TB
   %%@ node r_7d6f9c3e_8d0c_4127_948e_e6260465fa95 icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_language icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_no_typescript icon=icons:gavel color=limestoneGray motion=nudge
-  %%@ node ra_unbundled_approach icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node ra_unbundled_approach icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node ra_third_party_libraries icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_formatting icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node ra_es_modules icon=icons:gavel color=limestoneGray motion=nudge
@@ -600,16 +615,20 @@ flowchart TB
   %%@ node q_audit portal=quality
   %%@ node q_codeql portal=quality
   %%@ node q_color_contrast_light_and_dark portal=quality
+  %%@ node q_dark_motion portal=quality
   %%@ node q_ddd_token_lint portal=quality
   %%@ node q_dependency_licenses portal=quality
   %%@ node q_element_api_snapshot portal=quality
   %%@ node q_format_check portal=quality
+  %%@ node q_fuzz_nightly portal=quality
+  %%@ node q_haxschema portal=quality
   %%@ node q_lint portal=quality
   %%@ node q_locale_guard portal=quality
   %%@ node q_memory_leaks portal=quality
   %%@ node q_mutation_testing portal=quality
   %%@ node q_parity portal=quality
   %%@ node q_render_benchmarks portal=quality
+  %%@ node q_size_report portal=quality
   %%@ node q_test_all_elements portal=quality
   %%@ node q_unit_and_api_conformance_tests portal=quality
   %%@ node q_unused_code_knip portal=quality

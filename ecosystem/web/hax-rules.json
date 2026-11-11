@@ -9,7 +9,7 @@
    "gap": "nothing enforces it yet",
    "proposed": "proposed"
   },
-  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (69 rules) and each repo's AGENTS.md (24), plus 9 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 19 are enforced; 83 are gaps, the backlog of what to automate next.",
+  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (70 rules) and each repo's AGENTS.md (24), plus 9 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 22 are enforced; 81 are gaps, the backlog of what to automate next.",
   "kindLabels": {
    "rel": "where a rule comes from and what enforces it",
    "pillar": "pillars a rule serves",
@@ -33,7 +33,7 @@
    "kind": "group"
   },
   "rg_web_component_development": {
-   "desc": "Web Component Development: 13 rules, 3 enforced by a check.",
+   "desc": "Web Component Development: 14 rules, 5 enforced by a check.",
    "kind": "group"
   },
   "rg_build_development_workflow": {
@@ -49,7 +49,7 @@
    "kind": "group"
   },
   "rg_agents_md_code_style": {
-   "desc": "AGENTS.md: code style: 16 rules, 2 enforced by a check.",
+   "desc": "AGENTS.md: code style: 16 rules, 3 enforced by a check.",
    "kind": "group"
   },
   "rg_agents_md_security": {
@@ -218,9 +218,8 @@
    }
   },
   "r_rvsctsdjae8lrmsjmpo3mk": {
-   "desc": "Elements with a haxProperties method are HAX capable, leveraging the HAXSchema standard to interface with the HAX editor. The demoSchema part provides all necessary information to create example elements in HAX. For demos launching in codepen, use demoSchema and HAX helper methods to create valid demos with appropriate tag names, properties, and slotted content for accurate examples. In PRAW RULES.md (scope: webcomponents). Also in webcomponents AGENTS.md. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Elements with a haxProperties method are HAX capable, leveraging the HAXSchema standard to interface with the HAX editor. The demoSchema part provides all necessary information to create example elements in HAX. For demos launching in codepen, use demoSchema and HAX helper methods to create valid demos with appropriate tag names, properties, and slotted content for accurate examples. In PRAW RULES.md (scope: webcomponents). Also in webcomponents AGENTS.md. Enforced by haxschema. The HAXSchema check fails a webcomponents pull request when a changed element's haxProperties don't validate or don't match what it declares; known problems are baselined and the baseline only shrinks.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#hax-schema-capability"
    }
@@ -246,6 +245,13 @@
    "status": "gap",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#meaning-channels--meaning-and-consequential-decisions-use-all-five"
+   }
+  },
+  "r_34ef39a0_b970_43ba_b68a_251f99d64424": {
+   "desc": "Every element responds to dark mode and respects reduced motion. Colors an element sets change in dark mode: take them from DDD tokens (which have dark values) or switch them with `light-dark()`, `prefers-color-scheme` or `color-scheme`; never hard-code colors that render the same in both schemes. With `prefers-reduced-motion: reduce`, no CSS animation, transition or `element.animate()` longer than 10ms runs on the element or in its shadow root, on load or on hover/focus. The webcomponents `dark-motion` check enforces this for every element a pull request changes; its baseline (`scripts/dark-motion.baseline.json`) only shrinks. Contrast in each scheme is the contrast check's job. In PRAW RULES.md (scope: webcomponents). Enforced by dark-motion. The dark-motion check opens each changed element's demo in light and dark with reduced motion on, and fails the pull request on a new failure.",
+   "kind": "enforced",
+   "links": {
+    "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#dark-mode-and-reduced-motion"
    }
   },
   "r_cehsaztyfb2vtcwthggnbk": {
@@ -335,7 +341,7 @@
    }
   },
   "r_4e5b2533_8d87_4d77_b303_2d2907a78339": {
-   "desc": "New or changed code that sanitizes, validates, parses or saves untrusted or bulk input (HTML/URL sanitizers, path and name validators, importers, `saveOutline`-style bulk writes) ships with a fast-check property test next to its example tests. Follow the HAX fuzz convention (<https://github.com/haxtheweb/issues/issues/3272>): read parameters through the repo's `fuzzConfig()` helper (`test/_helpers/fuzz-config.cjs` in `create` and `haxcms-nodejs`, `scripts/test-setup/fuzz-config.mjs` in `webcomponents`) with a fixed `defaultSeed`, never a bare `{ numRuns }` that draws a new random seed on every CI run; name the file `*-fuzz.test.js` so `test:fuzz` hunt mode picks it up (`.js`, not `.cjs`, where the repo allows it, because the OpenSSF Scorecard Fuzzing check only scans `.js`/`.jsx`); and when a hunt finds a failure, fix it and pin the shrunk counterexample as a fast-check `examples` entry or a plain test so the default run guards it. Replay a reported failure with `HAX_FUZZ_SEED=<seed> HAX_FUZZ_PATH=<path>`. Properties state what must always hold (\"never throws\", \"never lets a `javascript:` URL through\", \"output equals the old implementation\"), not one expected output. In PRAW RULES.md (scope: global). Enforced by Fuzz hunt.",
+   "desc": "New or changed code that sanitizes, validates, parses or saves untrusted or bulk input (HTML/URL sanitizers, path and name validators, importers, `saveOutline`-style bulk writes) ships with a fast-check property test next to its example tests. Follow the HAX fuzz convention (<https://github.com/haxtheweb/issues/issues/3272>): read parameters through the repo's `fuzzConfig()` helper (`test/_helpers/fuzz-config.cjs` in `create` and `haxcms-nodejs`, `scripts/test-setup/fuzz-config.mjs` in `webcomponents`) with a fixed `defaultSeed`, never a bare `{ numRuns }` that draws a new random seed on every CI run; name the file `*-fuzz.test.js` so `test:fuzz` hunt mode picks it up (`.js`, not `.cjs`, where the repo allows it, because the OpenSSF Scorecard Fuzzing check only scans `.js`/`.jsx`); and when a hunt finds a failure, fix it and pin the shrunk counterexample as a fast-check `examples` entry or a plain test so the default run guards it. Replay a reported failure with `HAX_FUZZ_SEED=<seed> HAX_FUZZ_PATH=<path>`. Properties state what must always hold (\"never throws\", \"never lets a `javascript:` URL through\", \"output equals the old implementation\"), not one expected output. In PRAW RULES.md (scope: global). Enforced by Fuzz hunt, fuzz-nightly, nightly.",
    "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#testing--property-tests-for-untrusted-input"
@@ -633,9 +639,8 @@
    }
   },
   "ra_unbundled_approach": {
-   "desc": "Components ship as native JS/HTML/CSS for maximum compatibility In the AGENTS.md of cli, components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Components ship as native JS/HTML/CSS for maximum compatibility In the AGENTS.md of cli, components. Enforced by size-report. Partly, and only as a report: the size report measures what an unbundled page downloads for each changed element, without failing the pull request.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
@@ -855,7 +860,7 @@
    "id": "rules",
    "label": "Rules and what guarantees them",
    "kind": "story",
-   "message": "102 rules: 19 enforced by a check, 83 not yet.",
+   "message": "103 rules: 22 enforced by a check, 81 not yet.",
    "scenes": [
     {
      "caption": "Rules come from PRAW's RULES.md, each repo's AGENTS.md, and the plan's proposals.",
@@ -876,12 +881,14 @@
      ]
     },
     {
-     "caption": "19 rules have a check that enforces them.",
+     "caption": "22 rules have a check that enforces them.",
      "nodes": [
       "r_a8bf4a47_3d4f_4f8e_a356_a04db66ce1ab",
       "r_mlhl56jnsqhvnriaw5a2gr",
       "r_mt6hpj9bdha13jwsxjcmea",
+      "r_rvsctsdjae8lrmsjmpo3mk",
       "r_7cpveferpsf0az8tkqxw0y",
+      "r_34ef39a0_b970_43ba_b68a_251f99d64424",
       "r_cehsaztyfb2vtcwthggnbk",
       "r_njf4syugdn5wr5tevadtgy",
       "r_4e5b2533_8d87_4d77_b303_2d2907a78339",
@@ -890,6 +897,7 @@
       "r_0cf20bb0_0afa_4c6a_9100_e76f76a5cc1a",
       "r_4a7c9e2b_8d5f_4e1a_9c3b_7f2e6d5a4b3c",
       "r_cd0800bf_8611_4835_a421_ad10e88b01e9",
+      "ra_unbundled_approach",
       "ra_formatting",
       "ra_feature_prs_change_english_source_strings_only",
       "ra_dependencies",
@@ -902,16 +910,20 @@
       "q_audit",
       "q_codeql",
       "q_color_contrast_light_and_dark",
+      "q_dark_motion",
       "q_ddd_token_lint",
       "q_dependency_licenses",
       "q_element_api_snapshot",
       "q_format_check",
+      "q_fuzz_nightly",
+      "q_haxschema",
       "q_lint",
       "q_locale_guard",
       "q_memory_leaks",
       "q_mutation_testing",
       "q_parity",
       "q_render_benchmarks",
+      "q_size_report",
       "q_test_all_elements",
       "q_unit_and_api_conformance_tests",
       "q_unused_code_knip"
@@ -936,6 +948,7 @@
       "r_7cpveferpsf0az8tkqxw0y",
       "r_13a03330_483e_404e_9e48_b0d9f16432d3",
       "r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123",
+      "r_34ef39a0_b970_43ba_b68a_251f99d64424",
       "r_njf4syugdn5wr5tevadtgy",
       "r_c3xjsqfbcmoa3cxsoonyxg",
       "r_4e5b2533_8d87_4d77_b303_2d2907a78339",
@@ -946,6 +959,7 @@
       "r_cd0800bf_8611_4835_a421_ad10e88b01e9",
       "r_1eaa87af_8025_4b7f_9a63_492bf0fac68a",
       "r_7d6f9c3e_8d0c_4127_948e_e6260465fa95",
+      "ra_unbundled_approach",
       "ra_feature_prs_change_english_source_strings_only",
       "ra_dependencies",
       "ra_component_security",
@@ -962,7 +976,7 @@
      ]
     },
     {
-     "caption": "83 rules nothing enforces yet: the backlog of what to automate next.",
+     "caption": "81 rules nothing enforces yet: the backlog of what to automate next.",
      "nodes": [
       "r_zvem3yg7jtxbsxbop3ypzy",
       "r_rhq7llrzmzlnfvelrwslun",
@@ -979,7 +993,6 @@
       "r_447f8d9bc5484749b1188e",
       "r_1992902d74844c908ab446",
       "r_ccca6768_05e0_4d4d_b3a1_4b9895531558",
-      "r_rvsctsdjae8lrmsjmpo3mk",
       "r_13a03330_483e_404e_9e48_b0d9f16432d3",
       "r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123",
       "r_410c4334_a186_4356_9584_0796e5d2bc2d",
@@ -1023,7 +1036,6 @@
       "r_7d6f9c3e_8d0c_4127_948e_e6260465fa95",
       "ra_language",
       "ra_no_typescript",
-      "ra_unbundled_approach",
       "ra_third_party_libraries",
       "ra_es_modules",
       "ra_license_header",

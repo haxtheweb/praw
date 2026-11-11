@@ -26,7 +26,7 @@ This document captures a normalized worldview profile derived from two aligned s
 - Authoring UX should be reusable across CMS/LMS/static workflows.
 - The same content model should travel across systems without rewriting pedagogy.
 - Back end shouldn't dictate innovation. For most people the platform is dictated by their personal OS, their vendor, or the libraries on their server, none of which matter to someone who wants to communicate online. The free PHP CMSs carry a knowledge tree that pushes users into outsourcing and vendor lock-in to grow past their base.
-- HAX piles its functionality onto the front end in the browser, so the back ends it needs stay minimal, and writing one in a new language costs far less to build and maintain. Multiple platforms, one system, one format: Node.js and PHP backends, 11ty, the CLI, the desktop app and editor integrations for Drupal, WordPress, ClassicPress and Grav share almost all of their code (the 2024 microsite put it at 98% identical; **verify** before quoting).
+- HAX piles its functionality onto the front end in the browser, so the back ends it needs stay minimal, and writing one in a new language costs far less to build and maintain. Multiple platforms, one system, one format: Node.js and PHP backends, 11ty, the CLI, the desktop app and editor integrations for Drupal, WordPress, ClassicPress and Grav all run the same front end.
 - Content made with HAX must work without HAX present. The editor is opt-in and learns how to work with web components; the components don't need it (`RULES.md`: Works With or Without HAX).
 ### 3) Education technology should be education-led, not profit-led
 - Critical stance toward techno-centrism and edtech commodification.

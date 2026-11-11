@@ -67,6 +67,7 @@ flowchart TB
   subgraph practices ["Practices and standards"]
     wcag["WCAG"]
     meaningchannels["Meaning channels standard"]
+    sdgs[("UN Sustainable Development Goals")]
     rules["Rules and guarantees"]
     heosat["HEOSAT"]
     wcstandard["Web component standard"]
@@ -386,6 +387,13 @@ flowchart TB
   heosat --o|is published by| apereo
   praw -->|runs| heosat
   traveler -->|runs the assessment with AI| heosat
+  sdgs ==>|is met through| accessible
+  sdgs ==>|is met through| efficient
+  sdgs ==>|is met through| extensible
+  sdgs ==>|is met through| open
+  sdgs ==>|is met through| agnostic
+  sdgs ==>|is met through| sustainable
+  wins -->|records progress on| sdgs
   wins -->|records a win for| booklooky
   heosat -->|helped| booklooky
   booklooky --o|went through incubation at| apereo
@@ -770,6 +778,7 @@ flowchart TB
   %%@ node dept icon=icons:account-balance color=forestGreen motion=lift
   %%@ node textbook icon=icons:book color=inventOrange motion=tilt
   %%@ node hax11ty icon=hax:file-html color=pughBlue motion=lift
+  %%@ node sdgs mono=SDG color=creekTeal motion=nudge web=sdgs
   %%@ node wins icon=icons:stars color=roarGolden motion=pop
   %%@ node wcstandard icon=hax:html-code color=inventOrange motion=nudge web=stack
   %%@ node security icon=icons:lock color=slateGray motion=pulse

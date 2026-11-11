@@ -31,6 +31,7 @@ flowchart TB
     g_frank["g_frank"]
     wins["wins"]
     sites_hub["302 sites on hax.psu.edu"]
+    psuplan[("Strategic plan")]
   end
   subgraph ppl ["People"]
     bryan(("bryan"))
@@ -104,6 +105,9 @@ flowchart TB
   fusco ---|is featured in| wins
   jfrank ---|is featured in| wins
   blake ---|is featured in| wins
+  psu -->|sets out| psuplan
+  aa -.->|aligns its own plan to| psuplan
+  %%@ node psuplan mono=PSU color=nittanyNavy motion=lift web=psuplan
   haxpsu -->|hosts| sites_hub
   aa -->|publishes courses on| sites_hub
   ist -->|publishes courses on| sites_hub

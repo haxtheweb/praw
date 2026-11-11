@@ -1,0 +1,90 @@
+{
+ "about": "Penn State's strategic plan and the College of Arts and Architecture's Strategic Plan 2030, limited to the objectives HAX meets (confirmed by the platform owner, 2026-11-11). Plan structure and wording are a snapshot read from the plan pages on the date given; objective text is paraphrased (see the plan for the exact words). A&A's goal-to-priority alignment is A&A's own. pillars and nodes are ids in hax-ecosystem.mmd, sdgs are goal numbers in sdg-links.json, wins are headings in praw WINS.md. build_plans.py reads this file. Refresh by hand when a plan changes.",
+ "psu": {
+  "name": "Penn State strategic plan", "url": "https://strategicplan.psu.edu/engage/", "read": "2026-11-11",
+  "priorities": [
+   {"id": "success", "name": "Enhancing Student Success", "desc": "Prepare students to be engaged citizens, employable, further educated, and able to drive positive change.", "objectives": [
+     {"id": "o1", "text": "Advising, research advising, mentoring and class experiences that prepare students for their academic and professional futures.",
+      "pillars": ["sustainable"], "nodes": ["ist256", "haxlab"], "sdgs": [4],
+      "wins": ["From HAX Lab to industry", "Winston White: student to trainer", "36 students, 18 fixes"]},
+     {"id": "o2", "text": "Co-curricular experiences that align students' passions, aptitudes and ambitions and lead them to success in school and work.",
+      "pillars": ["sustainable"], "nodes": ["ccso", "uxdc", "haxlab"], "sdgs": [4, 8],
+      "wins": ["Student clubs: 30 security fixes", "Site Dashboard, three generations of students (2022–2026)"]},
+     {"id": "o3", "text": "Student, faculty and staff health and wellness, cultivated in a caring community focused on flourishing.",
+      "pillars": ["open", "agnostic"], "nodes": ["hhd", "dept"], "sdgs": [],
+      "wins": ["Learn to Flourish Hub: flourish.hhd.psu.edu (2026)"], "how": "HAX is the platform behind the Learn to Flourish Hub's public site."}]},
+   {"id": "research", "name": "Growing (Inter)disciplinary Research Excellence", "desc": "Use the University's scholarship to address major challenges facing the Commonwealth, the nation and the world.", "objectives": [],
+    "how": "HAX meets this through A&A Goal 4: arts and design as research and practice."},
+   {"id": "landgrant", "name": "Increasing Land-Grant Impact", "desc": "Contribute to the Commonwealth's economic development, workforce growth and overall vitality.", "objectives": [
+     {"id": "o6", "text": "Use the University's assets and strategic partnerships to build resilient, sustainable communities for Pennsylvania.",
+      "pillars": ["open", "agnostic"], "nodes": ["innovationhub", "haxpsu"], "sdgs": [8, 9],
+      "wins": ["Reach by early 2026"], "how": "hax.psu.edu is a shared asset: the Innovation Hub's site and the LaunchBox small-business training site started there."},
+     {"id": "o7", "text": "Extend the academic enterprise through partnerships with business and industry, non-profits, communities and residents.",
+      "pillars": ["sustainable", "extensible"], "nodes": ["apereo", "duke", "drupalcon", "npm"], "sdgs": [9, 17],
+      "wins": ["National Archives usability audit (2019)", "HAXcms announced at DrupalCon", "First hax-camp, 40+ people", "289 packages, about 49,000 downloads a month"]},
+     {"id": "o8", "text": "Galvanize an engaged and effective network of advocates and investors in Penn State.",
+      "pillars": ["sustainable"], "nodes": ["grants", "g_frank", "g_fusco", "g_hhd"], "sdgs": [17],
+      "wins": ["HAX Lab faculty grants", "Learn to Flourish Hub: flourish.hhd.psu.edu (2026)"]}]},
+   {"id": "deib", "name": "Fostering Diversity, Equity, Inclusion, and Belonging", "desc": "An inclusive environment where all students, faculty and staff can flourish.", "objectives": [
+     {"id": "o9", "text": "Address institutional barriers to close student outcome gaps.",
+      "pillars": ["accessible", "open", "efficient"], "nodes": ["wcag", "textbook", "oerschema"], "sdgs": [4, 10],
+      "wins": ["A $250 textbook becomes a $30 fee", "The seven accent-cards", "Fast without a build step"]}]},
+   {"id": "tio", "name": "Transform Internal Operations", "supporting": true, "desc": "The supporting element: initiatives that provide the infrastructure and support to carry out the plan's goals.", "objectives": [],
+    "pillars": ["efficient", "sustainable"], "nodes": ["dept", "agents"], "sdgs": [12],
+    "wins": ["One maintainer, more rockets (SIIP)", "Agents with context: 90% then 211%", "Migrations in seconds, not months"],
+    "how": "The plan lists no objectives for it; HAX does more with less, and A&A Goal 1 aligns to it."}
+  ]
+ },
+ "aa": {
+  "name": "A&A Strategic Plan 2030", "url": "https://arts.psu.edu/about/aa-strategic-plan-2030", "read": "2026-11-11", "years": "2026–2030",
+  "goals": [
+   {"id": "g1", "name": "Build a culture of collaboration", "psu": "tio", "desc": "Strengthen trust, connection and belonging across people, partnerships and programs.", "subs": [
+     {"id": "1A", "text": "Reimagine shared physical spaces and systems to encourage collaboration.",
+      "pillars": ["sustainable"], "nodes": ["haxlab", "hhd"], "sdgs": [17],
+      "wins": ["Learn to Flourish Hub: flourish.hhd.psu.edu (2026)", "HAX Lab faculty grants"], "how": "HAX Lab is a physical space for cross-discipline work like the Flourish Hub, student internships and collaborations."},
+     {"id": "1B", "text": "Build cross-disciplinary collaboration into curricula, research and creative practice.",
+      "pillars": ["sustainable"], "nodes": ["hhd", "dept", "grants"], "sdgs": [17],
+      "wins": ["Learn to Flourish Hub: flourish.hhd.psu.edu (2026)", "HAX Lab faculty grants"]},
+     {"id": "1C", "text": "Use collaboration to reduce administrative burden rather than add to workloads.",
+      "pillars": ["efficient"], "nodes": ["skeletons", "importers", "dept"], "sdgs": [],
+      "wins": ["Skeletons and benevolent restrictions (HAX 25)", "Migrations in seconds, not months"]}]},
+   {"id": "g2", "name": "Amplify our responsibility as a cultural bridge", "psu": "landgrant", "desc": "Enrich campus, community and civic life across Pennsylvania and beyond.", "subs": [
+     {"id": "2B", "text": "Expand artist residencies and student experiential opportunities.",
+      "pillars": ["sustainable"], "nodes": ["haxlab", "ist256"], "sdgs": [4, 8],
+      "wins": ["From HAX Lab to industry", "Site Dashboard, three generations of students (2022–2026)"]},
+     {"id": "2C", "text": "Embed human-centered design principles in courses, performances and creative practice.",
+      "pillars": ["accessible"], "nodes": ["uxdc", "ddd", "dashboard"], "sdgs": [],
+      "wins": ["Site Dashboard, three generations of students (2022–2026)", "Students built the design system"]},
+     {"id": "2D", "text": "Strengthen A&A's visibility and partnerships at state, national and global levels.",
+      "pillars": ["open"], "nodes": ["apereo", "drupalcon", "duke", "npm"], "sdgs": [17],
+      "wins": ["289 packages, about 49,000 downloads a month", "HAXcms announced at DrupalCon", "First hax-camp, 40+ people", "National Archives usability audit (2019)"]}]},
+   {"id": "g3", "name": "Empower learners to build the future", "psu": "success", "desc": "Develop skills, imagination and agency.", "subs": [
+     {"id": "3A", "text": "Expose students to diverse career pathways through arts- and design-integrated experiential learning.",
+      "pillars": ["sustainable"], "nodes": ["haxlab"], "sdgs": [4, 8],
+      "wins": ["From HAX Lab to industry", "Winston White: student to trainer"]},
+     {"id": "3B", "text": "Build ethical AI literacy and future-ready skills into curricular and co-curricular experiences.",
+      "pillars": ["open"], "nodes": ["ai", "agents", "praw", "g_fusco"], "sdgs": [4],
+      "wins": ["HAX Lab faculty grants", "Agents with context: 90% then 211%"]},
+     {"id": "3C", "text": "Expand A&A's role in General Education so all students can explore creativity and emerging technologies.",
+      "pillars": ["accessible"], "nodes": ["course", "aa"], "sdgs": [4],
+      "wins": ["Reach by early 2026"]},
+     {"id": "3D", "text": "Develop new degrees, minors, certificates and hybrid learning models that match demand and workforce needs.",
+      "pillars": ["agnostic"], "nodes": ["course", "portfolio"], "sdgs": [4],
+      "wins": ["Reach by early 2026", "HAX Lab faculty grants"]}]},
+   {"id": "g4", "name": "Champion the arts and design as transformative forms of research and practice", "psu": "research", "desc": "Advance discovery, insight, influence and impact.", "subs": [
+     {"id": "4A", "text": "Build cross-campus partnerships that raise the visibility and impact of arts and design.",
+      "pillars": ["sustainable"], "nodes": ["libraries", "hhd", "eberly", "ist"], "sdgs": [17],
+      "wins": ["640+ open HTML tags, used across Penn State", "Learn to Flourish Hub: flourish.hhd.psu.edu (2026)"]},
+     {"id": "4B", "text": "Elevate recognition of A&A's creative activity, research and scholarship.",
+      "pillars": ["open"], "nodes": ["presentations", "wins"], "sdgs": [],
+      "wins": ["One maintainer, more rockets (SIIP)", "Ten years from a notepad"]},
+     {"id": "4C", "text": "Lead University-wide human-centered use of AI in creative practice and research.",
+      "pillars": ["open"], "nodes": ["merlin", "agents", "mcp", "praw"], "sdgs": [9],
+      "wins": ["Agents with context: 90% then 211%", "Twelve of me"]}]},
+   {"id": "g5", "name": "Cultivate an equitable community for all", "psu": "deib", "desc": "Every student, faculty member and staff member has the support, access and opportunities to thrive.", "subs": [
+     {"id": "5B", "text": "Reduce or remove affordability and access barriers to participation.",
+      "pillars": ["accessible", "open"], "nodes": ["textbook", "oerschema"], "sdgs": [4, 10],
+      "wins": ["A $250 textbook becomes a $30 fee", "Fast without a build step"]}]}
+  ]
+ }
+}

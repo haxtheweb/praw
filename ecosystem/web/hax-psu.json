@@ -16,6 +16,13 @@
   "psu": {
    "always": true
   },
+  "psuplan": {
+   "desc": "Penn State's strategic plan, limited to the priorities and objectives HAX meets. A&A's Strategic Plan 2030 opens from inside it.",
+   "kind": "work",
+   "links": {
+    "plan": "https://strategicplan.psu.edu/engage/"
+   }
+  },
   "sites_hub": {
    "desc": "Snapshot of hax.psu.edu: 302 sites, 368 users, 17,100 pages. Courses are deduplicated by course code (largest copy counts) and grouped by college; blogs, tests and general sites are left out. Open the hax.psu.edu web for every college and course.",
    "kind": "work"

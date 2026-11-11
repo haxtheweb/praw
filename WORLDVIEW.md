@@ -4,6 +4,7 @@ This document captures a normalized worldview profile derived from two aligned s
 - Primary corpus (served): `https://btopro.com`
 - Primary corpus (source mirror): `https://github.com/btopro/blog`
 - Thesis corpus: `https://github.com/haxtheweb/praw/blob/main/thesis-bryan-ollendyke-information-altruism.pdf`
+- Supporting microsite: *The case for HAX* (web ubiquity), `https://oer.hax.psu.edu/bto108/sites/web-ubiquity/` (2024); its examples of HAX's unique functionality are folded into pillars 2 and 7 and the pillar checks below
 - Current corpus snapshot: `site.json` with 83 indexed items
 - Inclusion focus: HAX, HAXcms, ELMS:LN, open web, instructional design, educational transformation, community development, sustainability, faculty/student empowerment
 - Thesis inclusion focus: Information Altruism, Actor-Network Theory, tempered radicalism, diffusion of innovation, do-ocracy, and institution change from within
@@ -24,6 +25,9 @@ This document captures a normalized worldview profile derived from two aligned s
 - HAX as Headless Authoring eXperience is a strategic pattern, not just a product feature.
 - Authoring UX should be reusable across CMS/LMS/static workflows.
 - The same content model should travel across systems without rewriting pedagogy.
+- Back end shouldn't dictate innovation. For most people the platform is dictated by their personal OS, their vendor, or the libraries on their server, none of which matter to someone who wants to communicate online. The free PHP CMSs carry a knowledge tree that pushes users into outsourcing and vendor lock-in to grow past their base.
+- HAX piles its functionality onto the front end in the browser, so the back ends it needs stay minimal, and writing one in a new language costs far less to build and maintain. Multiple platforms, one system, one format: Node.js and PHP backends, 11ty, the CLI, the desktop app and editor integrations for Drupal, WordPress, ClassicPress and Grav share almost all of their code (the 2024 microsite put it at 98% identical; **verify** before quoting).
+- Content made with HAX must work without HAX present. The editor is opt-in and learns how to work with web components; the components don't need it (`RULES.md`: Works With or Without HAX).
 ### 3) Education technology should be education-led, not profit-led
 - Critical stance toward techno-centrism and edtech commodification.
 - Institutions should build and steer solutions grounded in learning science, instructional practice, and public-good values.
@@ -44,6 +48,8 @@ This document captures a normalized worldview profile derived from two aligned s
 - "Open but unmaintainable" is treated as a failure mode.
 - Preferred solutions are understandable, maintainable, and deployable by regular practitioners.
 - Long-term sustainability (including resource use and organizational resilience) is a design requirement.
+- Improving developer experience to expand the available developer base is always worth more than minor performance metrics. Bundling and build complexity is what keeps people who can copy and paste JavaScript from using JS tools, so HAX ships unbundled ES modules over HTTP/2 and 3 and one "magic script" hydrates any registered tag on demand, from a CDN or a site's own build.
+- Unbundled, semantic tags make fixes retroactive: upgrading a tag's definition fixes it everywhere it is used. A release improved `simple-cta`'s accessibility on existing sites without a developer or content author ever touching their HTML.
 ### 7b) Collapse cost structures
 - Working on the open web shouldn't require much money, and HAX shows it doesn't: the project runs in thousands, not millions.
 - Every contribution should make all past work on the web enhance all future work on the web, forever.
@@ -163,6 +169,7 @@ Run these for any new feature, skill, plugin, integration or architectural decis
 | C | Human creativity first | Free and open, Remixable | Does AI speed the work while people keep the creative and editorial decisions? Does the output stay open and portable rather than depending on a single AI service ("supplemented by AI, not forever powered by it")? |
 | D | Meet people where they are | Accessible, Efficient | Does it start from what people already have (a Word file, an existing site, Markdown, a URL) and ask them to know nothing about the web? Would a newcomer get what it is in about three seconds, without digging through layers of menus? (A guideline, not a blocker.) |
 | E | Works forever | Sustainable, Platform agnostic | Will content made today still render and edit years from now because it is saved as HTML whose tag definitions can be upgraded later? (Every HAX site made since about 2020 still works.) |
+| F | Works with or without HAX | Platform agnostic, Remixable | Does content made with it render and work with no HAX editor or HAX site present (for example, pasted into a Codepen)? If it needs a HAX site, is that because it is built for one (an in-page menu, a `site.json` query)? |
 
 Agents should report the result as a short table or list in PR descriptions for non-trivial changes, alongside lint and test results.
 

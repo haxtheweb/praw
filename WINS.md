@@ -35,6 +35,19 @@ Only list wins that have happened. Proposals and pilots in progress stay out unt
 - For partners / institutions: an outreach unit got a professional, accessible learning experience without buying an LMS or hiring a design team.
 - Source: [Apereo HAX project page: Success Stories](https://www.apereo.org/programs/software/HAX), [Customer Discovery 101](https://invent.psu.edu/programs/customer-discovery-101/)
 
+### Learning Design Summer Camp: faster to rebuild than to keep editing (2024)
+- Who: the team running Learning Design Summer Camp 2024.
+- Before → after: the camp's site was in WordPress. It was faster to rebuild it in HAX than to keep editing it in WordPress. **verify**: who led the rebuild and how long it took.
+- Why it matters: moving to HAX cost less than staying put, the case against lock-in in practice (pillars 1 and 4).
+- Source: [The case for HAX: Examples](https://oer.hax.psu.edu/bto108/sites/web-ubiquity/examples), [Learning Design Summer Camp 2024](https://oer.hax.psu.edu/beb5040/sites/ldsc2024/home)
+
+### Eberly College of Science: OER courses and a custom ODL site
+- Who: faculty in the Eberly College of Science, with Eberly's Office of Digital Learning (ODL), core HAX contributors.
+- Before → after: all of the courses on OER @ Eberly College use hax.psu.edu and are taught and built by Eberly faculty in collaboration with Eberly ODL, and the OER site itself is built with many assets from the HAX portfolio. Eberly ODL's own site is a custom HAXsite with a custom theme and data model. **verify**: course count and when the move happened.
+- Why it matters: a second college owns its open courseware and extends HAX for its own needs rather than just using it (pillars 5 and 6; Extensible).
+- For partners / institutions: open courses and a branded unit site on shared infrastructure, without a separate platform.
+- Source: [The case for HAX: Examples](https://oer.hax.psu.edu/bto108/sites/web-ubiquity/examples), [OER @ Eberly College](https://oer.courses.science.psu.edu/), [Eberly ODL](https://odl.science.psu.edu/)
+
 ### Digital Beaumont & Fletcher: students edit the rarely taught plays
 - Who: undergraduate and graduate students preparing editions for Digital Beaumont & Fletcher, a collaborative, open-access editorial project at Penn State.
 - Before → after: plays in the "Beaumont and Fletcher" canon are rarely edited and, as a result, rarely taught. Students prepare every text, and the editions are published with HAX, freely available online for classroom use (for example *The Sea Voyage*). This is likely the "XML-based plays" in *640+ open HTML tags* below; **verify** and merge if so.
@@ -155,9 +168,9 @@ In the talks, yellow marks events (courses, collaborations, HAX Camps, adoptions
 
 ### Every site since 2020 still works
 - Who: everyone who has ever published with HAX.
-- Before → after: because HAX saves HTML and ships the tag definitions separately, every site made since about 2020 still works; it just looks better and is easier to edit, because the definitions were upgraded underneath it. The 2018 save button and today's are the same asset.
+- Before → after: because HAX saves HTML and ships the tag definitions separately, every site made since about 2020 still works; it just looks better and is easier to edit, because the definitions were upgraded underneath it. The 2018 save button and today's are the same asset. Fixes travel the same way: a release improved `simple-cta`'s accessibility on every existing site without a developer or content author going to any site to change its HTML.
 - Why it matters: content outlives the tool's redesigns (Sustainable, Platform agnostic).
-- Source: [Nothing is intentional, until it is, Mar 2026](https://www.youtube.com/watch?v=wkdW2EjkwZ4)
+- Source: [Nothing is intentional, until it is, Mar 2026](https://www.youtube.com/watch?v=wkdW2EjkwZ4), [The case for HAX: Sustainable web development](https://oer.hax.psu.edu/bto108/sites/web-ubiquity/sustainable-web-development)
 
 ### 289 packages, about 49,000 downloads a month
 - Who: developers and sites pulling HAX web components from npm.

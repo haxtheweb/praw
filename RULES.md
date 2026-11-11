@@ -177,6 +177,11 @@ Every rule has one of four scopes:
 - **Scope**: `webcomponents`
 - **Content**: Elements that need to participate in HAX lifecycle / state changes without importing HAX implement a `haxHooks()` method mapping hook names to element method names. The platform stays type-agnostic by routing through these hooks rather than hard-coding support for specific elements or file types. Use `processFileUpload` (returns `{ fileUuid, operation, valueMapping, fallbackType? }` or `false`) to let an element own its post-upload conversion from the generic tray upload / drag-drop path (`HAXStore.applyFileUploadTransform`), mirroring the per-field schema `uploadTransform`. Use `gizmoRegistration` to extend `validGizmoTypes` or register an app store. Use `mediaSourceUpdated` to refresh an element's live preview when a backing file changes in place. Use `preProcessInsertContent` / `preProcessNodeToContent` / `postProcessNodeToContent` to hook insertion / export serialization. Use `activeElementChanged` / `editModeChanged` to sync edit state. Use `inlineContextMenu` to add context-menu buttons. The authoritative hook list and signatures live in the comment block at the top of `HAXWiring.js` (`elements/hax-body-behaviors/lib/HAXWiring.js`) and are mirrored in `hax-schema/README.md` under `# Hax hooks`.
 
+### Works With or Without HAX
+- **Rule ID**: `40983ddf-40b7-4a5e-a600-8f9fcb58da83`
+- **Scope**: `webcomponents`
+- **Content**: Content made with the HAX editor must work when HAX is not present. A HAX-capable element knows about HAX only through `static get haxProperties()` (and `haxHooks()` when needed), never by importing or requiring the editor. An element may react to editing only to block clicks while editing (buttons, dialog openers, links), to expose editable content that is hard to reach visually, or to extend the HAX UI through hooks, and it must still render and work outside HAX. Only elements built for a HAX site may depend on one (an in-page menu, `smart-collection-list` reading `site.json`). Elements that rely on a third-party service must still work without HAX. Rationale: KNOWLEDGE.md entry "With or without HAX, work".
+
 ### Educational Content Standards (OER Schema)
 - **Rule ID**: `c3XjsqFbCmoA3cxsooNyxG`
 - **Scope**: `webcomponents`

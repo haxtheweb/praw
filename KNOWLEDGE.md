@@ -144,6 +144,15 @@ Structure your entries using the templates below. Keep entries concise and searc
 - Candidate: No
 - Promoted: rule `8d0c033b-7c96-4c6e-aafc-7dfff8ad9123` in RULES.md
 
+- Title: With or without HAX, work
+- Date: 2026-11-11
+- Context: A long-standing HAX design principle, written up on The case for HAX microsite but not in praw until now: content produced with the HAX editing system must work without HAX being present. The editor learns how to work with web components and is opt-in; it does not own them. Example: a `video-player` authored in HAX runs unchanged in a stand-alone Codepen.
+- Guidance: Give elements a `haxProperties()` HAXSchema and nothing else HAX-specific unless one of the allowed cases applies (blocking events while editing, hard-to-reach editable content, deeper HAX UI hooks). Site-context elements (in-page menu, `smart-collection-list`) are the only ones allowed to need a HAX site. Check an element outside HAX before calling it HAX-capable.
+- Rationale: This keeps content portable and editable forever: HTML that renders anywhere, with the editor as one consumer among many. If elements needed HAX to run, every site would be locked to the editor.
+- Links: RULES.md (Works With or Without HAX), https://oer.hax.psu.edu/bto108/sites/web-ubiquity/with-or-without-hax-work, https://codepen.io/btopro/pen/XWLKQmY
+- Candidate: No
+- Promoted: rule `40983ddf-40b7-4a5e-a600-8f9fcb58da83` in RULES.md
+
 ## HAXcms
 
 - Title: Example – Keep metadata.site.name aligned

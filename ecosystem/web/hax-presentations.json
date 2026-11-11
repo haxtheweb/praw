@@ -179,6 +179,19 @@
    "year": 2025,
    "yearNote": "FOSSY 2025: ten years from a notepad"
   },
+  "t25wilson": {
+   "desc": "An interview by Apereo Board Chair Joshua Wilson on Bryan's model for community building: a 200-level class that uses HAX, a weekly HAX Club, then paid HAX Lab internships, with college grants and the CLI letting agents build sites.",
+   "links": {
+    "article": "https://www.apereo.org/news/2025/next-level-community-building-hax"
+   },
+   "source": {
+    "label": "Apereo news, December 1, 2025",
+    "url": "https://www.apereo.org/news/2025/next-level-community-building-hax"
+   },
+   "kind": "talk",
+   "year": 2025,
+   "yearNote": "Next-level community building with HAX"
+  },
   "t26nothing": {
    "desc": "Ten years of HAX through ubiquity, the outline designer and SIIP; why every site since 2020 still works.",
    "links": {
@@ -237,6 +250,17 @@
    "source": {
     "label": "WINS.md: Fast without a build step",
     "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
+   },
+   "kind": "talk"
+  },
+  "tminute": {
+   "desc": "HAX explained in under a minute, the short intro linked from the Apereo project page.",
+   "links": {
+    "recording": "https://haxtheweb.github.io/art/presentation-materials/hax-in-a-minute/"
+   },
+   "source": {
+    "label": "Apereo: HAX project page",
+    "url": "https://www.apereo.org/programs/software/HAX"
    },
    "kind": "talk"
   },
@@ -380,6 +404,15 @@
      ]
     },
     {
+     "caption": "Late 2025: Apereo's board chair asks how the class, the club and the lab fit together.",
+     "nodes": [
+      "t25wilson",
+      "ist256",
+      "grants",
+      "portfolio"
+     ]
+    },
+    {
      "caption": "2026: Nothing is intentional, until it is; then SIIP at Apereo with the students and faculty themselves.",
      "nodes": [
       "t26nothing",
@@ -410,6 +443,7 @@
       "tmanymes",
       "praw",
       "tperf",
+      "tminute",
       "tgov4",
       "drupal4gov"
      ]

@@ -8,6 +8,8 @@ Recorded and presented talks that carry the HAX worldview, voice and evidence. A
 | Oct 2023 | [HAX Horizon Report](https://www.youtube.com/watch?v=bX04I1Cw9FA) | Where HAX was and where it said it would go |
 | Oct 2024 | [HiTech Podcast ep. 168: Reclaiming the Internet](https://www.youtube.com/watch?v=fKeSEZm3khE) | The origin story in Bryan's words; instructional designers reacting to HAX |
 | Feb 2025 | [2025: State of HAX Community](https://www.youtube.com/watch?v=WGv94SY0cRM) | Year one of HAX Lab, the seven community pillars, the 2025 roadmap |
+| Dec 2025 | [Next-level community building with HAX](https://www.apereo.org/news/2025/next-level-community-building-hax) (Apereo interview by Joshua Wilson, written) | Class, HAX Club and HAX Lab internships as one community-building model, told to Apereo's board chair |
+| Undated | [HAX in a minute](https://haxtheweb.github.io/art/presentation-materials/hax-in-a-minute/) | HAX explained in under a minute; the intro the Apereo project page links |
 | Mar 2026 | [Nothing is intentional, until it is](https://www.youtube.com/watch?v=wkdW2EjkwZ4) | Ten years of HAX told through ubiquity, the outline designer and SIIP |
 | May 2026 | [SIIP: a Conversation with HAX](https://www.youtube.com/watch?v=TNF0uzYi9Kk) (Apereo) | The pipeline, told by the students and faculty in it |
 | 2026 | [With the right tools, you can do anything](https://www.youtube.com/watch?v=G5yEgFIxzl0) | Bryan's career as one storyline; the talk that retires the EdTechJoker persona and shows who he is |

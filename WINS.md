@@ -28,6 +28,20 @@ Only list wins that have happened. Proposals and pilots in progress stay out unt
 - For partners / institutions: a cross-college collaboration where HAX was the enabler and the Hub is the story.
 - Source: [flourish.hhd.psu.edu](https://flourish.hhd.psu.edu), [team](https://flourish.hhd.psu.edu/team)
 
+### Customer Discovery 101: Invent Penn State LaunchBox
+- Who: **Annie Hughes**, Statewide Coordinator with Invent Penn State LaunchBox and Innovation Network, and her team, building Customer Discovery 101, an entrepreneurship training program open to the public.
+- Before → after: the team searched for a platform that was flexible, customizable and accessible for its end users, and had limited design experience, so it needed something user-friendly and intuitive. It built the program on HAX, and in Annie's words the program "has received overwhelmingly positive reviews from our users for both functionality and design." **verify**: launch year.
+- Why it matters: a public training program, not a for-credit course, built and owned by a small team without designers, with accessibility handled by the platform (pillars 4 and 5).
+- For partners / institutions: an outreach unit got a professional, accessible learning experience without buying an LMS or hiring a design team.
+- Source: [Apereo HAX project page: Success Stories](https://www.apereo.org/programs/software/HAX), [Customer Discovery 101](https://invent.psu.edu/programs/customer-discovery-101/)
+
+### Digital Beaumont & Fletcher: students edit the rarely taught plays
+- Who: undergraduate and graduate students preparing editions for Digital Beaumont & Fletcher, a collaborative, open-access editorial project at Penn State.
+- Before → after: plays in the "Beaumont and Fletcher" canon are rarely edited and, as a result, rarely taught. Students prepare every text, and the editions are published with HAX, freely available online for classroom use (for example *The Sea Voyage*). This is likely the "XML-based plays" in *640+ open HTML tags* below; **verify** and merge if so.
+- Why it matters: open educational resources by default, with students doing real scholarly work that ships (pillars 5 and 8).
+- For partners / institutions: a humanities project gets an open edition for classroom use without a publishing budget.
+- Source: [Apereo HAX project page: Success Stories](https://www.apereo.org/programs/software/HAX), [Digital Beaumont and Fletcher (1647)](https://openpublishing.psu.edu/digital-beaumont-fletcher-about-project)
+
 ### The seven accent-cards
 - Who: an instructional design support specialist building a photography course.
 - Before → after: a dated, uneditable image explaining color would have needed an image editor and specialist skills. He placed seven `accent-card`s, wrote each wavelength on one, and built the explanation himself, with color contrast handled by the component.

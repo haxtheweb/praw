@@ -9,6 +9,8 @@ ART = "https://github.com/haxtheweb/art/tree/main/world-traveler"
 ISS = "https://github.com/haxtheweb/issues/issues/"
 ADV = "https://github.com/haxtheweb/issues/security/advisories/"
 SIIP = "https://www.youtube.com/watch?v=TNF0uzYi9Kk"
+APEREO_HAX = "https://www.apereo.org/programs/software/HAX"
+AP19 = "https://www.slideshare.net/slideshow/haxtheweb-apereo-19/148822203"
 
 
 def anchor(h):
@@ -36,6 +38,8 @@ W = {k: anchor(v) for k, v in {
     "reach": "Reach by early 2026",
     "nara": "National Archives usability audit (2019)",
     "since2020": "Every site since 2020 still works",
+    "cd101": "Customer Discovery 101: Invent Penn State LaunchBox",
+    "dbf": "Digital Beaumont & Fletcher: students edit the rarely taught plays",
 }.items()}
 
 def L(label, url):
@@ -136,6 +140,9 @@ N("course", desc="Online courses in multiple Penn State colleges; HAX began for 
 N("blog", desc="")
 N("portfolio", desc="Portfolios students can take with them, starting with the International Student Portfolio and a set of student-built portfolio themes.", source=L("WINS.md: HAX Lab faculty grants", W["grants"]), year=2025, yearNote="Student-built portfolio themes", yearSource=L("hax-lab README", HAXLAB))
 N("dept", desc="Department and unit sites owned without a web team, like the Learn to Flourish Hub at flourish.hhd.psu.edu.", source=L("WINS.md: Learn to Flourish Hub", W["flourish"]), links={"example": "https://flourish.hhd.psu.edu"}, year=2026, yearNote="flourish.hhd.psu.edu launches", yearSource=L("WINS.md", W["flourish"]))
+N("cd101", desc="Customer Discovery 101, a public entrepreneurship training program from Invent Penn State LaunchBox, built on HAX by a team with limited design experience; users have praised both its functionality and design.", source=L("WINS.md: Customer Discovery 101", W["cd101"]), links={"site": "https://invent.psu.edu/programs/customer-discovery-101/", "story": APEREO_HAX})
+N("dbf", desc="Digital Beaumont & Fletcher, an open-access edition of the rarely taught Beaumont and Fletcher plays, with every text prepared by undergraduate and graduate students and published with HAX for classroom use.", source=L("WINS.md: Digital Beaumont & Fletcher", W["dbf"]), links={"site": "https://openpublishing.psu.edu/digital-beaumont-fletcher-about-project", "story": APEREO_HAX})
+N("jukebox", desc="The Jukebox, required listening for INART 116, History of Rock and Roll: 1950s, from the Office of Digital Learning: a one-column introduction, then audio on the left with annotation on the right, then collapsible lyrics, all built in HAX.", source=L("Apereo: HAX project page", APEREO_HAX), links={"story": APEREO_HAX})
 N("docs", desc="Project documentation, being rebuilt as Learn HAX.", links={"site": HTW + "/documentation"})
 N("textbook", desc="Open books from Pressbooks, OpenStax or Word, pulled in, edited and published as open sites in minutes.", source=L("WINS.md: Migrations in seconds", W["migrations"]))
 
@@ -149,7 +156,8 @@ N("libraries", desc="Penn State University Libraries publishes XML-based plays w
 N("haxlab", desc="Students and contributors working on HAX through courses, independent studies and internships; alumni now work at Red Hat, Adobe, IBM, Ford and PennDOT.", source=L("hax-lab README", HAXLAB), links={"repo": HAXLAB, "site": HTW + "/hax-lab"}, year=2016, yearNote="The first HAX Lab contribution (xAPI and AI integration)", yearSource=L("hax-lab README", HAXLAB))
 N("ccso", desc="Penn State's student cyber security club. Two long-form audits helped find and resolve 30 vulnerabilities over two years.", source=L("WINS.md: Student clubs", W["clubs"]), links={"site": "https://psuccso.org/"}, year=2025, yearNote="CCSO runs the 2025 HAX pentest", yearSource=L("hax-lab README", HAXLAB))
 N("uxdc", desc="A student UX and design organization in IST, formerly UXPA (same organization, new name). Four members applied their UX training to HAX.", source=L("WINS.md: Student clubs (listed as UXPA)", W["clubs"]), links={"site": "https://discover.psu.edu/organization/uxdc"})
-N("apereo", desc="An open source foundation for higher education. The SIIP talk on how HAX ships with one maintainer was given at its microconference.", source=L("SIIP talk, Apereo microconference, May 2026", SIIP), links={"site": "https://www.apereo.org/"}, year=2026, yearNote="The SIIP talk at the Apereo microconference", yearSource=L("SIIP talk", SIIP))
+N("apereo", desc="An open source foundation for higher education. HAX is one of its software projects, with a project page, news and a donation form for individual supporters. Bryan has presented HAX at Apereo since 2019, most recently the SIIP talk at its May 2026 microconference.", source=L("Apereo: HAX project page", APEREO_HAX), links={"site": "https://www.apereo.org/", "project": APEREO_HAX, "donate": "https://apereo.civicrm.org/civicrm/contribute/transact?reset=1&id=7"}, year=2019, yearNote="HAXTheWeb @ Apereo 19", yearSource=L("Slides on SlideShare", AP19))
+N("gatech", desc="Georgia Tech, where undergraduates contribute features to HAX alongside Penn State students.", source=L("Apereo: HAX project page", APEREO_HAX), links={"site": "https://www.gatech.edu/"})
 N("github", desc="Hosts every HAX repository, the issue queue and its security advisories.", links={"site": GH})
 N("npm", desc="Distributes 289 @haxtheweb packages, about 49,000 downloads a month.", source=L("WINS.md: 289 packages", W["npm"]), links={"site": "https://www.npmjs.com/org/haxtheweb"})
 N("reclaim", desc="Reclaim Hosting, the hosting company that hosted HAX Camp at Duke; HAXcms installs on its hosting.", links={"site": "https://www.reclaimhosting.com/"}, year=2019, yearNote="Reclaim Hosting hosts HAX Camp at Duke")
@@ -262,6 +270,10 @@ ev("hhd>dept", "flourish.hhd.psu.edu", "https://flourish.hhd.psu.edu")
 ev("wins>haxlab", "WINS: From HAX Lab to industry", W["industry"])
 ev("wins>libraries", "WINS: 640+ open HTML tags", W["tags"])
 ev("wins>apereo", "SIIP talk, Apereo microconference", SIIP)
+ev("wins>cd101", "WINS: Customer Discovery 101", W["cd101"])
+ev("wins>dbf", "WINS: Digital Beaumont & Fletcher", W["dbf"])
+ev("gatech>components", "Apereo: HAX project page (Continuous Improvement)", APEREO_HAX)
+ev("jukebox>course", "Apereo: HAX project page (The Jukebox)", APEREO_HAX)
 ev("wins>npm", "WINS: 289 packages", W["npm"])
 ev("wins>ddd", "WINS: Students built the design system", W["ddd"])
 ev("wins>cli", "WINS: Winston White, student to trainer", W["winston"])
@@ -361,8 +373,9 @@ tours = [
    S("People and the pillars come first.", "human", "accessible", "efficient", "extensible", "open", "agnostic", "remixable", "sustainable"),
    S("Penn State backs HAX across its colleges and libraries.", "psu", "aa", "ist", "hhd", "eberly", "libraries"),
    S("Open source homes: Apereo, DrupalCon, GitHub and npm.", "apereo", "drupalcon", "github", "npm"),
-   S("A pipeline of students keeps it moving.", "haxlab", "ccso", "uxdc", "bryan", "billrose"),
+   S("A pipeline of students keeps it moving, at Penn State and Georgia Tech.", "haxlab", "ccso", "uxdc", "gatech", "bryan", "billrose"),
    S("WINS has the proof.", "wins", "dept", "course", "portfolio"),
+   S("Proof outside the for-credit course: public training, open editions and a listening room.", "cd101", "dbf", "jukebox", "textbook"),
  ]},
  {"id": "administrators", "label": "Administrators", "message": "Host it your way: PHP or Node.js, many sites with HAXiam, static publishing, and a public security record.", "scenes": [
    S("Pick a backend: PHP or Node.js, kept identical by OpenAPI.", "php", "nodejs", "openapi", "agnostic"),

@@ -263,6 +263,45 @@
     "source": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
    }
   },
+  "h_hax7": {
+   "desc": "HAX 7, the largest release yet: more than 346 features and fixes since HAX 6, Merlin for finding any function (by voice too), dark mode, better mobile authoring and new instructional blocks, put into production across hundreds of Penn State courses. A new hax.psu.edu followed in September, with Bill Rose writing in-interface tutorials (User Scaffolding).",
+   "kind": "event",
+   "year": 2023,
+   "yearLabel": "June to September 2023",
+   "source": {
+    "label": "Source",
+    "url": "https://www.apereo.org/news/2023/hax-7-release"
+   },
+   "links": {
+    "source": "https://www.apereo.org/news/2023/hax-7-release"
+   }
+  },
+  "h_journey": {
+   "desc": "HAX 11 ships the Journey design; a demo site took about five minutes from concept to published with the HAX CLI, and HAX 11's developer-experience work speeds up student onboarding.",
+   "kind": "event",
+   "year": 2025,
+   "yearLabel": "June 2025",
+   "source": {
+    "label": "Source",
+    "url": "https://www.apereo.org/news/2025/hax-project-releases-journey"
+   },
+   "links": {
+    "source": "https://www.apereo.org/news/2025/hax-project-releases-journey"
+   }
+  },
+  "h_oars": {
+   "desc": "Bill Rose and other Penn State faculty build a course that examines the HAX community pillars through OARS: observation, analysis, reflection and synthesis.",
+   "kind": "event",
+   "year": 2025,
+   "yearLabel": "September 2025",
+   "source": {
+    "label": "Source",
+    "url": "https://www.apereo.org/news/2025/hax-oars-model-course"
+   },
+   "links": {
+    "source": "https://www.apereo.org/news/2025/hax-oars-model-course"
+   }
+  },
   "h_node": {
    "desc": "HAXcms on Node.js with the same OpenAPI contract, the CLI, PRAW and the Future Traveler, the MCP.",
    "kind": "event",
@@ -425,10 +464,19 @@
   "haxlab": {
    "always": true
   },
-  "nodejs": {
+  "merlin": {
+   "always": true
+  },
+  "themes": {
    "always": true
   },
   "cli": {
+   "always": true
+  },
+  "accessible": {
+   "always": true
+  },
+  "nodejs": {
    "always": true
   },
   "traveler": {
@@ -518,11 +566,13 @@
      ]
     },
     {
-     "caption": "HAXcms, then every site since 2020 still works, then the classroom becomes the pipeline, then Node.js and agents.",
+     "caption": "HAXcms, then every site since 2020 still works, then HAX 7 and the classroom as pipeline, HAX 11 and Journey, then Node.js and agents.",
      "nodes": [
       "h_haxcms",
       "h_2020",
+      "h_hax7",
       "h_2023",
+      "h_journey",
       "h_node"
      ]
     },
@@ -534,10 +584,11 @@
      ]
     },
     {
-     "caption": "And the classroom becomes the pipeline.",
+     "caption": "And the classroom becomes the pipeline, then a course about the community itself.",
      "nodes": [
       "h_ist256",
-      "ist256"
+      "ist256",
+      "h_oars"
      ]
     },
     {

@@ -31,6 +31,9 @@ flowchart TB
     h_haxcms>"HAXcms on PHP"]
     h_2020>"Every site since still works"]
     h_2023>"The classroom becomes the pipeline"]
+    h_hax7>"HAX 7 and a new home"]
+    h_journey>"HAX 11 and Journey"]
+    h_oars>"The OARS model course"]
     h_node>"Node.js, the CLI, agents"]
     h_sixmonths>"Six months in a week"]
     h_walkaway>"Walking away"]
@@ -67,8 +70,11 @@ flowchart TB
     remixable["remixable"]
     bryan["bryan"]
     haxlab["haxlab"]
-    nodejs["nodejs"]
+    merlin["merlin"]
+    themes["themes"]
     cli["cli"]
+    accessible["accessible"]
+    nodejs["nodejs"]
     traveler["traveler"]
     mcp["mcp"]
     efficient["efficient"]
@@ -133,6 +139,18 @@ flowchart TB
   h_2023 -->|became| billrose
   h_2023 -->|became| bryan
   h_2023 -->|became| haxlab
+  e_hax -->|includes| h_hax7
+  h_hax7 -->|became| merlin
+  h_hax7 -->|became| haxpsu
+  h_hax7 -->|became| billrose
+  e_hax -->|includes| h_journey
+  h_journey -->|became| themes
+  h_journey -->|became| cli
+  h_journey -->|became| haxlab
+  e_teach -->|includes| h_oars
+  h_oars -->|became| billrose
+  h_oars -->|became| accessible
+  h_oars -->|became| sustainable
   e_hax -->|includes| h_node
   h_node -->|became| nodejs
   h_node -->|became| cli
@@ -192,6 +210,9 @@ flowchart TB
   %%@ node h_haxcms icon=hax:documents color=discoveryCoral motion=nudge
   %%@ node h_2020 icon=hax:documents color=discoveryCoral motion=nudge
   %%@ node h_2023 icon=hax:documents color=discoveryCoral motion=nudge
+  %%@ node h_hax7 icon=hax:documents color=discoveryCoral motion=nudge
+  %%@ node h_journey icon=hax:documents color=discoveryCoral motion=nudge
+  %%@ node h_oars icon=hax:documents color=forestGreen motion=nudge
   %%@ node h_node icon=hax:documents color=discoveryCoral motion=nudge
   %%@ node h_sixmonths icon=hax:documents color=creekTeal motion=nudge
   %%@ node h_walkaway icon=hax:documents color=discoveryCoral motion=nudge
@@ -226,8 +247,11 @@ flowchart TB
   %%@ node remixable portal
   %%@ node bryan portal
   %%@ node haxlab portal
-  %%@ node nodejs portal
+  %%@ node merlin portal
+  %%@ node themes portal
   %%@ node cli portal
+  %%@ node accessible portal
+  %%@ node nodejs portal
   %%@ node traveler portal
   %%@ node mcp portal
   %%@ node efficient portal

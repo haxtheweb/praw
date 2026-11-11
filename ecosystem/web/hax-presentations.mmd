@@ -20,11 +20,13 @@ flowchart TB
     t24fossy>"So you want a (web) revolution?"]
     t25state>"2025: State of HAX Community"]
     t25fossy>"FOSSY 2025: ten years from a notepad"]
+    t25wilson>"Next-level community building with HAX"]
     t26nothing>"Nothing is intentional, until it is"]
     t26siip>"SIIP: a Conversation with HAX"]
     t26tools>"With the right tools, you can do anything"]
     tmanymes>"The Many Mes"]
     tperf>"THE web components high performance video"]
+    tminute>"HAX in a minute"]
     tgov4>"Drupal4Gov webinar: HAX"]
   end
   subgraph topics ["What they covered"]
@@ -41,13 +43,16 @@ flowchart TB
     elmsln["elmsln"]
     extensible["extensible"]
     family["family"]
+    grants["grants"]
     hax11ty["hax11ty"]
     haxcms["haxcms"]
     haxlab["haxlab"]
+    ist256["ist256"]
     jos["jos"]
     keithbailey["keithbailey"]
     libraries["libraries"]
     open["open"]
+    portfolio["portfolio"]
     praw["praw"]
     remixable["remixable"]
     security["security"]
@@ -164,6 +169,14 @@ flowchart TB
   t25fossy -->|covers| cli
   t25fossy -->|covers| security
   t25fossy --o|was given at| fossy
+  presentations -->|includes| t25wilson
+  bryan ---|presented| t25wilson
+  t25wilson -->|covers| ist256
+  t25wilson -->|covers| haxlab
+  t25wilson -->|covers| grants
+  t25wilson -->|covers| cli
+  t25wilson -->|covers| portfolio
+  t25wilson --o|was given at| apereo
   presentations -->|includes| t26nothing
   bryan ---|presented| t26nothing
   t26nothing -->|covers| ubiquity
@@ -201,6 +214,10 @@ flowchart TB
   bryan ---|presented| tperf
   tperf -->|covers| components
   tperf -->|covers| efficient
+  presentations -->|includes| tminute
+  bryan ---|presented| tminute
+  tminute -->|covers| editor
+  tminute -->|covers| haxcms
   presentations -->|includes| tgov4
   tgov4 -->|covers| editor
   tgov4 --o|was given at| drupal4gov
@@ -224,11 +241,13 @@ flowchart TB
   %%@ node t24fossy icon=image:slideshow color=creekTeal motion=lift
   %%@ node t25state icon=hax:video color=inventOrange motion=lift
   %%@ node t25fossy icon=image:slideshow color=inventOrange motion=lift
+  %%@ node t25wilson icon=hax:documents color=inventOrange motion=lift
   %%@ node t26nothing icon=hax:video color=inventOrange motion=lift
   %%@ node t26siip icon=hax:video color=inventOrange motion=lift
   %%@ node t26tools icon=hax:video color=inventOrange motion=lift
   %%@ node tmanymes icon=image:slideshow color=limestoneGray motion=lift
   %%@ node tperf icon=hax:video color=limestoneGray motion=lift
+  %%@ node tminute icon=hax:video color=limestoneGray motion=lift
   %%@ node tgov4 icon=image:slideshow color=limestoneGray motion=lift
   %%@ node accessible portal
   %%@ node agents portal
@@ -243,13 +262,16 @@ flowchart TB
   %%@ node elmsln portal
   %%@ node extensible portal
   %%@ node family portal
+  %%@ node grants portal
   %%@ node hax11ty portal
   %%@ node haxcms portal
   %%@ node haxlab portal
+  %%@ node ist256 portal
   %%@ node jos portal
   %%@ node keithbailey portal
   %%@ node libraries portal
   %%@ node open portal
+  %%@ node portfolio portal
   %%@ node praw portal
   %%@ node remixable portal
   %%@ node security portal

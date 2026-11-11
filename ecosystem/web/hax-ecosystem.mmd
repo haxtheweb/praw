@@ -95,6 +95,9 @@ flowchart TB
     portfolio(["Portfolio"])
     dept(["Department site"])
     textbook(["Open textbook"])
+    cd101(["Customer Discovery 101"])
+    dbf(["Digital Beaumont and Fletcher"])
+    jukebox(["The Jukebox, INART 116"])
   end
   subgraph orgs ["Organizations and ecosystems"]
     psu[["Penn State"]]
@@ -116,6 +119,7 @@ flowchart TB
     drupalcon[["DrupalCon"]]
     buttercups[["Buttercups Training"]]
     innovationhub[["Innovation Hub"]]
+    gatech[["Georgia Tech"]]
   end
   subgraph history ["Foundations"]
     elmsln["ELMS:LN"]
@@ -332,6 +336,10 @@ flowchart TB
   issues ==>|keeps it| open
   oerschema ==>|keeps it| open
   textbook ==>|keeps it| open
+  cd101 ==>|keeps it| accessible
+  dbf ==>|keeps it| open
+  jukebox ==>|keeps it| remixable
+  gatech ==>|keeps it| sustainable
   php ==>|keeps it| agnostic
   nodejs ==>|keeps it| agnostic
   jos ==>|keeps it| agnostic
@@ -502,6 +510,16 @@ flowchart TB
 
   %% Innovation Hub
   innovationhub --o|is part of| psu
+  %% Apereo HAX project page success stories and community (apereo.org/programs/software/HAX)
+  cd101 -->|is an example of| course
+  cd101 --o|is run by| psu
+  dbf -->|is an example of| textbook
+  dbf --o|is published through| libraries
+  jukebox -->|is an example of| course
+  jukebox --o|is taught in| aa
+  wins -->|records a win for| cd101
+  wins -->|records a win for| dbf
+  gatech -->|has students contributing to| components
   innovationhub -->|built its earlier site on| haxpsu
   wins -->|records a win for| innovationhub
 
@@ -777,6 +795,9 @@ flowchart TB
   %%@ node portfolio icon=hax:view-gallery color=wonderPurple motion=pop
   %%@ node dept icon=icons:account-balance color=forestGreen motion=lift
   %%@ node textbook icon=icons:book color=inventOrange motion=tilt
+  %%@ node cd101 mono=CD101 color=inventOrange motion=lift
+  %%@ node dbf mono=BF color=wonderPurple motion=tilt
+  %%@ node jukebox mono=116 color=original87Pink motion=wiggle
   %%@ node hax11ty icon=hax:file-html color=pughBlue motion=lift
   %%@ node sdgs mono=SDG color=creekTeal motion=nudge web=sdgs
   %%@ node wins icon=icons:stars color=roarGolden motion=pop
@@ -805,6 +826,7 @@ flowchart TB
   %%@ node duke mono=DUKE color=slateGray motion=lift
   %%@ node reclaim icon=icons:dns color=slateGray motion=lift
   %%@ node uvic mono=UVic color=slateGray motion=lift
+  %%@ node gatech mono=GT color=slateGray motion=lift
   %%@ node drupalcon mono=DCon color=skyBlue motion=pop
   %%@ node haxcamp icon=hax:collaborate color=skyBlue motion=wiggle
   %%@ node elmsln icon=hax:ngdle color=limestoneGray motion=lift web=history

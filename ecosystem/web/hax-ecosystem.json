@@ -897,19 +897,21 @@
    }
   },
   "apereo": {
-   "desc": "An open source foundation for higher education. The SIIP talk on how HAX ships with one maintainer was given at its microconference.",
+   "desc": "An open source foundation for higher education. HAX is one of its software projects, with a project page, news and a donation form for individual supporters. Bryan has presented HAX at Apereo since 2019, most recently the SIIP talk at its May 2026 microconference.",
    "source": {
-    "label": "SIIP talk, Apereo microconference, May 2026",
-    "url": "https://www.youtube.com/watch?v=TNF0uzYi9Kk"
+    "label": "Apereo: HAX project page",
+    "url": "https://www.apereo.org/programs/software/HAX"
    },
    "links": {
-    "site": "https://www.apereo.org/"
+    "site": "https://www.apereo.org/",
+    "project": "https://www.apereo.org/programs/software/HAX",
+    "donate": "https://apereo.civicrm.org/civicrm/contribute/transact?reset=1&id=7"
    },
-   "year": 2026,
-   "yearNote": "The SIIP talk at the Apereo microconference",
+   "year": 2019,
+   "yearNote": "HAXTheWeb @ Apereo 19",
    "yearSource": {
-    "label": "SIIP talk",
-    "url": "https://www.youtube.com/watch?v=TNF0uzYi9Kk"
+    "label": "Slides on SlideShare",
+    "url": "https://www.slideshare.net/slideshow/haxtheweb-apereo-19/148822203"
    }
   },
   "github": {
@@ -1781,6 +1783,48 @@
     "label": "hax-lab README",
     "url": "https://github.com/haxtheweb/hax-lab"
    }
+  },
+  "gatech": {
+   "desc": "Georgia Tech, where undergraduates contribute features to HAX alongside Penn State students.",
+   "source": {
+    "label": "Apereo: HAX project page",
+    "url": "https://www.apereo.org/programs/software/HAX"
+   },
+   "links": {
+    "site": "https://www.gatech.edu/"
+   }
+  },
+  "cd101": {
+   "desc": "Customer Discovery 101, a public entrepreneurship training program from Invent Penn State LaunchBox, built on HAX by a team with limited design experience; users have praised both its functionality and design.",
+   "source": {
+    "label": "WINS.md: Customer Discovery 101",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#customer-discovery-101-invent-penn-state-launchbox"
+   },
+   "links": {
+    "site": "https://invent.psu.edu/programs/customer-discovery-101/",
+    "story": "https://www.apereo.org/programs/software/HAX"
+   }
+  },
+  "dbf": {
+   "desc": "Digital Beaumont & Fletcher, an open-access edition of the rarely taught Beaumont and Fletcher plays, with every text prepared by undergraduate and graduate students and published with HAX for classroom use.",
+   "source": {
+    "label": "WINS.md: Digital Beaumont & Fletcher",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#digital-beaumont--fletcher-students-edit-the-rarely-taught-plays"
+   },
+   "links": {
+    "site": "https://openpublishing.psu.edu/digital-beaumont-fletcher-about-project",
+    "story": "https://www.apereo.org/programs/software/HAX"
+   }
+  },
+  "jukebox": {
+   "desc": "The Jukebox, required listening for INART 116, History of Rock and Roll: 1950s, from the Office of Digital Learning: a one-column introduction, then audio on the left with annotation on the right, then collapsible lyrics, all built in HAX.",
+   "source": {
+    "label": "Apereo: HAX project page",
+    "url": "https://www.apereo.org/programs/software/HAX"
+   },
+   "links": {
+    "story": "https://www.apereo.org/programs/software/HAX"
+   }
   }
  },
  "evidence": {
@@ -2481,6 +2525,30 @@
     "label": "WINS: First hax-camp, 40+ people",
     "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#first-hax-camp-40-people"
    }
+  ],
+  "wins>cd101": [
+   {
+    "label": "WINS: Customer Discovery 101",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#customer-discovery-101-invent-penn-state-launchbox"
+   }
+  ],
+  "wins>dbf": [
+   {
+    "label": "WINS: Digital Beaumont & Fletcher",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#digital-beaumont--fletcher-students-edit-the-rarely-taught-plays"
+   }
+  ],
+  "gatech>components": [
+   {
+    "label": "Apereo: HAX project page (Continuous Improvement)",
+    "url": "https://www.apereo.org/programs/software/HAX"
+   }
+  ],
+  "jukebox>course": [
+   {
+    "label": "Apereo: HAX project page (The Jukebox)",
+    "url": "https://www.apereo.org/programs/software/HAX"
+   }
   ]
  },
  "tours": [
@@ -2937,11 +3005,12 @@
      ]
     },
     {
-     "caption": "A pipeline of students keeps it moving.",
+     "caption": "A pipeline of students keeps it moving, at Penn State and Georgia Tech.",
      "nodes": [
       "haxlab",
       "ccso",
       "uxdc",
+      "gatech",
       "bryan",
       "billrose"
      ]
@@ -2953,6 +3022,15 @@
       "dept",
       "course",
       "portfolio"
+     ]
+    },
+    {
+     "caption": "Proof outside the for-credit course: public training, open editions and a listening room.",
+     "nodes": [
+      "cd101",
+      "dbf",
+      "jukebox",
+      "textbook"
      ]
     }
    ]
@@ -3149,6 +3227,7 @@
      "caption": "Accessible: Built for everyone, by everyone.",
      "nodes": [
       "accessible",
+      "cd101",
       "components",
       "ddd",
       "design",
@@ -3157,6 +3236,7 @@
       "meaningchannels",
       "psu",
       "rules",
+      "sdgs",
       "wcag"
      ]
     },
@@ -3166,6 +3246,8 @@
       "efficient",
       "cli",
       "deploy",
+      "registry",
+      "sdgs",
       "ssr",
       "ubiquity",
       "wcstandard"
@@ -3182,6 +3264,7 @@
       "npm",
       "openapi",
       "plugins",
+      "sdgs",
       "themes"
      ]
     },
@@ -3191,6 +3274,7 @@
       "open",
       "apereo",
       "ccso",
+      "dbf",
       "github",
       "haxcamp",
       "issues",
@@ -3198,6 +3282,8 @@
       "oerschema",
       "praw",
       "psu",
+      "sdgs",
+      "skillsindex",
       "textbook"
      ]
     },
@@ -3206,12 +3292,14 @@
      "nodes": [
       "agnostic",
       "deploy",
+      "dtcg",
       "importers",
       "jos",
       "libraries",
       "nodejs",
       "openapi",
       "php",
+      "sdgs",
       "wcstandard"
      ]
     },
@@ -3223,6 +3311,7 @@
       "editor",
       "importers",
       "jos",
+      "jukebox",
       "oerschema",
       "psu",
       "skeletons"
@@ -3234,6 +3323,7 @@
       "sustainable",
       "agents",
       "ccso",
+      "gatech",
       "github",
       "haxcamp",
       "issues",
@@ -3241,6 +3331,7 @@
       "npm",
       "praw",
       "psu",
+      "sdgs",
       "ubiquity"
      ]
     },

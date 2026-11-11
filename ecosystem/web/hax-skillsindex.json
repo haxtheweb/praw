@@ -9,7 +9,7 @@
    "copy": "files that conform",
    "tool": "readers and writers"
   },
-  "about": "The agentskills.io discovery index HAX publishes, generated from PRAW's .well-known/agent-skills and every copy in the two backends: 8 fields, 3 sets, 6 files. Each copy is checked skill by skill against PRAW; 4 are out of step. The skills themselves are in the Future Traveler skills web.",
+  "about": "The agentskills.io discovery index HAX publishes, generated from PRAW's .well-known/agent-skills and every copy in the two backends: 8 fields, 3 sets, 6 files. Each copy is checked skill by skill against PRAW; 0 are out of step. The skills themselves are in the Future Traveler skills web.",
   "kindLabels": {
    "rel": "fields, sets and copies",
    "schema": "conforms to"
@@ -103,12 +103,7 @@
    "links": {
     "file": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/boilerplate/site/.well-known/agent-skills/index.json"
    },
-   "status": "in-progress",
-   "note": "Out of step with PRAW (older than PRAW: hax-a11y-audit, hax-content-authoring). The next ubiquity build's snapshot step refreshes it.",
-   "stale": [
-    "hax-a11y-audit",
-    "hax-content-authoring"
-   ]
+   "note": "In step with PRAW: every skill's digest matches."
   },
   "nodejs_system": {
    "desc": "haxcms-nodejs, .well-known/agent-skills: the system set, 25 skills.",
@@ -116,35 +111,7 @@
    "links": {
     "file": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.well-known/agent-skills/index.json"
    },
-   "status": "in-progress",
-   "note": "Out of step with PRAW (older than PRAW: hax-a11y-audit, hax-content-authoring; changed since the snapshot, so they no longer match their digests: hax-site-structure, hax-content-authoring, hax-managed-files, hax-design-system, hax-a11y-audit, oerschema-audit, hax-ubd-backward-design, hax-udl-audit, hax-content-chunking-audit, haxcms-lrs-rater, oerschema-integration-finder, hax-ubd-stage1, hax-ubd-stage2, hax-ubd-stage3, hax-ubd-grasps, hax-ubd-essential-questions, hax-ubd-six-facets, hax-ubd-unit-audit, grad-blooms, hax-proficiency-scaffolding, hax-feedback-design, hax-practice-and-retrieval, hax-reflection-prompts, hax-instructional-events-audit, hax-multimedia-principles-audit). The next ubiquity build's snapshot step refreshes it.",
-   "stale": [
-    "hax-a11y-audit",
-    "hax-content-authoring",
-    "hax-site-structure",
-    "hax-managed-files",
-    "hax-design-system",
-    "oerschema-audit",
-    "hax-ubd-backward-design",
-    "hax-udl-audit",
-    "hax-content-chunking-audit",
-    "haxcms-lrs-rater",
-    "oerschema-integration-finder",
-    "hax-ubd-stage1",
-    "hax-ubd-stage2",
-    "hax-ubd-stage3",
-    "hax-ubd-grasps",
-    "hax-ubd-essential-questions",
-    "hax-ubd-six-facets",
-    "hax-ubd-unit-audit",
-    "grad-blooms",
-    "hax-proficiency-scaffolding",
-    "hax-feedback-design",
-    "hax-practice-and-retrieval",
-    "hax-reflection-prompts",
-    "hax-instructional-events-audit",
-    "hax-multimedia-principles-audit"
-   ]
+   "note": "In step with PRAW: every skill's digest matches."
   },
   "php_site": {
    "desc": "haxcms-php, system/boilerplate/site/.well-known/agent-skills: the site set, 5 skills.",
@@ -152,12 +119,7 @@
    "links": {
     "file": "https://github.com/haxtheweb/haxcms-php/blob/master/system/boilerplate/site/.well-known/agent-skills/index.json"
    },
-   "status": "in-progress",
-   "note": "Out of step with PRAW (older than PRAW: hax-a11y-audit, hax-content-authoring). The next ubiquity build's snapshot step refreshes it.",
-   "stale": [
-    "hax-a11y-audit",
-    "hax-content-authoring"
-   ]
+   "note": "In step with PRAW: every skill's digest matches."
   },
   "php_system": {
    "desc": "haxcms-php, .well-known/agent-skills: the system set, 25 skills.",
@@ -165,12 +127,7 @@
    "links": {
     "file": "https://github.com/haxtheweb/haxcms-php/blob/master/.well-known/agent-skills/index.json"
    },
-   "status": "in-progress",
-   "note": "Out of step with PRAW (older than PRAW: hax-a11y-audit, hax-content-authoring). The next ubiquity build's snapshot step refreshes it.",
-   "stale": [
-    "hax-a11y-audit",
-    "hax-content-authoring"
-   ]
+   "note": "In step with PRAW: every skill's digest matches."
   },
   "w_build": {
    "desc": "Scans PRAW's skills folder, reads each SKILL.md's frontmatter, computes the digests and writes the index.",
@@ -214,7 +171,7 @@
    "id": "skillsindex",
    "label": "How an agent finds HAX skills",
    "kind": "story",
-   "message": "52 skills in PRAW, cut into 2 sets and copied to 4 places; 4 copies are out of step.",
+   "message": "52 skills in PRAW, cut into 2 sets and copied to 4 places; 0 copies are out of step.",
    "scenes": [
     {
      "caption": "The index is one JSON file in .well-known: the spec it follows and a list of skills.",
@@ -270,7 +227,7 @@
      ]
     },
     {
-     "caption": "Copies out of step with PRAW.",
+     "caption": "Every copy is in step with PRAW.",
      "nodes": [
       "nodejs_site",
       "nodejs_system",

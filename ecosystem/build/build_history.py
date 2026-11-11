@@ -32,6 +32,10 @@ EVENTS = [
  ("h_2020", "Every site since still works", "e_hax", 2020, "2020", "hax.psu.edu opens on HAXiam; 582 elements and the first 11 sites. Because HAX saves HTML and ships the tag definitions separately, every site made since about 2020 still works.", ["haxpsu", "haxiam", "remixable"], PRAW + "WINS.md"),
  ("h_2023", "The classroom becomes the pipeline", "e_hax", 2023, "2023", "Bill Rose's course ontology gives HAX its instructional backbone, and student contributors from IST 256 and HAX Lab carry feature output to its highest levels from 2024 on.", ["billrose", "bryan", "haxlab"], PRAW + "WINS.md"),
  ("h_node", "Node.js, the CLI, agents", "e_hax", 2024, "2024 to 2026", "HAXcms on Node.js with the same OpenAPI contract, the CLI, PRAW and the Future Traveler, the MCP.", ["nodejs", "cli", "praw", "traveler", "mcp"], GH + "/haxcms-nodejs"),
+ ("h_sixmonths", "Six months in a week", "e_elmsln", 2015, "2015", "A keynote ends with a bash script running for 25 minutes and a question: what is our job when work is automated? \"Last week I did 6 months of work.\" Automation begets automation; AI later amplifies the same process.", ["efficient", "traveler"], PRAW + "talks/README.md"),
+ ("h_walkaway", "Walking away", "e_hax", 2019, "2019", "Bryan walks away from more than ten years of Drupal community to build HAX, with six events planned after HAX Camp 2019.", ["haxcamp", "editor"], PRAW + "talks/README.md"),
+ ("h_crisis", "Never waste a crisis", "e_hax", 2020, "2020", "The pandemic cancels the events and delays the dream. Then \"never waste a good crisis\": the wild idea starts being adopted.", ["haxpsu", "aa"], PRAW + "talks/README.md"),
+ ("h_catastrophic", "Catastrophic success", "e_hax", 2026, "2026", "Catastrophe theory's sudden shift after a long, steady build: AI does six months of work in about three days, students design accessible interfaces as web components, and people understand HAX in seconds.", ["traveler", "haxlab"], PRAW + "talks/README.md"),
  ("h_ist256", "IST 256 begins", "e_teach", 2019, "Fall 2019", "Bryan teaches IST 256 every semester from fall 2019 to spring 2026. Class projects become HAX components and students become contributors.", ["ist256", "ist", "components"], GH + "/../btopro/edtechjoker"),
 ]
 EVENTS = [e if not e[7].startswith(GH + "/../") else (e[:7] + (e[7].replace(GH + "/../", "https://github.com/"),)) for e in EVENTS]
@@ -44,6 +48,7 @@ lines = ["%% History sub-web: how the ecosystem got here, from the Drupal years 
          "flowchart TB", "  %%@ layout rings=0,220,470,760 sizes=92,70,60,52",
          '  subgraph hub ["Where it came from"]', '    history(("History"))', "  end", '  subgraph eras ["Eras"]']
 for eid, lab, d in ERAS: lines.append(f'    {eid}["{lab}"]')
+lines.append('    family["family"]')
 lines += ["  end", '  subgraph events ["What happened"]']
 for e in EVENTS: lines.append(f'    {e[0]}>"{e[1]}"]')
 lines += ["  end", '  subgraph became ["What it became"]']
@@ -53,7 +58,8 @@ for eid, lab, d in ERAS: lines.append(f"  history -->|has| {eid}")
 for e in EVENTS:
     lines.append(f"  {e[2]} -->|includes| {e[0]}")
     for p in e[6]: lines.append(f"  {e[0]} -->|became| {p}")
-lines += ["  h_elms -->|grew into| h_elmsln", "  h_elmsln -->|was rebuilt as| h_haxcms", "  h_altruism -->|is the pattern in| h_thesis", "  h_notecard -->|needed| h_standard", "  h_standard -->|led to| h_rewrite", "",
+lines += ["  history -->|starts with| family", "  family -->|raised| bryan", "  h_sixmonths -->|is amplified in| h_catastrophic", "  h_walkaway -->|was tested by| h_crisis",
+          "  h_elms -->|grew into| h_elmsln", "  h_elmsln -->|was rebuilt as| h_haxcms", "  h_altruism -->|is the pattern in| h_thesis", "  h_notecard -->|needed| h_standard", "  h_standard -->|led to| h_rewrite", "",
           "  %%@ group hub tier=0", "  %%@ group eras tier=1", "  %%@ group events tier=2", "  %%@ group became tier=3",
           "  %%@ node history icon=icons:book color=nittanyNavy motion=pulse"]
 ERACOL = {"e_drupal": "wonderPurple", "e_elmsln": "creekTeal", "e_turn": "roarGolden", "e_hax": "discoveryCoral", "e_teach": "forestGreen"}
@@ -61,18 +67,23 @@ ERAMONO = {"e_drupal": "DRPL", "e_elmsln": "ELMS", "e_turn": "WC", "e_hax": "HAX
 for eid, lab, d in ERAS: lines.append(f"  %%@ node {eid} mono={ERAMONO[eid]} color={ERACOL[eid]} motion=pop")
 for e in EVENTS: lines.append(f"  %%@ node {e[0]} icon=hax:documents color={ERACOL[e[2]]} motion=nudge")
 for p in portals: lines.append(f"  %%@ node {p} portal")
+lines.append("  %%@ node family portal")
 open("hax-history.mmd", "w").write("\n".join(lines) + "\n")
 nodes = {"history": {"always": True, "desc": "How the ecosystem got here. The Drupal and ELMS:LN years come from Bryan's 2015 thesis, where Penn State is CentralU, ELMS is YourNetwork and Bryan is Technologist Zero; the rest from PRAW."}}
 for eid, lab, d in ERAS: nodes[eid] = {"desc": d, "kind": "era", "always": True}
 for e in EVENTS: nodes[e[0]] = {"desc": e[5], "kind": "event", "year": e[3], "yearLabel": e[4], "source": L("Source", e[7]), "links": {"source": e[7]}}
 for p in portals: nodes[p] = {"always": True}
+nodes["family"] = {"always": True}
 tours = [{"id": "history", "label": "Where it came from", "message": "From a weekend Drupal course to the Future Traveler, in five eras. Over time plays it year by year.", "scenes": [
+    S("It starts with family: with the right tools you can do anything.", "family", "bryan"),
     S("Five eras.", *[e for e, *_ in ERAS]),
     S("The Drupal years: Keith hires Bryan, ELMS is conceived, a weekend course seeds a community.", "h_hired", "h_elms", "h_weekend", "keithbailey", "aa"),
     S("Donating effort builds capacity everywhere it lands; the thesis calls this information altruism.", "h_altruism", "h_interviews", "h_modules", "h_thesis"),
     S("ELMS becomes ELMS:LN, a network of small apps.", "h_elmsln", "h_whitepaper", "h_sustaining", "elmsln"),
     S("A note card, a friend pointing at a standard, three weeks off.", "h_notecard", "h_standard", "h_rewrite", "h_stable", "mikepotter", "wcstandard"),
+    S("Walking away to build HAX, then a crisis that became adoption.", "h_walkaway", "h_crisis"),
     S("HAXcms, then every site since 2020 still works, then the classroom becomes the pipeline, then Node.js and agents.", "h_haxcms", "h_2020", "h_2023", "h_node"),
+    S("Automation begets automation: six months in a week in 2015, catastrophic success in 2026.", "h_sixmonths", "h_catastrophic"),
     S("And the classroom becomes the pipeline.", "h_ist256", "ist256"),
     S("The whole story."),
 ]}]

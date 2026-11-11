@@ -28,6 +28,10 @@ I was given an amazing life and opportunity by my parents, through planning and 
 
 So I mentor and give back. I want to teach and mentor in a flow state between me and another person, whether that's in hockey, in the classroom or in a random interaction with someone. Tech augments all of that. The less time spent trying to access something, the more time spent educating, improving, growing and building a better world.
 
+## With the right tools
+
+"With the right tools you can do anything." It's something my grandfather, William "Poppo" Ollendyke, and my father, Todd, have both said. Family is a core motivator, and so is the idea in that line: building anything out of my imagination.
+
 ## Where it comes from
 
 These are universal truths. For me they are also built on Christian principles: being good stewards of resources; helping the poor, the sick, the hungry and the lonely; and building up and lifting as many voices as we can, to look toward the Son, or the Sun, whatever your creed and situation.
@@ -35,6 +39,8 @@ These are universal truths. For me they are also built on Christian principles: 
 ## What HAX is for
 
 HAX is a way to help transfer experiences, knowledge, learning, ideas, thoughts, silly things, important messages, whatever it is. It needs to be able to be remixed, compiled and decompiled, forever changing and ever improving based on the needs and concerns of humans.
+
+A motivating principle: transform industry through the free release of information.
 
 It doesn't take a lot of money to work in this space. That's the point: collapsing cost structures, so that all past work on the web enhances all future work on the web, forever.
 

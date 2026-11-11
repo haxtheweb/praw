@@ -22,6 +22,7 @@ flowchart TB
     t25fossy>"FOSSY 2025: ten years from a notepad"]
     t26nothing>"Nothing is intentional, until it is"]
     t26siip>"SIIP: a Conversation with HAX"]
+    t26tools>"With the right tools, you can do anything"]
     tmanymes>"The Many Mes"]
     tperf>"THE web components high performance video"]
     tgov4>"Drupal4Gov webinar: HAX"]
@@ -39,6 +40,7 @@ flowchart TB
     efficient["efficient"]
     elmsln["elmsln"]
     extensible["extensible"]
+    family["family"]
     hax11ty["hax11ty"]
     haxcms["haxcms"]
     haxlab["haxlab"]
@@ -183,6 +185,14 @@ flowchart TB
   t26siip -->|covers| textbook
   t26siip -->|covers| wins
   t26siip --o|was given at| apereo
+  presentations -->|includes| t26tools
+  bryan ---|presented| t26tools
+  t26tools -->|covers| family
+  t26tools -->|covers| elmsln
+  t26tools -->|covers| editor
+  t26tools -->|covers| haxlab
+  t26tools -->|covers| efficient
+  t26tools -->|covers| wins
   presentations -->|includes| tmanymes
   bryan ---|presented| tmanymes
   tmanymes -->|covers| praw
@@ -216,6 +226,7 @@ flowchart TB
   %%@ node t25fossy icon=image:slideshow color=inventOrange motion=lift
   %%@ node t26nothing icon=hax:video color=inventOrange motion=lift
   %%@ node t26siip icon=hax:video color=inventOrange motion=lift
+  %%@ node t26tools icon=hax:video color=inventOrange motion=lift
   %%@ node tmanymes icon=image:slideshow color=limestoneGray motion=lift
   %%@ node tperf icon=hax:video color=limestoneGray motion=lift
   %%@ node tgov4 icon=image:slideshow color=limestoneGray motion=lift
@@ -231,6 +242,7 @@ flowchart TB
   %%@ node efficient portal
   %%@ node elmsln portal
   %%@ node extensible portal
+  %%@ node family portal
   %%@ node hax11ty portal
   %%@ node haxcms portal
   %%@ node haxlab portal

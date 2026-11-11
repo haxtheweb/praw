@@ -11,6 +11,7 @@ flowchart TB
     e_turn["The turn to web components"]
     e_hax["HAX and HAXcms"]
     e_teach["Teaching"]
+    family["family"]
   end
   subgraph events ["What happened"]
     h_hired>"Keith hires Bryan"]
@@ -31,6 +32,10 @@ flowchart TB
     h_2020>"Every site since still works"]
     h_2023>"The classroom becomes the pipeline"]
     h_node>"Node.js, the CLI, agents"]
+    h_sixmonths>"Six months in a week"]
+    h_walkaway>"Walking away"]
+    h_crisis>"Never waste a crisis"]
+    h_catastrophic>"Catastrophic success"]
     h_ist256>"IST 256 begins"]
   end
   subgraph became ["What it became"]
@@ -66,6 +71,7 @@ flowchart TB
     cli["cli"]
     traveler["traveler"]
     mcp["mcp"]
+    efficient["efficient"]
     ist256["ist256"]
   end
 
@@ -133,10 +139,26 @@ flowchart TB
   h_node -->|became| praw
   h_node -->|became| traveler
   h_node -->|became| mcp
+  e_elmsln -->|includes| h_sixmonths
+  h_sixmonths -->|became| efficient
+  h_sixmonths -->|became| traveler
+  e_hax -->|includes| h_walkaway
+  h_walkaway -->|became| haxcamp
+  h_walkaway -->|became| editor
+  e_hax -->|includes| h_crisis
+  h_crisis -->|became| haxpsu
+  h_crisis -->|became| aa
+  e_hax -->|includes| h_catastrophic
+  h_catastrophic -->|became| traveler
+  h_catastrophic -->|became| haxlab
   e_teach -->|includes| h_ist256
   h_ist256 -->|became| ist256
   h_ist256 -->|became| ist
   h_ist256 -->|became| components
+  history -->|starts with| family
+  family -->|raised| bryan
+  h_sixmonths -->|is amplified in| h_catastrophic
+  h_walkaway -->|was tested by| h_crisis
   h_elms -->|grew into| h_elmsln
   h_elmsln -->|was rebuilt as| h_haxcms
   h_altruism -->|is the pattern in| h_thesis
@@ -171,6 +193,10 @@ flowchart TB
   %%@ node h_2020 icon=hax:documents color=discoveryCoral motion=nudge
   %%@ node h_2023 icon=hax:documents color=discoveryCoral motion=nudge
   %%@ node h_node icon=hax:documents color=discoveryCoral motion=nudge
+  %%@ node h_sixmonths icon=hax:documents color=creekTeal motion=nudge
+  %%@ node h_walkaway icon=hax:documents color=discoveryCoral motion=nudge
+  %%@ node h_crisis icon=hax:documents color=discoveryCoral motion=nudge
+  %%@ node h_catastrophic icon=hax:documents color=discoveryCoral motion=nudge
   %%@ node h_ist256 icon=hax:documents color=forestGreen motion=nudge
   %%@ node keithbailey portal
   %%@ node aa portal
@@ -204,4 +230,6 @@ flowchart TB
   %%@ node cli portal
   %%@ node traveler portal
   %%@ node mcp portal
+  %%@ node efficient portal
   %%@ node ist256 portal
+  %%@ node family portal

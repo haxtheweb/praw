@@ -169,6 +169,7 @@ def person(id, role, did, link=None, src=None, year=None, yearNote=None, **kw):
 
 HL = L("hax-lab README", HAXLAB)
 person("bryan", "staff", "Creator of HAX and its lead; teaches IST 256 and runs HAX Lab. The rpg-character and the Future Traveler are caricatures of him.", src=L("WORLDVIEW.md", WORLDVIEW), always=True, github="btopro", link="https://github.com/btopro")
+person("family", "family", "Bryan's grandfather, William \"Poppo\" Ollendyke, and his father, Todd: \"With the right tools you can do anything.\" A core motivator, and the idea of building anything out of imagination.", src=L("WHY.md: With the right tools", "https://github.com/haxtheweb/praw/blob/main/WHY.md#with-the-right-tools"))
 person("billrose", "staff", "HAX product owner: the course ontology, cognitive apprenticeship framing and partner-facing voice.", src=L("WORLDVIEW.md: People who shaped it", WORLDVIEW))
 person("keithbailey", "staff", "Mentor who hired Bryan into online learning at Penn State and championed the work that led to HAX (1970–2020).", src=L("WORLDVIEW.md: People who shaped it", WORLDVIEW))
 person("mikepotter", "community", "One of Bryan's best friends and a member of the ELMS:LN core team; pointed him to the web component standard in 2016 and co-presented the first HAX talks, starting at DrupalCon Baltimore 2017.", src=L("WORLDVIEW.md: People who shaped it", WORLDVIEW), year=2016, yearNote="Mike Potter points Bryan to the web component standard")

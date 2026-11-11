@@ -10,6 +10,7 @@ Recorded and presented talks that carry the HAX worldview, voice and evidence. A
 | Feb 2025 | [2025: State of HAX Community](https://www.youtube.com/watch?v=WGv94SY0cRM) | Year one of HAX Lab, the seven community pillars, the 2025 roadmap |
 | Mar 2026 | [Nothing is intentional, until it is](https://www.youtube.com/watch?v=wkdW2EjkwZ4) | Ten years of HAX told through ubiquity, the outline designer and SIIP |
 | May 2026 | [SIIP: a Conversation with HAX](https://www.youtube.com/watch?v=TNF0uzYi9Kk) (Apereo) | The pipeline, told by the students and faculty in it |
+| 2026 | [With the right tools, you can do anything](https://www.youtube.com/watch?v=G5yEgFIxzl0) | Bryan's career as one storyline; the talk that retires the EdTechJoker persona and shows who he is |
 
 ## Then and now
 
@@ -92,6 +93,21 @@ The course model summarized in `WORLDVIEW.md`: outcomes, pedagogy, structure, in
 - "I don't have to sit there and convince anybody that this is an important project. They get it right away." (Dr. Frank, on students building for students)
 - "HAX was one of the single most impactful things for my career." (Winston White)
 - "If AI can install your project and learn from your docs, that likely means a junior developer can too." (Bryan)
+
+## With the right tools, you can do anything (2026)
+
+Bryan ends his courses with this talk, for students who want to find out how to make the world a better place. It tells his career as a single storyline, and it is the talk that retires the EdTechJoker persona while showing who he actually is (see `VOICE.md`: the persona is not part of the HAX story).
+
+- **The title** is a family saying from his grandfather, William "Poppo" Ollendyke, and his father, Todd (see `WHY.md`).
+- **Find you, but know you change:** people change every few years; hold strong opinions and level up when reality changes.
+- **Professionally lazy:** "it's not lazy, it's process optimization." Research what you are already paid to do; he aligned his thesis with his job and optimized both.
+- **The thesis:** tempered radicalism, Actor-Network Theory, political artifacts, the diffusion study and the box of kittens, ending in *Information Altruism* (see `WORLDVIEW.md`).
+- **Automation begets automation:** a 2015 keynote ran a bash script for 25 minutes and asked what our job is when work is automated ("Last week I did 6 months of work"); in 2026 AI does six months of work in about three days (`WORLDVIEW.md` pillar 9).
+- **Early talks that seeded today's pieces:** the outline designer (2009, his first hit), the Drupal theme layer, custom admin UI and network security (2013).
+- **Choosing the work:** in 2019 he walked away from more than ten years of Drupal community to build HAX; 2020 put the dream on hold, and "never waste a good crisis" turned it into adoption.
+- **Persistence:** it took ten years of roller hockey to coach a 2010 national championship, and it took about as long for HAX to reach its moment.
+- **The pipeline:** class → lab → club → community, with Keith Charlton Jr's DDD and Winston White's CLI as the examples (see `WINS.md`).
+- **Closing:** "With the right tools and determination, YOU can build anything."
 
 ## The Many Mes
 

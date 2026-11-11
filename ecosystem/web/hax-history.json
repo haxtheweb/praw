@@ -276,6 +276,58 @@
     "source": "https://github.com/haxtheweb/haxcms-nodejs"
    }
   },
+  "h_sixmonths": {
+   "desc": "A keynote ends with a bash script running for 25 minutes and a question: what is our job when work is automated? \"Last week I did 6 months of work.\" Automation begets automation; AI later amplifies the same process.",
+   "kind": "event",
+   "year": 2015,
+   "yearLabel": "2015",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   },
+   "links": {
+    "source": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   }
+  },
+  "h_walkaway": {
+   "desc": "Bryan walks away from more than ten years of Drupal community to build HAX, with six events planned after HAX Camp 2019.",
+   "kind": "event",
+   "year": 2019,
+   "yearLabel": "2019",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   },
+   "links": {
+    "source": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   }
+  },
+  "h_crisis": {
+   "desc": "The pandemic cancels the events and delays the dream. Then \"never waste a good crisis\": the wild idea starts being adopted.",
+   "kind": "event",
+   "year": 2020,
+   "yearLabel": "2020",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   },
+   "links": {
+    "source": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   }
+  },
+  "h_catastrophic": {
+   "desc": "Catastrophe theory's sudden shift after a long, steady build: AI does six months of work in about three days, students design accessible interfaces as web components, and people understand HAX in seconds.",
+   "kind": "event",
+   "year": 2026,
+   "yearLabel": "2026",
+   "source": {
+    "label": "Source",
+    "url": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   },
+   "links": {
+    "source": "https://github.com/haxtheweb/praw/blob/main/talks/README.md"
+   }
+  },
   "h_ist256": {
    "desc": "Bryan teaches IST 256 every semester from fall 2019 to spring 2026. Class projects become HAX components and students become contributors.",
    "kind": "event",
@@ -385,7 +437,13 @@
   "mcp": {
    "always": true
   },
+  "efficient": {
+   "always": true
+  },
   "ist256": {
+   "always": true
+  },
+  "family": {
    "always": true
   }
  },
@@ -396,6 +454,13 @@
    "label": "Where it came from",
    "message": "From a weekend Drupal course to the Future Traveler, in five eras. Over time plays it year by year.",
    "scenes": [
+    {
+     "caption": "It starts with family: with the right tools you can do anything.",
+     "nodes": [
+      "family",
+      "bryan"
+     ]
+    },
     {
      "caption": "Five eras.",
      "nodes": [
@@ -446,12 +511,26 @@
      ]
     },
     {
+     "caption": "Walking away to build HAX, then a crisis that became adoption.",
+     "nodes": [
+      "h_walkaway",
+      "h_crisis"
+     ]
+    },
+    {
      "caption": "HAXcms, then every site since 2020 still works, then the classroom becomes the pipeline, then Node.js and agents.",
      "nodes": [
       "h_haxcms",
       "h_2020",
       "h_2023",
       "h_node"
+     ]
+    },
+    {
+     "caption": "Automation begets automation: six months in a week in 2015, catastrophic success in 2026.",
+     "nodes": [
+      "h_sixmonths",
+      "h_catastrophic"
      ]
     },
     {

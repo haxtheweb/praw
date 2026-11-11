@@ -35,15 +35,15 @@ Only list wins that have happened. Proposals and pilots in progress stay out unt
 - For partners / institutions: an outreach unit got a professional, accessible learning experience without buying an LMS or hiring a design team.
 - Source: [Apereo HAX project page: Success Stories](https://www.apereo.org/programs/software/HAX), [Customer Discovery 101](https://invent.psu.edu/programs/customer-discovery-101/)
 
-### Learning Design Summer Camp: faster to rebuild than to keep editing (2024)
+### Learning Design Summer Camp: rebuilt in minutes (2024)
 - Who: the team running Learning Design Summer Camp 2024.
-- Before → after: the camp's site was in WordPress. It was faster to rebuild it in HAX than to keep editing it in WordPress. **verify**: who led the rebuild and how long it took.
+- Before → after: the camp's site was in WordPress. Bryan rebuilt it in HAX in a few minutes, which was faster than continuing to edit it in WordPress.
 - Why it matters: moving to HAX cost less than staying put, the case against lock-in in practice (pillars 1 and 4).
 - Source: [The case for HAX: Examples](https://oer.hax.psu.edu/bto108/sites/web-ubiquity/examples), [Learning Design Summer Camp 2024](https://oer.hax.psu.edu/beb5040/sites/ldsc2024/home)
 
 ### Eberly College of Science: OER courses and a custom ODL site
 - Who: faculty in the Eberly College of Science, with Eberly's Office of Digital Learning (ODL), core HAX contributors.
-- Before → after: all of the courses on OER @ Eberly College use hax.psu.edu and are taught and built by Eberly faculty in collaboration with Eberly ODL, and the OER site itself is built with many assets from the HAX portfolio. Eberly ODL's own site is a custom HAXsite with a custom theme and data model. **verify**: course count and when the move happened.
+- Before → after: all of the courses on OER @ Eberly College use hax.psu.edu and are taught and built by Eberly faculty in collaboration with Eberly ODL, and the OER site itself is built with many assets from the HAX portfolio. Eberly ODL's own site is a custom HAXsite with a custom theme and data model.
 - Why it matters: a second college owns its open courseware and extends HAX for its own needs rather than just using it (pillars 5 and 6; Extensible).
 - For partners / institutions: open courses and a branded unit site on shared infrastructure, without a separate platform.
 - Source: [The case for HAX: Examples](https://oer.hax.psu.edu/bto108/sites/web-ubiquity/examples), [OER @ Eberly College](https://oer.courses.science.psu.edu/), [Eberly ODL](https://odl.science.psu.edu/)

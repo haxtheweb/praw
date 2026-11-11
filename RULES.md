@@ -142,6 +142,11 @@ Every rule has one of four scopes:
 - **Scope**: `webcomponents`
 - **Content**: Anything that carries meaning a user must interpret, or a decision with consequences (saving permanently, deleting permanently, confirm vs deny, correct vs incorrect), conveys it through all five channels: (1) a label shown on hover and on focus; (2) a color different enough to tell apart (HAX uses green for correct and purple for incorrect, not red); (3) a focus state; (4) a texture or pattern that still distinguishes it in grayscale; (5) an icon unique to that meaning. Applies to: quiz feedback, confirm/deny and accept/cancel actions, form validation, status chips (draft/published/locked), outline states (new/deleting/current page), revision diffs, chart series and learner progress, reading flags and highlights. Easily undone edits (e.g. turning a paragraph into a heading) and purely navigational or aesthetic controls only need a clear label, a focus state and contrast. Does not need texture: ordinary toolbar buttons, navigation links and menus, tabs and toggles (a selected state still needs more than color). This extends the Color Vision rule (`13a03330-483e-404e-9e48-b0d9f16432d3`), whose danger hatch and `yarn lint:vision` pairs cover the color and texture channels. Enforcement: checked in review, and by the accessibility checks where automatable. Tracking: <https://github.com/haxtheweb/issues/issues/3262>.
 
+### Dark Mode and Reduced Motion
+- **Rule ID**: `34ef39a0-b970-43ba-b68a-251f99d64424`
+- **Scope**: `webcomponents`
+- **Content**: Every element responds to dark mode and respects reduced motion. Colors an element sets change in dark mode: take them from DDD tokens (which have dark values) or switch them with `light-dark()`, `prefers-color-scheme` or `color-scheme`; never hard-code colors that render the same in both schemes. With `prefers-reduced-motion: reduce`, no CSS animation, transition or `element.animate()` longer than 10ms runs on the element or in its shadow root, on load or on hover/focus. The webcomponents `dark-motion` check enforces this for every element a pull request changes; its baseline (`scripts/dark-motion.baseline.json`) only shrinks. Contrast in each scheme is the contrast check's job.
+
 ### JavaScript Standards — globalThis
 - **Rule ID**: `CEHsAztyfB2vTCwtHGGnbk`
 - **Scope**: `webcomponents`

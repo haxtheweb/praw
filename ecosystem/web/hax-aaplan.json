@@ -1,0 +1,413 @@
+{
+ "meta": {
+  "name": "A&A Strategic Plan 2030",
+  "parent": "psuplan",
+  "noTimeline": true,
+  "sectionLabels": {
+   "goal": "goals",
+   "objective": "sub-objectives HAX meets",
+   "win": "wins"
+  },
+  "about": "How HAX meets the College of Arts and Architecture's Strategic Plan 2030, generated from strategic-plans.json (a snapshot of https://arts.psu.edu/about/aa-strategic-plan-2030 read 2026-11-11). Only the sub-objectives HAX meets are shown; each goal's link to a Penn State priority is A&A's own.",
+  "kindLabels": {
+   "pillar": "pillars it rests on",
+   "rel": "goals, sub-objectives and wins",
+   "schema": "met through"
+  },
+  "links": {
+   "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+  }
+ },
+ "nodes": {
+  "aaplan": {
+   "always": true,
+   "desc": "The College of Arts and Architecture's Strategic Plan 2030 (2026–2030), limited to what HAX meets: 14 sub-objectives across its five goals. Sub-objectives HAX doesn't meet are left out. A snapshot read 2026-11-11.",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030",
+    "data": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/strategic-plans.json"
+   }
+  },
+  "ag_g1": {
+   "desc": "Strengthen trust, connection and belonging across people, partnerships and programs. A&A aligns it to Penn State's Transform Internal Operations.",
+   "kind": "goal",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+   }
+  },
+  "ag_g2": {
+   "desc": "Enrich campus, community and civic life across Pennsylvania and beyond. A&A aligns it to Penn State's Increasing Land-Grant Impact.",
+   "kind": "goal",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+   }
+  },
+  "ag_g3": {
+   "desc": "Develop skills, imagination and agency. A&A aligns it to Penn State's Enhancing Student Success.",
+   "kind": "goal",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+   }
+  },
+  "ag_g4": {
+   "desc": "Advance discovery, insight, influence and impact. A&A aligns it to Penn State's Growing (Inter)disciplinary Research Excellence.",
+   "kind": "goal",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+   }
+  },
+  "ag_g5": {
+   "desc": "Every student, faculty member and staff member has the support, access and opportunities to thrive. A&A aligns it to Penn State's Fostering Diversity, Equity, Inclusion, and Belonging.",
+   "kind": "goal",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+   }
+  },
+  "as_1a": {
+   "desc": "Reimagine shared physical spaces and systems to encourage collaboration. HAX Lab is a physical space for cross-discipline work like the Flourish Hub, student internships and collaborations. (Paraphrased; see the plan for its words.)",
+   "kind": "objective",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+   }
+  },
+  "as_1b": {
+   "desc": "Build cross-disciplinary collaboration into curricula, research and creative practice. (Paraphrased; see the plan for its words.)",
+   "kind": "objective",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+   }
+  },
+  "as_1c": {
+   "desc": "Use collaboration to reduce administrative burden rather than add to workloads. (Paraphrased; see the plan for its words.)",
+   "kind": "objective",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+   }
+  },
+  "as_2b": {
+   "desc": "Expand artist residencies and student experiential opportunities. (Paraphrased; see the plan for its words.)",
+   "kind": "objective",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+   }
+  },
+  "as_2c": {
+   "desc": "Embed human-centered design principles in courses, performances and creative practice. (Paraphrased; see the plan for its words.)",
+   "kind": "objective",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+   }
+  },
+  "as_2d": {
+   "desc": "Strengthen A&A's visibility and partnerships at state, national and global levels. (Paraphrased; see the plan for its words.)",
+   "kind": "objective",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+   }
+  },
+  "as_3a": {
+   "desc": "Expose students to diverse career pathways through arts- and design-integrated experiential learning. (Paraphrased; see the plan for its words.)",
+   "kind": "objective",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+   }
+  },
+  "as_3b": {
+   "desc": "Build ethical AI literacy and future-ready skills into curricular and co-curricular experiences. (Paraphrased; see the plan for its words.)",
+   "kind": "objective",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+   }
+  },
+  "as_3c": {
+   "desc": "Expand A&A's role in General Education so all students can explore creativity and emerging technologies. (Paraphrased; see the plan for its words.)",
+   "kind": "objective",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+   }
+  },
+  "as_3d": {
+   "desc": "Develop new degrees, minors, certificates and hybrid learning models that match demand and workforce needs. (Paraphrased; see the plan for its words.)",
+   "kind": "objective",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+   }
+  },
+  "as_4a": {
+   "desc": "Build cross-campus partnerships that raise the visibility and impact of arts and design. (Paraphrased; see the plan for its words.)",
+   "kind": "objective",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+   }
+  },
+  "as_4b": {
+   "desc": "Elevate recognition of A&A's creative activity, research and scholarship. (Paraphrased; see the plan for its words.)",
+   "kind": "objective",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+   }
+  },
+  "as_4c": {
+   "desc": "Lead University-wide human-centered use of AI in creative practice and research. (Paraphrased; see the plan for its words.)",
+   "kind": "objective",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+   }
+  },
+  "as_5b": {
+   "desc": "Reduce or remove affordability and access barriers to participation. (Paraphrased; see the plan for its words.)",
+   "kind": "objective",
+   "links": {
+    "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
+   }
+  },
+  "w_learn_to_flourish_hub_flourish_hhd_psu_e": {
+   "desc": "A win in PRAW WINS.md: Learn to Flourish Hub: flourish.hhd.psu.edu (2026).",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
+   }
+  },
+  "w_from_hax_lab_to_industry": {
+   "desc": "A win in PRAW WINS.md: From HAX Lab to industry.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#from-hax-lab-to-industry"
+   }
+  },
+  "w_site_dashboard_three_generations_of_stud": {
+   "desc": "A win in PRAW WINS.md: Site Dashboard, three generations of students (2022–2026).",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
+   }
+  },
+  "w_students_built_the_design_system": {
+   "desc": "A win in PRAW WINS.md: Students built the design system.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#students-built-the-design-system"
+   }
+  },
+  "w_winston_white_student_to_trainer": {
+   "desc": "A win in PRAW WINS.md: Winston White: student to trainer.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#winston-white-student-to-trainer"
+   }
+  },
+  "w_640_open_html_tags_used_across_penn_stat": {
+   "desc": "A win in PRAW WINS.md: 640+ open HTML tags, used across Penn State.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#640-open-html-tags-used-across-penn-state"
+   }
+  },
+  "w_hax_lab_faculty_grants": {
+   "desc": "A win in PRAW WINS.md: HAX Lab faculty grants.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#hax-lab-faculty-grants"
+   }
+  },
+  "w_one_maintainer_more_rockets_siip": {
+   "desc": "A win in PRAW WINS.md: One maintainer, more rockets (SIIP).",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#one-maintainer-more-rockets-siip"
+   }
+  },
+  "w_agents_with_context_90_then_211": {
+   "desc": "A win in PRAW WINS.md: Agents with context: 90% then 211%.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#agents-with-context-90-then-211"
+   }
+  },
+  "w_twelve_of_me": {
+   "desc": "A win in PRAW WINS.md: Twelve of me.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#twelve-of-me"
+   }
+  },
+  "w_289_packages_about_49_000_downloads_a_mo": {
+   "desc": "A win in PRAW WINS.md: 289 packages, about 49,000 downloads a month.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#289-packages-about-49000-downloads-a-month"
+   }
+  },
+  "w_reach_by_early_2026": {
+   "desc": "A win in PRAW WINS.md: Reach by early 2026.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#reach-by-early-2026"
+   }
+  },
+  "w_migrations_in_seconds_not_months": {
+   "desc": "A win in PRAW WINS.md: Migrations in seconds, not months.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#migrations-in-seconds-not-months"
+   }
+  },
+  "w_fast_without_a_build_step": {
+   "desc": "A win in PRAW WINS.md: Fast without a build step.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#fast-without-a-build-step"
+   }
+  },
+  "w_skeletons_and_benevolent_restrictions_ha": {
+   "desc": "A win in PRAW WINS.md: Skeletons and benevolent restrictions (HAX 25).",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#skeletons-and-benevolent-restrictions-hax-25"
+   }
+  },
+  "w_national_archives_usability_audit_2019": {
+   "desc": "A win in PRAW WINS.md: National Archives usability audit (2019).",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#national-archives-usability-audit-2019"
+   }
+  },
+  "w_first_hax_camp_40_people": {
+   "desc": "A win in PRAW WINS.md: First hax-camp, 40+ people.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#first-hax-camp-40-people"
+   }
+  },
+  "w_haxcms_announced_at_drupalcon": {
+   "desc": "A win in PRAW WINS.md: HAXcms announced at DrupalCon.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#haxcms-announced-at-drupalcon"
+   }
+  },
+  "w_ten_years_from_a_notepad": {
+   "desc": "A win in PRAW WINS.md: Ten years from a notepad.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#ten-years-from-a-notepad"
+   }
+  },
+  "w_a_250_textbook_becomes_a_30_fee": {
+   "desc": "A win in PRAW WINS.md: A $250 textbook becomes a $30 fee.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#a-250-textbook-becomes-a-30-fee"
+   }
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "aaplan",
+   "label": "How HAX meets A&A's plan",
+   "kind": "story",
+   "message": "14 sub-objectives across five goals, each aligned by A&A to a Penn State priority.",
+   "scenes": [
+    {
+     "caption": "A&A's five goals, each aligned to a Penn State priority.",
+     "nodes": [
+      "aaplan",
+      "ag_g1",
+      "ag_g2",
+      "ag_g3",
+      "ag_g4",
+      "ag_g5",
+      "pp_deib",
+      "pp_landgrant",
+      "pp_research",
+      "pp_success",
+      "pp_tio"
+     ]
+    },
+    {
+     "caption": "Goal 1: Build a culture of collaboration.",
+     "nodes": [
+      "ag_g1",
+      "pp_tio",
+      "as_1a",
+      "as_1b",
+      "as_1c",
+      "w_learn_to_flourish_hub_flourish_hhd_psu_e",
+      "w_hax_lab_faculty_grants",
+      "w_learn_to_flourish_hub_flourish_hhd_psu_e",
+      "w_hax_lab_faculty_grants",
+      "w_skeletons_and_benevolent_restrictions_ha",
+      "w_migrations_in_seconds_not_months"
+     ]
+    },
+    {
+     "caption": "Goal 2: Amplify our responsibility as a cultural bridge.",
+     "nodes": [
+      "ag_g2",
+      "pp_landgrant",
+      "as_2b",
+      "as_2c",
+      "as_2d",
+      "w_from_hax_lab_to_industry",
+      "w_site_dashboard_three_generations_of_stud",
+      "w_site_dashboard_three_generations_of_stud",
+      "w_students_built_the_design_system",
+      "w_289_packages_about_49_000_downloads_a_mo",
+      "w_haxcms_announced_at_drupalcon",
+      "w_first_hax_camp_40_people",
+      "w_national_archives_usability_audit_2019"
+     ]
+    },
+    {
+     "caption": "Goal 3: Empower learners to build the future.",
+     "nodes": [
+      "ag_g3",
+      "pp_success",
+      "as_3a",
+      "as_3b",
+      "as_3c",
+      "as_3d",
+      "w_from_hax_lab_to_industry",
+      "w_winston_white_student_to_trainer",
+      "w_hax_lab_faculty_grants",
+      "w_agents_with_context_90_then_211",
+      "w_reach_by_early_2026",
+      "w_reach_by_early_2026",
+      "w_hax_lab_faculty_grants"
+     ]
+    },
+    {
+     "caption": "Goal 4: Champion the arts and design as transformative forms of research and practice.",
+     "nodes": [
+      "ag_g4",
+      "pp_research",
+      "as_4a",
+      "as_4b",
+      "as_4c",
+      "w_640_open_html_tags_used_across_penn_stat",
+      "w_learn_to_flourish_hub_flourish_hhd_psu_e",
+      "w_one_maintainer_more_rockets_siip",
+      "w_ten_years_from_a_notepad",
+      "w_agents_with_context_90_then_211",
+      "w_twelve_of_me"
+     ]
+    },
+    {
+     "caption": "Goal 5: Cultivate an equitable community for all.",
+     "nodes": [
+      "ag_g5",
+      "pp_deib",
+      "as_5b",
+      "w_a_250_textbook_becomes_a_30_fee",
+      "w_fast_without_a_build_step"
+     ]
+    },
+    {
+     "caption": "All of it.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

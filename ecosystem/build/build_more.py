@@ -173,12 +173,14 @@ for a, arrow, lab, b in E:
         seen.add((a, b)); lines.append(f"  {a} {arrow}|{lab}| {b}")
 for u in UNITS:
     if not any(a == u or b == u for a, b in seen): lines.append(f"  {u} -->|is part of| psu")
+lines.insert(lines.index('  subgraph ppl ["People"]') - 1, '    psuplan[("Strategic plan")]')
+lines += ["  psu -->|sets out| psuplan", "  aa -.->|aligns its own plan to| psuplan", "  %%@ node psuplan mono=PSU color=nittanyNavy motion=lift web=psuplan"]
 lines += ["  haxpsu -->|hosts| sites_hub", "  aa -->|publishes courses on| sites_hub", "  ist -->|publishes courses on| sites_hub", "  eberly -->|publishes courses on| sites_hub", "",
           "  %%@ group hub tier=0", "  %%@ group units tier=1", "  %%@ group work tier=2", "  %%@ group ppl tier=3"]
 lines += portal_lines(["psu"] + UNITS + PEOPLE + [w for w in WORK if w != "sites_hub"])
 lines.append("  %%@ node sites_hub icon=hax:site-map color=nittanyNavy motion=pop")
 sitesmeta = json.load(open("hax-sites.json"))["meta"].get("about", "")
-nodes = {"psu": {"always": True}, "sites_hub": {"desc": sitesmeta + " Open the hax.psu.edu web for every college and course.", "kind": "work"}}
+nodes = {"psu": {"always": True}, "psuplan": {"desc": "Penn State's strategic plan, limited to the priorities and objectives HAX meets. A&A's Strategic Plan 2030 opens from inside it.", "kind": "work", "links": {"plan": "https://strategicplan.psu.edu/engage/"}}, "sites_hub": {"desc": sitesmeta + " Open the hax.psu.edu web for every college and course.", "kind": "work"}}
 tours = [{"id": "psu", "label": "HAX at Penn State", "message": "Where HAX is built and used at Penn State, from the ecosystem web's own connections.", "scenes": [
     S("Penn State backs HAX: it employs the maintainer and keeps the infrastructure going.", "psu", "bryan"),
     S("The colleges and units that use and build it.", *UNITS),

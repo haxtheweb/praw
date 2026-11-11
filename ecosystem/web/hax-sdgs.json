@@ -1,0 +1,342 @@
+{
+ "meta": {
+  "name": "UN Sustainable Development Goals",
+  "parent": "main",
+  "noTimeline": true,
+  "sectionLabels": {
+   "goal": "goals HAX meets",
+   "part": "parts of HAX",
+   "win": "wins"
+  },
+  "about": "The UN Sustainable Development Goals HAX meets (7 of 17), generated from sdg-links.json. Only goals with evidence are shown: the point is how HAX meets them, not covering all 17. Each goal links to the pillars and parts of HAX it rests on and the wins that show it.",
+  "kindLabels": {
+   "pillar": "pillars a goal rests on",
+   "rel": "goals and wins",
+   "schema": "met through"
+  },
+  "links": {
+   "UN": "https://sdgs.un.org/goals",
+   "un-sdg": "https://github.com/haxtheweb/webcomponents/tree/master/elements/un-sdg"
+  }
+ },
+ "nodes": {
+  "sdgs": {
+   "always": true,
+   "desc": "The UN's 17 Sustainable Development Goals, limited to the 7 HAX meets: 4 Quality Education, 7 Affordable and Clean Energy, 8 Decent Work and Economic Growth, 9 Industry, Innovation and Infrastructure, 10 Reduced Inequalities, 12 Responsible Consumption and Production, 17 Partnerships for the Goals. Goals 7 and 12 come from the HAX docs' Efficient pillar page; the rest rest on WORLDVIEW, the pledges and WINS.",
+   "links": {
+    "UN": "https://sdgs.un.org/goals",
+    "links": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/sdg-links.json"
+   }
+  },
+  "sdg_4": {
+   "desc": "Education-led, accessible and open by default, and students learn by building a real product. Targets: 4.3 equal access to affordable tertiary education; 4.4 skills for employment; 4.5 equal access, including for persons with disabilities.",
+   "kind": "goal",
+   "links": {
+    "WORLDVIEW pillars 3, 5 and 8": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#core-worldview-pillars"
+   },
+   "note": "Rests on WORLDVIEW, the pledges and WINS."
+  },
+  "sdg_7": {
+   "desc": "Less energy per page: web standards over large libraries, offline-capable PWAs, caching, and services that run only when called. Targets: 7.3 energy efficiency.",
+   "kind": "goal",
+   "links": {
+    "Efficient pillar page (un-sdg goal 7)": "https://github.com/haxtheweb/docs/blob/master/pages/item-6cf36319-fe20-4a72-9cb3-97e44e80f8b9/index.html",
+    "Environmental impact pledge": "https://github.com/haxtheweb/docs/blob/master/pages/item-edcd6f86-05b5-43a9-8766-8a56709451c8/index.html"
+   },
+   "note": "From the HAX docs (un-sdg on the Efficient pillar page)."
+  },
+  "sdg_8": {
+   "desc": "Students leave with real-product experience that carries into industry; small businesses run their own sites. Targets: 8.6 youth in education, employment or training; 8.3 small enterprises.",
+   "kind": "goal",
+   "links": {
+    "WORLDVIEW pillar 8 (SIIP)": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#8-learning-by-building-in-real-systems-siip-pattern"
+   },
+   "note": "Rests on WORLDVIEW, the pledges and WINS."
+  },
+  "sdg_9": {
+   "desc": "Open infrastructure others reuse on their own: hundreds of open web components and packages. Targets: 9.c access to information and communications technology; 9.5 research and technological capability.",
+   "kind": "goal",
+   "links": {
+    "npm downloads": "https://github.com/haxtheweb/praw/blob/main/impact/npm-downloads.json"
+   },
+   "note": "Rests on WORLDVIEW, the pledges and WINS."
+  },
+  "sdg_10": {
+   "desc": "Access for everyone, everywhere, regardless of physical ability, technical ability or device; performance treated as access. Targets: 10.2 inclusion of all, irrespective of disability.",
+   "kind": "goal",
+   "links": {
+    "Accessibility and empowerment pledge": "https://github.com/haxtheweb/docs/blob/master/pages/item-d64f8a31-bd4c-499d-a0e0-e97ad1c9d1cb/index.html",
+    "Efficient pillar page": "https://github.com/haxtheweb/docs/blob/master/pages/item-6cf36319-fe20-4a72-9cb3-97e44e80f8b9/index.html"
+   },
+   "note": "Rests on WORLDVIEW, the pledges and WINS."
+  },
+  "sdg_12": {
+   "desc": "Content outlives redesigns, so nothing is rebuilt; standards replace heavy libraries and whole layers of code. Targets: 12.2 efficient use of resources; 12.5 less waste.",
+   "kind": "goal",
+   "links": {
+    "Efficient pillar page (un-sdg goal 12)": "https://github.com/haxtheweb/docs/blob/master/pages/item-6cf36319-fe20-4a72-9cb3-97e44e80f8b9/index.html",
+    "Environmental impact pledge": "https://github.com/haxtheweb/docs/blob/master/pages/item-edcd6f86-05b5-43a9-8766-8a56709451c8/index.html"
+   },
+   "note": "From the HAX docs (un-sdg on the Efficient pillar page)."
+  },
+  "sdg_17": {
+   "desc": "Community is architecture: colleges, foundations, companies and students build HAX together. Targets: 17.17 multi-stakeholder partnerships.",
+   "kind": "goal",
+   "links": {
+    "WORLDVIEW pillar 6": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#6-community-building-is-part-of-the-architecture"
+   },
+   "note": "Rests on WORLDVIEW, the pledges and WINS."
+  },
+  "un_sdg": {
+   "desc": "The un-sdg web component shows a goal's official icon and color on any HAX page; the docs use it on the Efficient pillar page.",
+   "kind": "part",
+   "links": {
+    "element": "https://github.com/haxtheweb/webcomponents/tree/master/elements/un-sdg"
+   }
+  },
+  "w_learn_to_flourish_hub_flourish_hhd_psu_e": {
+   "desc": "A win in PRAW WINS.md: Learn to Flourish Hub: flourish.hhd.psu.edu (2026).",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
+   }
+  },
+  "w_the_seven_accent_cards": {
+   "desc": "A win in PRAW WINS.md: The seven accent-cards.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#the-seven-accent-cards"
+   }
+  },
+  "w_from_hax_lab_to_industry": {
+   "desc": "A win in PRAW WINS.md: From HAX Lab to industry.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#from-hax-lab-to-industry"
+   }
+  },
+  "w_winston_white_student_to_trainer": {
+   "desc": "A win in PRAW WINS.md: Winston White: student to trainer.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#winston-white-student-to-trainer"
+   }
+  },
+  "w_student_clubs_30_security_fixes": {
+   "desc": "A win in PRAW WINS.md: Student clubs: 30 security fixes.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#student-clubs-30-security-fixes"
+   }
+  },
+  "w_640_open_html_tags_used_across_penn_stat": {
+   "desc": "A win in PRAW WINS.md: 640+ open HTML tags, used across Penn State.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#640-open-html-tags-used-across-penn-state"
+   }
+  },
+  "w_36_students_18_fixes": {
+   "desc": "A win in PRAW WINS.md: 36 students, 18 fixes.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#36-students-18-fixes"
+   }
+  },
+  "w_hax_lab_faculty_grants": {
+   "desc": "A win in PRAW WINS.md: HAX Lab faculty grants.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#hax-lab-faculty-grants"
+   }
+  },
+  "w_every_site_since_2020_still_works": {
+   "desc": "A win in PRAW WINS.md: Every site since 2020 still works.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#every-site-since-2020-still-works"
+   }
+  },
+  "w_289_packages_about_49_000_downloads_a_mo": {
+   "desc": "A win in PRAW WINS.md: 289 packages, about 49,000 downloads a month.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#289-packages-about-49000-downloads-a-month"
+   }
+  },
+  "w_reach_by_early_2026": {
+   "desc": "A win in PRAW WINS.md: Reach by early 2026.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#reach-by-early-2026"
+   }
+  },
+  "w_fast_without_a_build_step": {
+   "desc": "A win in PRAW WINS.md: Fast without a build step.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#fast-without-a-build-step"
+   }
+  },
+  "w_national_archives_usability_audit_2019": {
+   "desc": "A win in PRAW WINS.md: National Archives usability audit (2019).",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#national-archives-usability-audit-2019"
+   }
+  },
+  "w_first_hax_camp_40_people": {
+   "desc": "A win in PRAW WINS.md: First hax-camp, 40+ people.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#first-hax-camp-40-people"
+   }
+  },
+  "w_haxcms_announced_at_drupalcon": {
+   "desc": "A win in PRAW WINS.md: HAXcms announced at DrupalCon.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#haxcms-announced-at-drupalcon"
+   }
+  },
+  "w_a_250_textbook_becomes_a_30_fee": {
+   "desc": "A win in PRAW WINS.md: A $250 textbook becomes a $30 fee.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#a-250-textbook-becomes-a-30-fee"
+   }
+  },
+  "w_hundreds_of_thousands_of_lines_removed": {
+   "desc": "A win in PRAW WINS.md: Hundreds of thousands of lines removed.",
+   "kind": "win",
+   "links": {
+    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#hundreds-of-thousands-of-lines-removed"
+   }
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "sdgs",
+   "label": "The UN goals HAX meets",
+   "kind": "story",
+   "message": "7 of the 17 goals, each with the pillars, parts and wins behind it.",
+   "scenes": [
+    {
+     "caption": "HAX meets 7 of the UN's 17 Sustainable Development Goals.",
+     "nodes": [
+      "sdgs",
+      "sdg_4",
+      "sdg_7",
+      "sdg_8",
+      "sdg_9",
+      "sdg_10",
+      "sdg_12",
+      "sdg_17"
+     ]
+    },
+    {
+     "caption": "4. Quality Education: Education-led, accessible and open by default, and students learn by building a real product.",
+     "nodes": [
+      "sdg_4",
+      "accessible",
+      "open",
+      "sustainable",
+      "haxlab",
+      "ist256",
+      "course",
+      "textbook",
+      "oerschema",
+      "w_reach_by_early_2026",
+      "w_from_hax_lab_to_industry",
+      "w_winston_white_student_to_trainer",
+      "w_36_students_18_fixes",
+      "w_a_250_textbook_becomes_a_30_fee"
+     ]
+    },
+    {
+     "caption": "7. Affordable and Clean Energy: Less energy per page: web standards over large libraries, offline-capable PWAs, caching, and services that run only when called.",
+     "nodes": [
+      "sdg_7",
+      "efficient",
+      "sustainable",
+      "components",
+      "haxcms",
+      "w_fast_without_a_build_step"
+     ]
+    },
+    {
+     "caption": "8. Decent Work and Economic Growth: Students leave with real-product experience that carries into industry; small businesses run their own sites.",
+     "nodes": [
+      "sdg_8",
+      "sustainable",
+      "haxlab",
+      "ccso",
+      "w_from_hax_lab_to_industry",
+      "w_student_clubs_30_security_fixes",
+      "w_reach_by_early_2026"
+     ]
+    },
+    {
+     "caption": "9. Industry, Innovation and Infrastructure: Open infrastructure others reuse on their own: hundreds of open web components and packages.",
+     "nodes": [
+      "sdg_9",
+      "open",
+      "extensible",
+      "agnostic",
+      "npm",
+      "components",
+      "w_289_packages_about_49_000_downloads_a_mo",
+      "w_640_open_html_tags_used_across_penn_stat"
+     ]
+    },
+    {
+     "caption": "10. Reduced Inequalities: Access for everyone, everywhere, regardless of physical ability, technical ability or device; performance treated as access.",
+     "nodes": [
+      "sdg_10",
+      "accessible",
+      "efficient",
+      "languages",
+      "wcag",
+      "meaningchannels",
+      "w_the_seven_accent_cards",
+      "w_fast_without_a_build_step"
+     ]
+    },
+    {
+     "caption": "12. Responsible Consumption and Production: Content outlives redesigns, so nothing is rebuilt; standards replace heavy libraries and whole layers of code.",
+     "nodes": [
+      "sdg_12",
+      "efficient",
+      "sustainable",
+      "components",
+      "wcstandard",
+      "w_every_site_since_2020_still_works",
+      "w_hundreds_of_thousands_of_lines_removed"
+     ]
+    },
+    {
+     "caption": "17. Partnerships for the Goals: Community is architecture: colleges, foundations, companies and students build HAX together.",
+     "nodes": [
+      "sdg_17",
+      "sustainable",
+      "apereo",
+      "duke",
+      "drupalcon",
+      "libraries",
+      "hhd",
+      "w_learn_to_flourish_hub_flourish_hhd_psu_e",
+      "w_hax_lab_faculty_grants",
+      "w_national_archives_usability_audit_2019",
+      "w_first_hax_camp_40_people",
+      "w_haxcms_announced_at_drupalcon"
+     ]
+    },
+    {
+     "caption": "All of it.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

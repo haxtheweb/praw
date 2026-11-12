@@ -1,6 +1,6 @@
 # Design System LEARNING Context
 
-Learned patterns and integration knowledge for WARP when working specifically with HAX design systems (DDD and SimpleColors).
+Learned patterns and integration knowledge for AI agents when working specifically with HAX design systems (DDD and SimpleColors).
 
 ## DDD Design System Mastery
 
@@ -334,4 +334,4 @@ class CustomTheme extends DDDSuper(HAXCMSLitElement) {
 
 ---
 
-*This document captures design system specific learning from WARP interactions. Update as DDD evolves and new design patterns emerge.*
+*This document captures design system specific learning from agent interactions. Update as DDD evolves and new design patterns emerge.*

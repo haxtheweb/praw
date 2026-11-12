@@ -369,7 +369,7 @@
    "status": "prerelease"
   },
   "praw": {
-   "desc": "\"A repository containing comprehensive AI agent rules for the HAX ecosystem\": the worldview, voice, wins and skills that keep agents and contributors consistent.",
+   "desc": "Patterns, Rules, Agents, Worldview: HAX's networked brain, the worldview, voice, wins and skills that keep agents and contributors consistent.",
    "source": {
     "label": "PRAW README",
     "url": "https://github.com/haxtheweb/praw"

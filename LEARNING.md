@@ -1,6 +1,6 @@
-# WARP Learning Context - HAX Ecosystem Integration
+# Agent Learning Context - HAX Ecosystem Integration
 
-This document captures learned patterns, discovered workflows, and integration knowledge for how WARP should work effectively across the entire HAX ecosystem.
+This document captures learned patterns, discovered workflows, and integration knowledge for how AI agents should work effectively across the entire HAX ecosystem.
 ## Indexed External Worldview Sources
 ### `btopro/blog` (Bryan Ollendyke long-form corpus)
 - Path (served): `https://btopro.com`
@@ -13,7 +13,7 @@ This document captures learned patterns, discovered workflows, and integration k
 
 ### Repository Interaction Map
 
-The HAX ecosystem requires WARP to understand cross-repository dependencies and interaction patterns:
+The HAX ecosystem requires agents to understand cross-repository dependencies and interaction patterns:
 
 ```
 webcomponents/ (Core Components & DDD)
@@ -58,17 +58,17 @@ All HAX Projects
 
 #### Component Registry Synchronization
 - **Issue**: Components exist in webcomponents/ but may not be available in specific site contexts
-- **WARP Response**: Always check `wc-registry.json` or HAX schema before suggesting components
+- **Agent Response**: Always check `wc-registry.json` or HAX schema before suggesting components
 - **Verification**: Test component availability in target environment
 
 #### Build System Coordination
 - **Issue**: Changes in one repo may require builds in dependent repos
-- **WARP Response**: When modifying webcomponents, consider downstream build impacts
+- **Agent Response**: When modifying webcomponents, consider downstream build impacts
 - **Pattern**: `webcomponents/` changes → `haxcms-*` updates → `docs/` rebuild
 
 #### Version Alignment
 - **Issue**: CLI, backends, and components may have version mismatches
-- **WARP Response**: Use local tooling (`hax` command) rather than global npm packages
+- **Agent Response**: Use local tooling (`hax` command) rather than global npm packages
 - **Verification**: Check package.json versions across repositories for compatibility
 
 ## Discovered Workflow Patterns
@@ -340,4 +340,4 @@ These are traditional CMS features that could still add value but are secondary 
 
 ---
 
-*This document evolves with each WARP interaction in the HAX ecosystem. Update it as new patterns emerge or workflows are optimized.*
+*This document evolves with each agent interaction in the HAX ecosystem. Update it as new patterns emerge or workflows are optimized.*

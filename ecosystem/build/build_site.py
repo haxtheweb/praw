@@ -253,6 +253,10 @@ icon_src = "icons_inline.json" if os.path.exists("icons_inline.json") else os.pa
 glyphs = json.load(open(icon_src))
 used = sorted({m for w in bundle["webs"].values() for m in re.findall(r"icon=([\w:-]+)", w["mmd"])})
 bundle["icons"] = {name: glyphs[name] for name in used if name in glyphs}
+# art the main web's tiles name that its JSON does not carry (assemble.py merges the same file into the player):
+# Bryan's rpg-character. Each web's own "images" (the theme thumbnails) travel inside its JSON already.
+main_art = "images-main.json" if os.path.exists("images-main.json") else os.path.join(ECO, "player", "images-main.json")
+bundle["images"].update(json.load(open(main_art)))
 json.dump(bundle, open(os.path.join(OUT, "ecosystem-webs.json"), "w"), ensure_ascii=False, separators=(",", ":"))
 # a slug index, so a later rename can keep old links working (redirects.json is checked against it in a later phase)
 json.dump({it["_key"]: it["slug"] for it in items}, open(os.path.join(OUT, "slugs.json"), "w"), indent=0, sort_keys=True)

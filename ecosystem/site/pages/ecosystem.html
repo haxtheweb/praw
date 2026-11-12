@@ -1,0 +1,46 @@
+<h2 id="start">Start building</h2>
+<p>Two ways in. Same sites, same blocks, and everything stays editable by people.</p>
+<grid-plate layout="1-1">
+  <div slot="col-1">
+    <h3>In a terminal</h3>
+    <p>Install the HAX CLI once, then make a site or a web component with DDD, translations and accessibility checks built in. Needs Node.js.</p>
+    <code-sample type="html" copy-clipboard-button>
+<template preserve-content="preserve-content">npm install --global @haxtheweb/create
+hax start</template>
+    </code-sample>
+    <p>Or skip the menu:</p>
+    <code-sample type="html" copy-clipboard-button>
+<template preserve-content="preserve-content">hax site mysite --y
+hax webcomponent my-element --y</template>
+    </code-sample>
+    <p>The CLI: <a href="https://github.com/haxtheweb/create">haxtheweb/create</a></p>
+  </div>
+  <div slot="col-2">
+    <h3>With your AI agent</h3>
+    <p>Paste this into Claude Code, Warp or any coding agent. PRAW gives it HAX's rules and skills, so what it builds stays something a person can open and edit.</p>
+    <code-sample type="html" copy-clipboard-button>
+<template preserve-content="preserve-content">Read https://github.com/haxtheweb/praw and follow its rules and skills. Install the HAX CLI (@haxtheweb/create) if it is missing, then make me a HAX site about [YOUR TOPIC]. Run hax audit before you finish.</template>
+    </code-sample>
+    <p>Rules and skills: <a href="https://github.com/haxtheweb/praw">haxtheweb/praw</a>. Connecting an agent to a running site: <a href="https://github.com/haxtheweb/haxcms-mcp">haxtheweb/haxcms-mcp</a> (pre-release).</p>
+  </div>
+</grid-plate>
+<p>No install at all: <a href="https://webcomponents.hax.cloud/elements/haxcms-elements/demo/index.html">try the live HAXcms demo</a>, or put the <a href="/magic-script">magic script</a> on any page.</p>
+<h2>Where the code lives</h2>
+<grid-plate layout="1-1-1-1">
+  <div slot="col-1">
+    <p><a href="https://github.com/haxtheweb/create"><strong>create</strong></a><br>The HAX CLI: sites, components, audit and publish.</p>
+    <p><a href="https://github.com/haxtheweb/praw"><strong>praw</strong></a><br>The brain: rules, skills and this site.</p>
+  </div>
+  <div slot="col-2">
+    <p><a href="https://github.com/haxtheweb/haxcms-nodejs"><strong>haxcms-nodejs</strong></a><br>HAXcms on Node.js. Runs every site the CLI makes.</p>
+    <p><a href="https://github.com/haxtheweb/haxsite"><strong>haxsite</strong></a><br>A plain HAXsite to fork and publish.</p>
+  </div>
+  <div slot="col-3">
+    <p><a href="https://github.com/haxtheweb/haxcms-php"><strong>haxcms-php</strong></a><br>HAXcms on PHP, the same API contract as Node.</p>
+    <p><a href="https://github.com/haxtheweb/haxcms-mcp"><strong>haxcms-mcp</strong></a><br>MCP server for HAX sites. Pre-release.</p>
+  </div>
+  <div slot="col-4">
+    <p><a href="https://github.com/haxtheweb/webcomponents"><strong>webcomponents</strong></a><br>Every element, theme and the DDD design system.</p>
+    <p><a href="https://github.com/haxtheweb/issues"><strong>issues</strong></a><br>One issue queue for the whole ecosystem.</p>
+  </div>
+</grid-plate>

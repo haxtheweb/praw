@@ -53,6 +53,7 @@
    "desc": "One script tag that loads the autoloader and registry, so any page, HAX site or not, can use HAX elements.",
    "kind": "generated",
    "links": {
+    "copy it": "/magic-script",
     "issue": "https://github.com/haxtheweb/issues/issues/2944"
    }
   },

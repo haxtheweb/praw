@@ -121,8 +121,13 @@ for w, _ in order:
         base = web_slug[w] or "ecosystem"
         page_of[(w, nid)] = add(f"tile:{w}:{nid}", t["label"], page_of[("web", w)], unique(base + "/" + slug(t["label"])), W["data"]["nodes"].get(nid, {}).get("desc", ""), n)
         n += 1
+# pages that are not part of a web (ecosystem/site/extra-pages.json: [{slug, title, description}]); their HTML is the
+# hand-written ecosystem/site/pages/<slug>.html, and with no metadata.ecosystem the theme opens them in the Site view
+EXTRA = json.load(open(os.path.join(ECO, "site", "extra-pages.json"))) if os.path.exists(os.path.join(ECO, "site", "extra-pages.json")) else []
 # tours
 tours_root = add("tours", "Tours", None, unique("tours"), "Walks through the ecosystem web, one step at a time.", 1)
+for n, x in enumerate(EXTRA):
+    add(f"page:{x['slug']}", x["title"], None, unique(slug(x["slug"])), x.get("description", ""), 2 + n)
 tn = 0
 for w, _ in order:
     for t in WEBS[w]["data"].get("tours", []):
@@ -214,7 +219,8 @@ THEME = {"element": "clean-one", "path": "@haxtheweb/clean-one/clean-one.js", "n
 if ECO_THEME:
     THEME = {"element": "ecosystem-theme", "path": "@haxtheweb/ecosystem-theme/ecosystem-theme.js", "name": "Ecosystem",
              "variables": {"ecosystemSrc": "ecosystem-webs.json",
-                           "nav": [{"label": "Explore", "slug": items[0]["slug"]}, {"label": "Tours", "slug": by_id[tours_root]["slug"]}],
+                           "nav": [{"label": "Explore", "slug": items[0]["slug"]}, {"label": "Tours", "slug": by_id[tours_root]["slug"]}]
+                                  + [{"label": x["title"], "slug": slug(x["slug"])} for x in EXTRA if x.get("nav")],
                            "links": [{"kind": "docs", "label": "Docs", "href": "https://haxtheweb.org"},
                                      {"kind": "portfolio", "label": "Element portfolio", "href": "https://webcomponents.hax.cloud"},
                                      {"kind": "demo", "label": "Try the live demo", "href": "https://webcomponents.hax.cloud/elements/haxcms-elements/demo/index.html"}],

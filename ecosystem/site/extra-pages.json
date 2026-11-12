@@ -1,0 +1,8 @@
+[
+  {
+    "slug": "magic-script",
+    "title": "Magic script",
+    "description": "Two lines that load any HAX web component from the CDN the moment it appears on a page.",
+    "nav": true
+  }
+]

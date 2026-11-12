@@ -87,7 +87,7 @@ T = [{"id": "sdgs", "label": "The UN goals HAX meets", "kind": "story", "message
       "scenes": [S("HAX meets " + str(len(SDG["goals"])) + " of the UN's 17 Sustainable Development Goals.", "sdgs", *[g["_id"] for g in SDG["goals"]])] +
                 [S(f"{g['n']}. {g['name']}: {g['why']}", g["_id"], *g["pillars"], *g["nodes"], *[wid(w) for w in g["wins"]]) for g in SDG["goals"]] +
                 [S("All of it.")]}]
-write("sdgs", L, {"name": "UN Sustainable Development Goals", "parent": "main", "noTimeline": True,
+write("sdgs", L, {"name": "UN Sustainable Development Goals", "slug": "un-sdgs", "parent": "main", "noTimeline": True,
                   "sectionLabels": {"goal": "goals HAX meets", "part": "parts of HAX", "win": "wins"},
                   "about": f"The UN Sustainable Development Goals HAX meets ({len(SDG['goals'])} of 17), generated from sdg-links.json. Only goals with evidence are shown: the point is how HAX meets them, not covering all 17. Each goal links to the pillars and parts of HAX it rests on and the wins that show it.",
                   "kindLabels": {"pillar": "pillars a goal rests on", "rel": "goals and wins", "schema": "met through"},
@@ -177,7 +177,7 @@ T = [{"id": "aaplan", "label": "How HAX meets A&A's plan", "kind": "story", "mes
       "scenes": [S("A&A's five goals, each aligned to a Penn State priority.", "aaplan", *[g["_id"] for g in A["goals"]], *psu_ids)] +
                 [S(f"Goal {g['id'][1:]}: {g['name']}.", g["_id"], f"pp_{g['psu']}", *[s["_id"] for s in g["subs"]], *[wid(w) for s in g["subs"] for w in s["wins"]]) for g in A["goals"]] +
                 [S("All of it.")]}]
-write("aaplan", L, {"name": "A&A Strategic Plan 2030", "parent": "psuplan", "noTimeline": True,
+write("aaplan", L, {"name": "A&A Strategic Plan 2030", "slug": "aa-plan", "parent": "psuplan", "noTimeline": True,
                     "sectionLabels": {"goal": "goals", "objective": "sub-objectives HAX meets", "win": "wins"},
                     "about": f"How HAX meets the College of Arts and Architecture's Strategic Plan 2030, generated from strategic-plans.json (a snapshot of {A['url']} read {A['read']}). Only the sub-objectives HAX meets are shown; each goal's link to a Penn State priority is A&A's own.",
                     "kindLabels": {"pillar": "pillars it rests on", "rel": "goals, sub-objectives and wins", "schema": "met through"},

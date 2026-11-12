@@ -51,3 +51,6 @@ ecosystem/build/data/el/hn/
 ecosystem/build/data/gh_cache.json
 ecosystem/build/data/drift-report.*
 ecosystem/build/data/*_report.json
+
+# hax.cloud site build output
+_site/

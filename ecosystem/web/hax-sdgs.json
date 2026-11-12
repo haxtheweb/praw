@@ -1,6 +1,7 @@
 {
  "meta": {
   "name": "UN Sustainable Development Goals",
+  "slug": "un-sdgs",
   "parent": "main",
   "noTimeline": true,
   "sectionLabels": {

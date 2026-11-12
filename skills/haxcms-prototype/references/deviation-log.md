@@ -38,7 +38,7 @@ about the product too.
   - Left: the account menu (Ctrl⇧1; the way back to your sites lives in it), a thin divider, the Site
     Settings menu (house icon, Ctrl⇧2), "Add page • Ctrl⇧3", another divider and "Edit • Ctrl⇧E".
   - Center: Merlin as a search field ("Filter commands"), not a lone wand button.
-  - Right: "Preview • Ctrl⇧8" (eye icon), then the HAX mark (World Traveler). The mark is decorative,
+  - Right: "Preview • Ctrl⇧8" (eye icon), then the HAX mark (Future Traveler). The mark is decorative,
     not a link.
   - Every label carries its shortcut.
 - **Phone width** (600px and below): the left group's dividers and the HAX mark are hidden, and the

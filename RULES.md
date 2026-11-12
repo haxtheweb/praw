@@ -274,6 +274,11 @@ Every rule has one of four scopes:
 - **Scope**: `haxcms`
 - **Content**: Any time changes are made to a HAXcms site theme using classes that inherit from HAXCMSLitElement, run `yarn run build` at the end instead of manually editing the custom-elements.json file.
 
+### HAXcms Site Custom Code — Build On HAXCMSLitElementTheme
+- **Rule ID**: `Z61LdOQ98DTTLRwen7tL9T`
+- **Scope**: `haxcms`
+- **Content**: Code in a HAXsite's `custom/` folder (custom themes and site-specific elements bundled into `custom/build/custom.es6.js`) builds on the HAXcms base class instead of bare third-party imports. Custom themes extend `HAXCMSLitElementTheme`, and custom code takes its common needs from that same module, `@haxtheweb/haxcms-elements/lib/core/HAXCMSLitElementTheme.js`, which exports `html`, `css`, `svg`, `mathml` and `unsafeCSS` (lit), `store` (the HAXcms site store) and `autorun` / `toJS` (mobx). Site-specific elements that are not themes extend a HAX base class such as `DDD` from `@haxtheweb/d-d-d/d-d-d.js`. Do not import `lit`, `mobx` or other bare third-party packages in `custom/`: the site's import map only maps `@haxtheweb/` for `custom/build/`, so bare imports fail in the browser, and bundling a second copy of lit or mobx into the custom build duplicates the platform's own and splits the site store.
+
 ### Command Automation
 - **Rule ID**: `PacOyoQW2aIyaTO3R6asNL`
 - **Scope**: `global`

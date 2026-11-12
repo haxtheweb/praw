@@ -2,25 +2,34 @@
 
 Read by `elements/d-d-d/design-system/bridge/build-bridge.js`
 (<https://github.com/haxtheweb/webcomponents/tree/master/elements/d-d-d/design-system/bridge>).
-Working example: `elements/patternfly-theme/design-system/bridge.json`.
+Working examples: `elements/patternfly-theme/design-system/bridge.json` (one CSS source) and
+`elements/carbon-theme/design-system/bridge.json` (CSS plus two DTCG sources). Every mapping is
+checked against the shared tier contract in `contract.json` next to the generator.
 
 ```jsonc
 {
   "system": "patternfly",          // design system name in DesignSystemManager; also <system>.ddd-map.json
   "title": "PatternFly",           // display name in generated headers
   "prefix": "Patternfly",          // export prefix: PatternflyTokens, PatternflyDDDMap, PatternflyFonts
-  "upstream": {
-    "package": "@patternfly/patternfly",
-    "version": "6.7.0",            // exact; fetched with npm pack, never added as a dependency
-    "license": "MIT",              // must match the packed package.json, and be shippable
-    "homepage": "https://www.patternfly.org",
-    "repository": "https://github.com/patternfly/patternfly",
-    "file": "base/patternfly-variables.css"   // CSS with the custom properties, inside the package
-  },
-  "scopes": {                      // selectors merged in order to resolve each mode
-    "light": [":root"],
-    "dark": [":root", ":root:where(.pf-v6-theme-dark)"]
-  },
+  "homepage": "https://www.patternfly.org",
+  "sources": [                     // one or more; later sources win on name clashes
+    {
+      "package": "@patternfly/patternfly",
+      "version": "6.7.0",          // exact; fetched with npm pack, never added as a dependency
+      "license": "MIT",            // must match the packed package.json, and be shippable
+      "copyright": "Copyright (c) 2019 Red Hat, Inc.",
+      "repository": "https://github.com/patternfly/patternfly",
+      "format": "css",
+      "file": "base/patternfly-variables.css",
+      "scopes": {                  // selectors merged in order to resolve each mode
+        "light": [":root"],
+        "dark": [":root", ":root:where(.pf-v6-theme-dark)"]
+      }
+    }
+    // a DTCG source (Carbon): { "package": "@carbon/colors", "version": "11.62.0",
+    //   "license": "Apache-2.0", "format": "dtcg", "file": "tokens/colors.tokens.json",
+    //   "prefix": "--carbon-" }  → blue.60 becomes --carbon-blue-60
+  ],
   "fonts": [{ "family": "Red Hat Text", "license": "OFL-1.1", "url": "https://fonts.googleapis.com/css2?..." }],
   "ddd": {                         // DDD token → upstream token
     "--ddd-theme-default-beaverBlue": { "token": "--pf-t--color--blue--50", "note": "primary brand blue" },
@@ -46,9 +55,11 @@ Working example: `elements/patternfly-theme/design-system/bridge.json`.
 - Resolves every exported token through `var()` chains in each scope; values that differ between
   modes become `light-dark()` on the color parts only (shadows keep their geometry).
 - Derives `--ddd-primary-N-rgb` triplets from wherever their named color now points.
-- Reports coverage for the DDD surface a system is expected to answer: named colors
-  (`--ddd-theme-default-*`), `--ddd-font-{primary,secondary,navigation,mono}`,
-  `--ddd-radius-{xs..xl}`, `--ddd-boxShadow-{sm..xl}`, `--ddd-focus-ring`.
+- Classifies every mapped DDD token by contract tier. It fails on a locked (structure) token, a
+  token the contract doesn't list, or a broken guard (body text under 16px, headings under body
+  or growing as the level goes down, control heights under 24px).
+- Reports coverage per tier and family (identity: color, font, weight, radius, shadow, focus;
+  feel: motion, state, control, border; semantic: type).
 - Re-checks DDD's key contrast pairs (ink on white, link on white, white on the brand blues,
   status ink on status surface, ...) with the mapped values; below 4.5:1 fails.
 - Writes outputs through Prettier so the element build doesn't make `--check` stale.

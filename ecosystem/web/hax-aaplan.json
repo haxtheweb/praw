@@ -1,6 +1,7 @@
 {
  "meta": {
   "name": "A&A Strategic Plan 2030",
+  "slug": "aa-plan",
   "parent": "psuplan",
   "noTimeline": true,
   "sectionLabels": {

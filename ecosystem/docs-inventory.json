@@ -2270,7 +2270,7 @@
   "hideInMenu": false,
   "location": "pages/item-4bb1088a-8d44-4c7c-bf7c-89abe3787458/index.html",
   "words": 551,
-  "summary": "DDD design documentation: Develop/Design/Destroy philosophy and the in-progress design system docs element.",
+  "summary": "DDD design documentation: Design/Develop/Deliver philosophy and the in-progress design system docs element.",
   "elements": [
    "d-d-docs"
   ],

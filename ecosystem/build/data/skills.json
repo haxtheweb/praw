@@ -69,7 +69,7 @@
   "repo": "praw",
   "path": "skills/hax-design-system/SKILL.md",
   "name": "hax-design-system",
-  "desc": "Apply the DDD (Design, Develop, Destroy) design system and manage SimpleColors legacy usage. Use when styling components, auditing CSS for DDD compliance, migrating from SimpleColors, creating new themes, or building admin surfaces (site admin, outline-designer, system admin) with HAX UI, DDD's admin layer."
+  "desc": "Apply the DDD (Design, Develop, Deliver) design system and manage SimpleColors legacy usage. Use when styling components, auditing CSS for DDD compliance, migrating from SimpleColors, creating new themes, or building admin surfaces (site admin, outline-designer, system admin) with HAX UI, DDD's admin layer."
  },
  {
   "repo": "praw",

@@ -5,7 +5,7 @@
       "source": "haxtheweb/praw",
       "sourceType": "github",
       "skillPath": "skills/hax-design-system/SKILL.md",
-      "computedHash": "e373f40aee0d8f30e415cbec1b0d28a0d7e6c92eb89b7f670d77a714ac4b2ea8"
+      "computedHash": "da73bebe28a46778f68732f5e4bd9a25cd5ed648b4a1dd0fcb9f8e0fd080edac"
     },
     "hax-issue-analysis": {
       "source": "haxtheweb/praw",
@@ -23,7 +23,7 @@
       "source": "haxtheweb/praw",
       "sourceType": "github",
       "skillPath": "skills/hax-rule-management/SKILL.md",
-      "computedHash": "453e58659b5e4a3a67cdf74585b1bd7a2d81ed78cd76fb8d909ad4e0b7c38430"
+      "computedHash": "fa584d61aaf9342da68c18898bb7de3865a138df39952fa664fdc3b888ee2394"
     },
     "modern-web-guidance": {
       "source": "GoogleChrome/modern-web-guidance",

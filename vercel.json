@@ -12,6 +12,28 @@
   ],
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "demo.hax.cloud"
+        }
+      ],
+      "destination": "https://webcomponents.hax.cloud/elements/haxcms-elements/demo/index.html",
+      "permanent": false
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "playground.hax.cloud"
+        }
+      ],
+      "destination": "https://webcomponents.hax.cloud/elements/haxcms-elements/demo/index.html",
+      "permanent": true
+    },
+    {
       "source": "/demo",
       "destination": "https://webcomponents.hax.cloud/elements/haxcms-elements/demo/index.html",
       "permanent": false

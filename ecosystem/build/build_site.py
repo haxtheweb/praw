@@ -248,7 +248,7 @@ if os.path.exists("traveler.uri"):
     head, _, b64 = uri.partition(",")
     ext = "webp" if "webp" in head else "png" if "png" in head else "jpg"
     open(os.path.join(img_dir, "future-traveler." + ext), "wb").write(base64.b64decode(b64))
-    images["world-traveler-15"] = "/files/future-traveler." + ext
+    images["future-traveler-15"] = "/files/future-traveler." + ext
 bundle = {"order": [w for w, _ in order], "webs": {}, "images": images, "icons": {},
           "slugs": {it["_key"]: it["slug"] for it in items}}
 for w, f in order:

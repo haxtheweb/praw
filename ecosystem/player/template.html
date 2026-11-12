@@ -520,7 +520,7 @@ a --&gt;|verb| b</pre>
   </section>
 
   <footer>
-    <span>Icons are the SVGs from <code>@haxtheweb/hax-iconset</code> and <code>@haxtheweb/simple-icon</code> 26.8.0, except the two new marks. The Future Traveler is <a href="https://github.com/haxtheweb/art/tree/main/world-traveler">world-traveler-15</a> from haxtheweb/art. People come from the <a href="https://github.com/haxtheweb/hax-lab">hax-lab README</a>, WINS.md and WORLDVIEW.md.</span>
+    <span>Icons are the SVGs from <code>@haxtheweb/hax-iconset</code> and <code>@haxtheweb/simple-icon</code> 26.8.0, except the two new marks. The Future Traveler is <a href="https://github.com/haxtheweb/art/tree/main/future-traveler">future-traveler-15</a> from haxtheweb/art. People come from the <a href="https://github.com/haxtheweb/hax-lab">hax-lab README</a>, WINS.md and WORLDVIEW.md.</span>
     <span>Organizations and people show monogram placeholders; each takes a <code>logo=</code> URL in the source. The shipped <code>hax:file-ai</code> and <code>hax:file-html</code> SVGs hard-code white and black fills; their letters are knocked out here.</span>
   </footer>
 </div>
@@ -535,7 +535,7 @@ const MOTION = {pop:"Scales up and settles.",wiggle:"Quick side-to-side rotation
 const LINK_LABEL={repo:"Repo",npm:"npm",docs:"Docs",site:"Site",profile:"Profile",issue:"Issue",advisories:"Advisories",demo:"Try it",example:"Example",recording:"Recording",session:"Session",slides:"Slides",notes:"Notes",playlist:"Playlist"};
 const ORG_NOTE="Monogram placeholder. Add logo=<url> to its %%@ line to show the official mark wherever the player can load it.";
 const REDUCED=matchMedia("(prefers-reduced-motion: reduce)").matches;
-const IMAGES={"world-traveler-15":TRAVELER};
+const IMAGES={"future-traveler-15":TRAVELER};
 function IMG(k){return IMAGES[k]||TRAVELER}
 
 /* ---------- icons ---------- */
@@ -544,7 +544,7 @@ function iconSvg(name){
   const i=ICONS[name];if(!i)return '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>';
   let d=i.d.replace(/<style>[\s\S]*?<\/style>/,"");
   if(name==="hax:file-ai"||name==="hax:file-html"){d=d.replace(/\s(fill="#fff"|stroke="#000"|stroke-miterlimit="10")/g,"");const p=d.split("<path");d=p.slice(0,3).join("<path")+'<path fill="var(--tile)"'+p.slice(3).join("<path")}
-  // a glyph with ids (the masked World Traveler) gets its own per drawing, so copies never share a mask
+  // a glyph with ids (the masked Future Traveler icon, hax:world-traveler) gets its own per drawing, so copies never share a mask
   if(d.indexOf(' id="')>-1){const u="g"+(uid++)+"-";d=d.replace(/ id="([\w-]+)"/g,` id="${u}$1"`).replace(/url\(#([\w-]+)\)/g,`url(#${u}$1)`)}
   return `<svg viewBox="${i.vb}" aria-hidden="true">${d}</svg>`;
 }
@@ -804,7 +804,7 @@ function renderRail(){
   ${openBtn}${portalBtn}
   ${notes.join("")}
   ${sec("pillar",n.tier===1?"Kept by":"Pillars")}${sec("contrib",n.tier===4?"Worked on":"People")}${sec("org","Organizations and ecosystems")}${sec("schema","Schema contracts")}${sec("rel","Relationships")}
-  <details class="spec"><summary>Icon, color and motion</summary><dl class="spec"><dt>Icon</dt><dd>${n.image?(n.image==="world-traveler-15"?"world-traveler-15 (art)":n.image.indexOf("rpg-")===0?"rpg-character, seed "+esc(n.image.slice(4)):"screenshot"):n.mono?"monogram "+esc(n.mono):esc(n.icon||"")}${n.isNew?" · new":""}</dd>
+  <details class="spec"><summary>Icon, color and motion</summary><dl class="spec"><dt>Icon</dt><dd>${n.image?(n.image==="future-traveler-15"?"future-traveler-15 (art)":n.image.indexOf("rpg-")===0?"rpg-character, seed "+esc(n.image.slice(4)):"screenshot"):n.mono?"monogram "+esc(n.mono):esc(n.icon||"")}${n.isNew?" · new":""}</dd>
   <dt>Color</dt><dd><span class="swatch" style="background:${n.color}"></span>${esc(n.colorName||n.color)}</dd><dt>Motion</dt><dd>${esc(n.motion)}</dd><dt>Id</dt><dd>${esc(n.id)}</dd></dl></details>
   <button class="ddd-block-action has-text" type="button" id="bClear">Clear selection</button>`;
 }

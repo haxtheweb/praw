@@ -34,10 +34,10 @@
    "desc": "The HAX mascot, the Future Traveler: \"Dream it, remix it, have it, share it.\" Here he stands for your AI companion, working alongside people.",
    "source": {
     "label": "haxtheweb/art: the Future Traveler",
-    "url": "https://github.com/haxtheweb/art/tree/main/world-traveler"
+    "url": "https://github.com/haxtheweb/art/tree/main/future-traveler"
    },
    "links": {
-    "repo": "https://github.com/haxtheweb/art/tree/main/world-traveler"
+    "repo": "https://github.com/haxtheweb/art/tree/main/future-traveler"
    },
    "always": true
   },
@@ -2189,7 +2189,7 @@
   "bryan>traveler": [
    {
     "label": "Future Traveler README",
-    "url": "https://github.com/haxtheweb/art/tree/main/world-traveler"
+    "url": "https://github.com/haxtheweb/art/tree/main/future-traveler"
    }
   ],
   "editor>drupalcon": [

@@ -5,7 +5,9 @@ Reads the same webs assemble.py does (web/*.mmd + web/*.json, in assemble.py's o
   site.json        JSON Outline Schema: the main web is the home page, each sub-web a page nested under the web
                    that opens it, each tile a page under the web that owns it, and a Tours branch.
   pages/<id>/      one index.html per page: generated HAX page HTML (description, links, what it connects to).
-  ecosystem.html   today's player, embedded on every web page until <ecosystem-web> replaces it (phase 2).
+  ecosystem.html   today's player, embedded on every web page while the site uses clean-one. With ecosystem-theme
+                   (HAX_CLOUD_THEME=ecosystem-theme, set by the workflow once the theme is on npm) every page has
+                   <ecosystem-web> built in, routed by the page's metadata.ecosystem ({web, node, tour}).
   ecosystem-webs.json  the bundle <ecosystem-web> loads: every web's source, the slugs, the tile art and the tile glyphs.
 
 Slugs are readable and nested (hax.cloud/penn-state/strategic-plan/aa-plan). A tile drawn as a portal in another web
@@ -16,6 +18,9 @@ Usage (from ecosystem/.work, after assemble.py): python3 -I ../build/build_site.
 The HAXcms boilerplate (index.html, build.js, 404.html …) is copied in by the workflow, not here."""
 import json, os, re, sys, uuid, html, time, shutil
 OUT, PLAYER = sys.argv[1], sys.argv[2]
+# the theme: ecosystem-theme once it is on npm (the workflow checks and sets HAX_CLOUD_THEME), clean-one until then.
+# With ecosystem-theme every page has the interactive web built in, so pages drop the embedded player and its links.
+ECO_THEME = os.environ.get("HAX_CLOUD_THEME") == "ecosystem-theme"
 HERE = os.path.dirname(os.path.abspath(__file__))
 ECO = os.path.dirname(HERE)
 AUTHORED = os.path.join(ECO, "site", "pages")
@@ -160,7 +165,7 @@ def connects(w, nid):
 pages = {}
 for w, _ in order:
     W = WEBS[w]; M = W["data"].get("meta", {})
-    body = [f"<p>{E(M.get('about', ''))}</p>" if M.get("about") else "", player(w)]
+    body = [f"<p>{E(M.get('about', ''))}</p>" if M.get("about") else "", "" if ECO_THEME else player(w)]
     for g in W["groups"]:
         ts = [(nid, t) for nid, t in W["tiles"].items() if t["group"] == g]
         if not ts: continue
@@ -177,7 +182,7 @@ for w, _ in order:
         if N.get("desc"): b.append(f"<p>{E(N['desc'])}</p>")
         if N.get("note"): b.append(f"<p><em>{E(N['note'])}</em></p>")
         if N.get("status"): b.append(f"<p>Status: {E(str(N['status']))}</p>")
-        b.append(f'<p><a href="/ecosystem.html{"#" + w if w != "main" else ""}">Open {E(web_name(w))} in the interactive web</a></p>')
+        if not ECO_THEME: b.append(f'<p><a href="/ecosystem.html{"#" + w if w != "main" else ""}">Open {E(web_name(w))} in the interactive web</a></p>')
         c = connects(w, nid)
         if c: b.append("<h2>Connects to</h2>" + c)
         if N.get("links"): b.append("<h2>Links</h2>" + links_html(N["links"]))
@@ -198,12 +203,30 @@ for it in items:
     pre = open(authored).read() if os.path.exists(authored) else ""
     os.makedirs(os.path.join(OUT, "pages", it["id"]), exist_ok=True)
     open(os.path.join(OUT, it["location"]), "w").write(pre + "\n".join(x for x in body if x) + "\n")
+# what each page shows, for ecosystem-theme to route <ecosystem-web>: {"web"} for a web, plus "node" for a tile or
+# "tour" for a tour (from the same keys the slugs use: web:<w>, tile:<w>:<id>, tour:<w>:<id>)
+for it in items:
+    k = it["_key"].split(":")
+    if k[0] == "web": it["metadata"]["ecosystem"] = {"web": k[1]}
+    elif k[0] == "tile": it["metadata"]["ecosystem"] = {"web": k[1], "node": k[2]}
+    elif k[0] == "tour": it["metadata"]["ecosystem"] = {"web": k[1], "tour": k[2]}
+THEME = {"element": "clean-one", "path": "@haxtheweb/clean-one/clean-one.js", "name": "Clean One", "variables": {}}
+if ECO_THEME:
+    THEME = {"element": "ecosystem-theme", "path": "@haxtheweb/ecosystem-theme/ecosystem-theme.js", "name": "Ecosystem",
+             "variables": {"ecosystemSrc": "ecosystem-webs.json",
+                           "nav": [{"label": "Explore", "slug": items[0]["slug"]}, {"label": "Tours", "slug": by_id[tours_root]["slug"]}],
+                           "links": [{"kind": "docs", "label": "Docs", "href": "https://haxtheweb.org"},
+                                     {"kind": "portfolio", "label": "Element portfolio", "href": "https://webcomponents.hax.cloud"},
+                                     {"kind": "demo", "label": "Try the live demo", "href": "https://webcomponents.hax.cloud/elements/haxcms-elements/demo/index.html"}],
+                           "footerNote": "Built from PRAW on every push to main.",
+                           "footer": [{"label": "Source: praw/ecosystem", "href": "https://github.com/haxtheweb/praw/tree/main/ecosystem"},
+                                      {"label": "Roadmap", "href": "https://github.com/haxtheweb/issues/issues/3310"}]}}
 site = {"id": str(uuid.uuid5(NS, "hax.cloud")), "title": "hax.cloud", "author": "HAXTheWeb", "description": "The HAX ecosystem: every part, the people behind it, and how it all connects.",
         "license": "by-sa",
         "metadata": {"author": {"name": "HAXTheWeb", "socialLink": "https://github.com/haxtheweb"},
                      "site": {"name": "hax-cloud", "domain": "https://hax.cloud", "lang": "en", "created": int(time.time()), "updated": int(time.time()),
                               "settings": {"pathauto": False, "publishPagesOn": True, "sw": False, "lang": "en"}},
-                     "theme": {"element": "clean-one", "path": "@haxtheweb/clean-one/clean-one.js", "name": "Clean One", "variables": {}},
+                     "theme": THEME,
                      "build": {"structure": "ecosystem-web", "type": "praw"}, "node": {"fields": {}}},
         "items": [{k: v for k, v in it.items() if k != "_key"} for it in items]}
 json.dump(site, open(os.path.join(OUT, "site.json"), "w"), indent=1, ensure_ascii=False)

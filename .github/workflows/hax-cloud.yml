@@ -36,6 +36,15 @@ jobs:
         run: |
           git clone -q --depth 1 --filter=blob:none --sparse https://github.com/haxtheweb/haxcms-nodejs "$RUNNER_TEMP/hn"
           git -C "$RUNNER_TEMP/hn" sparse-checkout set src/boilerplate/site
+      - name: Pick the theme
+        # ecosystem-theme (webcomponents) once a release has put it on npm and the CDN; clean-one until then
+        run: |
+          if npm view @haxtheweb/ecosystem-theme version >/dev/null 2>&1; then
+            echo "HAX_CLOUD_THEME=ecosystem-theme" >> "$GITHUB_ENV"
+            echo "Building with ecosystem-theme"
+          else
+            echo "ecosystem-theme is not on npm yet: building with clean-one"
+          fi
       - name: Build the site
         run: |
           rm -rf _site && mkdir _site
@@ -47,7 +56,7 @@ jobs:
           cd ecosystem/.work && python3 -I ../build/build_site.py ../../_site hax-area-icons.html
       - name: Check the site
         run: |
-          python3 -I -c "import json; d = json.load(open('_site/site.json')); s = [i['slug'] for i in d['items']]; assert len(s) == len(set(s)), 'duplicate slugs'; print(len(s), 'pages')"
+          python3 -I -c "import json; d = json.load(open('_site/site.json')); s = [i['slug'] for i in d['items']]; assert len(s) == len(set(s)), 'duplicate slugs'; e = sum(1 for i in d['items'] if 'ecosystem' in i['metadata']); assert e, 'no page says what it shows'; print(len(s), 'pages,', e, 'in a web; theme', d['metadata']['theme']['element'])"
           test -f _site/ecosystem.html && test -f _site/index.html && test -f _site/ecosystem-webs.json
       - name: Archive the site
         if: github.event_name != 'pull_request'

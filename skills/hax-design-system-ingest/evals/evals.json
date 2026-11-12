@@ -1,0 +1,19 @@
+{
+  "skill_name": "hax-design-system-ingest",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Add IBM Carbon to HAX like we did PatternFly: a theme and the design system mapping.",
+      "expected_output": "Checks @carbon/themes and @carbon/styles licenses from the packed package.json (Apache-2.0) and IBM Plex fonts (OFL) before anything else; scaffolds elements/carbon-theme with the local hax CLI; writes design-system/bridge.json mapping each named --ddd-theme-default-* color by role to a fixed Carbon palette value (purples for incorrect, greens for correct), fonts/radius/shadow/focus to Carbon tokens, white/g10 as light and g100 as dark scopes; runs yarn ddd:bridge and fixes every reported problem; registers the system with extends: \"ddd\"; builds the theme in the Carbon UI Shell (header + side nav) on HAXCMSThemeParts(DDDSuper(HAXCMSLitElementTheme)); checks light, dark and phone width with axe; opens one webcomponents PR with NOTICE attribution and the Vercel demo link.",
+      "baseline_behavior": "Without the skill, an agent tends to import Carbon's compiled CSS or @carbon/web-components into the theme (heavy, styles only light DOM, leaves HAX blocks in DDD colors), copies color values by hand without a light/dark resolution, maps DDD named colors to mode-switching semantic tokens, skips the license check, and drops HAX's purple-for-incorrect convention.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Make a Spectrum theme for HAX that uses Adobe Clean so it looks exactly like Adobe's apps.",
+      "expected_output": "Explains that Adobe Clean is a proprietary font that can't ship with HAX and does not offer a workaround to load it; proceeds with Spectrum tokens (Apache-2.0) and Source Sans 3 (OFL), Spectrum's documented open fallback, and notes the substitution in the report and NOTICE.",
+      "baseline_behavior": "Without the skill, an agent tends to reference Adobe Clean from Adobe Fonts / Typekit or a CDN, or embed it, without checking whether its license can ship in an Apache-2.0 project.",
+      "files": []
+    }
+  ]
+}

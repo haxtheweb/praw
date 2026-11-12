@@ -92,6 +92,27 @@
       ]
     },
     {
+      "name": "hax-design-system-ingest",
+      "type": "skill-md",
+      "description": "Ingest a third-party design system (PatternFly, Carbon, Spectrum, Material, shadcn, Tailwind...) into HAX: license gate, DDD token bridge with coverage and contrast report, DDD-capable design system registration, and a common HAXcms theme in that system's own page shell. Use for 'add <system> to HAX', 'map <system> to DDD', 'make a <system> theme'.",
+      "url": "hax-design-system-ingest/SKILL.md",
+      "digest": "sha256:7440f416e0989b6ec5cf0973a2aaad2573e8e9a0c0d676c9238913d03271cbe4",
+      "files": [
+        {
+          "path": "evals/evals.json",
+          "digest": "sha256:1b596e59955808d3aec98958348901293e5605f455e3063c7cc0345dedb107a5"
+        },
+        {
+          "path": "references/bridge-json.md",
+          "digest": "sha256:5fe08c93b130f52cdf8538d87b2e97d8dbc09d2f8bc9403f5bbe90ef5f603911"
+        },
+        {
+          "path": "references/systems.md",
+          "digest": "sha256:544c8225a7d04d55bf89d62d00cf624c85cc1d339a0e7a098cf7447d600df93d"
+        }
+      ]
+    },
+    {
       "name": "hax-design-system-sync",
       "type": "skill-md",
       "description": "Maintain the DDD design system and its derived copies: lint --ddd-* tokens, check contrast, regenerate the DTCG export and skill references, republish the claude.ai design system, open PRs. Use for \"sync the design system\" or \"the token lint is failing\".",

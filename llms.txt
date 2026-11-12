@@ -137,6 +137,8 @@ All skills below live in `skills/` in this repo. The machine-readable discovery 
   - Path: `/skills/hax-instructional-events-audit/SKILL.md`
 - **hax-multimedia-principles-audit**: Read-only audit of how a HAX page combines words and media against Mayer's multimedia principles
   - Path: `/skills/hax-multimedia-principles-audit/SKILL.md`
+- **hax-design-system-ingest**: Bring an outside design system into HAX as a DDD-capable bridge plus a common theme
+  - Path: `/skills/hax-design-system-ingest/SKILL.md`
 - **hax-theme-builder**: Turn a screenshot into an accessible, dark-mode-ready HAXcms theme
   - Path: `/skills/hax-theme-builder/SKILL.md`
 - **youtube-vtt**: Generate a WebVTT transcript from a YouTube URL with yt-dlp, no video download

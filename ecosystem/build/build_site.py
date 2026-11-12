@@ -6,7 +6,7 @@ Reads the same webs assemble.py does (web/*.mmd + web/*.json, in assemble.py's o
                    that opens it, each tile a page under the web that owns it, and a Tours branch.
   pages/<id>/      one index.html per page: generated HAX page HTML (description, links, what it connects to).
   ecosystem.html   today's player, embedded on every web page until <ecosystem-web> replaces it (phase 2).
-  ecosystem-webs.json  the bundle <ecosystem-web> loads: every web's source, the slugs and the tile art.
+  ecosystem-webs.json  the bundle <ecosystem-web> loads: every web's source, the slugs, the tile art and the tile glyphs.
 
 Slugs are readable and nested (hax.cloud/penn-state/strategic-plan/aa-plan). A tile drawn as a portal in another web
 is not a second page: links to it go to its page in the web that owns it. Hand-written pages live in
@@ -220,10 +220,16 @@ if os.path.exists("traveler.uri"):
     ext = "webp" if "webp" in head else "png" if "png" in head else "jpg"
     open(os.path.join(img_dir, "future-traveler." + ext), "wb").write(base64.b64decode(b64))
     images["world-traveler-15"] = "/files/future-traveler." + ext
-bundle = {"order": [w for w, _ in order], "webs": {}, "images": images,
+bundle = {"order": [w for w, _ in order], "webs": {}, "images": images, "icons": {},
           "slugs": {it["_key"]: it["slug"] for it in items}}
 for w, f in order:
     bundle["webs"][w] = {"mmd": open(f + ".mmd").read(), "json": WEBS[w]["data"]}
+# the tile glyphs the webs name, as SVG markup, so the element draws them inline (no icon fetches, no flash
+# when tiles redraw); the same data the player embeds
+icon_src = "icons_inline.json" if os.path.exists("icons_inline.json") else os.path.join(ECO, "player", "icons_inline.json")
+glyphs = json.load(open(icon_src))
+used = sorted({m for w in bundle["webs"].values() for m in re.findall(r"icon=([\w:-]+)", w["mmd"])})
+bundle["icons"] = {name: glyphs[name] for name in used if name in glyphs}
 json.dump(bundle, open(os.path.join(OUT, "ecosystem-webs.json"), "w"), ensure_ascii=False, separators=(",", ":"))
 # a slug index, so a later rename can keep old links working (redirects.json is checked against it in a later phase)
 json.dump({it["_key"]: it["slug"] for it in items}, open(os.path.join(OUT, "slugs.json"), "w"), indent=0, sort_keys=True)

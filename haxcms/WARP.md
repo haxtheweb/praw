@@ -9,6 +9,7 @@ Scoped rules for HAXcms sites and backends (`haxcms-nodejs`, `haxcms-php`, and a
 - **HAXcms Page Creation via CLI** (`tRwt1R0Bv54nuHgEfl8IWe`) — create pages via `hax site node:add` / `hax site site:items-import`, never by hand-editing `site.json` or creating page dirs manually. CLI owns page structure; agent owns page content.
 - **HAX Site Scaffolding** (`hax-site-scaffold`) — create HAXcms sites with `hax site`, not manually.
 - **HAXcms Theme Build** (`cfypZRDQLaJ6XsXtEaveWT`) — after theme changes to `HAXCMSLitElement` subclasses, run `yarn run build`; never hand-edit `custom-elements.json`.
+- **HAXcms Site Custom Code — Build On HAXCMSLitElementTheme** (`Z61LdOQ98DTTLRwen7tL9T`) — `custom/` themes extend `HAXCMSLitElementTheme`; custom code takes `html`/`css`/`svg`, `store` and `autorun`/`toJS` from `@haxtheweb/haxcms-elements/lib/core/HAXCMSLitElementTheme.js`, never bare `lit`/`mobx` (the import map only maps `@haxtheweb/` for `custom/build/`).
 - **HAXcms Backend Security/Parity** (`a8bf4a47-3d4f-4f8e-a356-a04db66ce1ab`) — any audit/security issue must be resolved in BOTH `haxcms-nodejs` and `haxcms-php` for parity.
 - **Outline Designer Changes Run the Fuzzer** (`0cf20bb0-0afa-4c6a-9100-e76f76a5cc1a`, scoped webcomponents) — `saveOutline` changes in either backend also run haxcms-nodejs `npm run fuzz:outline` (with `--base-url` for haxcms-php).
 - **MFR Call Namespacing** (`82dc87fd-6bc1-4d20-9d68-5b077bb88b89`) — see full detail below.

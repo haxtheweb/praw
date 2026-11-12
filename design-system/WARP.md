@@ -1,6 +1,6 @@
 # Design System Rules
 
-Scoped rules for the HAX design systems: DDD (Design, Develop, Destroy — primary) and SimpleColors (legacy/supplementary). This file is read when editing design-system-path files. Authoritative rule records (Rule IDs + Scope) live in `RULES.md`. `DESIGN.md` at the repository root is the canonical design guidance for this repo; conform future design work to its tokens, CSS variable patterns, component conventions, and Do's/Don'ts.
+Scoped rules for the HAX design systems: DDD (Design, Develop, Deliver — primary) and SimpleColors (legacy/supplementary). This file is read when editing design-system-path files. Authoritative rule records (Rule IDs + Scope) live in `RULES.md`. `DESIGN.md` at the repository root is the canonical design guidance for this repo; conform future design work to its tokens, CSS variable patterns, component conventions, and Do's/Don'ts.
 
 ## Scoped rules (triggers — full text in RULES.md)
 - **DDD Design System (Primary)** (`MLhl56jNSqHvnRiAW5A2GR`) — DDD lives at `elements/d-d-d`; use it for fonts, colors, padding, spacing, margins, consistency.

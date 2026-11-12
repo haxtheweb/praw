@@ -119,7 +119,7 @@ Run it straight through and report once at the end. If a step soft-fails, say so
 - Never grow the lint baseline to make CI pass.
 - Don't run the top-level monorepo build or the ubiquity script. Use the targeted commands above.
 - Use `globalThis` instead of `window`, and avoid optional chaining (`?.`) in generated element code (Polymer parser).
-- DDD stands for **Design, Develop, Destroy**. Headings use `--ddd-font-primary` (Roboto); Roboto Slab is the opt-in secondary font.
+- DDD stands for **Design, Develop, Deliver**. Headings use `--ddd-font-primary` (Roboto); Roboto Slab is the opt-in secondary font.
 
 ## References
 

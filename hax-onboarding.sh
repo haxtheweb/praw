@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# HAX Ecosystem Onboarding Script for Warp
-# Takes someone from 0 to contributor using Warp as the primary development interface
+# HAX Ecosystem Onboarding Script
+# Takes someone from 0 to contributor; works in any terminal, with optional rules for the Warp terminal
 # Version: 1.0
 # Author: HAX Team
 
@@ -105,15 +105,8 @@ prompt_user() {
 check_prerequisites() {
     print_header "Checking Prerequisites"
     
-    # Check if running in Warp
-    if [[ -z "$WARP_SESSION" ]]; then
-        print_warning "This script is optimized for Warp Terminal. Some features may not work optimally in other terminals."
-        prompt_user REPLY "Continue anyway? (y/N): " -n 1
-        echo
-        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-            exit 1
-        fi
-    else
+    # any terminal works; in Warp, the optional Warp rules step later applies too
+    if [[ -n "${WARP_SESSION:-}" ]]; then
         print_success "Running in Warp Terminal"
     fi
     
@@ -514,7 +507,7 @@ generate_summary() {
 ## What's Been Set Up:
 ✅ HAX ecosystem repositories cloned to: $HAX_BASE_DIR
 ✅ HAX CLI (@haxtheweb/create) installed globally
-✅ Warp configuration optimized for HAX development
+✅ Agent rules offered (WARP.md files, plus optional Warp terminal rules)
 ✅ Project WARP.md files created for each repository
 ✅ Development shortcuts and aliases configured
 
@@ -526,17 +519,16 @@ generate_summary() {
 - Audit DDD compliance: hax audit
 
 ## Development Workflow:
-1. Use Warp's agent to ask questions about the codebase
+1. Ask your AI agent (Claude Code, Warp, Codex or another) about the codebase
 2. Create components with: hax webcomponent [name] --y
 3. Test components with: hax serve
 4. Build changes with: yarn run build (when needed)
 5. Check issues at: $HAX_BASE_DIR/issues
 
-## Key Warp Features for HAX:
-- Codebase Context: Warp has indexed your HAX repositories
-- Code Review: Use Warp's diff review for changes
-- Project Rules: HAX-specific rules are configured
-- Agent Assistance: Ask Warp agents about HAX development
+## Working with an AI agent:
+- Rules: PRAW's RULES.md and WARP.md files carry HAX's conventions (Warp loads WARP.md on its own)
+- Skills: run `hax skills install --all` so any agent can use HAX's skills
+- Prompts: see AGENT_PROMPTS.md in your HAX folder
 
 ## Next Steps:
 1. Restart your terminal or run: source ~/.zshrc (or ~/.bashrc)
@@ -549,18 +541,18 @@ generate_summary() {
 - HAX CLI help: hax --help
 - Documentation: $HAX_BASE_DIR/docs
 - Issues: $HAX_BASE_DIR/issues
-- Ask Warp agents: "How do I create a HAX web component?"
+- Ask your agent: "How do I create a HAX web component?"
 
 Happy coding with HAX! 🚀
 EOF
 }
 
-# Function to create initial Warp agent prompts
-create_warp_prompts() {
-    print_header "Creating Helpful Warp Prompts"
+# Function to create initial agent prompts
+create_agent_prompts() {
+    print_header "Creating Helpful Agent Prompts"
     
-    cat > "$HAX_BASE_DIR/WARP_PROMPTS.md" << 'EOF'
-# Helpful Warp Agent Prompts for HAX Development
+    cat > "$HAX_BASE_DIR/AGENT_PROMPTS.md" << 'EOF'
+# Helpful AI Agent Prompts for HAX Development
 
 ## Getting Started
 - "Show me how to create a new HAX web component"
@@ -616,7 +608,7 @@ Instead of: "Make a button component"
 Try: "Create a HAX-capable button web component using LitElement that follows DDD design system standards, includes proper accessibility attributes, and can be used in educational content. The button should support different variants and be configurable through the HAX editor."
 EOF
 
-    print_success "Created helpful Warp prompts guide at: $HAX_BASE_DIR/WARP_PROMPTS.md"
+    print_success "Created helpful agent prompts guide at: $HAX_BASE_DIR/AGENT_PROMPTS.md"
 }
 
 # Main execution function
@@ -633,8 +625,8 @@ main() {
 
 Welcome to the HAX Ecosystem Onboarding Script!
 
-This script will set up everything you need to start contributing to HAX
-using Warp as your primary development interface.
+This script will set up everything you need to start contributing to HAX,
+with whichever AI agent you work in.
 
 EOF
     
@@ -648,7 +640,7 @@ EOF
     setup_dev_environment
     setup_warp_config
     create_shortcuts
-    create_warp_prompts
+    create_agent_prompts
     
     # Final summary
     generate_summary

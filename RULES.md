@@ -1,6 +1,6 @@
-# HAX Ecosystem Warp AI Agent Rules
+# HAX Ecosystem AI Agent Rules
 
-This document is the single source of truth for HAX ecosystem Warp AI agent rules. Each rule carries a `Scope:` field that determines how it is delivered as agent context.
+This document is the single source of truth for HAX ecosystem AI agent rules, whichever agent harness loads them. Each rule carries a `Scope:` field that determines how it is delivered as agent context.
 
 ## Scope System
 
@@ -10,7 +10,7 @@ Every rule has one of four scopes:
 - `haxcms` — rules that apply only when working on HAXcms sites/backends. Authoritative copy lives in `haxcms/WARP.md`.
 - `design-system` — rules that apply only when working on the DDD/SimpleColors design system. Authoritative copy lives in `design-system/WARP.md`.
 
-`scripts/build-rules.js` parses this file, emits `exports/rules-global.json` (the minimal always-on set to sync into Warp's Global Rules store), `exports/rules-by-scope.json` (per-scope groups for regenerating the subdirectory `WARP.md` files), and reports duplicate Rule IDs / duplicate content. `bash scripts/manage-rules.sh validate` runs the same checks.
+`scripts/build-rules.js` parses this file, emits `exports/rules-global.json` (the minimal always-on set to sync into an agent's global rules, such as Warp's Global Rules), `exports/rules-by-scope.json` (per-scope groups for regenerating the subdirectory `WARP.md` files), and reports duplicate Rule IDs / duplicate content. `bash scripts/manage-rules.sh validate` runs the same checks.
 
 ## Rule Precedence System
 
@@ -410,7 +410,7 @@ Every rule has one of four scopes:
 2. Assign a unique Rule ID (UUID format for new rules).
 3. Document the rule content and context.
 4. Run `node scripts/build-rules.js` to validate (catches duplicate IDs + duplicate content).
-5. If the rule is `global`, sync it into Warp's Global Rules store; if scoped, ensure the corresponding subdirectory `WARP.md` carries the prose.
+5. If the rule is `global`, sync it into the agent's global rules (for Warp, its Global Rules store); if scoped, ensure the corresponding subdirectory `WARP.md` carries the prose.
 
 ### Updating Existing Rules
 1. Locate the rule by Rule ID in this document.
@@ -457,4 +457,4 @@ All future RULES work should:
 
 ---
 
-*This document serves as the authoritative registry for all HAX ecosystem Warp AI agent rules. It should be updated whenever new rules are created or existing rules are modified. Run `node scripts/build-rules.js` to validate after any change.*
+*This document serves as the authoritative registry for all HAX ecosystem AI agent rules. It should be updated whenever new rules are created or existing rules are modified. Run `node scripts/build-rules.js` to validate after any change.*

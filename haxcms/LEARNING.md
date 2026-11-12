@@ -1,6 +1,6 @@
 # HAXcms LEARNING Context
 
-Learned patterns and integration knowledge for WARP when working specifically with HAXcms sites and backends.
+Learned patterns and integration knowledge for AI agents when working specifically with HAXcms sites and backends.
 
 ## HAXcms Site Integration Patterns
 
@@ -379,4 +379,4 @@ rsync -av dist/ server:/path/to/site/
 
 ---
 
-*This document captures HAXcms-specific learning from WARP interactions. Update as new patterns emerge in HAXcms development and deployment.*
+*This document captures HAXcms-specific learning from agent interactions. Update as new patterns emerge in HAXcms development and deployment.*

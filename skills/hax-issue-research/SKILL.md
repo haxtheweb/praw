@@ -12,7 +12,7 @@ metadata:
 
 Research a HAX-ecosystem GitHub issue, draft a grounded implementation plan, and capture it back on
 the issue so the work is not lost. The output is a plan **comment** on the issue plus a `Plan Created`
-**label**, and (by default) a local Warp plan artifact for the record.
+**label**, and (by default) a local plan artifact for the record.
 
 The whole point is capture-for-later: the research lives on the issue itself, so anyone (future you,
 another agent, a contributor) can resume the work without re-investigating from scratch.
@@ -131,7 +131,7 @@ paths or line numbers — if you could not verify something, say so or move it t
 ### 5. (Default) Save a local plan artifact
 
 Unless the user opts out, also call `create_plan` with the same plan content so there is a durable
-Warp plan artifact in the conversation for the record. This is the local mirror of the GitHub comment;
+plan artifact in the conversation for the record. This is the local mirror of the GitHub comment;
 the GitHub comment is the source of truth for collaborators, the local artifact is for your session.
 
 ### 6. On confirmation, post the comment and label the issue

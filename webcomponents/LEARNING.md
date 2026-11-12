@@ -1,6 +1,6 @@
 # Webcomponents LEARNING Context
 
-Learned patterns and integration knowledge for WARP when working specifically with HAX webcomponents.
+Learned patterns and integration knowledge for AI agents when working specifically with HAX webcomponents.
 
 ## Component Development Integration Patterns
 
@@ -216,4 +216,4 @@ render() {
 
 ---
 
-*This document captures component-specific learning from WARP interactions. Update as new patterns emerge in webcomponent development.*
+*This document captures component-specific learning from agent interactions. Update as new patterns emerge in webcomponent development.*

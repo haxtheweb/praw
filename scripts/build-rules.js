@@ -10,7 +10,7 @@
  *
  * Emits into praw/exports/:
  *   - rules-global.json    — the global-scope rules only (minimal always-on set
- *                            to sync into Warp's Global Rules store).
+ *                            to sync into an agent's global rules, such as Warp's).
  *   - rules-by-scope.json  — all rules grouped by scope (audit + regenerating
  *                            the subdirectory WARP.md files).
  *   - rules-summary.json   — counts per scope + duplicate report.

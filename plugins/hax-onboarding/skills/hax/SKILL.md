@@ -75,7 +75,7 @@ For developers setting up a full HAX development environment:
    interface skills (site building, ClaudeHAX, web component dev, onboarding)
    into `~/.agents/skills/` so any agent can use them.
 4. **Configure Environment**: Start new shells in that workspace folder.
-   Set up Warp with HAX-specific rules.
+   Point your agent at PRAW's rules (Warp reads `WARP.md` on its own).
 5. **Verify**: Run `hax --version` to confirm CLI installation, then
    `hax skills list` to confirm bundled skills are available.
 

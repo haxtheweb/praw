@@ -35,13 +35,13 @@ Simply **drag and drop** your course materials into this folder:
 
 ## 🎯 How to Use
 
-Once you've added materials, simply tell Warp:
+Once you've added materials, simply tell your AI agent (Claude Code, Warp or another):
 
 > "Create a HAX site for $COURSE_NAME"
 > "Make a quiz about [topic] for $COURSE_NAME"
 > "Build a study guide for $COURSE_NAME"
 
-Warp will automatically find and use ALL materials in this folder!
+Your agent will find and use ALL materials in this folder!
 
 ## 📂 Your Course Folder Location
 \`$COURSE_DIR\`
@@ -87,9 +87,9 @@ echo ""
 echo "📁 NEXT STEPS:"
 echo "1. Open this folder: $COURSE_DIR"
 echo "2. Drag your course materials (PDFs, Word docs, images) into it"
-echo "3. Tell Warp: 'Create a HAX site for $COURSE_NAME'"
+echo "3. Tell your AI agent: 'Create a HAX site for $COURSE_NAME'"
 echo ""
-echo "🎯 Warp will automatically find and use your materials!"
+echo "🎯 Your agent will find and use your materials!"
 
 # Cross-platform folder opening
 open_folder() {

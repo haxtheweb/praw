@@ -6,6 +6,7 @@ Reads the same webs assemble.py does (web/*.mmd + web/*.json, in assemble.py's o
                    that opens it, each tile a page under the web that owns it, and a Tours branch.
   pages/<id>/      one index.html per page: generated HAX page HTML (description, links, what it connects to).
   ecosystem.html   today's player, embedded on every web page until <ecosystem-web> replaces it (phase 2).
+  ecosystem-webs.json  the bundle <ecosystem-web> loads: every web's source, the slugs and the tile art.
 
 Slugs are readable and nested (hax.cloud/penn-state/strategic-plan/aa-plan). A tile drawn as a portal in another web
 is not a second page: links to it go to its page in the web that owns it. Hand-written pages live in
@@ -207,6 +208,23 @@ site = {"id": str(uuid.uuid5(NS, "hax.cloud")), "title": "hax.cloud", "author": 
         "items": [{k: v for k, v in it.items() if k != "_key"} for it in items]}
 json.dump(site, open(os.path.join(OUT, "site.json"), "w"), indent=1, ensure_ascii=False)
 shutil.copy(PLAYER, os.path.join(OUT, "ecosystem.html"))
+# the bundle <ecosystem-web> loads (src): every web's source, in assemble.py's order, with the slugs above so the
+# element can report the page path for whatever the viewer selects, and the art its image= tiles name
+img_dir = os.path.join(OUT, "files")
+os.makedirs(img_dir, exist_ok=True)
+images = {}
+if os.path.exists("traveler.uri"):
+    import base64
+    uri = open("traveler.uri").read().strip()
+    head, _, b64 = uri.partition(",")
+    ext = "webp" if "webp" in head else "png" if "png" in head else "jpg"
+    open(os.path.join(img_dir, "future-traveler." + ext), "wb").write(base64.b64decode(b64))
+    images["world-traveler-15"] = "/files/future-traveler." + ext
+bundle = {"order": [w for w, _ in order], "webs": {}, "images": images,
+          "slugs": {it["_key"]: it["slug"] for it in items}}
+for w, f in order:
+    bundle["webs"][w] = {"mmd": open(f + ".mmd").read(), "json": WEBS[w]["data"]}
+json.dump(bundle, open(os.path.join(OUT, "ecosystem-webs.json"), "w"), ensure_ascii=False, separators=(",", ":"))
 # a slug index, so a later rename can keep old links working (redirects.json is checked against it in a later phase)
 json.dump({it["_key"]: it["slug"] for it in items}, open(os.path.join(OUT, "slugs.json"), "w"), indent=0, sort_keys=True)
 print(len([k for k in page_of if k[0] == "web"]), "webs;", len(items), "pages;", sum(1 for i in items if i["parent"] == tours_root), "tours")

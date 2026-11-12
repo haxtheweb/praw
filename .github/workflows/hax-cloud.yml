@@ -48,7 +48,7 @@ jobs:
       - name: Check the site
         run: |
           python3 -I -c "import json; d = json.load(open('_site/site.json')); s = [i['slug'] for i in d['items']]; assert len(s) == len(set(s)), 'duplicate slugs'; print(len(s), 'pages')"
-          test -f _site/ecosystem.html && test -f _site/index.html
+          test -f _site/ecosystem.html && test -f _site/index.html && test -f _site/ecosystem-webs.json
       - name: Archive the site
         if: github.event_name != 'pull_request'
         run: tar --dereference -cf "$RUNNER_TEMP/artifact.tar" -C _site .

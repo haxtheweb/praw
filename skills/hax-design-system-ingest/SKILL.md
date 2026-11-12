@@ -67,12 +67,22 @@ into `bridge.json` and `NOTICE`.
 
 ### 2. Find the token source
 
-Prefer, in order: compiled CSS custom properties (`*.css` with `:root { --x: … }`), DTCG JSON, a
-JS token export. Note the selectors for light and dark (PatternFly: `:root` and
-`:root:where(.pf-v6-theme-dark)`; Carbon: theme classes such as `.cds--white` / `.cds--g100`).
-The generator reads CSS; if the system only ships JSON/JS, add a small adapter that emits CSS
-blocks and keep it next to `bridge.json`. See `references/systems.md` for where each of the six
-planned systems keeps its tokens.
+A bridge can list several **sources**, each a pinned npm package. The generator reads two
+formats:
+
+- `css`: compiled CSS custom properties, resolved per mode through `scopes.light` and
+  `scopes.dark` (PatternFly: `:root` and `:root:where(.pf-v6-theme-dark)`; Carbon: `:root` plus
+  `.cds--white` / `.cds--g100`).
+- `dtcg`: a [DTCG](https://www.designtokens.org/) token file, written as custom properties under
+  a `prefix` you choose (Carbon's palette and motion become `--carbon-*`). DTCG sources are
+  mode-free, which suits palettes and motion.
+
+Named DDD colors need a palette that doesn't change with the mode. If the system's CSS only has
+mode-switching semantic tokens, add its palette package as a `dtcg` source. Check that the
+tokens you need are on the selector you scope to: Carbon only declares its spacing inside a
+component scope. Values a system ships only as JS (Carbon's font stacks and weights) go in as
+literal `value` entries with a `note` naming the package they came from. See
+`references/systems.md` for where each planned system keeps its tokens.
 
 ### 3. Scaffold the package
 
@@ -93,9 +103,21 @@ Schema and mapping rules are in `references/bridge-json.md`. The two rules that 
   (`opportunityGreen`/`futureLime` → greens, `wonderPurple`/`athertonViolet` → purples), even if
   the upstream system uses red for errors.
 
-Fonts, radius, shadows and the focus ring map to the system's mode-aware global tokens. Leave the
-DDD type scale and spacing alone unless the system's scale is an obvious match; reading sizes
-are an accessibility decision, not a brand one.
+What a bridge may map is set by one shared contract,
+[`contract.json`](https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/design-system/bridge/contract.json):
+
+| Tier | Mapping | Covers |
+|---|---|---|
+| Structure | **locked** | spacing, font-size scale, line height, letter spacing, icon sizes, z-index, breakpoints, opacity scale, target sizes, layout widths |
+| Identity | expected | named colors, font families, font weights, radius, shadows, focus ring and offset |
+| Feel | optional | motion durations and easing, state opacities, control and text-field heights, border widths |
+| Semantic | optional | heading and body sizes (body at least 16px, headings at least body and never growing as the level goes down) |
+
+Map all of identity the system can answer, and feel wherever it defines tokens. Never map
+structure. A system's own spacing belongs in its theme chrome, not in DDD. If its scale sits on
+DDD's 4px grid, use the DDD spacing tokens with the same values. Leave semantic sizes as DDD
+unless the user has decided otherwise. Most app design systems set body copy at 14px, below the
+floor.
 
 ### 5. Generate and read the report
 
@@ -103,10 +125,11 @@ are an accessibility decision, not a brand one.
 yarn ddd:bridge elements/<system>-theme
 ```
 
-Fix every problem it prints (unresolved tokens, contrast below 4.5:1 on DDD's key pairs, mode
-flips). Read `lib/<system>.ddd-map.json`: coverage per family and which DDD tokens were kept.
-Aim for full font/radius/focus coverage and 90%+ of named colors; anything kept as DDD needs a
-reason in a `note`.
+Fix every problem it prints: locked or unlisted tokens, broken guards, unresolved tokens,
+contrast below 4.5:1 on DDD's key pairs, and named colors whose value flips between modes.
+Read `lib/<system>.ddd-map.json` for coverage per tier and family, and for which DDD tokens were
+kept. Aim for 90%+ identity. Say in the bridge's `$comment` and the README why anything was
+kept as DDD.
 
 ### 6. Register the design system
 

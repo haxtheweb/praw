@@ -5,15 +5,16 @@ name: hax.cloud
 #
 # The site is a static HAXsite: the HAXcms site boilerplate from haxcms-nodejs main, with site.json, pages/
 # and the interactive web (ecosystem.html) written by ecosystem/build/build_site.py. Elements load from the
-# HAX CDN, as on any HAX site published to GitHub Pages.
+# HAX CDN, as on any published HAX site.
 #
-# Before the first deploy, in this repo's settings: Pages > Source "GitHub Actions", custom domain hax.cloud.
+# The build is ecosystem/build/site.sh, which Vercel runs too (vercel.json at the repo root): hax.cloud can be
+# served from either. Only one of them should hold the hax.cloud domain.
 on:
   push:
     branches: [main]
-    paths: ["ecosystem/**", ".github/workflows/hax-cloud.yml"]
+    paths: ["ecosystem/**", "vercel.json", ".github/workflows/hax-cloud.yml"]
   pull_request:
-    paths: ["ecosystem/**", ".github/workflows/hax-cloud.yml"]
+    paths: ["ecosystem/**", "vercel.json", ".github/workflows/hax-cloud.yml"]
   workflow_dispatch:
 permissions:
   contents: read
@@ -30,30 +31,9 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - name: Assemble the interactive web
-        run: ecosystem/build/run.sh --assemble
-      - name: Fetch the HAXcms site boilerplate
-        run: |
-          git clone -q --depth 1 --filter=blob:none --sparse https://github.com/haxtheweb/haxcms-nodejs "$RUNNER_TEMP/hn"
-          git -C "$RUNNER_TEMP/hn" sparse-checkout set src/boilerplate/site
-      - name: Pick the theme
-        # ecosystem-theme (webcomponents) once a release has put it on npm and the CDN; clean-one until then
-        run: |
-          if npm view @haxtheweb/ecosystem-theme version >/dev/null 2>&1; then
-            echo "HAX_CLOUD_THEME=ecosystem-theme" >> "$GITHUB_ENV"
-            echo "Building with ecosystem-theme"
-          else
-            echo "ecosystem-theme is not on npm yet: building with clean-one"
-          fi
       - name: Build the site
-        run: |
-          rm -rf _site && mkdir _site
-          cp -r "$RUNNER_TEMP/hn/src/boilerplate/site/." _site/
-          # server-only files and the boilerplate's own content go; the static entry point comes in
-          rm -rf _site/pages _site/site.json _site/.github _site/docker _site/Dockerfile _site/index.php _site/config.php _site/.htaccess _site/llms.txt
-          cp _site/ghpages.html _site/index.html
-          echo "hax.cloud" > _site/CNAME
-          cd ecosystem/.work && python3 -I ../build/build_site.py ../../_site hax-area-icons.html
+        # the same script Vercel runs (vercel.json); it picks ecosystem-theme once that is on npm, clean-one until then
+        run: ecosystem/build/site.sh
       - name: Check the site
         run: |
           python3 -I -c "import json; d = json.load(open('_site/site.json')); s = [i['slug'] for i in d['items']]; assert len(s) == len(set(s)), 'duplicate slugs'; e = sum(1 for i in d['items'] if 'ecosystem' in i['metadata']); assert e, 'no page says what it shows'; print(len(s), 'pages,', e, 'in a web; theme', d['metadata']['theme']['element'])"

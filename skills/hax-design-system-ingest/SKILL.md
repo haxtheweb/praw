@@ -67,29 +67,44 @@ into `bridge.json` and `NOTICE`.
 
 ### 2. Find the token source
 
-A bridge can list several **sources**, each a pinned npm package. The generator reads two
-formats:
+A bridge can list several **sources**. Each one is either a pinned npm package (fetched with
+`npm pack`, never added as a dependency) or, for a system that doesn't publish its theme to npm,
+a raw GitHub URL pinned to a full commit sha with a `sha256` of the file and a `licenseUrl` from
+the same commit. The generator verifies both (shadcn/ui). The generator reads three formats:
 
 - `css`: compiled CSS custom properties, resolved per mode through `scopes.light` and
   `scopes.dark` (PatternFly: `:root` and `:root:where(.pf-v6-theme-dark)`; Carbon: `:root` plus
-  `.cds--white` / `.cds--g100`).
+  `.cds--white` / `.cds--g100`; Spectrum: `.spectrum`, `.spectrum--medium`, `.spectrum--light` /
+  `--dark`). Blocks may nest, so Tailwind's `@theme default { ... }` reads with the scope
+  `@theme default`.
 - `dtcg`: a [DTCG](https://www.designtokens.org/) token file, written as custom properties under
   a `prefix` you choose (Carbon's palette and motion become `--carbon-*`). DTCG sources are
   mode-free, which suits palettes and motion.
+- `scss-vars`: Sass `$name: value;` files, written under a `prefix`. A reference like
+  `md-ref-palette.$primary40` becomes `var(--md-ref-palette-primary40)`, so `@material/web`'s
+  token partials resolve without compiling Sass. Use `file`, or `files: { light, dark }` when
+  the system ships one file per mode.
+
+Colors may be hex, `rgb()` or `oklch()` (Tailwind 4 and shadcn are oklch). The generator
+converts them for contrast checks and the rgb-channel tokens, and writes them out as upstream
+wrote them.
 
 Named DDD colors need a palette that doesn't change with the mode. If the system's CSS only has
-mode-switching semantic tokens, add its palette package as a `dtcg` source. Check that the
+mode-switching semantic tokens, add its palette package as a `dtcg` source. If the palette only
+exists per mode (Spectrum), give the map entry `"fromMode": "light"` to write that mode's value
+as a constant. Check that the
 tokens you need are on the selector you scope to: Carbon only declares its spacing inside a
 component scope. Values a system ships only as JS (Carbon's font stacks and weights) go in as
 literal `value` entries with a `note` naming the package they came from. See
-`references/systems.md` for where each planned system keeps its tokens.
+`references/systems.md` for where each shipped system keeps its tokens.
 
 ### 3. Scaffold the package
 
 From the monorepo root: `hax webcomponent <system>-theme --y --no-i --auto --skip --quiet`
 (local `hax`, never `npx`). Then adapt it to a theme per `hax-theme-builder`: remove
 `lib/<tag>.haxProperties.json` (themes aren't blocks), keep only the English locale file, model
-`package.json` on a sibling theme. The CLI may start a dev server even with `--skip`; stop it.
+`package.json` on a sibling theme. The CLI starts a blocking dev server after scaffolding even
+with `--no-i` (haxtheweb/issues#3330): run it under `timeout`, then stop any leftover server.
 
 ### 4. Write `design-system/bridge.json`
 
@@ -111,13 +126,15 @@ What a bridge may map is set by one shared contract,
 | Structure | **locked** | spacing, font-size scale, line height, letter spacing, icon sizes, z-index, breakpoints, opacity scale, target sizes, layout widths |
 | Identity | expected | named colors, font families, font weights, radius, shadows, focus ring and offset |
 | Feel | optional | motion durations and easing, state opacities, control and text-field heights, border widths |
-| Semantic | optional | heading and body sizes (body at least 16px, headings at least body and never growing as the level goes down) |
+| Semantic | optional | heading and body sizes (body at least 16px, headings at least body and never growing as the level goes down); density: `--ddd-surface-padding`, `--ddd-surface-padding-lg`, `--ddd-stack-gap`, `--ddd-inline-gap`, `--ddd-control-padding-inline` (floors 8, 16, 8, 4 and 8px) |
 
 Map all of identity the system can answer, and feel wherever it defines tokens. Never map
 structure. A system's own spacing belongs in its theme chrome, not in DDD. If its scale sits on
-DDD's 4px grid, use the DDD spacing tokens with the same values. Leave semantic sizes as DDD
-unless the user has decided otherwise. Most app design systems set body copy at 14px, below the
-floor.
+DDD's 4px grid, use the DDD spacing tokens with the same values. Leave heading and body sizes
+as DDD: that's a standing readability decision (most app design systems set body copy at 14px,
+below the floor, and their small headings fall under DDD's body size). Density is how the
+system's own spacing reaches blocks: map it to the upstream spacers for card padding, the gap
+between stacked blocks, inline gaps and control padding, as PatternFly and Carbon do.
 
 ### 5. Generate and read the report
 
@@ -127,7 +144,7 @@ yarn ddd:bridge elements/<system>-theme
 
 Fix every problem it prints: locked or unlisted tokens, broken guards, unresolved tokens,
 contrast below 4.5:1 on DDD's key pairs, and named colors whose value flips between modes.
-Read `lib/<system>.ddd-map.json` for coverage per tier and family, and for which DDD tokens were
+Read `lib/<system>.ddd-map.json` for coverage per tier and family (semantic: type, density), and for which DDD tokens were
 kept. Aim for 90%+ identity. Say in the bridge's `$comment` and the README why anything was
 kept as DDD.
 

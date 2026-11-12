@@ -2,8 +2,10 @@
 
 Read by `elements/d-d-d/design-system/bridge/build-bridge.js`
 (<https://github.com/haxtheweb/webcomponents/tree/master/elements/d-d-d/design-system/bridge>).
-Working examples: `elements/patternfly-theme/design-system/bridge.json` (one CSS source) and
-`elements/carbon-theme/design-system/bridge.json` (CSS plus two DTCG sources). Every mapping is
+Working examples in `elements/`: `patternfly-theme` (one CSS source), `carbon-theme` (CSS plus
+two DTCG sources), `spectrum-theme` (CSS scopes, `fromMode`), `tailwind-theme` (nested
+`@theme`, oklch), `shadcn-theme` (Tailwind palette plus a sha-pinned URL source) and
+`material-theme` (`scss-vars` with per-mode files). Every mapping is
 checked against the shared tier contract in `contract.json` next to the generator.
 
 ```jsonc
@@ -29,13 +31,22 @@ checked against the shared tier contract in `contract.json` next to the generato
     // a DTCG source (Carbon): { "package": "@carbon/colors", "version": "11.62.0",
     //   "license": "Apache-2.0", "format": "dtcg", "file": "tokens/colors.tokens.json",
     //   "prefix": "--carbon-" }  → blue.60 becomes --carbon-blue-60
+    // a Sass source (Material): { "package": "@material/web", "version": "2.5.0",
+    //   "license": "Apache-2.0", "format": "scss-vars", "prefix": "--md-sys-color-",
+    //   "files": { "light": "tokens/versions/latest/sass/_md-sys-color.scss", "dark": "..." } }
+    // a URL source (shadcn/ui, not on npm): { "url": "https://raw.githubusercontent.com/shadcn-ui/ui/<full sha>/.../globals.css",
+    //   "sha256": "<hash of the file>", "licenseUrl": "https://raw.githubusercontent.com/shadcn-ui/ui/<same sha>/LICENSE.md",
+    //   "package": "shadcn-ui/ui (label for the report)", "version": "<same sha>", "license": "MIT",
+    //   "format": "css", "scopes": { "light": [":root", "@theme inline"], "dark": [":root", ".dark", "@theme inline"] } }
   ],
   "fonts": [{ "family": "Red Hat Text", "license": "OFL-1.1", "url": "https://fonts.googleapis.com/css2?..." }],
   "ddd": {                         // DDD token → upstream token
     "--ddd-theme-default-beaverBlue": { "token": "--pf-t--color--blue--50", "note": "primary brand blue" },
     "--ddd-font-primary": { "token": "--pf-t--global--font--family--body" },
     "--ddd-focus-ring": { "value": "2px solid var(--pf-t--global--focus-ring--color--default)" },
-    "--ddd-theme-default-link": { "token": "--some--semantic--link", "modeAware": true }
+    "--ddd-theme-default-link": { "token": "--some--semantic--link", "modeAware": true },
+    "--ddd-theme-default-beaverBlue": { "token": "--spectrum-blue-900", "fromMode": "light" },  // Spectrum
+    "--ddd-surface-padding": { "token": "--pf-t--global--spacer--lg", "note": "24px" }
   },
   "extraTokens": ["--pf-t--global--background--color--primary--default"]  // also exported, for the theme chrome
 }
@@ -49,6 +60,8 @@ checked against the shared tier contract in `contract.json` next to the generato
 - `"note"` — why; shows in the map JSON. Required in practice for anything surprising.
 - `"modeAware": true` — only for a named DDD color that deliberately follows the mode. Almost
   never right: blocks already wrap named colors in `light-dark()`.
+- `"fromMode": "light"` (or `"dark"`) — write that mode's resolved value as a constant. For named
+  colors when the palette only exists per mode.
 
 ## What the generator does with it
 
@@ -57,9 +70,10 @@ checked against the shared tier contract in `contract.json` next to the generato
 - Derives `--ddd-primary-N-rgb` triplets from wherever their named color now points.
 - Classifies every mapped DDD token by contract tier. It fails on a locked (structure) token, a
   token the contract doesn't list, or a broken guard (body text under 16px, headings under body
-  or growing as the level goes down, control heights under 24px).
+  or growing as the level goes down, control heights under 24px, a density token under its
+  `densityMinPx` floor).
 - Reports coverage per tier and family (identity: color, font, weight, radius, shadow, focus;
-  feel: motion, state, control, border; semantic: type).
+  feel: motion, state, control, border; semantic: type, density).
 - Re-checks DDD's key contrast pairs (ink on white, link on white, white on the brand blues,
   status ink on status surface, ...) with the mapped values; below 4.5:1 fails.
 - Writes outputs through Prettier so the element build doesn't make `--check` stale.

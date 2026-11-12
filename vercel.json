@@ -4,5 +4,27 @@
   "installCommand": "",
   "buildCommand": "bash ecosystem/build/site.sh",
   "outputDirectory": "_site",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/demo",
+      "destination": "https://webcomponents.hax.cloud/elements/haxcms-elements/demo/index.html",
+      "permanent": false
+    },
+    {
+      "source": "/magicscript.html",
+      "destination": "/magic-script",
+      "permanent": true
+    },
+    {
+      "source": "/docplayer.html",
+      "destination": "https://webcomponents.hax.cloud",
+      "permanent": true
+    }
+  ]
 }

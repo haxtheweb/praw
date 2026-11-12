@@ -1,0 +1,40 @@
+<p>The magic script is two lines of HTML. Put them on any page and every HAX web component you write into that page loads itself from the HAX CDN, the moment it shows up. No build step, no imports, no configuration.</p>
+<h2>Copy and paste</h2>
+<code-sample type="html" copy-clipboard-button>
+<template preserve-content="preserve-content"><script>window.__appCDN="https://cdn.hax.cloud/cdn/";</script>
+<script src="https://cdn.hax.cloud/cdn/build.js"></script></template>
+</code-sample>
+<p>Then use any tag in the <a href="https://cdn.hax.cloud/cdn/wc-registry.json">component registry</a>, more than 600 of them. Browse them, with demos, in the <a href="https://webcomponents.hax.cloud">element portfolio</a>.</p>
+<h2>A whole page</h2>
+<p>This is a complete web page. Save it as a .html file and open it in a browser.</p>
+<code-sample type="html" copy-clipboard-button>
+<template preserve-content="preserve-content"><!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>My page</title>
+    <script>window.__appCDN="https://cdn.hax.cloud/cdn/";</script>
+    <script src="https://cdn.hax.cloud/cdn/build.js"></script>
+  </head>
+  <body>
+    <rpg-character seed="hax" walking></rpg-character>
+    <simple-icon-lite icon="hax:wand"></simple-icon-lite>
+  </body>
+</html></template>
+</code-sample>
+<h2>Running right here</h2>
+<p>This page loads the same way. These characters are <code>&lt;rpg-character&gt;</code> tags; nothing on this page imports them.</p>
+<p><rpg-character seed="magic"></rpg-character> <rpg-character seed="script"></rpg-character> <rpg-character seed="hax" walking></rpg-character></p>
+<h2>How it works</h2>
+<ol>
+  <li><strong>Detect.</strong> build.js watches the page for custom elements that are not defined yet.</li>
+  <li><strong>Look up.</strong> It finds each tag in wc-registry.json, which the ubiquity build writes for every element HAX publishes.</li>
+  <li><strong>Import.</strong> It imports that element's module from the CDN, unbundled, so a page only loads the elements it uses.</li>
+  <li><strong>Hydrate.</strong> The element defines itself and the tag comes alive.</li>
+</ol>
+<p>This is how every HAX site, HAXcms and the HAX editor load so fast: small ES modules over HTTP/2 and 3, fetched on demand, cached by the browser and shared across pages. A HAXsite runs the same build.js from its own copy, and falls back to the CDN.</p>
+<h2>Read more</h2>
+<ul>
+  <li><a href="https://dev.to/btopro/uwc-part-3-the-magic-script-122a">The magic script, on dev.to</a></li>
+  <li><a href="https://github.com/haxtheweb/webcomponents">haxtheweb/webcomponents</a>: every element, and the registry they load from</li>
+</ul>

@@ -6,3 +6,6 @@ example `un-sdgs__4-quality-education.html` for hax.cloud/un-sdgs/4-quality-educ
 
 Write it as HAX page HTML (what a HAX page's `index.html` holds: plain HTML and HAX elements). Edit it with the
 HAX CLI or editor on a local copy of the site, then open a pull request; the next build publishes it.
+
+A page that is not part of any web (like hax.cloud/magic-script) is listed in `ecosystem/site/extra-pages.json` as
+`{slug, title, description, nav}`; its HTML is the hand-written file for that slug. `nav: true` puts it in the top menu.

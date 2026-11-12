@@ -232,6 +232,14 @@ Structure your entries using the templates below. Keep entries concise and searc
 - Links: https://github.com/haxtheweb/issues/issues/3298, webcomponents/MODERN-WEB-GUIDANCE.md, scripts/eval-coverage.js
 - Candidate: No
 
+- Title: Only suggest dependencies the backends can ship
+- Date: 2026-11-11
+- Context: Scoping a non-AI spell check audit for the backends, an agent offered Hunspell dictionaries for many languages with a "check licenses per language" caveat. Most of those (German, French, Italian, Czech, Hebrew and others) are GPL, AGPL or MPL and cannot ship in Apache-2.0 haxcms-nodejs or haxcms-php.
+- Guidance: Filter options by license before suggesting them (`00413a27-a2a8-466c-b08e-c60f7fc7837d`). Permissive licenses and unmodified, replaceable LGPL are in; everything else is left out rather than caveated.
+- Rationale: A caveated option still gets designed around, and the PR-time dependency license check would block it later anyway. Filtering at suggestion time saves the rework.
+- Links: RULES.md (Suggest Only What the Backends Can Ship)
+- Candidate: No
+
 ## Documentation & Authoring
 
 - Title: Example – Author with HAX-capable elements

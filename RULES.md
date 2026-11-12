@@ -319,6 +319,11 @@ Every rule has one of four scopes:
 - **Scope**: `webcomponents`
 - **Content**: If we add a dependency (import or reference) to an element in the webcomponents monorepo, verify that the dependency is declared in the `package.json` for that element before completing the change.
 
+### Suggest Only What the Backends Can Ship
+- **Rule ID**: `00413a27-a2a8-466c-b08e-c60f7fc7837d`
+- **Scope**: `global`
+- **Content**: Only suggest libraries, dictionaries, data files or tools whose license can ship inside the Apache-2.0 backends (`haxcms-nodejs`, `haxcms-php`): permissive licenses (MIT, BSD, Apache-2.0, ISC, public domain) or LGPL used unmodified and replaceable. For a multi-licensed package, pick the shippable option and name it. Anything else (GPL, AGPL, MPL, EUPL, CC-BY-SA, unclear) is not offered as an option at all, not even with a caveat; if nothing shippable fits, say so. Transforming LGPL data (for example expanding a dictionary into a word list) is a modification, so ship it unmodified and transform at runtime instead.
+
 ### Script Restrictions
 - **Rule ID**: `SSy9vkxAqBTIcIXvYUstGA`
 - **Scope**: `global`

@@ -224,6 +224,12 @@ if ECO_THEME:
                            "links": [{"kind": "docs", "label": "Docs", "href": "https://haxtheweb.org"},
                                      {"kind": "portfolio", "label": "Element portfolio", "href": "https://webcomponents.hax.cloud"},
                                      {"kind": "demo", "label": "Try the live demo", "href": "https://webcomponents.hax.cloud/elements/haxcms-elements/demo/index.html"}],
+                           # the home page's greeting: before anything else, that it is all one network
+                           "welcome": {"title": "Everything in HAX is connected",
+                                       "text": "Every part of HAX, every site in the HAX network and everyone who builds it, in one web. "
+                                               "Select a tile to see what it connects to, take a tour, or ask Merlin to take you anywhere in the network.",
+                                       "tour": by_id[page_of[("tour", "main", "everyone")]]["slug"] if ("tour", "main", "everyone") in page_of else by_id[tours_root]["slug"],
+                                       "tourLabel": "Take the tour"},
                            "footerNote": "Built from PRAW on every push to main.",
                            "footer": [{"label": "Source: praw/ecosystem", "href": "https://github.com/haxtheweb/praw/tree/main/ecosystem"},
                                       {"label": "Roadmap", "href": "https://github.com/haxtheweb/issues/issues/3310"}]}}

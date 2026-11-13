@@ -544,7 +544,7 @@ function iconSvg(name){
   const i=ICONS[name];if(!i)return '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>';
   let d=i.d.replace(/<style>[\s\S]*?<\/style>/,"");
   if(name==="hax:file-ai"||name==="hax:file-html"){d=d.replace(/\s(fill="#fff"|stroke="#000"|stroke-miterlimit="10")/g,"");const p=d.split("<path");d=p.slice(0,3).join("<path")+'<path fill="var(--tile)"'+p.slice(3).join("<path")}
-  // a glyph with ids (the masked Future Traveler icon, hax:world-traveler) gets its own per drawing, so copies never share a mask
+  // a glyph with ids (the masked Future Traveler icon, hax:future-traveler) gets its own per drawing, so copies never share a mask
   if(d.indexOf(' id="')>-1){const u="g"+(uid++)+"-";d=d.replace(/ id="([\w-]+)"/g,` id="${u}$1"`).replace(/url\(#([\w-]+)\)/g,`url(#${u}$1)`)}
   return `<svg viewBox="${i.vb}" aria-hidden="true">${d}</svg>`;
 }

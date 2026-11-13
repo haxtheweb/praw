@@ -50,6 +50,7 @@ flowchart TB
     r_eis0l9w9l2jg1cofysmvdt["HAX Content Authoring"]
     r_wqogob824vgw5hecmh08ew["a11y-collapse heading-button"]
     r_haxhooks_lifecycle_integration["haxHooks lifecycle integration"]
+    r_40983ddf_40b7_4a5e_a600_8f9fcb58da83["Works With or Without HAX"]
     r_c3xjsqfbcmoa3cxsoonyxg["Educational Content Standards (OER Schema)"]
     r_01ed665f326941e9888ab1["User-Scaffold For Adaptive UX State"]
     r_1b8b8a93_0458_41f9_85a4_ba8d16923765["SSR Safety & Enhancement Audit"]
@@ -60,6 +61,7 @@ flowchart TB
     r_896ecfa1_8965_4c06_a3ab_31c7e7eb28bf["Never Rely on querySelectorAll Across Elements That May Stub It"]
     r_8e6a9af3_0301_4c48_b75f_fcff2fc928e6["Memory — Nothing Outlives a Removed Element"]
     r_13166db2_909f_4a34_87d1_1b697834eb4b["Perf Check Before Core Front-End PRs"]
+    r_8369fe15_5bae_4fb0_9f49_ca30193a6569["New Themes Ship With the Editor Demo Link"]
     r_0cf20bb0_0afa_4c6a_9100_e76f76a5cc1a["Outline Designer Changes Run the Fuzzer"]
     r_ip9iudnwzrzqsyk4ggvczh["HAX CLI Usage"]
     r_e9zioqke3y0gdnwb08xqn8["Web Component Scaffolding"]
@@ -68,6 +70,7 @@ flowchart TB
     r_trwt1r0bv54nuhgefl8iwe["HAXcms Page Creation via CLI"]
     r_pccvd8jgmc7zhehtdebzd1["No Traditional Build Prompts"]
     r_cfypzrdqlaj6xsxteavewt["HAXcms Theme Build"]
+    r_z61ldoq98dttlrwen7tl9t["HAXcms Site Custom Code — Build On HAXCMSLitElementTheme"]
     r_pacoyoqw2aiyato3r6asnl["Command Automation"]
     r_edaxma3ziihz86gyx4mosu["Version Control"]
     r_bakmwcmrqrlgdwmunwgvuw["Cross-Repo References — No Local Paths"]
@@ -77,6 +80,7 @@ flowchart TB
     r_d2a1207c_b6d1_4cd6_9930_bd21b29a516c["Outside Skills Are Version-Pinned"]
     r_09255ba6_e67a_44ce_b8cb_f0d5e80f97ab["Rules and Skills Earn Their Tokens"]
     r_4a7c9e2b_8d5f_4e1a_9c3b_7f2e6d5a4b3c["Monorepo Dependency Verification"]
+    r_00413a27_a2a8_466c_b08e_c60f7fc7837d["Suggest Only What the Backends Can Ship"]
     r_ssy9vkxaqbticixvyustga["Script Restrictions"]
     r_74cc0274_6bf2_45a0_8e06_b88254f4cf9e["AI Guardrails — State Assumptions"]
     r_f98f5e24_c343_4c12_b1c8_d6ae9783afaa["AI Guardrails — Minimum Viable"]
@@ -264,6 +268,11 @@ flowchart TB
   rg_web_component_development -->|includes| r_eis0l9w9l2jg1cofysmvdt
   rg_web_component_development -->|includes| r_wqogob824vgw5hecmh08ew
   rg_web_component_development -->|includes| r_haxhooks_lifecycle_integration
+  rg_web_component_development -->|includes| r_40983ddf_40b7_4a5e_a600_8f9fcb58da83
+  r_40983ddf_40b7_4a5e_a600_8f9fcb58da83 ==>|serves| agnostic
+  r_40983ddf_40b7_4a5e_a600_8f9fcb58da83 ==>|serves| remixable
+  r_40983ddf_40b7_4a5e_a600_8f9fcb58da83 ==>|serves| sustainable
+  r_40983ddf_40b7_4a5e_a600_8f9fcb58da83 -.->|applies to| components
   rg_web_component_development -->|includes| r_c3xjsqfbcmoa3cxsoonyxg
   r_c3xjsqfbcmoa3cxsoonyxg ==>|serves| remixable
   r_c3xjsqfbcmoa3cxsoonyxg -.->|applies to| oerschema
@@ -290,6 +299,7 @@ flowchart TB
   q_render_benchmarks -->|enforces| r_13166db2_909f_4a34_87d1_1b697834eb4b
   r_13166db2_909f_4a34_87d1_1b697834eb4b ==>|serves| efficient
   r_13166db2_909f_4a34_87d1_1b697834eb4b -.->|applies to| components
+  rg_build_development_workflow -->|includes| r_8369fe15_5bae_4fb0_9f49_ca30193a6569
   rg_build_development_workflow -->|includes| r_0cf20bb0_0afa_4c6a_9100_e76f76a5cc1a
   q_mutation_testing -->|enforces| r_0cf20bb0_0afa_4c6a_9100_e76f76a5cc1a
   ct_fuzz -->|enforces| r_0cf20bb0_0afa_4c6a_9100_e76f76a5cc1a
@@ -304,6 +314,7 @@ flowchart TB
   rg_build_development_workflow -->|includes| r_trwt1r0bv54nuhgefl8iwe
   rg_build_development_workflow -->|includes| r_pccvd8jgmc7zhehtdebzd1
   rg_build_development_workflow -->|includes| r_cfypzrdqlaj6xsxteavewt
+  rg_build_development_workflow -->|includes| r_z61ldoq98dttlrwen7tl9t
   rg_build_development_workflow -->|includes| r_pacoyoqw2aiyato3r6asnl
   rg_build_development_workflow -->|includes| r_edaxma3ziihz86gyx4mosu
   rg_build_development_workflow -->|includes| r_bakmwcmrqrlgdwmunwgvuw
@@ -319,6 +330,7 @@ flowchart TB
   rg_build_development_workflow -->|includes| r_4a7c9e2b_8d5f_4e1a_9c3b_7f2e6d5a4b3c
   q_unused_code_knip -->|enforces| r_4a7c9e2b_8d5f_4e1a_9c3b_7f2e6d5a4b3c
   r_4a7c9e2b_8d5f_4e1a_9c3b_7f2e6d5a4b3c -.->|applies to| components
+  rg_build_development_workflow -->|includes| r_00413a27_a2a8_466c_b08e_c60f7fc7837d
   rg_build_development_workflow -->|includes| r_ssy9vkxaqbticixvyustga
   rg_build_development_workflow -->|includes| r_74cc0274_6bf2_45a0_8e06_b88254f4cf9e
   rg_build_development_workflow -->|includes| r_f98f5e24_c343_4c12_b1c8_d6ae9783afaa
@@ -536,6 +548,7 @@ flowchart TB
   %%@ node r_eis0l9w9l2jg1cofysmvdt icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_wqogob824vgw5hecmh08ew icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_haxhooks_lifecycle_integration icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_40983ddf_40b7_4a5e_a600_8f9fcb58da83 icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_c3xjsqfbcmoa3cxsoonyxg icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_01ed665f326941e9888ab1 icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_1b8b8a93_0458_41f9_85a4_ba8d16923765 icon=icons:gavel color=limestoneGray motion=nudge
@@ -546,6 +559,7 @@ flowchart TB
   %%@ node r_896ecfa1_8965_4c06_a3ab_31c7e7eb28bf icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_8e6a9af3_0301_4c48_b75f_fcff2fc928e6 icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_13166db2_909f_4a34_87d1_1b697834eb4b icon=icons:verified-user color=forestGreen motion=nudge
+  %%@ node r_8369fe15_5bae_4fb0_9f49_ca30193a6569 icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_0cf20bb0_0afa_4c6a_9100_e76f76a5cc1a icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_ip9iudnwzrzqsyk4ggvczh icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_e9zioqke3y0gdnwb08xqn8 icon=icons:gavel color=limestoneGray motion=nudge
@@ -554,6 +568,7 @@ flowchart TB
   %%@ node r_trwt1r0bv54nuhgefl8iwe icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_pccvd8jgmc7zhehtdebzd1 icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_cfypzrdqlaj6xsxteavewt icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_z61ldoq98dttlrwen7tl9t icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_pacoyoqw2aiyato3r6asnl icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_edaxma3ziihz86gyx4mosu icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_bakmwcmrqrlgdwmunwgvuw icon=icons:gavel color=limestoneGray motion=nudge
@@ -563,6 +578,7 @@ flowchart TB
   %%@ node r_d2a1207c_b6d1_4cd6_9930_bd21b29a516c icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_09255ba6_e67a_44ce_b8cb_f0d5e80f97ab icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_4a7c9e2b_8d5f_4e1a_9c3b_7f2e6d5a4b3c icon=icons:verified-user color=forestGreen motion=nudge
+  %%@ node r_00413a27_a2a8_466c_b08e_c60f7fc7837d icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_ssy9vkxaqbticixvyustga icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_74cc0274_6bf2_45a0_8e06_b88254f4cf9e icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_f98f5e24_c343_4c12_b1c8_d6ae9783afaa icon=icons:gavel color=limestoneGray motion=nudge

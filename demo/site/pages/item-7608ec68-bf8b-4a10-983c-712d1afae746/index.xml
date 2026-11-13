@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<item>
+<id>item-7608ec68-bf8b-4a10-983c-712d1afae746</id>
+<indent>0</indent>
+<location>pages/item-7608ec68-bf8b-4a10-983c-712d1afae746/index.xml</location>
+<slug>edit-a-page</slug>
+<order>1</order>
+<parent></parent>
+<title>Edit a page</title>
+<description></description>
+<metadata>
+<created>1794541126</created>
+<updated>1794541126</updated>
+<images>
+</images>
+<videos>
+</videos>
+</metadata>
+<content><![CDATA[<p>Everything in HAX is edited where you read it. There is no separate form and no markup to learn; what you see while editing is what visitors get.</p>
+<h2>Try it on this page</h2>
+<ol>
+  <li>Press the pencil in the top bar (or <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>E</kbd>).</li>
+  <li>Click this list and add a step of your own. Press Enter for a new line.</li>
+  <li>Select some words and make them <strong>bold</strong> or a link from the text toolbar.</li>
+  <li>Click a block, like the callout below, to see its settings in the panel.</li>
+  <li>Press Save. Here, saving pretends to work; on your own site it is saved for real.</li>
+</ol>
+<stop-note title="Nothing here is saved" status="info" icon="stopnoteicons:book-icon"><p slot="message">This demo resets when you reload. Break whatever you like.</p></stop-note>
+<h2>Under the hood</h2>
+<p>Each page is plain HTML on disk, and each block is a web component, so the same page works without the editor, without HAXcms, and pasted into other sites. Open View source in the editor to see this page's HTML.</p>
+<a11y-collapse heading="Why web components?" heading-button="" icon="icons:expand-more">
+  <p>A web component is a custom HTML tag, like <code>&lt;video-player&gt;</code>, that the browser understands natively. HAX ships hundreds of them, and the <a href="https://hax.cloud/magic-script">magic script</a> loads each one the first time a page uses it.</p>
+</a11y-collapse>]]></content>
+</item>

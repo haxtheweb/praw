@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Build demo.hax.cloud into demo/_site/: one index.html, the live HAXcms demo from webcomponents.hax.cloud
-# (elements/haxcms-elements/demo/index.html) served from the top of its own domain. Run by Vercel
+# Build demo.hax.cloud into demo/_site/: the live HAXcms demo page from webcomponents.hax.cloud
+# (elements/haxcms-elements/demo/index.html) served from the top of its own domain, running this
+# folder's own site (demo/site: site.json and pages/) instead of the demo's. Run by Vercel
 # (demo/vercel.json); needs bash, curl and python3.
 #
 #   demo/build/build.sh
@@ -17,4 +18,6 @@ rm -rf "$OUT" && mkdir -p "$OUT"
 curl -fsSL "$SOURCE" -o "$OUT/source.html"
 python3 -I "$HERE/build/top-level.py" "$OUT/source.html" "$OUT/index.html"
 rm "$OUT/source.html"
+# this domain's own site (site.json, pages/): served as files, so they win over the proxy to the demo folder
+cp -R "$HERE/site/." "$OUT/"
 echo "demo: $OUT/index.html from $SOURCE"

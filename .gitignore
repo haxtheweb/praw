@@ -54,3 +54,6 @@ ecosystem/build/data/*_report.json
 
 # hax.cloud site build output
 _site/
+
+# demo.hax.cloud build checkout (demo/build/build.sh)
+.webcomponents/

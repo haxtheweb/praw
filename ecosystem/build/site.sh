@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 # Build hax.cloud into _site/ at the repo root: the HAXcms site boilerplate from haxcms-nodejs main, with
-# site.json, pages/ and the interactive web written by build_site.py. Run by the hax.cloud workflow and by
-# Vercel (vercel.json); needs bash, python3 (3.9+), and git or curl.
+# site.json, pages/ and the interactive web written by build_site.py, and build/: HAX's front-end build
+# compiled from webcomponents master (demo/build/compile-webcomponents.sh, the same tree demo.hax.cloud
+# serves), so every element, the theme included, loads from hax.cloud itself and runs the latest code.
+# Run by the hax.cloud workflow and by Vercel (vercel.json); needs bash, python3 (3.9+), git, node and
+# yarn (v1). WC_REPO / WC_REF build against another webcomponents source (see the compile script).
 #
 #   ecosystem/build/site.sh
 #
@@ -36,4 +39,16 @@ rm -rf "$OUT/pages" "$OUT/site.json" "$OUT/.github" "$OUT/docker" "$OUT/Dockerfi
   "$OUT/config.php" "$OUT/.htaccess" "$OUT/llms.txt" "$OUT/netlify.toml"
 cp "$OUT/ghpages.html" "$OUT/index.html"
 cd "$ROOT/ecosystem/.work" && python3 -I ../build/build_site.py "$OUT" hax-area-icons.html
-echo "site: $OUT"
+
+# build/: the compiled front end, shipped with the site. The magic script finds ./build/ and loads from it,
+# so nothing comes from cdn.hax.cloud; the registry files sit at the top of the site where HAXcms looks.
+bash "$ROOT/demo/build/compile-webcomponents.sh" "$TMP/wc"
+mkdir -p "$OUT/build/es6"
+mv "$TMP/wc/build/es6/node_modules" "$OUT/build/es6/node_modules"
+cp "$TMP/wc/build/THIRD_PARTY_LICENSES" "$OUT/build/THIRD_PARTY_LICENSES"
+cp "$TMP/wc/wc-registry.json" "$TMP/wc/wc-registry-graph.json" "$OUT/"
+# and the loader scripts that go with this build (the boilerplate's copies wait for the next ubiquity release)
+cp "$TMP/wc/build.js" "$TMP/wc/build-haxcms.js" "$OUT/"
+# custom/ code resolves @haxtheweb/ through the page's import map: point it at this build, not the CDN
+python3 -I "$ROOT/ecosystem/build/local_build.py" "$OUT"
+echo "site: $OUT ($(find "$OUT" -type f | wc -l) files, $(du -sh "$OUT" | cut -f1))"

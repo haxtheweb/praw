@@ -23,28 +23,9 @@ REF="${WC_REF:-master}"
 START=$SECONDS
 step() { echo "demo [$((SECONDS - START))s]: $*"; }
 
-rm -rf "$OUT" "$WORK" && mkdir -p "$OUT" "$WORK"
-step "fetching $REPO@$REF"
-cd "$WORK"
-git init -q && git remote add origin "https://github.com/$REPO.git"
-git fetch -q --depth 1 origin "$REF" && git checkout -q FETCH_HEAD
-step "installing $(git rev-parse --short HEAD)"
-# engines pins node 24; the build runs on what the project has. HUSKY=0: no git hooks for a throwaway checkout.
-HUSKY=0 yarn install --frozen-lockfile --ignore-engines --non-interactive --network-timeout 600000 --silent
-BIN="$WORK/node_modules/.bin"
-gulp_task() { "$BIN/gulp" "$1" --gulpfile=gulpfile.mjs; }
-
-step "compiling (polymer build)"
-"$BIN/polymer" build
-gulp_task vendor-copy-xterm
-gulp_task vendor-copy-latex2html5
-node scripts/minify-css-templates.mjs build/es6/node_modules/@haxtheweb
-step "minifying (terser)"
-gulp_task terser
-step "registry"
-# reads the terser output (static get tag(){return"..."}), so it runs after terser, as in ubiquity
-gulp_task wc-autoloader
-node scripts/copy-dep-licenses.js
+rm -rf "$OUT" && mkdir -p "$OUT"
+# the compiled tree, the same one hax.cloud ships (build/compile-webcomponents.sh reads WC_REPO / WC_REF)
+bash "$HERE/build/compile-webcomponents.sh" "$WORK"
 
 DEMO="$WORK/elements/haxcms-elements/demo"
 python3 -I - "$DEMO/wc-registry.json" <<'EOF'

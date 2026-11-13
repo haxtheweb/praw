@@ -4,11 +4,12 @@ name: hax.cloud
 # that touch ecosystem/, so a broken build shows here before it reaches Vercel. Nothing here writes or deploys.
 #
 # The site is a static HAXsite: the HAXcms site boilerplate from haxcms-nodejs main, with site.json, pages/
-# and the interactive web (ecosystem.html) written by ecosystem/build/build_site.py. Elements load from the
-# HAX CDN, as on any published HAX site.
+# and the interactive web (ecosystem.html) written by ecosystem/build/build_site.py, and build/: HAX's
+# front-end build compiled from webcomponents master (demo/build/compile-webcomponents.sh), so the site
+# loads every element from itself.
 on:
   pull_request:
-    paths: ["ecosystem/**", "vercel.json", ".github/workflows/hax-cloud.yml"]
+    paths: ["ecosystem/**", "demo/build/compile-webcomponents.sh", "vercel.json", ".github/workflows/hax-cloud.yml"]
   workflow_dispatch:
 permissions:
   contents: read
@@ -19,7 +20,7 @@ jobs:
   build:
     name: Build the site
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -32,3 +33,4 @@ jobs:
         run: |
           python3 -I -c "import json; d = json.load(open('_site/site.json')); s = [i['slug'] for i in d['items']]; assert len(s) == len(set(s)), 'duplicate slugs'; e = sum(1 for i in d['items'] if 'ecosystem' in i['metadata']); assert e, 'no page says what it shows'; print(len(s), 'pages,', e, 'in a web; theme', d['metadata']['theme']['element'])"
           test -f _site/ecosystem.html && test -f _site/index.html && test -f _site/ecosystem-webs.json
+          test -f _site/wc-registry.json && test -f _site/build/es6/node_modules/@haxtheweb/ecosystem-theme/ecosystem-theme.js

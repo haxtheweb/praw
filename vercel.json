@@ -6,7 +6,7 @@
   "outputDirectory": "_site",
   "rewrites": [
     {
-      "source": "/((?!.*\\.[A-Za-z0-9]+$).*)",
+      "source": "/((?!system/)(?!.*\\.[A-Za-z0-9]+$).*)",
       "destination": "/index.html"
     }
   ],

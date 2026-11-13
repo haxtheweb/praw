@@ -14,6 +14,13 @@ built from the compiled tree resolves those to /node_modules/. Package entry poi
 package.json files, which the compiled tree does not ship.
 
 The one path written relative to the demo folder, ../lib/themes.json for ?theme=, is made absolute.
+
+The HAX network bar goes above the demo in its demo mode (<hax-network-bar demo>): a thin strip saying the
+demo has no backend, so nothing is saved, with links to HAXcms in the browser and Install HAX. The editor
+bar sits under it through --haxcms-top-offset, which the strip sets. A compiled bar without demo mode (a
+webcomponents source from before it) is left out, rather than stacking a full second bar and Merlin on
+the editor.
+
 Fails if the page no longer has what it changes, rather than publishing a demo that silently breaks.
 """
 import json
@@ -24,6 +31,12 @@ DEMO_BASE = '<base href="/elements/haxcms-elements/demo/" />'
 TOP_BASE = '<base href="/" />'
 THEMES_REL = "'../lib/themes.json'"
 THEMES_ABS = "'/node_modules/@haxtheweb/haxcms-elements/lib/themes.json'"
+BUILDER = '<haxcms-site-builder id="site"'
+NETWORK_BAR = "@haxtheweb/hax-network-bar/hax-network-bar.js"
+DEMO_STRIP = (
+    '<hax-network-bar demo></hax-network-bar>\n  '
+    '<script type="module" src="/node_modules/' + NETWORK_BAR + '"></script>\n  '
+)
 PREFIX = "/node_modules/"
 
 
@@ -74,7 +87,7 @@ def import_map(built, source):
 def main(src, dest, built, source):
     with open(src, encoding="utf-8") as f:
         html = f.read()
-    for needle in (DEMO_BASE, THEMES_REL):
+    for needle in (DEMO_BASE, THEMES_REL, BUILDER):
         if html.count(needle) != 1:
             sys.exit("demo page changed: expected exactly one %s" % needle)
     if 'type="importmap"' in html:
@@ -85,6 +98,12 @@ def main(src, dest, built, source):
     # the import map has to come before any module script or modulepreload, so right after <base>
     tag = '<script type="importmap">%s</script>' % json.dumps(mapping, separators=(",", ":"))
     html = html.replace(DEMO_BASE, TOP_BASE + "\n  " + tag).replace(THEMES_REL, THEMES_ABS)
+    bar = os.path.join(built, NETWORK_BAR)
+    if os.path.isfile(bar) and "--haxcms-top-offset" in open(bar, encoding="utf-8").read():
+        html = html.replace(BUILDER, DEMO_STRIP + BUILDER)
+        print("demo: the network bar's demo strip is above the demo")
+    else:
+        print("demo: the compiled network bar has no demo strip yet; left out")
     with open(dest, "w", encoding="utf-8") as f:
         f.write(html)
     print("demo: index.html with %d import map entries" % len(mapping["imports"]))

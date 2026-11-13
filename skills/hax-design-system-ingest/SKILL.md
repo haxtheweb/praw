@@ -1,7 +1,7 @@
 ---
 name: hax-design-system-ingest
 description: "Ingest a third-party design system (PatternFly, Carbon, Spectrum, Material, shadcn, Tailwind, USWDS...) into HAX: license gate, DDD token bridge with coverage and contrast report, DDD-capable design system registration, and a common HAXcms theme in that system's own page shell. Use for 'add <system> to HAX', 'map <system> to DDD', 'make a <system> theme'."
-version: 0.1.0
+version: 0.2.0
 license: Apache-2.0
 metadata:
   author: haxtheweb
@@ -182,8 +182,12 @@ and exports `activate<Prefix>DesignSystem()`; the theme calls it in its construc
 Follow `hax-theme-builder` for the HAX contract (skip link, `#contentcontainer > #slot > slot`,
 `site-menu`, `site-breadcrumb`, `site-active-title`, `site-menu-button`, `site-region`,
 `HAXCMSThemeParts(DDDSuper(HAXCMSLitElementTheme))`, JSDoc discovery tags, i18n strings,
-`globalThis`, no optional chaining, explicit `.js` paths for `@haxtheweb/*`). Use the system's
-own shell as the layout reference, from its documentation, not from memory. The theme chrome may
+`globalThis`, no optional chaining, explicit `.js` paths for `@haxtheweb/*`). Pick one page from
+the system's own site (a docs page, a Storybook page template, a dashboard example) as the layout
+reference, read it live rather than from memory, and name it in the PR. The theme should read
+like that page: [`references/demo-sites.md`](references/demo-sites.md) lists the reference used
+for each shipped system and the patterns that recur ("On this page" list, navigation rail,
+landing page, lead text, heading font, image sizing). The theme chrome may
 use the upstream semantic tokens directly (that is the point of the theme; `hax audit` will list
 them as non-DDD). Include the tokens and map in the theme's own styles too, and a dark mode
 toggle bound to `store.darkMode`. A system with no dark mode of its own (Tailwind, USWDS) gets
@@ -192,9 +196,15 @@ one in the chrome: define role variables (`--<system>-theme-primary`, `-line`, `
 current navigation item, use map-menu's `--map-menu-item-active-accent-width` /
 `-color` (a start-edge bar, as in Carbon's and USWDS's side navigation).
 
-Add a demo site in `demo/` (copy a sibling theme's `demo/index.html`) whose pages exercise
-common blocks: cards, accent card, steps, stop note, collapse, call to action, a
-`multiple-choice` (answer states), and `data-primary` / `data-accent` palettes.
+Add a demo site in `demo/` (copy a sibling theme's `demo/index.html`) that is a believable site
+in the system's voice, not a block catalog: a named site with six to nine pages built from a
+range of HAX blocks (hero, cards, grid, steps, notes, collapse, tabs, table, code, call to action,
+a `multiple-choice`, and `data-primary` / `data-accent` swatches). Write it as a spec and
+generate it with [`scripts/build-demo.py`](scripts/build-demo.py) so it can be regenerated after
+fixes. Artwork in `demo/files` is original SVG; `ddd-card` always needs a `src`. Before showing a
+palette, run [`scripts/primary-contrast.py`](scripts/primary-contrast.py): DDD's fixed text color
+on some remapped palettes fails contrast (haxtheweb/issues#3338). Details in
+[`references/demo-sites.md`](references/demo-sites.md).
 
 ### 8. Check
 
@@ -203,19 +213,23 @@ common blocks: cards, accent card, steps, stop note, collapse, call to action, a
   manager changed. Before the axe check, wait until the theme's computed `opacity` is `1`: the
   base theme fades in on first load, and axe blends a half-faded color into a false contrast
   failure (1.12:1 on a solid primary button).
-- Render the demo light, dark and at phone width (one `web-dev-server` per theme, from the
-  element folder; blocks show as "Loading..." and Google Fonts fall back locally, and both work
-  on the Vercel preview); run axe WCAG A/AA on every demo page in both
-  modes. Separate findings in the theme from pre-existing element bugs and file the latter in
+- Render the demo light, dark and at phone width and run axe WCAG A/AA on every page with
+  [`scripts/check-demo.cjs`](scripts/check-demo.cjs). Run one `web-dev-server` per theme from the
+  monorepo root (`--root-dir . --app-index elements/<system>-theme/demo/index.html`), not the
+  element folder, or blocks stay "Loading...". Look at the screenshots too: cramped cards, huge
+  images and mid-word breaks pass axe. Separate findings in the theme from pre-existing element bugs and file the latter in
   <https://github.com/haxtheweb/issues>.
 - `yarn precheck` and CodeQL (`yarn codeql`) from the monorepo root before pushing.
 
 ### 9. Deliver
 
-One PR per system in webcomponents (`NOTICE`, README with the coverage line, the demo). Link the
-Vercel preview straight to `/elements/<system>-theme/demo/`.
+One PR per system in webcomponents (`NOTICE`, README with the coverage line and the layout
+reference, the demo). Link the Vercel preview straight to `/elements/<system>-theme/demo/`, and
+give the editor link `/elements/haxcms-elements/demo/index.html?theme=<system>-theme` so the
+theme can be reviewed against site content.
 
 ## Report
 
-System and version, license/font decisions (and anything excluded), coverage, contrast result,
-what was kept as DDD and why, PR link, preview link, and any element bugs found.
+System and version, license/font decisions (and anything excluded), coverage, contrast result
+(including any `data-primary` palettes left out of the demo), what was kept as DDD and why, the
+layout reference page, PR link, preview and editor links, and any element bugs found.

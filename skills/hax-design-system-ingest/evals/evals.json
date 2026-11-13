@@ -14,6 +14,13 @@
       "expected_output": "Explains that Adobe Clean is a proprietary font that can't ship with HAX and does not offer a workaround to load it; proceeds with Spectrum tokens (Apache-2.0) and Source Sans 3 (OFL), Spectrum's documented open fallback, and notes the substitution in the report and NOTICE.",
       "baseline_behavior": "Without the skill, an agent tends to reference Adobe Clean from Adobe Fonts / Typekit or a CDN, or embed it, without checking whether its license can ship in an Apache-2.0 project.",
       "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "The Fluent theme works but the demo is just a page of random blocks. Make the theme and demo representative of how Fluent is actually used.",
+      "expected_output": "Picks one public Fluent page (docs page, Storybook template or example) as the layout reference, reads it live and names it in the PR; reshapes the theme chrome toward that page using the recurring patterns (On this page list with site-menu-content imported by the theme, rail or top links from store.manifest, heading font, img max-width) without changing authored-content APIs; writes the demo as a spec for scripts/build-demo.py: a named site with six to nine pages in Fluent's voice using a range of HAX blocks and original SVG artwork (ddd-card always given a src); runs scripts/primary-contrast.py and leaves out failing data-primary palettes, saying so in the PR; serves the demo from the monorepo root and runs scripts/check-demo.cjs light, dark and phone until axe is clean with no horizontal overflow, looking at the screenshots; fixes element bugs it finds or files them in haxtheweb/issues; gives the Vercel demo link and the editor link with ?theme=<tag>.",
+      "baseline_behavior": "Without the skill, an agent tends to restyle colors only and keep the generic app frame, add more blocks to the same catalog page, hot-link or copy the vendor's illustrations, show every data-primary palette (including ones whose fixed text color fails contrast under the bridge), serve the demo from the element folder so blocks never load, and report axe results without looking at the screenshots.",
+      "files": []
     }
   ]
 }

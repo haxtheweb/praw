@@ -9,7 +9,7 @@
    "gap": "nothing enforces it yet",
    "proposed": "proposed"
   },
-  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (70 rules) and each repo's AGENTS.md (24), plus 9 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 22 are enforced; 81 are gaps, the backlog of what to automate next.",
+  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (74 rules) and each repo's AGENTS.md (24), plus 9 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 22 are enforced; 85 are gaps, the backlog of what to automate next.",
   "kindLabels": {
    "rel": "where a rule comes from and what enforces it",
    "pillar": "pillars a rule serves",
@@ -33,11 +33,11 @@
    "kind": "group"
   },
   "rg_web_component_development": {
-   "desc": "Web Component Development: 14 rules, 5 enforced by a check.",
+   "desc": "Web Component Development: 15 rules, 5 enforced by a check.",
    "kind": "group"
   },
   "rg_build_development_workflow": {
-   "desc": "Build & Development Workflow: 33 rules, 6 enforced by a check.",
+   "desc": "Build & Development Workflow: 36 rules, 6 enforced by a check.",
    "kind": "group"
   },
   "rg_instructional_design": {
@@ -300,6 +300,14 @@
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#haxhooks-lifecycle-integration"
    }
   },
+  "r_40983ddf_40b7_4a5e_a600_8f9fcb58da83": {
+   "desc": "Content made with the HAX editor must work when HAX is not present. A HAX-capable element knows about HAX only through `static get haxProperties()` (and `haxHooks()` when needed), never by importing or requiring the editor. An element may react to editing only to block clicks while editing (buttons, dialog openers, links), to expose editable content that is hard to reach visually, or to extend the HAX UI through hooks, and it must still render and work outside HAX. Only elements built for a HAX site may depend on one (an in-page menu, `smart-collection-list` reading `site.json`). Elements that rely on a third-party service must still work without HAX. Rationale: KNOWLEDGE.md entry \"With or without HAX, work\". In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#works-with-or-without-hax"
+   }
+  },
   "r_c3xjsqfbcmoa3cxsoonyxg": {
    "desc": "Creating educational elements in HAX? Apply OER Schema metadata for consistent semantic structure and interoperability. Audit authored content with the `oerschema-audit` skill; find components missing schema with the `oerschema-integration-finder` skill. Map to real OER classes (Course/Unit/Module/Lesson/LearningObjective/Assessment/Quiz/Activity/Task/Rubric/SupportingMaterial/TableOfContents) — never invent classes. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
    "kind": "gap",
@@ -377,6 +385,14 @@
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#perf-check-before-core-front-end-prs"
    }
   },
+  "r_8369fe15_5bae_4fb0_9f49_ca30193a6569": {
+   "desc": "When a PR adds a new HAXcms theme (or reworks an existing one), hand it over with the editor demo deep link as well as the theme's own demo: `<vercel-preview>/elements/haxcms-elements/demo/index.html?theme=<theme-tag>` (for example `https://webcomponents-git-<branch>-haxtheweb.vercel.app/elements/haxcms-elements/demo/index.html?theme=vhs-blog-theme`). That demo loads the theme in a real HAXcms site with site content, the top bar and edit mode, so the theme is reviewed in context of site content rather than only its own demo page. Put the link in the PR body and in the reply that reports the PR. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#new-themes-ship-with-the-editor-demo-link"
+   }
+  },
   "r_0cf20bb0_0afa_4c6a_9100_e76f76a5cc1a": {
    "desc": "outline-designer is how bulk structure changes happen; what it shows must be exactly what `saveOutline` stores. Before opening a PR that touches `elements/outline-designer`, the outline editor dialog or site admin Structure section, the editor's outline save/response handling, or `saveOutline` in either backend, run the outline fuzzer in haxcms-nodejs against that code (`NODE_ENV=development HAXCMS_WEBCOMPONENTS_ROOT=<your webcomponents checkout> npm run fuzz:outline -- --seeds 1-10 --ops 200`; add `--base-url` for a haxcms-php instance). It makes hundreds of seeded edits through the real designer and real save path and checks every save; a failure prints a shrunk minimal list of edits that reproduces it (`--replay`). Every failure is a real bug or a fuzzer bug: never merge with one unexplained. Keep the existing outline-designer contract fixture tests passing in both backends too. See https://github.com/haxtheweb/haxcms-nodejs/tree/main/test/fuzz (haxtheweb/issues#3252). In PRAW RULES.md (scope: webcomponents). Enforced by Mutation testing, weekly, Fuzz hunt.",
    "kind": "enforced",
@@ -438,6 +454,14 @@
    "status": "gap",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#haxcms-theme-build"
+   }
+  },
+  "r_z61ldoq98dttlrwen7tl9t": {
+   "desc": "Code in a HAXsite's `custom/` folder (custom themes and site-specific elements bundled into `custom/build/custom.es6.js`) builds on the HAXcms base class instead of bare third-party imports. Custom themes extend `HAXCMSLitElementTheme`, and custom code takes its common needs from that same module, `@haxtheweb/haxcms-elements/lib/core/HAXCMSLitElementTheme.js`, which exports `html`, `css`, `svg`, `mathml` and `unsafeCSS` (lit), `store` (the HAXcms site store) and `autorun` / `toJS` (mobx). Site-specific elements that are not themes extend a HAX base class such as `DDD` from `@haxtheweb/d-d-d/d-d-d.js`. Do not import `lit`, `mobx` or other bare third-party packages in `custom/`: the site's import map only maps `@haxtheweb/` for `custom/build/`, so bare imports fail in the browser, and bundling a second copy of lit or mobx into the custom build duplicates the platform's own and splits the site store. In PRAW RULES.md (scope: haxcms). Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#haxcms-site-custom-code--build-on-haxcmslitelementtheme"
    }
   },
   "r_pacoyoqw2aiyato3r6asnl": {
@@ -509,6 +533,14 @@
    "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#monorepo-dependency-verification"
+   }
+  },
+  "r_00413a27_a2a8_466c_b08e_c60f7fc7837d": {
+   "desc": "Only suggest libraries, dictionaries, data files or tools whose license can ship inside the Apache-2.0 backends (`haxcms-nodejs`, `haxcms-php`): permissive licenses (MIT, BSD, Apache-2.0, ISC, public domain) or LGPL used unmodified and replaceable. For a multi-licensed package, pick the shippable option and name it. Anything else (GPL, AGPL, MPL, EUPL, CC-BY-SA, unclear) is not offered as an option at all, not even with a caveat; if nothing shippable fits, say so. Transforming LGPL data (for example expanding a dictionary into a word list) is a modification, so ship it unmodified and transform at runtime instead. In PRAW RULES.md (scope: global). Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#suggest-only-what-the-backends-can-ship"
    }
   },
   "r_ssy9vkxaqbticixvyustga": {
@@ -615,7 +647,7 @@
    }
   },
   "r_7d6f9c3e_8d0c_4127_948e_e6260465fa95": {
-   "desc": "HAX's official mascot, the little red-helmeted time traveler, is always called the **Future Traveler**: he traveled to the future to bring our ideas to life. Never call him the World Traveler, World Changer or any other variant in new copy, docs, alt text, captions, page titles or agent output; those names are retired. The art lives in <https://github.com/haxtheweb/art> under the `future-traveler/` folder (catalogued under the art manifest's `future_traveler` key); link to those paths, not the retired `world-traveler/` ones. The only old names left are the `hax:world-traveler` and `hax:world-traveler-plain` icon ids in `@haxtheweb/hax-iconset`, which stay as they are because content uses them. The Future Traveler will likely take Merlin's place in the future, but for now the omnibar / command palette is still called **Merlin**; don't rename Merlin in UI, code or docs. In PRAW RULES.md (scope: global). Nothing enforces this yet.",
+   "desc": "HAX's official mascot, the little red-helmeted time traveler, is always called the **Future Traveler**: he traveled to the future to bring our ideas to life. Never call him the World Traveler, World Changer or any other variant in new copy, docs, alt text, captions, page titles or agent output; those names are retired. The art lives in <https://github.com/haxtheweb/art> under the `future-traveler/` folder (catalogued under the art manifest's `future_traveler` key); link to those paths, not the retired `world-traveler/` ones. His icons are `hax:future-traveler` (color) and `hax:future-traveler-plain` (one ink) in `@haxtheweb/hax-iconset`; use those names. The retired `hax:world-traveler` and `hax:world-traveler-plain` files stay in the iconset only so content that already names them keeps drawing; they are left out of the icon picker. The Future Traveler will likely take Merlin's place in the future, but for now the omnibar / command palette is still called **Merlin**; don't rename Merlin in UI, code or docs. In PRAW RULES.md (scope: global). Nothing enforces this yet.",
    "kind": "gap",
    "status": "gap",
    "links": {
@@ -669,7 +701,7 @@
    }
   },
   "ra_license_header": {
-   "desc": "every new `.js` source file under `elements/<name>/` starts with the Apache-2.0 header `hax webcomponent` writes (`Copyright <year> <holder>` and `@license Apache-2.0, see License.md for full text.` in a leading `/** */` block). The `license-check` workflow and `yarn precheck` fail a PR that adds a file without it; tests, demos, generated and vendored files are exempt. See CONTRIBUTING.md, \"License header on new files\". In the AGENTS.md of components. Nothing enforces this yet.",
+   "desc": "every `.js` source file under `elements/<name>/` starts with the Apache-2.0 header `hax webcomponent` writes (`Copyright <year> The Pennsylvania State University` and `@license Apache-2.0, see LICENSE for full text.` in a leading `/** */` block; a contributor's own Copyright line, where present, stays as a second line). The `license-check` workflow and `yarn precheck` fail when any file lacks it; tests, demos, generated files and the third-party code listed in `THIRD_PARTY` (scripts/license-header-check.mjs) are exempt. See CONTRIBUTING.md, \"License header\". In the AGENTS.md of components. Nothing enforces this yet.",
    "kind": "gap",
    "status": "gap",
    "links": {
@@ -860,7 +892,7 @@
    "id": "rules",
    "label": "Rules and what guarantees them",
    "kind": "story",
-   "message": "103 rules: 22 enforced by a check, 81 not yet.",
+   "message": "107 rules: 22 enforced by a check, 85 not yet.",
    "scenes": [
     {
      "caption": "Rules come from PRAW's RULES.md, each repo's AGENTS.md, and the plan's proposals.",
@@ -950,6 +982,7 @@
       "r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123",
       "r_34ef39a0_b970_43ba_b68a_251f99d64424",
       "r_njf4syugdn5wr5tevadtgy",
+      "r_40983ddf_40b7_4a5e_a600_8f9fcb58da83",
       "r_c3xjsqfbcmoa3cxsoonyxg",
       "r_4e5b2533_8d87_4d77_b303_2d2907a78339",
       "r_8e6a9af3_0301_4c48_b75f_fcff2fc928e6",
@@ -976,7 +1009,7 @@
      ]
     },
     {
-     "caption": "81 rules nothing enforces yet: the backlog of what to automate next.",
+     "caption": "85 rules nothing enforces yet: the backlog of what to automate next.",
      "nodes": [
       "r_zvem3yg7jtxbsxbop3ypzy",
       "r_rhq7llrzmzlnfvelrwslun",
@@ -999,6 +1032,7 @@
       "r_eis0l9w9l2jg1cofysmvdt",
       "r_wqogob824vgw5hecmh08ew",
       "r_haxhooks_lifecycle_integration",
+      "r_40983ddf_40b7_4a5e_a600_8f9fcb58da83",
       "r_c3xjsqfbcmoa3cxsoonyxg",
       "r_01ed665f326941e9888ab1",
       "r_1b8b8a93_0458_41f9_85a4_ba8d16923765",
@@ -1006,6 +1040,7 @@
       "r_932f6cd4_90a9_451c_98af_4fb577007f9d",
       "r_35309388_b7be_40ca_88a9_539fe1dd4b0d",
       "r_896ecfa1_8965_4c06_a3ab_31c7e7eb28bf",
+      "r_8369fe15_5bae_4fb0_9f49_ca30193a6569",
       "r_ip9iudnwzrzqsyk4ggvczh",
       "r_e9zioqke3y0gdnwb08xqn8",
       "r_f3c7716773784e8f94254a",
@@ -1013,6 +1048,7 @@
       "r_trwt1r0bv54nuhgefl8iwe",
       "r_pccvd8jgmc7zhehtdebzd1",
       "r_cfypzrdqlaj6xsxteavewt",
+      "r_z61ldoq98dttlrwen7tl9t",
       "r_pacoyoqw2aiyato3r6asnl",
       "r_edaxma3ziihz86gyx4mosu",
       "r_bakmwcmrqrlgdwmunwgvuw",
@@ -1021,6 +1057,7 @@
       "r_f54de8cb_0b65_4f50_98e6_43e8c2ebc4c7",
       "r_d2a1207c_b6d1_4cd6_9930_bd21b29a516c",
       "r_09255ba6_e67a_44ce_b8cb_f0d5e80f97ab",
+      "r_00413a27_a2a8_466c_b08e_c60f7fc7837d",
       "r_ssy9vkxaqbticixvyustga",
       "r_74cc0274_6bf2_45a0_8e06_b88254f4cf9e",
       "r_f98f5e24_c343_4c12_b1c8_d6ae9783afaa",

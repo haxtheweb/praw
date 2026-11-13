@@ -1,0 +1,17 @@
+{
+  "id": "item-8f8445d5-3e1c-4cd4-b64d-1a526bc26508",
+  "indent": 0,
+  "location": "pages/item-8f8445d5-3e1c-4cd4-b64d-1a526bc26508/index.json",
+  "slug": "take-it-home",
+  "order": 5,
+  "parent": null,
+  "title": "Take it home",
+  "description": "",
+  "metadata": {
+    "created": 1794541130,
+    "updated": 1794541130,
+    "images": [],
+    "videos": []
+  },
+  "content": "<p>Your own HAX site takes one command, or one message to your AI agent.</p>\n<h2>In a terminal</h2>\n<p>Needs Node.js.</p>\n<code-sample type=\"html\" copy-clipboard-button=\"\"><template>npm install --global @haxtheweb/create\nhax start</template></code-sample>\n<h2>With your AI agent</h2>\n<code-sample type=\"html\" copy-clipboard-button=\"\"><template>Read https://github.com/haxtheweb/praw and follow its rules and skills. Install the HAX CLI (@haxtheweb/create) if it is missing, then make me a HAX site about [YOUR TOPIC]. Run hax audit before you finish.</template></code-sample>\n<h2>Keep going</h2>\n<ul>\n  <li><a href=\"https://hax.cloud\">hax.cloud</a>: the whole HAX ecosystem, and where the code lives</li>\n  <li><a href=\"https://webcomponents.hax.cloud\">Element portfolio</a>: every block, with demos</li>\n  <li><a href=\"https://hax.cloud/magic-script\">The magic script</a>: HAX blocks on any web page</li>\n  <li><a href=\"https://github.com/haxtheweb/issues\">haxtheweb/issues</a>: questions, ideas and bugs</li>\n</ul>"
+}

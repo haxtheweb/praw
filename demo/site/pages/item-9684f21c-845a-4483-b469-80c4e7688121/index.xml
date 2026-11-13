@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<item>
+<id>item-9684f21c-845a-4483-b469-80c4e7688121</id>
+<indent>0</indent>
+<location>pages/item-9684f21c-845a-4483-b469-80c4e7688121/index.xml</location>
+<slug>the-outline</slug>
+<order>3</order>
+<parent></parent>
+<title>The outline</title>
+<description></description>
+<metadata>
+<created>1794541128</created>
+<updated>1794541128</updated>
+<images>
+</images>
+<videos>
+</videos>
+</metadata>
+<content><![CDATA[<p>A HAX site is an outline of pages, and you can reshape it like one.</p>
+<h2>Try it</h2>
+<ol>
+  <li>Type "outline" in Merlin's search box and pick Edit site outline.</li>
+  <li>Drag this page somewhere else, rename it, or nest it under another page.</li>
+  <li>Add a page: Create a new page (<kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>3</kbd>), then write in it.</li>
+</ol>
+<p>The menu, the Next and Previous links and the breadcrumb follow the outline on their own.</p>
+<h2>Why an outline</h2>
+<p>Courses, handbooks and portfolios are all outlines. HAX stores yours in one readable file, <code>site.json</code>, in the open <a href="https://github.com/haxtheweb/json-outline-schema">JSON Outline Schema</a>, so a site can be moved, versioned with git, or built by an AI agent and still edited by a person.</p>]]></content>
+</item>

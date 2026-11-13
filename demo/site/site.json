@@ -1,0 +1,154 @@
+{
+  "id": "19abb24e-00fe-4554-8be1-4d94fa38c8b3",
+  "title": "Try HAX",
+  "author": "",
+  "description": "A real HAX site to edit for five minutes. Nothing you change is saved.",
+  "license": "by-sa",
+  "metadata": {
+    "author": {},
+    "site": {
+      "name": "try-hax",
+      "logo": "assets/banner.jpg",
+      "settings": {
+        "lang": "en-US",
+        "publishPagesOn": true,
+        "canonical": true,
+        "pathauto": true
+      },
+      "created": 1794541065,
+      "updated": 1794541065,
+      "git": {}
+    },
+    "theme": {
+      "element": "clean-one",
+      "path": "@haxtheweb/clean-one/clean-one.js",
+      "name": "Clean One",
+      "thumbnail": "@haxtheweb/haxcms-elements/lib/theme-screenshots/theme-clean-one-thumb.jpg",
+      "description": "Start with a blank site using the Clean One",
+      "category": [
+        "Course"
+      ],
+      "hidden": false,
+      "priority": -2,
+      "terrible": false,
+      "supportedPalettes": [
+        "4",
+        "5"
+      ],
+      "variables": {
+        "icon": "icons:record-voice-over",
+        "hexCode": "#3f51b5",
+        "cssVariable": "--simple-colors-default-theme-light-blue-7"
+      }
+    },
+    "node": {
+      "fields": {}
+    },
+    "platform": {
+      "audience": "expert",
+      "features": {},
+      "allowedBlocks": []
+    },
+    "build": {
+      "version": "26.8.0",
+      "structure": "course",
+      "type": "own"
+    }
+  },
+  "items": [
+    {
+      "id": "item-87f50c2f-7e3a-4687-8b0d-b93097c0c84c",
+      "indent": 0,
+      "location": "pages/item-87f50c2f-7e3a-4687-8b0d-b93097c0c84c/index.html",
+      "slug": "welcome",
+      "order": 0,
+      "parent": null,
+      "title": "Welcome to HAX",
+      "description": "A real HAX site you can edit, with nothing saved: five minutes, five things to try.",
+      "metadata": {
+        "created": 1794541065,
+        "updated": 1794541065
+      }
+    },
+    {
+      "id": "item-7608ec68-bf8b-4a10-983c-712d1afae746",
+      "indent": 0,
+      "location": "pages/item-7608ec68-bf8b-4a10-983c-712d1afae746/index.html",
+      "slug": "edit-a-page",
+      "order": 1,
+      "parent": null,
+      "title": "Edit a page",
+      "description": "",
+      "metadata": {
+        "created": 1794541126,
+        "updated": 1794541126,
+        "images": [],
+        "videos": []
+      }
+    },
+    {
+      "id": "item-d4b4737a-148f-46bb-b6d6-a8faa4c9364a",
+      "indent": 0,
+      "location": "pages/item-d4b4737a-148f-46bb-b6d6-a8faa4c9364a/index.html",
+      "slug": "blocks-that-teach",
+      "order": 2,
+      "parent": null,
+      "title": "Blocks that teach",
+      "description": "",
+      "metadata": {
+        "created": 1794541127,
+        "updated": 1794541127,
+        "images": [],
+        "videos": []
+      }
+    },
+    {
+      "id": "item-9684f21c-845a-4483-b469-80c4e7688121",
+      "indent": 0,
+      "location": "pages/item-9684f21c-845a-4483-b469-80c4e7688121/index.html",
+      "slug": "the-outline",
+      "order": 3,
+      "parent": null,
+      "title": "The outline",
+      "description": "",
+      "metadata": {
+        "created": 1794541128,
+        "updated": 1794541128,
+        "images": [],
+        "videos": []
+      }
+    },
+    {
+      "id": "item-d7bbedc2-6214-4e28-849d-16dd892e6292",
+      "indent": 0,
+      "location": "pages/item-d7bbedc2-6214-4e28-849d-16dd892e6292/index.html",
+      "slug": "themes",
+      "order": 4,
+      "parent": null,
+      "title": "Themes",
+      "description": "",
+      "metadata": {
+        "created": 1794541129,
+        "updated": 1794541129,
+        "images": [],
+        "videos": []
+      }
+    },
+    {
+      "id": "item-8f8445d5-3e1c-4cd4-b64d-1a526bc26508",
+      "indent": 0,
+      "location": "pages/item-8f8445d5-3e1c-4cd4-b64d-1a526bc26508/index.html",
+      "slug": "take-it-home",
+      "order": 5,
+      "parent": null,
+      "title": "Take it home",
+      "description": "",
+      "metadata": {
+        "created": 1794541130,
+        "updated": 1794541130,
+        "images": [],
+        "videos": []
+      }
+    }
+  ]
+}

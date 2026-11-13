@@ -1,18 +1,12 @@
 name: hax.cloud
-# Builds hax.cloud from the ecosystem web in ecosystem/ and publishes it to GitHub Pages
-# (https://github.com/haxtheweb/issues/issues/3310). A pull request that touches ecosystem/ builds the
-# site as a check; a push to main builds and deploys it. Nothing here writes to the repo.
+# Checks that hax.cloud still builds (https://github.com/haxtheweb/issues/issues/3310). Vercel builds and serves
+# the site (vercel.json at the repo root runs the same script); this workflow only builds it on pull requests
+# that touch ecosystem/, so a broken build shows here before it reaches Vercel. Nothing here writes or deploys.
 #
 # The site is a static HAXsite: the HAXcms site boilerplate from haxcms-nodejs main, with site.json, pages/
 # and the interactive web (ecosystem.html) written by ecosystem/build/build_site.py. Elements load from the
 # HAX CDN, as on any published HAX site.
-#
-# The build is ecosystem/build/site.sh, which Vercel runs too (vercel.json at the repo root): hax.cloud can be
-# served from either. Only one of them should hold the hax.cloud domain.
 on:
-  push:
-    branches: [main]
-    paths: ["ecosystem/**", "vercel.json", ".github/workflows/hax-cloud.yml"]
   pull_request:
     paths: ["ecosystem/**", "vercel.json", ".github/workflows/hax-cloud.yml"]
   workflow_dispatch:
@@ -32,37 +26,9 @@ jobs:
         with:
           persist-credentials: false
       - name: Build the site
-        # the same script Vercel runs (vercel.json); it picks ecosystem-theme once that is on npm, clean-one until then
+        # the same script Vercel runs (vercel.json)
         run: ecosystem/build/site.sh
       - name: Check the site
         run: |
           python3 -I -c "import json; d = json.load(open('_site/site.json')); s = [i['slug'] for i in d['items']]; assert len(s) == len(set(s)), 'duplicate slugs'; e = sum(1 for i in d['items'] if 'ecosystem' in i['metadata']); assert e, 'no page says what it shows'; print(len(s), 'pages,', e, 'in a web; theme', d['metadata']['theme']['element'])"
           test -f _site/ecosystem.html && test -f _site/index.html && test -f _site/ecosystem-webs.json
-      - name: Archive the site
-        if: github.event_name != 'pull_request'
-        run: tar --dereference -cf "$RUNNER_TEMP/artifact.tar" -C _site .
-      - name: Upload the site
-        if: github.event_name != 'pull_request'
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        with:
-          name: github-pages
-          path: ${{ runner.temp }}/artifact.tar
-          retention-days: 1
-          compression-level: 0
-          if-no-files-found: error
-  deploy:
-    name: Deploy to GitHub Pages
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-    needs: build
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5

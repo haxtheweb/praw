@@ -35,6 +35,5 @@ cp -r "$TMP/hn/src/boilerplate/site/." "$OUT/"
 rm -rf "$OUT/pages" "$OUT/site.json" "$OUT/.github" "$OUT/docker" "$OUT/Dockerfile" "$OUT/index.php" \
   "$OUT/config.php" "$OUT/.htaccess" "$OUT/llms.txt" "$OUT/netlify.toml"
 cp "$OUT/ghpages.html" "$OUT/index.html"
-echo "hax.cloud" > "$OUT/CNAME"
 cd "$ROOT/ecosystem/.work" && python3 -I ../build/build_site.py "$OUT" hax-area-icons.html
 echo "site: $OUT"

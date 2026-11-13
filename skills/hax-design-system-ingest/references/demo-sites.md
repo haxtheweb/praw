@@ -19,6 +19,7 @@ memory. Good references are pages that show the system's page shell with real co
 | Spectrum | spectrum.adobe.com docs pages | Floating rounded nav panel, centered column, big title, "On this page" list |
 | Material 3 | m3.material.io | Navigation rail with icon + label and pill indicator, drawer, 28px rounded surface |
 | Tailwind | tailwindcss.com docs | Eyebrow above the title, "On this page" list, sticky sidebar |
+| Web Awesome | webawesome.com component docs pages | Two-row header (site bar, section links), sidebar, tag badges and lead text under the title, "On this page" |
 | shadcn/ui | ui.shadcn.com dashboard example | Sidebar + inset layout, stat cards, chart card |
 
 For a new system, look for: a landing page or page template in its Storybook, its docs site, or
@@ -83,6 +84,11 @@ Artwork in `demo/files` must be original (generated SVG shapes or gradients in t
 palette). Never copy the system's own illustrations, photos, logos or icons.
 
 ## Check the demo
+
+A brand-new theme package isn't linked into `node_modules/@haxtheweb/` until the workspace is
+installed (`yarn install`, or link it by hand for a local check), and until then the theme module
+fails to load and the page is empty. `check-demo.cjs` reports that as NOT RENDERED instead of
+passing the empty page.
 
 Start one dev server per theme from the monorepo root, then run `scripts/check-demo.cjs` over
 every slug. It screenshots light and dark at 1280px and light at 390px, runs axe WCAG 2.1 A/AA,

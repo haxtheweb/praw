@@ -1,7 +1,7 @@
 ---
 name: hax-design-system-ingest
 description: "Ingest a third-party design system (PatternFly, Carbon, Spectrum, Material, shadcn, Tailwind, USWDS...) into HAX: license gate, DDD token bridge with coverage and contrast report, DDD-capable design system registration, and a common HAXcms theme in that system's own page shell. Use for 'add <system> to HAX', 'map <system> to DDD', 'make a <system> theme'."
-version: 0.2.0
+version: 0.3.0
 license: Apache-2.0
 metadata:
   author: haxtheweb
@@ -83,7 +83,10 @@ the same commit. The generator verifies both (shadcn/ui). The generator reads th
   `scopes.dark` (PatternFly: `:root` and `:root:where(.pf-v6-theme-dark)`; Carbon: `:root` plus
   `.cds--white` / `.cds--g100`; Spectrum: `.spectrum`, `.spectrum--medium`, `.spectrum--light` /
   `--dark`). Blocks may nest, so Tailwind's `@theme default { ... }` reads with the scope
-  `@theme default`.
+  `@theme default`. A scope may also name one member of a selector list: Web Awesome's light
+  theme sits on `:where(:root), .wa-theme-default, .wa-light, ...`, so its scopes are
+  `[":where(:root)"]` and `[":where(:root)", ".wa-dark"]`. A system split across several CSS
+  files (palette, color variants, theme) is one `css` source per file, later ones winning.
 - `dtcg`: a [DTCG](https://www.designtokens.org/) token file, written as custom properties under
   a `prefix` you choose (Carbon's palette and motion become `--carbon-*`). DTCG sources are
   mode-free, which suits palettes and motion.
@@ -112,6 +115,11 @@ component scope. Values a system ships only as JS (Carbon's font stacks and weig
 that setting, with a `note` naming the setting. Prefer a stable release over a flatter
 pre-release token package (`@uswds/tokens` is pre-alpha and colors only). See
 `references/systems.md` for where each shipped system keeps its tokens.
+
+Read the system for patterns, not just values: each new system is a chance to improve the
+contract and generator. [`references/patterns.md`](references/patterns.md) lists what earlier
+systems taught (paired "on" colors, lightness-normalized palettes, scale knobs, component-level
+tokens) and what to record when a system shows something new.
 
 ### 3. Scaffold the package
 

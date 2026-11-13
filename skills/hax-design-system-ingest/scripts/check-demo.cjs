@@ -59,6 +59,18 @@ fs.mkdirSync(out, { recursive: true });
         globalThis.scrollTo(0, 0);
       });
       await page.waitForTimeout(1500);
+      // a theme module that fails to load leaves an empty page, which axe passes
+      const rendered = await page.evaluate(
+        (tag) =>
+          !!globalThis.customElements.get(tag) &&
+          !!globalThis.document.querySelector(tag),
+        theme,
+      );
+      if (!rendered) {
+        problems++;
+        console.log(`${v.scheme} ${v.tag} ${slug || "home"}`, `NOT RENDERED: <${theme}> did not load (check the dev server log)`);
+        continue;
+      }
       const name = [theme, v.scheme, v.tag, slug.replace(/\//g, "_") || "home"].join("-");
       await page.screenshot({
         path: path.join(out, name + ".png"),

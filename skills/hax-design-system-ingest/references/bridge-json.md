@@ -6,7 +6,7 @@ Working examples in `elements/`: `patternfly-theme` (one CSS source), `carbon-th
 two DTCG sources), `spectrum-theme` (CSS scopes, `fromMode`), `tailwind-theme` (nested
 `@theme`, oklch), `shadcn-theme` (Tailwind palette plus a sha-pinned URL source) and
 `material-theme` (`scss-vars` with per-mode files) and `uswds-theme` (`scss-map` palette files,
-CC0 with `SEE LICENSE IN`, literal Sass-computed values). Every mapping is
+CC0 with `SEE LICENSE IN`, literal Sass-computed values). `webawesome-theme` reads several CSS files from one package (palette, color variants, theme) with selector-list scopes. Every mapping is
 checked against the shared tier contract in `contract.json` next to the generator.
 
 ```jsonc

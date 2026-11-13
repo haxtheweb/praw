@@ -1,6 +1,6 @@
 # Systems
 
-All seven shipped as theme packages in `haxtheweb/webcomponents/elements/`. Use their
+Eight shipped as theme packages in `haxtheweb/webcomponents/elements/`. Use their
 `design-system/bridge.json` files as working examples. Re-check licenses from the packed
 `package.json` (or the pinned `licenseUrl`) at ingest time. The layout reference page for each
 theme is in [demo-sites.md](demo-sites.md).
@@ -13,4 +13,5 @@ theme is in [demo-sites.md](demo-sites.md).
 | Material Design 3 | `material-theme` | `@material/web` `tokens/versions/latest/sass/_md-*.scss` (scss-vars: ref-palette, sys-color light/dark, shape, motion, state, typeface) | Apache-2.0 | Roboto / Roboto Flex (OFL) | Navigation rail (page icons, pill indicator) + drawer, 28px rounded surface | Material 3, not MUI's Material 2 look |
 | Tailwind | `tailwind-theme` | `tailwindcss` `theme.css` (scope `@theme default`, oklch) | MIT | system stack | Docs layout: eyebrow above the title, "On this page" list | Open-source values only (no Tailwind Plus/UI); no utility classes in authored content |
 | shadcn/ui | `shadcn-theme` | `tailwindcss` `theme.css` + the `shadcn init` `globals.css` as a sha-pinned URL source | MIT | Geist (OFL) | Sidebar + inset layout | Shares the Tailwind palette; neutral brand |
+| Web Awesome | `webawesome-theme` | `@awesome.me/webawesome` `dist/styles/color/palettes/default.css`, `color/variants/*.css`, `themes/default.css` (css; scopes `:where(:root)` / `.wa-dark` as selector-list members) | MIT (Pro themes, palettes and patterns are commercial: excluded) | system stacks (no web font) | Docs layout: two-row header with section links, sidebar, tag badges and lead under the title, "On this page" | Palettes are lightness-normalized, so every `data-primary` palette passes; its icons are Font Awesome, which can't ship, so HAX icons stay |
 | U.S. Web Design System | `uswds-theme` | `@uswds/uswds` color maps `packages/uswds-core/src/styles/tokens/color/_*.scss` (scss-map); theme roles from `settings/_settings-color.scss` | CC0-1.0 (public domain U.S. government work; `SEE LICENSE IN LICENSE.md`) | Source Sans 3, Merriweather (OFL), Roboto Mono (Apache-2.0) | Basic header with primary nav, landing page on the first page, side navigation, footer bands | Never ship the official government banner, seals or identifier; no dark mode of its own |

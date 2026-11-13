@@ -263,6 +263,12 @@ bundle["icons"] = {name: glyphs[name] for name in used if name in glyphs}
 # Bryan's rpg-character. Each web's own "images" (the theme thumbnails) travel inside its JSON already.
 main_art = "images-main.json" if os.path.exists("images-main.json") else os.path.join(ECO, "player", "images-main.json")
 bundle["images"].update(json.load(open(main_art)))
+# outside facts the element's lenses read (freshness, parity, release dates; see build_layers.py), the same
+# data the player embeds. Maintainers are left out of the bus factor: GOVERNANCE.md names Bryan and Bill
+# primary and backup owner in every repo's CODEOWNERS, so they stand behind every part.
+layers_src = os.path.join("ext", "layers.json") if os.path.exists(os.path.join("ext", "layers.json")) else os.path.join(ECO, "build", "data", "layers.json")
+bundle["layers"] = json.load(open(layers_src))
+bundle["layers"]["maintainers"] = ["bryan", "billrose"]
 json.dump(bundle, open(os.path.join(OUT, "ecosystem-webs.json"), "w"), ensure_ascii=False, separators=(",", ":"))
 # a slug index, so a later rename can keep old links working (redirects.json is checked against it in a later phase)
 json.dump({it["_key"]: it["slug"] for it in items}, open(os.path.join(OUT, "slugs.json"), "w"), indent=0, sort_keys=True)

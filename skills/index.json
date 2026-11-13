@@ -309,7 +309,7 @@
       "type": "skill-md",
       "description": "Prepare HAX changes for a maintainer release: verify locally, then write the handoff for the ubiquity build and publish steps an agent must never run. Use when work is done and heading to release, or when asked what happens next.",
       "url": "hax-release-prep/SKILL.md",
-      "digest": "sha256:4a05a52e0d8d7a52dc9dd82de40c4351a93508cb0a97c817f55d1f4147e8fa74"
+      "digest": "sha256:289cb6ebb605e8f7593e95dfb8205dfa2bc7b0f8ddd518e8ffba06274d9941d9"
     },
     {
       "name": "hax-rule-management",

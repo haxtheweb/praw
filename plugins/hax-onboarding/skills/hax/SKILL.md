@@ -90,6 +90,7 @@ hax audit          # audit web components for DDD compliance
 hax skills         # list / install bundled agent skills
 hax party          # community / get-involved options
 hax update         # CLI self-update
+hax platform       # HAXcms install: status / upgrade / verify / rollback (not on HAXiam)
 hax help [command] # authoritative, up-to-date help; also `hax site --help`
 ```
 

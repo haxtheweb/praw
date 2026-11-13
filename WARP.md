@@ -33,6 +33,7 @@ Accessible (WCAG 2.0 AA, minimal knowledge to maintain) · Extensible (web stand
 
 ## HAX CLI quick reference
 Install/update: `npm install @haxtheweb/create --global` · `hax update` · `hax start` (interactive) · `hax serve` (dev server at http://localhost).
+HAXcms installs: `hax platform status` (installed vs latest release, security advisories) · `hax platform upgrade|verify|rollback` (haxcms-php, runs the install's `scripts/platform-upgrade.php`; never on HAXiam deployments).
 Scaffold: `hax webcomponent my-element --y` · `hax site mysite --y` · `hax audit` (DDD compliance).
 Common flags: `--v` verbose · `--debug` · `--y`/`--auto` accept prompts · `--no-i` no interactive sub-processes · `--skip` skip animations · `--quiet` · `--writeHaxProperties` · `--custom-theme-name <n>` · `--custom-theme-template base|polaris-flex|polaris-sidebar` · `--import-site <url>` · `--import-structure <method>`.
 Use the local CLI checkout (not `npx`) — it is always latest/experimental on this machine.

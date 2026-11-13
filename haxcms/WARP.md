@@ -45,6 +45,7 @@ System-level calls (site imports, file-format conversions, operations not scoped
 ## Site quality
 Performance (lazy loading, caching, minimal deps) · Accessibility (heading hierarchy, skip links, screen-reader/keyboard, contrast) · SEO (meta descriptions, semantic structure, structured data, sitemap).
 
+- **Platform upgrades** (`54e36477…`): never from the web process. Status only informs; upgrades run from a shell (`php scripts/platform-upgrade.php`, or `hax platform upgrade`), driven by the release manifest, never touching site data, and never on HAXiam (`haxiam-managed`) deployments. Full text in RULES.md.
 - **HAXiam**: check the `config->iam` path in endpoint/auth changes; enforce user/path alignment; verify in both backends (rule `1286150d…`).
 
 ---

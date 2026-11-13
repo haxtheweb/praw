@@ -73,6 +73,11 @@ Every rule has one of four scopes:
 - **Scope**: `haxcms`
 - **Content**: When changing API endpoints or auth code in haxcms-php or haxcms-nodejs, check the HAXiam path (`config->iam`) as well as single-tenant mode. In multi-tenant mode each user has an isolated sites directory, and endpoints such as `connectionSettings` must enforce strict alignment between the authenticated user and the requested path (for example `getIAMTenantUserName()` and `getRequestPathUserName()`). Never weaken that check, and verify the change in both backends. Rationale: KNOWLEDGE.md entry "HAXiam multi-tenant auth model".
 
+### HAXcms Platform Upgrades Run From a Shell, Never on HAXiam
+- **Rule ID**: `54e36477-ac8a-4fb2-bd9e-c46463f608aa`
+- **Scope**: `haxcms`
+- **Content**: HAXcms never updates itself from the web process. The admin panel's Status page and the system status report only say that a release or a missing security fix exists (security status comes from the published advisories on haxtheweb/issues, matched by each backend's package name and patched version) and show the steps for the detected install method; they never download, unpack or write release files, and no endpoint may be added that does. Upgrades run from a shell as the user who owns the files: `php scripts/platform-upgrade.php upgrade|verify|rollback` for haxcms-php installs, which `hax platform upgrade|verify|rollback` runs for you; npm, Docker and git installs are updated with the tool they came from. The upgrader is driven by the release manifest (`platform-manifest.json`): it writes only manifest-listed code paths after checking the archive against `SHA256SUMS` and every file against the manifest, backs up what it changes, never touches `_config`, `_sites`, `_published` or `_archived`, and rolls back on a failed check. On a HAXiam (`haxiam-managed`) deployment the host manages HAXcms: no update checks run, and `upgrade`, `verify` and `rollback` refuse in both the PHP script and the CLI. Keep these invariants in any change to the status report, the upgrader, the CLI or the release workflow (haxtheweb/issues#1768).
+
 ### Canonical Repository Directories Are Never Renamed
 - **Rule ID**: `7e2c1a94-3b58-4d0f-9c6a-1f8e4d2b5a30`
 - **Scope**: `global`

@@ -94,9 +94,9 @@
     {
       "name": "hax-design-system-ingest",
       "type": "skill-md",
-      "description": "Ingest a third-party design system (PatternFly, Carbon, Spectrum, Material, shadcn, Tailwind...) into HAX: license gate, DDD token bridge with coverage and contrast report, DDD-capable design system registration, and a common HAXcms theme in that system's own page shell. Use for 'add <system> to HAX', 'map <system> to DDD', 'make a <system> theme'.",
+      "description": "Ingest a third-party design system (PatternFly, Carbon, Spectrum, Material, shadcn, Tailwind, USWDS...) into HAX: license gate, DDD token bridge with coverage and contrast report, DDD-capable design system registration, and a common HAXcms theme in that system's own page shell. Use for 'add <system> to HAX', 'map <system> to DDD', 'make a <system> theme'.",
       "url": "hax-design-system-ingest/SKILL.md",
-      "digest": "sha256:1a7b1997a6fd9062674a3218e28b197277061cd15eff051c19a04a51401c26af",
+      "digest": "sha256:afd2b93cf43984d19102d96cfb55fd6d3f75495e8e6fbb699f89ffe375624f9d",
       "files": [
         {
           "path": "evals/evals.json",
@@ -104,11 +104,11 @@
         },
         {
           "path": "references/bridge-json.md",
-          "digest": "sha256:ba51184c58a4cbe674add16254af19d167c41c9f7cb37d93a7025f08937291ac"
+          "digest": "sha256:d30031cef35aad82381b147d04c439213c4a522454b39bc4c90837f1206da40b"
         },
         {
           "path": "references/systems.md",
-          "digest": "sha256:9a0338139dadb3878e679caf266dc1e8ef5ce9b980d44cee46fed9373115a011"
+          "digest": "sha256:79f4c2d015b4c2e6e2e3c8369adae821e0c97722c3b444dded73d1895782dd51"
         }
       ]
     },

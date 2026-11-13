@@ -5,7 +5,8 @@ Read by `elements/d-d-d/design-system/bridge/build-bridge.js`
 Working examples in `elements/`: `patternfly-theme` (one CSS source), `carbon-theme` (CSS plus
 two DTCG sources), `spectrum-theme` (CSS scopes, `fromMode`), `tailwind-theme` (nested
 `@theme`, oklch), `shadcn-theme` (Tailwind palette plus a sha-pinned URL source) and
-`material-theme` (`scss-vars` with per-mode files). Every mapping is
+`material-theme` (`scss-vars` with per-mode files) and `uswds-theme` (`scss-map` palette files,
+CC0 with `SEE LICENSE IN`, literal Sass-computed values). Every mapping is
 checked against the shared tier contract in `contract.json` next to the generator.
 
 ```jsonc
@@ -34,6 +35,9 @@ checked against the shared tier contract in `contract.json` next to the generato
     // a Sass source (Material): { "package": "@material/web", "version": "2.5.0",
     //   "license": "Apache-2.0", "format": "scss-vars", "prefix": "--md-sys-color-",
     //   "files": { "light": "tokens/versions/latest/sass/_md-sys-color.scss", "dark": "..." } }
+    // a Sass map source (USWDS): { "package": "@uswds/uswds", "version": "3.14.0",
+    //   "license": "CC0-1.0", "format": "scss-map", "prefix": "--usa-",
+    //   "files": ["packages/uswds-core/src/styles/tokens/color/_blue.scss", "..."] }
     // a URL source (shadcn/ui, not on npm): { "url": "https://raw.githubusercontent.com/shadcn-ui/ui/<full sha>/.../globals.css",
     //   "sha256": "<hash of the file>", "licenseUrl": "https://raw.githubusercontent.com/shadcn-ui/ui/<same sha>/LICENSE.md",
     //   "package": "shadcn-ui/ui (label for the report)", "version": "<same sha>", "license": "MIT",

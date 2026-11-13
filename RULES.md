@@ -234,6 +234,11 @@ Every rule has one of four scopes:
 - **Scope**: `webcomponents`
 - **Content**: Before opening a PR that touches `haxcms-elements` core (store, site builder, router, theme base classes), the site menu, i18n, or a theme, run the haxcms-nodejs perf harness against the monorepo source: `NODE_ENV=development HAXCMS_WEBCOMPONENTS_ROOT=<your webcomponents checkout> npm run perf:memory -- --short` in a haxcms-nodejs checkout (about 90 seconds), once on `master` and once on the branch, and compare the per-visit numbers (heap, DOM nodes, listeners, live MobX reactions, observed detached nodes, i18n registrations). If any moved, put the before/after in the PR. For load-time changes run `npm run perf:lighthouse -- --short`; for changes whose cost grows with page count run `npm run perf:scale -- --sizes 100,500,1000`. Lighthouse alone does not catch memory regressions. See https://github.com/haxtheweb/haxcms-nodejs/tree/main/test/perf (haxtheweb/issues#3245).
 
+### New Themes Ship With the Editor Demo Link
+- **Rule ID**: `8369fe15-5bae-4fb0-9f49-ca30193a6569`
+- **Scope**: `webcomponents`
+- **Content**: When a PR adds a new HAXcms theme (or reworks an existing one), hand it over with the editor demo deep link as well as the theme's own demo: `<vercel-preview>/elements/haxcms-elements/demo/index.html?theme=<theme-tag>` (for example `https://webcomponents-git-<branch>-haxtheweb.vercel.app/elements/haxcms-elements/demo/index.html?theme=vhs-blog-theme`). That demo loads the theme in a real HAXcms site with site content, the top bar and edit mode, so the theme is reviewed in context of site content rather than only its own demo page. Put the link in the PR body and in the reply that reports the PR.
+
 ### Outline Designer Changes Run the Fuzzer
 - **Rule ID**: `0cf20bb0-0afa-4c6a-9100-e76f76a5cc1a`
 - **Scope**: `webcomponents`

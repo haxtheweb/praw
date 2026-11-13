@@ -10,17 +10,26 @@ five minutes: editing a page, blocks that teach, the outline, themes (`?theme=` 
 `lib/themes.json`) and how to make your own. Nothing is saved; the demo's save endpoints only pretend.
 To change the tour, edit `site/pages/*/index.html` or use the HAX CLI on `site/` (`hax site node:add`).
 
-This folder is its own Vercel project (Root Directory `demo`). It builds:
+This folder is its own Vercel project (Root Directory `demo`). Every deploy compiles the demo from
+webcomponents `master`, so it always runs the latest code, and every HAX module, style and registry file
+is served from demo.hax.cloud itself: nothing loads from cdn.hax.cloud or webcomponents.hax.cloud, and the
+browser's network panel shows the whole HAX load on one origin.
 
-- `build/build.sh` fetches the deployed demo page and `build/top-level.py` changes its `<base>` from the
-  demo folder to `/` (and makes the one folder-relative path, `../lib/themes.json`, absolute). The build fails
-  if the page no longer has those, rather than publishing a demo that silently breaks.
-- the build copies `site/` beside it, and Vercel serves those files before any rewrite, so this site's
-  `site.json` and pages win over the demo folder's.
-- `vercel.json` proxies everything else back to webcomponents.hax.cloud: `/elements/*` and `/node_modules/*`
-  as they are, any other path with a file extension (`theme/…`, `custom/…`, `assets/…`,
-  `dist/dev/…`) from the demo folder, and every other path (a page route) gets the page.
+- `build/build.sh` fetches webcomponents at `WC_REF` (default `master`), installs it and runs the build
+  half of `ubiquity` in that throwaway checkout: `polymer build`, the xterm and latex2html5 vendor copies,
+  CSS template minify, terser, then `wc-autoloader` to regenerate `wc-registry.json` from the compiled
+  tree (so elements added on master load before the next ubiquity release) and the third-party license
+  file. It never publishes anything. About five minutes; the output is ~250 MB in ~46,000 files.
+- the demo folder (`elements/haxcms-elements/demo/`: `theme/`, `custom/`, `dist/dev/` save stubs,
+  `wc-registry.json` ...) goes at the top of `_site`, the compiled tree at `_site/node_modules/`, and
+  `site/` over both, so this site's `site.json` and pages win.
+- `build/top-level.py` changes the demo page's `<base>` from the demo folder to `/`, points
+  `../lib/themes.json` at the compiled copy, and adds an import map (built from the compiled tree) for the
+  page's own module script and `custom/src/`, the only code that still uses bare imports. The build fails
+  if the page no longer has those, or the registry looks incomplete, rather than publishing a demo that
+  silently breaks.
+- `vercel.json` serves files first, maps any old `/elements/<name>/...` path to
+  `/node_modules/@haxtheweb/<name>/...`, and gives every extension-less path (a page route) the page.
 
-Asset requests always reach the latest webcomponents deploy. The page itself (import map, app settings)
-updates when this project redeploys; `DEMO_SOURCE` points the build at another deploy, e.g. a webcomponents
-preview.
+`WC_REPO` / `WC_REF` set as Vercel environment variables point the build at another source, e.g. a
+webcomponents pull request branch.

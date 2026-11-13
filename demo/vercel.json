@@ -7,18 +7,10 @@
   "rewrites": [
     {
       "source": "/elements/:path*",
-      "destination": "https://webcomponents.hax.cloud/elements/:path*"
+      "destination": "/node_modules/@haxtheweb/:path*"
     },
     {
-      "source": "/node_modules/:path*",
-      "destination": "https://webcomponents.hax.cloud/node_modules/:path*"
-    },
-    {
-      "source": "/(.*\\.[A-Za-z0-9]+)",
-      "destination": "https://webcomponents.hax.cloud/elements/haxcms-elements/demo/$1"
-    },
-    {
-      "source": "/(.*)",
+      "source": "/((?!.*\\.[A-Za-z0-9]+$).*)",
       "destination": "/index.html"
     }
   ],

@@ -607,7 +607,7 @@
         },
         {
           "path": "references/deviation-log.md",
-          "digest": "sha256:72d22263b38d054f4757b3b5a5976603b6d038646527694ddefe7dbd1e0dd7eb"
+          "digest": "sha256:09352d0b8d94a3024bee280fab275d60eab33dce56ab077db91146e54607a199"
         }
       ]
     },
@@ -686,9 +686,9 @@
     {
       "name": "reading-notes",
       "type": "skill-md",
-      "description": "Draft paragraph-level Reading Notes for a book chapter or long reading: topic rows, page ranges, first…last word anchors and one-sentence paraphrases, for human review. Use for \"make reading notes\", \"paraphrase this chapter paragraph by paragraph\" or notes to pair with a converted reading.",
+      "description": "Draft paragraph-level Reading Notes for a book chapter or long reading: topic rows, page ranges, first…last word anchors and one-sentence paraphrases, for human review. Use for \"make reading notes\", \"paraphrase this chapter paragraph by paragraph\" or the comparison notes for a book-player reading analysis question.",
       "url": "reading-notes/SKILL.md",
-      "digest": "sha256:d7de5dd07c43b933504fc603099a7c1bb714700ceb03e6a3fbdb533f2a691ef4"
+      "digest": "sha256:7458e30f3a1c8291e117a01de6a60a89aaf31e60be49acd1cac2969ecdf79ec0"
     },
     {
       "name": "siip-course-alignment",

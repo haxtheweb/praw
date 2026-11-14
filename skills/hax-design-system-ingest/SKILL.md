@@ -158,6 +158,7 @@ What a bridge may map is set by one shared contract,
 | Identity | expected | named colors, font families, font weights, radius, shadows, focus ring and offset |
 | Feel | optional | motion durations and easing, state opacities, control and text-field heights, border widths |
 | Semantic | optional | heading and body sizes (body at least 16px, headings at least body and never growing as the level goes down); density: `--ddd-surface-padding`, `--ddd-surface-padding-lg`, `--ddd-stack-gap`, `--ddd-inline-gap`, `--ddd-control-padding-inline` (floors 8, 16, 8, 4 and 8px) |
+| Component | optional | the system's own answer for a kind of block: `--ddd-card-radius`, `-padding`, `-border-width`, `-shadow`, `-background`; `--ddd-control-radius`, `--ddd-control-height` (24px floor); `--ddd-tag-radius` |
 
 Map all of identity the system can answer, and feel wherever it defines tokens. Never map
 structure. A system's own spacing belongs in its theme chrome, not in DDD. If its scale sits on
@@ -167,6 +168,19 @@ below the floor, and their small headings fall under DDD's body size). Density i
 system's own spacing reaches blocks: map it to the upstream spacers for card padding, the gap
 between stacked blocks, inline gaps and control padding, as PatternFly and Carbon do.
 
+Component tokens come from the system's own card, button and tag (or badge, chip, label), read
+from its component docs or CSS: radius, padding, border and shadow of a card, button radius and
+height, tag radius. Leave any the system has no opinion on (shadcn leaves card shadow to the
+app). `--ddd-control-height` has no DDD value at all: DDD buttons size by padding, so only map it
+when the system fixes its button height. Some blocks are deliberately designed and get no
+component token (stop-note keeps its icons, header cap and colors under every system); don't
+add one to make a block look more like the system.
+
+**Write component values in px.** HAX's root font size is 20px, so an upstream `3rem` button is
+60px in HAX, not the 48px the system designed, and the generator's guards (which read rem at 16px)
+won't catch it. Use the px value with a `note` naming the upstream token
+(`"note": "Carbon lg button, layout-size-height-lg (a px value: ...)"`).
+
 ### 5. Generate and read the report
 
 ```
@@ -175,6 +189,11 @@ yarn ddd:bridge elements/<system>-theme
 
 Fix every problem it prints: locked or unlisted tokens, broken guards, unresolved tokens,
 contrast below 4.5:1 on DDD's key pairs, and named colors whose value flips between modes.
+It also checks the text color on every `data-primary` palette in light and dark: when DDD's
+default pair (`--ddd-primary-N-on`) falls under 4.5:1 and the other passes, it flips the pair in
+the map and lists it under `pairs` in the report; if neither passes it fails, and the map needs a
+different color for that palette. A bridge can set a pair itself as an identity token
+(`--ddd-primary-N-on`).
 Read `lib/<system>.ddd-map.json` for coverage per tier and family (semantic: type, density), and for which DDD tokens were
 kept. Aim for 90%+ identity. Say in the bridge's `$comment` and the README why anything was
 kept as DDD.
@@ -215,8 +234,7 @@ range of HAX blocks (hero, cards, grid, steps, notes, collapse, tabs, table, cod
 a `multiple-choice`, and `data-primary` / `data-accent` swatches). Write it as a spec and
 generate it with [`scripts/build-demo.py`](scripts/build-demo.py) so it can be regenerated after
 fixes. Artwork in `demo/files` is original SVG; `ddd-card` always needs a `src`. Before showing a
-palette, run [`scripts/primary-contrast.py`](scripts/primary-contrast.py): DDD's fixed text color
-on some remapped palettes fails contrast (haxtheweb/issues#3338). Details in
+palette, read `pairs` in the report to see which palettes take flipped text. Details in
 [`references/demo-sites.md`](references/demo-sites.md).
 
 ### 8. Check
@@ -226,6 +244,10 @@ on some remapped palettes fails contrast (haxtheweb/issues#3338). Details in
   manager changed. Before the axe check, wait until the theme's computed `opacity` is `1`: the
   base theme fades in on first load, and axe blends a half-faded color into a false contrast
   failure (1.12:1 on a solid primary button).
+- Add the system to the switcher on `elements/d-d-d/demo/ddd-next.html` (the `SYSTEMS` list and a
+  button; it imports `../../<package>/lib/<Prefix>DesignSystem.js`) and look at the blocks there
+  light and dark: cards, tags, buttons at three sizes, notes, steps, stat tiles and all 26
+  palettes side by side with the other systems.
 - Render the demo light, dark and at phone width and run axe WCAG A/AA on every page with
   [`scripts/check-demo.cjs`](scripts/check-demo.cjs). Run one `web-dev-server` per theme from the
   monorepo root (`--root-dir . --app-index elements/<system>-theme/demo/index.html`), not the

@@ -76,9 +76,9 @@ Use a range of blocks the way that system's own pages would:
 - Actions: `simple-cta` (`data-primary="1"` filled, `data-primary="4"` dark).
 - Answer states: `multiple-choice question="..."` with `<input data-correct="true" value="..."/>`.
 - Palettes: swatches as `<div data-primary="N" data-design-treatment="bg" data-padding="m">`.
-  Run `scripts/primary-contrast.py` first and leave out any palette it marks FAIL: those are
-  bridge-level contrast gaps (haxtheweb/issues#3338), not something to hide in the demo
-  without saying so in the PR.
+  Show all 26: the generator pairs each palette with a text color that passes 4.5:1 in light
+  and dark (`pairs` in the report lists the ones it flipped), and fails the build when none
+  does.
 
 Artwork in `demo/files` must be original (generated SVG shapes or gradients in the system's
 palette). Never copy the system's own illustrations, photos, logos or icons.

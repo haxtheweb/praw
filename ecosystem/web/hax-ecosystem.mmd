@@ -28,6 +28,7 @@ flowchart TB
   subgraph backends ["Backends and identity"]
     php["HAXcms PHP"]
     nodejs["HAXcms Node.js"]
+    browser["HAXcms in the browser"]
     haxiam["HAXiam"]
     haxpsu["hax.psu.edu"]
     ssr["Lit SSR"]
@@ -215,6 +216,8 @@ flowchart TB
   php -->|serves| haxcms
   nodejs -->|serves| haxcms
   php -->|mirrors| nodejs
+  browser -->|runs in a tab| nodejs
+  browser -->|publishes to| deploy
   haxiam -->|hosts many sites of| haxcms
   ssr -->|server-renders| components
   ssr -->|runs inside| nodejs
@@ -326,6 +329,7 @@ flowchart TB
   ssr ==>|keeps it| efficient
   ubiquity ==>|keeps it| efficient
   deploy ==>|keep it| efficient
+  browser ==>|keep it| accessible
   cli ==>|keeps it| efficient
   plugins ==>|keep it| extensible
   components ==>|keep it| extensible
@@ -739,6 +743,7 @@ flowchart TB
   %%@ node themes icon=lrn:palette color=original87Pink motion=tilt web=themes
   %%@ node php icon=hax:future-traveler color=coalyGray motion=pulse new
   %%@ node nodejs icon=hax:future-traveler-plain color=limestoneGray motion=spin new
+  %%@ node browser icon=icons:chrome-reader-mode color=skyBlue motion=lift web=browser new
   %%@ node haxiam icon=icons:verified-user color=inventOrange motion=pulse
   %%@ node haxpsu icon=social:school color=inventOrange motion=pulse web=sites
   %%@ node ssr icon=icons:dns color=athertonViolet motion=lift

@@ -27,25 +27,10 @@ Ensure each skill directory has the required structure:
 
 ```
 skills/
-├── hax-webcomponent-dev/
-│   └── SKILL.md          ← required
-├── hax-site-building/
-│   └── SKILL.md          ← required
-├── hax-design-system/
-│   └── SKILL.md          ← required
-├── hax-ecosystem-onboarding/
-│   └── SKILL.md          ← required
-├── hax-rule-management/
+├── <skill-name>/
 │   ├── SKILL.md          ← required
 │   └── scripts/          ← optional
-├── hax-issue-analysis/
-│   ├── SKILL.md          ← required
-│   └── scripts/          ← optional
-├── hax-claudehax/
-│   └── SKILL.md          ← required
-├── hax-openstax2hax/
-│   └── SKILL.md          ← required
-└── README.md             ← human documentation
+└── README.md             ← human documentation, one row per skill
 ```
 
 Each `SKILL.md` must have:
@@ -59,15 +44,8 @@ Each `SKILL.md` must have:
 Test each skill locally before publishing:
 
 ```bash
-# From the PRAW repository root
-npx skills add ./skills/hax-webcomponent-dev
-npx skills add ./skills/hax-site-building
-npx skills add ./skills/hax-design-system
-npx skills add ./skills/hax-ecosystem-onboarding
-npx skills add ./skills/hax-rule-management
-npx skills add ./skills/hax-issue-analysis
-npx skills add ./skills/hax-claudehax
-npx skills add ./skills/hax-openstax2hax
+# From the PRAW repository root, for each skill you changed
+npx skills add ./skills/<skill-name>
 ```
 
 Verify:
@@ -78,31 +56,12 @@ Verify:
 ### Step 3: Commit and Push to GitHub
 
 ```bash
-cd praw
-
-git add skills/
-git add .well-known/skills/
-git add llms.txt
-
-git commit -m "feat: add HAX ecosystem agent skills for skills.sh
-
-Adds 7 focused agent skills:
-- hax-webcomponent-dev
-- hax-site-building
-- hax-design-system
-- hax-ecosystem-onboarding
-- hax-rule-management
-- hax-issue-analysis
-- hax-claudehax
-- hax-openstax2hax
-
-Also adds .well-known/skills/default/SKILL.md and llms.txt
-for agent discovery and routing.
-
-Co-Authored-By: Oz <oz-agent@warp.dev>"
-
-git push origin main
+node scripts/build-agent-skills-index.js   # refreshes the .well-known/agent-skills discovery index
+git add skills/ .well-known/agent-skills/ llms.txt
+git commit -m "feat: add <skill-name> skill"
 ```
+
+Open a pull request; skills reach `main` through review like everything else.
 
 ### Step 4: Trigger skills.sh Discovery
 
@@ -111,20 +70,10 @@ The fastest way to get listed on skills.sh is to run the first install yourself.
 Install from a fresh project directory (not the PRAW repo itself):
 
 ```bash
-cd /tmp
 mkdir skill-test && cd skill-test
 
-# Install individual skills
-npx skills add haxtheweb/praw --skill hax-webcomponent-dev
-npx skills add haxtheweb/praw --skill hax-site-building
-npx skills add haxtheweb/praw --skill hax-design-system
-npx skills add haxtheweb/praw --skill hax-ecosystem-onboarding
-npx skills add haxtheweb/praw --skill hax-rule-management
-npx skills add haxtheweb/praw --skill hax-issue-analysis
-npx skills add haxtheweb/praw --skill hax-claudehax
-
-# Or install all at once
-npx skills add haxtheweb/praw --all
+npx skills add haxtheweb/praw --skill <skill-name>   # one skill
+npx skills add haxtheweb/praw --all                  # or all of them
 ```
 
 This will:
@@ -154,24 +103,12 @@ If they don't appear immediately, check:
 
 Once verified, share the install commands with the HAX community:
 
-```markdown
-## Install HAX Ecosystem Skills
-
 ```bash
-# Install all skills
 npx skills add haxtheweb/praw --all
+npx skills add haxtheweb/praw --skill <skill-name>
+```
 
-# Or install individually
-npx skills add haxtheweb/praw --skill hax-webcomponent-dev
-npx skills add haxtheweb/praw --skill hax-site-building
-npx skills add haxtheweb/praw --skill hax-design-system
-npx skills add haxtheweb/praw --skill hax-ecosystem-onboarding
-npx skills add haxtheweb/praw --skill hax-rule-management
-npx skills add haxtheweb/praw --skill hax-issue-analysis
-npx skills add haxtheweb/praw --skill hax-claudehax
-npx skills add haxtheweb/praw --skill hax-openstax2hax
-```
-```
+The per-skill commands are kept in [`README.md`](README.md) in this folder.
 
 ## Maintenance and Updates
 
@@ -246,7 +183,7 @@ Beyond skills.sh, you can distribute skills through:
 - **npm/skillpm** — Add a `package.json` to the skill root and publish to npm
 - **GitHub releases** — Tag releases and point users to specific versions
 - **llms.txt** — Already configured at repo root for agent discovery
-- **.well-known/skills/** — Already configured for automated agent discovery
+- **.well-known/agent-skills/** — Already configured for automated agent discovery
 
 ## Resources
 

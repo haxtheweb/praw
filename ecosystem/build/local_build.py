@@ -3,11 +3,12 @@
     python3 -I local_build.py _site
 
 The page's import map sends custom/ code's @haxtheweb/ imports to the CDN; with build/ shipped beside the
-page they go to ./build/ instead, so the whole site loads from one origin. The boilerplate page also says
-HAXCMSContext="php", which makes HAXcms ask the server for a backend (a request that can only fail here);
-hax.cloud is a static site, so it says "published", HAXcms's context for a site that is only read. Fails, rather than publishing a
-site that silently loads half from somewhere else, when the page no longer has that entry or build/ lacks
-what the site needs: the HAXcms core, the autoloader, the theme and the network bar.
+page they go to ./build/ instead, so the whole site loads from one origin. The page must also say
+HAXCMSContext="published", HAXcms's context for a site that is only read: "php" makes HAXcms ask the
+server for a backend (a request that can only fail here). The boilerplate's ghpages.html says "published"
+itself now; an older one that still says "php" is rewritten. Fails, rather than publishing a site that
+silently loads half from somewhere else, when the page has neither context or no CDN entry, or build/
+lacks what the site needs: the HAXcms core, the autoloader, the theme and the network bar.
 """
 import os
 import sys
@@ -40,8 +41,9 @@ def main(out):
         html = f.read()
     if html.count(CDN) != 1:
         sys.exit("index.html changed: expected one custom/ import map entry for the CDN")
-    if html.count(PHP) != 1:
-        sys.exit("index.html changed: expected one %s" % PHP)
+    # exactly one context statement, either already "published" or the older "php"
+    if html.count(PHP) + html.count(PUBLISHED) != 1:
+        sys.exit("index.html changed: expected one %s (or the older %s)" % (PUBLISHED, PHP))
     with open(page, "w", encoding="utf-8") as f:
         f.write(html.replace(CDN, LOCAL).replace(PHP, PUBLISHED))
     print("local build: build/ checked, custom/ imports point at ./build/, context is published")

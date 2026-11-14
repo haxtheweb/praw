@@ -55,6 +55,32 @@ rm -rf ~/.agents/skills/{hax-site-building,hax-claudehax,hax-webcomponent-dev,ha
 hax skills install --all
 ```
 
+## Use HAX from any AI agent
+
+Three ways in. Pick what your agent supports; they work together.
+
+**Skills, for any agent that reads `SKILL.md`** (Claude Code, Cursor, Codex and others):
+
+```bash
+npx skills add haxtheweb/praw --all                      # every PRAW skill
+npx skills add haxtheweb/praw --skill hax-mental-model   # or one; the full list is in skills/README.md
+npm install --global @haxtheweb/create && hax skills install --all   # the CLI's own skills
+```
+
+**Plugins, for Claude Code:** see [Claude Code Plugin Marketplace](#claude-code-plugin-marketplace) below.
+
+**MCP server, to let an agent operate a running HAXcms** ([haxcms-mcp](https://github.com/haxtheweb/haxcms-mcp), any MCP client):
+
+```bash
+claude mcp add haxcms \
+  --env HAXCMS_MCP_BASE_URL=http://localhost:3000 \
+  --env HAXCMS_MCP_USERNAME=admin \
+  --env HAXCMS_MCP_PASSWORD=secret \
+  -- uvx --from git+https://github.com/haxtheweb/haxcms-mcp haxcms-mcp
+```
+
+Its README has the same setup for other agents.
+
 ## Claude Code Plugin Marketplace
 
 PRAW hosts the official HAX Claude Code plugin marketplace. Add it and install a plugin:

@@ -66,6 +66,8 @@ partly managed files in the next section.
 - well-known: `.well-known/security.txt`, `.well-known/api-catalog`,
   `.well-known/agent-skills/index.json` and the agent-skills skill files.
 - Config / tooling: `web-dev-server.haxcms.config.cjs`, `files/.htaccess`.
+- PHP hosting: `index.php` and `config.php` (the entry point and the settings it loads when a PHP
+  host serves the site), rewritten together on a full rebuild.
 - SCORM: `imsmanifest.xml` + the `*.xsd` files.
 - Per-page alternate formats: `pages/<item-id>/index.md`, `index.json`, `index.yaml`, `index.xml`
   (and any other `index.*` next to `index.html`). They are built from `index.html` whenever the
@@ -76,8 +78,7 @@ partly managed files in the next section.
 ## Copied once, then yours
 
 These come from the boilerplate when a site is made and are never rebuilt, so edits to them
-stay: `index.php` and `config.php` (entry point and settings when a PHP host serves the site),
-`README.md`, `LICENSE.md`, `.gitignore`, `CNAME`, `Dockerfile`, `netlify.toml`,
+stay: `README.md`, `LICENSE.md`, `.gitignore`, `CNAME`, `Dockerfile`, `netlify.toml`,
 `.github/workflows/deploy.yml`, and the default icons in `assets/`.
 
 ## Retired paths (older sites only)

@@ -210,7 +210,7 @@
       "type": "skill-md",
       "description": "Know which HAXcms files are generated (rebuild, never hand-edit) versus authored. Load before editing a managed file or running a build: no ubiquity script, no top-level monorepo build, local hax CLI instead of npx.",
       "url": "hax-managed-files/SKILL.md",
-      "digest": "sha256:e72a080aea268bb6da715bfef0db42a18b9d75e85b41df56332aa9254a8dc684"
+      "digest": "sha256:2336d607631f7cbfc32e30c2181326c4e332703ff2bf7802a8483d57b29ef0fb"
     },
     {
       "name": "hax-mental-model",

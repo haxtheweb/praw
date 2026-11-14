@@ -202,6 +202,22 @@
    "status": "released",
    "version": "26.8.1"
   },
+  "browser": {
+   "desc": "haxcms-nodejs bundled to run in a browser tab: no install, no server. Sites save to a folder, the browser, or cloud storage (Google Drive, OneDrive, Dropbox, Box, WebDAV); people sign in with an account they have; and sites publish straight to Surge, GitHub Pages, GitLab Pages, Codeberg Pages, Netlify or Vercel. Open its web for every service.",
+   "source": {
+    "label": "haxtheweb/issues #3331",
+    "url": "https://github.com/haxtheweb/issues/issues/3331"
+   },
+   "links": {
+    "repo": "https://github.com/haxtheweb/haxcms-browser",
+    "site": "https://browser.hax.cloud",
+    "issue": "https://github.com/haxtheweb/issues/issues/3341",
+    "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md"
+   },
+   "status": "deployed",
+   "year": 2026,
+   "yearNote": "HAXcms runs in a browser tab"
+  },
   "haxiam": {
    "desc": "Makes HAXcms multi-tenant: hundreds of sites from one core behind institutional login. hax.psu.edu runs on it.",
    "source": {
@@ -336,7 +352,7 @@
    "status": "living"
   },
   "deploy": {
-   "desc": "Publish targets for HAX sites: surge, Netlify, Vercel and GitHub Pages, as static files.",
+   "desc": "Publish targets for HAX sites: surge, Netlify, Vercel, GitHub Pages, GitLab Pages and Codeberg Pages, as static files, from the CLI or straight from HAXcms in the browser.",
    "status": "released"
   },
   "ai": {

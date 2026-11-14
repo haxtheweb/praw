@@ -1,0 +1,290 @@
+{
+ "meta": {
+  "name": "HAXcms in the browser",
+  "slug": "haxcms-browser",
+  "parent": "main",
+  "noTimeline": true,
+  "sectionLabels": {
+   "runtime": "how it runs",
+   "storage": "where sites are saved",
+   "signin": "sign in with",
+   "publish": "publish to"
+  },
+  "about": "What haxcms-browser does and the services it works with, from its README and docs/providers.md. Services marked in progress are built and need their OAuth app registered on a deployment before they show.",
+  "links": {
+   "try it": "https://browser.hax.cloud",
+   "repo": "https://github.com/haxtheweb/haxcms-browser",
+   "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md"
+  }
+ },
+ "nodes": {
+  "browser": {
+   "always": true,
+   "desc": "haxcms-nodejs running in a browser tab at browser.hax.cloud: make sites with no install, keep them in a folder, the browser or cloud storage, sign in with an account you have, and publish for free. Which services a deployment offers depends on the OAuth apps whoever runs it registers (docs/providers.md).",
+   "links": {
+    "try it": "https://browser.hax.cloud",
+    "repo": "https://github.com/haxtheweb/haxcms-browser",
+    "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md",
+    "issue": "https://github.com/haxtheweb/issues/issues/3341"
+   }
+  },
+  "br_worker": {
+   "desc": "The whole haxcms-nodejs app, bundled with esbuild, running in a Web Worker with an in-memory file system. Every result must match haxcms-nodejs on Node: a parity scenario runs the same requests on both.",
+   "kind": "runtime",
+   "status": "deployed",
+   "links": {}
+  },
+  "br_relay": {
+   "desc": "The HAXcms pages in the frame ask for URLs as usual; the service worker hands each request to the page that owns the Worker and returns its answer. Nothing HAXcms asks for reaches the web server.",
+   "kind": "runtime",
+   "status": "deployed",
+   "links": {}
+  },
+  "br_broker": {
+   "desc": "Small stateless Vercel functions deployed with the page: they finish sign-ins with each app's client secret and pass Surge uploads on. They keep nothing and only answer their own page.",
+   "kind": "runtime",
+   "status": "deployed",
+   "links": {
+    "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md#how-it-fits-together"
+   }
+  },
+  "st_folder": {
+   "desc": "A folder the person picks on their computer (File System Access, Chromium browsers). Each site is a normal HAXsite folder in it.",
+   "kind": "storage",
+   "status": "deployed",
+   "links": {}
+  },
+  "st_browser": {
+   "desc": "The browser's own private file system: the default, and what Firefox and Safari use. Browsers can clear it when space runs low, so the bar suggests a folder or the cloud.",
+   "kind": "storage",
+   "status": "deployed",
+   "links": {}
+  },
+  "st_gdrive": {
+   "desc": "A \"HAXcms sites\" folder in the person's Drive, with the drive.file scope: HAXcms only reaches files it made.",
+   "kind": "storage",
+   "status": "in-progress",
+   "links": {
+    "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md#google-sign-in-google-drive",
+    "issue": "https://github.com/haxtheweb/issues/issues/3341"
+   },
+   "note": "Built; works once the deployment registers this service's app (haxtheweb/issues#3341)."
+  },
+  "st_onedrive": {
+   "desc": "OneDrive's Apps/<app> folder, the only folder the app can reach (Files.ReadWrite.AppFolder).",
+   "kind": "storage",
+   "status": "in-progress",
+   "links": {
+    "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md#microsoft-sign-in-onedrive",
+    "issue": "https://github.com/haxtheweb/issues/issues/3341"
+   },
+   "note": "Built; works once the deployment registers this service's app (haxtheweb/issues#3341)."
+  },
+  "st_dropbox": {
+   "desc": "Dropbox's app folder, with scoped access.",
+   "kind": "storage",
+   "status": "in-progress",
+   "links": {
+    "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md#dropbox-cloud-storage",
+    "issue": "https://github.com/haxtheweb/issues/issues/3341"
+   },
+   "note": "Built; works once the deployment registers this service's app (haxtheweb/issues#3341)."
+  },
+  "st_box": {
+   "desc": "A \"HAXcms sites\" folder in Box. Box only answers browser calls from origins listed on the app.",
+   "kind": "storage",
+   "status": "in-progress",
+   "links": {
+    "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md#box-cloud-storage",
+    "issue": "https://github.com/haxtheweb/issues/issues/3341"
+   },
+   "note": "Built; works once the deployment registers this service's app (haxtheweb/issues#3341)."
+  },
+  "st_webdav": {
+   "desc": "Any WebDAV server the person points at, with an app password that is never stored. The server has to allow the page's origin (for Nextcloud, the WebAppPassword app).",
+   "kind": "storage",
+   "status": "in-progress",
+   "links": {
+    "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md#nextcloud-and-other-webdav-servers-set-up-on-the-server",
+    "issue": "https://github.com/haxtheweb/issues/issues/3341"
+   },
+   "note": "Built; works once the deployment registers this service's app (haxtheweb/issues#3341)."
+  },
+  "si_google": {
+   "desc": "Sign in with Google; name, email and picture become the author of new sites.",
+   "kind": "signin",
+   "status": "in-progress",
+   "links": {
+    "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md#google-sign-in-google-drive",
+    "issue": "https://github.com/haxtheweb/issues/issues/3341"
+   },
+   "note": "Built; works once the deployment registers this service's app (haxtheweb/issues#3341)."
+  },
+  "si_microsoft": {
+   "desc": "Sign in with a work, school or personal Microsoft account.",
+   "kind": "signin",
+   "status": "in-progress",
+   "links": {
+    "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md#microsoft-sign-in-onedrive",
+    "issue": "https://github.com/haxtheweb/issues/issues/3341"
+   },
+   "note": "Built; works once the deployment registers this service's app (haxtheweb/issues#3341)."
+  },
+  "si_github": {
+   "desc": "Sign in with GitHub through the HAX GitHub App.",
+   "kind": "signin",
+   "status": "in-progress",
+   "links": {
+    "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md#github-sign-in-github-pages",
+    "issue": "https://github.com/haxtheweb/issues/issues/3341"
+   },
+   "note": "Built; works once the deployment registers this service's app (haxtheweb/issues#3341)."
+  },
+  "si_gitlab": {
+   "desc": "Sign in with GitLab.com.",
+   "kind": "signin",
+   "status": "in-progress",
+   "links": {
+    "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md#gitlab-sign-in-gitlab-pages",
+    "issue": "https://github.com/haxtheweb/issues/issues/3341"
+   },
+   "note": "Built; works once the deployment registers this service's app (haxtheweb/issues#3341)."
+  },
+  "si_apple": {
+   "desc": "Sign in with Apple; Apple posts back to the broker, which passes on only the name and email.",
+   "kind": "signin",
+   "status": "in-progress",
+   "links": {
+    "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md#apple-sign-in",
+    "issue": "https://github.com/haxtheweb/issues/issues/3341"
+   },
+   "note": "Built; works once the deployment registers this service's app (haxtheweb/issues#3341)."
+  },
+  "pb_surge": {
+   "desc": "Free *.surge.sh addresses with a Surge token or email and password, through the broker (up to about 4 MB per site; the dialog says so).",
+   "kind": "publish",
+   "status": "deployed",
+   "links": {
+    "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md#surge-publishing-no-setup"
+   }
+  },
+  "pb_ghpages": {
+   "desc": "A public repository named after the site, with .nojekyll, and Pages turned on.",
+   "kind": "publish",
+   "status": "in-progress",
+   "links": {
+    "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md#github-sign-in-github-pages",
+    "issue": "https://github.com/haxtheweb/issues/issues/3341"
+   },
+   "note": "Built; works once the deployment registers this service's app (haxtheweb/issues#3341)."
+  },
+  "pb_glpages": {
+   "desc": "A public project with the site in public/ and a .gitlab-ci.yml pages job.",
+   "kind": "publish",
+   "status": "in-progress",
+   "links": {
+    "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md#gitlab-sign-in-gitlab-pages",
+    "issue": "https://github.com/haxtheweb/issues/issues/3341"
+   },
+   "note": "Built; works once the deployment registers this service's app (haxtheweb/issues#3341)."
+  },
+  "pb_cbpages": {
+   "desc": "A public repository with the site on its pages branch and the git-pages webhook.",
+   "kind": "publish",
+   "status": "in-progress",
+   "links": {
+    "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md#codeberg-codeberg-pages",
+    "issue": "https://github.com/haxtheweb/issues/issues/3341"
+   },
+   "note": "Built; works once the deployment registers this service's app (haxtheweb/issues#3341)."
+  },
+  "pb_netlify": {
+   "desc": "A Netlify site, deployed by file digest so republishing sends only what changed.",
+   "kind": "publish",
+   "status": "in-progress",
+   "links": {
+    "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md#netlify-publishing",
+    "issue": "https://github.com/haxtheweb/issues/issues/3341"
+   },
+   "note": "Built; works once the deployment registers this service's app (haxtheweb/issues#3341)."
+  },
+  "pb_vercel": {
+   "desc": "A production deployment of a Vercel project, through the HAX Vercel integration.",
+   "kind": "publish",
+   "status": "in-progress",
+   "links": {
+    "setup": "https://github.com/haxtheweb/haxcms-browser/blob/main/docs/providers.md#vercel-publishing",
+    "issue": "https://github.com/haxtheweb/issues/issues/3341"
+   },
+   "note": "Built; works once the deployment registers this service's app (haxtheweb/issues#3341)."
+  },
+  "pb_download": {
+   "desc": "Always there: HAXcms's own zip of the site, to publish anywhere with the HAX CLI.",
+   "kind": "publish",
+   "status": "deployed",
+   "links": {}
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "zero-to-published",
+   "label": "From zero to a published site",
+   "kind": "story",
+   "message": "No install, no server: sign in, keep the site somewhere safe, publish it free.",
+   "scenes": [
+    {
+     "caption": "Open browser.hax.cloud: HAXcms Node.js runs in the tab.",
+     "nodes": [
+      "browser",
+      "br_worker",
+      "nodejs"
+     ]
+    },
+    {
+     "caption": "Sign in with an account you have; you become the author of the sites you make.",
+     "nodes": [
+      "browser",
+      "si_google",
+      "si_microsoft",
+      "si_github",
+      "si_gitlab",
+      "si_apple",
+      "br_broker"
+     ]
+    },
+    {
+     "caption": "Keep the sites in a folder, the browser or cloud storage you already have.",
+     "nodes": [
+      "browser",
+      "st_folder",
+      "st_browser",
+      "st_gdrive",
+      "st_onedrive",
+      "st_dropbox",
+      "st_box",
+      "st_webdav"
+     ]
+    },
+    {
+     "caption": "Publish free, straight from the browser.",
+     "nodes": [
+      "browser",
+      "pb_surge",
+      "pb_ghpages",
+      "pb_glpages",
+      "pb_cbpages",
+      "pb_netlify",
+      "pb_vercel",
+      "pb_download",
+      "deploy"
+     ]
+    },
+    {
+     "caption": "All of it.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

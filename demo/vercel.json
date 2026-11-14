@@ -10,6 +10,10 @@
       "destination": "/node_modules/@haxtheweb/:path*"
     },
     {
+      "source": "/lib/themes.json",
+      "destination": "/node_modules/@haxtheweb/haxcms-elements/lib/themes.json"
+    },
+    {
       "source": "/((?!.*\\.[A-Za-z0-9]+$).*)",
       "destination": "/index.html"
     }
@@ -17,7 +21,12 @@
   "headers": [
     {
       "source": "/",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
     }
   ]
 }

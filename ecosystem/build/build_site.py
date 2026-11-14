@@ -223,7 +223,7 @@ if ECO_THEME:
                                   + [{"label": x["title"], "slug": slug(x["slug"])} for x in EXTRA if x.get("nav")],
                            "links": [{"kind": "docs", "label": "Docs", "href": "https://haxtheweb.org"},
                                      {"kind": "portfolio", "label": "Element portfolio", "href": "https://webcomponents.hax.cloud"},
-                                     {"kind": "demo", "label": "Try the live demo", "href": "https://webcomponents.hax.cloud/elements/haxcms-elements/demo/index.html"}],
+                                     {"kind": "demo", "label": "Try the live demo", "href": "https://demo.hax.cloud"}],
                            # the home page's greeting: before anything else, that it is all one network
                            "welcome": {"title": "Everything in HAX is connected",
                                        "text": "Every part of HAX, every site in the HAX network and everyone who builds it, in one web. "

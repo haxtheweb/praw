@@ -72,6 +72,7 @@ def portal_home(w, nid):
 
 # ---------- the outline ----------
 items, page_of = [], {}  # page_of[(web, tile)] = item id; page_of[("web", w)] = item id
+SITE_DESCRIPTION = "The HAX ecosystem: every part, the people behind it, and how it all connects."
 def web_name(w): return WEBS[w]["data"].get("meta", {}).get("name") or ("Ecosystem web" if w == "main" else w)
 def web_parent(w):
     p = WEBS[w]["data"].get("meta", {}).get("parent")
@@ -97,7 +98,9 @@ def place_web(w, depth=0):
     done.add(w)
     if w == "main":
         web_slug[w] = ""
-        page_of[("web", w)] = add("web:main", "Ecosystem web", None, unique("ecosystem"), WEBS[w]["data"].get("meta", {}).get("about", ""), 0)
+        # the home page: its description is what search results and link previews show for hax.cloud, so it is
+        # the site's own, not the main web's "about" (notes for whoever edits the web)
+        page_of[("web", w)] = add("web:main", "Ecosystem web", None, unique("ecosystem"), SITE_DESCRIPTION, 0)
         return
     base = web_slug[par] if par else ""
     nm = web_name(w)
@@ -233,7 +236,7 @@ if ECO_THEME:
                            "footerNote": "Built from PRAW on every push to main.",
                            "footer": [{"label": "Source: praw/ecosystem", "href": "https://github.com/haxtheweb/praw/tree/main/ecosystem"},
                                       {"label": "Roadmap", "href": "https://github.com/haxtheweb/issues/issues/3310"}]}}
-site = {"id": str(uuid.uuid5(NS, "hax.cloud")), "title": "hax.cloud", "author": "HAXTheWeb", "description": "The HAX ecosystem: every part, the people behind it, and how it all connects.",
+site = {"id": str(uuid.uuid5(NS, "hax.cloud")), "title": "hax.cloud", "author": "HAXTheWeb", "description": SITE_DESCRIPTION,
         "license": "by-sa",
         "metadata": {"author": {"name": "HAXTheWeb", "socialLink": "https://github.com/haxtheweb"},
                      "site": {"name": "hax-cloud", "domain": "https://hax.cloud", "lang": "en", "created": int(time.time()), "updated": int(time.time()),

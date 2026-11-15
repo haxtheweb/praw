@@ -406,6 +406,7 @@ Every rule has one of four scopes:
 
 ### Recurring security-audit playbook for the 5 core repos
 - **Rule ID**: `759643a6db03433a9d742f`
+- **Scope**: `global`
 - **Content**: Recurring security audits cover create, haxcms-nodejs, webcomponents, haxcms-php, and HAXiam. Start every audit by reading that repo's SECURITY-AUDIT.md (read order, scope, commands, regression guards, reporting convention). The repo's undated security_best_practices_report.md is the canonical current state; dated security_best_practices_report_YYYY-MM-DD.md files are archived rounds. Cite findings with file:line and mark fixes with inline security comments referencing the finding ID. Report vulnerabilities via SECURITY.md private advisories, never public issues. Keep haxcms-php and haxcms-nodejs security/spec fixes mirrored in both backends.
 
 ### Mascot Name: the Future Traveler

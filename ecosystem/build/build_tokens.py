@@ -47,7 +47,7 @@ def tid(k): return "ty_" + slug(k)
 build = f"{DDD}/design-system/build-tokens.js"
 src_js = open(os.path.join(W, DDD, "design-system/lib/source.js")).read() if os.path.exists(os.path.join(W, DDD, "design-system/lib/source.js")) else ""
 sources = []
-for args in re.findall(r"read\(\s*((?:\"[^\"]+\"\s*,?\s*)+)\)", src_js): sources.append("/".join(re.findall(r'"([^"]+)"', args)))
+for args in re.findall(r"read\(\s*(\"[^\"]+\"(?:\s*,\s*\"[^\"]+\")*)\s*,?\s*\)", src_js): sources.append("/".join(re.findall(r'"([^"]+)"', args)))
 for f in re.findall(r'path\.join\(DDD_DIR,\s*"lib",\s*"([^"]+)"\)', src_js): sources.append(f"{DDD}/lib/{f}")
 sources = [s for s in dict.fromkeys(sources) if s.endswith(".js")]
 check = {"ok": None, "out": ""}

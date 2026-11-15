@@ -43,6 +43,18 @@
 const fs = require("fs");
 const path = require("path");
 
+// Plain text from an HTML fragment: remove tags until none are left (one pass can
+// leave a tag behind when tags nest inside tags), then any stray "<" or ">".
+function stripTags(html) {
+  let text = String(html);
+  let prev;
+  do {
+    prev = text;
+    text = text.replace(/<[^<>]*>/g, "");
+  } while (text !== prev);
+  return text.replace(/[<>]/g, "");
+}
+
 function resolveMammoth() {
   const candidates = [
     () => require("mammoth"),
@@ -143,7 +155,7 @@ function transformImagesToMediaImage(html) {
   while ((m = tokenRe.exec(html)) !== null) {
     out += html.slice(lastIdx, m.index);
     if (m[1] !== undefined) {
-      lastHeading = m[2].replace(/<[^>]+>/g, "").trim();
+      lastHeading = stripTags(m[2]).trim();
       out += m[0];
     } else {
       const imgTag = m[3] !== undefined ? m[3] : m[4];

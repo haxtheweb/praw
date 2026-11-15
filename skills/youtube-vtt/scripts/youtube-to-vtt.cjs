@@ -36,6 +36,18 @@ const VENV_DIR = path.join(os.homedir(), ".hax-skills", "yt-dlp-venv");
 // venv (youtube-vtt, hax-tutorial-site). Override with YT_DLP_VERSION=<version>.
 const YT_DLP_VERSION = process.env.YT_DLP_VERSION || "2026.10.26";
 
+// Plain text from an HTML fragment: remove tags until none are left (one pass can
+// leave a tag behind when tags nest inside tags), then any stray "<" or ">".
+function stripTags(html) {
+  let text = String(html);
+  let prev;
+  do {
+    prev = text;
+    text = text.replace(/<[^<>]*>/g, "");
+  } while (text !== prev);
+  return text.replace(/[<>]/g, "");
+}
+
 function parseFlags(argv) {
   const flags = { lang: "en" };
   for (let i = 0; i < argv.length; i++) {
@@ -182,8 +194,7 @@ function cleanVtt(raw) {
 
   // strip inline tags, fix speech-to-text typo, trim, drop empties
   const stripInline = (s) =>
-    s
-      .replace(/<[^>]+>/g, "")
+    stripTags(s)
       .replace(/Hack[ ]?CMS/gi, "HAXcms")
       .replace(/\s+/g, " ")
       .trim();

@@ -1037,10 +1037,10 @@ document.addEventListener("click",e=>{const b=e.target.closest(".pcard[data-go],
 
 /* ---------- boot and source editor ---------- */
 const srcMmd=document.getElementById("srcMmd"),srcJson=document.getElementById("srcJson"),srcStatus=document.getElementById("srcStatus");
-const WEBS={};document.querySelectorAll("script[data-web]").forEach(sc=>{const id=sc.dataset.web;WEBS[id]=WEBS[id]||{id};WEBS[id][sc.dataset.part]=sc.dataset.part==="json"?JSON.stringify(JSON.parse(sc.textContent),null,1):sc.textContent.replace(/^\n/,"")});
-let CUR="main",BASE=null,CACHE={};
+const WEBS=Object.create(null);document.querySelectorAll("script[data-web]").forEach(sc=>{const id=sc.dataset.web;WEBS[id]=WEBS[id]||{id};WEBS[id][sc.dataset.part]=sc.dataset.part==="json"?JSON.stringify(JSON.parse(sc.textContent),null,1):sc.textContent.replace(/^\n/,"")});
+let CUR="main",BASE=null,CACHE=Object.create(null);
 Object.values(WEBS).forEach(w=>{try{Object.assign(IMAGES,JSON.parse(w.json).images||{})}catch(_){}});
-const JSONS={};function jsonOf(id){if(JSONS[id])return JSONS[id];let D={};try{D=JSON.parse(WEBS[id].json)}catch(_){}JSONS[id]=D;return D}
+const JSONS=Object.create(null);function jsonOf(id){if(JSONS[id])return JSONS[id];let D={};try{D=JSON.parse(WEBS[id].json)}catch(_){}JSONS[id]=D;return D}
 function docOf(web,id){if(web===true||web==="main")return {};const D=WEBS[web]?jsonOf(web):{};return (D.nodes&&D.nodes[id])||{}}
 /* webs can portal into each other (themes <-> skeletons), so a web is cached as soon as it is parsed; a portal met mid-build reads the other web's JSON directly */
 function modelOf(id){if(id==="main")return BASE;if(CACHE[id])return CACHE[id];if(!WEBS[id])return null;
@@ -1081,7 +1081,7 @@ loadEditor();build(WEBS.main.mmd,WEBS.main.json,true);
 {const h=location.hash.slice(1);if(h&&h!=="main"&&WEBS[h])openWeb(h)}
 function tab(j){tM.setAttribute("aria-pressed",!j);tJ.setAttribute("aria-pressed",j);srcMmd.hidden=j;srcJson.hidden=!j}
 tM.addEventListener("click",()=>tab(false));tJ.addEventListener("click",()=>tab(true));
-document.getElementById("bApply").addEventListener("click",()=>{if(build(srcMmd.value,srcJson.value,false)){WEBS[CUR].mmd=srcMmd.value;WEBS[CUR].json=srcJson.value;CACHE={}}});
+document.getElementById("bApply").addEventListener("click",()=>{if(build(srcMmd.value,srcJson.value,false)){WEBS[CUR].mmd=srcMmd.value;WEBS[CUR].json=srcJson.value;CACHE=Object.create(null)}});
 document.getElementById("bCopy").addEventListener("click",()=>{const ta=srcJson.hidden?srcMmd:srcJson;
   const done=()=>{srcStatus.className="status ok";srcStatus.textContent="Copied."};
   try{navigator.clipboard.writeText(ta.value).then(done,()=>{ta.select();srcStatus.className="status";srcStatus.textContent="Text selected. Press Ctrl+C or ⌘C to copy."})}catch(_){ta.select()}});

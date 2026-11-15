@@ -6,6 +6,7 @@
   oerschema  <- oer-schema/lib/oerschema.js (latestSchema)
 Rerun after a release; build_drift.py compares the next run with this one."""
 import json, re, os, collections
+from urllib.parse import urlparse
 GH = "https://github.com/haxtheweb"
 WC = GH + "/webcomponents/tree/master/elements/"
 NODE = GH + "/haxcms-nodejs/blob/main/"
@@ -242,7 +243,11 @@ for k in cls:
     for gid, lab, f in GRP:
         if f(k): grp_of[k] = gid; break
 cls = [k for k in cls if k in grp_of]
-SORG = sorted({s.split("/")[-1] for k in cls for s in C[k].get("subClassOf", []) if "schema.org" in s})
+def is_schema_org(ref):
+    # the host, not a substring: "https://schema.org/Course" yes, "https://example.com/?schema.org" no
+    host = urlparse(ref if "//" in ref else "//" + ref).hostname or ""
+    return host in ("schema.org", "www.schema.org")
+SORG = sorted({s.split("/")[-1] for k in cls for s in C[k].get("subClassOf", []) if is_schema_org(s)})
 lines = head("OER Schema", "oerschema", "OER Schema", "0,200,480,700,900", "92,64,46,44,48", "the vocabulary for open educational resources, how it extends schema.org, and where it shows up in HAX", "oer-schema/lib/oerschema.js (OER Schema " + o.get("version", "") + ")")
 lines += ['  subgraph rel ["Builds on"]', '    schemaorg[["schema.org"]]', '    ccrel[["Creative Commons ccREL"]]', "  end", '  subgraph grps ["What it describes"]']
 for gid, lab, f in GRP: lines.append(f'    {gid}["{lab}"]')
@@ -256,7 +261,7 @@ for gid, lab, f in GRP: lines.append(f"  oerschema -->|describes| {gid}")
 for k in cls:
     lines.append(f"  {grp_of[k]} -->|includes| oc_{slug(k)}")
     for s in C[k].get("subClassOf", []):
-        if "schema.org" in s: lines.append(f"  oc_{slug(k)} -.->|extends| so_{slug(s.split('/')[-1])}")
+        if is_schema_org(s): lines.append(f"  oc_{slug(k)} -.->|extends| so_{slug(s.split('/')[-1])}")
         elif s in cls and grp_of.get(s) == grp_of[k]: lines.append(f"  oc_{slug(k)} -->|is a kind of| oc_{slug(s)}")
 for s in SORG: lines.append(f"  so_{slug(s)} -.->|is part of| schemaorg")
 lines += ["  b_oer_schema -->|tags content with| oerschema", "  course -->|is described by| oc_course", "  textbook -->|is described by| oc_learningcomponent", "  editor -->|wraps content in| b_oer_schema", "  mcollins -.->|authored| oerschema", "  oervocab -.->|is| oerschema", "",

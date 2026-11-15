@@ -3,11 +3,13 @@
 
   python3 scripts/rule-checks.py mascot        Mascot Name: the Future Traveler (RULES.md 7d6f9c3e-...)
   python3 scripts/rule-checks.py local-paths   Cross-Repo References: No Local Paths (RULES.md bAKMWCMrqRLGdWmuNWgVUw)
-  python3 scripts/rule-checks.py self-test     the two checks catch what they should and skip what they should
+  python3 scripts/rule-checks.py org-name      GitHub org spelling: links and package scopes say haxtheweb, not a near-miss
+  python3 scripts/rule-checks.py self-test     the checks catch what they should and skip what they should
 
 Each check reads the files git tracks, prints file:line for every hit and exits 1 when there is one.
 Standard library only, so it runs anywhere Python 3 does.
 """
+import difflib
 import re
 import subprocess
 import sys
@@ -44,6 +46,20 @@ LOCAL_PATH_SKIP = [
     re.compile(r"^scripts/rule-checks\.py$"),
 ]
 
+# ---------- GitHub org spelling ----------
+# A near-miss of the org name (haxtheweeb, haxthweb, hax-the-web...) in a GitHub, raw or Pages URL or an npm
+# scope gives a dead link or a missing package. Other orgs and scopes (lit, ossf, cloudflare...) are not
+# near-misses and are left alone.
+ORG = "haxtheweb"
+ORG_REFS = [
+    re.compile(r"(?:github\.com|githubusercontent\.com)/([A-Za-z0-9_.-]+)", re.I),
+    re.compile(r"(?<![\w.])@([A-Za-z0-9_.-]+)/"),
+    re.compile(r"\b([A-Za-z0-9-]+)\.github\.io\b", re.I),
+]
+ORG_NAME_SKIP = [
+    re.compile(r"^scripts/rule-checks\.py$"),
+]
+
 
 def tracked_files():
     out = subprocess.run(["git", "ls-files"], capture_output=True, text=True, check=True).stdout
@@ -67,6 +83,18 @@ def mascot_hits_in_line(line):
 
 def local_path_hits_in_line(line):
     return LOCAL_PATH.findall(line)
+
+
+def org_name_hits_in_line(line):
+    hits = []
+    for rx in ORG_REFS:
+        for name in rx.findall(line):
+            lowered = name.lower()
+            if lowered == ORG:
+                continue
+            if difflib.SequenceMatcher(None, lowered, ORG).ratio() >= 0.8:
+                hits.append(name)
+    return hits
 
 
 def check(name, files, skip, scope, hit_fn, message):
@@ -110,6 +138,17 @@ def run_local_paths(files):
     )
 
 
+def run_org_name(files):
+    return check(
+        "GitHub org spelling",
+        files,
+        ORG_NAME_SKIP,
+        None,
+        org_name_hits_in_line,
+        "The GitHub org and npm scope are spelled haxtheweb; a near-miss is a dead link or a missing package.",
+    )
+
+
 def self_test():
     cases = [
         (mascot_hits_in_line, "Meet the World Traveler!", True),
@@ -126,6 +165,16 @@ def self_test():
         (local_path_hits_in_line, "runs in /home/runner/work/praw", False),
         (local_path_hits_in_line, "https://github.com/haxtheweb/praw/blob/main/RULES.md", False),
         (local_path_hits_in_line, "cd webcomponents  # your own clone", False),
+        (org_name_hits_in_line, "https://github.com/haxtheweeb/issues/issues/1", True),
+        (org_name_hits_in_line, "https://github.com/haxthweb/praw", True),
+        (org_name_hits_in_line, "import '@haxthewb/d-d-d/d-d-d.js'", True),
+        (org_name_hits_in_line, "https://haxtheweeb.github.io/", True),
+        (org_name_hits_in_line, "https://raw.githubusercontent.com/hax-the-web/praw/main/llms.txt", True),
+        (org_name_hits_in_line, "https://github.com/haxtheweb/praw/blob/main/RULES.md", False),
+        (org_name_hits_in_line, "https://github.com/HAXTheWeb/webcomponents", False),
+        (org_name_hits_in_line, "import '@haxtheweb/d-d-d/d-d-d.js'", False),
+        (org_name_hits_in_line, "https://github.com/ossf/scorecard and @lit/reactive-element", False),
+        (org_name_hits_in_line, "https://github.com/haxcms/haxcms and contact hax@psu.edu/", False),
     ]
     failed = 0
     for fn, text, expect in cases:
@@ -138,13 +187,14 @@ def self_test():
 
 
 def main(argv):
-    if len(argv) != 2 or argv[1] not in ("mascot", "local-paths", "self-test"):
+    if len(argv) != 2 or argv[1] not in ("mascot", "local-paths", "org-name", "self-test"):
         print(__doc__)
         return 2
     if argv[1] == "self-test":
         return self_test()
     files = tracked_files()
-    return run_mascot(files) if argv[1] == "mascot" else run_local_paths(files)
+    runners = {"mascot": run_mascot, "local-paths": run_local_paths, "org-name": run_org_name}
+    return runners[argv[1]](files)
 
 
 if __name__ == "__main__":

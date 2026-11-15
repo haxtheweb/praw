@@ -300,7 +300,6 @@ function isPublished(item) {
 function decodeEntities(text) {
   return text
     .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
     .replace(/&lt;/gi, '<')
     .replace(/&gt;/gi, '>')
     .replace(/&quot;/gi, '"')
@@ -310,7 +309,9 @@ function decodeEntities(text) {
     .replace(/&rdquo;/gi, '\u201d')
     .replace(/&ldquo;/gi, '\u201c')
     .replace(/&mdash;/gi, '\u2014')
-    .replace(/&ndash;/gi, '\u2013');
+    .replace(/&ndash;/gi, '\u2013')
+    // last, so "&amp;lt;" decodes to the text "&lt;", not to "<"
+    .replace(/&amp;/gi, '&');
 }
 
 function htmlToText(html) {

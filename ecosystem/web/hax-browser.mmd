@@ -10,6 +10,12 @@ flowchart TB
     br_relay["Service worker relay"]
     br_broker["Publish broker"]
   end
+  subgraph ap ["Works as an app"]
+    app_install["Install as an app"]
+    app_offline["Works offline"]
+    app_reset["Reset the app"]
+    app_share["Share to HAX"]
+  end
   subgraph sg ["Where sites are saved"]
     st_folder["A folder"]
     st_browser["This browser"]
@@ -68,6 +74,11 @@ flowchart TB
   browser -->|publishes to| pb_download
   br_broker -->|passes on| pb_surge
   pb_download -->|then| cli
+  browser -->|installs as| app_install
+  app_install -->|keeps| app_offline
+  app_offline -->|undone by| app_reset
+  app_install -->|takes| app_share
+  app_share -->|adds pages to| haxcms
   pb_surge -->|is one of the| deploy
   pb_ghpages -->|is one of the| deploy
   pb_glpages -->|is one of the| deploy
@@ -77,6 +88,7 @@ flowchart TB
 
   %%@ group hub tier=0
   %%@ group rt tier=1
+  %%@ group ap tier=2
   %%@ group sg tier=2
   %%@ group sig tier=3
   %%@ group pg tier=3
@@ -88,6 +100,10 @@ flowchart TB
   %%@ node st_folder icon=icons:folder-open color=creekTeal motion=lift
   %%@ node st_browser icon=icons:dns color=creekTeal motion=lift
   %%@ node pb_download icon=icons:cloud-upload color=pughBlue motion=lift
+  %%@ node app_install icon=device:devices color=inventOrange motion=pop
+  %%@ node app_offline icon=icons:file-download color=inventOrange motion=lift
+  %%@ node app_reset icon=icons:build color=inventOrange motion=spin
+  %%@ node app_share icon=hax:collaborate color=inventOrange motion=nudge
   %%@ node st_gdrive mono=GD color=creekTeal motion=lift
   %%@ node st_onedrive mono=OD color=creekTeal motion=lift
   %%@ node st_dropbox mono=DB color=creekTeal motion=lift

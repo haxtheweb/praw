@@ -204,6 +204,11 @@ kept as DDD.
 and exports `activate<Prefix>DesignSystem()`; the theme calls it in its constructor (after
 `DDDSuper` has registered `ddd`). Don't copy DDD's styles or integrations; `extends` carries them.
 
+If the system ships an icon set whose icons can ship, add an `icons` block to `bridge.json` and
+pass `icons: <Prefix>Icons` here, so HAX icon names draw in the system's set while it is active.
+How to check the icons' license and map them by meaning is in
+[`references/bridge-json.md`](references/bridge-json.md#icons).
+
 ### 7. Build the common theme
 
 Follow `hax-theme-builder` for the HAX contract (skip link, `#contentcontainer > #slot > slot`,

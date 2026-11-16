@@ -95,3 +95,39 @@ checked against the shared tier contract in `contract.json` next to the generato
 | opportunityGreen, futureLime | correct (light, dark) | greens |
 | wonderPurple, athertonViolet | incorrect (light, dark) | purples |
 | other hues (teal, orange, yellow, pink, coral, brown, tan, gold) | DDD palettes 0–15 | closest hue so palettes stay distinct |
+
+## Icons
+
+A system that ships an icon set under a shippable license (Apache-2.0, MIT, ISC, BSD, CC0) gets an
+`icons` block, so HAX icon names draw in its set while it is active
+(<https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/design-system/bridge/README.md#icons>):
+
+```json
+"icons": {
+  "package": "lucide-static",
+  "version": "1.73.0",
+  "license": "ISC",
+  "path": "icons/{name}.svg",
+  "map": "lucide"
+}
+```
+
+- Check the license of the **icons**, not only the package. PatternFly's react-icons package is
+  MIT, but its icons are Font Awesome and Red Hat Design System icons under Creative Commons,
+  so PatternFly keeps HAX's icons. Read the package's LICENSE and README, not just `license`.
+- `map` is a column of `elements/d-d-d/design-system/bridge/icon-maps.json` (HAX icon name →
+  the set's icon). A set already in the table only needs its column name. A new set needs a
+  new column: map **by meaning**, starting from the HAX names blocks and themes use (the
+  Material-family names: `icons:`, `editor:`, `av:`, `image:`, `hardware:`, `communication:`,
+  `social:`, `maps:`, `device:`). Map only what has a clear counterpart; a name left out keeps
+  HAX's icon. Never map HAX's own sets (`hax:`, `lrn:`, brand logos, stop-note icons).
+  Material-lineage sets can map by name with a short rename list.
+- Pick one style and size (Carbon 32px, Material Symbols outlined, Heroicons 24 outline) so the
+  set reads as one family.
+- Run `yarn ddd:bridge elements/<system>-theme`: it copies only the mapped icons to
+  `<theme>/icons/`, writes `lib/<Prefix>Icons.js`, and refuses SVGs with script, event handlers
+  or external links. Pass `icons: <Prefix>Icons` to `addDesignSystem` in
+  `lib/<Prefix>DesignSystem.js`, and credit the set (with its license text for MIT/ISC) in the
+  theme's `NOTICE`.
+- Look at the theme's demo: the menu, search, close and chevrons should be the system's.
+

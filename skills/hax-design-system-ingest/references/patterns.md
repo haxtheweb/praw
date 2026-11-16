@@ -18,7 +18,7 @@ covers, and record anything new in the PR (and as an issue in
 | rem sized for a 16px root | Carbon, PatternFly, shadcn, Web Awesome | HAX's root is 20px, so rem values come out 25% larger than designed. Component values go in as px; the existing rem density mappings are a known gap (haxtheweb/issues#3339). |
 | Theme variants in one package | Web Awesome default / awesome / shoelace; Spectrum light / dark / wireframe | Pick one, say which in `bridge.json`'s `$comment`, and leave the others for a later variant. |
 | Free and commercial editions | Web Awesome Free vs Pro; Tailwind vs Tailwind Plus | Read only the open-source package; never copy values shown only in paid themes or docs. |
-| Icon sets | Carbon, Material Symbols, PatternFly, Spectrum workflow, Lucide, Heroicons | Icons are not bridged yet (haxtheweb/issues#3340). Record the system's icon set and its license from npm; a set that can't ship (Font Awesome's CC-BY icons) is not used. |
+| Icon sets | Carbon, Material Symbols, Spectrum 2 workflow, Lucide (shadcn), Heroicons (Tailwind) | Adopted: a bridge's `icons` block maps HAX icon names to the system's set (`icon-maps.json`, one column per set). Check the icons' own license: PatternFly's (Font Awesome, Red Hat Design System) are Creative Commons and are not used. |
 
 ## What to record for a new system
 

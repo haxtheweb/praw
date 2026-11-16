@@ -22,7 +22,15 @@ webcomponents source from before it) is left out, rather than stacking a full se
 the editor.
 
 Fails if the page no longer has what it changes, rather than publishing a demo that silently breaks.
+
+For search engines and AI agents (https://github.com/haxtheweb/issues/issues/3352) the page's placeholder
+head ("HAXCMS", "My HAXCMS site description", books-app) says what this site is, from ../site/site.json:
+title, description, canonical link, Open Graph tags, WebApplication JSON-LD and rel="llms"; a <noscript>
+block gives a reader without JavaScript a heading, the description and the tour's pages; and robots.txt,
+sitemap.xml and llms.txt are written beside the page. The address is DEMO_SITE_URL, else
+https://demo.hax.cloud/. These are best-effort: a placeholder the page no longer has is left alone.
 """
+import html as htmllib
 import json
 import os
 import sys
@@ -84,6 +92,95 @@ def import_map(built, source):
     return {"imports": imports}
 
 
+SITE_JSON = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "site", "site.json")
+
+
+def attr(value):
+    return htmllib.escape(str(value), quote=True)
+
+
+def discovery(html, dest_dir, address):
+    """The head, a <noscript> block and robots.txt / sitemap.xml / llms.txt, from this domain's site.json."""
+    with open(SITE_JSON, encoding="utf-8") as f:
+        site = json.load(f)
+    title = site.get("title") or "Try HAX"
+    desc = site.get("description") or ""
+    items = [i for i in site.get("items", []) if i.get("slug")
+             and (i.get("metadata") or {}).get("published", True) is not False]
+    swaps = [
+        ("<title>HAXCMS</title>", "<title>%s</title>" % attr(title)),
+        ('<meta name="description" content="My HAXCMS site description">',
+         '<meta name="description" content="%s">' % attr(desc)),
+        ('<meta name="application-name" content="My site">', '<meta name="application-name" content="%s">' % attr(title)),
+        ('<meta name="apple-mobile-web-app-title" content="My App">',
+         '<meta name="apple-mobile-web-app-title" content="%s">' % attr(title)),
+        ('<meta property="og:site_name" content="books-app">', '<meta property="og:site_name" content="HAX">'),
+        ('<meta property="og:image" content="assets/icon-144x144.png" />',
+         '<meta property="og:image" content="%sassets/icon-144x144.png" />' % attr(address)),
+    ]
+    for old, new in swaps:
+        if html.count(old) == 1:
+            html = html.replace(old, new)
+    app = {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": title,
+        "description": desc,
+        "url": address,
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any (web browser)",
+        "isAccessibleForFree": True,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "publisher": {"@type": "Organization", "name": "HAXTheWeb", "url": "https://haxtheweb.org/",
+                      "sameAs": ["https://github.com/haxtheweb"]},
+    }
+    head = "\n  ".join([
+        '<link rel="canonical" href="%s" />' % attr(address),
+        '<meta property="og:url" content="%s" />' % attr(address),
+        '<meta property="og:title" content="%s" />' % attr(title),
+        '<meta property="og:description" content="%s" />' % attr(desc),
+        '<link rel="llms" href="/llms.txt" title="LLM Content Map" />',
+        '<link rel="alternate" type="text/markdown" href="/llms.txt" title="Markdown Summary" />',
+        '<script type="application/ld+json">%s</script>' % json.dumps(app).replace("<", "\\u003c"),
+    ])
+    if "</head>" in html:
+        html = html.replace("</head>", "  " + head + "\n</head>", 1)
+    links = "".join('<li><a href="/%s">%s</a></li>' % (attr(i["slug"]), attr(i.get("title") or i["slug"]))
+                    for i in items)
+    noscript = ("<noscript><h1>%s</h1><p>%s</p><p>This demo runs the HAX editor in your browser, so it needs "
+                "JavaScript. Its pages:</p><ul>%s</ul><p>Make your own HAX site with nothing installed at "
+                '<a href="https://browser.hax.cloud/">HAXcms in your browser</a>, or learn about HAX at '
+                '<a href="https://hax.cloud/">hax.cloud</a>.</p></noscript>') % (attr(title), attr(desc), links)
+    body = html.find("<body")
+    end = html.find(">", body) if body != -1 else -1
+    if end != -1:
+        html = html[:end + 1] + "\n  " + noscript + html[end + 1:]
+    with open(os.path.join(dest_dir, "robots.txt"), "w", encoding="utf-8") as f:
+        f.write("User-agent: *\nAllow: /\n\nSitemap: %ssitemap.xml\n" % address)
+    with open(os.path.join(dest_dir, "sitemap.xml"), "w", encoding="utf-8") as f:
+        f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
+        f.write("  <url><loc>%s</loc></url>\n" % attr(address))
+        for i in items:
+            f.write("  <url><loc>%s%s</loc></url>\n" % (attr(address), attr(i["slug"])))
+        f.write("</urlset>\n")
+    with open(os.path.join(dest_dir, "llms.txt"), "w", encoding="utf-8") as f:
+        f.write("# %s\n\n> %s\n\n" % (title, desc))
+        f.write("A live HAXcms demo: the real HAX editor running in the browser on a short tour site anyone can edit"
+                " for five minutes. Nothing is saved. To make a site of your own with nothing installed, use"
+                " [HAXcms in your browser](https://browser.hax.cloud/); for scripted or agent work on sites, the"
+                " HAX CLI (`npm install --global @haxtheweb/create`, then `hax site`).\n\n## Tour\n\n")
+        for i in items:
+            line = "- [%s](%s%s)" % (i.get("title") or i["slug"], address, i["slug"])
+            if i.get("description"):
+                line += ": " + " ".join(str(i["description"]).split())
+            f.write(line + "\n")
+        f.write("\n## HAX\n\n- [hax.cloud](https://hax.cloud/): the HAX ecosystem and how it connects\n"
+                "- [HAX CLI](https://github.com/haxtheweb/create): create, edit and publish HAX sites\n"
+                "- [Issues](https://github.com/haxtheweb/issues/issues): report a problem or ask for a feature\n")
+    print("demo: head, <noscript>, robots.txt, sitemap.xml and llms.txt say what %s is (%d pages)" % (address, len(items)))
+    return html
+
+
 def main(src, dest, built, source):
     with open(src, encoding="utf-8") as f:
         html = f.read()
@@ -104,6 +201,10 @@ def main(src, dest, built, source):
         print("demo: the network bar's demo strip is above the demo")
     else:
         print("demo: the compiled network bar has no demo strip yet; left out")
+    address = os.environ.get("DEMO_SITE_URL") or "https://demo.hax.cloud/"
+    if not address.endswith("/"):
+        address += "/"
+    html = discovery(html, os.path.dirname(os.path.abspath(dest)), address)
     with open(dest, "w", encoding="utf-8") as f:
         f.write(html)
     print("demo: index.html with %d import map entries" % len(mapping["imports"]))

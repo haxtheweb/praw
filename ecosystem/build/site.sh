@@ -40,6 +40,22 @@ rm -rf "$OUT/pages" "$OUT/site.json" "$OUT/.github" "$OUT/docker" "$OUT/Dockerfi
 cp "$OUT/ghpages.html" "$OUT/index.html"
 cd "$ROOT/ecosystem/.work" && python3 -I ../build/build_site.py "$OUT" hax-area-icons.html
 
+# for search engines and AI agents (https://github.com/haxtheweb/issues/issues/3352): the HAX CLI's
+# site:build-static, in place, renders every page as its own HTML file (<slug>/index.html at the top of the
+# site, each with its title, description, canonical link, JSON-LD and text) and rebuilds the generated files
+# (robots.txt, llms.txt, llms-full.txt, sitemap, feeds, search index, agent skills) for https://hax.cloud.
+# It runs before the compiled build/ and its loader scripts go in, so those stay the ones shipped here.
+# A HAX CLI without site:build-static (before the release that has it) leaves the shell as the entry point.
+cd "$ROOT"
+if npx --yes @haxtheweb/create site site:build-static --root "$OUT" --out-dir "$OUT" --y --no-i; then
+  echo "static pages: rendered"
+else
+  echo "static pages: this HAX CLI can't build them yet; the site's entry point is the shell"
+fi
+# the rebuild brings back the boilerplate's server-only files; a static host doesn't run them
+rm -rf "$OUT/docker" "$OUT/Dockerfile" "$OUT/index.php" "$OUT/config.php" "$OUT/.htaccess" "$OUT/files/.htaccess" \
+  "$OUT/netlify.toml" "$OUT/.hax-static-build"
+
 # build/: the compiled front end, shipped with the site. The magic script finds ./build/ and loads from it,
 # so nothing comes from cdn.hax.cloud; the registry files sit at the top of the site where HAXcms looks.
 bash "$ROOT/demo/build/compile-webcomponents.sh" "$TMP/wc"

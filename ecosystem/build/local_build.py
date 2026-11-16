@@ -8,7 +8,9 @@ HAXCMSContext="published", HAXcms's context for a site that is only read: "php" 
 server for a backend (a request that can only fail here). The boilerplate's ghpages.html says "published"
 itself now; an older one that still says "php" is rewritten. Fails, rather than publishing a site that
 silently loads half from somewhere else, when the page has neither context or no CDN entry, or build/
-lacks what the site needs: the HAXcms core, the autoloader, the theme and the network bar.
+lacks what the site needs: the HAXcms core, the autoloader, the theme and the network bar. The pages the
+HAX CLI's site:build-static rendered (<slug>/index.html, marked data-haxcms-static-route) get the same
+changes as index.html.
 """
 import os
 import sys
@@ -46,7 +48,27 @@ def main(out):
         sys.exit("index.html changed: expected one %s (or the older %s)" % (PUBLISHED, PHP))
     with open(page, "w", encoding="utf-8") as f:
         f.write(html.replace(CDN, LOCAL).replace(PHP, PUBLISHED))
-    print("local build: build/ checked, custom/ imports point at ./build/, context is published")
+    # the pages site:build-static rendered (one folder per page, each the same shell as index.html)
+    rendered = 0
+    for folder, dirs, files in os.walk(out):
+        rel = os.path.relpath(folder, out)
+        if rel.split(os.sep)[0] in ("build", "pages", "files", "assets", "custom", "theme"):
+            dirs[:] = []
+            continue
+        if rel == "." or "index.html" not in files:
+            continue
+        path = os.path.join(folder, "index.html")
+        with open(path, encoding="utf-8") as f:
+            text = f.read()
+        if "data-haxcms-static-route" not in text:
+            continue
+        if text.count(CDN) != 1 or text.count(PHP) + text.count(PUBLISHED) != 1:
+            sys.exit("%s changed: expected the same import map and context as index.html" % path)
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(text.replace(CDN, LOCAL).replace(PHP, PUBLISHED))
+        rendered += 1
+    print("local build: build/ checked, custom/ imports point at ./build/, context is published"
+          " (index.html and %d rendered pages)" % rendered)
 
 
 if __name__ == "__main__":

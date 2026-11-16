@@ -32,6 +32,12 @@ browser's network panel shows the whole HAX load on one origin.
   it says the demo has no backend, so nothing is saved, and links HAXcms in the browser
   (browser.hax.cloud) and Install HAX. The strip sets `--haxcms-top-offset`, so the editor bar, Merlin,
   toasts and the edit tray sit under it. It is left out when the compiled bar has no demo mode.
+- `build/top-level.py` also makes the page say what this site is, for search engines and AI agents
+  ([haxtheweb/issues#3352](https://github.com/haxtheweb/issues/issues/3352)): the demo page's placeholder
+  title, description and Open Graph tags take `site/site.json`'s title and description, with a canonical link,
+  WebApplication JSON-LD and `rel="llms"`; a `<noscript>` block lists the tour's pages; and `robots.txt`,
+  `sitemap.xml` and `llms.txt` are written beside the page. The address is `DEMO_SITE_URL` (default
+  `https://demo.hax.cloud/`).
 - hax.cloud (`ecosystem/build/site.sh`) runs the same `build/compile-webcomponents.sh` and ships the
   compiled tree as its own `build/`; the script lives here because this folder is its own Vercel project.
 - `vercel.json` serves files first, maps any old `/elements/<name>/...` path to

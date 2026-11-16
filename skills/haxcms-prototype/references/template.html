@@ -140,7 +140,7 @@ document.body.classList.add("show-proposed");
     });
     document.querySelectorAll("img[data-base]").forEach(function (img) {
       var dir = brief.mode === "branch" && !document.body.classList.contains("current") ? "branch/" : "base/";
-      img.src = dir + img.getAttribute("data-base") + "/" + variant + ".png";
+      img.src = dir + encodeURIComponent(img.getAttribute("data-base")) + "/" + encodeURIComponent(variant) + ".png";
     });
     document.querySelectorAll("[data-proposed][data-variants]").forEach(function (r) {
       r.hidden = r.getAttribute("data-variants").split(" ").indexOf(variant) === -1;

@@ -225,7 +225,7 @@ vars.forEach(function (v) {
   groupMap[f].push(v)
 })
 
-function cell (s) { return String(s).replace(/\|/g, '\\|') }
+function cell (s) { return String(s).replace(/\\/g, '\\\\').replace(/\|/g, '\\|') }
 function colorNote (v) {
   var r = resolve(v.value)
   if (!/^#[0-9a-f]{3,6}$/i.test(r)) return ''

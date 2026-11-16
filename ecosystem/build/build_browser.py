@@ -31,7 +31,7 @@ STORAGE = [
     ("st_webdav", "Nextcloud / WebDAV", "DAV", "Any WebDAV server the person points at, with an app password that is never stored. The server has to allow the page's origin (for Nextcloud, the WebAppPassword app).", "Nextcloud and other WebDAV servers: set up on the server", "in-progress"),
 ]
 SIGNIN = [
-    ("si_google", "Google", "G", "Sign in with Google; name, email and picture become the author of new sites.", "Google (sign-in, Google Drive)", "in-progress"),
+    ("si_google", "Google", "G", "Sign in with Google; name, email and picture become the author of new sites, and fill in an About page and, on a blog, a first post.", "Google (sign-in, Google Drive)", "in-progress"),
     ("si_microsoft", "Microsoft", "MS", "Sign in with a work, school or personal Microsoft account.", "Microsoft (sign-in, OneDrive)", "in-progress"),
     ("si_github", "GitHub", "GH", "Sign in with GitHub through the HAX GitHub App.", "GitHub (sign-in, GitHub Pages)", "in-progress"),
     ("si_gitlab", "GitLab", "GL", "Sign in with GitLab.com.", "GitLab (sign-in, GitLab Pages)", "in-progress"),
@@ -96,7 +96,7 @@ lines += [f"  %%@ node {p} portal" for p in PORTALS]
 open("hax-browser.mmd", "w").write("\n".join(lines) + "\n")
 
 KIND = {"rt": "runtime", "ap": "app", "sg": "storage", "sig": "signin", "pg": "publish"}
-nodes = {"browser": {"always": True, "desc": "haxcms-nodejs running in a browser tab at browser.hax.cloud: make sites with no install, install it as an app that works offline, keep sites in a folder, the browser or cloud storage, sign in with an account you have, and publish for free. Which services a deployment offers depends on the OAuth apps whoever runs it registers (docs/providers.md).",
+nodes = {"browser": {"always": True, "desc": "haxcms-nodejs running in a browser tab at browser.hax.cloud: make sites with no install, install it as an app that works offline, keep sites in a folder, the browser or cloud storage, sign in with an account you have (new sites then start with you as author and an About page), and publish for free. Which services a deployment offers depends on the OAuth apps whoever runs it registers (docs/providers.md).",
                      "links": {"try it": "https://browser.hax.cloud", "repo": REPO, "setup": DOCS, "issue": ISS + "3341"}}}
 for gid, _, items in GROUPS:
     for i, label, mono, desc, heading, status in items:
@@ -110,7 +110,7 @@ for gid, _, items in GROUPS:
 tours = [{"id": "zero-to-published", "label": "From zero to a published site", "kind": "story",
           "message": "No install, no server: sign in, keep the site somewhere safe, publish it free.",
           "scenes": [S("Open browser.hax.cloud: HAXcms Node.js runs in the tab.", "browser", "br_worker", "nodejs"),
-                     S("Sign in with an account you have; you become the author of the sites you make.", "browser", *[i[0] for i in SIGNIN], "br_broker"),
+                     S("Sign in with an account you have; you become the author of the sites you make, and each new site starts with an About page about you (and a first post, on a blog).", "browser", *[i[0] for i in SIGNIN], "br_broker"),
                      S("Install it as an app: it opens in its own window and keeps working with no connection.", "browser", *[i[0] for i in APP]),
                      S("Keep the sites in a folder, the browser or cloud storage you already have.", "browser", *[i[0] for i in STORAGE]),
                      S("Publish free, straight from the browser.", "browser", *[i[0] for i in PUBLISH], "deploy"),

@@ -21,7 +21,7 @@
  "nodes": {
   "browser": {
    "always": true,
-   "desc": "haxcms-nodejs running in a browser tab at browser.hax.cloud: make sites with no install, install it as an app that works offline, keep sites in a folder, the browser or cloud storage, sign in with an account you have, and publish for free. Which services a deployment offers depends on the OAuth apps whoever runs it registers (docs/providers.md).",
+   "desc": "haxcms-nodejs running in a browser tab at browser.hax.cloud: make sites with no install, install it as an app that works offline, keep sites in a folder, the browser or cloud storage, sign in with an account you have (new sites then start with you as author and an About page), and publish for free. Which services a deployment offers depends on the OAuth apps whoever runs it registers (docs/providers.md).",
    "links": {
     "try it": "https://browser.hax.cloud",
     "repo": "https://github.com/haxtheweb/haxcms-browser",
@@ -136,7 +136,7 @@
    "note": "Built; works once the deployment registers this service's app (haxtheweb/issues#3341)."
   },
   "si_google": {
-   "desc": "Sign in with Google; name, email and picture become the author of new sites.",
+   "desc": "Sign in with Google; name, email and picture become the author of new sites, and fill in an About page and, on a blog, a first post.",
    "kind": "signin",
    "status": "in-progress",
    "links": {
@@ -267,7 +267,7 @@
      ]
     },
     {
-     "caption": "Sign in with an account you have; you become the author of the sites you make.",
+     "caption": "Sign in with an account you have; you become the author of the sites you make, and each new site starts with an About page about you (and a first post, on a blog).",
      "nodes": [
       "browser",
       "si_google",

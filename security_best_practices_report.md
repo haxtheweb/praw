@@ -14,11 +14,13 @@
 > | **L3** predictable `/tmp` paths | `post-to-linkedin.js` uses `mkdtempSync` + `0o600`/`wx`; `skills/heosat/scripts/clone-repo.sh` uses `mktemp -d` and validates `HEOSAT_SCRATCH` |
 > | **L6** SessionStart hook auto-installs by default | `plugins/hax-onboarding/hooks/scripts/ensure-hax.sh` installs only with `HAX_PLUGIN_AUTOINSTALL=1` (and, from the supply-chain PR, a pinned version) |
 > | **L7** unvalidated text written to `Web_Resources.txt` | `scripts/add-url-resource.sh` validates the URL (`https?://`, single line, no control chars) and bounds the description |
+> | **L5** fetched rubric written straight into skill references | `skills/heosat/scripts/update-rubric.py` records the sha256 of exactly what it consumed in `references/rubric.source.sha256`, so a reviewer sees when upstream changed before committing |
+> | **L8** raw URL embedded in the OpenStax handoff file | `plugins/openstax2hax/scripts/openstax-import.sh` refuses any URL that is not a single-line `https://openstax.org` address made of URL-safe characters |
 >
 > **M1** (prompt-injection boundary in content-ingesting skills), **L4** (CLA allowlist/permissions)
 > and **M3** (unattended posting chain; `./linkedin` now defaults to `--dry-run`) are addressed by
-> the security PRs opened alongside this note. **L5** and **L8** remain open and are tracked for a
-> follow-up. Line numbers below refer to the 2026-10-19 tree and no longer match.
+> the security PRs opened alongside this note. L5 and L8 were re-verified against the code on
+> 2026-11-14. Line numbers below refer to the 2026-10-19 tree and no longer match.
 
 **Date:** 2026-10-19 · **Scope:** `https://github.com/haxtheweb/praw` (full repo) · **Focus:** prompt injection into agent context, plus script/tooling security
 

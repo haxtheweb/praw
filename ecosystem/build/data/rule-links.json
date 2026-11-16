@@ -364,7 +364,11 @@
    "touches": [
     "components",
     "haxcms"
-   ]
+   ],
+   "enforced_by": [
+    "q_lint"
+   ],
+   "how": "ESLint no-alert (alert, confirm and prompt calls) in webcomponents, an error in CI and in yarn precheck (haxtheweb/issues#3295)."
   },
   "candidate:explicit_js": {
    "pillars": [
@@ -372,7 +376,11 @@
    ],
    "touches": [
     "components"
-   ]
+   ],
+   "enforced_by": [
+    "q_lint"
+   ],
+   "how": "ESLint no-restricted-syntax in webcomponents flags extensionless or bare imports of @haxtheweb/* and relative modules; an error in CI and in yarn precheck."
   },
   "candidate:ddd_layers": {
    "pillars": [
@@ -439,6 +447,26 @@
     "components"
    ],
    "how": "Partly, and only as a report: the size report measures what an unbundled page downloads for each changed element, without failing the pull request."
+  },
+  "7d6f9c3e-8d0c-4127-948e-e6260465fa95": {
+   "enforced_by": [
+    "q_rule_checks"
+   ],
+   "touches": [
+    "traveler",
+    "praw"
+   ],
+   "how": "praw scripts/rule-checks.py mascot, run on every praw pull request by the Rule checks workflow: either retired mascot name in any tracked file fails it (the retired icon names and the art folder name are allowed) (haxtheweb/issues#3295)."
+  },
+  "bAKMWCMrqRLGdWmuNWgVUw": {
+   "enforced_by": [
+    "q_rule_checks"
+   ],
+   "touches": [
+    "praw",
+    "agents"
+   ],
+   "how": "praw scripts/rule-checks.py local-paths, run on every praw pull request by the Rule checks workflow: a home-folder or checkout path in skills/, ecosystem/, plugins/ or any Markdown file fails it (haxtheweb/issues#3295)."
   }
  },
  "candidates": [

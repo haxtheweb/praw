@@ -10,9 +10,13 @@ Reads the same webs assemble.py does (web/*.mmd + web/*.json, in assemble.py's o
                    <ecosystem-web> built in, routed by the page's metadata.ecosystem ({web, node, tour}).
   ecosystem-webs.json  the bundle <ecosystem-web> loads: every web's source, the slugs, the tile art and the tile glyphs.
 
-Slugs are readable and nested (hax.cloud/penn-state/strategic-plan/aa-plan). A tile drawn as a portal in another web
-is not a second page: links to it go to its page in the web that owns it. Hand-written pages live in
-ecosystem/site/pages/<slug>.html; when one exists its HTML goes above the generated content of that page.
+Webs and tours have readable slugs (hax.cloud/penn-state/strategic-plan/aa-plan, hax.cloud/tours/everyone). A tile's
+page is at hax.cloud/stories/<address>: the address comes from the tile's key (its web and node id), never from its
+label, so the link holds when the tile is renamed. The path a tile's label used to give it (/ecosystem/<label>)
+still answers, as a page that forwards to the address; it follows the current label, so no former name is kept.
+A tile drawn as a portal in another web is not a second page: links to it go to its page in the web that owns it.
+Hand-written pages live in ecosystem/site/pages/<slug>.html; when one exists its HTML goes above the generated
+content of that page.
 
 Usage (from ecosystem/.work, after assemble.py): python3 -I ../build/build_site.py <out-dir> <player.html>
 The HAXcms boilerplate (index.html, build.js, 404.html …) is copied in by the workflow, not here."""
@@ -30,6 +34,18 @@ def slug(s):
     s = re.sub(r"&", " and ", s.lower())
     return re.sub(r"[^a-z0-9]+", "-", s).strip("-")[:60] or "page"
 E = html.escape
+# Invariant: a tile's address depends only on its key (tile:<web>:<node id>): the first 8 hex digits of the same
+# uuid its page id is made from. ecosystem/site/addresses.json ({key: address}) pins an address to a new key when a
+# node id or its web has to change, so the links people hold keep working. Two tiles never share an address: the
+# build stops instead.
+_pins_file = os.path.join(ECO, "site", "addresses.json")
+PINS = json.load(open(_pins_file)) if os.path.exists(_pins_file) else {}
+addr_of = {}
+def address(key):
+    a = PINS.get(key) or uuid.uuid5(NS, key).hex[:8]
+    if not re.fullmatch(r"[a-z0-9]{4,16}", a): sys.exit(f"address for {key} must be 4-16 of a-z, 0-9: {a!r}")
+    if addr_of.setdefault(a, key) != key: sys.exit(f"{key} and {addr_of[a]} share the address {a}: pin one in ecosystem/site/addresses.json")
+    return a
 
 # ---------- read the webs in assemble.py's order ----------
 order = re.findall(r'\("(\w+)","(hax-[\w-]+)"\)', open(os.path.join(HERE, "assemble.py")).read())
@@ -84,7 +100,7 @@ def add(key, title, parent, slugpath, desc="", order=0):
     items.append({"id": i, "indent": 0, "location": f"pages/{i}/index.html", "slug": slugpath, "order": order, "parent": parent,
                   "title": title, "description": desc[:200], "metadata": {"created": int(time.time()), "updated": int(time.time()), "published": True}, "_key": key})
     return i
-web_slug, used = {}, set()
+web_slug, used, legacy = {}, set(), {}  # legacy: {label path: item id}, the paths tiles had before addresses
 def unique(path):
     p, n = path, 2
     while p in used: p, n = f"{path}-{n}", n + 1
@@ -122,7 +138,9 @@ for w, _ in order:
         if sub and sub in WEBS and opens.get(sub) == (w, nid): page_of[(w, nid)] = page_of[("web", sub)]; continue
         if t["group"] == W["groups"][0]: page_of[(w, nid)] = page_of[("web", w)]; continue  # the hub (first group) is the web's own page
         base = web_slug[w] or "ecosystem"
-        page_of[(w, nid)] = add(f"tile:{w}:{nid}", t["label"], page_of[("web", w)], unique(base + "/" + slug(t["label"])), W["data"]["nodes"].get(nid, {}).get("desc", ""), n)
+        key = f"tile:{w}:{nid}"
+        page_of[(w, nid)] = add(key, t["label"], page_of[("web", w)], unique("stories/" + address(key)), W["data"]["nodes"].get(nid, {}).get("desc", ""), n)
+        legacy[unique(base + "/" + slug(t["label"]))] = page_of[(w, nid)]
         n += 1
 # pages that are not part of a web (ecosystem/site/extra-pages.json: [{slug, title, description}]); their HTML is the
 # hand-written ecosystem/site/pages/<slug>.html, and with no metadata.ecosystem the theme opens them in the Site view
@@ -279,6 +297,15 @@ layers_src = os.path.join("ext", "layers.json") if os.path.exists(os.path.join("
 bundle["layers"] = json.load(open(layers_src))
 bundle["layers"]["maintainers"] = ["bryan", "billrose"]
 json.dump(bundle, open(os.path.join(OUT, "ecosystem-webs.json"), "w"), ensure_ascii=False, separators=(",", ":"))
-# a slug index, so a later rename can keep old links working (redirects.json is checked against it in a later phase)
+# a slug index: every page's path by its key
 json.dump({it["_key"]: it["slug"] for it in items}, open(os.path.join(OUT, "slugs.json"), "w"), indent=0, sort_keys=True)
-print(len([k for k in page_of if k[0] == "web"]), "webs;", len(items), "pages;", sum(1 for i in items if i["parent"] == tours_root), "tours")
+# the label paths tiles had before addresses: each a small page that forwards to the tile's address and names it
+# as canonical, so links and search results from before keep working
+for path, i in legacy.items():
+    to, title = E(href(i), quote=True), E(by_id[i]["title"])
+    os.makedirs(os.path.join(OUT, path), exist_ok=True)
+    open(os.path.join(OUT, path, "index.html"), "w").write(
+        f'<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<title>{title}</title>\n'
+        f'<link rel="canonical" href="https://hax.cloud{to}">\n<meta name="robots" content="noindex">\n'
+        f'<meta http-equiv="refresh" content="0; url={to}">\n</head>\n<body>\n<p><a href="{to}">{title}</a></p>\n</body>\n</html>\n')
+print(len([k for k in page_of if k[0] == "web"]), "webs;", len(items), "pages;", sum(1 for i in items if i["parent"] == tours_root), "tours;", len(legacy), "label paths forwarded")

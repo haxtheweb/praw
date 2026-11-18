@@ -27,6 +27,14 @@ The ecosystem web itself lives here too: every sub-web's structure and details, 
 - **Structure (`.mmd`)**: a plain Mermaid flowchart that renders on GitHub, plus `%%@` lines the player reads: `layout rings=… sizes=…`, `group <subgraph> tier=N`, `node <id> icon=<set:name> color=<DDD color> motion=<name>`, `node <id> portal` (the same node in another web; `portal=<web>` when that web isn't the main one) and `web=<id>` (the tile opens that sub-web).
 - **Details (`.json`)**: `{meta, nodes, evidence, tours}`. `meta.parent` names the web a sub-web opens from, for the breadcrumbs. A node holds `desc`, `status`, `kind`, `links` and `release` (`npm:@haxtheweb/…` or `git:haxtheweb/…`, read by `graph-drift.mjs`). Statuses: released, prerelease, in-progress, planned, legacy, living, deployed and gap. Planned tiles render ghosted with dashed lines and link to their issue; gap tiles (something an evidence or coverage map says is missing) render ghosted with a dotted line and a "Gap" label. A tour is `{id, label, message, scenes: [{caption, nodes}]}`.
 
+### Addresses
+
+On hax.cloud, webs and tours have readable paths (`/penn-state/strategic-plan`, `/tours/follow-one-piece-of-content`) and every tile's page is at `/stories/<address>`, for example `/stories/ee450a19`. This is the link to share or embed: the address comes from the tile's key (its web and node id), not its label, so it holds when a tile, or the person it names, is renamed. The interactive web puts the same path in the address bar as the viewer moves around.
+
+- The path a tile's label gives it (`/ecosystem/james-kane-iv`) still answers, as a page that forwards to the address. It follows the current label, so after a rename the old name's path is gone and nothing stores it.
+- When a node id or the web that owns a tile has to change, keep its address by adding the new key to [`site/addresses.json`](site/addresses.json): `{"tile:<web>:<new id>": "<address>"}`. `slugs.json` on the live site lists every key and its path.
+- Two tiles can't share an address: the build stops and asks for a pin.
+
 ### Build it
 
 ```bash

@@ -255,7 +255,7 @@ where, and the build/audit results.
   the rules every homage follows, the three layout families with their options and custom
   properties, what is easy to get wrong (discovery, the scaffold's dev server, the top bar and
   tray offsets, the dark mode gate), registration and screenshots, folder demos, tests and
-  gates, skeletons for content-heavy originals, and the version convention for docs themes.
+  gates, and skeletons for content-heavy originals.
 
 - `references/haxcms-theme-architecture.md` — cheat sheet: `HAXCMSLitElementTheme` base class
   contract (contentcontainer/slot, skip-link CSS already built in, `HAXCMSGlobalStyleSheetContent()`),

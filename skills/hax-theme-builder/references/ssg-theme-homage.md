@@ -127,8 +127,8 @@ design sets `color-scheme: dark` on `:host` and `darkModeSwitch = false`.
 - Import `@haxtheweb/wc-autoload/wc-autoload.js` in the demo page. A real site always carries
   the autoloader; a bare demo page only gets it by accident, and without it blocks in the
   content never upgrade.
-- Model the demo on how the original presents itself (a blog for a blog theme, versioned docs
-  for a docs theme), written from scratch with HAX blocks. No hotlinked media.
+- Model the demo on how the original presents itself (a blog for a blog theme, a small
+  documentation book for a docs theme), written from scratch with HAX blocks. No hotlinked media.
 - Set the `@demo` JSDoc tag to the theme's own demo.
 
 ## 7. Tests and gates
@@ -163,11 +163,3 @@ theme with a skeleton (starter site):
 - The skeleton only works once the theme's code is in the backend's build, so its pull
   requests wait on the webcomponents release. Say so in them.
 - Use the skeleton's content as the theme's demo site so the two stay the same.
-
-## 9. Versions (docs themes)
-
-Docs themes carry `site-version-switcher`. A version is a top level page tagged `version`; the
-pages under it are that version's docs; the first in the outline is the current one. The
-switcher keeps the reader on the same page when the other version has one at the same path. A
-versioned demo needs two version pages with at least one shared path and one page only the
-newer version has.

@@ -345,7 +345,7 @@
       "type": "skill-md",
       "description": "Turn a screenshot, or a well known Hugo/Jekyll/Astro/Docusaurus theme, into an accessible, dark-mode-ready HAXcms theme extending HAXCMSLitElementTheme. Use for 'build a HAXcms theme', a site-layout image, or 'make a HAX theme like <SSG theme>'; adds a custom site theme or a monorepo package.",
       "url": "hax-theme-builder/SKILL.md",
-      "digest": "sha256:f7ce21fdbfe27a55a1485d9fb3e8d2d0a2cdfecb357180350a78f0b150e522e3",
+      "digest": "sha256:b7e0d1dc54f2136a554e1a0e9c93b737296c7fc09932675b3b9526dd0ee6f653",
       "files": [
         {
           "path": "references/haxcms-theme-architecture.md",
@@ -353,7 +353,7 @@
         },
         {
           "path": "references/ssg-theme-homage.md",
-          "digest": "sha256:6494a7646271b1efa1857aec0c6631bcb1aa710dc2ad756391b5cd9f6e1d50d5"
+          "digest": "sha256:7ed50c2baff9fc6c7aca9d30520acbac08c8ab26ae668263e28c283385555724"
         }
       ]
     },

@@ -61,6 +61,12 @@ step "registry"
 # reads the terser output (static get tag(){return"..."}), so it runs after terser, as in ubiquity
 run_script wc-autoloader
 node scripts/copy-dep-licenses.js
+# webcomponents writes build/THIRD_PARTY_LICENSES.md now (THIRD_PARTY_LICENSES before); the sites keep
+# serving it at build/THIRD_PARTY_LICENSES, so either name leaves that file
+if [ ! -f build/THIRD_PARTY_LICENSES ] && [ -f build/THIRD_PARTY_LICENSES.md ]; then
+  cp build/THIRD_PARTY_LICENSES.md build/THIRD_PARTY_LICENSES
+fi
+test -f build/THIRD_PARTY_LICENSES || { echo "webcomponents: no third-party license file in build/; not publishing" >&2; exit 1; }
 
 python3 -I - "$WORK/wc-registry.json" <<'EOF'
 import json, sys

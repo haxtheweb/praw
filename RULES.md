@@ -197,6 +197,16 @@ Every rule has one of four scopes:
 - **Scope**: `webcomponents`
 - **Content**: Adaptive and remembered user state goes through the `user-scaffold` singleton (`globalThis.UserScaffold.requestAvailability()`), not ad-hoc localStorage or per-component trackers. Use `ltMemory` for persistent preferences, `stMemory` for session-level behavior, and honor the `active` flag, which pauses tracking when it would conflict with other systems. Treat it as the foundation for system-level adaptive features (welcome messages, adaptive tutorials, save-failure recovery). Rationale: KNOWLEDGE.md entry "User-scaffold".
 
+### Tracking Is Visible to the Person Tracked
+- **Rule ID**: `ea643795-98bc-47fb-bf31-999644a48f77`
+- **Scope**: `webcomponents`
+- **Content**: Any feature that records what a person does (xAPI statements, page completion, progress, remembered interaction state, presence) gives that person a way to see, in the interface where it is recorded, what is recorded about them and what counts toward completion. A view only editors or admins can open (the "what's tracked" lens in edit mode) does not meet this on its own; the learner needs the same answer about their own data. When you add or change tracking in an element, make it show up in that view in the same PR, or link a follow-up issue in <https://github.com/haxtheweb/issues>. Nothing is recorded that the view cannot show. Rationale: KNOWLEDGE.md entry "Tracking is translucent: visible to the tracked, abstract by default".
+
+### Tracking Records the Outcome, Not the Stream
+- **Rule ID**: `2e0e8483-8e58-4854-b6f9-f28f77aec17b`
+- **Scope**: `webcomponents`
+- **Content**: Tracking stores the smallest record that answers the question being asked (did they go through the page, did they finish the activity), not raw behavior. Collapse positional and "seen" signals (scroll depth, element visibility, checkpoints, time ticks) in the client into one outcome record; do not send a statement per signal. Once an outcome is complete it stops being recorded, and it never fires twice in one visit. Thresholds forgive (about 80% of checkpoints seen, never pixel-exact). A new statement type names what reads it (a report, a completion rule, the tracked view); if nothing reads it, it is not recorded. Rationale: KNOWLEDGE.md entry "Tracking is translucent: visible to the tracked, abstract by default".
+
 ### SSR Safety & Enhancement Audit
 - **Rule ID**: `1b8b8a93-0458-41f9-85a4-ba8d16923765`
 - **Scope**: `webcomponents`

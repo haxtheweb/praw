@@ -43,7 +43,7 @@ checked against the shared tier contract in `contract.json` next to the generato
     //   "package": "shadcn-ui/ui (label for the report)", "version": "<same sha>", "license": "MIT",
     //   "format": "css", "scopes": { "light": [":root", "@theme inline"], "dark": [":root", ".dark", "@theme inline"] } }
   ],
-  "fonts": [{ "family": "Red Hat Text", "license": "OFL-1.1", "url": "https://fonts.googleapis.com/css2?..." }],
+  "fonts": [{ "family": "Red Hat Text", "license": "OFL-1.1" }],   // vendored in d-d-d/lib/fonts (scripts/fonts/hax-fonts.json)
   "ddd": {                         // DDD token → upstream token
     "--ddd-theme-default-beaverBlue": { "token": "--pf-t--color--blue--50", "note": "primary brand blue" },
     "--ddd-font-primary": { "token": "--pf-t--global--font--family--body" },

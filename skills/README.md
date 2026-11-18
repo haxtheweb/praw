@@ -56,7 +56,7 @@ Reusable agent skills for the HAX (Headless Authoring eXperience) ecosystem. The
 | `hax-multimedia-principles-audit` | Read-only audit of how a HAX page combines words and media against Mayer's multimedia principles | `npx skills add haxtheweb/praw --skill hax-multimedia-principles-audit` |
 | `hax-ux-study` | Run an internal HAXcms UX study (Merlin `>developer/ux-study` recordings), analyze exports into a findings report and heatmap/replay review, and file confirmed issues in haxtheweb/issues | `npx skills add haxtheweb/praw --skill hax-ux-study` |
 | `hax-design-system-ingest` | Bring an outside design system (PatternFly, Carbon, Spectrum, Material, shadcn, Tailwind) into HAX: license gate, DDD token bridge, DDD-capable design system and a common theme | `npx skills add haxtheweb/praw --skill hax-design-system-ingest` |
-| `hax-theme-builder` | Turn a screenshot into an accessible, dark-mode-ready HAXcms theme | `npx skills add haxtheweb/praw --skill hax-theme-builder` |
+| `hax-theme-builder` | Turn a screenshot, or a well known static site generator theme, into an accessible, dark-mode-ready HAXcms theme | `npx skills add haxtheweb/praw --skill hax-theme-builder` |
 | `youtube-vtt` | Generate a WebVTT transcript from a YouTube URL with yt-dlp, no video download | `npx skills add haxtheweb/praw --skill youtube-vtt` |
 
 ## Machine-readable index

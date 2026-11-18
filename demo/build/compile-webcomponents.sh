@@ -30,7 +30,10 @@ cd "$WORK"
 git init -q && git remote add origin "https://github.com/$REPO.git"
 git fetch -q --depth 1 origin "$REF" && git checkout -q FETCH_HEAD
 step "installing $(git rev-parse --short HEAD)"
-# engines pins node 24; the build runs on what the project has. HUSKY=0: no git hooks for a throwaway checkout.
+# engines pins node 24; the build runs on what the project has (Vercel's Node can be newer). yarn v1 checks
+# engines again on every `yarn run`, which --ignore-engines on install doesn't cover, so it is off for every
+# yarn command here. HUSKY=0: no git hooks for a throwaway checkout.
+export YARN_IGNORE_ENGINES=true
 HUSKY=0 yarn install --frozen-lockfile --ignore-engines --non-interactive --network-timeout 600000 --silent
 BIN="$WORK/node_modules/.bin"
 # a webcomponents package script by name; one this ref does not define is skipped (an older WC_REF may

@@ -39,7 +39,13 @@ gulp_task vendor-copy-xterm
 gulp_task vendor-copy-latex2html5
 node scripts/minify-css-templates.mjs build/es6/node_modules/@haxtheweb
 step "minifying (terser)"
-gulp_task terser
+# webcomponents moved minification from `gulp terser` to `yarn run terser` (scripts/terser-build.mjs, the
+# same options plus its exclusions); an older WC_REF still has only the gulp task
+if node -e 'process.exit(require("./package.json").scripts.terser ? 0 : 1)'; then
+  yarn run --silent terser
+else
+  gulp_task terser
+fi
 step "registry"
 # reads the terser output (static get tag(){return"..."}), so it runs after terser, as in ubiquity
 gulp_task wc-autoloader

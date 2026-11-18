@@ -57,9 +57,15 @@ Check, from the package itself (`npm view <pkg> license`, then the `license` fie
   generator refuses anything else. A package whose `license` field reads `SEE LICENSE IN <file>`
   is fine: declare the real license in `bridge.json` and the generator checks that file's text
   for it. If it can't ship, say so and don't offer a workaround.
-- **Fonts**: OFL-1.1, Apache-2.0 or MIT only, loaded from Google Fonts (the `DesignSystemManager`
-  font loader merges Google Fonts URLs). Proprietary brand fonts (Adobe Clean, IBM's licensed
-  faces outside Plex, SF Pro) never ship: use the system's own documented open fallback.
+- **Fonts**: OFL-1.1 or Apache-2.0 only. HAX serves every font itself from
+  `elements/d-d-d/lib/fonts`, never from Google Fonts. List each font in `bridge.json` by its
+  family name as Google Fonts spells it, with its license; `build-bridge.js` writes
+  `<Prefix>Fonts` from the names and fails on a family HAX doesn't ship. A new family is added to
+  `scripts/fonts/hax-fonts.json` (a pinned Fontsource package) and vendored with
+  `node scripts/vendor-fonts.mjs`, which also lists it, with its license, in the third-party
+  listing. See the Fonts section of webcomponents' `CONTRIBUTING.md`. Proprietary brand fonts
+  (Adobe Clean, IBM's licensed faces outside Plex, SF Pro) never ship: use the system's own
+  documented open fallback.
 - **Commercial add-ons** (Tailwind Plus/UI, paid kits) are out; use only the open-source values.
 - **Reserved marks**: never reproduce anything that marks a site as official or vendor-owned:
   government banners ("An official website of the United States government"), seals,

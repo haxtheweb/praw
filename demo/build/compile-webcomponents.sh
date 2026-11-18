@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # Compile HAX's front-end build from webcomponents into WORK/, the same build/es6 tree the CDN serves:
-# fetch WC_REPO@WC_REF, install, polymer build, the xterm and latex2html5 vendor copies, CSS template
-# minify, terser, then wc-autoloader (wc-registry.json from the compiled tree, so elements added on master
-# load before the next ubiquity release) and the third-party license file. This is the build half of
+# fetch WC_REPO@WC_REF, install, polymer build, then webcomponents' own package scripts in the order its
+# `ubiquity` script runs them (locales, vendor copies, CSS template minify, terser, wc-autoloader, so
+# wc-registry.json comes from the compiled tree and elements added on master load before the next ubiquity
+# release) and the third-party license file. Running webcomponents' scripts by name, not its gulp tasks,
+# keeps this in step when a step moves between gulp and a script there. This is the build half of
 # `ubiquity` in a throwaway checkout; it never publishes anything. Used by demo.hax.cloud
 # (demo/build/build.sh) and hax.cloud (ecosystem/build/site.sh); it lives in demo/ because the demo is its
 # own Vercel project rooted there. Needs git, node, yarn (v1), python3.
@@ -31,24 +33,30 @@ step "installing $(git rev-parse --short HEAD)"
 # engines pins node 24; the build runs on what the project has. HUSKY=0: no git hooks for a throwaway checkout.
 HUSKY=0 yarn install --frozen-lockfile --ignore-engines --non-interactive --network-timeout 600000 --silent
 BIN="$WORK/node_modules/.bin"
-gulp_task() { "$BIN/gulp" "$1" --gulpfile=gulpfile.mjs; }
+# a webcomponents package script by name; one this ref does not define is skipped (an older WC_REF may
+# not have every step yet)
+run_script() {
+  if node -e 'process.exit(require("./package.json").scripts[process.argv[1]] ? 0 : 1)' "$1"; then
+    yarn run --silent "$1"
+  else
+    echo "webcomponents: no '$1' script at this ref, skipped"
+  fi
+}
 
 step "compiling (polymer build)"
 "$BIN/polymer" build
-gulp_task vendor-copy-xterm
-gulp_task vendor-copy-latex2html5
-node scripts/minify-css-templates.mjs build/es6/node_modules/@haxtheweb
+run_script copy-locales
+run_script vendor-copy-xterm
+run_script vendor-copy-latex2html5
+run_script vendor-copy-mermaid
+run_script vendor-copy-monaco
+run_script vendor-copy-h5p
+run_script minify-css-templates
 step "minifying (terser)"
-# webcomponents moved minification from `gulp terser` to `yarn run terser` (scripts/terser-build.mjs, the
-# same options plus its exclusions); an older WC_REF still has only the gulp task
-if node -e 'process.exit(require("./package.json").scripts.terser ? 0 : 1)'; then
-  yarn run --silent terser
-else
-  gulp_task terser
-fi
+run_script terser
 step "registry"
 # reads the terser output (static get tag(){return"..."}), so it runs after terser, as in ubiquity
-gulp_task wc-autoloader
+run_script wc-autoloader
 node scripts/copy-dep-licenses.js
 
 python3 -I - "$WORK/wc-registry.json" <<'EOF'

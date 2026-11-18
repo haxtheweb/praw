@@ -17,15 +17,16 @@ trap 'rm -rf "$TMP"' EXIT
 
 "$ROOT/ecosystem/build/run.sh" --assemble
 
-# the HAXcms site boilerplate, from haxcms-nodejs main
+# haxcms-nodejs main: the HAXcms site boilerplate, and the backend code that renders its templates
+# (static_site.cjs below), so the two always come from the same commit
 if command -v git >/dev/null 2>&1; then
-  git clone -q --depth 1 --filter=blob:none --sparse https://github.com/haxtheweb/haxcms-nodejs "$TMP/hn"
-  git -C "$TMP/hn" sparse-checkout set src/boilerplate/site
+  git clone -q --depth 1 https://github.com/haxtheweb/haxcms-nodejs "$TMP/hn"
 else
   mkdir -p "$TMP/hn"
   curl -fsSL https://codeload.github.com/haxtheweb/haxcms-nodejs/tar.gz/refs/heads/main |
-    tar -xz -C "$TMP/hn" --strip-components=1 haxcms-nodejs-main/src/boilerplate/site
+    tar -xz -C "$TMP/hn" --strip-components=1
 fi
+(cd "$TMP/hn" && npm install --omit=dev --ignore-scripts --no-audit --no-fund --loglevel=error)
 
 if [ -z "${HAX_CLOUD_THEME:-}" ] && npm view @haxtheweb/ecosystem-theme version >/dev/null 2>&1; then
   export HAX_CLOUD_THEME=ecosystem-theme
@@ -40,18 +41,16 @@ rm -rf "$OUT/pages" "$OUT/site.json" "$OUT/.github" "$OUT/docker" "$OUT/Dockerfi
 cp "$OUT/ghpages.html" "$OUT/index.html"
 cd "$ROOT/ecosystem/.work" && python3 -I ../build/build_site.py "$OUT" hax-area-icons.html
 
-# for search engines and AI agents (https://github.com/haxtheweb/issues/issues/3352): the HAX CLI's
-# site:build-static, in place, renders every page as its own HTML file (<slug>/index.html at the top of the
-# site, each with its title, description, canonical link, JSON-LD and text) and rebuilds the generated files
-# (robots.txt, llms.txt, llms-full.txt, sitemap, feeds, search index, agent skills) for https://hax.cloud.
-# It runs before the compiled build/ and its loader scripts go in, so those stay the ones shipped here.
-# A HAX CLI without site:build-static (before the release that has it) leaves the shell as the entry point.
+# the boilerplate's files are templates ({{ title }}, {% if socialImage %} ...): haxcms-nodejs main renders
+# them from site.json, refreshes the generated files (robots.txt, llms.txt, sitemap, feeds, search index,
+# agent skills) and, for search engines and AI agents (https://github.com/haxtheweb/issues/issues/3352),
+# renders every page as its own HTML file (<slug>/index.html with its title, description, canonical link,
+# JSON-LD and text). The same steps as the HAX CLI's site:build-static, run with the backend these templates
+# came from: the published CLI's backend can lag the boilerplate on main, and shipped them unrendered.
+# The build fails if a template is left unrendered. It runs before the compiled build/ and its loader
+# scripts go in, so those stay the ones shipped here.
 cd "$ROOT"
-if npx --yes @haxtheweb/create site site:build-static --root "$OUT" --out-dir "$OUT" --y --no-i; then
-  echo "static pages: rendered"
-else
-  echo "static pages: this HAX CLI can't build them yet; the site's entry point is the shell"
-fi
+node "$ROOT/ecosystem/build/static_site.cjs" "$TMP/hn" "$OUT"
 # the rebuild brings back the boilerplate's server-only files; a static host doesn't run them
 rm -rf "$OUT/docker" "$OUT/Dockerfile" "$OUT/index.php" "$OUT/config.php" "$OUT/.htaccess" "$OUT/files/.htaccess" \
   "$OUT/netlify.toml" "$OUT/.hax-static-build"

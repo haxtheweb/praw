@@ -111,6 +111,18 @@ Structure your entries using the templates below. Keep entries concise and searc
 
 ## Web Components
 
+- Title: Tracking is translucent: visible to the tracked, abstract by default
+- Date: 2026-11-18
+- Context: Reading the social translucence papers (Erickson and Kellogg, "Social Translucence: An Approach to Designing Systems that Support Social Processes", ACM TOCHI 7(1), 2000; Erickson et al., "Socially Translucent Systems: Social Proxies, Persistent Conversation, and the Design of Babble", CHI 1999; Gilbert, "Designing Social Translucence Over Social Networks", CHI 2012) against HAX's xAPI tracking and the "what's tracked" lens.
+- Guidance:
+  - Two ideas carry over. First, a system works socially when activity is visible and people know what others can see of them; the papers name "make it evident to each person which of their actions are visible" as an open problem. In HAX that means the person being tracked can see what is recorded about them, not only the editor reviewing a page.
+  - Second, translucent is not transparent: publish an abstraction of activity (the neighborhood, not the GPS coordinates), not the raw stream. In HAX that is the single page-completion record built from collapsed "seen" and checkpoint signals, with forgiving thresholds, instead of a statement per scroll position.
+  - Not carried over: Gilbert's triad framework (it is about follower graphs, which HAX does not have), his sharing-behavior curve (a loose fit on a self-selected sample) and Babble's interface.
+- Rationale: These were already the decisions behind the tracking lens and the collapsed completion record; the papers give them a name and a reason, and the first one exposes a gap (a learner-facing view). The evidence in the papers is thin (the authors' own lab plus short deployments), so they are cited as rationale for a design stance, not as proof.
+- Links: RULES.md rules `ea643795-98bc-47fb-bf31-999644a48f77` and `2e0e8483-8e58-4854-b6f9-f28f77aec17b`; tracking lens PR <https://github.com/haxtheweb/webcomponents/pull/1457>
+- Candidate: No
+- Promoted: rules `ea643795-98bc-47fb-bf31-999644a48f77` and `2e0e8483-8e58-4854-b6f9-f28f77aec17b` in RULES.md
+
 - Title: Example – Prefer globalThis over window
 - Date: 2025-09-25
 - Context: Align with cross-environment JS standards and our ecosystem rule

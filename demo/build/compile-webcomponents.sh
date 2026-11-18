@@ -34,10 +34,11 @@ step "installing $(git rev-parse --short HEAD)"
 HUSKY=0 yarn install --frozen-lockfile --ignore-engines --non-interactive --network-timeout 600000 --silent
 BIN="$WORK/node_modules/.bin"
 # a webcomponents package script by name; one this ref does not define is skipped (an older WC_REF may
-# not have every step yet)
+# not have every step yet). --ignore-engines as at install: yarn v1 checks engines on `run` too, so on any
+# node but 24 (Vercel's project node, say) every script refuses to start.
 run_script() {
   if node -e 'process.exit(require("./package.json").scripts[process.argv[1]] ? 0 : 1)' "$1"; then
-    yarn run --silent "$1"
+    yarn --ignore-engines run --silent "$1"
   else
     echo "webcomponents: no '$1' script at this ref, skipped"
   fi

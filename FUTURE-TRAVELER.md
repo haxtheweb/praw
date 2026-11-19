@@ -36,7 +36,7 @@ It also shows the method. He does not invent from nothing. He takes the great id
 ### Where to see it
 
 - **The posters.** HAX's posters tell the story of the seven pillars once per era: steam age, modern marvel, roaring twenties, rainbow, corporate, cyberpunk, early web, the consoles and the World of Tomorrow, one poster to a pillar. They are in [haxtheweb/art](https://github.com/haxtheweb/art/tree/main/haxtheweb/posters).
-- **The network bar.** At the right end of the bar on every HAX site, hover him and he tears through every era he has been to, then comes home to today. Click to remix: he stays in the era you chose. The eras are drawn in [`hax-future-traveler.js`](https://github.com/haxtheweb/webcomponents/blob/master/elements/hax-network-bar/lib/hax-future-traveler.js), one for each poster style, with the World of Tomorrow in every pillar's color.
+- **The network bar.** At the right end of the bar on every HAX site, hover him and he tears through every era he has been to, then comes home to today. Click to remix: he stays in the era you chose. The eras are drawn in [`hax-future-traveler.js`](https://github.com/haxtheweb/webcomponents/blob/master/elements/hax-network-bar/lib/hax-future-traveler.js), one for each poster style, with the World of Tomorrow in every pillar's color. The same icons are kept as files to use anywhere, SVG and PNG, in [haxtheweb/art](https://github.com/haxtheweb/art/tree/main/future-traveler-eras).
 - **The 36 variants.** He has been a paper cut, a sticker, a pixel sprite and plenty more, in [haxtheweb/art](https://github.com/haxtheweb/art/tree/main/future-traveler).
 
 | Era | Drawn after |

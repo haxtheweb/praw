@@ -56,13 +56,13 @@ The sites people meet HAX through are one network, and [`network.json`](network.
 | Property | Where | Color | What it is for | How it relates |
 | --- | --- | --- | --- | --- |
 | **HAXTheWeb** | [haxtheweb.org](https://haxtheweb.org) | keystoneYellow | Why HAX is for you, and every way to get it. | The front door. It sends people to try, learn and install. |
-| **hax.cloud** | [hax.cloud](https://hax.cloud) | original87Pink | The brain of HAX: every person, pillar and project, and how they connect. | PRAW drawn as a web. Every other property takes its stories from here. |
+| **PRAW** | [hax.cloud](https://hax.cloud) | original87Pink | The brain of the HAX ecosystem: every person, pillar and project, and how they connect. | PRAW, at hax.cloud, drawn as a web. Every other property takes its stories from here. |
 | **Build now** | [browser.hax.cloud](https://browser.hax.cloud) | futureLime | Use HAX right now in this browser tab. Nothing to install. | The platform itself, live. Install HAX is how you take it with you. |
 | **Learn** | [learn.hax.cloud](https://learn.hax.cloud) | skyBlue | Tutorials that teach HAX one flow at a time. | Where people go after trying it, as users and as contributors. |
 | **Web components** | [webcomponents.hax.cloud](https://webcomponents.hax.cloud) | inventOrange | Every HAX element, with live demos and walkthroughs. | The parts every HAX site and editor is built from. |
 | **RPG me** | [rpg-me.hax.cloud](https://rpg-me.hax.cloud) | athertonViolet | Make the character that is you across HAX. | Your character, after the list, is the way in. He comes to life when you come by. |
 
-The first five, in that order, are the network bar's list. PRAW feeds all of them and is not a property itself: hax.cloud is where it shows.
+The first five, in that order, are the network bar's list. PRAW feeds all of them and is named in the list as itself: its label is PRAW and its address is hax.cloud.
 
 ### Who draws what
 

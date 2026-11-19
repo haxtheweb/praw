@@ -18,13 +18,13 @@
       "relation": "The front door. It sends people to try, learn and install."
     },
     "cloud": {
-      "label": "hax.cloud",
+      "label": "PRAW",
       "url": "https://hax.cloud",
       "color": "original87Pink",
       "on": "white",
       "icon": "lrn:network",
-      "purpose": "The brain of HAX: every person, pillar and project, and how they connect.",
-      "relation": "PRAW drawn as a web. Every other property takes its stories from here."
+      "purpose": "The brain of the HAX ecosystem: every person, pillar and project, and how they connect.",
+      "relation": "PRAW, at hax.cloud, drawn as a web. Every other property takes its stories from here."
     },
     "try": {
       "label": "Build now",

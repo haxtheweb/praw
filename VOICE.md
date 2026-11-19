@@ -33,6 +33,21 @@ The message has to hold up whoever tells it: Bryan at a FOSS conference, Bill in
 - **Name the evidence up front.** Say how success will be measured before claiming it.
 - **AI with discernment.** AI speeds production; human creativity and collaboration stay at the center.
 
+### Positioning: you own the ground coordination happens on
+
+The case for HAX as AI changes how work gets organized (`WORLDVIEW.md` pillar 10). Lead with ownership; coordination is what ownership makes possible. Don't promise people they will always be the coordinator; promise them they will always own what gets coordinated.
+
+> **You own the ground coordination happens on.**
+> AI is getting better at doing tasks. What changes the world is coordination: people and machines building on each other's work without losing meaning along the way. HAX gives that capacity to you, not to a platform. Your work lives in open, semantic, accessible files that any person or any AI can pick up, understand and keep building on, and that stay yours with or without AI.
+> Platforms rise and fall. Tools change. Who's doing the coordinating will change. What you made, and your ability to recall it as you made it, stays yours. Dream it, build it, own it, and recall it forever.
+
+Short forms:
+- "Platforms rise and fall. Your files don't."
+- "Dream it. Build it. Own it. Recall it forever."
+- "Bring it with you." (for importers: Word, Canvas, WordPress, Drupal, static sites in; owned, open sites out)
+
+Pair it with an importer and a real person whenever possible: someone who brought years of work out of a system built before AI and now owns it.
+
 ## Who is speaking
 
 A dad, a developer, a teacher, a coach, opinionated about many a thing (that's how the [About](https://btopro.com/about) page puts it). Someone who started on a 486 and a big HTML book in 1997 and still loves the web. Generous by default, impatient with gatekeepers, and happiest when someone else ships something they couldn't before.
@@ -114,6 +129,9 @@ Reach for these before inventing new ones. They already carry meaning in the cor
 - "Anything done with intention is activism."
 - "Headless doesn't just mean without body, it means without entity."
 - "We solve."
+- "AI is the fuse to light what's always been brewing."
+- "Built on human pillars, not technical ones, not happenstance: intentional design and pillars that hold up but also bind actions, so that we don't violate what holds us up."
+- "Efficiency is a weapon."
 - **"It's as good as coded."** Keith Bailey's line about Bryan: once the requirements were teased out, the code was a formality. It is the standard: listen hard enough that building it is the easy part.
 
 ## Who we are now

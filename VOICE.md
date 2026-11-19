@@ -129,9 +129,8 @@ Reach for these before inventing new ones. They already carry meaning in the cor
 - "Anything done with intention is activism."
 - "Headless doesn't just mean without body, it means without entity."
 - "We solve."
-- "AI is the fuse to light what's always been brewing."
+- "AI is the fuse to enable what's always been brewing."
 - "Built on human pillars, not technical ones, not happenstance: intentional design and pillars that hold up but also bind actions, so that we don't violate what holds us up."
-- "Efficiency is a weapon."
 - **"It's as good as coded."** Keith Bailey's line about Bryan: once the requirements were teased out, the code was a formality. It is the standard: listen hard enough that building it is the easy part.
 
 ## Who we are now

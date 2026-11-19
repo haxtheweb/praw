@@ -18,6 +18,7 @@ This repository contains:
 - **`WORLDVIEW.md`** - Curated worldview synthesis from long-form ecosystem writing, with pillar checks
 - **`VOICE.md`** - How HAX sounds: register, metaphors and signature lines for public writing (draft)
 - **`WHY.md`** - Why the work matters, in Bryan's words
+- **`FUTURE-TRAVELER.md`** - The story of the Future Traveler, HAX's mascot and logo, and why he is drawn in every era
 - **`WINS.md`** - Sourced stories that prove the worldview works (draft)
 - **`visuals/`** - Impact visuals (SIIP timeline, issue velocity) with alt text
 - **`talks/`** - Notes and recordings of talks that carry the worldview
@@ -369,6 +370,7 @@ praw/
 ├── WORLDVIEW.md                # Curated worldview profile, thematic priorities, pillar checks
 ├── VOICE.md                    # Voice and tone for public writing
 ├── WHY.md                      # Purpose, in Bryan's words
+├── FUTURE-TRAVELER.md          # The mascot's story, what each part of him means, his eras
 ├── WINS.md                     # Sourced wins
 ├── visuals/                    # Impact visuals with alt text
 ├── talks/                      # Talk notes and recordings

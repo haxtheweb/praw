@@ -34,6 +34,7 @@ On hax.cloud, webs and tours have readable paths (`/penn-state/strategic-plan`, 
 - The path a tile's label gives it (`/ecosystem/james-kane-iv`) still answers, as a page that forwards to the address. It follows the current label, so after a rename the old name's path is gone and nothing stores it.
 - When a node id or the web that owns a tile has to change, keep its address by adding the new key to [`site/addresses.json`](site/addresses.json): `{"tile:<web>:<new id>": "<address>"}`. `slugs.json` on the live site lists every key and its path.
 - Two tiles can't share an address: the build stops and asks for a pin.
+- Where a page sits in the site outline (Organizations > Penn State, Courses > IST > IST 256) is set in [`site/categories.json`](site/categories.json) and never changes its address; see [`site/pages/README.md`](site/pages/README.md).
 
 ### Build it
 

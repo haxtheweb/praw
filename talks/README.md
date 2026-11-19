@@ -12,7 +12,7 @@ Recorded and presented talks that carry the HAX worldview, voice and evidence. A
 | Undated | [HAX in a minute](https://haxtheweb.github.io/art/presentation-materials/hax-in-a-minute/) | HAX explained in under a minute; the intro the Apereo project page links |
 | Mar 2026 | [Nothing is intentional, until it is](https://www.youtube.com/watch?v=wkdW2EjkwZ4) | Ten years of HAX told through ubiquity, the outline designer and SIIP |
 | May 2026 | [SIIP: a Conversation with HAX](https://www.youtube.com/watch?v=TNF0uzYi9Kk) (Apereo) | The pipeline, told by the students and faculty in it |
-| 2026 | [With the right tools, you can do anything](https://www.youtube.com/watch?v=G5yEgFIxzl0) | Bryan's career as one storyline; the talk that retires the EdTechJoker persona and shows who he is |
+| 2026 | [With the right tools, you can build anything](https://www.youtube.com/watch?v=G5yEgFIxzl0) | Bryan's career as one storyline; the talk that retires the EdTechJoker persona and shows who he is |
 
 ## Then and now
 
@@ -96,7 +96,7 @@ The course model summarized in `WORLDVIEW.md`: outcomes, pedagogy, structure, in
 - "HAX was one of the single most impactful things for my career." (Winston White)
 - "If AI can install your project and learn from your docs, that likely means a junior developer can too." (Bryan)
 
-## With the right tools, you can do anything (2026)
+## With the right tools, you can build anything (2026)
 
 Bryan ends his courses with this talk, for students who want to find out how to make the world a better place. It tells his career as a single storyline, and it is the talk that retires the EdTechJoker persona while showing who he actually is (see `VOICE.md`: the persona is not part of the HAX story).
 

@@ -84,7 +84,7 @@ Reach for these before inventing new ones. They already carry meaning in the cor
 
 - "My social cause: reduce the cost of web publishing to zero, regardless of ability."
 - "Enable creativity to flow like water."
-- "With the right tools you can do anything." (a family saying)
+- "With the right tools you can build anything." (a family saying)
 - "Automation begets automation."
 - "It's not lazy, it's process optimization."
 - "Simple. 99% invisible."

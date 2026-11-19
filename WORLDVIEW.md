@@ -92,6 +92,15 @@ This document captures a normalized worldview profile derived from two aligned s
 - The thread runs the length of the work. In 2015 a keynote ended with a bash script running for 25 minutes and the question "what is our job when work is automated?" ("Last week I did 6 months of work.") In 2026, AI does six months of work in about three days.
 - AI is not a pivot. In Bryan's words: "automation begets automation and AI just allows me to amplify that process to solve the problem."
 
+### 10) Own the ground coordination happens on
+- AI getting better at tasks makes work cheaper; it does not by itself change who holds power. What reorganizes an economy is coordination: people and machines building on each other's work without losing meaning in the handoff. (Imas, Koh and Legg, *Organizing Intelligence*, Google DeepMind, 2026, model this; their results are scenarios from a model, not forecasts.)
+- Copies of one AI coordinate well because they share everything and pass complete working state. Open, semantic formats give that same property to people and to different machines: `site.json` (JSON Outline Schema), HAX-valid HTML and web components, DDD, and the site folder contract are a shared language any human or agent can pick up and keep building on.
+- Coordinating, as a job, is what gets automated last and then all at once. What lasts is ownership of the substrate: your files, your structure, your history, and the ability to recall your work, as you made it, whenever you want. HAX gives that capacity to the person, not to a platform.
+- Platforms are firms, and firms get outcompeted overnight. People who lease their voice to one lose it when it falls; people who own their files don't.
+- Importers are how this happens in practice. Word, Canvas cartridges, Drupal, WordPress, static site generators and the rest were engineered before the AI revolution; migrating people off them into owned, open formats is the work. In Bryan's words: HAX "has been primed for changing the world of what's made and who owns it and how it's managed, and now AI is the fuse to light what's always been brewing."
+- The pillars are the safeguard. HAX was "built on human pillars, not technical ones, not happenstance: intentional design and pillars that hold up but also bind actions, so that we don't violate what holds us up."
+- Efficiency is a weapon, and weapons cut both ways. The same patterns that collapse costly process can be turned into dark patterns that frustrate, addict or prod people, or turned against the very profession and tools that give voice to the process. The pillar checks exist so HAX's efficiency always lands on the side of the owner.
+
 ## Information Altruism thesis lens (explicit additions)
 ### A) Information altruism is a practical strategy, not just an ethic
 - The donation of code, time, support, and knowledge can change institutional decision-making by changing the cost structure of innovation.
@@ -114,6 +123,7 @@ This document captures a normalized worldview profile derived from two aligned s
 ## Agent-use implications
 When generating recommendations aligned to this worldview:
 - Prefer open standards, portability, and low lock-in architecture.
+- Position HAX on ownership of the coordination substrate (pillar 10), not on AI task skill, which is getting cheap for everyone; treat importers and migration paths as strategic, not peripheral.
 - Favor workflows that increase educator agency and reduce technical overhead.
 - Treat accessibility and OER compatibility as default design constraints.
 - Encourage community contribution models and transparent iteration.
@@ -164,6 +174,7 @@ Run these for any new feature, skill, plugin, integration or architectural decis
 | 7 | Sustainable | Sustainable, Efficient | Could a regular practitioner (not the author) understand, maintain and deploy it? Does it remove or avoid complexity rather than add a new dependency or build step without reason? |
 | 8 | Learning by building | Sustainable (community) | Could a student contribute to or learn from this (SIIP)? Is there a path from a course assignment to this code? |
 | 9 | Automation begets automation | Efficient, Sustainable | Does it automate a task people (or agents) repeat, so the next person starts further ahead? Can the automation itself be reused and built on, rather than being a one-off? |
+| 10 | Own the coordination ground | Free and open, Platform agnostic, Remixable | Does it leave the owner holding everything needed to recall, move and keep building on their work, by any person or any agent, if this service, vendor or AI went away tomorrow? Does it bring people in from an older system (an importer, a migration path) rather than add a new place they have to lease? Does it avoid patterns that frustrate, addict or prod people toward someone else's goals? |
 | A | Information altruism | Free and open | Does it give capability away freely (open license, public docs, no lock-in) so others can build on it? |
 | B | Values encoded in tools | All | Does the default behavior embody the value, rather than relying on a policy or a setting people must find? |
 | C | Human creativity first | Free and open, Remixable | Does AI speed the work while people keep the creative and editorial decisions? Does the output stay open and portable rather than depending on a single AI service ("supplemented by AI, not forever powered by it")? |

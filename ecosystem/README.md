@@ -60,9 +60,12 @@ The sites people meet HAX through are one network, and [`network.json`](network.
 | **Build now** | [browser.hax.cloud](https://browser.hax.cloud) | futureLime | Use HAX right now in this browser tab. Nothing to install. | The platform itself, live. Install HAX is how you take it with you. |
 | **Learn** | [learn.hax.cloud](https://learn.hax.cloud) | skyBlue | Tutorials that teach HAX one flow at a time. | Where people go after trying it, as users and as contributors. |
 | **Web components** | [webcomponents.hax.cloud](https://webcomponents.hax.cloud) | inventOrange | Every HAX element, with live demos and walkthroughs. | The parts every HAX site and editor is built from. |
-| **RPG me** | [rpg-me.hax.cloud](https://rpg-me.hax.cloud) | athertonViolet | Make the character that is you across HAX. | Your character, after the list, is the way in. He comes to life when you come by. |
+| **Art** | [haxtheweb.github.io/art](https://haxtheweb.github.io/art/) | discoveryCoral | The HAX art movement: posters, the Future Traveler across time, and playful tools like RPG me. | Where HAX's creative side lives. RPG me is one of the tools in it. |
+| **RPG me** | [rpg-me.hax.cloud](https://rpg-me.hax.cloud) | athertonViolet | Make the character that is you across HAX. | One of HAX Art's tools. Your character, after the list, is the way in. He comes to life when you come by. |
 
-The first five, in that order, are the network bar's list. PRAW feeds all of them and is named in the list as itself: its label is PRAW and its address is hax.cloud.
+The first six, in that order, are the network bar's list. PRAW feeds all of them and is named in the list as itself: its label is PRAW and its address is hax.cloud. RPG me is one of HAX Art's tools (`within: "art"` in the record), so it is not a property of its own in the list: your character comes right after Art, its card says it is part of Art, and the properties menu lists it under Art. It keeps its own address and stays a stand-alone tool.
+
+Each property's `repo` is the haxtheweb repository it is built and deployed from. A release (ubiquity, in webcomponents) has to account for every one of them: [`scripts/ubiquity-network.json`](https://github.com/haxtheweb/webcomponents/blob/master/scripts/ubiquity-network.json) says what ubiquity does with each repo, and its coverage check fails when a repo named here has no entry there.
 
 ### Who draws what
 

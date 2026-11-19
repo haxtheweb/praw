@@ -299,9 +299,7 @@ if ECO_THEME:
              "variables": {"ecosystemSrc": "ecosystem-webs.json",
                            "nav": [{"label": "Explore", "slug": items[0]["slug"]}, {"label": "Tours", "slug": by_id[tours_root]["slug"]}]
                                   + [{"label": x["title"], "slug": slug(x["slug"])} for x in EXTRA if x.get("nav")],
-                           "links": [{"kind": "docs", "label": "Docs", "href": "https://haxtheweb.org"},
-                                     {"kind": "portfolio", "label": "Element portfolio", "href": "https://webcomponents.hax.cloud"},
-                                     {"kind": "demo", "label": "Try the live demo", "href": "https://demo.hax.cloud"}],
+                           # no "links": HAXTheWeb, Build now and Web components are in the network bar above
                            # the home page's greeting: before anything else, that it is all one network
                            "welcome": {"title": "Everything in HAX is connected",
                                        "text": "Every part of HAX, every site in the HAX network and everyone who builds it, in one web. "

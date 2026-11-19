@@ -13,7 +13,7 @@
   "redirects": [
     {
       "source": "/demo",
-      "destination": "https://demo.hax.cloud/",
+      "destination": "https://browser.hax.cloud/",
       "permanent": false
     },
     {

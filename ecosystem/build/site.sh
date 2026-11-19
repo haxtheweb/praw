@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 # Build hax.cloud into _site/ at the repo root: the HAXcms site boilerplate from haxcms-nodejs main, with
 # site.json, pages/ and the interactive web written by build_site.py, and build/: HAX's front-end build
-# compiled from webcomponents master (demo/build/compile-webcomponents.sh, the same tree demo.hax.cloud
-# serves), so every element, the theme included, loads from hax.cloud itself and runs the latest code.
+# compiled from webcomponents master (ecosystem/build/compile-webcomponents.sh), so every element, the theme included, loads from hax.cloud itself and runs the latest code.
 # Run by the hax.cloud workflow and by Vercel (vercel.json); needs bash, python3 (3.9+), git, node and
 # yarn (v1). WC_REPO / WC_REF build against another webcomponents source (see the compile script).
 #
@@ -57,7 +56,7 @@ rm -rf "$OUT/docker" "$OUT/Dockerfile" "$OUT/index.php" "$OUT/config.php" "$OUT/
 
 # build/: the compiled front end, shipped with the site. The magic script finds ./build/ and loads from it,
 # so nothing comes from cdn.hax.cloud; the registry files sit at the top of the site where HAXcms looks.
-bash "$ROOT/demo/build/compile-webcomponents.sh" "$TMP/wc"
+bash "$ROOT/ecosystem/build/compile-webcomponents.sh" "$TMP/wc"
 mkdir -p "$OUT/build/es6"
 mv "$TMP/wc/build/es6/node_modules" "$OUT/build/es6/node_modules"
 cp "$TMP/wc/build/THIRD_PARTY_LICENSES" "$OUT/build/THIRD_PARTY_LICENSES"

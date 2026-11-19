@@ -5,11 +5,11 @@ name: hax.cloud
 #
 # The site is a static HAXsite: the HAXcms site boilerplate from haxcms-nodejs main, with site.json, pages/
 # and the interactive web (ecosystem.html) written by ecosystem/build/build_site.py, and build/: HAX's
-# front-end build compiled from webcomponents master (demo/build/compile-webcomponents.sh), so the site
+# front-end build compiled from webcomponents master (ecosystem/build/compile-webcomponents.sh), so the site
 # loads every element from itself.
 on:
   pull_request:
-    paths: ["ecosystem/**", "demo/build/compile-webcomponents.sh", "vercel.json", ".github/workflows/hax-cloud.yml"]
+    paths: ["ecosystem/**", "vercel.json", ".github/workflows/hax-cloud.yml"]
   workflow_dispatch:
 permissions:
   contents: read

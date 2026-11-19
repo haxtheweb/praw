@@ -5,11 +5,10 @@
 # wc-registry.json comes from the compiled tree and elements added on master load before the next ubiquity
 # release) and the third-party license file. Running webcomponents' scripts by name, not its gulp tasks,
 # keeps this in step when a step moves between gulp and a script there. This is the build half of
-# `ubiquity` in a throwaway checkout; it never publishes anything. Used by demo.hax.cloud
-# (demo/build/build.sh) and hax.cloud (ecosystem/build/site.sh); it lives in demo/ because the demo is its
-# own Vercel project rooted there. Needs git, node, yarn (v1), python3.
+# `ubiquity` in a throwaway checkout; it never publishes anything. Used by hax.cloud
+# (ecosystem/build/site.sh). Needs git, node, yarn (v1), python3.
 #
-#   demo/build/compile-webcomponents.sh WORK
+#   ecosystem/build/compile-webcomponents.sh WORK
 #
 # Leaves: WORK/build/es6/node_modules (the compiled tree), WORK/build/THIRD_PARTY_LICENSES,
 # WORK/wc-registry.json and WORK/wc-registry-graph.json (also written into the haxcms-elements demo folder),

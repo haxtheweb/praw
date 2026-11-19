@@ -229,7 +229,7 @@
    },
    "kind": "talk",
    "year": 2026,
-   "yearNote": "With the right tools, you can do anything"
+   "yearNote": "With the right tools, you can build anything"
   },
   "tmanymes": {
    "desc": "A workshop for instructional and learning design staff: build a digital \"you\" from context, skills, inputs, rules and outputs. PRAW is the worked example.",
@@ -430,7 +430,7 @@
      ]
     },
     {
-     "caption": "And the talk that ends every course: with the right tools, you can do anything.",
+     "caption": "And the talk that ends every course: with the right tools, you can build anything.",
      "nodes": [
       "t26tools",
       "family",

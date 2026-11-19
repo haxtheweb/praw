@@ -30,7 +30,7 @@ So I mentor and give back. I want to teach and mentor in a flow state between me
 
 ## With the right tools
 
-"With the right tools you can do anything." It's something my grandfather, William "Poppo" Ollendyke, and my father, Todd, have both said. Family is a core motivator, and so is the idea in that line: building anything out of my imagination.
+"With the right tools you can build anything." It's something my grandfather, William "Poppo" Ollendyke, and my father, Todd, have both said. Family is a core motivator, and so is the idea in that line: building anything out of my imagination.
 
 ## Where it comes from
 

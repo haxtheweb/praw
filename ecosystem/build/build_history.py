@@ -78,7 +78,7 @@ for e in EVENTS: nodes[e[0]] = {"desc": e[5], "kind": "event", "year": e[3], "ye
 for p in portals: nodes[p] = {"always": True}
 nodes["family"] = {"always": True}
 tours = [{"id": "history", "label": "Where it came from", "message": "From a weekend Drupal course to the Future Traveler, in five eras. Over time plays it year by year.", "scenes": [
-    S("It starts with family: with the right tools you can do anything.", "family", "bryan"),
+    S("It starts with family: with the right tools you can build anything.", "family", "bryan"),
     S("Five eras.", *[e for e, *_ in ERAS]),
     S("The Drupal years: Keith hires Bryan, ELMS is conceived, a weekend course seeds a community.", "h_hired", "h_elms", "h_weekend", "keithbailey", "aa"),
     S("Donating effort builds capacity everywhere it lands; the thesis calls this information altruism.", "h_altruism", "h_interviews", "h_modules", "h_thesis"),

@@ -1,0 +1,89 @@
+{
+  "categories": [
+    {
+      "id": "platform",
+      "title": "Platform",
+      "description": "HAXcms and what a HAX site is made of: the editor's blocks, themes, skeletons, importers and languages."
+    },
+    {
+      "id": "build",
+      "title": "Build with HAX",
+      "description": "For developers: the web component stack, the CLI, APIs, data contracts and the registries that tie them together."
+    },
+    {
+      "id": "agents",
+      "title": "Agents and skills",
+      "description": "What AI agents can do with HAX, the skills they use and the rules that guarantee the work."
+    },
+    {
+      "id": "health",
+      "title": "Project health",
+      "description": "How HAX is run, released, checked and assessed."
+    },
+    {
+      "id": "story",
+      "title": "Story",
+      "description": "Where HAX came from and how it is taught: history, talks and the Learn HAX tutorials."
+    },
+    {
+      "id": "organizations",
+      "title": "Organizations",
+      "description": "The organizations where HAX is built and used, and what runs there."
+    },
+    {
+      "id": "courses",
+      "title": "Courses",
+      "description": "Courses that teach with HAX and build parts of it, by subject."
+    },
+    {
+      "id": "courses/ist",
+      "title": "IST",
+      "parent": "courses",
+      "description": "Information Sciences and Technology courses at Penn State."
+    }
+  ],
+  "webs": {
+    "haxcms": "platform",
+    "browser": "platform",
+    "anatomy": "platform",
+    "elements": "platform",
+    "themes": "platform",
+    "skeletons": "platform",
+    "importers": "platform",
+    "languages": "platform",
+    "stack": "build",
+    "cli": "build",
+    "openapi": "build",
+    "mcptools": "build",
+    "contracts": "build",
+    "xapi": "build",
+    "registry": "build",
+    "tokens": "build",
+    "flows": "build",
+    "skills": "agents",
+    "skillsindex": "agents",
+    "rules": "agents",
+    "quality": "health",
+    "release": "health",
+    "community": "health",
+    "heosat": "health",
+    "sdgs": "health",
+    "history": "story",
+    "presentations": "story",
+    "tutorials": "story",
+    "psu": "organizations",
+    "sites": "web:psu",
+    "haxlab": "web:psu",
+    "ist256": "courses/ist"
+  },
+  "tiles": {
+    "main:aa": "web:psu",
+    "main:ist": "web:psu",
+    "main:hhd": "web:psu",
+    "main:eberly": "web:psu",
+    "main:libraries": "web:psu",
+    "main:innovationhub": "web:psu",
+    "main:ccso": "web:psu",
+    "main:uxdc": "web:psu"
+  }
+}

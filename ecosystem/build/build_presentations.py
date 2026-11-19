@@ -49,7 +49,7 @@ T = [
   {"recording": "https://www.youtube.com/watch?v=wkdW2EjkwZ4"}, "Ten years of HAX through ubiquity, the outline designer and SIIP; why every site since 2020 still works.", L("PRAW talks", TALKS)),
  ("t26siip", "SIIP: a Conversation with HAX", 2026, "hax:video", "apereo", ["bryan", "billrose", "jfrank", "fusco", "winston", "jimmykane", "ashley", "alyssa"], ["haxlab", "cli", "skeletons", "textbook", "wins"],
   {"recording": "https://www.youtube.com/watch?v=TNF0uzYi9Kk"}, "The pipeline, told by the students and faculty in it, with live demos of skeletons, Pressbooks import and Canvas AI analysis.", L("PRAW talks", TALKS)),
- ("t26tools", "With the right tools, you can do anything", 2026, "hax:video", None, ["bryan"], ["family", "elmsln", "editor", "haxlab", "efficient", "wins"],
+ ("t26tools", "With the right tools, you can build anything", 2026, "hax:video", None, ["bryan"], ["family", "elmsln", "editor", "haxlab", "efficient", "wins"],
   {"recording": "https://www.youtube.com/watch?v=G5yEgFIxzl0"}, "The talk Bryan ends his courses with: his career as one storyline, the retirement of the EdTechJoker persona, and the family saying in its title. Automation begets automation, from a 2015 bash-script keynote to AI in 2026.", L("PRAW talks", TALKS)),
  ("tmanymes", "The Many Mes", None, "image:slideshow", None, ["bryan"], ["praw", "agents"],
   {"notes": "https://btopro.com/hax/the-many-me-s"}, "A workshop for instructional and learning design staff: build a digital \"you\" from context, skills, inputs, rules and outputs. PRAW is the worked example.", L("PRAW talks", TALKS)),
@@ -138,7 +138,7 @@ tours = [{"id": "story", "label": "The story in talks", "message": "Ten years of
   S("2025: the State of HAX Community names the seven pillars; FOSSY gets ten years in one talk.", "t25state", "haxlab", "ddd", "agents", "accessible", "efficient", "extensible", "agnostic", "remixable", "sustainable", "t25fossy", "cli", "security"),
   S("Late 2025: Apereo's board chair asks how the class, the club and the lab fit together.", "t25wilson", "ist256", "grants", "portfolio"),
   S("2026: Nothing is intentional, until it is; then SIIP at Apereo with the students and faculty themselves.", "t26nothing", "ubiquity", "wins", "t26siip", "jfrank", "fusco", "winston", "jimmykane", "ashley", "alyssa", "skeletons", "textbook"),
-  S("And the talk that ends every course: with the right tools, you can do anything.", "t26tools", "family", "efficient"),
+  S("And the talk that ends every course: with the right tools, you can build anything.", "t26tools", "family", "efficient"),
   S("Still to date: workshops and videos that need a year.", "tmanymes", "praw", "tperf", "tminute", "tgov4", "drupal4gov"),
   S("Every talk points back into the ecosystem web."),
 ]}]

@@ -2,8 +2,10 @@
 
 Reads the same webs assemble.py does (web/*.mmd + web/*.json, in assemble.py's order) and writes a static HAXsite:
 
-  site.json        JSON Outline Schema: the main web is the home page, each sub-web a page nested under the web
-                   that opens it, each tile a page under the web that owns it, and a Tours branch.
+  site.json        JSON Outline Schema: the main web is the home page with its own tiles under it; each sub-web is
+                   its own page with its tiles under it, filed under a category (ecosystem/site/categories.json,
+                   e.g. Organizations > Penn State, Courses > IST > IST 256) or nested under the web that opens it;
+                   then a Tours branch.
   pages/<id>/      one index.html per page: generated HAX page HTML (description, links, what it connects to).
   ecosystem.html   today's player, embedded on every web page while the site uses clean-one. With ecosystem-theme
                    (HAX_CLOUD_THEME=ecosystem-theme, set by the workflow once the theme is on npm) every page has
@@ -15,7 +17,8 @@ page is at hax.cloud/stories/<address>: the address comes from the tile's key (i
 label, so the link holds when the tile is renamed. The path a tile's label used to give it (/ecosystem/<label>)
 still answers, as a page that forwards to the address; it follows the current label, so no former name is kept.
 A tile drawn as a portal in another web is not a second page: links to it go to its page in the web that owns it.
-Hand-written pages live in ecosystem/site/pages/<slug>.html; when one exists its HTML goes above the generated
+Categories only arrange the outline: a web's slug still comes from the web that opens it, so moving a web to
+another category never changes its address. Hand-written pages live in ecosystem/site/pages/<slug>.html; when one exists its HTML goes above the generated
 content of that page.
 
 Usage (from ecosystem/.work, after assemble.py): python3 -I ../build/build_site.py <out-dir> <player.html>
@@ -95,6 +98,27 @@ def web_parent(w):
     if p in WEBS and p != w: return p
     if w in opens: return opens[w][0]
     return "main" if w != "main" else None
+# the outline's categories (ecosystem/site/categories.json): {categories: [{id, title, description, parent}],
+# webs: {web id: category id, or "web:<id>" to file it under that web's page}, tiles: {"<web>:<node id>": "web:<id>"
+# or a category id}}. Categories group the webs that open from the main web; a nested web (Data contracts > JSON
+# Outline Schema) stays under its parent web. tiles files a tile's page somewhere other than the web that owns it,
+# such as Penn State's colleges (main-web tiles) under Penn State; its address does not change.
+_cat_file = os.path.join(ECO, "site", "categories.json")
+CATS = json.load(open(_cat_file)) if os.path.exists(_cat_file) else {"categories": [], "webs": {}}
+CAT = {c["id"]: c for c in CATS["categories"]}
+for c in CATS["categories"]:
+    if c.get("parent") and c["parent"] not in CAT: sys.exit(f"category {c['id']}: unknown parent {c['parent']}")
+def cat_id(c): return iid(f"category:{c}")
+unfiled = []
+def outline_parent(w, par):
+    """the page a web sits under in the outline: its category, the web categories.json files it under, or the web that opens it"""
+    if par != "main": return page_of[("web", par)]
+    to = CATS["webs"].get(w)
+    if to and to.startswith("web:") and to[4:] in WEBS and to[4:] != w:
+        place_web(to[4:]); return page_of[("web", to[4:])]
+    if to in CAT: return cat_id(to)
+    unfiled.append(w)
+    return page_of[("web", "main")]
 def add(key, title, parent, slugpath, desc="", order=0):
     i = iid(key)
     items.append({"id": i, "indent": 0, "location": f"pages/{i}/index.html", "slug": slugpath, "order": order, "parent": parent,
@@ -127,8 +151,22 @@ def place_web(w, depth=0):
         if pn and own.startswith(pn + "-"): own = own[len(pn) + 1:]
     s = unique((base + "/" if base else "") + own)
     web_slug[w] = s
-    page_of[("web", w)] = add(f"web:{w}", nm, page_of[("web", par)] if par else None, s, WEBS[w]["data"].get("meta", {}).get("about", ""), len([x for x in items if x["parent"] == page_of.get(("web", par))]))
+    op = outline_parent(w, par)
+    page_of[("web", w)] = add(f"web:{w}", nm, op, s, WEBS[w]["data"].get("meta", {}).get("about", ""), len([x for x in items if x["parent"] == op]))
 for w, _ in order: place_web(w)
+if unfiled: print("not in ecosystem/site/categories.json, left under the home page:", ", ".join(unfiled))
+# the categories, after the webs so a web's slug never gives way to a category's; a category nobody files a web
+# in is left out
+def cat_used(c):
+    return any(x["parent"] == cat_id(c) for x in items) or any(k.get("parent") == c and cat_used(k["id"]) for k in CATS["categories"])
+cat_roots = 0
+for c in CATS["categories"]:
+    if not cat_used(c["id"]): continue
+    par = cat_id(c["parent"]) if c.get("parent") else None
+    n = cat_roots if not par else len([x for x in items if x["parent"] == par])
+    if not par: cat_roots += 1
+    i = add(f"category:{c['id']}", c["title"], par, unique(slug(c["id"].split("/")[0]) + "".join("/" + slug(x) for x in c["id"].split("/")[1:])), c.get("description", ""), 1 + n if not par else n)
+    assert i == cat_id(c["id"])
 # tiles owned by each web (not portals, not the tile that opens a sub-web, not the hub)
 for w, _ in order:
     W = WEBS[w]; n = 0
@@ -142,13 +180,21 @@ for w, _ in order:
         page_of[(w, nid)] = add(key, t["label"], page_of[("web", w)], unique("stories/" + address(key)), W["data"]["nodes"].get(nid, {}).get("desc", ""), n)
         legacy[unique(base + "/" + slug(t["label"]))] = page_of[(w, nid)]
         n += 1
+# tiles filed elsewhere in the outline (categories.json "tiles")
+for k, to in CATS.get("tiles", {}).items():
+    w, _, nid = k.partition(":")
+    p = page_of.get((w, nid))
+    tgt = page_of.get(("web", to[4:])) if to.startswith("web:") else (cat_id(to) if to in CAT else None)
+    it = next((x for x in items if x["id"] == p), None)
+    if not it or not it["_key"].startswith("tile:") or not tgt: print("categories.json tiles: skipped", k, "->", to); continue
+    it["parent"], it["order"] = tgt, 1000 + len([x for x in items if x["parent"] == tgt])
 # pages that are not part of a web (ecosystem/site/extra-pages.json: [{slug, title, description}]); their HTML is the
 # hand-written ecosystem/site/pages/<slug>.html, and with no metadata.ecosystem the theme opens them in the Site view
 EXTRA = json.load(open(os.path.join(ECO, "site", "extra-pages.json"))) if os.path.exists(os.path.join(ECO, "site", "extra-pages.json")) else []
 # tours
-tours_root = add("tours", "Tours", None, unique("tours"), "Walks through the ecosystem web, one step at a time.", 1)
+tours_root = add("tours", "Tours", None, unique("tours"), "Walks through the ecosystem web, one step at a time.", 1 + cat_roots)
 for n, x in enumerate(EXTRA):
-    add(f"page:{x['slug']}", x["title"], None, unique(slug(x["slug"])), x.get("description", ""), 2 + n)
+    add(f"page:{x['slug']}", x["title"], None, unique(slug(x["slug"])), x.get("description", ""), 2 + cat_roots + n)
 tn = 0
 for w, _ in order:
     for t in WEBS[w]["data"].get("tours", []):
@@ -216,14 +262,25 @@ for w, _ in order:
     for t in tours:
         steps = "".join(f"<li>{E(s.get('caption', ''))}</li>" for s in t.get("scenes", []))
         pages[page_of[("tour", w, t["id"])]] = [f"<p>{E(t.get('message', ''))}</p>", f'<p><a href="{href(page_of[("web", w)])}">{E(web_name(w))}</a></p>', f"<ol>{steps}</ol>"]
+# a category page: what it holds, each with its description
+def full_desc(x):  # a web's whole "about" (an item's description is cut to 200 characters for the outline)
+    k = x["_key"].split(":")
+    return WEBS[k[1]]["data"].get("meta", {}).get("about", "") if k[0] == "web" else x["description"]
+for it in [x for x in items if x["_key"].startswith("category:")]:
+    kids = sorted([x for x in items if x["parent"] == it["id"]], key=lambda x: x["order"])
+    pages[it["id"]] = [f"<p>{E(CAT[it['_key'][9:]].get('description', ''))}</p>" if CAT[it["_key"][9:]].get("description") else "",
+                       "<ul>" + "".join(f'<li><a href="{href(x["id"])}">{E(x["title"])}</a>' + (f": {E(full_desc(x))}" if full_desc(x) else "") + "</li>" for x in kids) + "</ul>"]
 pages[tours_root] = ["<ul>" + "".join(f'<li><a href="{href(i["id"])}">{E(i["title"])}</a></li>' for i in items if i["parent"] == tours_root) + "</ul>"]
 
 # ---------- write ----------
 os.makedirs(os.path.join(OUT, "pages"), exist_ok=True)
-indent_of = {}
+by_id = {it["id"]: it for it in items}
+def depth(it):  # a category is added after the webs under it, so count up the parents rather than in list order
+    d = 0
+    while it["parent"]: it, d = by_id[it["parent"]], d + 1
+    return d
 for it in items:
-    it["indent"] = 0 if not it["parent"] else indent_of.get(it["parent"], 0) + 1
-    indent_of[it["id"]] = it["indent"]
+    it["indent"] = depth(it)
     body = pages.get(it["id"], [])
     authored = os.path.join(AUTHORED, it["slug"].replace("/", "__") + ".html")
     pre = open(authored).read() if os.path.exists(authored) else ""

@@ -48,6 +48,34 @@ Everything runs in `ecosystem/.work` (ignored), where `sources.sh` clones the re
 
 Which webs are generated from source and which are curated by hand is in each `.mmd` header; the generated ones are listed in `drift.py`. Edit a curated web through its generator (`build_<web>.py`), not the `.mmd`/`.json` directly, or the next run will put it back.
 
+## The network
+
+The sites people meet HAX through are one network, and [`network.json`](network.json) is its record: what each property is called, where it lives, the color and icon that stand for it, the one sentence that says what it is for, and how it relates to the rest. Anything that names a property, on any site or in any post, uses this label and this sentence.
+
+| Property | Where | Color | What it is for | How it relates |
+| --- | --- | --- | --- | --- |
+| **HAXTheWeb** | [haxtheweb.org](https://haxtheweb.org) | keystoneYellow | Why HAX is for you, and every way to get it. | The front door. It sends people to try, learn and install. |
+| **Try it now** | [browser.hax.cloud](https://browser.hax.cloud) | futureLime | Use HAX right now in this browser tab. Nothing to install. | The platform itself, live. Install HAX is how you take it with you. |
+| **Learn** | [learn.hax.cloud](https://learn.hax.cloud) | skyBlue | Tutorials that teach HAX one flow at a time. | Where people go after trying it, as users and as contributors. |
+| **Web components** | [webcomponents.hax.cloud](https://webcomponents.hax.cloud) | inventOrange | Every HAX element, with live demos and walkthroughs. | The parts every HAX site and editor is built from. |
+| **hax.cloud** | [hax.cloud](https://hax.cloud) | original87Pink | The brain of HAX: every person, pillar and project, and how they connect. | PRAW drawn as a web. Every other property takes its stories from here. |
+| **RPG me** | [rpg-me.hax.cloud](https://rpg-me.hax.cloud) | athertonViolet | Make the character that is you across HAX. | Not in the list. Your character in the corner of the network bar is the way in. |
+
+The first five, in that order, are the network bar's list. PRAW feeds all of them and is not a property itself: hax.cloud is where it shows.
+
+### Who draws what
+
+Every site in the network carries the same bar, [`hax-network-bar`](https://github.com/haxtheweb/webcomponents/tree/master/elements/hax-network-bar), and the split is the same everywhere:
+
+- **The network bar owns** moving between properties, Merlin, Install HAX, Discord, GitHub and your character. Each property is its icon in its color; the one you are on opens into its name.
+- **The site owns** everything under the bar: its header, its links and its controls. It does not repeat the network's links or its own name from the bar.
+- **A full platform** (HAXcms in the browser) uses the bar's compact form and puts its own status and functions in it, because the editor under it already has a character, Merlin and the Future Traveler.
+- **Install HAX opens in place** on every site, with a tab per way and its quick steps, and links to haxtheweb.org for the full details.
+
+### Changing it
+
+Change `network.json` first, in a pull request here, so the reason is on record. Then make the same change in the copy the elements ship, [`elements/hax-network-bar/lib/hax-network.js`](https://github.com/haxtheweb/webcomponents/blob/master/elements/hax-network-bar/lib/hax-network.js) (and the bar's English strings, which its tests hold to the record). Sites that build from webcomponents pick it up on their next deploy. A new property also needs its own network icon drawn in that file.
+
 ## HEOSAT evidence
 
 The [heosat skill](../skills/heosat/SKILL.md) scores **47 questions in 9 sections** (rubric 2026.07 enhanced guidance edition). Apereo's sources disagree on how many criteria HEOSAT has: the HEOSAT README lists 7 assessment areas, the Apereo incubation page lists 8, and the assessment tool's rubric (used here and by the heosat skill) scores 47 questions in 9 sections. This map follows the tool's 9 sections.

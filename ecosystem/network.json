@@ -1,11 +1,11 @@
 {
-  "about": "The HAX network's record: one entry per property, saying what it is called, where it lives, the color and icon that stand for it, what it is for and how it relates to the rest. Everything that names, draws or describes a property reads this, so the network says one thing about itself. color and on are DDD color names (the fill, and the ink that reads on it). icon is a plain simple-icon for places that cannot draw the property's own network icon. order is the order the network bar lists them; a property outside it has its place in the bar named in place.",
+  "about": "The HAX network's record: one entry per property, saying what it is called, where it lives, the color and icon that stand for it, what it is for and how it relates to the rest. Everything that names, draws or describes a property reads this, so the network says one thing about itself. color and on are DDD color names (the fill, and the ink that reads on it). icon is a plain simple-icon for places that cannot draw the property's own network icon. order is the order the network bar lists them; RPG me comes after them, as your character.",
   "order": [
     "web",
+    "cloud",
     "try",
     "learn",
-    "elements",
-    "cloud"
+    "elements"
   ],
   "properties": {
     "web": {
@@ -17,8 +17,17 @@
       "purpose": "Why HAX is for you, and every way to get it.",
       "relation": "The front door. It sends people to try, learn and install."
     },
+    "cloud": {
+      "label": "hax.cloud",
+      "url": "https://hax.cloud",
+      "color": "original87Pink",
+      "on": "white",
+      "icon": "lrn:network",
+      "purpose": "The brain of HAX: every person, pillar and project, and how they connect.",
+      "relation": "PRAW drawn as a web. Every other property takes its stories from here."
+    },
     "try": {
-      "label": "Try it now",
+      "label": "Build now",
       "url": "https://browser.hax.cloud",
       "color": "futureLime",
       "on": "coalyGray",
@@ -44,15 +53,6 @@
       "purpose": "Every HAX element, with live demos and walkthroughs.",
       "relation": "The parts every HAX site and editor is built from."
     },
-    "cloud": {
-      "label": "hax.cloud",
-      "url": "https://hax.cloud",
-      "color": "original87Pink",
-      "on": "white",
-      "icon": "lrn:network",
-      "purpose": "The brain of HAX: every person, pillar and project, and how they connect.",
-      "relation": "PRAW drawn as a web. Every other property takes its stories from here."
-    },
     "rpg": {
       "label": "RPG me",
       "url": "https://rpg-me.hax.cloud",
@@ -60,8 +60,8 @@
       "on": "coalyGray",
       "icon": "face",
       "purpose": "Make the character that is you across HAX.",
-      "relation": "Not an icon in the list. Your character in the corner of the bar is the way in.",
-      "place": "Your character in the corner of the network bar."
+      "relation": "Your character, after the list, is the way in. He comes to life when you come by.",
+      "place": "Your character, after the properties in the network bar."
     }
   },
   "community": {

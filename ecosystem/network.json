@@ -1,5 +1,5 @@
 {
-  "about": "The HAX network's record: one entry per property, saying what it is called, where it lives, the color and icon that stand for it, what it is for and how it relates to the rest. Everything that names, draws or describes a property reads this, so the network says one thing about itself. color and on are DDD color names (the fill, and the ink that reads on it). icon is a plain simple-icon for places that cannot draw the property's own network icon. order is the order the network bar lists them. A tool that lives within a property names it in within: RPG me is one of HAX Art's tools, so it is not in order; it comes right after Art as your character, keeps its own address and stays a stand-alone tool. repo is the haxtheweb repository each property is built and deployed from; ubiquity (webcomponents scripts/ubiquity-network.json) must account for every one of them on a release.",
+  "about": "The HAX network's record: one entry per property, saying what it is called, where it lives, the color and icon that stand for it, what it is for and how it relates to the rest. Everything that names, draws or describes a property reads this, so the network says one thing about itself. color and on are DDD color names (the fill, and the ink that reads on it). icon is a plain simple-icon for places that cannot draw the property's own network icon. order is the order the network bar lists them. A tool that lives within a property names it in within and is not in the network bar: RPG me is one of HAX Art's tools, a stand-alone service at its own address (rpg.art.hax.cloud, which rpg-me.hax.cloud redirects to) linked from the Art site's menu; on RPG me the bar lights up Art. repo is the haxtheweb repository each property is built and deployed from; ubiquity (webcomponents scripts/ubiquity-network.json) must account for every one of them on a release.",
   "order": [
     "web",
     "cloud",
@@ -68,18 +68,18 @@
       "icon": "image:palette",
       "purpose": "The HAX art movement: posters, the Future Traveler across time, and playful tools like RPG me.",
       "relation": "Where HAX's creative side lives. RPG me is one of the tools in it.",
-      "place": "After Web components in the network bar; your character, RPG me, comes right after it."
+      "place": "After Web components in the network bar; RPG me, one of its tools, is in the Art site's menu, not the bar."
     },
     "rpg": {
       "label": "RPG me",
-      "url": "https://rpg-me.hax.cloud",
+      "url": "https://rpg.art.hax.cloud",
       "repo": "rpg-me",
       "color": "athertonViolet",
       "on": "coalyGray",
       "icon": "face",
       "purpose": "Make the character that is you across HAX.",
-      "relation": "One of HAX Art's tools. Your character, after the list, is the way in. He comes to life when you come by.",
-      "place": "Your character, right after Art in the network bar, and listed under Art in the properties menu.",
+      "relation": "One of HAX Art's tools, linked from the Art site's menu rather than the network bar. On RPG me the bar lights up Art.",
+      "place": "Not in the network bar: a top-level page in the Art site's menu links to it, and on RPG me the bar lights up Art.",
       "within": "art"
     }
   },

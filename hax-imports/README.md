@@ -1,10 +1,22 @@
 # File based imports
-Copies of file based importers are included here as import-example.{format}
+Copies of file based importers are included here as import-example.{format}, one for every file type the Import cards accept
 - [DOCX](import-example.docx)
-- [HTML](import-example.html)
+- [ODT](import-example.odt)
 - [PDF](import-example.pdf)
 - [PPTX](import-example.pptx)
+- [ODP](import-example.odp)
 - [XLSX](import-example.xlsx)
+- [ODS](import-example.ods)
+- [Markdown](import-example.md)
+- [TXT](import-example.txt) (read as Markdown, so `#` headings become pages)
+- [HTML](import-example.html)
+
+The ODT, ODP and ODS files are the DOCX, PPTX and XLSX examples saved in their OpenDocument formats, so each pair should import to the same pages.
+
+# File uploads
+Formats that upload into a page as a file and its block rather than importing as pages
+- [ICS](import-example.ics) (calendar)
+- [VCF](import-example.vcf) (contact card)
 
 # URL based imports
 These are URLs that are valid for importing into HAXcms

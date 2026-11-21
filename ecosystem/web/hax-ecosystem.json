@@ -3599,6 +3599,250 @@
      ]
     }
    ]
+  },
+  {
+   "id": "napkin",
+   "label": "Napkin to PR",
+   "kind": "story",
+   "message": "How an idea becomes part of HAX: from a sketch on a napkin to a reviewed pull request, a release and the live sites that run it.",
+   "scenes": [
+    {
+     "caption": "It starts with a person and an idea: something HAX should do.",
+     "nodes": [
+      "human"
+     ]
+    },
+    {
+     "caption": "The idea becomes a drawing. A napkin sketch or a screenshot is enough for the Future Traveler to start from, with PRAW's skills and rules to guide it.",
+     "nodes": [
+      "traveler",
+      "design",
+      "praw",
+      "agents"
+     ]
+    },
+    {
+     "caption": "The work is tracked in the unified issue queue and arrives on GitHub as a pull request.",
+     "nodes": [
+      "issues",
+      "github"
+     ]
+    },
+    {
+     "caption": "Gates and quality checks run on the pull request: tests, lint, accessibility and security. Nothing merges itself; a person reviews it.",
+     "nodes": [
+      "quality",
+      "testing",
+      "rules",
+      "security"
+     ]
+    },
+    {
+     "caption": "The ubiquity build compiles every element into one tested set and writes the registry.",
+     "nodes": [
+      "ubiquity",
+      "components",
+      "registry"
+     ]
+    },
+    {
+     "caption": "The release goes out to npm, and on to both backends and the CLI.",
+     "nodes": [
+      "npm",
+      "php",
+      "nodejs",
+      "cli"
+     ]
+    },
+    {
+     "caption": "Live sites pick it up: hax.psu.edu, HAXcms in the browser and every site published from HAX.",
+     "nodes": [
+      "haxpsu",
+      "browser",
+      "deploy"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "learner",
+   "label": "Learn in a HAX course",
+   "kind": "story",
+   "message": "For students: what a course built with HAX gives the person taking it.",
+   "scenes": [
+    {
+     "caption": "You are a student, and a course built with HAX is in front of you.",
+     "nodes": [
+      "human",
+      "course"
+     ]
+    },
+    {
+     "caption": "At Penn State it lives on hax.psu.edu, behind the login you already have.",
+     "nodes": [
+      "haxpsu",
+      "haxiam",
+      "psu"
+     ]
+    },
+    {
+     "caption": "Every page is built from accessible web components, so it works on any screen and in any browser.",
+     "nodes": [
+      "components",
+      "accessible",
+      "agnostic"
+     ]
+    },
+    {
+     "caption": "Self-checks and activities record what you do as xAPI-style statements, ready to move to a learning record store.",
+     "nodes": [
+      "xapi"
+     ]
+    },
+    {
+     "caption": "OER Schema describes what each page teaches, so the course stays open and remixable.",
+     "nodes": [
+      "oerschema",
+      "open",
+      "remixable"
+     ]
+    },
+    {
+     "caption": "And if you want to build it yourself, IST 256 and HAX Lab are the way in.",
+     "nodes": [
+      "ist256",
+      "haxlab"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "agent",
+   "label": "An agent at work",
+   "kind": "story",
+   "message": "For AI agents and the people who direct them: how an agent finds HAX's skills, follows its rules and ships work through the same gates as everyone else.",
+   "scenes": [
+    {
+     "caption": "An agent works alongside a person, as the Future Traveler does.",
+     "nodes": [
+      "traveler",
+      "human"
+     ]
+    },
+    {
+     "caption": "It finds HAX's skills through the discovery index that every HAXcms deployment and every site carries.",
+     "nodes": [
+      "skillsindex",
+      "agents"
+     ]
+    },
+    {
+     "caption": "PRAW gives it the rules, voice and worldview that keep its work consistent.",
+     "nodes": [
+      "praw",
+      "rules"
+     ]
+    },
+    {
+     "caption": "The HAX CLI is how it does the work: creating sites and components, auditing and publishing.",
+     "nodes": [
+      "cli"
+     ]
+    },
+    {
+     "caption": "The MCP (pre-release) reaches HAXcms through the same OpenAPI contract people use.",
+     "nodes": [
+      "mcp",
+      "openapi"
+     ]
+    },
+    {
+     "caption": "Its changes go through the issue queue and the same pull request checks as a person's.",
+     "nodes": [
+      "issues",
+      "github",
+      "quality",
+      "testing"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "start-psu",
+   "label": "Start from hax.psu.edu",
+   "kind": "story",
+   "message": "Three ways in from Penn State's HAX service: Start, Try HAX and Learn HAX.",
+   "scenes": [
+    {
+     "caption": "hax.psu.edu is Penn State's HAXcms service, run on HAXiam behind Penn State login.",
+     "nodes": [
+      "haxpsu",
+      "haxiam",
+      "psu"
+     ]
+    },
+    {
+     "caption": "Start: sign in and make a site from the dashboard, beginning from a skeleton.",
+     "nodes": [
+      "dashboard",
+      "skeletons",
+      "haxcms"
+     ]
+    },
+    {
+     "caption": "Try HAX: use it in a browser tab, with nothing to install.",
+     "nodes": [
+      "browser",
+      "editor"
+     ]
+    },
+    {
+     "caption": "Learn HAX: tutorials that teach it one flow at a time.",
+     "nodes": [
+      "learnhax"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "start-cloud",
+   "label": "Start from hax.cloud",
+   "kind": "story",
+   "message": "Five ways in from hax.cloud: the playground, the magic script, the element browser, RPG me and the desktop app.",
+   "scenes": [
+    {
+     "caption": "The playground: HAXcms in a browser tab, with no install and no server.",
+     "nodes": [
+      "browser"
+     ]
+    },
+    {
+     "caption": "The magic script: two lines that load any HAX web component the moment it appears on a page, found through the registry.",
+     "nodes": [
+      "registry",
+      "wcstandard"
+     ]
+    },
+    {
+     "caption": "The element browser: every HAX element, with live demos.",
+     "nodes": [
+      "components",
+      "ddd"
+     ]
+    },
+    {
+     "caption": "RPG me: make the character that is you across HAX.",
+     "nodes": [
+      "games"
+     ]
+    },
+    {
+     "caption": "The desktop app: HAXcms as an application on your own computer.",
+     "nodes": [
+      "haxcms"
+     ]
+    }
+   ]
   }
  ]
 }

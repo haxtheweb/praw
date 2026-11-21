@@ -39,6 +39,10 @@ rm -rf "$OUT/pages" "$OUT/site.json" "$OUT/.github" "$OUT/docker" "$OUT/Dockerfi
   "$OUT/config.php" "$OUT/.htaccess" "$OUT/llms.txt" "$OUT/netlify.toml"
 cp "$OUT/ghpages.html" "$OUT/index.html"
 cd "$ROOT/ecosystem/.work" && python3 -I ../build/build_site.py "$OUT" hax-area-icons.html
+# recent activity from the public GitHub API (https://github.com/haxtheweb/issues/issues/3387): recent.json, the
+# Recent page and each repository's tile page. It keeps the last published snapshot when GitHub can't be read,
+# and never stops the build.
+python3 -I "$ROOT/ecosystem/build/build_recent.py" "$OUT" || echo "recent: skipped"
 
 # the boilerplate's files are templates ({{ title }}, {% if socialImage %} ...): haxcms-nodejs main renders
 # them from site.json, refreshes the generated files (robots.txt, llms.txt, sitemap, feeds, search index,

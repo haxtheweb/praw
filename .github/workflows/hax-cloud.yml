@@ -34,3 +34,8 @@ jobs:
           python3 -I -c "import json; d = json.load(open('_site/site.json')); s = [i['slug'] for i in d['items']]; assert len(s) == len(set(s)), 'duplicate slugs'; e = sum(1 for i in d['items'] if 'ecosystem' in i['metadata']); assert e, 'no page says what it shows'; print(len(s), 'pages,', e, 'in a web; theme', d['metadata']['theme']['element'])"
           test -f _site/ecosystem.html && test -f _site/index.html && test -f _site/ecosystem-webs.json
           test -f _site/wc-registry.json && test -f _site/build/es6/node_modules/@haxtheweb/ecosystem-theme/ecosystem-theme.js
+      - name: Check recent activity
+        # the snapshot step's own cases (no network), then that the build published the snapshot and the page
+        run: |
+          python3 -I ecosystem/test/recent-check.py
+          test -f _site/recent.json && test -f _site/recent/index.html

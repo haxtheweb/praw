@@ -25,11 +25,8 @@ for f in sorted(glob.glob("hax-*.json")):
                 want[web][k] = (m.group(1), m.group(2), path); break
 # main tiles whose own links point at npm or a site: the code that is them
 E = "haxtheweb/webcomponents"
-CODE = {"editor": (E, "elements/hax-body"), "dashboard": (E, "elements/app-hax"), "themes": (E, "elements/haxcms-elements/lib/core/themes"), "outline": (E, "elements/outline-designer"),
-        "merlin": (E, "elements/super-daemon"), "ddd": (E, "elements/d-d-d"), "components": (E, ""), "haxcms": ("haxtheweb/haxcms-nodejs", ""), "praw": ("haxtheweb/praw", ""),
-        "haxschema": ("haxtheweb/hax-schema", ""), "appstore": ("haxtheweb/haxcms-nodejs", "src/lib/HAXAppStoreService.js"), "oerschema": (E, "elements/oer-schema"),
-        "importers": ("haxtheweb/haxcms-nodejs", "src/systemRoutes/v1/routes/imports"),
-        "skeletons": ("haxtheweb/haxcms-nodejs", "src/coreConfig/skeletons"), "testing": (E, "web-test-runner.config.mjs"), "games": (E, "elements/rpg-character"), "xapi": (E, "elements/user-action"), "security": ("haxtheweb/haxcms-nodejs", "SECURITY.md"), "agents": ("haxtheweb/praw", "skills"), "learnhax": ("haxtheweb/learn", "")}
+# kept as data (ext/concept-code.json) so tutorial_review.py reads the same record
+CODE = {k: tuple(v) for k, v in json.load(open("ext/concept-code.json"))["main"].items()}
 # OpenAPI is one spec file inside haxcms-nodejs: its commit date says little about the API, so it gets none
 for k, (r, p) in CODE.items():
     if k not in want["main"]: want["main"][k] = (r, "main", p)

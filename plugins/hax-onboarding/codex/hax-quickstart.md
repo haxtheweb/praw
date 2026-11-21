@@ -38,7 +38,7 @@ hax site my-hax-site --y --no-i
 ```
 
 This creates a portable HAXcms site: `site.json` (JSON Outline Schema), `pages/`
-content, `files/` assets, optional `theme/`.
+content, `files/` assets, and `custom/` for a custom theme or site-specific elements.
 
 ### Step 3 — Serve it locally
 

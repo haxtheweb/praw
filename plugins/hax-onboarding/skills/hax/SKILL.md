@@ -150,8 +150,8 @@ hax site mysite --theme "custom-theme" \
 ```
 
 A HAXsite is a portable HAXcms site: `site.json` (JSON Outline Schema), `pages/`
-content, `files/` assets, optional `theme/`. Preview with `hax serve` from the
-site root.
+content, `files/` assets, and `custom/` for a custom theme or site-specific
+elements. Preview with `hax serve` from the site root.
 
 ## Work with an existing HAXsite
 

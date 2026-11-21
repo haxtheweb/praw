@@ -1,0 +1,9 @@
+{
+  "name": "ecosystem-web-tests",
+  "private": true,
+  "description": "The one dependency of the ecosystem web's browser checks (parse-check.js, layout-check.js). Installed by CI with npm ci; nothing here ships.",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "playwright": "1.63.0"
+  }
+}

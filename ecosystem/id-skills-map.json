@@ -652,7 +652,7 @@
     "elementsNoSkillCovers": [
       {
         "element": "course-model",
-        "note": "Course structure modeling; no skill recommends it."
+        "note": "Shows a 3D model learners can turn and view from several angles; no skill recommends it."
       },
       {
         "element": "vocab-term",

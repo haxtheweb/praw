@@ -194,7 +194,7 @@
    "kind": "element"
   },
   "b_course_model": {
-   "desc": "@haxtheweb/course-model. Course structure modeling; no skill recommends it.",
+   "desc": "@haxtheweb/course-model. Shows a 3D model learners can turn and view from several angles; no skill recommends it.",
    "status": "gap",
    "note": "Gap: no instructional design skill covers this element yet.",
    "links": {

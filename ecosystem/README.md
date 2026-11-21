@@ -169,7 +169,7 @@ Overall: 33 evidenced, 12 partial, 2 gaps.
 
 Instructional elements no skill recommends yet:
 
-- `course-model`: Course structure modeling; no skill recommends it.
+- `course-model`: Shows a 3D model learners can turn and view from several angles; no skill recommends it.
 - `vocab-term`: Overlaps lrn-vocab, which skills do cite; decide which one skills should recommend.
 - `micro-game-base`: Base for learning games; no skill covers game-based practice.
 - `bullet-check-list`: Checklist activity; could serve practice or reflection skills.

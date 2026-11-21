@@ -1,0 +1,85 @@
+{
+ "about": "Where the code behind a main-web tile lives when the tile's own links point at npm or a site instead: {tile id: [repository, path inside it]} (an empty path is the whole repository). build_layers.py reads it for freshness and bus factor; tutorial_review.py reads it to tell which tutorials a change touches. A tile whose links already name its repository, code or docs on GitHub needs no entry here.",
+ "main": {
+  "editor": [
+   "haxtheweb/webcomponents",
+   "elements/hax-body"
+  ],
+  "dashboard": [
+   "haxtheweb/webcomponents",
+   "elements/app-hax"
+  ],
+  "themes": [
+   "haxtheweb/webcomponents",
+   "elements/haxcms-elements/lib/core/themes"
+  ],
+  "outline": [
+   "haxtheweb/webcomponents",
+   "elements/outline-designer"
+  ],
+  "merlin": [
+   "haxtheweb/webcomponents",
+   "elements/super-daemon"
+  ],
+  "ddd": [
+   "haxtheweb/webcomponents",
+   "elements/d-d-d"
+  ],
+  "components": [
+   "haxtheweb/webcomponents",
+   ""
+  ],
+  "haxcms": [
+   "haxtheweb/haxcms-nodejs",
+   ""
+  ],
+  "praw": [
+   "haxtheweb/praw",
+   ""
+  ],
+  "haxschema": [
+   "haxtheweb/hax-schema",
+   ""
+  ],
+  "appstore": [
+   "haxtheweb/haxcms-nodejs",
+   "src/lib/HAXAppStoreService.js"
+  ],
+  "oerschema": [
+   "haxtheweb/webcomponents",
+   "elements/oer-schema"
+  ],
+  "importers": [
+   "haxtheweb/haxcms-nodejs",
+   "src/systemRoutes/v1/routes/imports"
+  ],
+  "skeletons": [
+   "haxtheweb/haxcms-nodejs",
+   "src/coreConfig/skeletons"
+  ],
+  "testing": [
+   "haxtheweb/webcomponents",
+   "web-test-runner.config.mjs"
+  ],
+  "games": [
+   "haxtheweb/webcomponents",
+   "elements/rpg-character"
+  ],
+  "xapi": [
+   "haxtheweb/webcomponents",
+   "elements/user-action"
+  ],
+  "security": [
+   "haxtheweb/haxcms-nodejs",
+   "SECURITY.md"
+  ],
+  "agents": [
+   "haxtheweb/praw",
+   "skills"
+  ],
+  "learnhax": [
+   "haxtheweb/learn",
+   ""
+  ]
+ }
+}

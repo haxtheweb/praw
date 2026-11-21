@@ -4,5 +4,11 @@
     "title": "Magic script",
     "description": "Two lines that load any HAX web component from the CDN the moment it appears on a page.",
     "nav": true
+  },
+  {
+    "slug": "recent",
+    "title": "Recent",
+    "description": "The latest merges, releases and new issues across the HAX repositories.",
+    "nav": true
   }
 ]

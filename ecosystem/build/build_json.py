@@ -468,6 +468,49 @@ STORIES = [
    S("Everything planned, at once.", "staticpub", "plugins", "magiclink", "insights", "ssr", "ai", "mcp"),
  ]},
 ]
+# tours as pages (https://github.com/haxtheweb/issues/issues/3258): how work travels (Napkin to PR), the two roles
+# the audience tours leave out (a student taking a course, an agent at work; "Build a course in five minutes" and
+# Administrators are the instructor's and the site admin's), and the entry points people arrive through
+STORIES += [
+ {"id": "napkin", "label": "Napkin to PR", "kind": "story", "message": "How an idea becomes part of HAX: from a sketch on a napkin to a reviewed pull request, a release and the live sites that run it.", "scenes": [
+   S("It starts with a person and an idea: something HAX should do.", "human"),
+   S("The idea becomes a drawing. A napkin sketch or a screenshot is enough for the Future Traveler to start from, with PRAW's skills and rules to guide it.", "traveler", "design", "praw", "agents"),
+   S("The work is tracked in the unified issue queue and arrives on GitHub as a pull request.", "issues", "github"),
+   S("Gates and quality checks run on the pull request: tests, lint, accessibility and security. Nothing merges itself; a person reviews it.", "quality", "testing", "rules", "security"),
+   S("The ubiquity build compiles every element into one tested set and writes the registry.", "ubiquity", "components", "registry"),
+   S("The release goes out to npm, and on to both backends and the CLI.", "npm", "php", "nodejs", "cli"),
+   S("Live sites pick it up: hax.psu.edu, HAXcms in the browser and every site published from HAX.", "haxpsu", "browser", "deploy"),
+ ]},
+ {"id": "learner", "label": "Learn in a HAX course", "kind": "story", "message": "For students: what a course built with HAX gives the person taking it.", "scenes": [
+   S("You are a student, and a course built with HAX is in front of you.", "human", "course"),
+   S("At Penn State it lives on hax.psu.edu, behind the login you already have.", "haxpsu", "haxiam", "psu"),
+   S("Every page is built from accessible web components, so it works on any screen and in any browser.", "components", "accessible", "agnostic"),
+   S("Self-checks and activities record what you do as xAPI-style statements, ready to move to a learning record store.", "xapi"),
+   S("OER Schema describes what each page teaches, so the course stays open and remixable.", "oerschema", "open", "remixable"),
+   S("And if you want to build it yourself, IST 256 and HAX Lab are the way in.", "ist256", "haxlab"),
+ ]},
+ {"id": "agent", "label": "An agent at work", "kind": "story", "message": "For AI agents and the people who direct them: how an agent finds HAX's skills, follows its rules and ships work through the same gates as everyone else.", "scenes": [
+   S("An agent works alongside a person, as the Future Traveler does.", "traveler", "human"),
+   S("It finds HAX's skills through the discovery index that every HAXcms deployment and every site carries.", "skillsindex", "agents"),
+   S("PRAW gives it the rules, voice and worldview that keep its work consistent.", "praw", "rules"),
+   S("The HAX CLI is how it does the work: creating sites and components, auditing and publishing.", "cli"),
+   S("The MCP (pre-release) reaches HAXcms through the same OpenAPI contract people use.", "mcp", "openapi"),
+   S("Its changes go through the issue queue and the same pull request checks as a person's.", "issues", "github", "quality", "testing"),
+ ]},
+ {"id": "start-psu", "label": "Start from hax.psu.edu", "kind": "story", "message": "Three ways in from Penn State's HAX service: Start, Try HAX and Learn HAX.", "scenes": [
+   S("hax.psu.edu is Penn State's HAXcms service, run on HAXiam behind Penn State login.", "haxpsu", "haxiam", "psu"),
+   S("Start: sign in and make a site from the dashboard, beginning from a skeleton.", "dashboard", "skeletons", "haxcms"),
+   S("Try HAX: use it in a browser tab, with nothing to install.", "browser", "editor"),
+   S("Learn HAX: tutorials that teach it one flow at a time.", "learnhax"),
+ ]},
+ {"id": "start-cloud", "label": "Start from hax.cloud", "kind": "story", "message": "Five ways in from hax.cloud: the playground, the magic script, the element browser, RPG me and the desktop app.", "scenes": [
+   S("The playground: HAXcms in a browser tab, with no install and no server.", "browser"),
+   S("The magic script: two lines that load any HAX web component the moment it appears on a page, found through the registry.", "registry", "wcstandard"),
+   S("The element browser: every HAX element, with live demos.", "components", "ddd"),
+   S("RPG me: make the character that is you across HAX.", "games"),
+   S("The desktop app: HAXcms as an application on your own computer.", "haxcms"),
+ ]},
+]
 tours += STORIES
 
 # versions accepted by drift.py --accept (graph-drift.mjs reads them from npm and GitHub tags)

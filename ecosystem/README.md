@@ -17,10 +17,10 @@ The ecosystem web itself lives here too: every sub-web's structure and details, 
 | Folder | What's in it |
 | --- | --- |
 | [`web/`](web) | One `.mmd` and `.json` pair per sub-web (`hax-ecosystem` is the main web), plus `gap-answers.json`, the answers that filled the main web's gaps. These are the source of truth. |
-| [`build/`](build) | The generators (`build_*.py`), `drift.py`, `graph-drift.mjs`, `assemble.py`, `sources.sh` and `run.sh`. |
-| [`build/data/`](build/data) | Extracts the generators read that don't come from a repo checkout: MCP tools, xAPI verbs, field and Merlin usage, OER Schema, the release script, the HAX Lab README, layer data and a hax.psu.edu snapshot with site owners removed. |
+| [`build/`](build) | The generators (`build_*.py`), `drift.py`, `graph-drift.mjs`, `assemble.py`, `sources.sh` and `run.sh`. `site.sh` builds hax.cloud from them: `build_site.py` writes the pages and `build_recent.py` adds recent activity. |
+| [`build/data/`](build/data) | Extracts the generators read that don't come from a repo checkout: where a tile's code lives (`concept-code.json`), MCP tools, xAPI verbs, field and Merlin usage, OER Schema, the release script, the HAX Lab README, layer data and a hax.psu.edu snapshot with site owners removed. |
 | [`player/`](player) | The page template and the icons, image and mascot it embeds. |
-| [`test/`](test) | `integrity-check.py` (the rules below; standard library Python), `parse-check.js` (every web parses with no errors and every icon is in the inlined set) and `layout-check.js` (no overflow at desktop and phone widths). The last two need Playwright (`npm ci` in `test/`). |
+| [`test/`](test) | `integrity-check.py` (the rules below; standard library Python), `parse-check.js` (every web parses with no errors and every icon is in the inlined set) and `layout-check.js` (no overflow at desktop and phone widths). The last two need Playwright (`npm ci` in `test/`). `recent-check.py` checks the recent activity step with no network, and `tutorial-review-check.py` the tutorials-to-review list. |
 
 ### Data format
 
@@ -45,6 +45,27 @@ On hax.cloud, webs and tours have readable paths (`/penn-state/strategic-plan`, 
 - When a node id or the web that owns a tile has to change, keep its address by adding the new key to [`site/addresses.json`](site/addresses.json): `{"tile:<web>:<new id>": "<address>"}`. `slugs.json` on the live site lists every key and its path.
 - Two tiles can't share an address: the build stops and asks for a pin.
 - Where a page sits in the site outline (Organizations > Penn State, Courses > IST > IST 256) is set in [`site/categories.json`](site/categories.json) and never changes its address; see [`site/pages/README.md`](site/pages/README.md).
+
+### Recent activity
+
+hax.cloud/recent lists the latest merged pull requests, releases and new issues across the HAX repositories, and a repository's own tile page (HAXcms PHP, PRAW, the CLI) lists its own merges and releases. [`build/build_recent.py`](build/build_recent.py) reads them from the public GitHub REST API while the site builds and publishes the snapshot as `recent.json`; nothing on the site calls GitHub.
+
+- The repositories are the ones the webs name (a tile's `repo` link or `release: git:…`) plus each property's `repo` in `network.json`. A new tile with a `repo` link gets its activity with no other change.
+- The build needs no account. Without one GitHub allows 60 requests an hour from one address, and a build makes about two per repository; a `GITHUB_TOKEN` in the build's environment raises that and is never written to the site.
+- When GitHub can't be read, each list it would not give is kept from the last published snapshot (hax.cloud/recent.json). With no snapshot either, the page says there is nothing to show. The step never fails the build.
+- The lists are as fresh as the last build: the site builds when PRAW's `main` changes.
+
+### Tutorials to review when code changes
+
+The tutorials web says what each Learn HAX tutorial teaches, and a tile says where its code lives: its repo, code, source or docs link on GitHub, or its entry in [`build/data/concept-code.json`](build/data/concept-code.json) when its links point at npm or a site. [`build/tutorial_review.py`](build/tutorial_review.py) joins the two, so a change to code names the tutorials, and screencasts, to look at again ([haxtheweb/issues#2946](https://github.com/haxtheweb/issues/issues/2946)):
+
+```bash
+python3 -I ecosystem/build/tutorial_review.py webcomponents:elements/super-daemon/super-daemon.js   # Slash Commands, and its screencast
+python3 -I ecosystem/build/tutorial_review.py --since "7 days ago"   # everything changed in the clones in ecosystem/.work
+python3 -I ecosystem/build/tutorial_review.py --map                  # every taught tile, its code and its tutorials
+```
+
+It also lists the taught tiles with no code on record, which is where to add a link or an entry. `python3 -I ecosystem/test/tutorial-review-check.py` checks it.
 
 ### Build it
 

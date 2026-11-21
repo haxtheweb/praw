@@ -29,6 +29,7 @@ flowchart TB
     php["HAXcms PHP"]
     nodejs["HAXcms Node.js"]
     browser["HAXcms in the browser"]
+    desktop["HAX The Desktop"]
     haxiam["HAXiam"]
     haxpsu["hax.psu.edu"]
     ssr["Lit SSR"]
@@ -67,6 +68,7 @@ flowchart TB
   end
   subgraph practices ["Practices and standards"]
     wcag["WCAG"]
+    html["Plain HTML"]
     meaningchannels["Meaning channels standard"]
     sdgs[("UN Sustainable Development Goals")]
     rules["Rules and guarantees"]
@@ -218,6 +220,8 @@ flowchart TB
   php -->|mirrors| nodejs
   browser -->|runs in a tab| nodejs
   browser -->|publishes to| deploy
+  desktop -->|runs on your computer| nodejs
+  desktop ==>|keeps it| agnostic
   haxiam -->|hosts many sites of| haxcms
   ssr -->|server-renders| components
   ssr -->|runs inside| nodejs
@@ -435,6 +439,9 @@ flowchart TB
   wcstandard -->|is the basis of| components
   wcstandard ==>|keeps it| efficient
   wcstandard ==>|keeps it| agnostic
+  wcstandard -->|is written in| html
+  haxcms -.->|saves every page as| html
+  html ==>|keeps it| open
   design -->|shapes| ddd
   design ==>|keeps it| accessible
   testing -->|is part of| quality
@@ -744,6 +751,7 @@ flowchart TB
   %%@ node php icon=hax:future-traveler color=coalyGray motion=pulse new
   %%@ node nodejs icon=hax:future-traveler-plain color=limestoneGray motion=spin new
   %%@ node browser icon=icons:chrome-reader-mode color=skyBlue motion=lift web=browser new
+  %%@ node desktop icon=hardware:memory color=skyBlue motion=lift
   %%@ node haxiam icon=icons:verified-user color=inventOrange motion=pulse
   %%@ node haxpsu icon=social:school color=inventOrange motion=pulse web=sites
   %%@ node ssr icon=icons:dns color=athertonViolet motion=lift
@@ -823,6 +831,7 @@ flowchart TB
   %%@ node apereo mono=AP color=limestoneGray motion=pulse
   %%@ node booklooky mono=BL color=limestoneGray motion=pop
   %%@ node wcag icon=icons:accessibility color=forestGreen motion=pulse
+  %%@ node html mono=HTML color=inventOrange motion=lift
   %%@ node meaningchannels icon=icons:report color=wonderPurple motion=glow
   %%@ node rules icon=icons:gavel color=slateGray motion=strike web=rules
   %%@ node heosat icon=icons:verified-user color=beaverBlue motion=pop web=heosat

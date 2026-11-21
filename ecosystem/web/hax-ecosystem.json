@@ -218,6 +218,16 @@
    "year": 2026,
    "yearNote": "HAXcms runs in a browser tab"
   },
+  "desktop": {
+   "desc": "haxcms-nodejs wrapped in Electron as a desktop app. It starts the real server in a no-login local mode that only listens on your own computer, and keeps your sites in a folder in your home directory.",
+   "source": {
+    "label": "haxtheweb/haxcms-desktop README",
+    "url": "https://github.com/haxtheweb/haxcms-desktop#readme"
+   },
+   "links": {
+    "repo": "https://github.com/haxtheweb/haxcms-desktop"
+   }
+  },
   "haxiam": {
    "desc": "Makes HAXcms multi-tenant: hundreds of sites from one core behind institutional login. hax.psu.edu runs on it.",
    "source": {
@@ -694,6 +704,16 @@
     "spec": "https://www.w3.org/WAI/standards-guidelines/wcag/"
    },
    "always": true
+  },
+  "html": {
+   "desc": "The format every HAX page is saved in. A site's pages are plain HTML files with web components as their tags, so what you make stays readable and yours to take anywhere, with or without HAX.",
+   "source": {
+    "label": "PRAW ecosystem/build/data/pillars.json",
+    "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/pillars.json"
+   },
+   "links": {
+    "spec": "https://html.spec.whatwg.org/"
+   }
   },
   "meaningchannels": {
    "desc": "The meaning channels standard: anything that carries meaning or a consequential decision (correct versus incorrect, confirm versus deny, saving or deleting permanently) is conveyed through five channels at once: a label on hover and focus, a distinct color (green for correct, purple for incorrect, not red), a focus state, a texture that survives grayscale, and an icon unique to that meaning. Written into PRAW RULES.md; not yet in the DDD docs, and no gate enforces it yet.",
@@ -3293,6 +3313,7 @@
       "dbf",
       "github",
       "haxcamp",
+      "html",
       "issues",
       "npm",
       "oerschema",
@@ -3308,6 +3329,7 @@
      "nodes": [
       "agnostic",
       "deploy",
+      "desktop",
       "dtcg",
       "importers",
       "jos",

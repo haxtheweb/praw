@@ -1,0 +1,43 @@
+name: Ecosystem web
+# Checks the ecosystem web's page on pull requests that touch ecosystem/ (https://github.com/haxtheweb/issues/issues/3296):
+# the page still assembles from ecosystem/web, every web parses in the player with no parse, portal, tour or icon
+# error, and nothing overflows at desktop and phone widths. Nothing here writes or deploys.
+#
+# The integrity rules that need no browser (titles, references, a path to a pillar, no orphans) run on every pull
+# request in rule-checks.yml; the hax.cloud site build is hax-cloud.yml.
+on:
+  pull_request:
+    paths: ["ecosystem/**", ".github/workflows/ecosystem-web.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ecosystem-web-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  page:
+    name: Parse and layout checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+      - name: Assemble the page
+        # from ecosystem/web as it stands: no sources fetched, no generator rerun
+        run: ecosystem/build/run.sh --assemble
+      - name: Install Playwright
+        # the checks' one dependency, at the version ecosystem/test/package-lock.json pins
+        working-directory: ecosystem/test
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          npx --no-install playwright install --with-deps chromium
+      - name: Parse check
+        run: node ecosystem/test/parse-check.js ecosystem/.work/hax-area-icons.html
+      - name: Layout check
+        run: node ecosystem/test/layout-check.js ecosystem/.work/hax-area-icons.html

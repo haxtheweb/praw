@@ -1,0 +1,74 @@
+name: Ecosystem web drift
+# The weekly mechanical pass over the ecosystem web (https://github.com/haxtheweb/issues/issues/3296):
+# ecosystem/build/run.sh fetches the latest source and reruns every generator, and what changed is proposed as
+# one rolling pull request (branch ecosystem-web-drift) with the drift report as its description, so new CLI
+# commands, endpoints, MCP tools, workflows and rules show up for review. The run's summary carries the report too.
+#
+# It never merges, closes or deletes anything and touches no deployment: a person reviews and merges. Each run
+# replaces the branch with one commit on the current main and opens the pull request, or updates the open one.
+#
+# Two jobs, so the generators never hold a token that can write: "regenerate" runs them read-only and hands the
+# changed files over as an artifact; "propose" holds the write token and only sends those files to the GitHub API
+# (ecosystem/build/drift_pr.py, which refuses any path outside ecosystem/).
+on:
+  schedule:
+    - cron: "41 8 * * 0" # Sundays, 08:41 UTC
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ecosystem-drift
+  cancel-in-progress: false
+jobs:
+  regenerate:
+    name: Rerun the generators
+    # forks don't run it, and it only ever proposes against main (a scheduled run is always on the default branch)
+    if: github.repository == 'haxtheweb/praw' && github.ref_name == 'main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+      - name: Fetch sources, rerun every generator, report drift
+        env:
+          GH_TOKEN: ${{ github.token }} # read-only here: the generators read public haxtheweb repos through gh
+        run: ecosystem/build/run.sh
+      - name: Collect what changed
+        run: python3 -I ecosystem/build/drift_pr.py collect "$RUNNER_TEMP/drift"
+      - name: Hand the changed files to the next job
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ecosystem-drift
+          path: ${{ runner.temp }}/drift
+          retention-days: 7
+          if-no-files-found: error
+  propose:
+    name: Open or update the rolling pull request
+    needs: regenerate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write # the one rolling branch, ecosystem-web-drift
+      pull-requests: write # the one rolling pull request
+    steps:
+      - name: Checkout
+        # the script from the commit this run started on; nothing fetched or generated runs in this job
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Get the changed files
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          name: ecosystem-drift
+          path: ${{ runner.temp }}/drift
+      - name: Propose them
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE_BRANCH: ${{ github.ref_name }}
+        run: python3 -I ecosystem/build/drift_pr.py propose "$RUNNER_TEMP/drift"

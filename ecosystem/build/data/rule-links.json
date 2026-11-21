@@ -1,5 +1,5 @@
 {
- "about": "What enforces each rule, which pillars it serves and which parts it touches. Keyed by RULES.md Rule ID, by agents:<AGENTS.md key>, or by candidate:<id> for rules proposed in the HAX Scheduled Background Jobs Plan that aren't written into RULES.md or AGENTS.md yet. enforced_by names tiles in the Quality control web; build_rules.py drops any that no longer exist there, so a rule whose check goes away turns back into a gap. Every enforcement link here was checked against the workflow or lint config that does it.",
+ "about": "What enforces each rule, which pillars it serves and which parts it touches. Keyed by RULES.md Rule ID, by agents:<AGENTS.md key>, or by candidate:<id> for rules proposed in the HAX Scheduled Background Jobs Plan that aren't written into RULES.md or AGENTS.md yet. enforced_by names tiles in the Quality control web; build_rules.py drops any that no longer exist there, so a rule whose check goes away turns back into a gap. Every enforcement link here was checked against the workflow or lint config that does it. A rule nothing enforces is a gap, the backlog of what to automate next, unless it carries \"automation\": \"guidance\": that marks a rule that is guidance by design (how an agent or person works, which no check could decide), so the web can tell \"not automatable\" apart from \"not automated yet\". Leave the field off any rule a check could enforce one day; build_rules.py ignores it on a rule that has an enforced_by check.",
  "aliases": {
   "agents:Global References": "CEHsAz",
   "agents:DDD System": "MLhl56",
@@ -15,7 +15,10 @@
    "touches": [
     "components"
    ],
-   "how": "Not enforced yet: no check renders elements without HAX loaded. A gap to automate."
+   "how": "The without-hax check in webcomponents fails a pull request when a changed HAX-capable element statically imports editor or HAXcms code, or does not render on a bare page without HAX; known problems are baselined and the baseline only shrinks.",
+   "enforced_by": [
+    "q_without_hax"
+   ]
   },
   "nJF4SY": {
    "enforced_by": [
@@ -27,7 +30,7 @@
    "touches": [
     "components"
    ],
-   "how": "ESLint no-restricted-syntax (ChainExpression) in webcomponents; advisory in CI, blocking in yarn precheck before push."
+   "how": "ESLint no-restricted-syntax (ChainExpression) in webcomponents: an error in CI (the ESLint step of the build workflow) and in yarn precheck before push."
   },
   "CEHsAz": {
    "enforced_by": [
@@ -36,7 +39,7 @@
    "touches": [
     "components"
    ],
-   "how": "ESLint no-restricted-globals (window) in webcomponents; advisory in CI, blocking in yarn precheck."
+   "how": "ESLint no-restricted-globals (window) in webcomponents: an error in CI (the ESLint step of the build workflow) and in yarn precheck."
   },
   "MLhl56": {
    "enforced_by": [
@@ -175,31 +178,15 @@
    ],
    "how": "knip reports unlisted and unused dependencies (report only)."
   },
-  "7d6f9c": {
-   "pillars": [
-    "open"
-   ],
-   "touches": [
-    "traveler"
-   ]
-  },
-  "bAKMWC": {
-   "pillars": [
-    "agnostic",
-    "open"
-   ],
-   "touches": [
-    "praw",
-    "agents"
-   ]
-  },
   "tJnuFV": {
    "pillars": [
     "sustainable"
    ],
    "touches": [
     "issues"
-   ]
+   ],
+   "automation": "guidance",
+   "how": "Where to look for issues: a working habit, nothing a check could decide."
   },
   "c3Xjsq": {
    "pillars": [
@@ -345,7 +332,8 @@
   },
   "candidate:version_hidden": {
    "enforced_by": [
-    "q_unit_and_api_conformance_tests"
+    "q_unit_and_api_conformance_tests",
+    "q_phpunit"
    ],
    "pillars": [
     "sustainable"
@@ -355,7 +343,7 @@
     "php",
     "haxiam"
    ],
-   "how": "haxcms-nodejs test/unit/version-not-exposed-unauthenticated.test.cjs runs in its unit tests (merged in haxcms-nodejs#189); haxcms-php has no matching test yet."
+   "how": "haxcms-nodejs test/unit/version-not-exposed-unauthenticated.test.cjs runs in its unit tests; haxcms-php OpenApiRouteContractTest::testVersionAndStatusEndpointsAreNeverPublic runs in PHPUnit. Both fail the pull request."
   },
   "candidate:no_native_dialogs": {
    "pillars": [
@@ -421,7 +409,10 @@
     "ddd",
     "components"
    ],
-   "how": ""
+   "how": "Partly. The a11y-modes check in webcomponents fails a pull request when a changed element loses its focus indicator or a control disappears under forced colors (the focus channel), and yarn lint:vision in yarn precheck covers the color and texture channels for the pairs declared in scripts/vision-pairs.json. The label and icon channels are checked in review. The standard is written in RULES.md and in the DDD authoring guide (elements/d-d-d/design-system/source/README.md, Meaning channels).",
+   "enforced_by": [
+    "q_a11y_modes"
+   ]
   },
   "34ef39a0": {
    "enforced_by": [
@@ -450,7 +441,10 @@
   },
   "7d6f9c3e-8d0c-4127-948e-e6260465fa95": {
    "enforced_by": [
-    "q_rule_checks"
+    "q_mascot_name"
+   ],
+   "pillars": [
+    "open"
    ],
    "touches": [
     "traveler",
@@ -460,13 +454,180 @@
   },
   "bAKMWCMrqRLGdWmuNWgVUw": {
    "enforced_by": [
-    "q_rule_checks"
+    "q_no_local_paths"
+   ],
+   "pillars": [
+    "agnostic",
+    "open"
    ],
    "touches": [
     "praw",
     "agents"
    ],
    "how": "praw scripts/rule-checks.py local-paths, run on every praw pull request by the Rule checks workflow: a home-folder or checkout path in skills/, ecosystem/, plugins/ or any Markdown file fails it (haxtheweb/issues#3295)."
+  },
+  "956c54783626475ea901a6": {
+   "enforced_by": [
+    "q_hax_ui_admin_contract"
+   ],
+   "pillars": [
+    "accessible"
+   ],
+   "touches": [
+    "ddd",
+    "haxcms",
+    "editor"
+   ],
+   "how": "The HAX UI admin contract check (yarn lint:hax-ui-admin, rule raw-field) fails yarn precheck and the pull request on a new hand-drawn field in admin chrome; fields that predate the rule are baselined."
+  },
+  "4e0800ef-32ff-42dc-83f0-bbb953d97554": {
+   "enforced_by": [
+    "q_lint"
+   ],
+   "pillars": [
+    "accessible",
+    "sustainable"
+   ],
+   "touches": [
+    "components"
+   ],
+   "how": "ESLint baseline-js/use-baseline in webcomponents flags JavaScript features that are not Baseline Widely available unless the line says why; an error in CI and in yarn precheck. CSS and HTML features are not checked."
+  },
+  "dc5c2839-f04e-428c-a622-1e6d8cce1214": {
+   "touches": [
+    "ai",
+    "mcp",
+    "agents"
+   ],
+   "how": "A check would be a test per AI feature that feeds it a response with unknown ids, disallowed values and over-long fields and asserts they are dropped without failing the step."
+  },
+  "5cf2787e-c2df-4184-8b61-53c42ffad9cf": {
+   "touches": [
+    "ai",
+    "mcp",
+    "agents"
+   ],
+   "how": "A check would be a test per AI feature asserting that dates, points, counts, ids and slugs in the output equal the source data whatever the scripted model returns."
+  },
+  "c0f72fdb-5537-478d-8cd1-558160984430": {
+   "touches": [
+    "ai",
+    "mcp",
+    "agents"
+   ],
+   "how": "A check would be a test per AI feature asserting that model output is saved as proposed and that a delegated decision is labelled and can be undone."
+  },
+  "8d4e63f8-16bd-4a21-9898-c02313941dd5": {
+   "touches": [
+    "ai",
+    "mcp",
+    "agents"
+   ],
+   "how": "A check would be a test asserting that the request a scripted provider receives holds none of the personal information in the fixture, and that only counts are reported back."
+  },
+  "9b2e454c-9b5b-46dc-b443-6470b3b4abe9": {
+   "touches": [
+    "ai",
+    "mcp",
+    "agents"
+   ],
+   "how": "A check would be a test with input over the model limit asserting that the result names what was left out."
+  },
+  "2472221d-091f-48bc-a44f-acf03f41ce29": {
+   "touches": [
+    "ai",
+    "mcp",
+    "agents"
+   ],
+   "how": "A check would be a test asserting that a multi-request operation returns its estimate before the scripted provider receives a request."
+  },
+  "cd0bc4fc-a502-4b33-8036-057882b5f0e9": {
+   "touches": [
+    "ai",
+    "mcp",
+    "agents"
+   ],
+   "how": "A check would be a CI step that runs the tests with no provider key and no outbound network, so a test that reaches a real model fails."
+  },
+  "7e2c1a94-3b58-4d0f-9c6a-1f8e4d2b5a30": {
+   "automation": "guidance",
+   "how": "About folders on the machine an agent works on, which no repository check can see."
+  },
+  "9f3c2a7e-6b1d-4e8a-9c5f-2d7b8e1a4f60": {
+   "automation": "guidance",
+   "how": "Says which contract repo to read before working against it."
+  },
+  "646fc5cf-6f1f-47e0-b48c-c54544cda490": {
+   "automation": "guidance",
+   "how": "Says which runner config to use when running tests locally."
+  },
+  "ip9IudNwZrZQsyk4ggvCzH": {
+   "automation": "guidance",
+   "how": "Says which copy of the hax CLI an agent runs."
+  },
+  "E9Zioqke3Y0gdnWB08XQn8": {
+   "automation": "guidance",
+   "how": "Says how a new element is started (the CLI); a check sees the files, not how they were made."
+  },
+  "hax-site-scaffold": {
+   "automation": "guidance",
+   "how": "Says how a new site is started (the CLI); a check sees the files, not how they were made."
+  },
+  "tRwt1R0Bv54nuHgEfl8IWe": {
+   "automation": "guidance",
+   "how": "Says how pages are added (the CLI); a check sees the files, not how they were made."
+  },
+  "pCcVD8jgmc7zHeHTDEBzD1": {
+   "automation": "guidance",
+   "how": "Tells agents not to ask for a build step."
+  },
+  "PacOyoQW2aIyaTO3R6asNL": {
+   "automation": "guidance",
+   "how": "Says which flags an agent passes so commands run without prompts."
+  },
+  "edaXma3ZIiHZ86GyX4MoSu": {
+   "automation": "guidance",
+   "how": "Tells agents to read the gh CLI output themselves."
+  },
+  "SSy9vkxAqBTIcIXvYUstGA": {
+   "automation": "guidance",
+   "how": "Tells agents never to run the ubiquity script; it happens on the machine, outside any check."
+  },
+  "74cc0274-6bf2-45a0-8e06-b88254f4cf9e": {
+   "automation": "guidance",
+   "how": "An AI guardrail: how an agent reasons before it writes code."
+  },
+  "f98f5e24-c343-4c12-b1c8-d6ae9783afaa": {
+   "automation": "guidance",
+   "how": "An AI guardrail: a judgment about scope, made in review."
+  },
+  "d2315f2d-f4b2-4e86-bdd0-37b2d42fef89": {
+   "automation": "guidance",
+   "how": "An AI guardrail: a judgment about scope, made in review."
+  },
+  "f15ba99a-0a0a-42a0-a413-d8dfdc8eb20b": {
+   "automation": "guidance",
+   "how": "An AI guardrail: how an agent confirms and reports its own work."
+  },
+  "c089870b608c482a847ccc": {
+   "automation": "guidance",
+   "how": "Says where to look for HAX skills."
+  },
+  "f54de8cb-0b65-4f50-98e6-43e8c2ebc4c7": {
+   "automation": "guidance",
+   "how": "Says which advice wins when two sources disagree; each conflict it lists has its own rule and check."
+  },
+  "a1b2c3d4-e5f6-4789-9abc-def012345678": {
+   "automation": "guidance",
+   "how": "Says which skill to use when designing a unit."
+  },
+  "4ab69ab2-d295-4c01-a448-1ce1689c7366": {
+   "automation": "guidance",
+   "how": "Says which skill to use when reviewing a site for all learners."
+  },
+  "fc4153f1-90f0-4d22-a023-fec8f492b408": {
+   "automation": "guidance",
+   "how": "Says which skills to use when matching instruction to learner proficiency."
   }
  },
  "candidates": [

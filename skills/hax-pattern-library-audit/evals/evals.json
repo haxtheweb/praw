@@ -1,0 +1,26 @@
+{
+  "skill_name": "hax-pattern-library-audit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Audit elements/video-player against the DDD pattern library. Its caption looks different from the titles on our other media elements and I want to know why.",
+      "expected_output": "A read-only report in the 📊/🔍/🛠 structure. Reads elements/d-d-d/lib/DDDPatternLibrary.js and uses getContractsForElement and getPatternsUsingComponent for video-player rather than guessing. Each internal-contract finding names the contract id (for example contract-element-title), the exact hardcoded value found in the element's styles and the contracted token it should use. Composition is reported as Not-covered when no pattern references the element, which is not a failure. Gives one rating from Conforming / Partial / Non-conforming, flags a missing haxProperties separately as a gate gap if that applies, and ends with an Implementation handoff to hax-webcomponent-dev. Edits no element source, registry or site.json.",
+      "baseline_behavior": "Without the skill, agents typically open video-player.js and start replacing hardcoded values with DDD tokens directly, give general 'use DDD tokens' advice with no contract id or registry lookup, and treat the element not appearing in any pattern as a defect.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Check whether self-check conforms to DDD patterns. The only thing I can see wrong is one hex color (#e6f2ff) used for its background where everything else already uses DDD tokens.",
+      "expected_output": "Applies the contract versus token-usage split: a hex color used where a DDD token exists is raw token-usage compliance, so the finding is deferred to hax-design-system and not reported again as a contract deviation. Still runs the contract lookup for the element and reports the contract-callout-status surfaces (radius, padding, border, icon size, accent via data-accent) as Conforming or Deviation with the contract id. States the split in the finding, gives a rating, and edits nothing.",
+      "baseline_behavior": "Without the skill, agents typically report the hex color as the single pattern-conformance failure (or fix it in place), never check the named callout contract, and do not mention hax-design-system as the owner of raw token usage.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "The org-hero recipe in the pattern library puts the simple-cta in a slot called 'actions' on page-section, but I don't think the element has that slot, and the demo doesn't use it either. Which one is wrong, and can you add the pattern I use in my demo to the library while you're at it?",
+      "expected_output": "Verifies the slot against the element's own render template and haxProperties. If the element does not expose it, reports the composition finding with status Registry-bug (the recipe is fixed, not the element), citing the pattern id and the recipe snippet. Treats the demo composition as a Library-ingest candidate: proposes a pattern id, level, title and a draft html recipe built only from real HAX-capable tags, and says that ingest is a separate human-approved change to DDDPatternLibrary.js. Does not edit the registry, the element or the demo, and does not run the ubiquity script or a top-level build.",
+      "baseline_behavior": "Without the skill, agents typically either add the missing slot to the element so the recipe works (changing a front-end API) or edit DDDPatternLibrary.js directly to add the new pattern, with no Registry-bug classification and no human approval step.",
+      "files": []
+    }
+  ]
+}

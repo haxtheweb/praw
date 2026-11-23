@@ -33,12 +33,8 @@
    "desc": "Uploads: images, PDFs and media the site uses.",
    "kind": "authored"
   },
-  "f_theme": {
-   "desc": "theme.css and theme assets for a custom theme layer on top of the chosen theme element.",
-   "kind": "authored"
-  },
   "f_custom": {
-   "desc": "custom.es6.js, the site's own custom build when it has one.",
+   "desc": "The site's own theme and elements: edit custom/src/custom.js and build it; the site loads custom/build/custom.es6.js.",
    "kind": "authored"
   },
   "f_registry": {
@@ -53,7 +49,6 @@
    "desc": "One script tag that loads the autoloader and registry, so any page, HAX site or not, can use HAX elements.",
    "kind": "generated",
    "links": {
-    "copy it": "/magic-script",
     "issue": "https://github.com/haxtheweb/issues/issues/2944"
    }
   },
@@ -101,7 +96,6 @@
       "f_sitejson",
       "f_pages",
       "f_files",
-      "f_theme",
       "f_custom"
      ]
     },

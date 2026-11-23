@@ -57,7 +57,9 @@ WEBS = {}
 TILE = r'^\s+(\w+)[\[\(\{>/\\]+(?:"([^"]*)"|([^\]\)\}"]*))'
 for w, f in order:
     m = open(f + ".mmd").read(); D = json.load(open(f + ".json"))
+    drawn = set(re.findall(r"^\s+(\w+)[\[\(\{>]", m, re.M))
     for nid, v in ANS.get(w, {}).items():
+        if nid not in drawn: continue  # answers for a part this web no longer draws (as in assemble.py)
         D["nodes"].setdefault(nid, {}).update({k: x for k, x in v.items() if k not in ("confirmed", "skip")})
     tiles, group, groups = {}, None, []
     for ln in m.splitlines():

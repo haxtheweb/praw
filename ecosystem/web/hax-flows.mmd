@@ -46,7 +46,7 @@ flowchart TB
     f_sitejson["f_sitejson"]
     sitejson["sitejson"]
     themes["themes"]
-    f_theme["f_theme"]
+    f_custom["f_custom"]
     f_pages["f_pages"]
     outline["outline"]
     editor["editor"]
@@ -94,7 +94,7 @@ flowchart TB
   l4 -.->|touches| f_sitejson
   l4 -.->|touches| sitejson
   l5 -.->|touches| themes
-  l5 -.->|touches| f_theme
+  l5 -.->|touches| f_custom
   l6 -.->|touches| f_pages
   l6 -.->|touches| outline
   l7 -.->|touches| editor
@@ -192,7 +192,7 @@ flowchart TB
   %%@ node f_sitejson portal=anatomy
   %%@ node sitejson portal=contracts
   %%@ node themes portal
-  %%@ node f_theme portal=anatomy
+  %%@ node f_custom portal=anatomy
   %%@ node f_pages portal=anatomy
   %%@ node outline portal=haxcms
   %%@ node editor portal

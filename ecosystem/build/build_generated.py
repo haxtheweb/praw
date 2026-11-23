@@ -132,7 +132,7 @@ for vb in verbs: lines.append(f"  xapi -.->|defines| v_{vb}")
 for tag, v in X.items():
     for vb in v["verbs"]: lines.append(f"  x_{slug(tag)} -->|sends| v_{vb}")
 lines += ["  xapi -.->|feeds| insights", "  course -->|records learning through| xapi", "", "  %%@ group hub tier=0", "  %%@ group verbsg tier=1", "  %%@ group els tier=2", "  %%@ group sink tier=1", "  %%@ node xapi portal"]
-for vb in verbs: lines.append(f"  %%@ node v_{vb} icon=hax:clipboard-pulse color=roarGolden motion=pulse")
+for vb in verbs: lines.append(f"  %%@ node v_{vb} icon=hax:clipboard-pulse color=roarGolden motion=beat")
 for tag, v in X.items():
     bid = "b_" + tag.replace("-", "_")
     lines.append(f"  %%@ node x_{slug(tag)} portal=elements" if bid in el_ids and False else f"  %%@ node x_{slug(tag)} icon=hax:bricks color={'opportunityGreen' if v.get('countsTowardCompletion') else 'slateGray'} motion=nudge")

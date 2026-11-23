@@ -77,7 +77,7 @@ lines += ["  browser -->|installs as| app_install", "  app_install -->|keeps| ap
           "  app_install -->|takes| app_share", "  app_share -->|adds pages to| haxcms"]
 lines += [f"  {i[0]} -->|is one of the| deploy" for i in PUBLISH if i[0] not in ("pb_download",)]
 lines += ["", "  %%@ group hub tier=0", "  %%@ group rt tier=1", "  %%@ group ap tier=2", "  %%@ group sg tier=2", "  %%@ group sig tier=3", "  %%@ group pg tier=3", "  %%@ group partsg tier=4",
-          "  %%@ node browser icon=icons:chrome-reader-mode color=skyBlue motion=pulse",
+          "  %%@ node browser icon=icons:chrome-reader-mode color=skyBlue motion=beat",
           "  %%@ node br_worker icon=hardware:memory color=limestoneGray motion=spin",
           "  %%@ node br_relay icon=hax:remote color=slateGray motion=nudge",
           "  %%@ node br_broker icon=icons:lock-open color=coalyGray motion=nudge",

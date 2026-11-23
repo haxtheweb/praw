@@ -64,7 +64,7 @@ for id, label, s, *_ in FILES: lines.append(f"  {id} -.->|conforms to| {s}")
 for p, (web, acts) in RW.items():
     for verb, f in acts: lines.append(f"  {p} -->|{verb}| {f}")
 lines += ["", "  %%@ group hub tier=0", "  %%@ group schemas tier=1", "  %%@ group files tier=2", "  %%@ group rw tier=3",
-          "  %%@ node contracts icon=hax:code-json color=creekTeal motion=pulse"]
+          "  %%@ node contracts icon=hax:code-json color=creekTeal motion=beat"]
 for s in SCHEMAS: lines.append(f"  %%@ node {s} portal")
 for id, label, s, *_ in FILES: lines.append(f"  %%@ node {id} icon=hax:code-json color=creekTeal motion=nudge")
 for p, (web, acts) in RW.items(): lines.append(f"  %%@ node {p} portal" + (f"={web}" if web else ""))

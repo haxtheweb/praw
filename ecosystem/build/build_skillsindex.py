@@ -94,7 +94,7 @@ for r in READERS:
     if r[2] in PORTALS: lines.append(f"  {r[2]} --o|owns| {r[0]}")
 if "traveler" in PORTALS: lines.append("  traveler -->|offers its skills through| set_all")
 lines += ["", "  %%@ group hub tier=0", "  %%@ group fieldsg tier=1", "  %%@ group setsg tier=2", "  %%@ group copiesg tier=3", "  %%@ group rwg tier=4",
-          "  %%@ node skillsindex icon=hax:code-json color=creekTeal motion=pulse"]
+          "  %%@ node skillsindex icon=hax:code-json color=creekTeal motion=beat"]
 for k in fields: lines.append(f"  %%@ node {fid(k)} icon=hax:code-json color={'limestoneGray' if k == 'files' else 'creekTeal'} motion=nudge")
 for s in ["set_all"] + [SETIDS[k] for k in SETS]: lines.append(f"  %%@ node {s} icon=icons:folder-open color=original87Pink motion=pop")
 for c in ["praw_index", "praw_full"] + [c["id"] for c in copies]:

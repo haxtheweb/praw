@@ -60,7 +60,7 @@ for fid, lab, d, steps in FLOWS:
             if p == "fl_load": lines.append(f"  {sid} -->|uses| fl_load")
             else: lines.append(f"  {sid} -.->|touches| {p}")
 lines += ["", "  %%@ group hub tier=0", "  %%@ group flowsg tier=1", "  %%@ group steps tier=2", "  %%@ group parts tier=3",
-          "  %%@ node flows icon=hax:site-map color=nittanyNavy motion=pulse"]
+          "  %%@ node flows icon=hax:site-map color=nittanyNavy motion=beat"]
 COL = {"fl_load": "skyBlue", "fl_add": "opportunityGreen", "fl_outline": "inventOrange"}
 for fid, lab, d, steps in FLOWS:
     lines.append(f"  %%@ node {fid} icon=hax:site-map color={COL[fid]} motion=pop")

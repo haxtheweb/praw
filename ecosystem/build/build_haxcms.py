@@ -26,7 +26,7 @@ PARTS = [
  ("files", "Admin files", "[", "icons:folder-open", "slateGray", "lift", carry("files")),
  ("settings", "Site settings", "[", "icons:build", "slateGray", "nudge",
   {"desc": "Site-level settings: title, description, theme and theme options, authoring defaults, publishing and integrations, edited from the dashboard.", "status": "released"}),
- ("insights", "Insights", "[", "hax:graph", "discoveryCoral", "pulse", carry("insights")),
+ ("insights", "Insights", "[", "hax:graph", "discoveryCoral", "beat", carry("insights")),
  ("whatsnew", "What's New", "[", "icons:announcement", "forestGreen", "wiggle", carry("whatsnew")),
  ("tips", "HAX Tips", "[", "icons:lightbulb-outline", "beaverBlue", "glow", carry("tips")),
  ("themes", "Themes", None, None, None, None, None),  # portal

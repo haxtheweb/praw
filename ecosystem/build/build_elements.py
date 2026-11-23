@@ -11,7 +11,7 @@ S = (sorted(_glob.glob("pkgs/haxtheweb-simple-icon-*/"))[-1:] or ["pkgs/none/"])
 H = (sorted(_glob.glob("pkgs/haxtheweb-hax-iconset-*/"))[-1:] or ["pkgs/none/"])[0] + "package/lib/svgs/"
 WC = "https://github.com/haxtheweb/webcomponents/tree/master/elements/"
 WINS = "https://github.com/haxtheweb/praw/blob/main/WINS.md"
-HAXLAB = "https://github.com/haxtheweb/hax-lab"
+HAXLAB = "https://github.com/haxtheweb/lab"
 WORLDVIEW = "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md"
 
 def L(label, url): return {"label": label, "url": url}

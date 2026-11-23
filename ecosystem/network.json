@@ -53,7 +53,7 @@
     "lab": {
       "label": "Lab",
       "url": "https://lab.hax.cloud",
-      "repo": "hax-lab",
+      "repo": "lab",
       "color": "creekTeal",
       "on": "coalyGray",
       "icon": "hax:hax2022",

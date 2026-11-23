@@ -211,7 +211,7 @@ TERM = {"Spring": 1, "Summer": 2, "Fall": 3}
 def yr(w): return int(re.search(r"(20\d\d)", w).group(1))
 TOUCH = [("theme", "themes"), ("portfolio", "portfolio"), ("pentest", "security"), ("ddd", "ddd"), ("ai ", "ai"), ("camp", "haxcamp"), ("xapi", "xapi"), ("cli", "cli"), ("journey", "dashboard"), ("site creation", "dashboard"), ("vocab", "components"), ("bootstrap", "themes"), ("media dashboard", "dashboard"), ("ux study", "design"), ("multimedia", "presentations"), ("elms", "elmsln"), ("auth", "haxiam"), ("qa elements", "testing")]
 years = sorted({yr(e["when"]) for e in entries})
-lines = ["%% HAX Lab people over time: everyone the HAX Lab README credits, what they built and when. Generated from haxtheweb/hax-lab README.md.",
+lines = ["%% HAX Lab people over time: everyone the HAX Lab README credits, what they built and when. Generated from haxtheweb/lab README.md.",
          "flowchart TB", "  %%@ layout rings=0,220,470,740 sizes=92,58,56,48",
          '  subgraph hub ["HAX Lab"]', '    haxlab["haxlab"]', "  end", '  subgraph yrs ["Years"]']
 for y in years: lines.append(f'    hl_y{y}(["{y}"])')

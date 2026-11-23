@@ -43,7 +43,7 @@ if "--no-pull" not in ARGS:
             _, head = run(["git", "-C", c, "log", "-1", "--format=%h %cs"])
             report["pulled"][c] = head if code == 0 else "pull failed: " + out[-200:]
     # files the builders read that live in other repos
-    for path, repo, src in [("ext/ubiquity-push.sh", "webcomponents", "scripts/ubiquity-push.sh"), ("ext/haxlab-readme.md", "hax-lab", "README.md")]:
+    for path, repo, src in [("ext/ubiquity-push.sh", "webcomponents", "scripts/ubiquity-push.sh"), ("ext/haxlab-readme.md", "lab", "README.md")]:
         code, out = run(["gh", "api", f"repos/haxtheweb/{repo}/contents/{src}", "--jq", ".content"])
         if code == 0 and out:
             import base64

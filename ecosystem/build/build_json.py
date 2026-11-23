@@ -3,7 +3,7 @@ import json, re
 GH = "https://github.com/haxtheweb"
 WINS = "https://github.com/haxtheweb/praw/blob/main/WINS.md"
 WORLDVIEW = "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md"
-HAXLAB = "https://github.com/haxtheweb/hax-lab"
+HAXLAB = "https://github.com/haxtheweb/lab"
 HTW = "https://haxtheweb.org"
 ART = "https://github.com/haxtheweb/art/tree/main/future-traveler"
 ISS = "https://github.com/haxtheweb/issues/issues/"

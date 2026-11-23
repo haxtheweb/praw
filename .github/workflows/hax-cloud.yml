@@ -51,4 +51,5 @@ jobs:
           npm ci --prefix .github/a11y --ignore-scripts --no-audit --no-fund
           cd .github/a11y && npx playwright install --with-deps chromium
       - name: Accessibility (axe-core, WCAG 2.0/2.1 A and AA)
+        timeout-minutes: 25
         run: node .github/a11y/a11y-scan.mjs --root _site --site-json _site/site.json --baseline .github/a11y/baseline.json

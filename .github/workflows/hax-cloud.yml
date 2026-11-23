@@ -2,7 +2,8 @@ name: hax.cloud
 # Checks that hax.cloud still builds (https://github.com/haxtheweb/issues/issues/3310). Vercel builds and serves
 # the site (vercel.json at the repo root runs the same script); this workflow only builds it on pull requests
 # that touch ecosystem/, so a broken build shows here before it reaches Vercel. Nothing here writes or deploys.
-# It then runs an axe-core accessibility scan (WCAG 2.0 and 2.1 A and AA) of every page in the built site.
+# It then runs an axe-core accessibility scan (WCAG 2.0 and 2.1 A and AA) of the built site's top two outline
+# levels (--max-indent 1, about 200 pages; the ~1,650 below them are generated story pages on one template).
 # .github/a11y/baseline.json records the violations present when the scan was added; the job fails only when
 # a page gets a new kind of violation or more failing elements than the baseline (fixing things never fails
 # it). After a fix, or when a maintainer accepts a finding, refresh it with the same command plus

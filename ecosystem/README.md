@@ -24,7 +24,7 @@ The ecosystem web itself lives here too: every sub-web's structure and details, 
 
 ### Data format
 
-- **Structure (`.mmd`)**: a plain Mermaid flowchart that renders on GitHub, plus `%%@` lines the player reads: `layout rings=… sizes=…`, `group <subgraph> tier=N`, `node <id> icon=<set:name> color=<DDD color> motion=<name>`, `node <id> portal` (the same node in another web; `portal=<web>` when that web isn't the main one) and `web=<id>` (the tile opens that sub-web).
+- **Structure (`.mmd`)**: a plain Mermaid flowchart that renders on GitHub, plus `%%@` lines the player reads: `layout rings=… sizes=…`, `group <subgraph> tier=N`, `node <id> icon=<set:name> color=<DDD color> motion=<name>` (a tile's icon, color and motion: see [Area icons, colors and motion](#area-icons-colors-and-motion)), `node <id> portal` (the same node in another web; `portal=<web>` when that web isn't the main one) and `web=<id>` (the tile opens that sub-web).
 - **Details (`.json`)**: `{meta, nodes, evidence, tours}`. `meta.parent` names the web a sub-web opens from, for the breadcrumbs. A node holds `desc`, `status`, `kind`, `links` and `release` (`npm:@haxtheweb/…` or `git:haxtheweb/…`, read by `graph-drift.mjs`). Statuses: released, prerelease, in-progress, planned, legacy, living, deployed and gap. Planned tiles render ghosted with dashed lines and link to their issue; gap tiles (something an evidence or coverage map says is missing) render ghosted with a dotted line and a "Gap" label. A tour is `{id, label, message, scenes: [{caption, nodes}]}`.
 
 ### Checks
@@ -82,6 +82,79 @@ Everything runs in `ecosystem/.work` (ignored), where `sources.sh` clones the re
 
 Which webs are generated from source and which are curated by hand is in each `.mmd` header; the generated ones are listed in `drift.py`. Edit a curated web through its generator (`build_<web>.py`), not the `.mmd`/`.json` directly, or the next run will put it back.
 
+## Area icons, colors and motion
+
+Every part of HAX that people are shown has one icon, one DDD color and one hover motion, so it reads as the same thing on a site, in the network bar, in docs and in a poster. That covers project areas (HAXcms, the editor, the CLI), backends, tools, schemas and the sites of the network. Tracked in [haxtheweb/issues#3173](https://github.com/haxtheweb/issues/issues/3173).
+
+### The record
+
+There is one record, and it is the data in this folder. Nothing else keeps a copy of the map.
+
+| What | Where its icon, color and motion are recorded |
+| --- | --- |
+| A project area | Its `%%@ node` line in the main web, [`web/hax-ecosystem.mmd`](web/hax-ecosystem.mmd): `%%@ node cli icon=hax:console-line color=landgrantBrown motion=nudge` |
+| A part of an area | Its `%%@ node` line in that area's sub-web. Admin files, What's New and HAX Tips are parts of HAXcms, so they are in [`web/hax-haxcms.mmd`](web/hax-haxcms.mmd), written by `build/build_haxcms.py`. |
+| A pillar | [`build/data/pillars.json`](build/data/pillars.json); the integrity check holds the main web to it. |
+| A site in the network | Its entry in [`network.json`](network.json): `color`, `on` (the ink that reads on it) and `icon`. See [The network](#the-network). |
+
+Anything that shows an area takes all three from here: hax.cloud and `ecosystem-web` read these files directly, and a site, a dashboard, a Merlin entry, a doc page, a social post or a poster copies the values. To change how an area looks, change the record first, in a pull request here.
+
+Organizations and people are not given drawn icons. An organization's tile is a monogram (`mono=PSU`) and a person's is their initials or their character.
+
+### Giving a new area its three
+
+A new area, surface or site gets its icon, color and motion here before it ships.
+
+1. **Icon.** Look in [`simple-icon`](https://github.com/haxtheweb/webcomponents/tree/master/elements/simple-icon/lib/svgs) and [`hax-iconset`](https://github.com/haxtheweb/webcomponents/tree/master/elements/hax-iconset/lib/svgs) first, and prefer an icon no other tile in the main web uses. Draw a new one only when nothing fits (see Icons below).
+2. **Color.** One DDD named color (see Color below).
+3. **Motion.** One of the nine DDD icon motions, by what the area is (see Motion below).
+4. **Write it down.** Add the `%%@ node` line (through the web's generator when the web is generated), and for a site add its `network.json` entry. If the icon is not yet in [`player/icons_inline.json`](player/icons_inline.json) and [`player/icons.json`](player/icons.json), add it: the name, its `viewBox` and the markup inside its `<svg>`.
+5. **Check.** `python3 -I ecosystem/test/integrity-check.py`, then assemble and run `parse-check.js` and `layout-check.js` (see [Build it](#build-it)). The parse check fails on a color or motion name it does not know and on an icon that is not in the inlined set.
+
+### Icons
+
+The facts below are how the `hax:` set in [`hax-iconset`](https://github.com/haxtheweb/webcomponents/tree/master/elements/hax-iconset) is drawn; a new area icon matches them.
+
+- **Grid.** A 24 by 24 `viewBox`. Keep the drawing inside 2 to 22, with about 2px of visual weight, so it still reads at 16px.
+- **One ink.** `simple-icon` paints every opaque part of the file in one color and ignores colors inside it, so an icon is its silhouette. Draw one filled `<path>` with no fill color of its own and no stroke, and cut details out of the shape (`fill-rule="evenodd"`) instead of drawing them in a second color. No `<text>`: lettering is drawn as shapes.
+- **Where it goes.** `lib/svgs/hax/<name>.svg` in hax-iconset, then `yarn run build` in that folder to list it in the manifest. Names say what the icon stands for (`hax:php`), not what it looks like.
+- **HAX's own marks only.** An area icon never copies another project's logo, mascot or wordmark, even when the area is named for that project's technology. Build it from HAX's own shapes. `hax:php` and `hax:nodejs` are the examples: the HAX block from `hax:blocks`, with the `<?` that opens a PHP file cut out of one and `.JS` cut out of the other.
+- **Check it.** View it at 16, 24 and 48px, in light and dark, beside its neighbors in the set, and add it to the set's test.
+
+The same rules, with the keylines spelled out, are the admin icon spec in the DDD [HAX UI admin layer](https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/design-system/source/hax-ui-admin.md) doc ("Admin icons").
+
+### Color
+
+- A tile's color is a DDD named color, written by name (`color=creekTeal`): the `--ddd-theme-default-<name>` tokens. The names the webs accept are the list in [`ecosystem-model.js`](https://github.com/haxtheweb/webcomponents/blob/master/elements/ecosystem-web/lib/ecosystem-model.js) (`COLORS`).
+- The glyph on it is black or white, whichever contrasts more. Every named color gives at least 4.6:1 that way, so no pairing has to be checked by hand. `network.json` writes the choice down as `on`.
+- Pick a color that the tiles beside it in the same group do not use. Tiles of one family share a color on purpose: people are keystoneYellow, Penn State's colleges beaverBlue, grants opportunityGreen. The pillars' colors are fixed in `pillars.json`.
+- An area's color names it; it never carries status. Released, planned and gap are said with a word and a line style.
+- A tile keeps its color in dark mode. The fill and its glyph are a fixed pair that already contrasts; only the surface around the tile changes, through DDD's `light-dark()` tokens.
+
+### Motion
+
+A tile's `motion` is one of the nine icon motions in the DDD motion library ([`DDDMotion.js`](https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/lib/DDDMotion.js)). The names and when to use each are DDD's, from its [icon motion library](https://github.com/haxtheweb/webcomponents/tree/master/elements/d-d-d#icon-motion-library) guide:
+
+| Name | Motion | When to use it |
+| --- | --- | --- |
+| `pop` | scales up and settles | hubs: the thing a page or card is about |
+| `wiggle` | quick side to side rotation | things you edit or report |
+| `tilt` | tips back and returns | tools in hand |
+| `beat` | two soft scale beats | living things and status |
+| `lift` | rises a little and comes back | layers, storage and files |
+| `spin` | one full turn | reserved: at most one per view |
+| `nudge` | slides forward and back | flows, pipes and next steps |
+| `strike` | swings down and back | gavel-like actions and rules |
+| `glow` | brightens with a soft halo | ideas and magic |
+
+- `beat` is the scale motion. `pulse` is a different thing in DDD, the ring that asks for attention, and is not a tile motion. A web written before the names were settled may still say `motion=pulse`; the player and `ecosystem-web` read it as `beat`.
+- A motion plays once on hover or keyboard focus, lasts under a second and then rests. It is decoration: the area's name is always there in words.
+- With `prefers-reduced-motion: reduce` nothing moves. The library's keyframes exist only when motion is allowed, and the player follows the same pattern.
+- Where an area's icon is shown, the motion is one attribute: `<simple-icon icon="hax:console-line" motion="nudge"></simple-icon>`. Put `ddd-motion-trigger` on the card or link around it to play it from the whole target.
+- Inside the web itself tiles do not move: the block keeps to one motion moment, connections drawing in while a tour plays. The player previews each motion under "Motion vocabulary".
+
+To see reduced motion and dark mode for yourself, open the assembled page (`ecosystem/.work/hax-area-icons.html`) with the browser set to dark and to reduce motion: tiles keep their colors on the dark surface, and hovering a card under "Motion vocabulary" plays nothing.
+
 ## The network
 
 The sites people meet HAX through are one network, and [`network.json`](network.json) is its record: what each property is called, where it lives, the color and icon that stand for it, the one sentence that says what it is for, and how it relates to the rest. Anything that names a property, on any site or in any post, uses this label and this sentence.
@@ -92,11 +165,12 @@ The sites people meet HAX through are one network, and [`network.json`](network.
 | **PRAW** | [hax.cloud](https://hax.cloud) | original87Pink | The brain of the HAX ecosystem: every person, pillar and project, and how they connect. | PRAW, at hax.cloud, drawn as a web. Every other property takes its stories from here. |
 | **Build now** | [browser.hax.cloud](https://browser.hax.cloud) | futureLime | Use HAX right now in this browser tab. Nothing to install. | The platform itself, live. Install HAX is how you take it with you. |
 | **Learn** | [learn.hax.cloud](https://learn.hax.cloud) | skyBlue | Tutorials that teach HAX one flow at a time. | Where people go after trying it, as users and as contributors. |
+| **Lab** | [lab.hax.cloud](https://lab.hax.cloud) | creekTeal | HAX Lab: where students and junior developers learn by shipping real HAX work. | Learn teaches HAX. Lab is where people go to build it with us: onboarding, the lab itself, and the people it launched. |
 | **Web components** | [webcomponents.hax.cloud](https://webcomponents.hax.cloud) | inventOrange | Every HAX element, with live demos and walkthroughs. | The parts every HAX site and editor is built from. |
 | **Art** | [art.hax.cloud](https://art.hax.cloud/) | discoveryCoral | The HAX art movement: posters, the Future Traveler across time, and playful tools like RPG me. | Where HAX's creative side lives. RPG me is one of the tools in it. |
 | **RPG me** | [rpg.art.hax.cloud](https://rpg.art.hax.cloud) | athertonViolet | Make the character that is you across HAX. | One of HAX Art's tools, linked from the Art site's menu rather than the network bar. On RPG me the bar lights up Art. |
 
-The first six, in that order, are the network bar's list. PRAW feeds all of them and is named in the list as itself: its label is PRAW and its address is hax.cloud. RPG me is one of HAX Art's tools (`within: "art"` in the record), so it is not in the network bar at all: it is a stand-alone service at its own address, rpg.art.hax.cloud (rpg-me.hax.cloud redirects there), linked from the Art site's menu, and on RPG me the bar lights up Art.
+The first seven, in that order, are the network bar's list. PRAW feeds all of them and is named in the list as itself: its label is PRAW and its address is hax.cloud. RPG me is one of HAX Art's tools (`within: "art"` in the record), so it is not in the network bar at all: it is a stand-alone service at its own address, rpg.art.hax.cloud (rpg-me.hax.cloud redirects there), linked from the Art site's menu, and on RPG me the bar lights up Art.
 
 Each property's `repo` is the haxtheweb repository it is built and deployed from. A release (ubiquity, in webcomponents) has to account for every one of them: [`scripts/ubiquity-network.json`](https://github.com/haxtheweb/webcomponents/blob/master/scripts/ubiquity-network.json) says what ubiquity does with each repo, and its coverage check fails when a repo named here has no entry there.
 

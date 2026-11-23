@@ -60,5 +60,5 @@ jobs:
         # page, each web's page and the pages one level under it (--max-indent 1, about 210 pages, the set
         # the baseline was recorded on). The whole site is over 1,800 pages, which does not fit in this job.
         continue-on-error: true
-        timeout-minutes: 20
+        timeout-minutes: 25
         run: node .github/a11y/a11y-scan.mjs --root _site --site-json _site/site.json --max-indent 1 --baseline .github/a11y/baseline.json

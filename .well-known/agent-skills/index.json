@@ -45,7 +45,7 @@
       "files": [
         {
           "path": "evals/evals.json",
-          "digest": "sha256:98f9c92f599f4946467587529d7d30d760835fd2dcdda3f4b3cf878170091de9"
+          "digest": "sha256:dd256715aa861a7e9cd05696c4f17ec1291aa56741b41113cbce42f92c03f251"
         },
         {
           "path": "references/a11y-element-map.md",
@@ -276,6 +276,10 @@
       "digest": "sha256:97c690f2f92217ffbfc615389c414642eb42bb16cc41d4ac60c71b423e5ec47c",
       "files": [
         {
+          "path": "evals/evals.json",
+          "digest": "sha256:b65aa091a2116d44af3824576d8d0697b73ba962a64c4630e42c00b91de9fedc"
+        },
+        {
           "path": "references/pattern-library-map.md",
           "digest": "sha256:c49676586ee583d28eac362cc2c103f5c02a9ee6ac30d05eb7329b296820e0a1"
         }
@@ -364,6 +368,10 @@
       "url": "hax-tutorial-site/SKILL.md",
       "digest": "sha256:8e6c8ed77fe7d02e6009591b4adebe6beac62d3562493bf82b5b5f798cf1f451",
       "files": [
+        {
+          "path": "evals/evals.json",
+          "digest": "sha256:1c6481d5a29875aed992cbc2c6061b2cf7085a5e24e44bf1c4653fc681c8a41e"
+        },
         {
           "path": "references/author-profile.json",
           "digest": "sha256:7aa5c73a73ec4f7fd53e03cd7f30e836af0296ec0864405a7d38d8236b735035"
@@ -664,6 +672,10 @@
       "url": "oerschema-audit/SKILL.md",
       "digest": "sha256:970fef0c3710930b7a86d2c679dd4d0916f7bb7d0bf08d9c602b3b7a84c8d2d0",
       "files": [
+        {
+          "path": "evals/evals.json",
+          "digest": "sha256:1606d0e30e55edab4c9107e7f084f8677b4b70200039da503b6d7d0a6040b28b"
+        },
         {
           "path": "references/hax-outline-mapping.md",
           "digest": "sha256:dd8dc9e39221317d36e18ae8d91d37de070a7b76f62a97efe2f9fb897a3bd57b"

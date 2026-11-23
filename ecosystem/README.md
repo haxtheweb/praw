@@ -35,7 +35,7 @@ Three checks run on pull requests and fail them when a web breaks:
 - **Parse and layout** (`parse-check.js`, `layout-check.js`, on pull requests that touch `ecosystem/`): the assembled page read by the player itself, in a browser.
 - **hax.cloud** (on pull requests that touch `ecosystem/`): the site still builds with `build/site.sh`.
 
-Once a week `run.sh` runs in full on GitHub and proposes what the generators changed as one rolling pull request, `ecosystem-web-drift`, with the drift report as its description ([`build/drift_pr.py`](build/drift_pr.py)). It never merges: a person reviews it. Each run replaces that branch, so change `main`, not the branch.
+Once a week `run.sh` runs in full on GitHub and reports what the generators changed in the run's summary ([`build/drift_report.py`](build/drift_report.py)). It is report only: it writes nothing to the repository. The changed files are kept for a week as the run's `ecosystem-drift` artifact; to take them, run `run.sh` locally and open a pull request.
 
 ### Addresses
 

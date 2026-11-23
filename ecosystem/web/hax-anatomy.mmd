@@ -9,7 +9,6 @@ flowchart TB
     f_sitejson["site.json"]
     f_pages["pages/<id>/index.html"]
     f_files["files/"]
-    f_theme["theme/"]
     f_custom["custom/"]
   end
   subgraph generated ["Generated: rebuilt, never hand-edited"]
@@ -41,7 +40,6 @@ flowchart TB
   site -->|holds| f_sitejson
   site -->|holds| f_pages
   site -->|holds| f_files
-  site -->|holds| f_theme
   site -->|holds| f_custom
   site -->|is served with| f_registry
   site -->|is served with| f_autoload
@@ -59,7 +57,7 @@ flowchart TB
   outline -->|writes| f_sitejson
   editor -->|writes| f_pages
   files -->|fills| f_files
-  themes -->|layer under| f_theme
+  themes -->|can be extended in| f_custom
   ubiquity -->|builds| f_registry
   haxcms -->|generates| f_llms
   haxcms -->|generates| f_maps
@@ -87,7 +85,6 @@ flowchart TB
   %%@ node f_sitejson icon=hax:page-edit color=opportunityGreen motion=nudge
   %%@ node f_pages icon=hax:page-edit color=opportunityGreen motion=nudge
   %%@ node f_files icon=hax:page-edit color=opportunityGreen motion=nudge
-  %%@ node f_theme icon=hax:page-edit color=opportunityGreen motion=nudge
   %%@ node f_custom icon=hax:page-edit color=opportunityGreen motion=nudge
   %%@ node f_registry icon=icons:build color=slateGray motion=nudge
   %%@ node f_autoload icon=icons:build color=slateGray motion=nudge

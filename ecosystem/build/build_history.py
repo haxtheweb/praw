@@ -64,7 +64,7 @@ for e in EVENTS:
 lines += ["  history -->|starts with| family", "  family -->|raised| bryan", "  h_sixmonths -->|is amplified in| h_catastrophic", "  h_walkaway -->|was tested by| h_crisis",
           "  h_elms -->|grew into| h_elmsln", "  h_elmsln -->|was rebuilt as| h_haxcms", "  h_altruism -->|is the pattern in| h_thesis", "  h_notecard -->|needed| h_standard", "  h_standard -->|led to| h_rewrite", "",
           "  %%@ group hub tier=0", "  %%@ group eras tier=1", "  %%@ group events tier=2", "  %%@ group became tier=3",
-          "  %%@ node history icon=icons:book color=nittanyNavy motion=pulse"]
+          "  %%@ node history icon=icons:book color=nittanyNavy motion=beat"]
 ERACOL = {"e_drupal": "wonderPurple", "e_elmsln": "creekTeal", "e_turn": "roarGolden", "e_hax": "discoveryCoral", "e_teach": "forestGreen"}
 ERAMONO = {"e_drupal": "DRPL", "e_elmsln": "ELMS", "e_turn": "WC", "e_hax": "HAX", "e_teach": "IST"}
 for eid, lab, d in ERAS: lines.append(f"  %%@ node {eid} mono={ERAMONO[eid]} color={ERACOL[eid]} motion=pop")

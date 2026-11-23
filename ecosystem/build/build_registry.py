@@ -157,7 +157,7 @@ if "components" in UB: lines.append("  registry -.->|describes| components")
 if "languages" in UB and any(m[0] == "m_translations" for m in MANIFESTS): lines.append("  m_translations -.->|counts| languages")
 if "efficient" in UB and any(m[0] == "m_wcregistry" for m in MANIFESTS): lines.append("  m_wcregistry ==>|keeps it| efficient")
 lines += ["", "  %%@ group hub tier=0", "  %%@ group mans tier=1", "  %%@ group stepsg tier=2", "  %%@ group readg tier=3", "  %%@ group ctx tier=4",
-          "  %%@ node registry icon=hax:apps color=creekTeal motion=pulse"]
+          "  %%@ node registry icon=hax:apps color=creekTeal motion=beat"]
 for mid, *_ in MANIFESTS: lines.append(f"  %%@ node {mid} icon=hax:code-json color=creekTeal motion=nudge")
 for s in steps: lines.append(f"  %%@ node {s['id']} icon=hax:code-json color={'beaverBlue' if s['ubiquity'] else 'slateGray'} motion=nudge")
 for rid, r in readers.items():

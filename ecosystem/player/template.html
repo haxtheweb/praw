@@ -340,17 +340,21 @@ pre{margin:0;overflow-x:auto;background:var(--chip);border-radius:var(--ddd-radi
 .mcard .desc2{color:var(--muted);margin:0}
 footer{color:var(--muted);display:grid;gap:var(--ddd-spacing-1)}
 
-/* icon motion library preview (proposal #3221; not used inside the block) */
-@keyframes m-pop{0%{transform:scale(1)}45%{transform:scale(1.25)}100%{transform:scale(1)}}
-@keyframes m-wiggle{0%,100%{transform:rotate(0)}20%{transform:rotate(-11deg)}45%{transform:rotate(10deg)}70%{transform:rotate(-6deg)}}
-@keyframes m-tilt{0%,100%{transform:rotate(0)}50%{transform:rotate(-16deg)}}
-@keyframes m-pulse{0%,100%{transform:scale(1)}30%{transform:scale(1.14)}55%{transform:scale(.97)}80%{transform:scale(1.07)}}
-@keyframes m-lift{0%,100%{transform:translateY(0)}45%{transform:translateY(-6px)}}
-@keyframes m-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
-@keyframes m-nudge{0%,100%{transform:translateX(0)}40%{transform:translateX(5px)}70%{transform:translateX(-1px)}}
-@keyframes m-strike{0%,100%{transform:rotate(0)}35%{transform:rotate(-24deg)}60%{transform:rotate(8deg)}80%{transform:rotate(0)}}
-@keyframes m-glow{0%,100%{filter:drop-shadow(0 0 0 currentColor)}50%{filter:drop-shadow(0 0 5px currentColor) brightness(1.2)}}
-.mcard .mini.play svg{animation:var(--anim) var(--dur,.7s) ease-out 1}
+/* icon motions: the DDD motion library's names and keyframes (webcomponents elements/d-d-d/lib/DDDMotion.js),
+   previewed in the Motion vocabulary section; tiles inside the block do not play them. As in DDD, the keyframes
+   and the rule that plays them exist only when motion is allowed. */
+@media (prefers-reduced-motion: no-preference){
+@keyframes ddd-motion-pop{0%,100%{scale:1}45%{scale:1.25}}
+@keyframes ddd-motion-wiggle{0%,100%{rotate:0deg}20%{rotate:-11deg}45%{rotate:10deg}70%{rotate:-6deg}}
+@keyframes ddd-motion-tilt{0%,100%{rotate:0deg}50%{rotate:-16deg}}
+@keyframes ddd-motion-beat{0%,100%{scale:1}30%{scale:1.14}55%{scale:.97}80%{scale:1.07}}
+@keyframes ddd-motion-lift{0%,100%{translate:0 0}45%{translate:0 calc(-1.5 * var(--ddd-motion-icon-distance,var(--ddd-spacing-1,4px)))}}
+@keyframes ddd-motion-spin{0%{rotate:0deg}100%{rotate:360deg}}
+@keyframes ddd-motion-nudge{0%,100%{translate:0 0}40%{translate:calc(1.25 * var(--ddd-motion-icon-distance,var(--ddd-spacing-1,4px))) 0}70%{translate:calc(-.25 * var(--ddd-motion-icon-distance,var(--ddd-spacing-1,4px))) 0}}
+@keyframes ddd-motion-strike{0%,80%,100%{rotate:0deg}35%{rotate:-24deg}60%{rotate:8deg}}
+@keyframes ddd-motion-glow{0%,100%{filter:drop-shadow(0 0 0 currentColor) brightness(1)}50%{filter:drop-shadow(0 0 var(--ddd-motion-icon-distance,var(--ddd-spacing-1,4px)) currentColor) brightness(1.2)}}
+.mcard .mini.play svg{animation:var(--anim) var(--ddd-motion-icon-duration,var(--ddd-duration-slow,600ms)) var(--ddd-motion-icon-timing,var(--ddd-timing-ease,ease-in-out)) 1}
+}
 @media (prefers-reduced-motion: reduce){
   .mcard .mini.play svg{animation:none!important}
   .edge.enter{animation:none!important;stroke-dashoffset:0}
@@ -362,7 +366,7 @@ footer{color:var(--muted);display:grid;gap:var(--ddd-spacing-1)}
   <header>
     <span class="eyebrow">Proposal · haxtheweb/issues #3173</span>
     <h1>HAX Area Icons</h1>
-    <p class="lede">Every part of HAX gets an icon, a DDD color and a motion from the proposed library, placed in one web, built as a HAX instructional block: people at the center with the Future Traveler, the seven pillars, the platform, schemas, use cases, the organizations that back it, and the people who built it. Pick who you are to get your tour, or play the timeline.</p>
+    <p class="lede">Every part of HAX gets an icon, a DDD color and a motion from the DDD motion library, placed in one web, built as a HAX instructional block: people at the center with the Future Traveler, the seven pillars, the platform, schemas, use cases, the organizations that back it, and the people who built it. Pick who you are to get your tour, or play the timeline.</p>
     <div class="facts" id="facts"></div>
     <div class="links-row"><a href="https://github.com/haxtheweb/issues/issues/3173">Issue #3173</a> · motion library <a href="https://github.com/haxtheweb/issues/issues/3221">#3221</a> · details from <a href="https://github.com/haxtheweb/praw">PRAW</a>, <a href="https://github.com/haxtheweb/hax-lab">hax-lab</a>, <a href="https://haxtheweb.org">haxtheweb.org</a> and <a href="https://hax.psu.edu">hax.psu.edu</a></div>
   </header>
@@ -471,8 +475,8 @@ footer{color:var(--muted);display:grid;gap:var(--ddd-spacing-1)}
 
   <section aria-labelledby="h-new">
     <div class="sec-head">
-      <h2 id="h-new">New icons for hax-iconset</h2>
-      <p>Two marks the library is missing, drawn on the 24px grid as single-color fills so they theme like every other HAX icon.</p>
+      <h2 id="h-new">Icons drawn for their area</h2>
+      <p>Two areas had no icon of their own. Both are HAX's own marks in <code>hax-iconset</code>, drawn on the 24px grid as one filled path in one ink, so they take a color like every other HAX icon.</p>
     </div>
     <div class="newicons" id="newicons"></div>
   </section>
@@ -514,7 +518,7 @@ a --&gt;|verb| b</pre>
   <section aria-labelledby="h-mo">
     <div class="sec-head">
       <h2 id="h-mo">Motion vocabulary</h2>
-      <p>Nine CSS keyframe motions cover every node. They are the icon library for #3221, previewed here on hover or focus; inside the instructional block they do not play, because the block keeps to one motion moment (connections drawing in during Play). All are off under reduced motion. The library proposal is in <a href="https://github.com/haxtheweb/issues/issues/3221">#3221</a>.</p>
+      <p>Nine motions cover every node. They are the icon motions of the <a href="https://github.com/haxtheweb/webcomponents/tree/master/elements/d-d-d#icon-motion-library">DDD motion library</a>, under its names, previewed here on hover or focus; inside the instructional block they do not play, because the block keeps to one motion moment (connections drawing in during Play). Each plays once and rests, and none exist under reduced motion.</p>
     </div>
     <div class="motions" id="motions"></div>
   </section>
@@ -531,7 +535,12 @@ const ICONS = __ICONS__;
 const LAYERS = __LAYERS__;
 const TRAVELER = "__TRAVELER__";
 const COLORS = {pughBlue:"#96bee6",beaverBlue:"#1e407c",nittanyNavy:"#001e44",slateGray:"#314d64",creekTeal:"#3ea39e",skyBlue:"#009cde",shrineTan:"#b88965",roarGolden:"#bf8226",original87Pink:"#bc204b",discoveryCoral:"#f2665e",wonderPurple:"#491d70",athertonViolet:"#ac8dce",inventOrange:"#e98300",keystoneYellow:"#ffd100",opportunityGreen:"#008755",futureLime:"#99cc00",forestGreen:"#4a7729",landgrantBrown:"#6a3028",limestoneGray:"#a2aaad",coalyGray:"#262626"};
-const MOTION = {pop:"Scales up and settles.",wiggle:"Quick side-to-side rotation.",tilt:"Tips back and returns, like a tool in hand.",pulse:"Two soft beats, for living and status things.",lift:"Rises a few pixels, for layers and storage.",spin:"One full turn.",nudge:"Slides forward, for flows and pipes.",strike:"Swings down and back.",glow:"Brightens with a soft halo."};
+// the DDD icon motion names (DDDMotionIconNames) and when each is used
+const MOTION = {pop:"Scales up and settles, for hubs and the thing a page is about.",wiggle:"Quick side-to-side rotation, for things you edit or report.",tilt:"Tips back and returns, like a tool in hand.",beat:"Two soft beats, for living and status things.",lift:"Rises a little and comes back, for layers, storage and files.",spin:"One full turn. Reserved; used sparingly.",nudge:"Slides forward and back, for flows, pipes and next steps.",strike:"Swings down and back, for rules and gavel-like actions.",glow:"Brightens with a soft halo, for ideas and magic."};
+// icons drawn for their area (hax-iconset), and what each is
+const DRAWN = {"hax:php":"A HAX block with the &lt;? that opens a PHP file cut out of it.","hax:nodejs":"A HAX block with .JS cut out of it."};
+// a web written before the library was named may still say pulse for the scale motion; in DDD pulse is the attention ring
+const MOTION_ALIAS = {pulse:"beat"};
 const LINK_LABEL={repo:"Repo",npm:"npm",docs:"Docs",site:"Site",profile:"Profile",issue:"Issue",advisories:"Advisories",demo:"Try it",example:"Example",recording:"Recording",session:"Session",slides:"Slides",notes:"Notes",playlist:"Playlist"};
 const ORG_NOTE="Monogram placeholder. Add logo=<url> to its %%@ line to show the official mark wherever the player can load it.";
 const REDUCED=matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -578,7 +587,7 @@ function parse(text){
   ann.forEach(a=>{
     if(a.t==="group"){const g=groups.find(g=>g.id===a.id);if(!g)return errors.push(`Line ${a.ln}: no subgraph "${a.id}"`);if(a.a.tier!=null)g.tier=+a.a.tier;return}
     const n=nodes.get(a.id);if(!n)return errors.push(`Line ${a.ln}: no node "${a.id}"`);
-    if(a.a.icon)n.icon=a.a.icon;if(a.a.image)n.image=a.a.image;if(a.a.motion)n.motion=a.a.motion;if(a.a.new)n.isNew=true;
+    if(a.a.icon)n.icon=a.a.icon;if(a.a.image)n.image=a.a.image;if(a.a.motion)n.motion=MOTION_ALIAS[a.a.motion]||a.a.motion;if(a.a.new)n.isNew=true;
     if(a.a.mono)n.mono=String(a.a.mono).slice(0,5);if(a.a.logo)n.logo=a.a.logo;if(a.a.web)n.web=a.a.web;if(a.a.portal)n.portal=a.a.portal===true?true:String(a.a.portal);
     if(a.a.color){const c=COLORS[a.a.color]||(/^#[0-9a-f]{6}$/i.test(a.a.color)?a.a.color:null);if(!c)errors.push(`Line ${a.ln}: unknown DDD color "${a.a.color}"`);else{n.color=c;n.colorName=a.a.color}}
     if(!MOTION[n.motion])errors.push(`Line ${a.ln}: unknown motion "${n.motion}"`);
@@ -662,7 +671,7 @@ function iconBox(n,s){
   return iconSvg(n.icon).replace("<svg ",`<svg x="${(-z/2+dx).toFixed(1)}" y="${(-z/2+dy).toFixed(1)}" width="${z.toFixed(1)}" height="${z.toFixed(1)}" `);
 }
 function labelLines(t,max){const w=t.split(" "),out=[];let line="";w.forEach(x=>{if((line+" "+x).trim().length>max&&line){out.push(line);line=x}else line=(line+" "+x).trim()});out.push(line);return out}
-function vars(n){return `--tile:${n.color};--glyph:${glyphFor(n.color)};--anim:m-${n.motion};${n.motion==="spin"?"--dur:.8s;":""}`}
+function vars(n){return `--tile:${n.color};--glyph:${glyphFor(n.color)};--anim:ddd-motion-${n.motion}`}
 function mini(n,s){
   const pad=n.shape==="hex"?s*.12:n.shape==="pill"?s*.32:n.shape==="org"||n.shape==="talk"?s*.28:3,vb=s+pad*2,g=glyphFor(n.color);let cid="";
   if(n.image)cid="mc"+(uid++);
@@ -1026,7 +1035,7 @@ function buildSections(){
   document.getElementById("relNote").innerHTML=warns.join("")+`<p>After a release: <code>node graph-drift.mjs hax-ecosystem.json --write</code> updates versions and statuses. In a release step, <code>--strict</code> exits with an error when the web is out of date, so it gets flagged instead of drifting.</p>`;
   document.getElementById("pillars").innerHTML=N.filter(n=>n.tier===1).map(n=>{const by=M.edges.filter(e=>e.kind==="pillar"&&e.to===n.id&&e.from!=="human").length;
     return `<button class="pcard" data-go="${n.id}">${mini(n,52)}<b>${esc(n.label)}</b><p>${esc(n.doc.desc||"")}</p><small>${esc(n.icon)} · kept by ${by} part${by===1?"":"s"} and every person</small></button>`}).join("");
-  document.getElementById("newicons").innerHTML=N.filter(n=>n.isNew).map(n=>`<div class="ncard"><div class="row">${mini(n,96)}<div class="raw">${[48,24,16].map(z=>iconSvg(n.icon).replace("<svg ",`<svg width="${z}" height="${z}" `)).join("")}</div></div><p><b><code>${esc(n.icon)}</code></b> for ${esc(n.label)}. ${n.id==="php"?"A rounded wordmark oval with the letters cut out, readable down to 16px.":"The Node.js hexagon as an outline with an N inside, so it reads as Node rather than any hexagon."}</p></div>`).join("");
+  document.getElementById("newicons").innerHTML=N.filter(n=>n.isNew&&DRAWN[n.icon]).map(n=>`<div class="ncard"><div class="row">${mini(n,96)}<div class="raw">${[48,24,16].map(z=>iconSvg(n.icon).replace("<svg ",`<svg width="${z}" height="${z}" `)).join("")}</div></div><p><b><code>${esc(n.icon)}</code></b> for ${esc(n.label)}. ${DRAWN[n.icon]}</p></div>`).join("");
   const mEl=document.getElementById("motions");mEl.innerHTML="";
   Object.keys(MOTION).forEach(m=>{const users=N.filter(n=>n.motion===m&&n.tier!==4);if(!users.length)return;const s=users.find(u=>!u.image)||users[0];
     const card=document.createElement("div");card.className="mcard";card.tabIndex=0;

@@ -62,7 +62,7 @@ lines += ["  r8 -->|triggers| rl_notes", "  r8 -->|triggers| rl_docker", "  r8 -
 if "haxpsu" in MAIN_IDS: lines.insert(lines.index('  subgraph dest ["Where it goes"]') + 1, '    haxpsu["haxpsu"]'); dests.append("haxpsu")
 for i, *_ in STEPS: lines.append(f"  %%@ node {i} mono={i[1:]} color=creekTeal motion=nudge")
 for i, *_ in AFTER: lines.append(f"  %%@ node {i} icon=icons:cloud-upload color=forestGreen motion=lift")
-for i, *_ in GATES: lines.append(f"  %%@ node {i} icon=icons:verified-user color=beaverBlue motion=pulse")
+for i, *_ in GATES: lines.append(f"  %%@ node {i} icon=icons:verified-user color=beaverBlue motion=beat")
 PW = {"outline": "haxcms"}  # tiles the main web doesn't draw, but another web does
 for x in dests: lines.append("  %%@ node rl_psucdn icon=icons:dns color=nittanyNavy motion=lift" if x == "rl_psucdn" else f"  %%@ node {x} portal" + (f"={PW[x]}" if x in PW else ""))
 lines = [l for l in lines if l != ""] if False else lines
@@ -123,7 +123,7 @@ lines += ["  cg_support -->|points to| cg_discord", "  cg_support -->|points to|
 for t in tpls: lines.append(f"  issues -->|offers| cg_t_{slug(t)}")
 for l in KEYLABELS: lines.append(f"  issues -->|is sorted by| cg_l_{slug(l)}")
 lines += ["", "  %%@ group hub tier=0", "  %%@ group rolesg tier=1", "  %%@ group decide tier=1", "  %%@ group docsg tier=2", "  %%@ group chan tier=3",
-          "  %%@ node community portal", "  %%@ node cg_contributors icon=social:people color=skyBlue motion=pulse"]
+          "  %%@ node community portal", "  %%@ node cg_contributors icon=social:people color=skyBlue motion=beat"]
 lines += portal_lines([i for i, _ in ROLES] + ["learnhax", "haxcamp", "issues"])
 for i, *_ in STEPSD: lines.append(f"  %%@ node {i} mono={i[-1]} color=futureLime motion=nudge")
 for i, *_ in DOCS: lines.append(f"  %%@ node {i} icon={'icons:gavel' if i in ('cg_governance', 'cg_trademark', 'cg_cla') else 'icons:verified-user' if i == 'cg_security' else 'icons:book'} color=beaverBlue motion=nudge")

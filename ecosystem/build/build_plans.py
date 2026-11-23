@@ -72,7 +72,7 @@ L += [f'    {wid(w)}["{w}"]' for w in wins] + ["  end", ""]
 for g in SDG["goals"]: L.append(f"  sdgs -->|includes| {g['_id']}"); L += links_of(g)
 L += ["  un_sdg -.->|shows any goal on a page| sdgs", "",
       "  %%@ group hub tier=0", "  %%@ group goalsg tier=1", "  %%@ group pilg tier=2", "  %%@ group partsg tier=3", "  %%@ group winsg tier=4",
-      "  %%@ node sdgs mono=SDG color=creekTeal motion=pulse"]
+      "  %%@ node sdgs mono=SDG color=creekTeal motion=beat"]
 L += [f"  %%@ node {g['_id']} mono={g['n']} color={'forestGreen' if g['source'] == 'docs' else 'creekTeal'} motion=pop" for g in SDG["goals"]]
 L += [f"  %%@ node {p} portal" for p in pil + parts] + ["  %%@ node un_sdg icon=hax:code-json color=slateGray motion=nudge"]
 L += [f"  %%@ node {wid(w)} icon=icons:stars color=roarGolden motion=nudge" for w in wins]
@@ -118,7 +118,7 @@ for o in objs: L += links_of(o)
 for g in A["goals"]:
     if any(p["id"] == g["psu"] for p in shown): L.append(f"  aaplan -.->|aligns goal {g['id'][1:]} to| pp_{g['psu']}")
 L += ["", "  %%@ group hub tier=0", "  %%@ group prio tier=1", "  %%@ group objg tier=2", "  %%@ group linkg tier=3", "  %%@ group winsg tier=4",
-      "  %%@ node psuplan mono=PSU color=nittanyNavy motion=pulse"]
+      "  %%@ node psuplan mono=PSU color=nittanyNavy motion=beat"]
 L += [f"  %%@ node {p['_id']} icon=social:school color={'slateGray' if p.get('supporting') else 'nittanyNavy'} motion=pop" for p in shown]
 L += [f"  %%@ node {o['_id']} icon=icons:check-circle color=beaverBlue motion=nudge" for o in objs if o["_id"].startswith("po_")]
 L += ["  %%@ node aaplan mono=A&A color=beaverBlue motion=lift web=aaplan"]
@@ -163,7 +163,7 @@ for g in A["goals"]:
     for s in g["subs"]: L.append(f"  {g['_id']} -->|aims for| {s['_id']}")
 for s in subs: L += links_of(s)
 L += ["", "  %%@ group hub tier=0", "  %%@ group goalsg tier=1", "  %%@ group subsg tier=2", "  %%@ group linkg tier=3", "  %%@ group winsg tier=4",
-      "  %%@ node aaplan mono=A&A color=beaverBlue motion=pulse"]
+      "  %%@ node aaplan mono=A&A color=beaverBlue motion=beat"]
 L += [f"  %%@ node {g['_id']} mono={g['id'][1:]} color=beaverBlue motion=pop" for g in A["goals"]]
 L += [f"  %%@ node {s['_id']} mono={s['id']} color=creekTeal motion=nudge" for s in subs]
 L += [f"  %%@ node {x} portal=psuplan" for x in psu_ids] + [f"  %%@ node {x} portal" for x in pil + parts] + [f"  %%@ node {sid(n)} portal=sdgs" for n in sdgs]

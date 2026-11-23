@@ -99,7 +99,7 @@ for t in tools:
 if "ddd" in PORTALS: lines.append("  ddd -->|is exported as| dtcg")
 if "components" in PORTALS: lines.append("  components -->|use the tokens of| ddd" if "ddd" in PORTALS else "  components -->|use| dtcg")
 lines += ["", "  %%@ group hub tier=0", "  %%@ group filesg tier=1", "  %%@ group groupsg tier=2", "  %%@ group typesg tier=3", "  %%@ group toolsg tier=4",
-          "  %%@ node dtcg icon=lrn:palette color=creekTeal motion=pulse"]
+          "  %%@ node dtcg icon=lrn:palette color=creekTeal motion=beat"]
 stale = check["ok"] is False
 for f in files: lines.append(f"  %%@ node f_{slug(f)} icon=hax:code-json color={'roarGolden' if stale else 'forestGreen'} motion=nudge")
 for k in groups: lines.append(f"  %%@ node {gid(k)} icon=lrn:palette color={'athertonViolet' if k.startswith('simple-colors') else 'beaverBlue'} motion=pop")

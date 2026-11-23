@@ -5,6 +5,7 @@
     "cloud",
     "try",
     "learn",
+    "lab",
     "elements",
     "art"
   ],
@@ -48,6 +49,16 @@
       "icon": "hardware:tv",
       "purpose": "Tutorials that teach HAX one flow at a time.",
       "relation": "Where people go after trying it, as users and as contributors."
+    },
+    "lab": {
+      "label": "Lab",
+      "url": "https://lab.hax.cloud",
+      "repo": "hax-lab",
+      "color": "creekTeal",
+      "on": "coalyGray",
+      "icon": "hax:hax2022",
+      "purpose": "HAX Lab: where students and junior developers learn by shipping real HAX work.",
+      "relation": "Learn teaches HAX. Lab is where people go to build it with us: onboarding, the lab itself, and the people it launched."
     },
     "elements": {
       "label": "Web components",

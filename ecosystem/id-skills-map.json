@@ -1,5 +1,5 @@
 {
-  "description": "Maps PRAW's instructional design skills to the HAX elements they recommend or check, the pillars they uphold and the ecosystem web nodes they connect to. Elements come from what each skill's files actually reference (top 10 by mentions). Pillar links are proposed for review.",
+  "description": "Maps PRAW's instructional design skills to the HAX elements they recommend or check, the pillars they uphold and the ecosystem web nodes they connect to. Elements come from what each skill's files actually reference (top 10 by mentions). Pillar links were reviewed by the platform owner (https://github.com/haxtheweb/issues/issues/3257).",
   "source": "Element references counted from skills/<name>/**/*.md and matched against the element folders in haxtheweb/webcomponents.",
   "skills": [
     {

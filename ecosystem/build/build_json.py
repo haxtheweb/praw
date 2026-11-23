@@ -497,12 +497,6 @@ STORIES += [
    S("The MCP (pre-release) reaches HAXcms through the same OpenAPI contract people use.", "mcp", "openapi"),
    S("Its changes go through the issue queue and the same pull request checks as a person's.", "issues", "github", "quality", "testing"),
  ]},
- {"id": "start-psu", "label": "Start from hax.psu.edu", "kind": "story", "message": "Three ways in from Penn State's HAX service: Start, Try HAX and Learn HAX.", "scenes": [
-   S("hax.psu.edu is Penn State's HAXcms service, run on HAXiam behind Penn State login.", "haxpsu", "haxiam", "psu"),
-   S("Start: sign in and make a site from the dashboard, beginning from a skeleton.", "dashboard", "skeletons", "haxcms"),
-   S("Try HAX: use it in a browser tab, with nothing to install.", "browser", "editor"),
-   S("Learn HAX: tutorials that teach it one flow at a time.", "learnhax"),
- ]},
  {"id": "start-cloud", "label": "Start from hax.cloud", "kind": "story", "message": "Five ways in from hax.cloud: the playground, the magic script, the element browser, RPG me and the desktop app.", "scenes": [
    S("The playground: HAXcms in a browser tab, with no install and no server.", "browser"),
    S("The magic script: two lines that load any HAX web component the moment it appears on a page, found through the registry.", "registry", "wcstandard"),

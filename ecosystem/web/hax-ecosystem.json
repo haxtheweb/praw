@@ -3790,43 +3790,6 @@
    ]
   },
   {
-   "id": "start-psu",
-   "label": "Start from hax.psu.edu",
-   "kind": "story",
-   "message": "Three ways in from Penn State's HAX service: Start, Try HAX and Learn HAX.",
-   "scenes": [
-    {
-     "caption": "hax.psu.edu is Penn State's HAXcms service, run on HAXiam behind Penn State login.",
-     "nodes": [
-      "haxpsu",
-      "haxiam",
-      "psu"
-     ]
-    },
-    {
-     "caption": "Start: sign in and make a site from the dashboard, beginning from a skeleton.",
-     "nodes": [
-      "dashboard",
-      "skeletons",
-      "haxcms"
-     ]
-    },
-    {
-     "caption": "Try HAX: use it in a browser tab, with nothing to install.",
-     "nodes": [
-      "browser",
-      "editor"
-     ]
-    },
-    {
-     "caption": "Learn HAX: tutorials that teach it one flow at a time.",
-     "nodes": [
-      "learnhax"
-     ]
-    }
-   ]
-  },
-  {
    "id": "start-cloud",
    "label": "Start from hax.cloud",
    "kind": "story",

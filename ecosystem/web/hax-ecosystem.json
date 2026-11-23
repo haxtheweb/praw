@@ -433,7 +433,7 @@
    "yearNote": "HAX Camp at Duke",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    }
   },
   "components": {
@@ -471,7 +471,7 @@
    "yearNote": "Keith Charlton creates DDD",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "version": "26.8.0"
   },
@@ -752,7 +752,7 @@
    "yearNote": "Dave Fusco works on xAPI integration",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    }
   },
   "skillsindex": {
@@ -805,7 +805,7 @@
    "yearNote": "Student-built portfolio themes",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    }
   },
   "dept": {
@@ -893,17 +893,17 @@
    "desc": "Students and contributors working on HAX through courses, independent studies and internships; alumni now work at Red Hat, Adobe, IBM, Ford and PennDOT.",
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "links": {
-    "repo": "https://github.com/haxtheweb/hax-lab",
+    "repo": "https://github.com/haxtheweb/lab",
     "site": "https://haxtheweb.org/hax-lab"
    },
    "year": 2016,
    "yearNote": "The first HAX Lab contribution (xAPI and AI integration)",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    }
   },
   "ccso": {
@@ -919,7 +919,7 @@
    "yearNote": "CCSO runs the 2025 HAX pentest",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    }
   },
   "uxdc": {
@@ -991,7 +991,7 @@
    "yearNote": "HAX Camp at Duke",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    }
   },
   "drupalcon": {
@@ -1254,13 +1254,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2017,
    "yearNote": "Original ELMS:LN and Drupal student contributor (2017).",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    }
   },
   "tom": {
@@ -1271,13 +1271,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2019,
    "yearNote": "HAX multimedia production, HAX Camp Duke planning committee and social media (2019).",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    }
   },
   "tevin": {
@@ -1288,13 +1288,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2020,
    "yearNote": "Pre-release HAX UX study (2020).",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    }
   },
   "sara": {
@@ -1305,13 +1305,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2020,
    "yearNote": "Media dashboard UX prototype (2020).",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    }
   },
   "collin": {
@@ -1322,13 +1322,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2021,
    "yearNote": "Bootstrap theme for HAXcms (spring 2021).",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "github": "collinkleest"
   },
@@ -1340,13 +1340,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2021,
    "yearNote": "Built the vocab web component for presenting terms (2021); 15 commits to webcomponents as hvk5388.",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "github": "hvk5388"
   },
@@ -1376,13 +1376,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2022,
    "yearNote": "8-bit video game aesthetic and site creation flow (spring 2022).",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    }
   },
   "edelor": {
@@ -1393,13 +1393,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2022,
    "yearNote": "8-bit video game aesthetic and site creation flow (spring 2022).",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    }
   },
   "liz": {
@@ -1410,13 +1410,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2022,
    "yearNote": "HAX Camp 2022 planning committee.",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    }
   },
   "taylor": {
@@ -1427,13 +1427,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2022,
    "yearNote": "HAX Camp 2022 planning committee.",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    }
   },
   "andrew": {
@@ -1444,13 +1444,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2022,
    "yearNote": "HAX Camp 2022 planning; JWT policy review and a headless login prototype (2023).",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    }
   },
   "kcharlton": {
@@ -1497,13 +1497,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2024,
    "yearNote": "Audited DDD usage and QA'd elements in the monorepo (fall 2024).",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "github": "klh6157"
   },
@@ -1583,13 +1583,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2025,
    "yearNote": "Portfolio theme (spring 2025).",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "github": "jno-de"
   },
@@ -1601,13 +1601,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2025,
    "yearNote": "Two portfolio themes for HAXcms (summer 2025).",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "github": "aarya0804"
   },
@@ -1619,13 +1619,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2025,
    "yearNote": "Glossy Portfolio theme for HAXcms (summer 2025).",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "github": "NazmanRosman"
   },
@@ -1666,13 +1666,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2025,
    "yearNote": "CCSO's 2025 HAX pentest",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "github": "Indigo-10",
    "note": "Advisory credits use the GitHub login Indigo-10."
@@ -1685,13 +1685,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2025,
    "yearNote": "CCSO's 2025 HAX pentest",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "github": "lfgberg"
   },
@@ -1703,13 +1703,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2025,
    "yearNote": "CCSO's 2025 HAX pentest",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "github": "asareynolds"
   },
@@ -1721,13 +1721,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2025,
    "yearNote": "CCSO's 2025 HAX pentest",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "github": "userRPR"
   },
@@ -1739,13 +1739,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2025,
    "yearNote": "CCSO's 2025 HAX pentest",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "github": "23younesm",
    "note": "Advisory credits use the GitHub login 23younesm."
@@ -1758,13 +1758,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2025,
    "yearNote": "CCSO's 2025 HAX pentest",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "github": "odransfield",
    "note": "Advisory credits use the GitHub login odransfield."
@@ -1777,13 +1777,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2025,
    "yearNote": "CCSO's 2025 HAX pentest",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    }
   },
   "kekoa": {
@@ -1794,13 +1794,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2025,
    "yearNote": "CCSO's 2025 HAX pentest",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    }
   },
   "miles": {
@@ -1811,13 +1811,13 @@
    },
    "source": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    },
    "year": 2025,
    "yearNote": "CCSO's 2025 HAX pentest",
    "yearSource": {
     "label": "hax-lab README",
-    "url": "https://github.com/haxtheweb/hax-lab"
+    "url": "https://github.com/haxtheweb/lab"
    }
   },
   "gatech": {

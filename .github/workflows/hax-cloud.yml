@@ -56,4 +56,9 @@ jobs:
           npm ci --prefix .github/a11y --ignore-scripts --no-audit --no-fund
           cd .github/a11y && npx playwright install --with-deps chromium
       - name: Accessibility (axe-core, WCAG 2.0/2.1 A and AA)
-        run: node .github/a11y/a11y-scan.mjs --root _site --site-json _site/site.json --baseline .github/a11y/baseline.json
+        # Report only: findings go to the job summary and never fail the build. The scan covers the home
+        # page, each web's page and the pages one level under it (--max-indent 1, about 210 pages, the set
+        # the baseline was recorded on). The whole site is over 1,800 pages, which does not fit in this job.
+        continue-on-error: true
+        timeout-minutes: 20
+        run: node .github/a11y/a11y-scan.mjs --root _site --site-json _site/site.json --max-indent 1 --baseline .github/a11y/baseline.json

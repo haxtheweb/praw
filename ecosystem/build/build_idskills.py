@@ -64,11 +64,11 @@ tours = [{"id": "idskills", "label": "Skills, elements and pillars", "kind": "st
     S(f"{len(FAM)} families of instructional design skills in PRAW.", *[f"if_{slug(f)}" for f in FAM]),
     *[S(f"{f}.", f"if_{slug(f)}", *[sk(s["skill"]) for s in SK if s["family"] == f], *sorted({el(e) for s in SK if s["family"] == f for e in s["elements"]})) for f in FAM],
     S("The elements skills reach for most: " + ", ".join(top) + ".", *[el(e) for e in top]),
-    S("Each skill upholds pillars (proposed for review in haxtheweb/issues#3257).", *pillars, *[sk(s["skill"]) for s in SK]),
+    S("Each skill upholds pillars.", *pillars, *[sk(s["skill"]) for s in SK]),
     S("Gaps: elements no skill covers yet, and a skill with no element to act on.", *[el(e) for e in uncovered], *[sk(s) for s in no_el]),
     S("All of it.")]}]
 meta = {"name": "Instructional design skills", "parent": "skills", "noTimeline": True, "sectionLabels": {"family": "families", "element": "elements", "gap": "gaps"},
-        "about": f"PRAW's {len(SK)} instructional design skills, the {len(elements)} HAX elements their own files recommend or check, and the pillars they uphold, generated from id-skills-map.json. Pillar links are proposed for review. Ghosted tiles are gaps: {len(uncovered)} elements no skill covers and {len(no_el)} skill with no element to act on.",
+        "about": f"PRAW's {len(SK)} instructional design skills, the {len(elements)} HAX elements their own files recommend or check, and the pillars they uphold, generated from id-skills-map.json. Ghosted tiles are gaps: {len(uncovered)} elements no skill covers and {len(no_el)} skill with no element to act on.",
         "kindLabels": {"rel": "families, skills and the elements they act on", "pillar": "pillars a skill upholds", "schema": "parts a skill works with"},
         "links": {"map": PRAW + "ecosystem/id-skills-map.json", "issue": "https://github.com/haxtheweb/issues/issues/3257"}}
 json.dump({"meta": meta, "nodes": nodes, "evidence": {}, "tours": tours}, open("hax-idskills.json", "w"), indent=1, ensure_ascii=False)

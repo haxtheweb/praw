@@ -1,0 +1,8 @@
+{
+ "about": "Tiles in a sub-web that may stand alone, each with the reason. ecosystem/test/integrity-check.py reads this; an entry for a tile that has gained a connection or is gone fails the check, so the list stays true. Gaps (status \"gap\") and portals never need an entry.",
+ "orphans": {
+  "haxschema:b_simple_fields": "One of the packages with the most editing fields. The HAXSchema web lists those packages without connecting them, and the Elements web doesn't draw this one, so it can't be a portal.",
+  "tokens:ty_fontfamily": "A DTCG type some tokens carry. Each token group connects only to its most common type, and fontFamily is no group's most common.",
+  "tokens:ty_fontweight": "A DTCG type some tokens carry. Each token group connects only to its most common type, and fontWeight is no group's most common."
+ }
+}

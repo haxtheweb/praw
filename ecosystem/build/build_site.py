@@ -5,7 +5,7 @@ Reads the same webs assemble.py does (web/*.mmd + web/*.json, in assemble.py's o
   site.json        JSON Outline Schema: the main web is the home page with its own tiles under it; each sub-web is
                    its own page with its tiles under it, filed under a category (ecosystem/site/categories.json,
                    e.g. Organizations > Penn State, Courses > IST > IST 256) or nested under the web that opens it;
-                   then a Tours branch.
+                   then a Tours branch: one page per tour, its related items the pages of its tiles in tour order.
   pages/<id>/      one index.html per page: generated HAX page HTML (description, links, what it connects to).
   ecosystem.html   today's player, embedded on every web page while the site uses clean-one. With ecosystem-theme
                    (HAX_CLOUD_THEME=ecosystem-theme, set by the workflow once the theme is on npm) every page has
@@ -260,7 +260,11 @@ for w, _ in order:
         if N.get("links"): b.append("<h2>Links</h2>" + links_html(N["links"]))
         pages[p] = b
     for t in tours:
-        steps = "".join(f"<li>{E(s.get('caption', ''))}</li>" for s in t.get("scenes", []))
+        # each step names the tiles it lights up, linked to their pages, so the walk reads without the web
+        def stops(s):
+            ls = [f'<a href="{href(resolve(w, n))}">{E(label(w, n))}</a>' for n in s.get("nodes", []) if n in W["tiles"] and resolve(w, n)]
+            return f" ({', '.join(ls)})" if ls else ""
+        steps = "".join(f"<li>{E(s.get('caption', ''))}{stops(s)}</li>" for s in t.get("scenes", []))
         pages[page_of[("tour", w, t["id"])]] = [f"<p>{E(t.get('message', ''))}</p>", f'<p><a href="{href(page_of[("web", w)])}">{E(web_name(w))}</a></p>', f"<ol>{steps}</ol>"]
 # a category page: what it holds, each with its description
 def full_desc(x):  # a web's whole "about" (an item's description is cut to 200 characters for the outline)
@@ -270,7 +274,8 @@ for it in [x for x in items if x["_key"].startswith("category:")]:
     kids = sorted([x for x in items if x["parent"] == it["id"]], key=lambda x: x["order"])
     pages[it["id"]] = [f"<p>{E(CAT[it['_key'][9:]].get('description', ''))}</p>" if CAT[it["_key"][9:]].get("description") else "",
                        "<ul>" + "".join(f'<li><a href="{href(x["id"])}">{E(x["title"])}</a>' + (f": {E(full_desc(x))}" if full_desc(x) else "") + "</li>" for x in kids) + "</ul>"]
-pages[tours_root] = ["<ul>" + "".join(f'<li><a href="{href(i["id"])}">{E(i["title"])}</a></li>' for i in items if i["parent"] == tours_root) + "</ul>"]
+# the Tours page: every tour with what it teaches
+pages[tours_root] = ["<ul>" + "".join(f'<li><a href="{href(i["id"])}">{E(i["title"])}</a>' + (f': {E(i["description"])}' if i["description"] else "") + "</li>" for i in items if i["parent"] == tours_root) + "</ul>"]
 
 # ---------- write ----------
 os.makedirs(os.path.join(OUT, "pages"), exist_ok=True)
@@ -292,7 +297,12 @@ for it in items:
     k = it["_key"].split(":")
     if k[0] == "web": it["metadata"]["ecosystem"] = {"web": k[1]}
     elif k[0] == "tile": it["metadata"]["ecosystem"] = {"web": k[1], "node": k[2]}
-    elif k[0] == "tour": it["metadata"]["ecosystem"] = {"web": k[1], "tour": k[2]}
+    elif k[0] == "tour":
+        it["metadata"]["ecosystem"] = {"web": k[1], "tour": k[2]}
+        # a tour's related items are its tiles' pages, in tour order (https://github.com/haxtheweb/issues/issues/3258)
+        t = next(x for x in WEBS[k[1]]["data"].get("tours", []) if x["id"] == k[2])
+        stops = [resolve(k[1], n) for s in t.get("scenes", []) for n in s.get("nodes", []) if n in WEBS[k[1]]["tiles"]]
+        it["metadata"]["relatedItems"] = list(dict.fromkeys(p for p in stops if p))
 THEME = {"element": "clean-one", "path": "@haxtheweb/clean-one/clean-one.js", "name": "Clean One", "variables": {}}
 if ECO_THEME:
     THEME = {"element": "ecosystem-theme", "path": "@haxtheweb/ecosystem-theme/ecosystem-theme.js", "name": "Ecosystem",

@@ -8,7 +8,7 @@
    "element": "elements",
    "gap": "gaps"
   },
-  "about": "PRAW's 24 instructional design skills, the 38 HAX elements their own files recommend or check, and the pillars they uphold, generated from id-skills-map.json. Pillar links are proposed for review. Ghosted tiles are gaps: 4 elements no skill covers and 1 skill with no element to act on.",
+  "about": "PRAW's 24 instructional design skills, the 38 HAX elements their own files recommend or check, and the pillars they uphold, generated from id-skills-map.json. Ghosted tiles are gaps: 3 elements no skill covers and 1 skill with no element to act on.",
   "kindLabels": {
    "rel": "families, skills and the elements they act on",
    "pillar": "pillars a skill upholds",
@@ -109,13 +109,6 @@
    },
    "kind": "element"
   },
-  "b_lrn_vocab": {
-   "desc": "@haxtheweb/lrn-vocab. Recommended or checked by 2 skills: hax-instructional-events-audit, hax-multimedia-principles-audit.",
-   "links": {
-    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/lrn-vocab"
-   },
-   "kind": "element"
-  },
   "b_lrndesign_imagemap": {
    "desc": "@haxtheweb/lrndesign-imagemap. Recommended or checked by 4 skills: hax-ubd-grasps, hax-instructional-events-audit, hax-multimedia-principles-audit, hax-proficiency-scaffolding.",
    "links": {
@@ -194,21 +187,11 @@
    "kind": "element"
   },
   "b_course_model": {
-   "desc": "@haxtheweb/course-model. Course structure modeling; no skill recommends it.",
+   "desc": "@haxtheweb/course-model. Shows a 3D model learners can turn and view from several angles; no skill recommends it.",
    "status": "gap",
    "note": "Gap: no instructional design skill covers this element yet.",
    "links": {
     "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/course-model",
-    "issue": "https://github.com/haxtheweb/issues/issues/3257"
-   },
-   "kind": "gap"
-  },
-  "b_vocab_term": {
-   "desc": "@haxtheweb/vocab-term. Overlaps lrn-vocab, which skills do cite; decide which one skills should recommend.",
-   "status": "gap",
-   "note": "Gap: no instructional design skill covers this element yet.",
-   "links": {
-    "repo": "https://github.com/haxtheweb/webcomponents/tree/master/elements/vocab-term",
     "issue": "https://github.com/haxtheweb/issues/issues/3257"
    },
    "kind": "gap"
@@ -301,7 +284,6 @@
       "b_flash_card",
       "b_h5p_element",
       "b_image_compare_slider",
-      "b_lrn_vocab",
       "b_lrndesign_imagemap",
       "b_lrndesign_sidenote",
       "b_matching_question",
@@ -312,7 +294,8 @@
       "b_sorting_question",
       "b_stop_note",
       "b_tagging_question",
-      "b_video_player"
+      "b_video_player",
+      "b_vocab_term"
      ]
     },
     {
@@ -332,7 +315,6 @@
       "b_fill_in_the_blanks",
       "b_flash_card",
       "b_image_compare_slider",
-      "b_lrn_vocab",
       "b_lrndesign_imagemap",
       "b_lrndesign_timeline",
       "b_media_image",
@@ -342,7 +324,8 @@
       "b_self_check",
       "b_simple_fields",
       "b_stop_note",
-      "b_video_player"
+      "b_video_player",
+      "b_vocab_term"
      ]
     },
     {
@@ -420,7 +403,7 @@
      ]
     },
     {
-     "caption": "Each skill upholds pillars (proposed for review in haxtheweb/issues#3257).",
+     "caption": "Each skill upholds pillars.",
      "nodes": [
       "accessible",
       "efficient",
@@ -457,7 +440,6 @@
      "caption": "Gaps: elements no skill covers yet, and a skill with no element to act on.",
      "nodes": [
       "b_course_model",
-      "b_vocab_term",
       "b_micro_game_base",
       "b_bullet_check_list",
       "s_haxcms_lrs_rater"

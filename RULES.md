@@ -400,6 +400,43 @@ Every rule has one of four scopes:
 - **Scope**: `global`
 - **Content**: For any non-trivial feature, skill, plugin, integration or architectural change in the HAX ecosystem, run the Pillar checks in https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#pillar-checks and report the results in the PR description. Any "no" must be named with its reason and a follow-up issue in https://github.com/haxtheweb/issues. Public-facing writing should also follow https://github.com/haxtheweb/praw/blob/main/VOICE.md.
 
+## 🤖 AI-Generated Content
+
+### AI Content — Model Output Is Validated Before Use
+- **Rule ID**: `dc5c2839-f04e-428c-a622-1e6d8cce1214`
+- **Scope**: `global`
+- **Content**: Wherever a model produces content or decisions in HAX (haxcms-mcp tools, AI features in app-hax, PRAW skills and agents), its response is checked against a schema before anything uses it: known ids, allowed values, length limits. A reference to an id that does not exist is dropped, never trusted, and dropping it does not fail the whole step. The reference implementation for this rule and the other AI Content rules is the Course Consultant in <https://github.com/djfusco/hax-ai-canvas>, which keeps each one in code and tests. Tracking: <https://github.com/haxtheweb/issues/issues/3353>.
+
+### AI Content — Facts Come From the Data, Not the Model
+- **Rule ID**: `5cf2787e-c2df-4184-8b61-53c42ffad9cf`
+- **Scope**: `global`
+- **Content**: In AI-assisted output, dates, points, counts, ids, slugs and outline order are inserted by code from the source data; the model only writes the prose around them. A list of facts, such as a week's checklist of due dates, is built by the application and never generated. Tracking: <https://github.com/haxtheweb/issues/issues/3353>.
+
+### AI Content — A Model Never Approves Its Own Proposals
+- **Rule ID**: `c0f72fdb-5537-478d-8cd1-558160984430`
+- **Scope**: `global`
+- **Content**: Model output is stored as proposed, and stays proposed until a person decides. When a person delegates the decision to the model, the result is labelled as such (AI-decided, AI-approved) and stays editable and reversible. Tracking: <https://github.com/haxtheweb/issues/issues/3353>.
+
+### AI Content — Personal Information Is Stripped Before a Model Call
+- **Rule ID**: `8d4e63f8-16bd-4a21-9898-c02313941dd5`
+- **Scope**: `global`
+- **Content**: Student and other personal information is removed from content before it is sent to any model. The person sees counts of what was removed, never the removed text. The stripping is a safeguard, not a guarantee, and the interface says so. Tracking: <https://github.com/haxtheweb/issues/issues/3353>.
+
+### AI Content — Nothing Is Truncated Silently
+- **Rule ID**: `9b2e454c-9b5b-46dc-b443-6470b3b4abe9`
+- **Scope**: `global`
+- **Content**: A prompt is fitted to the model's context and output limits before the call, and anything left out is stated to the person; content is never cut to fit without saying so. Tracking: <https://github.com/haxtheweb/issues/issues/3353>.
+
+### AI Content — Cost Is Shown Before Bulk Work
+- **Rule ID**: `2472221d-091f-48bc-a44f-acf03f41ce29`
+- **Scope**: `global`
+- **Content**: Before an operation that makes more than one model request runs, the person sees an estimate of its requests and tokens, and of its price when the provider publishes one. Tracking: <https://github.com/haxtheweb/issues/issues/3353>.
+
+### AI Content — Tests Make No Paid or Networked Model Calls
+- **Rule ID**: `cd0bc4fc-a502-4b33-8036-057882b5f0e9`
+- **Scope**: `global`
+- **Content**: Tests run against a scripted fake provider and never reach a real model. Judging output quality with a real model is a separate, opt-in harness, and a person reviews its report. Tracking: <https://github.com/haxtheweb/issues/issues/3353>.
+
 ## 🧠 Instructional Design
 
 ### HAX Course Units via Understanding by Design
@@ -450,6 +487,7 @@ Every rule has one of four scopes:
 - **🎨 Design System Standards**: DDD, SimpleColors, theming guidelines
 - **🧩 Web Component Development**: HAX capability, accessibility, JavaScript standards
 - **⚙️ Build & Development Workflow**: CLI usage, build commands, version control
+- **🤖 AI-Generated Content**: features where a model produces content or decisions
 - **🧠 Instructional Design**: UbD, UDL pedagogical frameworks
 
 ### Validation

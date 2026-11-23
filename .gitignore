@@ -47,6 +47,7 @@ __pycache__/
 
 # ecosystem web: working folder, fetched sources and caches (see ecosystem/README.md)
 ecosystem/.work/
+ecosystem/test/node_modules/
 ecosystem/build/data/el/hn/
 ecosystem/build/data/gh_cache.json
 ecosystem/build/data/drift-report.*

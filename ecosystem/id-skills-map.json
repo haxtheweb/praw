@@ -1,5 +1,5 @@
 {
-  "description": "Maps PRAW's instructional design skills to the HAX elements they recommend or check, the pillars they uphold and the ecosystem web nodes they connect to. Elements come from what each skill's files actually reference (top 10 by mentions). Pillar links are proposed for review.",
+  "description": "Maps PRAW's instructional design skills to the HAX elements they recommend or check, the pillars they uphold and the ecosystem web nodes they connect to. Elements come from what each skill's files actually reference (top 10 by mentions). Pillar links were reviewed by the platform owner (https://github.com/haxtheweb/issues/issues/3257).",
   "source": "Element references counted from skills/<name>/**/*.md and matched against the element folders in haxtheweb/webcomponents.",
   "skills": [
     {
@@ -275,7 +275,7 @@
         "flash-card",
         "lrndesign-imagemap",
         "lrndesign-sidenote",
-        "lrn-vocab",
+        "vocab-term",
         "h5p-element"
       ],
       "pillars": [
@@ -382,7 +382,7 @@
         "lrndesign-imagemap",
         "media-image",
         "video-player",
-        "lrn-vocab",
+        "vocab-term",
         "audio-player",
         "image-compare-slider",
         "a11y-figure",
@@ -625,7 +625,6 @@
       "h-a-x",
       "h5p-element",
       "image-compare-slider",
-      "lrn-vocab",
       "lrndesign-imagemap",
       "lrndesign-sidenote",
       "lrndesign-timeline",
@@ -647,16 +646,13 @@
       "stop-note",
       "tagging-question",
       "user-action",
-      "video-player"
+      "video-player",
+      "vocab-term"
     ],
     "elementsNoSkillCovers": [
       {
         "element": "course-model",
-        "note": "Course structure modeling; no skill recommends it."
-      },
-      {
-        "element": "vocab-term",
-        "note": "Overlaps lrn-vocab, which skills do cite; decide which one skills should recommend."
+        "note": "Shows a 3D model learners can turn and view from several angles; no skill recommends it."
       },
       {
         "element": "micro-game-base",

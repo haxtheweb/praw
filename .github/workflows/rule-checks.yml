@@ -71,3 +71,21 @@ jobs:
             echo "::error title=Generated files::Generated files are not committed: $untracked"
             exit 1
           fi
+  ecosystem:
+    # The ecosystem web's integrity rules (https://github.com/haxtheweb/issues/issues/3259): every tile has a title
+    # and a type, connections, portals, tours and evidence name tiles that exist, every tile in the main web has a
+    # path to a pillar, and nothing is an orphan. It runs on every pull request, so it can be a required check.
+    # Standard library Python only, no install step.
+    name: Ecosystem web integrity
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Integrity check
+        # the check's own cases first, then the webs
+        run: |
+          python3 -I ecosystem/test/integrity-check.py --self-test
+          python3 -I ecosystem/test/integrity-check.py

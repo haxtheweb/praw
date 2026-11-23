@@ -56,7 +56,6 @@ flowchart TB
     b_h_a_x["h-a-x"]
     b_h5p_element["h5p-element"]
     b_image_compare_slider["image-compare-slider"]
-    b_lrn_vocab["lrn-vocab"]
     b_lrndesign_imagemap["lrndesign-imagemap"]
     b_lrndesign_sidenote["lrndesign-sidenote"]
     b_lrndesign_timeline["lrndesign-timeline"]
@@ -79,8 +78,8 @@ flowchart TB
     b_tagging_question["tagging-question"]
     b_user_action["user-action"]
     b_video_player["video-player"]
-    b_course_model["course-model"]
     b_vocab_term["vocab-term"]
+    b_course_model["course-model"]
     b_micro_game_base["micro-game-base"]
     b_bullet_check_list["bullet-check-list"]
   end
@@ -270,7 +269,7 @@ flowchart TB
   s_hax_instructional_events_audit -->|recommends or checks| b_flash_card
   s_hax_instructional_events_audit -->|recommends or checks| b_lrndesign_imagemap
   s_hax_instructional_events_audit -->|recommends or checks| b_lrndesign_sidenote
-  s_hax_instructional_events_audit -->|recommends or checks| b_lrn_vocab
+  s_hax_instructional_events_audit -->|recommends or checks| b_vocab_term
   s_hax_instructional_events_audit -->|recommends or checks| b_h5p_element
   s_hax_instructional_events_audit ==>|upholds| efficient
   s_hax_instructional_events_audit ==>|upholds| remixable
@@ -333,7 +332,7 @@ flowchart TB
   s_hax_multimedia_principles_audit -->|recommends or checks| b_lrndesign_imagemap
   s_hax_multimedia_principles_audit -->|recommends or checks| b_media_image
   s_hax_multimedia_principles_audit -->|recommends or checks| b_video_player
-  s_hax_multimedia_principles_audit -->|recommends or checks| b_lrn_vocab
+  s_hax_multimedia_principles_audit -->|recommends or checks| b_vocab_term
   s_hax_multimedia_principles_audit -->|recommends or checks| b_audio_player
   s_hax_multimedia_principles_audit -->|recommends or checks| b_image_compare_slider
   s_hax_multimedia_principles_audit -->|recommends or checks| b_a11y_figure
@@ -507,7 +506,6 @@ flowchart TB
   %%@ node b_h_a_x icon=hax:bricks color=creekTeal motion=nudge
   %%@ node b_h5p_element portal=elements
   %%@ node b_image_compare_slider portal=elements
-  %%@ node b_lrn_vocab icon=hax:bricks color=creekTeal motion=nudge
   %%@ node b_lrndesign_imagemap icon=hax:bricks color=creekTeal motion=nudge
   %%@ node b_lrndesign_sidenote icon=hax:bricks color=creekTeal motion=nudge
   %%@ node b_lrndesign_timeline portal=elements
@@ -530,8 +528,8 @@ flowchart TB
   %%@ node b_tagging_question portal=elements
   %%@ node b_user_action icon=hax:bricks color=creekTeal motion=nudge
   %%@ node b_video_player portal=elements
+  %%@ node b_vocab_term portal=elements
   %%@ node b_course_model icon=hax:bricks color=limestoneGray motion=nudge
-  %%@ node b_vocab_term icon=hax:bricks color=limestoneGray motion=nudge
   %%@ node b_micro_game_base icon=hax:bricks color=limestoneGray motion=nudge
   %%@ node b_bullet_check_list icon=hax:bricks color=limestoneGray motion=nudge
   %%@ node accessible portal

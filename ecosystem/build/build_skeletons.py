@@ -33,7 +33,7 @@ for t in themes_used: lines.append(f'    {tid(t)}["{t}"]')
 lines += ['    cli["cli"]', '    jos["jos"]', '    winston(("winston"))', "  end", ""]
 for n, d in skels.items():
     lines.append(f"  skeletons -->|includes| {sid(n)}")
-    if USE[n]: lines.append(f"  {sid(n)} -->|starts a| {USE[n]}")
+    if USE.get(n): lines.append(f"  {sid(n)} -->|starts a| {USE[n]}")  # a skeleton new in source has no use case here yet: it is drawn without one
     if theme_of(d): lines.append(f"  {sid(n)} -->|starts with| {tid(theme_of(d))}")
 lines += ["  cli -->|creates sites from| skeletons", "  jos -.->|outlines| skeletons", "  winston ---|built the templating for| skeletons", "",
           "  %%@ group hub tier=0", "  %%@ group list tier=1", "  %%@ group uses tier=2", "  %%@ group more tier=3", "  %%@ node skeletons portal"]

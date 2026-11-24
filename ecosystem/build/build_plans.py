@@ -8,7 +8,11 @@ the build (and drift.py) instead of silently dropping a link.
 
   hax-sdgs.mmd    the goals HAX meets          (main web: the UN Sustainable Development Goals tile)
   hax-psuplan.mmd Penn State strategic plan    (Penn State web: the Strategic plan tile)
-  hax-aaplan.mmd  A&A Strategic Plan 2030      (opened from inside the Penn State plan)"""
+  hax-aaplan.mmd  A&A Strategic Plan 2030      (opened from inside the Penn State plan)
+  hax-hhdplan.mmd HHD strategic plan           (opened from inside the Penn State plan)
+
+A win that has its own tile in the main web (winTiles in strategic-plans.json) is drawn in these webs as a portal
+to that tile, so its page carries every connection: people, college, site type and the goals here."""
 import json, re
 PRAW = "https://github.com/haxtheweb/praw/blob/main/"
 def S(c, *i): return {"caption": c, "nodes": list(i)}
@@ -20,6 +24,7 @@ WINS = [m.group(1).strip() for m in re.finditer(r"^### (.+)$", open("prawrepo/WI
 SDG = json.load(open("ext/sdg-links.json"))
 PLANS = json.load(open("ext/strategic-plans.json"))
 GOALS = {g["n"]: g for g in SDG["goals"]}
+WIN_TILES = PLANS.get("winTiles", {})
 
 problems = []
 def check(where, x):
@@ -33,11 +38,21 @@ for g in SDG["goals"]: check(f"SDG {g['n']}", g)
 for p in PLANS["psu"]["priorities"]:
     check(p["id"], p)
     for o in p["objectives"]: check(o["id"], o)
-for g in PLANS["aa"]["goals"]:
-    for s in g["subs"]: check(s["id"], s)
+for C in (PLANS["aa"], PLANS["hhd"]):
+    for g in C["goals"]:
+        for s in g["subs"]: check(s["id"], s)
+for w, t in WIN_TILES.items():
+    if w not in WINS: problems.append(f"winTiles: no '### {w}' in WINS.md")
+    if t not in MAIN: problems.append(f"winTiles: {t} is not a tile in hax-ecosystem.mmd")
 assert not problems, "\n".join(problems)
 
-def wid(w): return "w_" + slug(w)[:40]
+def wid(w): return WIN_TILES.get(w) or "w_" + slug(w)[:40]
+def win_lines(wins):
+    """a win with its own main-web tile is a portal to it; any other win is drawn here"""
+    return [f"  %%@ node {wid(w)} portal" if w in WIN_TILES else f"  %%@ node {wid(w)} icon=icons:stars color=roarGolden motion=nudge" for w in wins]
+def win_nodes(N, wins):
+    for w in wins:
+        if w not in WIN_TILES: N[wid(w)] = win_node(w)
 def sid(n): return f"sdg_{n}"
 def win_node(w): return {"desc": f"A win in PRAW WINS.md: {w}.", "kind": "win", "links": {"WINS.md": PRAW + "WINS.md#" + anchor(w)}}
 def links_of(x):
@@ -50,7 +65,7 @@ def links_of(x):
 def tail(xs, sdg_portal=True):
     """portal and win lines shared by the three webs"""
     pil = sorted({p for x in xs for p in x.get("pillars", [])}, key=PILLARS.index)
-    parts = sorted({n for x in xs for n in x.get("nodes", [])} - set(PILLARS))
+    parts = sorted({n for x in xs for n in x.get("nodes", [])} - set(PILLARS) - {WIN_TILES[w] for x in xs for w in x.get("wins", []) if w in WIN_TILES})
     sdgs = sorted({n for x in xs for n in x.get("sdgs", [])})
     wins = [w for w in WINS if any(w in x.get("wins", []) for x in xs)]
     return pil, parts, sdgs, wins
@@ -75,14 +90,14 @@ L += ["  un_sdg -.->|shows any goal on a page| sdgs", "",
       "  %%@ node sdgs mono=SDG color=creekTeal motion=beat"]
 L += [f"  %%@ node {g['_id']} mono={g['n']} color={'forestGreen' if g['source'] == 'docs' else 'creekTeal'} motion=pop" for g in SDG["goals"]]
 L += [f"  %%@ node {p} portal" for p in pil + parts] + ["  %%@ node un_sdg icon=hax:code-json color=slateGray motion=nudge"]
-L += [f"  %%@ node {wid(w)} icon=icons:stars color=roarGolden motion=nudge" for w in wins]
+L += win_lines(wins)
 N = {"sdgs": {"always": True, "desc": f"The UN's 17 Sustainable Development Goals, limited to the {len(SDG['goals'])} HAX meets: " + ", ".join(f"{g['n']} {g['name']}" for g in SDG["goals"]) + ". Goals 7 and 12 come from the HAX docs' Efficient pillar page; the rest rest on WORLDVIEW, the pledges and WINS.",
              "links": {"UN": SDG["un"], "links": PRAW + "ecosystem/build/data/sdg-links.json"}}}
 for g in SDG["goals"]:
     N[g["_id"]] = {"desc": f"{g['why']} Targets: {'; '.join(g['targets'])}.", "kind": "goal", "links": {e["label"]: e["url"] for e in g["evidence"]},
                    "note": "From the HAX docs (un-sdg on the Efficient pillar page)." if g["source"] == "docs" else "Rests on WORLDVIEW, the pledges and WINS."}
 N["un_sdg"] = {"desc": "The un-sdg web component shows a goal's official icon and color on any HAX page; the docs use it on the Efficient pillar page.", "kind": "part", "links": {"element": SDG["element"]}}
-for w in wins: N[wid(w)] = win_node(w)
+win_nodes(N, wins)
 T = [{"id": "sdgs", "label": "The UN goals HAX meets", "kind": "story", "message": f"{len(SDG['goals'])} of the 17 goals, each with the pillars, parts and wins behind it.",
       "scenes": [S("HAX meets " + str(len(SDG["goals"])) + " of the UN's 17 Sustainable Development Goals.", "sdgs", *[g["_id"] for g in SDG["goals"]])] +
                 [S(f"{g['n']}. {g['name']}: {g['why']}", g["_id"], *g["pillars"], *g["nodes"], *[wid(w) for w in g["wins"]]) for g in SDG["goals"]] +
@@ -94,7 +109,7 @@ write("sdgs", L, {"name": "UN Sustainable Development Goals", "slug": "un-sdgs",
                   "links": {"UN": SDG["un"], "un-sdg": SDG["element"]}}, N, T)
 
 # ================= Penn State strategic plan =================
-P = PLANS["psu"]; A = PLANS["aa"]
+P = PLANS["psu"]; A = PLANS["aa"]; H = PLANS["hhd"]
 shown = [p for p in P["priorities"] if p["objectives"] or p.get("how")]
 objs = []
 for p in shown:
@@ -108,7 +123,7 @@ L = ["%% Penn State strategic plan sub-web: the priorities and objectives HAX me
      '  subgraph hub ["Penn State strategic plan"]', '    psuplan[("psuplan")]', "  end", '  subgraph prio ["Priorities"]']
 L += [f'    {p["_id"]}["{p["name"]}"]' for p in shown] + ["  end", '  subgraph objg ["Objectives HAX meets"]']
 L += [f'    {o["_id"]}["{o["id"][1:]}. {o["text"].split(",")[0].split(" that ")[0][:60]}"]' for o in objs if o["_id"].startswith("po_")]
-L += ['    aaplan[("A&A Strategic Plan 2030")]', "  end", '  subgraph linkg ["Pillars, parts and goals"]']
+L += ['    aaplan[("A&A Strategic Plan 2030")]', '    hhdplan[("HHD strategic plan")]', "  end", '  subgraph linkg ["Pillars, parts and goals"]']
 L += [f'    {x}["{x}"]' for x in pil + parts] + [f'    {sid(n)}["{sid(n)}"]' for n in sdgs] + ["  end", '  subgraph winsg ["Wins"]']
 L += [f'    {wid(w)}["{w}"]' for w in wins] + ["  end", ""]
 for p in shown:
@@ -117,62 +132,72 @@ for p in shown:
 for o in objs: L += links_of(o)
 for g in A["goals"]:
     if any(p["id"] == g["psu"] for p in shown): L.append(f"  aaplan -.->|aligns goal {g['id'][1:]} to| pp_{g['psu']}")
+for g in H["goals"]:
+    if any(p["id"] == g["psu"] for p in shown): L.append(f"  hhdplan -.->|sets its strategies for| pp_{g['psu']}")
 L += ["", "  %%@ group hub tier=0", "  %%@ group prio tier=1", "  %%@ group objg tier=2", "  %%@ group linkg tier=3", "  %%@ group winsg tier=4",
       "  %%@ node psuplan mono=PSU color=nittanyNavy motion=beat"]
 L += [f"  %%@ node {p['_id']} icon=social:school color={'slateGray' if p.get('supporting') else 'nittanyNavy'} motion=pop" for p in shown]
 L += [f"  %%@ node {o['_id']} icon=icons:check-circle color=beaverBlue motion=nudge" for o in objs if o["_id"].startswith("po_")]
-L += ["  %%@ node aaplan mono=A&A color=beaverBlue motion=lift web=aaplan"]
+L += ["  %%@ node aaplan mono=A&A color=beaverBlue motion=lift web=aaplan", "  %%@ node hhdplan mono=HHD color=beaverBlue motion=lift web=hhdplan"]
 L += [f"  %%@ node {x} portal" for x in pil + parts] + [f"  %%@ node {sid(n)} portal=sdgs" for n in sdgs]
-L += [f"  %%@ node {wid(w)} icon=icons:stars color=roarGolden motion=nudge" for w in wins]
+L += win_lines(wins)
 N = {"psuplan": {"always": True, "desc": f"Penn State's strategic plan, limited to what HAX meets: {sum(len(p['objectives']) for p in shown)} objectives under {len([p for p in shown if p['objectives']])} priorities, plus {', '.join(p['name'] for p in shown if not p['objectives'])}, which HAX meets through A&A's plan or directly. Objectives HAX doesn't meet are left out. A snapshot read {P['read']}.",
                  "links": {"plan": P["url"], "data": PRAW + "ecosystem/build/data/strategic-plans.json"}}}
 for p in shown: N[p["_id"]] = {"desc": p["desc"] + (f" {p['how']}" if p.get("how") else ""), "kind": "priority", "links": {"plan": P["url"]}}
 for o in objs:
     if o["_id"].startswith("po_"): N[o["_id"]] = {"desc": o["text"] + (f" {o['how']}" if o.get("how") else "") + " (Paraphrased; see the plan for its words.)", "kind": "objective", "links": {"plan": P["url"]}}
 N["aaplan"] = {"desc": f"The College of Arts and Architecture's plan ({A['years']}). Each of its five goals aligns to a Penn State priority, in A&A's own words. Open it to see the sub-objectives HAX meets.", "kind": "plan", "links": {"plan": A["url"]}}
-for w in wins: N[wid(w)] = win_node(w)
+N["hhdplan"] = {"desc": "The College of Health and Human Development's plan: its strategies for the University's goals and objectives. Open it to see the objectives HAX meets, through the Learn to Flourish Hub.", "kind": "plan", "links": {"plan": H["url"]}}
+win_nodes(N, wins)
 T = [{"id": "psuplan", "label": "How HAX meets Penn State's plan", "kind": "story", "message": "Only the objectives HAX meets, each with the pillars, parts, UN goals and wins behind it.",
       "scenes": [S("Penn State's strategic plan: the priorities HAX meets.", "psuplan", *[p["_id"] for p in shown])] +
                 [S(f"{p['name']}.", p["_id"], *[o["_id"] for o in p["objectives"]], *[wid(w) for o in (p["objectives"] or [p]) for w in o.get("wins", [])]) for p in shown] +
-                [S("A&A's plan aligns each of its goals to one of these priorities.", "aaplan", *[p["_id"] for p in shown]), S("All of it.")]}]
+                [S("A&A's plan aligns each of its goals to one of these priorities.", "aaplan", *[p["_id"] for p in shown]),
+                 S("HHD's plan sets the college's strategies for the same priorities.", "hhdplan", *["pp_" + g["psu"] for g in H["goals"]]), S("All of it.")]}]
 write("psuplan", L, {"name": "Penn State strategic plan", "parent": "psu", "noTimeline": True,
                      "sectionLabels": {"priority": "priorities", "objective": "objectives HAX meets", "plan": "college plans", "win": "wins"},
-                     "about": f"How HAX meets Penn State's strategic plan, generated from strategic-plans.json (a snapshot of {P['url']} read {P['read']}). Only the objectives HAX meets are shown, each linked to the pillars, parts, UN goals and wins behind it. A&A's Strategic Plan 2030 opens from here.",
+                     "about": f"How HAX meets Penn State's strategic plan, generated from strategic-plans.json (a snapshot of {P['url']} read {P['read']}). Only the objectives HAX meets are shown, each linked to the pillars, parts, UN goals and wins behind it. A&A's Strategic Plan 2030 and HHD's strategic plan open from here.",
                      "kindLabels": {"pillar": "pillars it rests on", "rel": "priorities, objectives and wins", "schema": "met through"},
                      "links": {"plan": P["url"]}}, N, T)
 
-# ================= A&A Strategic Plan 2030 =================
-subs = []
-for g in A["goals"]:
-    g["_id"] = "ag_" + g["id"]
-    for s in g["subs"]: s["_id"] = "as_" + s["id"].lower(); subs.append(s)
-pil, parts, sdgs, wins = tail(subs)
+# ================= college plans: A&A Strategic Plan 2030 and HHD's strategic plan =================
 pr = {p["id"]: p for p in P["priorities"]}
-L = ["%% A&A Strategic Plan 2030 sub-web: the goals and sub-objectives HAX meets, generated by build_plans.py from build/data/strategic-plans.json.",
-     f"%% Snapshot of {A['url']} read {A['read']}. Each goal's Penn State priority is A&A's own alignment. Portals: hax-psuplan.mmd, hax-ecosystem.mmd, hax-sdgs.mmd. Details in hax-aaplan.json.",
-     "flowchart TB", "  %%@ layout rings=0,210,450,720,980 sizes=92,58,46,44,42",
-     '  subgraph hub ["A&A Strategic Plan 2030"]', '    aaplan[("aaplan")]', "  end", '  subgraph goalsg ["Goals"]']
-L += [f'    {g["_id"]}["{g["id"][1:]}. {g["name"]}"]' for g in A["goals"]] + ["  end", '  subgraph subsg ["Sub-objectives HAX meets"]']
-L += [f'    {s["_id"]}["{s["id"]} {s["text"].split(",")[0].split(" to ")[0].split(" that ")[0][:52]}"]' for s in subs] + ["  end", '  subgraph linkg ["Penn State, pillars, parts and goals"]']
-psu_ids = sorted({"pp_" + g["psu"] for g in A["goals"]})
-L += [f'    {x}["{x}"]' for x in psu_ids + pil + parts] + [f'    {sid(n)}["{sid(n)}"]' for n in sdgs] + ["  end", '  subgraph winsg ["Wins"]']
-L += [f'    {wid(w)}["{w}"]' for w in wins] + ["  end", ""]
-for g in A["goals"]:
-    L.append(f"  aaplan -->|sets| {g['_id']}")
-    L.append(f"  {g['_id']} ==>|aligns to| pp_{g['psu']}")
-    for s in g["subs"]: L.append(f"  {g['_id']} -->|aims for| {s['_id']}")
-for s in subs: L += links_of(s)
-L += ["", "  %%@ group hub tier=0", "  %%@ group goalsg tier=1", "  %%@ group subsg tier=2", "  %%@ group linkg tier=3", "  %%@ group winsg tier=4",
-      "  %%@ node aaplan mono=A&A color=beaverBlue motion=beat"]
-L += [f"  %%@ node {g['_id']} mono={g['id'][1:]} color=beaverBlue motion=pop" for g in A["goals"]]
-L += [f"  %%@ node {s['_id']} mono={s['id']} color=creekTeal motion=nudge" for s in subs]
-L += [f"  %%@ node {x} portal=psuplan" for x in psu_ids] + [f"  %%@ node {x} portal" for x in pil + parts] + [f"  %%@ node {sid(n)} portal=sdgs" for n in sdgs]
-L += [f"  %%@ node {wid(w)} icon=icons:stars color=roarGolden motion=nudge" for w in wins]
-N = {"aaplan": {"always": True, "desc": f"The College of Arts and Architecture's Strategic Plan 2030 ({A['years']}), limited to what HAX meets: {len(subs)} sub-objectives across its five goals. Sub-objectives HAX doesn't meet are left out. A snapshot read {A['read']}.",
-                "links": {"plan": A["url"], "data": PRAW + "ecosystem/build/data/strategic-plans.json"}}}
-for g in A["goals"]: N[g["_id"]] = {"desc": f"{g['desc']} A&A aligns it to Penn State's {pr[g['psu']]['name']}.", "kind": "goal", "links": {"plan": A["url"]}}
-for s in subs: N[s["_id"]] = {"desc": s["text"] + (f" {s['how']}" if s.get("how") else "") + " (Paraphrased; see the plan for its words.)", "kind": "objective", "links": {"plan": A["url"]}}
-for w in wins: N[wid(w)] = win_node(w)
+def college(key, C, title, short, mono, sub_label, header):
+    """a college's plan, opened from the Penn State plan: its goals, the sub-objectives HAX meets, and each goal's Penn State priority"""
+    subs = []
+    for g in C["goals"]:
+        g["_id"] = "ag_" + g["id"]
+        for s in g["subs"]: s["_id"] = "as_" + s["id"].lower().replace(".", "_"); subs.append(s)
+    pil, parts, sdgs, wins = tail(subs)
+    L = [f"%% {title} sub-web: the goals and sub-objectives HAX meets, generated by build_plans.py from build/data/strategic-plans.json.",
+         f"%% Snapshot of {C['url']} read {C['read']}. Each goal's Penn State priority is {short}'s own alignment. Portals: hax-psuplan.mmd, hax-ecosystem.mmd, hax-sdgs.mmd. Details in hax-{key}.json.",
+         "flowchart TB", "  %%@ layout rings=0,210,450,720,980 sizes=92,58,46,44,42",
+         f'  subgraph hub ["{title}"]', f'    {key}[("{key}")]', "  end", '  subgraph goalsg ["Goals"]']
+    L += [f'    {g["_id"]}["{g["id"][1:]}. {g["name"]}"]' for g in C["goals"]] + ["  end", f'  subgraph subsg ["{sub_label}"]']
+    L += [f'    {s["_id"]}["{s["id"]} {s["text"].split(",")[0].split(" to ")[0].split(" that ")[0][:52]}"]' for s in subs] + ["  end", '  subgraph linkg ["Penn State, pillars, parts and goals"]']
+    psu_ids = sorted({"pp_" + g["psu"] for g in C["goals"]})
+    L += [f'    {x}["{x}"]' for x in psu_ids + pil + parts] + [f'    {sid(n)}["{sid(n)}"]' for n in sdgs] + ["  end", '  subgraph winsg ["Wins"]']
+    L += [f'    {wid(w)}["{w}"]' for w in wins] + ["  end", ""]
+    for g in C["goals"]:
+        L.append(f"  {key} -->|sets| {g['_id']}")
+        L.append(f"  {g['_id']} ==>|aligns to| pp_{g['psu']}")
+        for s in g["subs"]: L.append(f"  {g['_id']} -->|aims for| {s['_id']}")
+    for s in subs: L += links_of(s)
+    L += ["", "  %%@ group hub tier=0", "  %%@ group goalsg tier=1", "  %%@ group subsg tier=2", "  %%@ group linkg tier=3", "  %%@ group winsg tier=4",
+          f"  %%@ node {key} mono={mono} color=beaverBlue motion=beat"]
+    L += [f"  %%@ node {g['_id']} mono={g['id'][1:]} color=beaverBlue motion=pop" for g in C["goals"]]
+    L += [f"  %%@ node {s['_id']} mono={s['id']} color=creekTeal motion=nudge" for s in subs]
+    L += [f"  %%@ node {x} portal=psuplan" for x in psu_ids] + [f"  %%@ node {x} portal" for x in pil + parts] + [f"  %%@ node {sid(n)} portal=sdgs" for n in sdgs]
+    L += win_lines(wins)
+    N = {key: {"always": True, "desc": header(subs),
+               "links": {"plan": C["url"], "data": PRAW + "ecosystem/build/data/strategic-plans.json"}}}
+    for g in C["goals"]: N[g["_id"]] = {"desc": f"{g['desc']} {short} aligns it to Penn State's {pr[g['psu']]['name']}.", "kind": "goal", "links": {"plan": C["url"]}}
+    for s in subs: N[s["_id"]] = {"desc": s["text"] + (f" {s['how']}" if s.get("how") else "") + " (Paraphrased; see the plan for its words.)", "kind": "objective", "links": {"plan": C["url"]}}
+    win_nodes(N, wins)
+    return L, N, subs, psu_ids, wins
+
+L, N, subs, psu_ids, wins = college("aaplan", A, "A&A Strategic Plan 2030", "A&A", "A&A", "Sub-objectives HAX meets",
+    lambda subs: f"The College of Arts and Architecture's Strategic Plan 2030 ({A['years']}), limited to what HAX meets: {len(subs)} sub-objectives across its five goals. Sub-objectives HAX doesn't meet are left out. A snapshot read {A['read']}.")
 T = [{"id": "aaplan", "label": "How HAX meets A&A's plan", "kind": "story", "message": f"{len(subs)} sub-objectives across five goals, each aligned by A&A to a Penn State priority.",
       "scenes": [S("A&A's five goals, each aligned to a Penn State priority.", "aaplan", *[g["_id"] for g in A["goals"]], *psu_ids)] +
                 [S(f"Goal {g['id'][1:]}: {g['name']}.", g["_id"], f"pp_{g['psu']}", *[s["_id"] for s in g["subs"]], *[wid(w) for s in g["subs"] for w in s["wins"]]) for g in A["goals"]] +
@@ -182,4 +207,16 @@ write("aaplan", L, {"name": "A&A Strategic Plan 2030", "slug": "aa-plan", "paren
                     "about": f"How HAX meets the College of Arts and Architecture's Strategic Plan 2030, generated from strategic-plans.json (a snapshot of {A['url']} read {A['read']}). Only the sub-objectives HAX meets are shown; each goal's link to a Penn State priority is A&A's own.",
                     "kindLabels": {"pillar": "pillars it rests on", "rel": "goals, sub-objectives and wins", "schema": "met through"},
                     "links": {"plan": A["url"]}}, N, T)
-print("sdgs", len(SDG["goals"]), "goals;", "psuplan", len(shown), "priorities", sum(len(p["objectives"]) for p in shown), "objectives;", "aaplan", len(subs), "sub-objectives")
+
+L, N, hsubs, psu_ids, wins = college("hhdplan", H, "HHD strategic plan", "HHD", "HHD", "Objectives HAX meets",
+    lambda subs: f"The College of Health and Human Development's strategic plan: its strategies for the University plan's goals, limited to what HAX meets ({len(subs)} objectives across {len(H['goals'])} goals). Objectives HAX doesn't meet are left out. A snapshot read {H['read']}.")
+T = [{"id": "hhdplan", "label": "How HAX meets HHD's plan", "kind": "story", "message": f"{len(hsubs)} objectives across {len(H['goals'])} goals, each HHD's strategy for a Penn State priority.",
+      "scenes": [S("HHD's goals are the University's, with the college's own strategies for each.", "hhdplan", *[g["_id"] for g in H["goals"]], *psu_ids)] +
+                [S(f"{g['name']}.", g["_id"], f"pp_{g['psu']}", *[s["_id"] for s in g["subs"]], *[wid(w) for s in g["subs"] for w in s["wins"]]) for g in H["goals"]] +
+                [S("All of it.")]}]
+write("hhdplan", L, {"name": "HHD strategic plan", "slug": "hhd-plan", "parent": "psuplan", "noTimeline": True,
+                     "sectionLabels": {"goal": "goals", "objective": "objectives HAX meets", "win": "wins"},
+                     "about": f"How HAX meets the College of Health and Human Development's strategic plan, generated from strategic-plans.json (a snapshot of {H['url']} read {H['read']}). HHD's plan sets the college's strategies for the University's goals and objectives; only the ones HAX meets are shown.",
+                     "kindLabels": {"pillar": "pillars it rests on", "rel": "goals, objectives and wins", "schema": "met through"},
+                     "links": {"plan": H["url"]}}, N, T)
+print("sdgs", len(SDG["goals"]), "goals;", "psuplan", len(shown), "priorities", sum(len(p["objectives"]) for p in shown), "objectives;", "aaplan", len(subs), "sub-objectives;", "hhdplan", len(hsubs), "objectives")

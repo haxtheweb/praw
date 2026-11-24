@@ -143,6 +143,7 @@ N("course", desc="Online courses in multiple Penn State colleges; HAX began for 
 N("blog", desc="")
 N("portfolio", desc="Portfolios students can take with them, starting with the International Student Portfolio and a set of student-built portfolio themes.", source=L("WINS.md: HAX Lab faculty grants", W["grants"]), year=2025, yearNote="Student-built portfolio themes", yearSource=L("hax-lab README", HAXLAB))
 N("dept", desc="Department and unit sites owned without a web team, like the Learn to Flourish Hub at flourish.hhd.psu.edu.", source=L("WINS.md: Learn to Flourish Hub", W["flourish"]), links={"example": "https://flourish.hhd.psu.edu"}, year=2026, yearNote="flourish.hhd.psu.edu launches", yearSource=L("WINS.md", W["flourish"]))
+N("flourish", desc="The Learn to Flourish Hub's public site, flourish.hhd.psu.edu. The Hub, in Health and Human Development and directed by Blake Colaianne, built it on HAX with A&A's Office of Digital Learning and runs it from hax.psu.edu without a web team. It launched in September 2026 as the face of the Hub for donors, students and partners. It shows HAX meeting goals at every level: Penn State's plan (health and wellness in a community focused on flourishing; partnerships with communities; advocates and investors), HHD's plan (student success; land-grant impact), A&A's plan (collaboration across colleges) and UN goals 3 and 17.", source=L("WINS.md: Learn to Flourish Hub", W["flourish"]), links={"site": "https://flourish.hhd.psu.edu", "team": "https://flourish.hhd.psu.edu/team", "goals": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/strategic-plans.json"}, year=2026, yearNote="flourish.hhd.psu.edu launches", yearSource=L("WINS.md", W["flourish"]))
 N("cd101", desc="Customer Discovery 101, a public entrepreneurship training program from Invent Penn State LaunchBox, built on HAX by a team with limited design experience; users have praised both its functionality and design.", source=L("WINS.md: Customer Discovery 101", W["cd101"]), links={"site": "https://invent.psu.edu/programs/customer-discovery-101/", "story": APEREO_HAX})
 N("dbf", desc="Digital Beaumont & Fletcher, an open-access edition of the rarely taught Beaumont and Fletcher plays, with every text prepared by undergraduate and graduate students and published with HAX for classroom use.", source=L("WINS.md: Digital Beaumont & Fletcher", W["dbf"]), links={"site": "https://openpublishing.psu.edu/digital-beaumont-fletcher-about-project", "story": APEREO_HAX})
 N("jukebox", desc="The Jukebox, required listening for INART 116, History of Rock and Roll: 1950s, from the Office of Digital Learning: a one-column introduction, then audio on the left with annotation on the right, then collapsible lyrics, all built in HAX.", source=L("Apereo: HAX project page", APEREO_HAX), links={"story": APEREO_HAX})
@@ -153,7 +154,7 @@ N("textbook", desc="Open books from Pressbooks, OpenStax or Word, pulled in, edi
 N("psu", desc="Where HAX was founded and is backed. \"HAX at Penn State is hosted and supported by a collaboration of several Penn State colleges and outside contributors.\"", source=L("hax.psu.edu", "https://hax.psu.edu"), links={"site": "https://hax.psu.edu"}, year=2015, yearNote="HAX starts as a note card at Penn State", yearSource=L("WINS.md: One maintainer, more rockets", WINS))
 N("aa", desc="The College of Arts and Architecture, where HAX began for online courses and where HAX Lab and the Office of Digital Learning work.", source=L("WINS.md: 640+ open HTML tags", W["tags"]), year=2015, yearNote="HAX begins for online courses in Arts and Architecture", yearSource=L("WINS.md", W["tags"]))
 N("ist", desc="The College of Information Sciences and Technology. IST 256 teaches modern front-end development with HAX; home of CCSO and UXDC.", source=L("WINS.md: SIIP lessons learned", WINS))
-N("hhd", desc="Health and Human Development, home of the Learn to Flourish Hub.", source=L("WINS.md: Learn to Flourish Hub", W["flourish"]), year=2026)
+N("hhd", desc="Health and Human Development, home of the Learn to Flourish Hub and a partner on the games and platform grant. Its strategic plan opens from Penn State's.", source=L("WINS.md: Learn to Flourish Hub", W["flourish"]), year=2026)
 N("eberly", desc="The Eberly College of Science: 14 courses on hax.psu.edu with 1,803 pages, from BIOL 110 and CHEM 110 to PHYS 211 and 212.", source=L("hax.psu.edu stats snapshot", "https://hax.psu.edu"))
 N("libraries", desc="Penn State University Libraries publishes XML-based plays with HAX.", source=L("WINS.md: 640+ open HTML tags", W["tags"]))
 N("haxlab", desc="Students and contributors working on HAX through courses, independent studies and internships; alumni now work at Red Hat, Adobe, IBM, Ford and PennDOT.", source=L("hax-lab README", HAXLAB), links={"repo": HAXLAB, "site": HTW + "/hax-lab"}, year=2016, yearNote="The first HAX Lab contribution (xAPI and AI integration)", yearSource=L("hax-lab README", HAXLAB))
@@ -187,7 +188,7 @@ person("mikepotter", "community", "One of Bryan's best friends and a member of t
 person("mcollins", "faculty", "Faculty member in Arts and Architecture who taught with ELMS:LN and now HAX, and builds his own flavor on it: the admin dashboard UI and the updated outline designer.", src=L("WINS.md: Michael Collins", W["collins"]), year=2026, yearNote="Michael Collins' admin dashboard and outline designer")
 person("fusco", "faculty", "xAPI and AI integration (fall 2016); later funded Canvas AI analysis built by students through the HAX CLI.", src=L("hax-lab README; WINS.md: faculty grants", W["grants"]), link="https://github.com/djfusco", year=2016, yearNote="Dave Fusco: xAPI and AI integration")
 person("jfrank", "faculty", "Funded the International Student Portfolio, so HAX grew into portfolios students can take with them.", src=L("WINS.md: HAX Lab faculty grants", W["grants"]))
-person("blake", "faculty", "Director of the Learn to Flourish Hub; faculty and students built its public site on HAX.", src=L("WINS.md: Learn to Flourish Hub", W["flourish"]), year=2026, yearNote="Learn to Flourish Hub site launches")
+person("blake", "faculty", "Director of the Learn to Flourish Hub in Health and Human Development; the Hub's faculty and students built its public site on HAX. Also on the HHD games and platform grant.", src=L("WINS.md: Learn to Flourish Hub", W["flourish"]), year=2026, yearNote="Learn to Flourish Hub site launches")
 person("nikkimk", "contributor", "The second-largest contributor to the webcomponents monorepo (1,885 commits); co-presented HAX at DrupalCon Nashville 2018.", link="https://github.com/nikkimk", src=L("webcomponents contributors", "https://github.com/haxtheweb/webcomponents/graphs/contributors"), github="nikkimk")
 GH_PEOPLE = [("cgldevel", "Chuck Lavera", "webcomponents and haxcms-php"), ("JAlbert2", "Jonah Albert", "webcomponents"), ("SanikaA3", "Sanika Ainchwar", "webcomponents, haxcms-php, haxcms-nodejs and create"), ("ChristianMurphy", "Christian Murphy", "webcomponents and haxcms-php"), ("aam198", "Allie Martz", "webcomponents"), ("firaol4", "Firaol Tulu", "webcomponents and haxcms-nodejs")]
 for _l, _name, _repos in GH_PEOPLE:
@@ -267,9 +268,12 @@ for cve, ghsa, title, creds in ADVS:
 ev("wins>ccso", "WINS: Student clubs, 30 security fixes", W["clubs"])
 ev("wins>uxdc", "WINS: Student clubs (as UXPA)", W["clubs"])
 ev("wins>security", "WINS: Student clubs, 30 security fixes", W["clubs"])
-ev("wins>hhd", "WINS: Learn to Flourish Hub", W["flourish"])
-ev("wins>dept", "WINS: Learn to Flourish Hub", W["flourish"])
-ev("hhd>dept", "flourish.hhd.psu.edu", "https://flourish.hhd.psu.edu")
+ev("wins>flourish", "WINS: Learn to Flourish Hub", W["flourish"])
+ev("blake>flourish", "WINS: Learn to Flourish Hub", W["flourish"])
+ev("flourish>hhd", "flourish.hhd.psu.edu", "https://flourish.hhd.psu.edu")
+ev("flourish>aa", "WINS: Learn to Flourish Hub (with the Office of Digital Learning)", W["flourish"])
+ev("flourish>psu", "PRAW strategic-plans.json", "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/strategic-plans.json")
+ev("flourish>sdgs", "PRAW sdg-links.json", "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/sdg-links.json")
 ev("wins>haxlab", "WINS: From HAX Lab to industry", W["industry"])
 ev("wins>libraries", "WINS: 640+ open HTML tags", W["tags"])
 ev("wins>apereo", "SIIP talk, Apereo microconference", SIIP)
@@ -353,7 +357,7 @@ tours = [
    S("HAXcms and the editor: authoring without a web team or the command line.", "haxcms", "editor", "merlin", "themes"),
    S("Start from a skeleton for a course, portfolio, textbook or department site.", "skeletons", "course", "portfolio", "textbook", "dept"),
    S("OER Schema and xAPI keep your content open and your learners' progress visible.", "oerschema", "xapi", "dashboard"),
-   S("Faculty like you already build on it.", "mcollins", "jfrank", "blake", "fusco", "hhd", "aa"),
+   S("Faculty like you already build on it.", "mcollins", "jfrank", "blake", "flourish", "fusco", "hhd", "aa"),
    S("Penn State hosts it for you on hax.psu.edu.", "psu", "haxpsu", "haxiam", "wins"),
  ]},
  {"id": "students", "label": "Students", "message": "Learn modern front-end web by contributing to a real project. Your work ships, gets credited, and goes with you.", "scenes": [
@@ -377,7 +381,7 @@ tours = [
    S("Penn State backs HAX across its colleges and libraries.", "psu", "aa", "ist", "hhd", "eberly", "libraries"),
    S("Open source homes: Apereo, DrupalCon, GitHub and npm.", "apereo", "drupalcon", "github", "npm"),
    S("A pipeline of students keeps it moving, at Penn State and Georgia Tech.", "haxlab", "ccso", "uxdc", "gatech", "bryan", "billrose"),
-   S("WINS has the proof.", "wins", "dept", "course", "portfolio"),
+   S("WINS has the proof.", "wins", "flourish", "dept", "course", "portfolio"),
    S("Proof outside the for-credit course: public training, open editions and a listening room.", "cd101", "dbf", "jukebox", "textbook"),
  ]},
  {"id": "administrators", "label": "Administrators", "message": "Host it your way: PHP or Node.js, many sites with HAXiam, static publishing, and a public security record.", "scenes": [

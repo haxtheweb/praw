@@ -6,6 +6,7 @@ flowchart TB
     sdgs[("sdgs")]
   end
   subgraph goalsg ["Goals HAX meets"]
+    sdg_3["3. Good Health and Well-being"]
     sdg_4["4. Quality Education"]
     sdg_7["7. Affordable and Clean Energy"]
     sdg_8["8. Decent Work and Economic Growth"]
@@ -44,7 +45,7 @@ flowchart TB
     un_sdg["un-sdg element"]
   end
   subgraph winsg ["Wins"]
-    w_learn_to_flourish_hub_flourish_hhd_psu_e["Learn to Flourish Hub: flourish.hhd.psu.edu (2026)"]
+    flourish["Learn to Flourish Hub: flourish.hhd.psu.edu (2026)"]
     w_the_seven_accent_cards["The seven accent-cards"]
     w_from_hax_lab_to_industry["From HAX Lab to industry"]
     w_winston_white_student_to_trainer["Winston White: student to trainer"]
@@ -63,6 +64,11 @@ flowchart TB
     w_hundreds_of_thousands_of_lines_removed["Hundreds of thousands of lines removed"]
   end
 
+  sdgs -->|includes| sdg_3
+  sdg_3 ==>|rests on| open
+  sdg_3 ==>|rests on| agnostic
+  sdg_3 -.->|is met through| hhd
+  flourish -->|shows| sdg_3
   sdgs -->|includes| sdg_4
   sdg_4 ==>|rests on| accessible
   sdg_4 ==>|rests on| open
@@ -120,7 +126,7 @@ flowchart TB
   sdg_17 -.->|is met through| drupalcon
   sdg_17 -.->|is met through| libraries
   sdg_17 -.->|is met through| hhd
-  w_learn_to_flourish_hub_flourish_hhd_psu_e -->|shows| sdg_17
+  flourish -->|shows| sdg_17
   w_hax_lab_faculty_grants -->|shows| sdg_17
   w_national_archives_usability_audit_2019 -->|shows| sdg_17
   w_first_hax_camp_40_people -->|shows| sdg_17
@@ -133,6 +139,7 @@ flowchart TB
   %%@ group partsg tier=3
   %%@ group winsg tier=4
   %%@ node sdgs mono=SDG color=creekTeal motion=beat
+  %%@ node sdg_3 mono=3 color=creekTeal motion=pop
   %%@ node sdg_4 mono=4 color=creekTeal motion=pop
   %%@ node sdg_7 mono=7 color=forestGreen motion=pop
   %%@ node sdg_8 mono=8 color=creekTeal motion=pop
@@ -165,7 +172,7 @@ flowchart TB
   %%@ node wcag portal
   %%@ node wcstandard portal
   %%@ node un_sdg icon=hax:code-json color=slateGray motion=nudge
-  %%@ node w_learn_to_flourish_hub_flourish_hhd_psu_e icon=icons:stars color=roarGolden motion=nudge
+  %%@ node flourish portal
   %%@ node w_the_seven_accent_cards icon=icons:stars color=roarGolden motion=nudge
   %%@ node w_from_hax_lab_to_industry icon=icons:stars color=roarGolden motion=nudge
   %%@ node w_winston_white_student_to_trainer icon=icons:stars color=roarGolden motion=nudge

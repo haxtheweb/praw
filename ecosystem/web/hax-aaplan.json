@@ -161,13 +161,6 @@
     "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
    }
   },
-  "w_learn_to_flourish_hub_flourish_hhd_psu_e": {
-   "desc": "A win in PRAW WINS.md: Learn to Flourish Hub: flourish.hhd.psu.edu (2026).",
-   "kind": "win",
-   "links": {
-    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
-   }
-  },
   "w_from_hax_lab_to_industry": {
    "desc": "A win in PRAW WINS.md: From HAX Lab to industry.",
    "kind": "win",
@@ -334,9 +327,9 @@
       "as_1a",
       "as_1b",
       "as_1c",
-      "w_learn_to_flourish_hub_flourish_hhd_psu_e",
+      "flourish",
       "w_hax_lab_faculty_grants",
-      "w_learn_to_flourish_hub_flourish_hhd_psu_e",
+      "flourish",
       "w_hax_lab_faculty_grants",
       "w_skeletons_and_benevolent_restrictions_ha",
       "w_migrations_in_seconds_not_months"
@@ -387,7 +380,7 @@
       "as_4b",
       "as_4c",
       "w_640_open_html_tags_used_across_penn_stat",
-      "w_learn_to_flourish_hub_flourish_hhd_psu_e",
+      "flourish",
       "w_one_maintainer_more_rockets_siip",
       "w_ten_years_from_a_notepad",
       "w_agents_with_context_90_then_211",

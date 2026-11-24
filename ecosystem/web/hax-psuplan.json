@@ -9,7 +9,7 @@
    "plan": "college plans",
    "win": "wins"
   },
-  "about": "How HAX meets Penn State's strategic plan, generated from strategic-plans.json (a snapshot of https://strategicplan.psu.edu/engage/ read 2026-11-11). Only the objectives HAX meets are shown, each linked to the pillars, parts, UN goals and wins behind it. A&A's Strategic Plan 2030 opens from here.",
+  "about": "How HAX meets Penn State's strategic plan, generated from strategic-plans.json (a snapshot of https://strategicplan.psu.edu/engage/ read 2026-11-11). Only the objectives HAX meets are shown, each linked to the pillars, parts, UN goals and wins behind it. A&A's Strategic Plan 2030 and HHD's strategic plan open from here.",
   "kindLabels": {
    "pillar": "pillars it rests on",
    "rel": "priorities, objectives and wins",
@@ -92,14 +92,14 @@
    }
   },
   "po_o7": {
-   "desc": "Extend the academic enterprise through partnerships with business and industry, non-profits, communities and residents. (Paraphrased; see the plan for its words.)",
+   "desc": "Extend the academic enterprise through partnerships with business and industry, non-profits, communities and residents. The Learn to Flourish Hub's public site, run by HHD on hax.psu.edu, is how its school and community partners meet its work. (Paraphrased; see the plan for its words.)",
    "kind": "objective",
    "links": {
     "plan": "https://strategicplan.psu.edu/engage/"
    }
   },
   "po_o8": {
-   "desc": "Galvanize an engaged and effective network of advocates and investors in Penn State. (Paraphrased; see the plan for its words.)",
+   "desc": "Galvanize an engaged and effective network of advocates and investors in Penn State. The Learn to Flourish Hub's site is the face of the Hub for its donors. (Paraphrased; see the plan for its words.)",
    "kind": "objective",
    "links": {
     "plan": "https://strategicplan.psu.edu/engage/"
@@ -119,11 +119,11 @@
     "plan": "https://arts.psu.edu/about/aa-strategic-plan-2030"
    }
   },
-  "w_learn_to_flourish_hub_flourish_hhd_psu_e": {
-   "desc": "A win in PRAW WINS.md: Learn to Flourish Hub: flourish.hhd.psu.edu (2026).",
-   "kind": "win",
+  "hhdplan": {
+   "desc": "The College of Health and Human Development's plan: its strategies for the University's goals and objectives. Open it to see the objectives HAX meets, through the Learn to Flourish Hub.",
+   "kind": "plan",
    "links": {
-    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
+    "plan": "https://www.hhd.psu.edu/strategic-plan"
    }
   },
   "w_the_seven_accent_cards": {
@@ -277,7 +277,7 @@
       "w_36_students_18_fixes",
       "w_student_clubs_30_security_fixes",
       "w_site_dashboard_three_generations_of_stud",
-      "w_learn_to_flourish_hub_flourish_hhd_psu_e"
+      "flourish"
      ]
     },
     {
@@ -298,8 +298,9 @@
       "w_haxcms_announced_at_drupalcon",
       "w_first_hax_camp_40_people",
       "w_289_packages_about_49_000_downloads_a_mo",
+      "flourish",
       "w_hax_lab_faculty_grants",
-      "w_learn_to_flourish_hub_flourish_hhd_psu_e"
+      "flourish"
      ]
     },
     {
@@ -330,6 +331,14 @@
       "pp_landgrant",
       "pp_deib",
       "pp_tio"
+     ]
+    },
+    {
+     "caption": "HHD's plan sets the college's strategies for the same priorities.",
+     "nodes": [
+      "hhdplan",
+      "pp_success",
+      "pp_landgrant"
      ]
     },
     {

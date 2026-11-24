@@ -21,6 +21,7 @@ flowchart TB
     po_o8["8. Galvanize an engaged and effective network of advocates and "]
     po_o9["9. Address institutional barriers to close student outcome gaps"]
     aaplan[("A&A Strategic Plan 2030")]
+    hhdplan[("HHD strategic plan")]
   end
   subgraph linkg ["Pillars, parts and goals"]
     accessible["accessible"]
@@ -49,6 +50,7 @@ flowchart TB
     textbook["textbook"]
     uxdc["uxdc"]
     wcag["wcag"]
+    sdg_3["sdg_3"]
     sdg_4["sdg_4"]
     sdg_8["sdg_8"]
     sdg_9["sdg_9"]
@@ -57,7 +59,7 @@ flowchart TB
     sdg_17["sdg_17"]
   end
   subgraph winsg ["Wins"]
-    w_learn_to_flourish_hub_flourish_hhd_psu_e["Learn to Flourish Hub: flourish.hhd.psu.edu (2026)"]
+    flourish["Learn to Flourish Hub: flourish.hhd.psu.edu (2026)"]
     w_the_seven_accent_cards["The seven accent-cards"]
     w_from_hax_lab_to_industry["From HAX Lab to industry"]
     w_site_dashboard_three_generations_of_stud["Site Dashboard, three generations of students (2022–2026)"]
@@ -108,7 +110,8 @@ flowchart TB
   po_o3 ==>|rests on| agnostic
   po_o3 -.->|is met through| hhd
   po_o3 -.->|is met through| dept
-  w_learn_to_flourish_hub_flourish_hhd_psu_e -->|shows| po_o3
+  po_o3 -.->|serves| sdg_3
+  flourish -->|shows| po_o3
   po_o6 ==>|rests on| open
   po_o6 ==>|rests on| agnostic
   po_o6 -.->|is met through| innovationhub
@@ -128,6 +131,7 @@ flowchart TB
   w_haxcms_announced_at_drupalcon -->|shows| po_o7
   w_first_hax_camp_40_people -->|shows| po_o7
   w_289_packages_about_49_000_downloads_a_mo -->|shows| po_o7
+  flourish -->|shows| po_o7
   po_o8 ==>|rests on| sustainable
   po_o8 -.->|is met through| grants
   po_o8 -.->|is met through| g_frank
@@ -135,7 +139,7 @@ flowchart TB
   po_o8 -.->|is met through| g_hhd
   po_o8 -.->|serves| sdg_17
   w_hax_lab_faculty_grants -->|shows| po_o8
-  w_learn_to_flourish_hub_flourish_hhd_psu_e -->|shows| po_o8
+  flourish -->|shows| po_o8
   po_o9 ==>|rests on| accessible
   po_o9 ==>|rests on| open
   po_o9 ==>|rests on| efficient
@@ -160,6 +164,8 @@ flowchart TB
   aaplan -.->|aligns goal 3 to| pp_success
   aaplan -.->|aligns goal 4 to| pp_research
   aaplan -.->|aligns goal 5 to| pp_deib
+  hhdplan -.->|sets its strategies for| pp_success
+  hhdplan -.->|sets its strategies for| pp_landgrant
 
   %%@ group hub tier=0
   %%@ group prio tier=1
@@ -180,6 +186,7 @@ flowchart TB
   %%@ node po_o8 icon=icons:check-circle color=beaverBlue motion=nudge
   %%@ node po_o9 icon=icons:check-circle color=beaverBlue motion=nudge
   %%@ node aaplan mono=A&A color=beaverBlue motion=lift web=aaplan
+  %%@ node hhdplan mono=HHD color=beaverBlue motion=lift web=hhdplan
   %%@ node accessible portal
   %%@ node efficient portal
   %%@ node extensible portal
@@ -206,13 +213,14 @@ flowchart TB
   %%@ node textbook portal
   %%@ node uxdc portal
   %%@ node wcag portal
+  %%@ node sdg_3 portal=sdgs
   %%@ node sdg_4 portal=sdgs
   %%@ node sdg_8 portal=sdgs
   %%@ node sdg_9 portal=sdgs
   %%@ node sdg_10 portal=sdgs
   %%@ node sdg_12 portal=sdgs
   %%@ node sdg_17 portal=sdgs
-  %%@ node w_learn_to_flourish_hub_flourish_hhd_psu_e icon=icons:stars color=roarGolden motion=nudge
+  %%@ node flourish portal
   %%@ node w_the_seven_accent_cards icon=icons:stars color=roarGolden motion=nudge
   %%@ node w_from_hax_lab_to_industry icon=icons:stars color=roarGolden motion=nudge
   %%@ node w_site_dashboard_three_generations_of_stud icon=icons:stars color=roarGolden motion=nudge

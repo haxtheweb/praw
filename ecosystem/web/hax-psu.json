@@ -17,7 +17,7 @@
    "always": true
   },
   "psuplan": {
-   "desc": "Penn State's strategic plan, limited to the priorities and objectives HAX meets. A&A's Strategic Plan 2030 opens from inside it.",
+   "desc": "Penn State's strategic plan, limited to the priorities and objectives HAX meets. A&A's Strategic Plan 2030 and HHD's strategic plan open from inside it.",
    "kind": "work",
    "links": {
     "plan": "https://strategicplan.psu.edu/engage/"
@@ -57,13 +57,14 @@
      ]
     },
     {
-     "caption": "hax.psu.edu and HAXiam run sites for courses and departments.",
+     "caption": "hax.psu.edu and HAXiam run sites for courses and departments, like HHD's Learn to Flourish Hub.",
      "nodes": [
       "haxpsu",
       "haxiam",
       "sites_hub",
       "course",
-      "dept"
+      "dept",
+      "flourish"
      ]
     },
     {

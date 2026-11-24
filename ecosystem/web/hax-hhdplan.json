@@ -1,0 +1,103 @@
+{
+ "meta": {
+  "name": "HHD strategic plan",
+  "slug": "hhd-plan",
+  "parent": "psuplan",
+  "noTimeline": true,
+  "sectionLabels": {
+   "goal": "goals",
+   "objective": "objectives HAX meets",
+   "win": "wins"
+  },
+  "about": "How HAX meets the College of Health and Human Development's strategic plan, generated from strategic-plans.json (a snapshot of https://www.hhd.psu.edu/strategic-plan read 2026-11-24). HHD's plan sets the college's strategies for the University's goals and objectives; only the ones HAX meets are shown.",
+  "kindLabels": {
+   "pillar": "pillars it rests on",
+   "rel": "goals, objectives and wins",
+   "schema": "met through"
+  },
+  "links": {
+   "plan": "https://www.hhd.psu.edu/strategic-plan"
+  }
+ },
+ "nodes": {
+  "hhdplan": {
+   "always": true,
+   "desc": "The College of Health and Human Development's strategic plan: its strategies for the University plan's goals, limited to what HAX meets (2 objectives across 2 goals). Objectives HAX doesn't meet are left out. A snapshot read 2026-11-24.",
+   "links": {
+    "plan": "https://www.hhd.psu.edu/strategic-plan",
+    "data": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/strategic-plans.json"
+   }
+  },
+  "ag_g1": {
+   "desc": "HHD's strategies for the University's student success goal. HHD aligns it to Penn State's Enhancing Student Success.",
+   "kind": "goal",
+   "links": {
+    "plan": "https://www.hhd.psu.edu/strategic-plan"
+   }
+  },
+  "ag_g3": {
+   "desc": "HHD's strategies for the University's land-grant impact goal. HHD aligns it to Penn State's Increasing Land-Grant Impact.",
+   "kind": "goal",
+   "links": {
+    "plan": "https://www.hhd.psu.edu/strategic-plan"
+   }
+  },
+  "as_1_3": {
+   "desc": "Health and wellness for students, staff and faculty in a caring community focused on flourishing, including positive mental health and flourishing for college students and young adults. HAX is the platform behind the Learn to Flourish Hub's public site, which HHD runs without a web team. (Paraphrased; see the plan for its words.)",
+   "kind": "objective",
+   "links": {
+    "plan": "https://www.hhd.psu.edu/strategic-plan"
+   }
+  },
+  "as_3_2": {
+   "desc": "Amplify the academic enterprise through external partnerships. The Hub's public site is how its school and community partners, and its donors, meet its work. (Paraphrased; see the plan for its words.)",
+   "kind": "objective",
+   "links": {
+    "plan": "https://www.hhd.psu.edu/strategic-plan"
+   }
+  }
+ },
+ "evidence": {},
+ "tours": [
+  {
+   "id": "hhdplan",
+   "label": "How HAX meets HHD's plan",
+   "kind": "story",
+   "message": "2 objectives across 2 goals, each HHD's strategy for a Penn State priority.",
+   "scenes": [
+    {
+     "caption": "HHD's goals are the University's, with the college's own strategies for each.",
+     "nodes": [
+      "hhdplan",
+      "ag_g1",
+      "ag_g3",
+      "pp_landgrant",
+      "pp_success"
+     ]
+    },
+    {
+     "caption": "Enhancing Student Success.",
+     "nodes": [
+      "ag_g1",
+      "pp_success",
+      "as_1_3",
+      "flourish"
+     ]
+    },
+    {
+     "caption": "Increase Land-Grant Impact.",
+     "nodes": [
+      "ag_g3",
+      "pp_landgrant",
+      "as_3_2",
+      "flourish"
+     ]
+    },
+    {
+     "caption": "All of it.",
+     "nodes": []
+    }
+   ]
+  }
+ ]
+}

@@ -23,6 +23,7 @@ flowchart TB
     haxcamp["haxcamp"]
     course["course"]
     dept["dept"]
+    flourish["flourish"]
     hax11ty["hax11ty"]
     security["security"]
     design["design"]
@@ -56,7 +57,6 @@ flowchart TB
   eberly --o|publishes courses on| haxpsu
   hhd --o|publishes sites on| haxpsu
   haxpsu -->|runs on| haxiam
-  hhd -->|runs a| dept
   libraries -->|publishes with| hax11ty
   haxlab --o|is based in| aa
   ccso --o|is a student club in| ist
@@ -64,8 +64,6 @@ flowchart TB
   uxdc --o|is a student organization in| ist
   uxdc -->|practices| design
   security -->|was audited in| haxiam
-  wins -->|records a win for| hhd
-  wins -->|records a win for| dept
   wins -->|records a win for| haxlab
   wins -->|records a win for| ccso
   wins -->|records a win for| security
@@ -77,6 +75,12 @@ flowchart TB
   ist256 --o|is taught in| ist
   ist256 -->|sends its best students to| haxlab
   innovationhub --o|is part of| psu
+  flourish -->|is an example of| dept
+  flourish --o|is run by| hhd
+  flourish --o|is served from| haxpsu
+  flourish --o|was built with| aa
+  flourish -->|meets strategic plan goals of| psu
+  wins -->|records a win for| flourish
   innovationhub -->|built its earlier site on| haxpsu
   wins -->|records a win for| innovationhub
   fusco ---|leads| g_fusco
@@ -94,8 +98,8 @@ flowchart TB
   mcollins ---|taught with| elmsln
   mcollins --o|is faculty in| aa
   fusco --o|was in| haxlab
-  blake --o|directs the Learn to Flourish Hub in| hhd
-  blake ---|runs| dept
+  blake --o|is faculty in| hhd
+  blake ---|directs| flourish
   agearhart --o|works with| libraries
   agearhart ---|works with| hax11ty
   fusco --o|teaches in| ist
@@ -107,6 +111,7 @@ flowchart TB
   blake ---|is featured in| wins
   psu -->|sets out| psuplan
   aa -.->|aligns its own plan to| psuplan
+  hhd -.->|aligns its own plan to| psuplan
   %%@ node psuplan mono=PSU color=nittanyNavy motion=lift web=psuplan
   haxpsu -->|hosts| sites_hub
   aa -->|publishes courses on| sites_hub
@@ -142,6 +147,7 @@ flowchart TB
   %%@ node haxcamp portal
   %%@ node course portal
   %%@ node dept portal
+  %%@ node flourish portal
   %%@ node hax11ty portal
   %%@ node security portal
   %%@ node design portal

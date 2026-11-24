@@ -1,5 +1,5 @@
 {
- "about": "Penn State's strategic plan and the College of Arts and Architecture's Strategic Plan 2030, limited to the objectives HAX meets (confirmed by the platform owner, 2026-11-11). Plan structure and wording are a snapshot read from the plan pages on the date given; objective text is paraphrased (see the plan for the exact words). A&A's goal-to-priority alignment is A&A's own. pillars and nodes are ids in hax-ecosystem.mmd, sdgs are goal numbers in sdg-links.json, wins are headings in praw WINS.md. build_plans.py reads this file. Refresh by hand when a plan changes.",
+ "about": "Penn State's strategic plan, the College of Arts and Architecture's Strategic Plan 2030 and the College of Health and Human Development's strategic plan, limited to the objectives HAX meets (confirmed by the platform owner, 2026-11-11). Plan structure and wording are a snapshot read from the plan pages on the date given; objective text is paraphrased (see the plan for the exact words). A&A's goal-to-priority alignment is A&A's own. pillars and nodes are ids in hax-ecosystem.mmd, sdgs are goal numbers in sdg-links.json, wins are headings in praw WINS.md. build_plans.py reads this file. Refresh by hand when a plan changes. winTiles names the main-web tile a win has; the plan webs draw that win as a portal to the tile, so one page carries all its connections (people, college, site type and goals).",
  "psu": {
   "name": "Penn State strategic plan", "url": "https://strategicplan.psu.edu/engage/", "read": "2026-11-11",
   "priorities": [
@@ -11,7 +11,7 @@
       "pillars": ["sustainable"], "nodes": ["ccso", "uxdc", "haxlab"], "sdgs": [4, 8],
       "wins": ["Student clubs: 30 security fixes", "Site Dashboard, three generations of students (2022–2026)"]},
      {"id": "o3", "text": "Student, faculty and staff health and wellness, cultivated in a caring community focused on flourishing.",
-      "pillars": ["open", "agnostic"], "nodes": ["hhd", "dept"], "sdgs": [],
+      "pillars": ["open", "agnostic"], "nodes": ["hhd", "dept"], "sdgs": [3],
       "wins": ["Learn to Flourish Hub: flourish.hhd.psu.edu (2026)"], "how": "HAX is the platform behind the Learn to Flourish Hub's public site."}]},
    {"id": "research", "name": "Growing (Inter)disciplinary Research Excellence", "desc": "Use the University's scholarship to address major challenges facing the Commonwealth, the nation and the world.", "objectives": [],
     "how": "HAX meets this through A&A Goal 4: arts and design as research and practice."},
@@ -21,10 +21,11 @@
       "wins": ["Reach by early 2026"], "how": "hax.psu.edu is a shared asset: the Innovation Hub's site and the LaunchBox small-business training site started there."},
      {"id": "o7", "text": "Extend the academic enterprise through partnerships with business and industry, non-profits, communities and residents.",
       "pillars": ["sustainable", "extensible"], "nodes": ["apereo", "duke", "drupalcon", "npm"], "sdgs": [9, 17],
-      "wins": ["National Archives usability audit (2019)", "HAXcms announced at DrupalCon", "First hax-camp, 40+ people", "289 packages, about 49,000 downloads a month"]},
+      "wins": ["National Archives usability audit (2019)", "HAXcms announced at DrupalCon", "First hax-camp, 40+ people", "289 packages, about 49,000 downloads a month", "Learn to Flourish Hub: flourish.hhd.psu.edu (2026)"],
+      "how": "The Learn to Flourish Hub's public site, run by HHD on hax.psu.edu, is how its school and community partners meet its work."},
      {"id": "o8", "text": "Galvanize an engaged and effective network of advocates and investors in Penn State.",
       "pillars": ["sustainable"], "nodes": ["grants", "g_frank", "g_fusco", "g_hhd"], "sdgs": [17],
-      "wins": ["HAX Lab faculty grants", "Learn to Flourish Hub: flourish.hhd.psu.edu (2026)"]}]},
+      "wins": ["HAX Lab faculty grants", "Learn to Flourish Hub: flourish.hhd.psu.edu (2026)"], "how": "The Learn to Flourish Hub's site is the face of the Hub for its donors."}]},
    {"id": "deib", "name": "Fostering Diversity, Equity, Inclusion, and Belonging", "desc": "An inclusive environment where all students, faculty and staff can flourish.", "objectives": [
      {"id": "o9", "text": "Address institutional barriers to close student outcome gaps.",
       "pillars": ["accessible", "open", "efficient"], "nodes": ["wcag", "textbook", "oerschema"], "sdgs": [4, 10],
@@ -86,5 +87,20 @@
       "pillars": ["accessible", "open"], "nodes": ["textbook", "oerschema"], "sdgs": [4, 10],
       "wins": ["A $250 textbook becomes a $30 fee", "Fast without a build step"]}]}
   ]
- }
+ },
+ "hhd": {
+  "name": "HHD strategic plan", "url": "https://www.hhd.psu.edu/strategic-plan", "read": "2026-11-24",
+  "desc": "The College of Health and Human Development's strategies for the University plan's goals and objectives.",
+  "goals": [
+   {"id": "g1", "name": "Enhancing Student Success", "psu": "success", "desc": "HHD's strategies for the University's student success goal.", "subs": [
+     {"id": "1.3", "text": "Health and wellness for students, staff and faculty in a caring community focused on flourishing, including positive mental health and flourishing for college students and young adults.",
+      "pillars": ["open", "agnostic"], "nodes": ["hhd", "dept"], "sdgs": [3],
+      "wins": ["Learn to Flourish Hub: flourish.hhd.psu.edu (2026)"], "how": "HAX is the platform behind the Learn to Flourish Hub's public site, which HHD runs without a web team."}]},
+   {"id": "g3", "name": "Increase Land-Grant Impact", "psu": "landgrant", "desc": "HHD's strategies for the University's land-grant impact goal.", "subs": [
+     {"id": "3.2", "text": "Amplify the academic enterprise through external partnerships.",
+      "pillars": ["sustainable"], "nodes": ["hhd"], "sdgs": [17],
+      "wins": ["Learn to Flourish Hub: flourish.hhd.psu.edu (2026)"], "how": "The Hub's public site is how its school and community partners, and its donors, meet its work."}]}
+  ]
+ },
+ "winTiles": {"Learn to Flourish Hub: flourish.hhd.psu.edu (2026)": "flourish"}
 }

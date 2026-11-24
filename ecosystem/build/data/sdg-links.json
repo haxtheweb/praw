@@ -1,8 +1,13 @@
 {
- "about": "The UN Sustainable Development Goals HAX meets, and how. Only goals with evidence are listed: the goal isn't to meet all 17, it's to show how HAX meets the ones it does. Goals 7 and 12 come from the HAX docs (the Efficient pillar page uses <un-sdg goal=7> and <un-sdg goal=12>); the rest were proposed from WORLDVIEW, the pledges and WINS and confirmed by the platform owner (2026-11-11). pillars and nodes are ids in hax-ecosystem.mmd; wins are headings in praw WINS.md. build_plans.py reads this file.",
+ "about": "The UN Sustainable Development Goals HAX meets, and how. Only goals with evidence are listed: the goal isn't to meet all 17, it's to show how HAX meets the ones it does. Goals 7 and 12 come from the HAX docs (the Efficient pillar page uses <un-sdg goal=7> and <un-sdg goal=12>); the rest were proposed from WORLDVIEW, the pledges and WINS and confirmed by the platform owner (2026-11-11); goal 3 was added at the platform owner's request for the Learn to Flourish Hub (2026-11-24). pillars and nodes are ids in hax-ecosystem.mmd; wins are headings in praw WINS.md. build_plans.py reads this file.",
  "un": "https://sdgs.un.org/goals",
  "element": "https://github.com/haxtheweb/webcomponents/tree/master/elements/un-sdg",
  "goals": [
+  {"n": 3, "name": "Good Health and Well-being", "targets": ["3.4 promote mental health and well-being"],
+   "why": "HAX is the platform behind the Learn to Flourish Hub's public site, Penn State's work teaching the skills of flourishing and mental health to college and high school students.",
+   "pillars": ["open", "agnostic"], "nodes": ["hhd"],
+   "wins": ["Learn to Flourish Hub: flourish.hhd.psu.edu (2026)"],
+   "evidence": [{"label": "WINS: Learn to Flourish Hub", "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"}], "source": "confirmed"},
   {"n": 4, "name": "Quality Education", "targets": ["4.3 equal access to affordable tertiary education", "4.4 skills for employment", "4.5 equal access, including for persons with disabilities"],
    "why": "Education-led, accessible and open by default, and students learn by building a real product.",
    "pillars": ["accessible", "open", "sustainable"], "nodes": ["haxlab", "ist256", "course", "textbook", "oerschema"],

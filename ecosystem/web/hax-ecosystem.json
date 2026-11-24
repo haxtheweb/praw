@@ -824,6 +824,24 @@
     "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
    }
   },
+  "flourish": {
+   "desc": "The Learn to Flourish Hub's public site, flourish.hhd.psu.edu. The Hub, in Health and Human Development and directed by Blake Colaianne, built it on HAX with A&A's Office of Digital Learning and runs it from hax.psu.edu without a web team. It launched in September 2026 as the face of the Hub for donors, students and partners. It shows HAX meeting goals at every level: Penn State's plan (health and wellness in a community focused on flourishing; partnerships with communities; advocates and investors), HHD's plan (student success; land-grant impact), A&A's plan (collaboration across colleges) and UN goals 3 and 17.",
+   "source": {
+    "label": "WINS.md: Learn to Flourish Hub",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
+   },
+   "links": {
+    "site": "https://flourish.hhd.psu.edu",
+    "team": "https://flourish.hhd.psu.edu/team",
+    "goals": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/strategic-plans.json"
+   },
+   "year": 2026,
+   "yearNote": "flourish.hhd.psu.edu launches",
+   "yearSource": {
+    "label": "WINS.md",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
+   }
+  },
   "textbook": {
    "desc": "Open books from Pressbooks, OpenStax or Word, pulled in, edited and published as open sites in minutes.",
    "source": {
@@ -868,7 +886,7 @@
    }
   },
   "hhd": {
-   "desc": "Health and Human Development, home of the Learn to Flourish Hub.",
+   "desc": "Health and Human Development, home of the Learn to Flourish Hub and a partner on the games and platform grant. Its strategic plan opens from Penn State's.",
    "source": {
     "label": "WINS.md: Learn to Flourish Hub",
     "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
@@ -1117,7 +1135,7 @@
    }
   },
   "blake": {
-   "desc": "Director of the Learn to Flourish Hub; faculty and students built its public site on HAX.",
+   "desc": "Director of the Learn to Flourish Hub in Health and Human Development; the Hub's faculty and students built its public site on HAX. Also on the HHD games and platform grant.",
    "role": "faculty",
    "source": {
     "label": "WINS.md: Learn to Flourish Hub",
@@ -2048,22 +2066,40 @@
     "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#student-clubs-30-security-fixes"
    }
   ],
-  "wins>hhd": [
+  "wins>flourish": [
    {
     "label": "WINS: Learn to Flourish Hub",
     "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
    }
   ],
-  "wins>dept": [
+  "blake>flourish": [
    {
     "label": "WINS: Learn to Flourish Hub",
     "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
    }
   ],
-  "hhd>dept": [
+  "flourish>hhd": [
    {
     "label": "flourish.hhd.psu.edu",
     "url": "https://flourish.hhd.psu.edu"
+   }
+  ],
+  "flourish>aa": [
+   {
+    "label": "WINS: Learn to Flourish Hub (with the Office of Digital Learning)",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
+   }
+  ],
+  "flourish>psu": [
+   {
+    "label": "PRAW strategic-plans.json",
+    "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/strategic-plans.json"
+   }
+  ],
+  "flourish>sdgs": [
+   {
+    "label": "PRAW sdg-links.json",
+    "url": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/sdg-links.json"
    }
   ],
   "wins>haxlab": [
@@ -2844,6 +2880,7 @@
       "mcollins",
       "jfrank",
       "blake",
+      "flourish",
       "fusco",
       "hhd",
       "aa"
@@ -3055,6 +3092,7 @@
      "caption": "WINS has the proof.",
      "nodes": [
       "wins",
+      "flourish",
       "dept",
       "course",
       "portfolio"
@@ -3311,6 +3349,7 @@
       "apereo",
       "ccso",
       "dbf",
+      "flourish",
       "github",
       "haxcamp",
       "html",

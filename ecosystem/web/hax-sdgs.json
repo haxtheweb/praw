@@ -9,7 +9,7 @@
    "part": "parts of HAX",
    "win": "wins"
   },
-  "about": "The UN Sustainable Development Goals HAX meets (7 of 17), generated from sdg-links.json. Only goals with evidence are shown: the point is how HAX meets them, not covering all 17. Each goal links to the pillars and parts of HAX it rests on and the wins that show it.",
+  "about": "The UN Sustainable Development Goals HAX meets (8 of 17), generated from sdg-links.json. Only goals with evidence are shown: the point is how HAX meets them, not covering all 17. Each goal links to the pillars and parts of HAX it rests on and the wins that show it.",
   "kindLabels": {
    "pillar": "pillars a goal rests on",
    "rel": "goals and wins",
@@ -23,11 +23,19 @@
  "nodes": {
   "sdgs": {
    "always": true,
-   "desc": "The UN's 17 Sustainable Development Goals, limited to the 7 HAX meets: 4 Quality Education, 7 Affordable and Clean Energy, 8 Decent Work and Economic Growth, 9 Industry, Innovation and Infrastructure, 10 Reduced Inequalities, 12 Responsible Consumption and Production, 17 Partnerships for the Goals. Goals 7 and 12 come from the HAX docs' Efficient pillar page; the rest rest on WORLDVIEW, the pledges and WINS.",
+   "desc": "The UN's 17 Sustainable Development Goals, limited to the 8 HAX meets: 3 Good Health and Well-being, 4 Quality Education, 7 Affordable and Clean Energy, 8 Decent Work and Economic Growth, 9 Industry, Innovation and Infrastructure, 10 Reduced Inequalities, 12 Responsible Consumption and Production, 17 Partnerships for the Goals. Goals 7 and 12 come from the HAX docs' Efficient pillar page; the rest rest on WORLDVIEW, the pledges and WINS.",
    "links": {
     "UN": "https://sdgs.un.org/goals",
     "links": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/sdg-links.json"
    }
+  },
+  "sdg_3": {
+   "desc": "HAX is the platform behind the Learn to Flourish Hub's public site, Penn State's work teaching the skills of flourishing and mental health to college and high school students. Targets: 3.4 promote mental health and well-being.",
+   "kind": "goal",
+   "links": {
+    "WINS: Learn to Flourish Hub": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
+   },
+   "note": "Rests on WORLDVIEW, the pledges and WINS."
   },
   "sdg_4": {
    "desc": "Education-led, accessible and open by default, and students learn by building a real product. Targets: 4.3 equal access to affordable tertiary education; 4.4 skills for employment; 4.5 equal access, including for persons with disabilities.",
@@ -93,13 +101,6 @@
    "kind": "part",
    "links": {
     "element": "https://github.com/haxtheweb/webcomponents/tree/master/elements/un-sdg"
-   }
-  },
-  "w_learn_to_flourish_hub_flourish_hhd_psu_e": {
-   "desc": "A win in PRAW WINS.md: Learn to Flourish Hub: flourish.hhd.psu.edu (2026).",
-   "kind": "win",
-   "links": {
-    "WINS.md": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
    }
   },
   "w_the_seven_accent_cards": {
@@ -221,12 +222,13 @@
    "id": "sdgs",
    "label": "The UN goals HAX meets",
    "kind": "story",
-   "message": "7 of the 17 goals, each with the pillars, parts and wins behind it.",
+   "message": "8 of the 17 goals, each with the pillars, parts and wins behind it.",
    "scenes": [
     {
-     "caption": "HAX meets 7 of the UN's 17 Sustainable Development Goals.",
+     "caption": "HAX meets 8 of the UN's 17 Sustainable Development Goals.",
      "nodes": [
       "sdgs",
+      "sdg_3",
       "sdg_4",
       "sdg_7",
       "sdg_8",
@@ -234,6 +236,16 @@
       "sdg_10",
       "sdg_12",
       "sdg_17"
+     ]
+    },
+    {
+     "caption": "3. Good Health and Well-being: HAX is the platform behind the Learn to Flourish Hub's public site, Penn State's work teaching the skills of flourishing and mental health to college and high school students.",
+     "nodes": [
+      "sdg_3",
+      "open",
+      "agnostic",
+      "hhd",
+      "flourish"
      ]
     },
     {
@@ -326,7 +338,7 @@
       "drupalcon",
       "libraries",
       "hhd",
-      "w_learn_to_flourish_hub_flourish_hhd_psu_e",
+      "flourish",
       "w_hax_lab_faculty_grants",
       "w_national_archives_usability_audit_2019",
       "w_first_hax_camp_40_people",

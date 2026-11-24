@@ -156,7 +156,7 @@ write("community", lines, {"name": "Community and governance", "parent": "main",
 E = re.findall(r"^\s+(\w+) ([-=.o>]+)\|([^|]+)\| (\w+)", MAIN, re.M)
 UNITS = ["aa", "ist", "hhd", "eberly", "libraries", "innovationhub", "ccso", "uxdc", "haxlab"]
 PEOPLE = ["bryan", "billrose", "keithbailey", "mcollins", "fusco", "jfrank", "blake", "agearhart"]
-WORK = ["haxpsu", "haxiam", "elmsln", "ist256", "haxcamp", "course", "dept", "hax11ty", "security", "design", "g_hhd", "g_fusco", "g_frank", "wins", "sites_hub"]
+WORK = ["haxpsu", "haxiam", "elmsln", "ist256", "haxcamp", "course", "dept", "flourish", "hax11ty", "security", "design", "g_hhd", "g_fusco", "g_frank", "wins", "sites_hub"]
 keep = set(["psu"] + UNITS + PEOPLE + WORK)
 lines = ["%% Penn State sub-web: the colleges, units, people and services where HAX is built and used. Generated from the ecosystem web's edges among Penn State tiles, plus the hax.psu.edu snapshot.",
          "flowchart TB", "  %%@ layout rings=0,240,480,740 sizes=92,64,56,52",
@@ -174,17 +174,17 @@ for a, arrow, lab, b in E:
 for u in UNITS:
     if not any(a == u or b == u for a, b in seen): lines.append(f"  {u} -->|is part of| psu")
 lines.insert(lines.index('  subgraph ppl ["People"]') - 1, '    psuplan[("Strategic plan")]')
-lines += ["  psu -->|sets out| psuplan", "  aa -.->|aligns its own plan to| psuplan", "  %%@ node psuplan mono=PSU color=nittanyNavy motion=lift web=psuplan"]
+lines += ["  psu -->|sets out| psuplan", "  aa -.->|aligns its own plan to| psuplan", "  hhd -.->|aligns its own plan to| psuplan", "  %%@ node psuplan mono=PSU color=nittanyNavy motion=lift web=psuplan"]
 lines += ["  haxpsu -->|hosts| sites_hub", "  aa -->|publishes courses on| sites_hub", "  ist -->|publishes courses on| sites_hub", "  eberly -->|publishes courses on| sites_hub", "",
           "  %%@ group hub tier=0", "  %%@ group units tier=1", "  %%@ group work tier=2", "  %%@ group ppl tier=3"]
 lines += portal_lines(["psu"] + UNITS + PEOPLE + [w for w in WORK if w != "sites_hub"])
 lines.append("  %%@ node sites_hub icon=hax:site-map color=nittanyNavy motion=pop")
 sitesmeta = json.load(open("hax-sites.json"))["meta"].get("about", "")
-nodes = {"psu": {"always": True}, "psuplan": {"desc": "Penn State's strategic plan, limited to the priorities and objectives HAX meets. A&A's Strategic Plan 2030 opens from inside it.", "kind": "work", "links": {"plan": "https://strategicplan.psu.edu/engage/"}}, "sites_hub": {"desc": sitesmeta + " Open the hax.psu.edu web for every college and course.", "kind": "work"}}
+nodes = {"psu": {"always": True}, "psuplan": {"desc": "Penn State's strategic plan, limited to the priorities and objectives HAX meets. A&A's Strategic Plan 2030 and HHD's strategic plan open from inside it.", "kind": "work", "links": {"plan": "https://strategicplan.psu.edu/engage/"}}, "sites_hub": {"desc": sitesmeta + " Open the hax.psu.edu web for every college and course.", "kind": "work"}}
 tours = [{"id": "psu", "label": "HAX at Penn State", "message": "Where HAX is built and used at Penn State, from the ecosystem web's own connections.", "scenes": [
     S("Penn State backs HAX: it employs the maintainer and keeps the infrastructure going.", "psu", "bryan"),
     S("The colleges and units that use and build it.", *UNITS),
-    S("hax.psu.edu and HAXiam run sites for courses and departments.", "haxpsu", "haxiam", "sites_hub", "course", "dept"),
+    S("hax.psu.edu and HAXiam run sites for courses and departments, like HHD's Learn to Flourish Hub.", "haxpsu", "haxiam", "sites_hub", "course", "dept", "flourish"),
     S("Where it came from and where it is taught: ELMS:LN, IST 256, HAX Camp and the HAX Lab.", "elmsln", "ist256", "haxcamp", "haxlab"),
     S("The people.", *PEOPLE), S("All of HAX at Penn State.")]}]
 write("psu", lines, {"name": "Penn State", "parent": "main", "noTimeline": True,

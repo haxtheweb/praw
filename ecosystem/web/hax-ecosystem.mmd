@@ -101,6 +101,7 @@ flowchart TB
     cd101(["Customer Discovery 101"])
     dbf(["Digital Beaumont and Fletcher"])
     jukebox(["The Jukebox, INART 116"])
+    flourish(["Learn to Flourish Hub"])
   end
   subgraph orgs ["Organizations and ecosystems"]
     psu[["Penn State"]]
@@ -347,6 +348,7 @@ flowchart TB
   cd101 ==>|keeps it| accessible
   dbf ==>|keeps it| open
   jukebox ==>|keeps it| remixable
+  flourish ==>|keeps it| open
   gatech ==>|keeps it| sustainable
   php ==>|keeps it| agnostic
   nodejs ==>|keeps it| agnostic
@@ -382,7 +384,6 @@ flowchart TB
   eberly --o|publishes courses on| haxpsu
   hhd --o|publishes sites on| haxpsu
   haxpsu -->|runs on| haxiam
-  hhd -->|runs a| dept
   libraries -->|publishes with| hax11ty
   haxlab --o|is based in| aa
   haxlab -->|builds with| traveler
@@ -463,8 +464,6 @@ flowchart TB
 
   %% WINS: proof the worldview works (PRAW WINS.md)
   praw -->|keeps proof in| wins
-  wins -->|records a win for| hhd
-  wins -->|records a win for| dept
   wins -->|records a win for| haxlab
   wins -->|records a win for| ccso
   wins -->|records a win for| security
@@ -530,6 +529,14 @@ flowchart TB
   jukebox --o|is taught in| aa
   wins -->|records a win for| cd101
   wins -->|records a win for| dbf
+  %% Learn to Flourish Hub (WINS.md): HHD's own site on hax.psu.edu, built with A&A's Office of Digital Learning
+  flourish -->|is an example of| dept
+  flourish --o|is run by| hhd
+  flourish --o|is served from| haxpsu
+  flourish --o|was built with| aa
+  flourish -->|meets strategic plan goals of| psu
+  flourish -->|shows progress on| sdgs
+  wins -->|records a win for| flourish
   gatech -->|has students contributing to| components
   innovationhub -->|built its earlier site on| haxpsu
   wins -->|records a win for| innovationhub
@@ -628,8 +635,8 @@ flowchart TB
   fusco ---|funded Canvas AI analysis in| cli
   fusco --o|was in| haxlab
   jfrank ---|funded the International Student Portfolio| portfolio
-  blake --o|directs the Learn to Flourish Hub in| hhd
-  blake ---|runs| dept
+  blake --o|is faculty in| hhd
+  blake ---|directs| flourish
   mark ---|contributed to| elmsln
   mark --o|was in| haxlab
   tom ---|helped plan| haxcamp
@@ -811,6 +818,7 @@ flowchart TB
   %%@ node cd101 mono=CD101 color=inventOrange motion=lift
   %%@ node dbf mono=BF color=wonderPurple motion=tilt
   %%@ node jukebox mono=116 color=original87Pink motion=wiggle
+  %%@ node flourish mono=L2F color=skyBlue motion=lift
   %%@ node hax11ty icon=hax:file-html color=pughBlue motion=lift
   %%@ node sdgs mono=SDG color=creekTeal motion=nudge web=sdgs
   %%@ node wins icon=icons:stars color=roarGolden motion=pop

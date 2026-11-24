@@ -725,7 +725,7 @@
    "always": true
   },
   "sdgs": {
-   "desc": "The UN Sustainable Development Goals HAX meets: 4 Quality Education, 7 Affordable and Clean Energy, 8 Decent Work and Economic Growth, 9 Industry, Innovation and Infrastructure, 10 Reduced Inequalities, 12 Responsible Consumption and Production, 17 Partnerships for the Goals. The un-sdg element shows them on HAX pages; the docs tie 7 and 12 to the Efficient pillar.",
+   "desc": "The UN Sustainable Development Goals HAX meets: 3 Good Health and Well-being, 4 Quality Education, 7 Affordable and Clean Energy, 8 Decent Work and Economic Growth, 9 Industry, Innovation and Infrastructure, 10 Reduced Inequalities, 12 Responsible Consumption and Production, 17 Partnerships for the Goals. The un-sdg element shows them on HAX pages; the docs tie 7 and 12 to the Efficient pillar.",
    "links": {
     "UN": "https://sdgs.un.org/goals",
     "links": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/sdg-links.json"

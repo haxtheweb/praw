@@ -89,3 +89,6 @@ jobs:
         run: |
           python3 -I ecosystem/test/integrity-check.py --self-test
           python3 -I ecosystem/test/integrity-check.py
+      - name: Connection sprint tools
+        # route_edit.py (where a Connect prompt's changes go) and connection_gaps.py (where the web is thin)
+        run: python3 -I ecosystem/test/connection-tools-check.py

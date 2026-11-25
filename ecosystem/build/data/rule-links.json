@@ -199,7 +199,9 @@
    "touches": [
     "oerschema",
     "components"
-   ]
+   ],
+   "automation": "guidance",
+   "how": "Says to apply OER Schema to educational elements and audit content with the oerschema skills; deciding which class fits takes a person or agent."
   },
   "rVsCTS": {
    "enforced_by": [
@@ -222,7 +224,11 @@
    "touches": [
     "ddd",
     "haxcms"
-   ]
+   ],
+   "enforced_by": [
+    "q_hax_ui_admin_contract"
+   ],
+   "how": "Partly. The HAX UI admin contract check (yarn lint:hax-ui-admin) fails the pull request when an admin surface leaves the HAX UI layer: a font size outside the admin scale, a hand-drawn dialog without the shared frame, a browser dialog or a raw field. Known cases are baselined."
   },
   "1eaa87": {
    "pillars": [
@@ -730,6 +736,104 @@
     "q_tests_poll_don_t_sleep"
    ],
    "how": "webcomponents' rule-checks workflow (scripts/rule-checks.mjs test-sleeps) fails the pull request when a test file gains a fixed sleep (aTimeout, setTimeout in a bare Promise, waitForTimeout). Sleeps that predate the rule are in scripts/test-sleeps.baseline.json, which only shrinks."
+  },
+  "ZVEm3yg7jTXBsXBOp3yPzy": {
+   "automation": "guidance",
+   "how": "Says where the parts of a HAXcms site live (docs folder, site.json, pages); agents follow it while working in a site."
+  },
+  "rHQ7lLRZmZlnFveLrWslUN": {
+   "automation": "guidance",
+   "how": "Says what metadata.site.name is for and not to change it casually; a judgment call when editing a site."
+  },
+  "K0lV6BJOPrqP7iJMZkemUw": {
+   "automation": "guidance",
+   "how": "Says when the legacy SimpleColors system still fills gaps in DDD; choosing it is a design decision."
+  },
+  "eis0l9w9l2jG1COFySmvdT": {
+   "automation": "guidance",
+   "how": "Says to author only tags that could have been made in the HAX editor; judging that takes the person or agent writing the page."
+  },
+  "haxhooks-lifecycle-integration": {
+   "automation": "guidance",
+   "how": "Says how an element joins HAX lifecycle without importing HAX; the without-HAX check enforces the import half."
+  },
+  "01ed665f326941e9888ab1": {
+   "automation": "guidance",
+   "how": "Says where adaptive, remembered user state goes (user-scaffold); an architecture decision made while designing a feature."
+  },
+  "2e0e8483-8e58-4854-b6f9-f28f77aec17b": {
+   "automation": "guidance",
+   "how": "Says how little tracking should store; deciding what answers the question takes a person."
+  },
+  "35309388-b7be-40ca-88a9-539fe1dd4b0d": {
+   "automation": "guidance",
+   "how": "A coding pattern for async assignments; no static check can tell a stale write from an intended one."
+  },
+  "896ecfa1-8965-4c06-a3ab-31c7e7eb28bf": {
+   "automation": "guidance",
+   "how": "A coding pattern for shared helpers; whether an element stubs querySelectorAll is only known at runtime."
+  },
+  "Z61LdOQ98DTTLRwen7tL9T": {
+   "automation": "guidance",
+   "how": "Says which base class site custom/ code builds on; custom/ code lives in each site, outside these repos."
+  },
+  "cfypZRDQLaJ6XsXtEaveWT": {
+   "automation": "guidance",
+   "how": "Says to run yarn run build after changing a HAXcms theme; it is a step in the workflow, not a property of the result."
+  },
+  "d513754d87c145d6a166ec": {
+   "automation": "guidance",
+   "how": "An architecture rule for which MobX store owns which state; deciding where new state belongs takes a person or agent."
+  },
+  "agents:Third-party Libraries": {
+   "automation": "guidance",
+   "how": "Says to import a TypeScript library's compiled JavaScript; the No TypeScript check keeps TypeScript out of elements/."
+  },
+  "agents:Modern JavaScript": {
+   "automation": "guidance",
+   "how": "Says to use modern JavaScript within browser support; the Browser Support rule and its lint warnings carry the specifics."
+  },
+  "agents:CSS Classes": {
+   "automation": "guidance",
+   "how": "A naming convention (BEM) for CSS classes that aren't DDD tokens; style, not something a check decides."
+  },
+  "agents:File Structure": {
+   "automation": "guidance",
+   "how": "Says where source files go; each tool that reads them (the build, the HAX CLI) expects this layout."
+  },
+  "agents:Web Components": {
+   "automation": "guidance",
+   "how": "Says custom element names are hyphenated; the browser refuses to define one without a hyphen."
+  },
+  "agents:Site Imports": {
+   "automation": "guidance",
+   "how": "Says to validate source URLs before importing a site; a practice for the person running an import."
+  },
+  "agents:File Permissions": {
+   "automation": "guidance",
+   "how": "Says to keep scripts executable; a practice, not a property worth gating pull requests on."
+  },
+  "agents:Schema Validation": {
+   "automation": "guidance",
+   "how": "Says to validate content against JSON schemas before processing it; the HAXSchema and API conformance checks cover the schemas HAX ships."
+  },
+  "agents:`_t` is reserved": {
+   "enforced_by": [
+    "q_lint"
+   ],
+   "how": "ESLint rule haxtheweb-i18n/reserved-t (scripts/eslint-rules/i18n-reserved.mjs) fails the pull request on an element using _t for its own property, field, method or state."
+  },
+  "agents:Language": {
+   "enforced_by": [
+    "q_no_typescript"
+   ],
+   "how": "Partly. The No TypeScript check in webcomponents' rule-checks workflow keeps TypeScript source out of elements/; LitElement use is review."
+  },
+  "agents:CSS template literals": {
+   "enforced_by": [
+    "q_lint"
+   ],
+   "how": "A stray backtick ends the css`` template early; the file stops parsing and ESLint fails the pull request on the syntax error."
   }
  },
  "candidates": [

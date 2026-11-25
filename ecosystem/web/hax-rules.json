@@ -10,7 +10,7 @@
    "gap": "nothing enforces it yet",
    "proposed": "proposed"
   },
-  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (88 rules) and each repo's AGENTS.md (30), plus 7 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 43 are enforced; 31 are guidance by design, which no check could decide; 51 are gaps, the backlog of what to automate next.",
+  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (88 rules) and each repo's AGENTS.md (31), plus 7 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 47 are enforced; 52 are guidance by design, which no check could decide; 27 are gaps, the backlog of what to automate next.",
   "kindLabels": {
    "rel": "where a rule comes from and what enforces it",
    "pillar": "pillars a rule serves",
@@ -30,7 +30,7 @@
    "kind": "group"
   },
   "rg_design_system_standards": {
-   "desc": "Design System Standards: 9 rules, 3 enforced by a check.",
+   "desc": "Design System Standards: 9 rules, 4 enforced by a check.",
    "kind": "group"
   },
   "rg_web_component_development": {
@@ -54,7 +54,7 @@
    "kind": "group"
   },
   "rg_agents_md_code_style": {
-   "desc": "AGENTS.md: code style: 22 rules, 9 enforced by a check.",
+   "desc": "AGENTS.md: code style: 23 rules, 12 enforced by a check.",
    "kind": "group"
   },
   "rg_agents_md_security": {
@@ -78,17 +78,17 @@
    "kind": "group"
   },
   "r_zvem3yg7jtxbsxbop3ypzy": {
-   "desc": "For the HAXcms site, all documentation is located in the `docs` folder. The site structure includes `site.json` for page order in JSON outline schema format, all files are under the `files` folder, and all page HTML content is in the `pages` folder. Documentation should ensure coverage of pillars, pedagogical ontology, and relevant projects referenced in AGENTS.md to maintain comprehensive ecosystem context. In PRAW RULES.md (scope: haxcms). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "For the HAXcms site, all documentation is located in the `docs` folder. The site structure includes `site.json` for page order in JSON outline schema format, all files are under the `files` folder, and all page HTML content is in the `pages` folder. Documentation should ensure coverage of pillars, pedagogical ontology, and relevant projects referenced in AGENTS.md to maintain comprehensive ecosystem context. In PRAW RULES.md (scope: haxcms). Guidance by design: no check enforces this, and none is planned. Says where the parts of a HAXcms site live (docs folder, site.json, pages); agents follow it while working in a site.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#haxcms-site-organization"
    }
   },
   "r_rhq7llrzmzlnfvelrwslun": {
-   "desc": "In a site.json / hax site the metadata.site.name property is used to help establish the correct basePath in some scenarios. This value should not be modified to be anything other than put into alignment with the name of the folder the site is named. In PRAW RULES.md (scope: haxcms). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "In a site.json / hax site the metadata.site.name property is used to help establish the correct basePath in some scenarios. This value should not be modified to be anything other than put into alignment with the name of the folder the site is named. In PRAW RULES.md (scope: haxcms). Guidance by design: no check enforces this, and none is planned. Says what metadata.site.name is for and not to change it casually; a judgment call when editing a site.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#haxcms-site-metadata"
    }
@@ -133,9 +133,9 @@
    }
   },
   "r_d513754d87c145d6a166ec": {
-   "desc": "Keep the two MobX stores separate. `HAXStore` (`hax-body/lib/hax-store.js`) owns editor state (active node, edit mode, gizmo, preferences, tour); `haxcms-site-store` (`haxcms-elements/lib/core/haxcms-site-store.js`) owns site/CMS state (manifest, active page/route, site metadata, theme configuration). `haxcms-site-editor-ui` is the only bridge between them and runs the save flow (editor content, then backend API, then manifest update). HAXStore must never know about CMS routing, and the site store must never manipulate page DOM content. Rationale and flow: KNOWLEDGE.md entry \"Dual-store architecture\". In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Keep the two MobX stores separate. `HAXStore` (`hax-body/lib/hax-store.js`) owns editor state (active node, edit mode, gizmo, preferences, tour); `haxcms-site-store` (`haxcms-elements/lib/core/haxcms-site-store.js`) owns site/CMS state (manifest, active page/route, site metadata, theme configuration). `haxcms-site-editor-ui` is the only bridge between them and runs the save flow (editor content, then backend API, then manifest update). HAXStore must never know about CMS routing, and the site store must never manipulate page DOM content. Rationale and flow: KNOWLEDGE.md entry \"Dual-store architecture\". In PRAW RULES.md (scope: webcomponents). Guidance by design: no check enforces this, and none is planned. An architecture rule for which MobX store owns which state; deciding where new state belongs takes a person or agent.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#editor-state-vs-site-state-dual-store"
    }
@@ -186,9 +186,9 @@
    }
   },
   "r_k0lv6bjoprqp7ijmzkemuw": {
-   "desc": "We have an older color based designs system called SimpleColors. We still use this in order to fill in gaps in DDD as far as shades of all colors. SimpleColors creates a base line color spectrum for levels of red, orange, blue, etc. When possible we should be using DDD's colors instead of these, though there are elements that will still leverage it in unique situations. In PRAW RULES.md (scope: design-system). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "We have an older color based designs system called SimpleColors. We still use this in order to fill in gaps in DDD as far as shades of all colors. SimpleColors creates a base line color spectrum for levels of red, orange, blue, etc. When possible we should be using DDD's colors instead of these, though there are elements that will still leverage it in unique situations. In PRAW RULES.md (scope: design-system). Guidance by design: no check enforces this, and none is planned. Says when the legacy SimpleColors system still fills gaps in DDD; choosing it is a design decision.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#simplecolors-legacy-system"
    }
@@ -210,9 +210,8 @@
    }
   },
   "r_1992902d74844c908ab446": {
-   "desc": "Admin surfaces (anything only a signed-in editor sees whose job is to change settings or data: site admin and its sections, outline-designer, revisions, reports, system admin, and editor chrome as it is updated) use HAX UI, the admin layer of DDD, not DDD's content scale. Spread `HaxUiAdminTokens` and `HaxUiAdminPrimitives` from `@haxtheweb/hax-body/lib/hax-ui-styles.js` and style with `--hax-ui-*` only (14px text, 32px rows, one accent; every value maps to a DDD primitive). Site and system admin sections render inside the one admin dialog and never draw their own titlebar or Save button: the shell's action bar stages saves, lights Save when there are changes and asks before leaving with unsaved changes. Authored content, themes and anything a visitor sees stay on DDD. Missing values go into `HaxUiAdminTokens` (mapped to DDD) before use; proposed tokens are documentation until adopted. Guide: `elements/d-d-d/design-system/source/hax-ui-admin.md` in haxtheweb/webcomponents; audit with `hax-pattern-library-audit` (`contract-admin-*`). outline-designer is the reference implementation. In PRAW RULES.md (scope: design-system). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Admin surfaces (anything only a signed-in editor sees whose job is to change settings or data: site admin and its sections, outline-designer, revisions, reports, system admin, and editor chrome as it is updated) use HAX UI, the admin layer of DDD, not DDD's content scale. Spread `HaxUiAdminTokens` and `HaxUiAdminPrimitives` from `@haxtheweb/hax-body/lib/hax-ui-styles.js` and style with `--hax-ui-*` only (14px text, 32px rows, one accent; every value maps to a DDD primitive). Site and system admin sections render inside the one admin dialog and never draw their own titlebar or Save button: the shell's action bar stages saves, lights Save when there are changes and asks before leaving with unsaved changes. Authored content, themes and anything a visitor sees stay on DDD. Missing values go into `HaxUiAdminTokens` (mapped to DDD) before use; proposed tokens are documentation until adopted. Guide: `elements/d-d-d/design-system/source/hax-ui-admin.md` in haxtheweb/webcomponents; audit with `hax-pattern-library-audit` (`contract-admin-*`). outline-designer is the reference implementation. In PRAW RULES.md (scope: design-system). Enforced by hax-ui-admin-contract. Partly. The HAX UI admin contract check (yarn lint:hax-ui-admin) fails the pull request when an admin surface leaves the HAX UI layer: a font size outside the admin scale, a hand-drawn dialog without the shared frame, a browser dialog or a raw field. Known cases are baselined.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#hax-ui-admin-surfaces-layer-of-ddd"
    }
@@ -276,7 +275,7 @@
    }
   },
   "r_cehsaztyfb2vtcwthggnbk": {
-   "desc": "When writing global scope referenced JavaScript, use `globalThis` instead of `window` for consistency. In PRAW RULES.md (scope: webcomponents). Also in webcomponents AGENTS.md. Enforced by ESLint. ESLint no-restricted-globals (window) in webcomponents: an error in CI (the ESLint step of the build workflow) and in yarn precheck.",
+   "desc": "When writing global scope referenced JavaScript, use `globalThis` instead of `window` for consistency. In PRAW RULES.md (scope: webcomponents). Also in webcomponents AGENTS.md, create AGENTS.md. Enforced by ESLint. ESLint no-restricted-globals (window) in webcomponents: an error in CI (the ESLint step of the build workflow) and in yarn precheck.",
    "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#javascript-standards--globalthis"
@@ -298,9 +297,9 @@
    }
   },
   "r_eis0l9w9l2jg1cofysmvdt": {
-   "desc": "When you write content for hax sites make sure that the webcomponent tags you are using are things that could have been authored and put in the page. This means written using the HAX editor via elements that have HAXSchema. This registry has a list of all valid HAX capable elements and while not always used on every page, it's useful for knowing what is possible. Some times supplying visually interesting content helps with engagement for video, table, and block element data. Also keep in mind the DDD attributes that we support to help make headings and paragraph content offset in a consistent way. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "When you write content for hax sites make sure that the webcomponent tags you are using are things that could have been authored and put in the page. This means written using the HAX editor via elements that have HAXSchema. This registry has a list of all valid HAX capable elements and while not always used on every page, it's useful for knowing what is possible. Some times supplying visually interesting content helps with engagement for video, table, and block element data. Also keep in mind the DDD attributes that we support to help make headings and paragraph content offset in a consistent way. In PRAW RULES.md (scope: webcomponents). Guidance by design: no check enforces this, and none is planned. Says to author only tags that could have been made in the HAX editor; judging that takes the person or agent writing the page.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#hax-content-authoring"
    }
@@ -314,9 +313,9 @@
    }
   },
   "r_haxhooks_lifecycle_integration": {
-   "desc": "Elements that need to participate in HAX lifecycle / state changes without importing HAX implement a `haxHooks()` method mapping hook names to element method names. The platform stays type-agnostic by routing through these hooks rather than hard-coding support for specific elements or file types. Use `processFileUpload` (returns `{ fileUuid, operation, valueMapping, fallbackType? }` or `false`) to let an element own its post-upload conversion from the generic tray upload / drag-drop path (`HAXStore.applyFileUploadTransform`), mirroring the per-field schema `uploadTransform`. Use `gizmoRegistration` to extend `validGizmoTypes` or register an app store. Use `mediaSourceUpdated` to refresh an element's live preview when a backing file changes in place. Use `preProcessInsertContent` / `preProcessNodeToContent` / `postProcessNodeToContent` to hook insertion / export serialization. Use `activeElementChanged` / `editModeChanged` to sync edit state. Use `inlineContextMenu` to add context-menu buttons. The authoritative hook list and signatures live in the comment block at the top of `HAXWiring.js` (`elements/hax-body-behaviors/lib/HAXWiring.js`) and are mirrored in `hax-schema/README.md` under `# Hax hooks`. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Elements that need to participate in HAX lifecycle / state changes without importing HAX implement a `haxHooks()` method mapping hook names to element method names. The platform stays type-agnostic by routing through these hooks rather than hard-coding support for specific elements or file types. Use `processFileUpload` (returns `{ fileUuid, operation, valueMapping, fallbackType? }` or `false`) to let an element own its post-upload conversion from the generic tray upload / drag-drop path (`HAXStore.applyFileUploadTransform`), mirroring the per-field schema `uploadTransform`. Use `gizmoRegistration` to extend `validGizmoTypes` or register an app store. Use `mediaSourceUpdated` to refresh an element's live preview when a backing file changes in place. Use `preProcessInsertContent` / `preProcessNodeToContent` / `postProcessNodeToContent` to hook insertion / export serialization. Use `activeElementChanged` / `editModeChanged` to sync edit state. Use `inlineContextMenu` to add context-menu buttons. The authoritative hook list and signatures live in the comment block at the top of `HAXWiring.js` (`elements/hax-body-behaviors/lib/HAXWiring.js`) and are mirrored in `hax-schema/README.md` under `# Hax hooks`. In PRAW RULES.md (scope: webcomponents). Guidance by design: no check enforces this, and none is planned. Says how an element joins HAX lifecycle without importing HAX; the without-HAX check enforces the import half.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#haxhooks-lifecycle-integration"
    }
@@ -329,17 +328,17 @@
    }
   },
   "r_c3xjsqfbcmoa3cxsoonyxg": {
-   "desc": "Creating educational elements in HAX? Apply OER Schema metadata for consistent semantic structure and interoperability. Audit authored content with the `oerschema-audit` skill; find components missing schema with the `oerschema-integration-finder` skill. Map to real OER classes (Course/Unit/Module/Lesson/LearningObjective/Assessment/Quiz/Activity/Task/Rubric/SupportingMaterial/TableOfContents) — never invent classes. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Creating educational elements in HAX? Apply OER Schema metadata for consistent semantic structure and interoperability. Audit authored content with the `oerschema-audit` skill; find components missing schema with the `oerschema-integration-finder` skill. Map to real OER classes (Course/Unit/Module/Lesson/LearningObjective/Assessment/Quiz/Activity/Task/Rubric/SupportingMaterial/TableOfContents) — never invent classes. In PRAW RULES.md (scope: webcomponents). Guidance by design: no check enforces this, and none is planned. Says to apply OER Schema to educational elements and audit content with the oerschema skills; deciding which class fits takes a person or agent.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#educational-content-standards-oer-schema"
    }
   },
   "r_01ed665f326941e9888ab1": {
-   "desc": "Adaptive and remembered user state goes through the `user-scaffold` singleton (`globalThis.UserScaffold.requestAvailability()`), not ad-hoc localStorage or per-component trackers. Use `ltMemory` for persistent preferences, `stMemory` for session-level behavior, and honor the `active` flag, which pauses tracking when it would conflict with other systems. Treat it as the foundation for system-level adaptive features (welcome messages, adaptive tutorials, save-failure recovery). Rationale: KNOWLEDGE.md entry \"User-scaffold\". In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Adaptive and remembered user state goes through the `user-scaffold` singleton (`globalThis.UserScaffold.requestAvailability()`), not ad-hoc localStorage or per-component trackers. Use `ltMemory` for persistent preferences, `stMemory` for session-level behavior, and honor the `active` flag, which pauses tracking when it would conflict with other systems. Treat it as the foundation for system-level adaptive features (welcome messages, adaptive tutorials, save-failure recovery). Rationale: KNOWLEDGE.md entry \"User-scaffold\". In PRAW RULES.md (scope: webcomponents). Guidance by design: no check enforces this, and none is planned. Says where adaptive, remembered user state goes (user-scaffold); an architecture decision made while designing a feature.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#user-scaffold-for-adaptive-ux-state"
    }
@@ -353,9 +352,9 @@
    }
   },
   "r_2e0e8483_8e58_4854_b6f9_f28f77aec17b": {
-   "desc": "Tracking stores the smallest record that answers the question being asked (did they go through the page, did they finish the activity), not raw behavior. Collapse positional and \"seen\" signals (scroll depth, element visibility, checkpoints, time ticks) in the client into one outcome record; do not send a statement per signal. Once an outcome is complete it stops being recorded, and it never fires twice in one visit. Thresholds forgive (about 80% of checkpoints seen, never pixel-exact). A new statement type names what reads it (a report, a completion rule, the tracked view); if nothing reads it, it is not recorded. Rationale: KNOWLEDGE.md entry \"Tracking is translucent: visible to the tracked, abstract by default\". In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Tracking stores the smallest record that answers the question being asked (did they go through the page, did they finish the activity), not raw behavior. Collapse positional and \"seen\" signals (scroll depth, element visibility, checkpoints, time ticks) in the client into one outcome record; do not send a statement per signal. Once an outcome is complete it stops being recorded, and it never fires twice in one visit. Thresholds forgive (about 80% of checkpoints seen, never pixel-exact). A new statement type names what reads it (a report, a completion rule, the tracked view); if nothing reads it, it is not recorded. Rationale: KNOWLEDGE.md entry \"Tracking is translucent: visible to the tracked, abstract by default\". In PRAW RULES.md (scope: webcomponents). Guidance by design: no check enforces this, and none is planned. Says how little tracking should store; deciding what answers the question takes a person.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#tracking-records-the-outcome-not-the-stream"
    }
@@ -405,17 +404,17 @@
    }
   },
   "r_35309388_b7be_40ca_88a9_539fe1dd4b0d": {
-   "desc": "When an asynchronous lookup (IndexedDB, fetch, storage) assigns to a component property, check that the property has not been set in the meantime before assigning (compare against the value read when the lookup started, or only assign while it is still unset). Otherwise a late result silently clobbers a user or test action, producing intermittent failures that depend on timing. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "When an asynchronous lookup (IndexedDB, fetch, storage) assigns to a component property, check that the property has not been set in the meantime before assigning (compare against the value read when the lookup started, or only assign while it is still unset). Otherwise a late result silently clobbers a user or test action, producing intermittent failures that depend on timing. In PRAW RULES.md (scope: webcomponents). Guidance by design: no check enforces this, and none is planned. A coding pattern for async assignments; no static check can tell a stale write from an intended one.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#async-results-must-not-overwrite-newer-state"
    }
   },
   "r_896ecfa1_8965_4c06_a3ab_31c7e7eb28bf": {
-   "desc": "Some elements override `querySelectorAll` (for example `video-player`'s SSR stub, which returns `[]`), so shared helpers that call `el.querySelectorAll(...)` on an arbitrary element can silently do nothing. In shared code call the platform method directly (`Element.prototype.querySelectorAll.call(el, selector)`) or walk `el.children`/`el.childNodes`, and keep SSR stubs inert only for the element's own use. Tests for such helpers must assert that the expected node or object is actually found (and, for removals, that it is gone), not merely that the call did not throw; a failed assertion on a DOM node can also hang the test page until the runner's finish timeout. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Some elements override `querySelectorAll` (for example `video-player`'s SSR stub, which returns `[]`), so shared helpers that call `el.querySelectorAll(...)` on an arbitrary element can silently do nothing. In shared code call the platform method directly (`Element.prototype.querySelectorAll.call(el, selector)`) or walk `el.children`/`el.childNodes`, and keep SSR stubs inert only for the element's own use. Tests for such helpers must assert that the expected node or object is actually found (and, for removals, that it is gone), not merely that the call did not throw; a failed assertion on a DOM node can also hang the test page until the runner's finish timeout. In PRAW RULES.md (scope: webcomponents). Guidance by design: no check enforces this, and none is planned. A coding pattern for shared helpers; whether an element stubs querySelectorAll is only known at runtime.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#never-rely-on-queryselectorall-across-elements-that-may-stub-it"
    }
@@ -498,17 +497,17 @@
    }
   },
   "r_cfypzrdqlaj6xsxteavewt": {
-   "desc": "Any time changes are made to a HAXcms site theme using classes that inherit from HAXCMSLitElement, run `yarn run build` at the end instead of manually editing the custom-elements.json file. In PRAW RULES.md (scope: haxcms). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Any time changes are made to a HAXcms site theme using classes that inherit from HAXCMSLitElement, run `yarn run build` at the end instead of manually editing the custom-elements.json file. In PRAW RULES.md (scope: haxcms). Guidance by design: no check enforces this, and none is planned. Says to run yarn run build after changing a HAXcms theme; it is a step in the workflow, not a property of the result.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#haxcms-theme-build"
    }
   },
   "r_z61ldoq98dttlrwen7tl9t": {
-   "desc": "Code in a HAXsite's `custom/` folder (custom themes and site-specific elements bundled into `custom/build/custom.es6.js`) builds on the HAXcms base class instead of bare third-party imports. Custom themes extend `HAXCMSLitElementTheme`, and custom code takes its common needs from that same module, `@haxtheweb/haxcms-elements/lib/core/HAXCMSLitElementTheme.js`, which exports `html`, `css`, `svg`, `mathml` and `unsafeCSS` (lit), `store` (the HAXcms site store) and `autorun` / `toJS` (mobx). Site-specific elements that are not themes extend a HAX base class such as `DDD` from `@haxtheweb/d-d-d/d-d-d.js`. Do not import `lit`, `mobx` or other bare third-party packages in `custom/`: the site's import map only maps `@haxtheweb/` for `custom/build/`, so bare imports fail in the browser, and bundling a second copy of lit or mobx into the custom build duplicates the platform's own and splits the site store. In PRAW RULES.md (scope: haxcms). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Code in a HAXsite's `custom/` folder (custom themes and site-specific elements bundled into `custom/build/custom.es6.js`) builds on the HAXcms base class instead of bare third-party imports. Custom themes extend `HAXCMSLitElementTheme`, and custom code takes its common needs from that same module, `@haxtheweb/haxcms-elements/lib/core/HAXCMSLitElementTheme.js`, which exports `html`, `css`, `svg`, `mathml` and `unsafeCSS` (lit), `store` (the HAXcms site store) and `autorun` / `toJS` (mobx). Site-specific elements that are not themes extend a HAX base class such as `DDD` from `@haxtheweb/d-d-d/d-d-d.js`. Do not import `lit`, `mobx` or other bare third-party packages in `custom/`: the site's import map only maps `@haxtheweb/` for `custom/build/`, so bare imports fail in the browser, and bundling a second copy of lit or mobx into the custom build duplicates the platform's own and splits the site store. In PRAW RULES.md (scope: haxcms). Guidance by design: no check enforces this, and none is planned. Says which base class site custom/ code builds on; custom/ code lives in each site, outside these repos.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#haxcms-site-custom-code--build-on-haxcmslitelementtheme"
    }
@@ -755,44 +754,43 @@
    }
   },
   "ra_language": {
-   "desc": "Pure JavaScript with LitElement for web components In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Pure JavaScript with LitElement for web components In the AGENTS.md of cli, components. Enforced by No TypeScript. Partly. The No TypeScript check in webcomponents' rule-checks workflow keeps TypeScript source out of elements/; LitElement use is review.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
   "ra_no_typescript": {
-   "desc": "HAX strictly avoids TypeScript to eliminate compilation requirements. `yarn lint:rules` and the `rule-checks` workflow fail on any `.ts`, `.tsx`, `.mts` or `.cts` source under `elements/` (`.d.ts` declarations are fine) In the AGENTS.md of components. Enforced by No TypeScript. webcomponents' rule-checks workflow (scripts/rule-checks.mjs typescript) fails the pull request on any .ts, .tsx, .mts or .cts source under elements/; .d.ts declarations are allowed.",
+   "desc": "HAX strictly avoids TypeScript to eliminate compilation requirements. `yarn lint:rules` and the `rule-checks` workflow fail on any `.ts`, `.tsx`, `.mts` or `.cts` source under `elements/` (`.d.ts` declarations are fine) In the AGENTS.md of cli, components. Enforced by No TypeScript. webcomponents' rule-checks workflow (scripts/rule-checks.mjs typescript) fails the pull request on any .ts, .tsx, .mts or .cts source under elements/; .d.ts declarations are allowed.",
    "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
   "ra_unbundled_approach": {
-   "desc": "Components ship as native JS/HTML/CSS for maximum compatibility In the AGENTS.md of components. Enforced by size-report. Partly, and only as a report: the size report measures what an unbundled page downloads for each changed element, without failing the pull request.",
+   "desc": "Components ship as native JS/HTML/CSS for maximum compatibility In the AGENTS.md of cli, components. Enforced by size-report. Partly, and only as a report: the size report measures what an unbundled page downloads for each changed element, without failing the pull request.",
    "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
   "ra_third_party_libraries": {
-   "desc": "When using libraries written in TypeScript, always import the pre-compiled JavaScript distribution In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "When using libraries written in TypeScript, always import the pre-compiled JavaScript distribution In the AGENTS.md of cli, components. Guidance by design: no check enforces this, and none is planned. Says to import a TypeScript library's compiled JavaScript; the No TypeScript check keeps TypeScript out of elements/.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
   "ra_formatting": {
-   "desc": "In the AGENTS.md of components. Enforced by Format check. Prettier format check: fails the PR in create and haxcms-nodejs, reports only in webcomponents.",
+   "desc": "In the AGENTS.md of cli, components. Enforced by Format check. Prettier format check: fails the PR in create and haxcms-nodejs, reports only in webcomponents.",
    "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
   "ra_es_modules": {
-   "desc": "Use standard ES6 import/export syntax In the AGENTS.md of components. Nothing enforces this yet.",
+   "desc": "Use standard ES6 import/export syntax In the AGENTS.md of cli, components. Nothing enforces this yet.",
    "kind": "gap",
    "status": "gap",
    "links": {
@@ -807,9 +805,9 @@
    }
   },
   "ra_modern_javascript": {
-   "desc": "Leverage ES2018+ features while maintaining browser compatibility In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Leverage ES2018+ features while maintaining browser compatibility In the AGENTS.md of cli, components. Guidance by design: no check enforces this, and none is planned. Says to use modern JavaScript within browser support; the Browser Support rule and its lint warnings carry the specifics.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
@@ -829,9 +827,8 @@
    }
   },
   "ra_css_template_literals": {
-   "desc": "Never write a backtick (`` ` ``) character inside a `css` comment block (or anywhere else in a LitElement `css\\`...\\`` tagged template), including in prose like \"don't\" or \"it's\". A stray backtick terminates the template literal early and breaks the build/parse. In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Never write a backtick (`` ` ``) character inside a `css` comment block (or anywhere else in a LitElement `css\\`...\\`` tagged template), including in prose like \"don't\" or \"it's\". A stray backtick terminates the template literal early and breaks the build/parse. In the AGENTS.md of components. Enforced by ESLint. A stray backtick ends the css`` template early; the file stops parsing and ESLint fails the pull request on the syntax error.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
@@ -868,23 +865,23 @@
    }
   },
   "ra_file_structure": {
-   "desc": "In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "In the AGENTS.md of components. Guidance by design: no check enforces this, and none is planned. Says where source files go; each tool that reads them (the build, the HAX CLI) expects this layout.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
   "ra_web_components": {
-   "desc": "Use hyphenated names (e.g., `my-element`) In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Use hyphenated names (e.g., `my-element`) In the AGENTS.md of cli, components. Guidance by design: no check enforces this, and none is planned. Says custom element names are hyphenated; the browser refuses to define one without a hyphen.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
   "ra_package_names": {
-   "desc": "Match component/site name in `package.json` In the AGENTS.md of components. Nothing enforces this yet.",
+   "desc": "Match component/site name in `package.json` In the AGENTS.md of cli, components. Nothing enforces this yet.",
    "kind": "gap",
    "status": "gap",
    "links": {
@@ -892,9 +889,9 @@
    }
   },
   "ra_css_classes": {
-   "desc": "Follow BEM methodology when not using DDD tokens In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Follow BEM methodology when not using DDD tokens In the AGENTS.md of cli, components. Guidance by design: no check enforces this, and none is planned. A naming convention (BEM) for CSS classes that aren't DDD tokens; style, not something a check decides.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
@@ -907,9 +904,8 @@
    }
   },
   "ra_t_is_reserved": {
-   "desc": "I18NMixin and the i18n-manager keep an element's English strings in `this._t` (and its bookkeeping in `__i18n*` names). Never use `_t` for an element's own property, field, method or state; adding English defaults with `this._t = { ...this._t, ...more }` is the one allowed write. ESLint reports the rest (`haxtheweb-i18n/reserved-t`, `scripts/eslint-rules/i18n-reserved.mjs`). In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "I18NMixin and the i18n-manager keep an element's English strings in `this._t` (and its bookkeeping in `__i18n*` names). Never use `_t` for an element's own property, field, method or state; adding English defaults with `this._t = { ...this._t, ...more }` is the one allowed write. ESLint reports the rest (`haxtheweb-i18n/reserved-t`, `scripts/eslint-rules/i18n-reserved.mjs`). In the AGENTS.md of components. Enforced by ESLint. ESLint rule haxtheweb-i18n/reserved-t (scripts/eslint-rules/i18n-reserved.mjs) fails the pull request on an element using _t for its own property, field, method or state.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
@@ -922,7 +918,7 @@
    }
   },
   "ra_security_audits": {
-   "desc": "For recurring security audits of this repo, start with `SECURITY-AUDIT.md` — it defines the read order, scope, commands, regression guards, and reporting convention In the AGENTS.md of components. Guidance by design: no check enforces this, and none is planned. Says where a recurring security audit of this repo starts (SECURITY-AUDIT.md); it is a playbook, not a property of the code.",
+   "desc": "For recurring security audits of this repo, start with `SECURITY-AUDIT.md` — it defines the read order, scope, commands, regression guards, and reporting convention In the AGENTS.md of cli, components, nodejs, php. Guidance by design: no check enforces this, and none is planned. Says where a recurring security audit of this repo starts (SECURITY-AUDIT.md); it is a playbook, not a property of the code.",
    "kind": "guidance",
    "status": "guidance",
    "links": {
@@ -930,14 +926,14 @@
    }
   },
   "ra_dependencies": {
-   "desc": "Keep dependencies updated before running `yarn install` In the AGENTS.md of components. Enforced by Dependency audit.",
+   "desc": "Keep dependencies updated before running `yarn install` In the AGENTS.md of cli, components, nodejs, php. Enforced by Dependency audit.",
    "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
   "ra_sensitive_data": {
-   "desc": "Avoid committing API keys or sensitive data to `package.json`, `site.json`, or public files In the AGENTS.md of components. Nothing enforces this yet.",
+   "desc": "Avoid committing API keys or sensitive data to `package.json`, `site.json`, or public files In the AGENTS.md of cli, components, nodejs, php. Nothing enforces this yet.",
    "kind": "gap",
    "status": "gap",
    "links": {
@@ -945,41 +941,49 @@
    }
   },
   "ra_site_imports": {
-   "desc": "Validate source URLs when using `--import-site` to prevent malicious content In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Validate source URLs when using `--import-site` to prevent malicious content In the AGENTS.md of cli, components, nodejs, php. Guidance by design: no check enforces this, and none is planned. Says to validate source URLs before importing a site; a practice for the person running an import.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
   "ra_file_permissions": {
-   "desc": "Ensure scripts have correct execution permissions (`chmod +x script.sh`) In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Ensure scripts have correct execution permissions (`chmod +x script.sh`) In the AGENTS.md of cli, components, nodejs, php. Guidance by design: no check enforces this, and none is planned. Says to keep scripts executable; a practice, not a property worth gating pull requests on.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
   "ra_component_security": {
-   "desc": "Sanitize user inputs in custom components In the AGENTS.md of components. Enforced by CodeQL. CodeQL flags unsanitized input flowing into the DOM.",
+   "desc": "Sanitize user inputs in custom components In the AGENTS.md of cli, components, nodejs, php. Enforced by CodeQL. CodeQL flags unsanitized input flowing into the DOM.",
    "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
   "ra_schema_validation": {
-   "desc": "Validate against JSON schemas before processing content In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Validate against JSON schemas before processing content In the AGENTS.md of cli, components, nodejs, php. Guidance by design: no check enforces this, and none is planned. Says to validate content against JSON schemas before processing it; the HAXSchema and API conformance checks cover the schemas HAX ships.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
   "ra_library_security": {
-   "desc": "Only import from trusted, well-maintained JavaScript distributions In the AGENTS.md of components. Enforced by Dependency audit, Dependency licenses.",
+   "desc": "Only import from trusted, well-maintained JavaScript distributions In the AGENTS.md of cli, components, nodejs, php. Enforced by Dependency audit, Dependency licenses.",
    "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
+   }
+  },
+  "ra_external_dependencies": {
+   "desc": "Leverage libraries like `vaadin-upload`, `shoelace-carousel`, etc. but always use their JS builds In the AGENTS.md of cli. Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/create/blob/main/AGENTS.md"
    }
   },
   "rc_content_contract": {
@@ -1035,7 +1039,7 @@
    "id": "rules",
    "label": "Rules and what guarantees them",
    "kind": "story",
-   "message": "125 rules: 43 enforced by a check, 31 guidance by design, 51 not yet.",
+   "message": "126 rules: 47 enforced by a check, 52 guidance by design, 27 not yet.",
    "scenes": [
     {
      "caption": "Rules come from PRAW's RULES.md, each repo's AGENTS.md, and the plan's proposals.",
@@ -1056,12 +1060,13 @@
      ]
     },
     {
-     "caption": "43 rules have a check that enforces them.",
+     "caption": "47 rules have a check that enforces them.",
      "nodes": [
       "r_a8bf4a47_3d4f_4f8e_a356_a04db66ce1ab",
       "r_1286150dc8944178aa82ca",
       "r_mlhl56jnsqhvnriaw5a2gr",
       "r_mt6hpj9bdha13jwsxjcmea",
+      "r_1992902d74844c908ab446",
       "r_956c54783626475ea901a6",
       "r_rvsctsdjae8lrmsjmpo3mk",
       "r_7cpveferpsf0az8tkqxw0y",
@@ -1085,14 +1090,17 @@
       "r_4a7c9e2b_8d5f_4e1a_9c3b_7f2e6d5a4b3c",
       "r_cd0800bf_8611_4835_a421_ad10e88b01e9",
       "r_7d6f9c3e_8d0c_4127_948e_e6260465fa95",
+      "ra_language",
       "ra_no_typescript",
       "ra_unbundled_approach",
       "ra_formatting",
       "ra_license_header",
       "ra_html_sinks",
       "ra_no_bindings_inside_style",
+      "ra_css_template_literals",
       "ra_every_field_in_admin_chrome_is_a_simple_fields_field",
       "ra_locale_urls_name_the_english_file",
+      "ra_t_is_reserved",
       "ra_feature_prs_change_english_source_strings_only",
       "ra_dependencies",
       "ra_component_security",
@@ -1189,21 +1197,34 @@
      ]
     },
     {
-     "caption": "31 rules are guidance by design: how agents and people work, which no check could decide.",
+     "caption": "52 rules are guidance by design: how agents and people work, which no check could decide.",
      "nodes": [
+      "r_zvem3yg7jtxbsxbop3ypzy",
+      "r_rhq7llrzmzlnfvelrwslun",
       "r_tjnufvxe11bgtoleu8opxk",
+      "r_d513754d87c145d6a166ec",
       "r_7e2c1a94_3b58_4d0f_9c6a_1f8e4d2b5a30",
       "r_9f3c2a7e_6b1d_4e8a_9c5f_2d7b8e1a4f60",
+      "r_k0lv6bjoprqp7ijmzkemuw",
       "r_c4f0b69d_9ed4_4b6d_bf52_6a3d9937c98f",
       "r_ccca6768_05e0_4d4d_b3a1_4b9895531558",
+      "r_eis0l9w9l2jg1cofysmvdt",
+      "r_haxhooks_lifecycle_integration",
+      "r_c3xjsqfbcmoa3cxsoonyxg",
+      "r_01ed665f326941e9888ab1",
+      "r_2e0e8483_8e58_4854_b6f9_f28f77aec17b",
       "r_1b8b8a93_0458_41f9_85a4_ba8d16923765",
       "r_646fc5cf_6f1f_47e0_b48c_c54544cda490",
+      "r_35309388_b7be_40ca_88a9_539fe1dd4b0d",
+      "r_896ecfa1_8965_4c06_a3ab_31c7e7eb28bf",
       "r_8369fe15_5bae_4fb0_9f49_ca30193a6569",
       "r_ip9iudnwzrzqsyk4ggvczh",
       "r_e9zioqke3y0gdnwb08xqn8",
       "r_hax_site_scaffold",
       "r_trwt1r0bv54nuhgefl8iwe",
       "r_pccvd8jgmc7zhehtdebzd1",
+      "r_cfypzrdqlaj6xsxteavewt",
+      "r_z61ldoq98dttlrwen7tl9t",
       "r_pacoyoqw2aiyato3r6asnl",
       "r_edaxma3ziihz86gyx4mosu",
       "r_f54de8cb_0b65_4f50_98e6_43e8c2ebc4c7",
@@ -1220,37 +1241,31 @@
       "r_4ab69ab2_d295_4c01_a448_1ce1689c7366",
       "r_fc4153f1_90f0_4d22_a023_fec8f492b408",
       "r_759643a6db03433a9d742f",
+      "ra_third_party_libraries",
+      "ra_modern_javascript",
       "ra_hax_rules_win_over_outside_guidance",
-      "ra_security_audits"
+      "ra_file_structure",
+      "ra_web_components",
+      "ra_css_classes",
+      "ra_security_audits",
+      "ra_site_imports",
+      "ra_file_permissions",
+      "ra_schema_validation"
      ]
     },
     {
-     "caption": "51 rules nothing enforces yet: the backlog of what to automate next.",
+     "caption": "27 rules nothing enforces yet: the backlog of what to automate next.",
      "nodes": [
-      "r_zvem3yg7jtxbsxbop3ypzy",
-      "r_rhq7llrzmzlnfvelrwslun",
       "r_q4d9hl9sfnorlmpt1z2zeb",
       "r_69qeidwqwmafq9ewziwmln",
       "r_82dc87fd_6bc1_4d20_9d68_5b077bb88b89",
-      "r_d513754d87c145d6a166ec",
       "r_54e36477_ac8a_4fb2_bd9e_c46463f608aa",
-      "r_k0lv6bjoprqp7ijmzkemuw",
       "r_447f8d9bc5484749b1188e",
-      "r_1992902d74844c908ab446",
       "r_411423ec_d922_4bd4_8c45_3d8c65b9fbfa",
       "r_410c4334_a186_4356_9584_0796e5d2bc2d",
-      "r_eis0l9w9l2jg1cofysmvdt",
       "r_wqogob824vgw5hecmh08ew",
-      "r_haxhooks_lifecycle_integration",
-      "r_c3xjsqfbcmoa3cxsoonyxg",
-      "r_01ed665f326941e9888ab1",
       "r_ea643795_98bc_47fb_bf31_999644a48f77",
-      "r_2e0e8483_8e58_4854_b6f9_f28f77aec17b",
-      "r_35309388_b7be_40ca_88a9_539fe1dd4b0d",
-      "r_896ecfa1_8965_4c06_a3ab_31c7e7eb28bf",
       "r_f3c7716773784e8f94254a",
-      "r_cfypzrdqlaj6xsxteavewt",
-      "r_z61ldoq98dttlrwen7tl9t",
       "r_09255ba6_e67a_44ce_b8cb_f0d5e80f97ab",
       "r_dc5c2839_f04e_428c_a622_1e6d8cce1214",
       "r_5cf2787e_c2df_4184_8b61_53c42ffad9cf",
@@ -1259,22 +1274,12 @@
       "r_9b2e454c_9b5b_46dc_b443_6470b3b4abe9",
       "r_2472221d_091f_48bc_a44f_acf03f41ce29",
       "r_cd0bc4fc_a502_4b33_8036_057882b5f0e9",
-      "ra_language",
-      "ra_third_party_libraries",
       "ra_es_modules",
-      "ra_modern_javascript",
-      "ra_css_template_literals",
       "ra_browser_support",
       "ra_theme_development",
-      "ra_file_structure",
-      "ra_web_components",
       "ra_package_names",
-      "ra_css_classes",
-      "ra_t_is_reserved",
       "ra_sensitive_data",
-      "ra_site_imports",
-      "ra_file_permissions",
-      "ra_schema_validation",
+      "ra_external_dependencies",
       "rc_user_links",
       "rc_correct_colors"
      ]

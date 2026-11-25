@@ -10,15 +10,26 @@ source) and slugs.json (every page's path), so the data and the site can't disag
   data/webs/<web>.json    one web: its nodes (with their hax.cloud page), edges, evidence and tours
   data/webs/<web>.mmd     the web's Mermaid source, as drawn
   data/llms-section.md    the "Datasets" section site.sh appends to llms.txt
+  data/growth/*.json      the growth data layer (build_growth.py's committed snapshot), copied as is
+  data/openapi.json       an OpenAPI 3.1 description of every file above, for agents
 
 Edges come from the Mermaid source (`a -->|label| b`); style says which arrow drew them: solid (-->), dashed (-.->),
 thick (==>) or line (---). Data is published under the repository's license (Apache-2.0).
 """
-import json, os, re, sys
+import json, os, re, shutil, sys
 
 SITE = "https://hax.cloud/"
 REPO = "https://github.com/haxtheweb/praw/blob/main/ecosystem/web/"
 LICENSE = "https://www.apache.org/licenses/LICENSE-2.0"
+GROWTH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "growth")
+# the growth data layer (https://github.com/haxtheweb/issues/issues/3409): file -> (name, what it holds)
+GROWTH_FILES = {
+    "repos": ("Repositories over time", "First commit and commits per month for every repository in the HAX network."),
+    "themes": ("Themes over time", "Every theme on the shared theme core: when it appeared, what it extends, its own code size."),
+    "elements": ("Elements and their dependencies", "Every element package: when it appeared, its size, DDD or not, and which packages it imports and is imported by."),
+    "payload": ("What a visitor loads", "Gzipped size of every file a theme or element loads, the shared core, and sample visitor journeys for cache savings."),
+    "series": ("Growth series", "Monthly series on one axis: commits, merged PRs, issues closed, totals of themes, elements and platforms, sites built."),
+}
 ARROWS = {"-->": "solid", "-.->": "dashed", "==>": "thick", "---": "line"}
 EDGE = re.compile(r"^\s*([\w-]+)\s*(-->|-\.->|==>|---)\s*(?:\|([^|]*)\|)?\s*([\w-]+)\s*$")
 NODE = re.compile(r"^\s*([\w-]+)\s*(?:\(\(|\[\(|\[\[|\[|\(|\{\{|\{|>)\s*\"([^\"]*)\"")
@@ -61,6 +72,56 @@ def parse_mmd(mmd):
         if n and n.group(1) not in ("subgraph", "flowchart", "graph"):
             labels.setdefault(n.group(1), n.group(2))
     return labels, edges, about
+
+
+def growth(data_dir, catalog, llms):
+    """copy the committed growth snapshot into data/growth/ and list each file in the catalog"""
+    if not os.path.isdir(GROWTH):
+        return []
+    os.makedirs(os.path.join(data_dir, "growth"), exist_ok=True)
+    out = []
+    for key, (name, about) in GROWTH_FILES.items():
+        src = os.path.join(GROWTH, key + ".json")
+        if not os.path.isfile(src):
+            continue
+        shutil.copyfile(src, os.path.join(data_dir, "growth", key + ".json"))
+        meta = json.load(open(src)).get("meta", {})
+        url = SITE + "data/growth/" + key + ".json"
+        ds = {"@type": "Dataset", "identifier": "growth-" + key, "name": name, "description": about,
+              "url": url, "license": LICENSE, "isAccessibleForFree": True,
+              "isBasedOn": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/growth/" + key + ".json",
+              "distribution": [{"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": url}]}
+        if meta.get("generated"):
+            ds["dateModified"] = meta["generated"]
+        catalog.append(ds)
+        llms.append("- [%s](%s): %s" % (name, url, about))
+        out.append(key)
+    return out
+
+
+def openapi(data_dir, webs, growth_keys):
+    """an OpenAPI 3.1 description of the published files: static hosting, so it documents files, not queries"""
+    obj = {"type": "object"}
+    paths = {
+        "/data/index.json": ("The dataset catalog", "A schema.org DataCatalog of every dataset on hax.cloud."),
+        "/data/graph.json": ("The whole graph", "Every web's nodes (keyed <web>:<id>) and edges in one file."),
+        "/data/webs/{web}.json": ("One web", "A web's nodes, each with its hax.cloud page, its edges, evidence and tours."),
+    }
+    paths.update({"/data/growth/%s.json" % k: GROWTH_FILES[k] for k in growth_keys})
+    spec = {"openapi": "3.1.0",
+            "info": {"title": "hax.cloud open data", "version": "1",
+                     "description": "Static JSON files published from PRAW on every build. Every file is plain GET, "
+                                    "no authentication. Growth files carry a meta block with how they were made.",
+                     "license": {"name": "Apache-2.0", "url": LICENSE}},
+            "servers": [{"url": SITE.rstrip("/")}], "paths": {}}
+    for path, (summary, about) in paths.items():
+        op = {"summary": summary, "description": about, "operationId": re.sub(r"\W+", "_", path.strip("/")).strip("_"),
+              "responses": {"200": {"description": summary, "content": {"application/json": {"schema": obj}}}}}
+        if "{web}" in path:
+            op["parameters"] = [{"name": "web", "in": "path", "required": True,
+                                 "schema": {"type": "string", "enum": sorted(webs)}}]
+        spec["paths"][path] = {"get": op}
+    json.dump(spec, open(os.path.join(data_dir, "openapi.json"), "w"), indent=1)
 
 
 def main(out):
@@ -116,8 +177,11 @@ def main(out):
             dataset["dateModified"] = meta["updated"]
         catalog.append(dataset)
         llms.append("- [%s](%s.json): %s (%d nodes, %d edges)" % (title, url, about or title, len(nodes), len(edges)))
+    n_webs = len(catalog)
+    growth_keys = growth(data_dir, catalog, llms)
+    openapi(data_dir, list(bundle["order"]), growth_keys)
     graph["meta"] = {"about": "Every hax.cloud web in one graph. Node keys are <web>:<id>; the same id in two webs is "
-                              "the same thing drawn in two places.", "webs": len(catalog), "license": LICENSE}
+                              "the same thing drawn in two places.", "webs": n_webs, "license": LICENSE}
     json.dump(graph, open(os.path.join(data_dir, "graph.json"), "w"), ensure_ascii=False, separators=(",", ":"))
     index = {"@context": "https://schema.org", "@type": "DataCatalog", "@id": SITE + "data/index.json",
              "name": "hax.cloud datasets",
@@ -135,9 +199,10 @@ def main(out):
                "The webs behind hax.cloud as open JSON (Apache-2.0). Each web's nodes carry their hax.cloud page; "
                "edges come from the web's Mermaid source.", "",
                "- [Dataset catalog](%sdata/index.json): schema.org DataCatalog of every web below" % SITE,
-               "- [Whole graph](%sdata/graph.json): every web's nodes and edges in one file" % SITE] + llms
+               "- [Whole graph](%sdata/graph.json): every web's nodes and edges in one file" % SITE,
+               "- [OpenAPI description](%sdata/openapi.json): every file below, for agents" % SITE] + llms
     open(os.path.join(data_dir, "llms-section.md"), "w").write("\n".join(section) + "\n")
-    print("data: %d webs, %d nodes, %d edges" % (len(catalog), len(graph["nodes"]), len(graph["edges"])))
+    print("data: %d webs, %d nodes, %d edges, %d growth files" % (n_webs, len(graph["nodes"]), len(graph["edges"]), len(growth_keys)))
 
 
 if __name__ == "__main__":

@@ -19,6 +19,7 @@ Read these before writing anything public about HAX or making product decisions:
 - **impact/**: the data behind the wins (npm downloads, release velocity, merged PRs, SIIP timeline), refreshed with `node scripts/impact-stats.mjs` — https://github.com/haxtheweb/praw/tree/main/impact
 - **talks/**: notes and recordings of key talks — https://github.com/haxtheweb/praw/tree/main/talks
 - **ecosystem/**: maps from the HAX ecosystem web to HEOSAT evidence (all 47 questions) and to the instructional design skills, their elements and pillars — https://github.com/haxtheweb/praw/tree/main/ecosystem
+- **ecosystem/build/data/growth/**: the growth data layer: repositories, themes and elements over time, element dependencies, what each theme and element loads (gzipped) and monthly series; published at https://hax.cloud/data/growth/ with an OpenAPI description at https://hax.cloud/data/openapi.json — https://github.com/haxtheweb/praw/tree/main/ecosystem/build/data/growth
 
 ## Interface Skills (canonical source: `create`)
 

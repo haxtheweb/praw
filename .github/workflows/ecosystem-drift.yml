@@ -13,6 +13,10 @@ name: Ecosystem web drift
 # Its changed files land in the same artifact and its summary in the same report; a refresh that fails is reported
 # there and does not stop the rest of the report. No AI runs here, and nothing is committed: to take the new snapshot,
 # run build_growth.py locally (or copy the artifact's files) and open a pull request.
+#
+# It also rebuilds the HTML import sample (hax-imports/import-example.html) from the Learn HAX clone with
+# scripts/build-import-example-html.js, so the report says when Learn has moved on from it; a changed sample lands in
+# the artifact like the rest, and nothing is committed.
 on:
   schedule:
     - cron: "41 8 * * 0" # Sundays, 08:41 UTC
@@ -48,9 +52,14 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }} # read-only: contributors.json reads haxtheweb/issues' public issues and events
         run: python3 -I ecosystem/build/build_growth.py --src "$RUNNER_TEMP/growth"
+      - name: Rebuild the HTML import sample from Learn
+        id: sample
+        continue-on-error: true # reported below; the rest of the drift report still lands
+        run: node scripts/build-import-example-html.js ecosystem/.work/learnrepo hax-imports/import-example.html
       - name: Report what changed
         env:
           GROWTH_OUTCOME: ${{ steps.growth.outcome }}
+          SAMPLE_OUTCOME: ${{ steps.sample.outcome }}
         run: python3 -I ecosystem/build/drift_report.py "$RUNNER_TEMP/drift"
       - name: Keep the report and the changed files
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

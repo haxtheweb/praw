@@ -1,290 +1,159 @@
 {
 "fresh": {
-"appstore": {
-"ap_youtube": "2026-10-19",
-"ap_vimeo": "2026-10-19",
-"ap_giphy": "2026-10-19",
-"ap_unsplash": "2026-10-19",
-"ap_flickr": "2026-10-19",
-"ap_nasa": "2026-10-19",
-"ap_sketchfab": "2026-10-19",
-"ap_dailymotion": "2026-10-19",
-"ap_wikipedia": "2026-10-19",
-"ap_cc_mixter": "2026-10-19"
-},
-"cli": {
-"c_start": "2026-11-10",
-"c_update": "2026-11-10",
-"c_serve": "2026-11-10",
-"c_site": "2026-11-10",
-"c_wc": "2026-11-10",
-"c_audit": "2026-11-10",
-"c_party": "2026-11-10",
-"c_skills": "2026-11-10",
-"c_list": "2026-11-10",
-"c_alias": "2026-11-10",
-"c_completion": "2026-11-10",
-"c_node_stats": "2026-11-10",
-"c_node_add": "2026-11-10",
-"c_node_edit": "2026-11-10",
-"c_node_delete": "2026-11-10",
-"c_node_generate": "2026-11-10",
-"c_site_stats": "2026-11-10",
-"c_site_items": "2026-11-10",
-"c_site_items_import": "2026-11-10",
-"c_site_list_files": "2026-11-10",
-"c_site_search": "2026-11-10",
-"c_site_tags": "2026-11-10",
-"c_site_blocks": "2026-11-10",
-"c_site_analytics": "2026-11-10",
-"c_site_revisions": "2026-11-10",
-"c_site_validate": "2026-11-10",
-"c_site_rebuild": "2026-11-10",
-"c_site_archive": "2026-11-10",
-"c_site_restore": "2026-11-10",
-"c_site_logs": "2026-11-10",
-"c_site_list": "2026-11-10",
-"c_site_export": "2026-11-10",
-"c_site_theme": "2026-11-10",
-"c_site_element": "2026-11-10",
-"c_site_html": "2026-11-10",
-"c_site_md": "2026-11-10",
-"c_site_schema": "2026-11-10",
-"c_site_skeleton_export": "2026-11-10",
-"c_site_skeleton_install": "2026-11-10",
-"c_site_sync": "2026-11-10",
-"c_site_rsync": "2026-11-10",
-"c_site_surge": "2026-11-10",
-"c_site_netlify": "2026-11-10",
-"c_site_vercel": "2026-11-10",
-"c_setup_github_actions": "2026-11-10",
-"c_setup_gitlab_ci": "2026-11-10",
-"c_setup_replit": "2026-11-10",
-"c_issue_general": "2026-11-10",
-"c_issue_theme": "2026-11-10",
-"c_to_remote": "2026-11-10",
-"c_to_local": "2026-11-10",
-"c_from_remote": "2026-11-10",
-"c_test": "2026-11-10",
-"c_base": "2026-11-10",
-"c_starter": "2026-11-10",
-"c_polaris_flex": "2026-11-10",
-"c_polaris_sidebar": "2026-11-10",
-"c_skeleton": "2026-11-10",
-"c_details": "2026-11-10",
-"c_html": "2026-11-10",
-"c_schema": "2026-11-10",
-"c_md": "2026-11-10",
-"c_title": "2026-11-10",
-"c_content": "2026-11-10",
-"c_slug": "2026-11-10",
-"c_published": "2026-11-10",
-"c_tags": "2026-11-10",
-"c_parent": "2026-11-10",
-"c_order": "2026-11-10",
-"c_theme": "2026-11-10",
-"c_hideinmenu": "2026-11-10",
-"c_custom_theme": "2026-11-10",
-"c_site_status": "2026-11-10",
-"c_node_status": "2026-11-10",
-"c_site_file_list": "2026-11-10",
-"c_site_files_upload": "2026-11-10",
-"c_site_files_delete": "2026-11-10",
-"c_site_search_replace": "2026-11-10",
-"c_site_doctor": "2026-11-10",
-"c_audit_i18n": "2026-11-10",
-"c_audit_schema": "2026-11-10",
-"c_audit_ssr": "2026-11-10",
-"c_audit_theme": "2026-11-10",
-"c_party_docs": "2026-11-10",
-"c_party_playground": "2026-11-10",
-"c_party_psu": "2026-11-10",
-"c_party_issues": "2026-11-10",
-"c_party_discord": "2026-11-10",
-"c_party_club": "2026-11-10",
-"c_party_github": "2026-11-10",
-"c_skills_list": "2026-11-10",
-"c_skills_all": "2026-11-10"
-},
 "contracts": {
-"josspec": "2026-10-30",
-"haxpropsschema": "2026-10-30",
-"appstorejson": "2026-10-19",
-"xapivocab": "2026-11-09",
-"merlinoption": "2026-11-10"
+"josspec": "2026-11-24",
+"haxpropsschema": "2026-11-24",
+"xapivocab": "2026-11-24",
+"merlinoption": "2026-11-25"
 },
 "main": {
-"traveler": "2026-11-07",
-"php": "2026-11-10",
-"nodejs": "2026-11-10",
-"haxiam": "2026-10-23",
-"hax11ty": "2026-10-22",
-"cli": "2026-11-10",
-"ubiquity": "2026-11-10",
-"importers": "2026-10-22",
-"learnhax": "2026-09-01",
-"agents": "2026-11-10",
-"mcp": "2026-11-10",
-"praw": "2026-11-10",
-"wins": "2026-11-05",
-"components": "2026-11-10",
-"ddd": "2026-11-10",
-"plugins": "2026-10-23",
+"haxiam": "2026-11-24",
+"hax11ty": "2026-11-24",
+"ubiquity": "2026-11-25",
+"learnhax": "2026-11-25",
+"agents": "2026-11-25",
+"mcp": "2026-11-25",
+"praw": "2026-11-25",
+"wins": "2026-11-11",
+"components": "2026-11-25",
+"ddd": "2026-11-25",
+"plugins": "2026-11-16",
 "ist256": "2025-01-21",
-"jos": "2026-10-30",
-"oerschema": "2026-11-02",
-"haxlab": "2026-01-05",
+"jos": "2026-11-24",
+"oerschema": "2026-11-24",
+"haxlab": "2026-11-25",
 "elmsln": "2026-08-14",
-"editor": "2026-11-10",
-"dashboard": "2026-11-10",
-"themes": "2026-11-09",
-"outline": "2026-11-10",
-"merlin": "2026-11-10",
-"haxcms": "2026-11-10",
-"haxschema": "2026-10-30",
-"appstore": "2026-10-19",
-"skeletons": "2026-11-06",
-"testing": "2026-11-09",
-"games": "2026-11-09",
-"xapi": "2026-11-10",
-"security": "2026-11-09"
+"editor": "2026-11-25",
+"dashboard": "2026-11-25",
+"themes": "2026-11-25",
+"outline": "2026-11-24",
+"merlin": "2026-11-25",
+"haxschema": "2026-11-24",
+"testing": "2026-11-10",
+"games": "2026-11-25",
+"xapi": "2026-11-24"
 },
 "elements": {
-"b_code_sample": "2026-11-04",
-"b_ebook_button": "2026-11-10",
-"b_fill_in_the_blanks": "2026-11-10",
-"b_flash_card": "2026-11-06",
-"b_h5p_element": "2026-11-06",
-"b_learning_component": "2026-11-10",
-"b_mark_the_words": "2026-11-06",
-"b_matching_question": "2026-11-10",
-"b_lrn_math": "2026-11-09",
-"b_multiple_choice": "2026-11-10",
-"b_self_check": "2026-11-10",
-"b_short_answer_question": "2026-11-10",
-"b_sorting_question": "2026-11-06",
-"b_stop_note": "2026-11-04",
-"b_tagging_question": "2026-11-10",
-"b_lrndesign_timeline": "2026-11-04",
-"b_true_false_question": "2026-11-10",
-"b_vocab_term": "2026-11-06",
-"b_worksheet_download": "2026-11-10",
-"b_audio_player": "2026-11-10",
-"b_media_image": "2026-11-10",
-"b_a11y_gif_player": "2026-11-10",
-"b_image_compare_slider": "2026-11-06",
-"b_image_gallery": "2026-11-04",
-"b_inline_audio": "2026-11-06",
-"b_media_playlist": "2026-11-09",
-"b_meme_maker": "2026-11-06",
-"b_spotify_embed": "2026-11-06",
-"b_tableau_embed": "2026-11-06",
-"b_video_player": "2026-11-10",
-"b_block_quote": "2026-11-10",
-"b_simple_cta": "2026-11-04",
-"b_accent_card": "2026-11-04",
-"b_a11y_collapse": "2026-11-10",
-"b_grid_plate": "2026-11-05",
-"b_person_testimonial": "2026-11-04",
-"b_page_section": "2026-11-04",
-"b_play_list": "2026-11-04",
-"b_bibliography_builder": "2026-11-06",
-"b_bibliography_item": "2026-11-06",
-"b_career_org_item": "2026-11-06",
-"b_career_role_item": "2026-11-06",
-"b_career_timeline": "2026-11-06",
-"b_citation_element": "2026-11-02",
-"b_place_holder": "2026-11-03",
-"b_ai_usage_license": "2026-11-06",
-"b_course_model": "2026-11-09",
-"b_date_card": "2026-11-06",
-"b_license_element": "2026-11-04",
-"b_md_block": "2026-11-04",
-"b_page_anchor": "2026-11-09",
-"b_page_break": "2026-11-09",
-"b_page_flag": "2026-11-04",
-"b_q_r": "2026-11-04",
-"b_site_remote_content": "2026-11-10",
-"b_rpg_character": "2026-11-09",
-"b_moar_sarcasm": "2026-11-06",
-"b_simple_tags": "2026-11-09",
-"b_twitter_embed": "2026-11-06",
-"b_wikipedia_query": "2026-11-04"
+"b_code_sample": "2026-11-24",
+"b_ebook_button": "2026-11-25",
+"b_fill_in_the_blanks": "2026-11-24",
+"b_flash_card": "2026-11-25",
+"b_h5p_element": "2026-11-25",
+"b_learning_component": "2026-11-25",
+"b_mark_the_words": "2026-11-25",
+"b_matching_question": "2026-11-25",
+"b_lrn_math": "2026-11-24",
+"b_multiple_choice": "2026-11-25",
+"b_self_check": "2026-11-24",
+"b_short_answer_question": "2026-11-25",
+"b_sorting_question": "2026-11-25",
+"b_stop_note": "2026-11-24",
+"b_tagging_question": "2026-11-25",
+"b_lrndesign_timeline": "2026-11-25",
+"b_true_false_question": "2026-11-25",
+"b_vocab_term": "2026-11-24",
+"b_worksheet_download": "2026-11-25",
+"b_audio_player": "2026-11-24",
+"b_media_image": "2026-11-24",
+"b_a11y_gif_player": "2026-11-25",
+"b_image_compare_slider": "2026-11-24",
+"b_image_gallery": "2026-11-24",
+"b_inline_audio": "2026-11-24",
+"b_media_playlist": "2026-11-25",
+"b_meme_maker": "2026-11-25",
+"b_spotify_embed": "2026-11-25",
+"b_tableau_embed": "2026-11-25",
+"b_video_player": "2026-11-24",
+"b_block_quote": "2026-11-25",
+"b_simple_cta": "2026-11-24",
+"b_accent_card": "2026-11-24",
+"b_a11y_collapse": "2026-11-25",
+"b_grid_plate": "2026-11-24",
+"b_person_testimonial": "2026-11-24",
+"b_page_section": "2026-11-24",
+"b_play_list": "2026-11-25",
+"b_bibliography_builder": "2026-11-25",
+"b_bibliography_item": "2026-11-25",
+"b_career_org_item": "2026-11-25",
+"b_career_role_item": "2026-11-25",
+"b_career_timeline": "2026-11-25",
+"b_citation_element": "2026-11-25",
+"b_place_holder": "2026-11-24",
+"b_ai_usage_license": "2026-11-25",
+"b_course_model": "2026-11-25",
+"b_date_card": "2026-11-24",
+"b_license_element": "2026-11-25",
+"b_md_block": "2026-11-24",
+"b_page_anchor": "2026-11-25",
+"b_page_break": "2026-11-25",
+"b_page_flag": "2026-11-25",
+"b_q_r": "2026-11-24",
+"b_site_remote_content": "2026-11-25",
+"b_rpg_character": "2026-11-25",
+"b_moar_sarcasm": "2026-11-24",
+"b_simple_tags": "2026-11-25",
+"b_twitter_embed": "2026-11-25",
+"b_wikipedia_query": "2026-11-25"
 },
 "haxcms": {
-"outline": "2026-11-10"
+"outline": "2026-11-24"
 },
 "haxschema": {
-"hsfile": "2026-10-24",
+"hsfile": "2026-11-18",
 "hslocale": "2026-10-15",
-"b_haxcms_elements": "2026-11-10",
-"b_lrndesign_chart": "2026-11-04",
-"b_micro_game_base": "2026-11-10",
-"b_d_d_d": "2026-11-10",
-"b_hax_body": "2026-11-10",
-"b_course_design": "2026-11-10",
-"b_polaris_theme": "2026-11-09",
-"b_collection_list": "2026-11-04",
-"b_editable_table": "2026-11-10",
-"b_hax_body_behaviors": "2026-11-10",
-"b_a11y_tabs": "2026-11-10",
-"b_simple_fields": "2026-11-09",
-"b_count_up": "2026-11-04"
+"b_haxcms_elements": "2026-11-25",
+"b_lrndesign_chart": "2026-11-25",
+"b_micro_game_base": "2026-11-25",
+"b_d_d_d": "2026-11-25",
+"b_hax_body": "2026-11-25",
+"b_course_design": "2026-11-25",
+"b_polaris_theme": "2026-11-25",
+"b_collection_list": "2026-11-24",
+"b_editable_table": "2026-11-25",
+"b_hax_body_behaviors": "2026-11-24",
+"b_a11y_tabs": "2026-11-25",
+"b_simple_fields": "2026-11-25",
+"b_count_up": "2026-11-24"
 },
 "idskills": {
-"b_a11y_compare_image": "2026-11-03",
-"b_a11y_figure": "2026-11-04",
-"b_a11y_media_player": "2026-11-10",
-"b_a11y_tabs": "2026-11-10",
-"b_course_design": "2026-11-10",
-"b_editable_table": "2026-11-10",
-"b_grade_book": "2026-11-06",
-"b_h_a_x": "2026-11-10",
-"b_lrn_vocab": "2026-11-02",
-"b_lrndesign_imagemap": "2026-11-06",
-"b_lrndesign_sidenote": "2026-11-04",
-"b_map_menu": "2026-11-09",
-"b_oer_schema": "2026-11-02",
-"b_progress_donut": "2026-11-06",
-"b_promise_progress": "2026-11-09",
-"b_reading_analysis": "2026-11-06",
-"b_self_reflective_nudge": "2026-11-06",
-"b_simple_fields": "2026-11-09",
-"b_simple_progress": "2026-11-02",
-"b_user_action": "2026-11-10",
-"b_course_model": "2026-11-09",
-"b_vocab_term": "2026-11-06",
-"b_micro_game_base": "2026-11-10",
-"b_bullet_check_list": "2026-11-10"
-},
-"importers": {
-"p_wordpress": "2026-10-20",
-"p_drupal": "2026-10-22",
-"p_plone": "2026-10-20",
-"p_elmsln": "2026-10-20",
-"p_haxcms": "2026-10-20",
-"p_notion": "2026-10-20",
-"p_gitbook": "2026-10-20",
-"p_vitepress": "2026-10-20",
-"p_quarto": "2026-10-22",
-"p_pressbooks": "2026-10-20",
-"p_openstax": "2026-10-20",
-"p_html": "2026-10-19"
+"b_a11y_compare_image": "2026-11-24",
+"b_a11y_figure": "2026-11-24",
+"b_a11y_media_player": "2026-11-24",
+"b_a11y_tabs": "2026-11-25",
+"b_course_design": "2026-11-25",
+"b_editable_table": "2026-11-25",
+"b_grade_book": "2026-11-25",
+"b_h_a_x": "2026-11-24",
+"b_lrndesign_imagemap": "2026-11-25",
+"b_lrndesign_sidenote": "2026-11-24",
+"b_map_menu": "2026-11-24",
+"b_oer_schema": "2026-11-24",
+"b_progress_donut": "2026-11-24",
+"b_promise_progress": "2026-11-24",
+"b_reading_analysis": "2026-11-25",
+"b_self_reflective_nudge": "2026-11-25",
+"b_simple_fields": "2026-11-25",
+"b_simple_progress": "2026-11-24",
+"b_user_action": "2026-11-24",
+"b_course_model": "2026-11-25",
+"b_micro_game_base": "2026-11-25",
+"b_bullet_check_list": "2026-11-24"
 },
 "jos": {
 "js_core": "2026-10-15",
-"js_site": "2026-10-24",
+"js_site": "2026-11-13",
 "js_skel": "2026-10-24"
 },
 "languages": {
-"lg_manager": "2026-11-10",
-"lg_mixin": "2026-10-20",
+"lg_manager": "2026-11-25",
+"lg_mixin": "2026-11-12",
 "lg_registry": "2026-10-20",
-"lg_manifest": "2026-11-10",
-"b_clean_two": "2026-11-09",
-"b_instructional_cadence": "2026-11-05",
-"b_simple_icon_picker": "2026-11-09",
-"b_terrible_themes": "2026-11-07"
+"lg_manifest": "2026-11-25",
+"b_clean_two": "2026-11-24",
+"b_ecosystem_theme": "2026-11-25",
+"b_instructional_cadence": "2026-11-24",
+"b_simple_icon_picker": "2026-11-24",
+"b_terrible_themes": "2026-11-24"
 },
 "mcptools": {
 "mod_blocks_typed": "2026-10-01",
@@ -294,62 +163,56 @@
 "mod_outline": "2026-11-09",
 "mod_pages": "2026-11-09",
 "mod_settings": "2026-11-09",
-"mod_sites": "2026-09-30",
-"mod_auth": "2026-11-09",
+"mod_sites": "2026-11-16",
+"mod_auth": "2026-11-23",
 "mod_imports": "2026-10-27"
 },
 "merlin": {
-"mo_title": "2026-11-10",
-"mo_icon": "2026-11-10",
-"mo_tags": "2026-11-10",
-"mo_value": "2026-11-10",
-"mo_eventName": "2026-11-10",
-"mo_path": "2026-11-10",
-"mo_context": "2026-11-10",
-"mo_priority": "2026-11-10",
-"mo_inline": "2026-11-10",
-"mo_shortcut": "2026-11-10",
-"mo_i18n": "2026-11-10",
-"mo_more": "2026-11-10",
-"md_haxcms_elements": "2026-11-10",
-"md_app_hax": "2026-11-10",
-"md_hax_body": "2026-11-10"
+"mo_title": "2026-11-25",
+"mo_icon": "2026-11-25",
+"mo_tags": "2026-11-25",
+"mo_value": "2026-11-25",
+"mo_eventName": "2026-11-25",
+"mo_path": "2026-11-25",
+"mo_context": "2026-11-25",
+"mo_priority": "2026-11-25",
+"mo_inline": "2026-11-25",
+"mo_shortcut": "2026-11-25",
+"mo_i18n": "2026-11-25",
+"mo_more": "2026-11-25",
+"md_haxcms_elements": "2026-11-25",
+"md_app_hax": "2026-11-25",
+"md_hax_body": "2026-11-25"
 },
 "oerschema": {
-"b_oer_schema": "2026-11-02"
+"b_oer_schema": "2026-11-24"
 },
 "release": {
-"rl_build": "2026-11-10",
-"rl_parity": "2026-11-10",
-"rl_codeql": "2026-11-10"
+"rl_build": "2026-11-25",
+"rl_parity": "2026-11-25",
+"rl_codeql": "2026-11-25"
 },
 "skills": {
-"s_hax": "2026-11-10",
-"s_hax_content_authoring": "2026-10-28",
-"s_hax_ecosystem_onboarding": "2026-10-22",
-"s_hax_managed_files": "2026-11-09",
-"s_hax_site_building": "2026-11-07",
+"s_hax": "2026-11-25",
+"s_hax_content_authoring": "2026-11-23",
+"s_hax_managed_files": "2026-11-14",
 "s_hax_site_ops": "2026-11-10",
-"s_hax_site_structure": "2026-10-28",
-"s_hax_theme_builder": "2026-11-09",
+"s_hax_site_structure": "2026-11-14",
+"s_hax_theme_builder": "2026-11-18",
 "s_hax_tutorial_site": "2026-11-10",
 "s_hax_backend_dev": "2026-11-09",
-"s_hax_claudehax": "2026-11-07",
-"s_hax_design_system": "2026-11-09",
-"s_hax_design_system_sync": "2026-11-09",
+"s_hax_design_system": "2026-11-12",
+"s_hax_design_system_sync": "2026-11-12",
 "s_hax_element_demo": "2026-11-09",
-"s_hax_i18n_translate": "2026-11-09",
+"s_hax_i18n_translate": "2026-11-25",
 "s_hax_mental_model": "2026-11-09",
-"s_hax_rpg_character": "2026-10-29",
 "s_hax_testing": "2026-11-09",
-"s_hax_webcomponent_dev": "2026-10-27",
-"s_hax_webcomponent_documentation_writer": "2026-10-19",
 "s_grad_blooms": "2026-11-09",
 "s_hax_content_chunking_audit": "2026-11-09",
 "s_hax_feedback_design": "2026-11-09",
 "s_hax_instructional_element": "2026-11-09",
-"s_hax_instructional_events_audit": "2026-11-09",
-"s_hax_multimedia_principles_audit": "2026-11-09",
+"s_hax_instructional_events_audit": "2026-11-23",
+"s_hax_multimedia_principles_audit": "2026-11-23",
 "s_hax_practice_and_retrieval": "2026-11-09",
 "s_hax_proficiency_scaffolding": "2026-11-09",
 "s_hax_reflection_prompts": "2026-11-09",
@@ -363,9 +226,9 @@
 "s_hax_ubd_unit_audit": "2026-11-09",
 "s_hax_udl_audit": "2026-11-09",
 "s_haxcms_lrs_rater": "2026-10-20",
-"s_reading_notes": "2026-11-09",
+"s_reading_notes": "2026-11-13",
 "s_siip_course_alignment": "2026-11-09",
-"s_hax_a11y_audit": "2026-11-09",
+"s_hax_a11y_audit": "2026-11-10",
 "s_hax_pattern_library_audit": "2026-11-09",
 "s_heosat": "2026-10-20",
 "s_heosat_report_site": "2026-11-10",
@@ -377,365 +240,49 @@
 "s_openstax2hax": "2026-11-09",
 "s_youtube_vtt": "2026-11-10",
 "s_hax_issue_analysis": "2026-10-20",
-"s_hax_issue_research": "2026-10-20",
-"s_hax_release_prep": "2026-11-09",
+"s_hax_issue_research": "2026-11-25",
+"s_hax_release_prep": "2026-11-20",
 "s_hax_rule_management": "2026-11-09"
 },
 "skillsindex": {
 "w_build": "2026-11-10",
-"w_snapshot": "2026-10-27",
-"w_php": "2026-11-10",
-"w_node": "2026-11-10",
-"w_cli": "2026-11-10"
+"w_snapshot": "2026-10-27"
 },
 "stack": {
-"simpleicon": "2026-11-06",
-"schemabeh": "2026-11-04"
+"simpleicon": "2026-11-24",
+"schemabeh": "2026-11-24"
 },
 "themes": {
-"t_clean_one": "2026-11-09",
-"t_clean_two": "2026-11-09",
-"t_learn_two_theme": "2026-11-10",
-"t_polaris_theme": "2026-11-09",
-"t_clean_portfolio_theme": "2026-11-04",
-"t_glossy_portfolio_theme": "2026-11-04",
-"t_journey_theme": "2026-11-07",
-"t_resume_theme": "2026-11-07",
-"t_haxma_theme": "2026-11-07",
-"t_bootstrap_theme": "2026-11-09",
-"t_link_card_theme": "2026-11-04",
-"t_spacebook_theme": "2026-11-07",
-"t_twenty_six_theme": "2026-11-04",
-"t_terrible_themes": "2026-11-07"
+"t_clean_one": "2026-11-24",
+"t_clean_two": "2026-11-24",
+"t_learn_two_theme": "2026-11-25",
+"t_polaris_theme": "2026-11-25",
+"t_clean_portfolio_theme": "2026-11-25",
+"t_glossy_portfolio_theme": "2026-11-25",
+"t_journey_theme": "2026-11-25",
+"t_resume_theme": "2026-11-25",
+"t_haxma_theme": "2026-11-25",
+"t_bootstrap_theme": "2026-11-25",
+"t_link_card_theme": "2026-11-25",
+"t_spacebook_theme": "2026-11-25",
+"t_twenty_six_theme": "2026-11-25",
+"t_terrible_themes": "2026-11-24"
 },
 "tokens": {
-"t_build": "2026-11-03",
-"s_dddstyles_js": "2026-11-05",
-"s_dddstatustokens_js": "2026-11-03",
-"s_simple_colors_shared_styles_js": "2026-10-20",
-"s_simple_colors_js": "2026-09-30",
-"s_dddlayout_js": "2026-10-11"
+"t_build": "2026-11-20",
+"s_dddstyles_js": "2026-11-24",
+"s_dddstatustokens_js": "2026-11-12",
+"s_simple_colors_shared_styles_js": "2026-11-12",
+"s_simple_colors_js": "2026-11-12",
+"s_dddlayout_js": "2026-11-12"
 }
 },
 "bus": {
-"appstore": {
-"ap_youtube": [
-"btopro"
-],
-"ap_vimeo": [
-"btopro"
-],
-"ap_giphy": [
-"btopro"
-],
-"ap_unsplash": [
-"btopro"
-],
-"ap_flickr": [
-"btopro"
-],
-"ap_nasa": [
-"btopro"
-],
-"ap_sketchfab": [
-"btopro"
-],
-"ap_dailymotion": [
-"btopro"
-],
-"ap_wikipedia": [
-"btopro"
-],
-"ap_cc_mixter": [
-"btopro"
-]
-},
-"cli": {
-"c_start": [
-"btopro"
-],
-"c_update": [
-"btopro"
-],
-"c_serve": [
-"btopro"
-],
-"c_site": [
-"btopro"
-],
-"c_wc": [
-"btopro"
-],
-"c_audit": [
-"btopro"
-],
-"c_party": [
-"btopro"
-],
-"c_skills": [
-"btopro"
-],
-"c_list": [
-"btopro"
-],
-"c_alias": [
-"btopro"
-],
-"c_completion": [
-"btopro"
-],
-"c_node_stats": [
-"btopro"
-],
-"c_node_add": [
-"btopro"
-],
-"c_node_edit": [
-"btopro"
-],
-"c_node_delete": [
-"btopro"
-],
-"c_node_generate": [
-"btopro"
-],
-"c_site_stats": [
-"btopro"
-],
-"c_site_items": [
-"btopro"
-],
-"c_site_items_import": [
-"btopro"
-],
-"c_site_list_files": [
-"btopro"
-],
-"c_site_search": [
-"btopro"
-],
-"c_site_tags": [
-"btopro"
-],
-"c_site_blocks": [
-"btopro"
-],
-"c_site_analytics": [
-"btopro"
-],
-"c_site_revisions": [
-"btopro"
-],
-"c_site_validate": [
-"btopro"
-],
-"c_site_rebuild": [
-"btopro"
-],
-"c_site_archive": [
-"btopro"
-],
-"c_site_restore": [
-"btopro"
-],
-"c_site_logs": [
-"btopro"
-],
-"c_site_list": [
-"btopro"
-],
-"c_site_export": [
-"btopro"
-],
-"c_site_theme": [
-"btopro"
-],
-"c_site_element": [
-"btopro"
-],
-"c_site_html": [
-"btopro"
-],
-"c_site_md": [
-"btopro"
-],
-"c_site_schema": [
-"btopro"
-],
-"c_site_skeleton_export": [
-"btopro"
-],
-"c_site_skeleton_install": [
-"btopro"
-],
-"c_site_sync": [
-"btopro"
-],
-"c_site_rsync": [
-"btopro"
-],
-"c_site_surge": [
-"btopro"
-],
-"c_site_netlify": [
-"btopro"
-],
-"c_site_vercel": [
-"btopro"
-],
-"c_setup_github_actions": [
-"btopro"
-],
-"c_setup_gitlab_ci": [
-"btopro"
-],
-"c_setup_replit": [
-"btopro"
-],
-"c_issue_general": [
-"btopro"
-],
-"c_issue_theme": [
-"btopro"
-],
-"c_to_remote": [
-"btopro"
-],
-"c_to_local": [
-"btopro"
-],
-"c_from_remote": [
-"btopro"
-],
-"c_test": [
-"btopro"
-],
-"c_base": [
-"btopro"
-],
-"c_starter": [
-"btopro"
-],
-"c_polaris_flex": [
-"btopro"
-],
-"c_polaris_sidebar": [
-"btopro"
-],
-"c_skeleton": [
-"btopro"
-],
-"c_details": [
-"btopro"
-],
-"c_html": [
-"btopro"
-],
-"c_schema": [
-"btopro"
-],
-"c_md": [
-"btopro"
-],
-"c_title": [
-"btopro"
-],
-"c_content": [
-"btopro"
-],
-"c_slug": [
-"btopro"
-],
-"c_published": [
-"btopro"
-],
-"c_tags": [
-"btopro"
-],
-"c_parent": [
-"btopro"
-],
-"c_order": [
-"btopro"
-],
-"c_theme": [
-"btopro"
-],
-"c_hideinmenu": [
-"btopro"
-],
-"c_custom_theme": [
-"btopro"
-],
-"c_site_status": [
-"btopro"
-],
-"c_node_status": [
-"btopro"
-],
-"c_site_file_list": [
-"btopro"
-],
-"c_site_files_upload": [
-"btopro"
-],
-"c_site_files_delete": [
-"btopro"
-],
-"c_site_search_replace": [
-"btopro"
-],
-"c_site_doctor": [
-"btopro"
-],
-"c_audit_i18n": [
-"btopro"
-],
-"c_audit_schema": [
-"btopro"
-],
-"c_audit_ssr": [
-"btopro"
-],
-"c_audit_theme": [
-"btopro"
-],
-"c_party_docs": [
-"btopro"
-],
-"c_party_playground": [
-"btopro"
-],
-"c_party_psu": [
-"btopro"
-],
-"c_party_issues": [
-"btopro"
-],
-"c_party_discord": [
-"btopro"
-],
-"c_party_club": [
-"btopro"
-],
-"c_party_github": [
-"btopro"
-],
-"c_skills_list": [
-"btopro"
-],
-"c_skills_all": [
-"btopro"
-]
-},
 "contracts": {
 "josspec": [
 "btopro"
 ],
 "haxpropsschema": [
-"btopro"
-],
-"appstorejson": [
 "btopro"
 ],
 "xapivocab": [
@@ -746,44 +293,23 @@
 ]
 },
 "main": {
-"traveler": [
-"btopro"
-],
-"php": [
-"btopro"
-],
-"nodejs": [
-"btopro"
-],
 "haxiam": [
 "btopro"
 ],
 "hax11ty": [
 "btopro"
 ],
-"cli": [
-"btopro"
-],
 "ubiquity": [
 "btopro"
-],
-"importers": [
-"btopro",
-"SanikaA3"
 ],
 "learnhax": [
 "btopro"
 ],
-"agents": [
-"btopro"
-],
+"agents": [],
 "mcp": [
-"btopro",
-"Trivi Sunil"
-],
-"praw": [
 "btopro"
 ],
+"praw": [],
 "wins": [
 "btopro"
 ],
@@ -793,7 +319,9 @@
 "ddd": [
 "btopro"
 ],
-"plugins": [],
+"plugins": [
+"btopro"
+],
 "ist256": [
 "btopro"
 ],
@@ -824,16 +352,7 @@
 "merlin": [
 "btopro"
 ],
-"haxcms": [
-"btopro"
-],
 "haxschema": [
-"btopro"
-],
-"appstore": [
-"btopro"
-],
-"skeletons": [
 "btopro"
 ],
 "testing": [
@@ -843,9 +362,6 @@
 "btopro"
 ],
 "xapi": [
-"btopro"
-],
-"security": [
 "btopro"
 ]
 },
@@ -1104,9 +620,6 @@
 "b_h_a_x": [
 "btopro"
 ],
-"b_lrn_vocab": [
-"btopro"
-],
 "b_lrndesign_imagemap": [
 "btopro"
 ],
@@ -1114,8 +627,7 @@
 "btopro"
 ],
 "b_map_menu": [
-"btopro",
-"winstonwumbo"
+"btopro"
 ],
 "b_oer_schema": [
 "btopro"
@@ -1144,52 +656,10 @@
 "b_course_model": [
 "btopro"
 ],
-"b_vocab_term": [
-"btopro"
-],
 "b_micro_game_base": [
 "btopro"
 ],
 "b_bullet_check_list": [
-"btopro"
-]
-},
-"importers": {
-"p_wordpress": [
-"btopro"
-],
-"p_drupal": [
-"btopro"
-],
-"p_plone": [
-"btopro"
-],
-"p_elmsln": [
-"btopro"
-],
-"p_haxcms": [
-"btopro",
-"SanikaA3"
-],
-"p_notion": [
-"btopro"
-],
-"p_gitbook": [
-"btopro"
-],
-"p_vitepress": [
-"btopro",
-"SanikaA3"
-],
-"p_quarto": [],
-"p_pressbooks": [
-"btopro"
-],
-"p_openstax": [
-"SanikaA3",
-"btopro"
-],
-"p_html": [
 "btopro"
 ]
 },
@@ -1210,6 +680,9 @@
 "btopro"
 ],
 "b_clean_two": [
+"btopro"
+],
+"b_ecosystem_theme": [
 "btopro"
 ],
 "b_instructional_cadence": [
@@ -1322,16 +795,8 @@
 "s_hax": [
 "btopro"
 ],
-"s_hax_content_authoring": [
-"btopro"
-],
-"s_hax_ecosystem_onboarding": [
-"btopro"
-],
+"s_hax_content_authoring": [],
 "s_hax_managed_files": [
-"btopro"
-],
-"s_hax_site_building": [
 "btopro"
 ],
 "s_hax_site_ops": [
@@ -1345,9 +810,6 @@
 "btopro"
 ],
 "s_hax_backend_dev": [],
-"s_hax_claudehax": [
-"btopro"
-],
 "s_hax_design_system": [
 "btopro"
 ],
@@ -1357,16 +819,7 @@
 "btopro"
 ],
 "s_hax_mental_model": [],
-"s_hax_rpg_character": [
-"btopro"
-],
 "s_hax_testing": [],
-"s_hax_webcomponent_dev": [
-"btopro"
-],
-"s_hax_webcomponent_documentation_writer": [
-"btopro"
-],
 "s_grad_blooms": [],
 "s_hax_content_chunking_audit": [
 "btopro"
@@ -1460,16 +913,6 @@
 ],
 "w_snapshot": [
 "btopro"
-],
-"w_php": [
-"btopro"
-],
-"w_node": [
-"btopro"
-],
-"w_cli": [
-"btopro",
-"winstonwumbo"
 ]
 },
 "stack": {
@@ -1494,8 +937,7 @@
 "btopro"
 ],
 "t_clean_portfolio_theme": [
-"btopro",
-"jno-de"
+"btopro"
 ],
 "t_glossy_portfolio_theme": [
 "btopro",
@@ -1795,6 +1237,12 @@
 "cli": false,
 "mcp": true
 },
+"op_replacefilecontent": {
+"php": true,
+"nodejs": true,
+"cli": false,
+"mcp": true
+},
 "op_listtags": {
 "php": true,
 "nodejs": true,
@@ -1961,6 +1409,18 @@
 "php": true,
 "nodejs": true,
 "cli": false,
+"mcp": true
+},
+"op_sessionmagiclinkconfirm": {
+"php": true,
+"nodejs": true,
+"cli": true,
+"mcp": true
+},
+"op_sessionmagiclinkconsume": {
+"php": true,
+"nodejs": true,
+"cli": true,
 "mcp": true
 },
 "op_sessionrefreshget": {
@@ -2323,6 +1783,36 @@
 "cli": false,
 "mcp": true
 },
+"op_importmd": {
+"php": true,
+"nodejs": true,
+"cli": false,
+"mcp": true
+},
+"op_importodt": {
+"php": true,
+"nodejs": true,
+"cli": false,
+"mcp": true
+},
+"op_odttohtml": {
+"php": true,
+"nodejs": true,
+"cli": false,
+"mcp": true
+},
+"op_importodp": {
+"php": true,
+"nodejs": true,
+"cli": false,
+"mcp": true
+},
+"op_odptohtml": {
+"php": true,
+"nodejs": true,
+"cli": false,
+"mcp": true
+},
 "op_htmltodocx": {
 "php": true,
 "nodejs": true,
@@ -2334,6 +1824,12 @@
 "nodejs": true,
 "cli": true,
 "mcp": true
+},
+"op_websitemetadata": {
+"php": true,
+"nodejs": true,
+"cli": false,
+"mcp": false
 },
 "op_htmltomd": {
 "php": true,
@@ -2527,24 +2023,23 @@
 },
 "released": {
 "main": {
-"editor": "2026-08-14",
-"dashboard": "2026-08-14",
-"themes": "2026-08-14",
-"php": "2026-09-17",
-"nodejs": "2026-08-14",
-"hax11ty": "2026-05-12",
-"cli": "2026-08-14",
-"ubiquity": "2026-08-14",
-"components": "2026-08-14",
-"ddd": "2026-08-14",
-"jos": "2026-08-14",
+"editor": "2026-11-24",
+"dashboard": "2026-11-24",
+"themes": "2026-11-24",
+"nodejs": "2026-11-24",
+"hax11ty": "2026-11-24",
+"cli": "2026-11-25",
+"ubiquity": "2026-11-24",
+"components": "2026-11-24",
+"ddd": "2026-11-24",
+"jos": "2026-11-24",
 "elmsln": "2023-06-27",
-"outline": "2026-08-14",
-"merlin": "2026-08-14",
-"oerschema": "2026-08-14",
-"testing": "2026-08-14",
-"games": "2026-08-14",
-"xapi": "2026-08-14"
+"outline": "2026-11-24",
+"merlin": "2026-11-24",
+"oerschema": "2026-11-24",
+"testing": "2026-11-24",
+"games": "2026-11-24",
+"xapi": "2026-11-24"
 }
 }
 }

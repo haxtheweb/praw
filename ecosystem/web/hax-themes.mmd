@@ -21,15 +21,18 @@ flowchart TB
     t_polaris_flex_theme["Polaris Flex"]
     t_polaris_invent_theme["Polaris Invent"]
     t_polaris_flex_sidebar["Polaris Sidebar"]
+    t_al_folio_theme["al-folio"]
     t_clean_portfolio_theme["Clean Portfolio"]
     t_glossy_portfolio_theme["Glossy Portfolio"]
     t_journey_theme["Journey"]
     t_resume_theme["resume-theme"]
     t_haxma_theme["Design docs"]
+    t_astrowind_theme["AstroWind"]
     t_bootstrap_theme["Bootstrap"]
     t_link_card_theme["Link Card"]
     t_spacebook_theme["Space Book"]
     t_twenty_six_theme["Twenty Six"]
+    t_writing_theme["Writing"]
     t_terrible_themes["Terrible 407"]
     t_terrible_outlet_themes["Terrible Blog"]
     t_terrible_best_themes["Terrible hockey"]
@@ -37,15 +40,19 @@ flowchart TB
     t_terrible_resume_themes["Terrible Resume"]
   end
   subgraph ks ["Skeletons, use cases and people"]
+    k_academic(["Academic"])
     k_art_portfolio(["Art Portfolio"])
     k_blog(["Blog"])
     k_club_website(["Club Website"])
     k_default_starter(["Default Starter"])
+    k_department(["Department or Office"])
     k_docs(["Documentation"])
     k_isc_graduate_portfolio(["ISC Graduate Portfolio"])
+    k_landing_page(["Landing Page"])
     k_online_course(["Online Course"])
     k_portfolio(["Portfolio"])
     k_resume_journey(["Resume Journey"])
+    k_writing(["Writing"])
     blog["Blog"]
     club["Club website"]
     course["course"]
@@ -72,20 +79,25 @@ flowchart TB
   fam_polaris -->|includes| t_polaris_flex_theme
   fam_polaris -->|includes| t_polaris_invent_theme
   fam_polaris -->|includes| t_polaris_flex_sidebar
+  fam_portfolio -->|includes| t_al_folio_theme
   fam_portfolio -->|includes| t_clean_portfolio_theme
   fam_portfolio -->|includes| t_glossy_portfolio_theme
   fam_portfolio -->|includes| t_journey_theme
   fam_portfolio -->|includes| t_resume_theme
   fam_docs -->|includes| t_haxma_theme
+  fam_site -->|includes| t_astrowind_theme
   fam_site -->|includes| t_bootstrap_theme
   fam_site -->|includes| t_link_card_theme
   fam_site -->|includes| t_spacebook_theme
   fam_site -->|includes| t_twenty_six_theme
+  fam_site -->|includes| t_writing_theme
   fam_fun -->|includes| t_terrible_themes
   fam_fun -->|includes| t_terrible_outlet_themes
   fam_fun -->|includes| t_terrible_best_themes
   fam_fun -->|includes| t_terrible_productionz_themes
   fam_fun -->|includes| t_terrible_resume_themes
+  k_academic -->|starts with| t_al_folio_theme
+  skeletons -->|includes| k_academic
   k_art_portfolio -->|starts with| t_clean_portfolio_theme
   k_art_portfolio -->|is a| portfolio
   skeletons -->|includes| k_art_portfolio
@@ -97,12 +109,16 @@ flowchart TB
   skeletons -->|includes| k_club_website
   k_default_starter -->|starts with| t_clean_two
   skeletons -->|includes| k_default_starter
+  k_department -->|starts with| t_polaris_flex_sidebar
+  skeletons -->|includes| k_department
   k_docs -->|starts with| t_haxma_theme
   k_docs -->|is a| docs
   skeletons -->|includes| k_docs
   k_isc_graduate_portfolio -->|starts with| t_clean_portfolio_theme
   k_isc_graduate_portfolio -->|is a| portfolio
   skeletons -->|includes| k_isc_graduate_portfolio
+  k_landing_page -->|starts with| t_astrowind_theme
+  skeletons -->|includes| k_landing_page
   k_online_course -->|starts with| t_clean_one
   k_online_course -->|is a| course
   skeletons -->|includes| k_online_course
@@ -112,6 +128,8 @@ flowchart TB
   k_resume_journey -->|starts with| t_journey_theme
   k_resume_journey -->|is a| portfolio
   skeletons -->|includes| k_resume_journey
+  k_writing -->|starts with| t_writing_theme
+  skeletons -->|includes| k_writing
   winston ---|built Polaris themes| t_polaris_theme
   collin ---|built| t_bootstrap_theme
   nazman ---|built| t_glossy_portfolio_theme
@@ -136,29 +154,36 @@ flowchart TB
   %%@ node t_polaris_flex_theme image=theme-polaris-flex-theme color=nittanyNavy motion=lift
   %%@ node t_polaris_invent_theme image=theme-polaris-invent-theme color=nittanyNavy motion=lift
   %%@ node t_polaris_flex_sidebar image=theme-polaris-flex-sidebar color=nittanyNavy motion=lift
+  %%@ node t_al_folio_theme image=theme-al-folio-theme color=wonderPurple motion=lift
   %%@ node t_clean_portfolio_theme image=theme-clean-portfolio-theme color=wonderPurple motion=lift
   %%@ node t_glossy_portfolio_theme image=theme-glossy-portfolio-theme color=wonderPurple motion=lift
   %%@ node t_journey_theme image=theme-journey-theme color=wonderPurple motion=lift
   %%@ node t_resume_theme image=theme-resume-theme color=wonderPurple motion=lift
   %%@ node t_haxma_theme image=theme-haxma-theme color=creekTeal motion=lift
+  %%@ node t_astrowind_theme image=theme-astrowind-theme color=inventOrange motion=lift
   %%@ node t_bootstrap_theme image=theme-bootstrap-theme color=inventOrange motion=lift
   %%@ node t_link_card_theme image=theme-link-card-theme color=inventOrange motion=lift
   %%@ node t_spacebook_theme image=theme-spacebook-theme color=inventOrange motion=lift
   %%@ node t_twenty_six_theme image=theme-twenty-six-theme color=inventOrange motion=lift
+  %%@ node t_writing_theme image=theme-writing-theme color=inventOrange motion=lift
   %%@ node t_terrible_themes image=theme-terrible-themes color=discoveryCoral motion=lift
   %%@ node t_terrible_outlet_themes image=theme-terrible-outlet-themes color=discoveryCoral motion=lift
   %%@ node t_terrible_best_themes image=theme-terrible-best-themes color=discoveryCoral motion=lift
   %%@ node t_terrible_productionz_themes image=theme-terrible-productionz-themes color=discoveryCoral motion=lift
   %%@ node t_terrible_resume_themes image=theme-terrible-resume-themes color=discoveryCoral motion=lift
+  %%@ node k_academic portal=skeletons
   %%@ node k_art_portfolio portal=skeletons
   %%@ node k_blog portal=skeletons
   %%@ node k_club_website portal=skeletons
   %%@ node k_default_starter portal=skeletons
+  %%@ node k_department portal=skeletons
   %%@ node k_docs portal=skeletons
   %%@ node k_isc_graduate_portfolio portal=skeletons
+  %%@ node k_landing_page portal=skeletons
   %%@ node k_online_course portal=skeletons
   %%@ node k_portfolio portal=skeletons
   %%@ node k_resume_journey portal=skeletons
+  %%@ node k_writing portal=skeletons
   %%@ node blog portal=skeletons
   %%@ node club portal=skeletons
   %%@ node course portal

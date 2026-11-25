@@ -53,6 +53,7 @@ flowchart TB
     fd_iconpicker["iconpicker"]
     fd_hax_palette_picker["hax-palette-picker"]
     fd_haxcms_theme_picker["haxcms-theme-picker"]
+    fd_haxcms_language_picker["haxcms-language-picker"]
     fd_date_time["date-time"]
     fd_datepicker["datepicker"]
     fd_monthpicker["monthpicker"]
@@ -62,6 +63,8 @@ flowchart TB
     fd_haxupload["haxupload"]
     fd_screenrecorder["screenRecorder"]
     fd_srcset["srcset"]
+    fd_image_framing["image-framing"]
+    fd_doodle["doodle"]
     fd_code["code"]
     fd_code_editor["code-editor"]
     fd_markup["markup"]
@@ -146,6 +149,7 @@ flowchart TB
   fam_pickers -->|includes| fd_iconpicker
   fam_pickers -->|includes| fd_hax_palette_picker
   fam_pickers -->|includes| fd_haxcms_theme_picker
+  fam_text -->|includes| fd_haxcms_language_picker
   fam_pickers -->|includes| fd_date_time
   fam_pickers -->|includes| fd_datepicker
   fam_pickers -->|includes| fd_monthpicker
@@ -155,6 +159,8 @@ flowchart TB
   fam_media_and_files -->|includes| fd_haxupload
   fam_media_and_files -->|includes| fd_screenrecorder
   fam_media_and_files -->|includes| fd_srcset
+  fam_text -->|includes| fd_image_framing
+  fam_text -->|includes| fd_doodle
   fam_text -->|includes| fd_code
   fam_text -->|includes| fd_code_editor
   fam_text -->|includes| fd_markup
@@ -195,6 +201,7 @@ flowchart TB
   fd_iconpicker -->|used by| b_collection_list
   fd_hax_palette_picker -->|used by| b_haxcms_elements
   fd_haxcms_theme_picker -->|used by| b_haxcms_elements
+  fd_haxcms_language_picker -->|used by| b_haxcms_elements
   fd_datepicker -->|used by| b_bibliography_builder
   fd_fileupload -->|used by| b_editable_table
   fd_haxupload -->|used by| b_polaris_theme
@@ -261,6 +268,7 @@ flowchart TB
   %%@ node fd_iconpicker mono=ICON color=roarGolden motion=nudge
   %%@ node fd_hax_palette_picker mono=HAXPA color=roarGolden motion=nudge
   %%@ node fd_haxcms_theme_picker mono=HAXCM color=roarGolden motion=nudge
+  %%@ node fd_haxcms_language_picker mono=HAXCM color=roarGolden motion=nudge
   %%@ node fd_date_time mono=DATET color=limestoneGray motion=nudge
   %%@ node fd_datepicker mono=DATE color=roarGolden motion=nudge
   %%@ node fd_monthpicker mono=MONTH color=limestoneGray motion=nudge
@@ -270,6 +278,8 @@ flowchart TB
   %%@ node fd_haxupload mono=HAXUP color=roarGolden motion=nudge
   %%@ node fd_screenrecorder mono=SCREE color=limestoneGray motion=nudge
   %%@ node fd_srcset mono=SRCSE color=roarGolden motion=nudge
+  %%@ node fd_image_framing mono=IMAGE color=limestoneGray motion=nudge
+  %%@ node fd_doodle mono=DOODL color=limestoneGray motion=nudge
   %%@ node fd_code mono=CODE color=limestoneGray motion=nudge
   %%@ node fd_code_editor mono=CODEE color=roarGolden motion=nudge
   %%@ node fd_markup mono=MARKU color=limestoneGray motion=nudge

@@ -107,7 +107,7 @@
    "kind": "part"
   },
   "jm_build": {
-   "desc": "How the site was originally created (written once by HAXcms at creation time).",
+   "desc": "How the site was originally created (written once by HAXcms at creation time). Some older sites hold null.",
    "kind": "part"
   },
   "jm_plugins": {

@@ -73,6 +73,7 @@ flowchart TB
     op_getfilebyuuid["GET /x/api/v1/files/{fileUuid}"]
     op_updatefilebyuuid["PATCH /x/api/v1/files/{fileUuid}"]
     op_deletefilebyuuid["DELETE /x/api/v1/files/{fileUuid}"]
+    op_replacefilecontent["POST /x/api/v1/files/{fileUuid}/content"]
     op_listtags["GET /x/api/v1/tags"]
     op_searchcontent["GET /x/api/v1/search"]
     op_listcustomelements["GET /x/api/v1/custom-elements"]
@@ -101,6 +102,8 @@ flowchart TB
     op_sessionauthget["GET /system/api/v1/session"]
     op_sessionauthpost["POST /system/api/v1/session"]
     op_sessionlogout["POST /system/api/v1/session/logout"]
+    op_sessionmagiclinkconfirm["GET /system/api/v1/session/magic-link"]
+    op_sessionmagiclinkconsume["POST /system/api/v1/session/magic-link"]
     op_sessionrefreshget["GET /system/api/v1/session/refresh"]
     op_sessionrefreshpost["POST /system/api/v1/session/refresh"]
     op_sessionuserget["GET /system/api/v1/session/user"]
@@ -161,8 +164,14 @@ flowchart TB
     op_importhtml["POST /system/api/v1/actions/import-html"]
     op_importxlsx["POST /system/api/v1/actions/import-xlsx"]
     op_importpdf["POST /system/api/v1/actions/import-pdf"]
+    op_importmd["POST /system/api/v1/actions/import-md"]
+    op_importodt["POST /system/api/v1/actions/import-odt"]
+    op_odttohtml["POST /system/api/v1/actions/odt-to-html"]
+    op_importodp["POST /system/api/v1/actions/import-odp"]
+    op_odptohtml["POST /system/api/v1/actions/odp-to-html"]
     op_htmltodocx["POST /system/api/v1/actions/html-to-docx"]
     op_mdtohtml["POST /system/api/v1/actions/md-to-html"]
+    op_websitemetadata["POST /system/api/v1/actions/website-metadata"]
     op_htmltomd["POST /system/api/v1/actions/html-to-md"]
     op_prettyhtml["POST /system/api/v1/actions/pretty-html"]
     op_jsontoyaml["POST /system/api/v1/actions/json-to-yaml"]
@@ -256,6 +265,7 @@ flowchart TB
   tag_files -->|offers| op_getfilebyuuid
   tag_files -->|offers| op_updatefilebyuuid
   tag_files -->|offers| op_deletefilebyuuid
+  tag_files -->|offers| op_replacefilecontent
   tag_tags -->|offers| op_listtags
   tag_search -->|offers| op_searchcontent
   tag_custom_elements -->|offers| op_listcustomelements
@@ -284,6 +294,8 @@ flowchart TB
   tag_session -->|offers| op_sessionauthget
   tag_session -->|offers| op_sessionauthpost
   tag_session -->|offers| op_sessionlogout
+  tag_session -->|offers| op_sessionmagiclinkconfirm
+  tag_session -->|offers| op_sessionmagiclinkconsume
   tag_session -->|offers| op_sessionrefreshget
   tag_session -->|offers| op_sessionrefreshpost
   tag_session -->|offers| op_sessionuserget
@@ -344,8 +356,14 @@ flowchart TB
   tag_actions -->|offers| op_importhtml
   tag_actions -->|offers| op_importxlsx
   tag_actions -->|offers| op_importpdf
+  tag_actions -->|offers| op_importmd
+  tag_actions -->|offers| op_importodt
+  tag_actions -->|offers| op_odttohtml
+  tag_actions -->|offers| op_importodp
+  tag_actions -->|offers| op_odptohtml
   tag_actions -->|offers| op_htmltodocx
   tag_actions -->|offers| op_mdtohtml
+  tag_actions -->|offers| op_websitemetadata
   tag_actions -->|offers| op_htmltomd
   tag_actions -->|offers| op_prettyhtml
   tag_actions -->|offers| op_jsontoyaml
@@ -442,6 +460,7 @@ flowchart TB
   %%@ node op_getfilebyuuid mono=GET color=skyBlue motion=nudge
   %%@ node op_updatefilebyuuid mono=PATCH color=roarGolden motion=nudge
   %%@ node op_deletefilebyuuid mono=DELET color=original87Pink motion=nudge
+  %%@ node op_replacefilecontent mono=POST color=opportunityGreen motion=nudge
   %%@ node op_listtags mono=GET color=skyBlue motion=nudge
   %%@ node op_searchcontent mono=GET color=skyBlue motion=nudge
   %%@ node op_listcustomelements mono=GET color=skyBlue motion=nudge
@@ -470,6 +489,8 @@ flowchart TB
   %%@ node op_sessionauthget mono=GET color=skyBlue motion=nudge
   %%@ node op_sessionauthpost mono=POST color=opportunityGreen motion=nudge
   %%@ node op_sessionlogout mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_sessionmagiclinkconfirm mono=GET color=skyBlue motion=nudge
+  %%@ node op_sessionmagiclinkconsume mono=POST color=opportunityGreen motion=nudge
   %%@ node op_sessionrefreshget mono=GET color=skyBlue motion=nudge
   %%@ node op_sessionrefreshpost mono=POST color=opportunityGreen motion=nudge
   %%@ node op_sessionuserget mono=GET color=skyBlue motion=nudge
@@ -530,8 +551,14 @@ flowchart TB
   %%@ node op_importhtml mono=POST color=opportunityGreen motion=nudge
   %%@ node op_importxlsx mono=POST color=opportunityGreen motion=nudge
   %%@ node op_importpdf mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_importmd mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_importodt mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_odttohtml mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_importodp mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_odptohtml mono=POST color=opportunityGreen motion=nudge
   %%@ node op_htmltodocx mono=POST color=opportunityGreen motion=nudge
   %%@ node op_mdtohtml mono=POST color=opportunityGreen motion=nudge
+  %%@ node op_websitemetadata mono=POST color=opportunityGreen motion=nudge
   %%@ node op_htmltomd mono=POST color=opportunityGreen motion=nudge
   %%@ node op_prettyhtml mono=POST color=opportunityGreen motion=nudge
   %%@ node op_jsontoyaml mono=POST color=opportunityGreen motion=nudge

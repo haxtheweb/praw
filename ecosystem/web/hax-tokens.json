@@ -10,7 +10,7 @@
    "tool": "written from and checked by",
    "reader": "read by"
   },
-  "about": "The DDD design system as W3C Design Tokens Community Group JSON, generated from elements/d-d-d/tokens: 820 tokens in 29 groups, 256 dark-mode overrides, 10 types. In step with the element source: build-tokens.js --check passes.",
+  "about": "The DDD design system as W3C Design Tokens Community Group JSON, generated from elements/d-d-d/tokens: 864 tokens in 31 groups, 257 dark-mode overrides, 10 types. In step with the element source: build-tokens.js --check passes.",
   "kindLabels": {
    "rel": "files, groups and types",
    "schema": "is read by"
@@ -23,7 +23,7 @@
  "nodes": {
   "dtcg": {
    "always": true,
-   "desc": "DDD and SimpleColors as W3C DTCG design tokens, generated from the element source so design tools see exactly what the elements use: 820 tokens (312 of them aliases of another token), 256 dark-mode overrides, 2 themes. In step with the element source: build-tokens.js --check passes.",
+   "desc": "DDD and SimpleColors as W3C DTCG design tokens, generated from the element source so design tools see exactly what the elements use: 864 tokens (322 of them aliases of another token), 257 dark-mode overrides, 2 themes. In step with the element source: build-tokens.js --check passes.",
    "links": {
     "tokens": "https://github.com/haxtheweb/webcomponents/tree/master/elements/d-d-d/tokens",
     "DTCG": "https://www.designtokens.org/"
@@ -44,37 +44,37 @@
    }
   },
   "f_ddd_dark_tokens_json": {
-   "desc": "Only what changes in dark mode: 256 overrides. Apply it on top of ddd.tokens.json.",
+   "desc": "Only what changes in dark mode: 257 overrides. Apply it on top of ddd.tokens.json.",
    "kind": "file",
    "links": {
     "file": "https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/tokens/ddd.dark.tokens.json"
    }
   },
   "f_ddd_tokens_json": {
-   "desc": "Every token with its light value: 820 in 29 groups. Each carries its CSS custom property in $extensions so tools can map back to var(--ddd-*).",
+   "desc": "Every token with its light value: 864 in 31 groups. Each carries its CSS custom property in $extensions so tools can map back to var(--ddd-*).",
    "kind": "file",
    "links": {
     "file": "https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/tokens/ddd.tokens.json"
    }
   },
   "g_ddd_color": {
-   "desc": "101 tokens, 26 aliases. Types: color 93, untyped 8. For example --ddd-theme-default-beaverBlue.",
+   "desc": "127 tokens, 26 aliases. Types: color 119, untyped 8. For example --ddd-theme-default-beaverBlue.",
    "kind": "group"
   },
   "g_ddd_font": {
-   "desc": "34 tokens, 7 aliases. Types: dimension 25, fontWeight 5, fontFamily 4. For example --ddd-font-primary.",
+   "desc": "36 tokens, 8 aliases. Types: dimension 26, fontFamily 5, fontWeight 5. For example --ddd-font-primary.",
    "kind": "group"
   },
   "g_ddd_letterspacing": {
-   "desc": "26 tokens. Types: dimension 26. For example --ddd-ls-16-sm.",
+   "desc": "27 tokens. Types: dimension 27. For example --ddd-ls-16-sm.",
    "kind": "group"
   },
   "g_ddd_lineheight": {
-   "desc": "4 tokens. Types: number 4. For example --ddd-lh-120.",
+   "desc": "5 tokens. Types: number 5. For example --ddd-lh-100.",
    "kind": "group"
   },
   "g_ddd_spacing": {
-   "desc": "31 tokens. Types: dimension 31. For example --ddd-spacing-0.",
+   "desc": "34 tokens. Types: dimension 31, untyped 3. For example --ddd-spacing-0.",
    "kind": "group"
   },
   "g_ddd_border": {
@@ -110,7 +110,7 @@
    "kind": "group"
   },
   "g_ddd_zindex": {
-   "desc": "6 tokens. Types: number 6. For example --ddd-z-base.",
+   "desc": "7 tokens. Types: number 7. For example --ddd-z-base.",
    "kind": "group"
   },
   "g_ddd_opacity": {
@@ -126,7 +126,7 @@
    "kind": "group"
   },
   "g_ddd_focus": {
-   "desc": "2 tokens. Types: border 1, dimension 1. For example --ddd-focus-ring.",
+   "desc": "2 tokens, 1 change in dark mode. Types: border 1, dimension 1. For example --ddd-focus-ring.",
    "kind": "group"
   },
   "g_ddd_textfieldheight": {
@@ -139,6 +139,10 @@
   },
   "g_ddd_targetsize": {
    "desc": "2 tokens. Types: dimension 2. For example --ddd-target-min.",
+   "kind": "group"
+  },
+  "g_ddd_density": {
+   "desc": "5 tokens, 5 aliases. Types: dimension 5. For example --ddd-surface-padding.",
    "kind": "group"
   },
   "g_ddd_mediacontrol": {
@@ -161,6 +165,10 @@
    "desc": "5 tokens, 3 aliases, 2 change in dark mode. Types: color 2, dimension 2, duration 1. For example --ddd-skeleton-base.",
    "kind": "group"
   },
+  "g_ddd_range": {
+   "desc": "5 tokens, 4 aliases. Types: dimension 3, number 1, duration 1. For example --ddd-range-lift-height.",
+   "kind": "group"
+  },
   "g_ddd_status": {
    "desc": "29 tokens, 22 aliases, 21 change in dark mode. Types: color 22, untyped 7. For example --ddd-status-default-signal.",
    "kind": "group"
@@ -174,15 +182,15 @@
    "kind": "group"
   },
   "ty_color": {
-   "desc": "580 tokens are color.",
+   "desc": "606 tokens are color.",
    "kind": "type"
   },
   "ty_untyped": {
-   "desc": "35 tokens carry no $type of their own or from their group.",
+   "desc": "38 tokens carry no $type of their own or from their group.",
    "kind": "type"
   },
   "ty_fontfamily": {
-   "desc": "4 tokens are fontFamily.",
+   "desc": "5 tokens are fontFamily.",
    "kind": "type"
   },
   "ty_fontweight": {
@@ -190,11 +198,11 @@
    "kind": "type"
   },
   "ty_dimension": {
-   "desc": "153 tokens are dimension.",
+   "desc": "163 tokens are dimension.",
    "kind": "type"
   },
   "ty_number": {
-   "desc": "21 tokens are number.",
+   "desc": "24 tokens are number.",
    "kind": "type"
   },
   "ty_border": {
@@ -206,7 +214,7 @@
    "kind": "type"
   },
   "ty_duration": {
-   "desc": "5 tokens are duration.",
+   "desc": "6 tokens are duration.",
    "kind": "type"
   },
   "ty_cubicbezier": {
@@ -214,7 +222,7 @@
    "kind": "type"
   },
   "t_build": {
-   "desc": "Exports DDD and SimpleColors as DTCG from the element source; --check fails CI when the committed files are stale. Last check here: checked 4 files in elements/d-d-d/tokens: 820 tokens, 256 dark overrides; not exported (RGB channel triplets and component defaults): 35.",
+   "desc": "Exports DDD and SimpleColors as DTCG from the element source; --check fails CI when the committed files are stale. Last check here: checked 4 files in elements/d-d-d/tokens: 864 tokens, 257 dark overrides; not exported (RGB channel triplets and component defaults): 43.",
    "kind": "tool",
    "links": {
     "code": "https://github.com/haxtheweb/webcomponents/blob/master/elements/d-d-d/design-system/build-tokens.js"
@@ -297,7 +305,7 @@
    "id": "tokens",
    "label": "DDD as design tokens",
    "kind": "story",
-   "message": "820 tokens in 29 groups, 256 dark-mode overrides, generated from the element source.",
+   "message": "864 tokens in 31 groups, 257 dark-mode overrides, generated from the element source.",
    "scenes": [
     {
      "caption": "DDD lives in the elements' CSS. The export turns it into DTCG JSON that design tools read.",
@@ -334,11 +342,13 @@
       "g_ddd_textfieldheight",
       "g_ddd_controlheight",
       "g_ddd_targetsize",
+      "g_ddd_density",
       "g_ddd_mediacontrol",
       "g_ddd_state",
       "g_ddd_eyebrow",
       "g_ddd_aspectratio",
       "g_ddd_skeleton",
+      "g_ddd_range",
       "g_ddd_status"
      ]
     },

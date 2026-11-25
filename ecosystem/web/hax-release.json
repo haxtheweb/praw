@@ -98,11 +98,11 @@
    }
   },
   "rl_notes": {
-   "desc": "On every version tag, GitHub Actions builds a source archive and SHA256SUMS and publishes a GitHub release with generated notes. Workflows: release-checksums.yml, release-notes.yml, release.yml.",
+   "desc": "On every version tag, GitHub Actions builds a source archive and SHA256SUMS and publishes a GitHub release with generated notes. Workflows: release.yml.",
    "kind": "after"
   },
   "rl_docker": {
-   "desc": "On every version tag, the Node.js and PHP platforms are published to the GitHub Container Registry (ghcr.io/haxtheweb/...), with latest following the newest release. Workflows: docker-publish.yml.",
+   "desc": "On every version tag, the Node.js and PHP platforms are published to the GitHub Container Registry (ghcr.io/haxtheweb/...), with latest following the newest release.",
    "kind": "after"
   },
   "rl_sbom": {

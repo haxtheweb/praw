@@ -15,33 +15,35 @@ flowchart TB
     m_languages[("languages.json")]
   end
   subgraph stepsg ["Steps that write and read them"]
-    st_wc_autoloader["6. wc-autoloader"]
-    st_language_registry_sync["8. language-registry-sync"]
-    st_hax_elements_discovery["9. hax-elements-discovery"]
-    st_elements_catalog["10. elements-catalog"]
-    st_hax_elements_demo_page["11. hax-elements-demo-page"]
-    st_translation_manifest["13. translation-manifest"]
-    st_language_registry_report["14. language-registry-report"]
+    st_wc_autoloader["10. wc-autoloader"]
+    st_language_registry_sync["12. language-registry-sync"]
+    st_hax_elements_discovery["13. hax-elements-discovery"]
+    st_elements_catalog["14. elements-catalog"]
+    st_hax_elements_demo_page["15. hax-elements-demo-page"]
+    st_translation_manifest["17. translation-manifest"]
+    st_language_registry_report["18. language-registry-report"]
     sc_api_snapshot["api-snapshot.mjs"]
     sc_build_component_gallery["build-component-gallery.js"]
     sc_dead_code_check["dead-code-check.mjs"]
     sc_extract_element_docs["extract-element-docs.mjs"]
     sc_gallery_dev_server["gallery-dev-server.js"]
+    sc_goggles_makers["goggles-makers.mjs"]
     sc_haxschema_check["haxschema-check.mjs"]
     sc_i18n_layout_check["i18n-layout-check.mjs"]
     sc_knip_report["knip-report.mjs"]
     sc_leak_check["leak-check.mjs"]
     sc_runtime_deps_check["runtime-deps-check.mjs"]
     sc_size_report["size-report.mjs"]
+    sc_without_hax_check["without-hax-check.mjs"]
     st_cem_analyze["cem analyze"]
   end
   subgraph readg ["Who reads them"]
     nodejs["nodejs"]
     php["php"]
     cli["cli"]
+    pk_app_hax["app-hax"]
     pk_haxcms_elements["haxcms-elements"]
     pk_i18n_manager["i18n-manager"]
-    pk_web_container["web-container"]
   end
   subgraph ctx ["Around it"]
     ubiquity["ubiquity"]
@@ -82,12 +84,15 @@ flowchart TB
   m_wcregistry -.->|is read by| sc_dead_code_check
   m_cem -.->|is read by| sc_extract_element_docs
   m_wcregistry -.->|is read by| sc_gallery_dev_server
+  m_wcregistry -.->|is read by| sc_goggles_makers
   m_haxreg -.->|is read by| sc_haxschema_check
   m_haxreg -.->|is read by| sc_i18n_layout_check
   m_wcregistry -.->|is read by| sc_knip_report
   m_haxreg -.->|is read by| sc_leak_check
   m_cem -.->|is read by| sc_runtime_deps_check
   m_wcregistry -.->|is read by| sc_size_report
+  m_wcregistry -.->|is read by| sc_without_hax_check
+  m_haxreg -.->|is read by| sc_without_hax_check
   st_cem_analyze -->|writes| m_cem
   m_wcregistry -.->|is read by| nodejs
   m_wcgraph -.->|is read by| nodejs
@@ -99,12 +104,11 @@ flowchart TB
   m_languages -.->|is read by| cli
   m_cem -.->|is read by| cli
   m_catalog -.->|is read by| cli
+  m_haxreg -.->|is read by| pk_app_hax
   m_wcregistry -.->|is read by| pk_haxcms_elements
   m_wcgraph -.->|is read by| pk_haxcms_elements
   m_translations -.->|is read by| pk_i18n_manager
   m_languages -.->|is read by| pk_i18n_manager
-  m_wcregistry -.->|is read by| pk_web_container
-  m_cem -.->|is read by| pk_web_container
   registry -.->|describes| components
   m_translations -.->|counts| languages
   m_wcregistry ==>|keeps it| efficient
@@ -134,19 +138,21 @@ flowchart TB
   %%@ node sc_dead_code_check icon=hax:code-json color=slateGray motion=nudge
   %%@ node sc_extract_element_docs icon=hax:code-json color=slateGray motion=nudge
   %%@ node sc_gallery_dev_server icon=hax:code-json color=slateGray motion=nudge
+  %%@ node sc_goggles_makers icon=hax:code-json color=slateGray motion=nudge
   %%@ node sc_haxschema_check icon=hax:code-json color=slateGray motion=nudge
   %%@ node sc_i18n_layout_check icon=hax:code-json color=slateGray motion=nudge
   %%@ node sc_knip_report icon=hax:code-json color=slateGray motion=nudge
   %%@ node sc_leak_check icon=hax:code-json color=slateGray motion=nudge
   %%@ node sc_runtime_deps_check icon=hax:code-json color=slateGray motion=nudge
   %%@ node sc_size_report icon=hax:code-json color=slateGray motion=nudge
+  %%@ node sc_without_hax_check icon=hax:code-json color=slateGray motion=nudge
   %%@ node st_cem_analyze icon=hax:code-json color=slateGray motion=nudge
   %%@ node nodejs portal
   %%@ node php portal
   %%@ node cli portal
+  %%@ node pk_app_hax icon=hax:code-json color=limestoneGray motion=nudge
   %%@ node pk_haxcms_elements icon=hax:code-json color=limestoneGray motion=nudge
   %%@ node pk_i18n_manager icon=hax:code-json color=limestoneGray motion=nudge
-  %%@ node pk_web_container icon=hax:code-json color=limestoneGray motion=nudge
   %%@ node ubiquity portal
   %%@ node components portal
   %%@ node languages portal

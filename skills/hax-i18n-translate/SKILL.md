@@ -81,7 +81,7 @@ strings live in `lib/<tag>.haxProperties.json`; the namespace is `<tag>.haxPrope
 declared via an `i18n-manager-register-element` event:
 ```js
 globalThis.dispatchEvent(new CustomEvent("i18n-manager-register-element", {
-  detail: { namespace: `wikipedia-query.haxProperties`, localesPath: new URL(`./locales`, import.meta.url).href },
+  detail: { namespace: `wikipedia-query.haxProperties`, localesPath: new URL("./locales/wikipedia-query.en.json", import.meta.url).href + "/../" },
 }));
 ```
 The manager fetches `locales/<tag>.haxProperties.<lang>.json` and deep-merges it over

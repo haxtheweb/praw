@@ -87,6 +87,7 @@ flowchart TB
     q_render_benchmarks["Render benchmarks"]
     q_unused_code_knip["Unused code (knip)"]
     q_size_report["size-report"]
+    qp_haxcms_php_822["DRAFT plugin platform: native PHP engine…"]
   end
   subgraph schedg ["Scheduled"]
     q_parity["Backend parity, nightly"]
@@ -214,6 +215,9 @@ flowchart TB
   q_no_typescript -.->|fails PRs in| components
   qg_block -->|includes| q_node_js_latest_lts
   q_node_js_latest_lts -.->|fails PRs in| components
+  q_node_js_latest_lts -.->|fails PRs in| nodejs
+  q_node_js_latest_lts -.->|fails PRs in| php
+  q_node_js_latest_lts -.->|fails PRs in| cli
   qg_block -->|includes| q_tests_poll_don_t_sleep
   q_tests_poll_don_t_sleep -.->|fails PRs in| components
   qg_block -->|includes| q_css_in_css_templates
@@ -308,6 +312,8 @@ flowchart TB
   q_performance_and_memory_budgets -.->|advises on PRs in| php
   qg_adv -->|includes| q_accessibility
   q_accessibility -.->|advises on PRs in| praw
+  qg_adv -->|planned| qp_haxcms_php_822
+  qp_haxcms_php_822 -.->|would run in| php
   qg_sched -->|includes| q_admin_contrast_sched
   q_admin_contrast_sched -.->|runs nightly in| components
   qg_sched -->|includes| q_build_and_tests
@@ -493,6 +499,7 @@ flowchart TB
   %%@ node q_size_report icon=icons:report color=roarGolden motion=nudge
   %%@ node q_performance_and_memory_budgets icon=icons:report color=roarGolden motion=nudge
   %%@ node q_accessibility icon=icons:report color=roarGolden motion=nudge
+  %%@ node qp_haxcms_php_822 icon=icons:build color=athertonViolet motion=nudge
   %%@ node q_admin_contrast_sched icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_build_and_tests icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_codeql_sched icon=hax:timeline color=beaverBlue motion=nudge

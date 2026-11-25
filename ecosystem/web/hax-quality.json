@@ -28,7 +28,7 @@
    "kind": "group"
   },
   "qg_adv": {
-   "desc": "6 checks that run on pull requests but don't stop a merge (continue-on-error, warning only or report only), plus 0 planned checks still in open pull requests. ESLint stays here until it blocks.",
+   "desc": "6 checks that run on pull requests but don't stop a merge (continue-on-error, warning only or report only), plus 1 planned checks still in open pull requests. ESLint stays here until it blocks.",
    "kind": "group"
   },
   "qg_sched": {
@@ -122,7 +122,7 @@
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/cla.yml",
     "workflow 2": "https://github.com/haxtheweb/haxcms-mcp/blob/main/.github/workflows/cla.yml",
     "workflow 3": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/cla.yml",
-    "workflow 4": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/cla.yml"
+    "workflow 4": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/cla.yml"
    }
   },
   "q_codeql": {
@@ -133,7 +133,7 @@
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/codeql-analysis.yml",
     "workflow 2": "https://github.com/haxtheweb/haxcms-mcp/blob/main/.github/workflows/codeql.yml",
     "workflow 3": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/codeql-analysis.yml",
-    "workflow 4": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/codeql.yml"
+    "workflow 4": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/codeql.yml"
    }
   },
   "q_contrast_design_systems": {
@@ -192,7 +192,7 @@
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml",
     "workflow 2": "https://github.com/haxtheweb/create/blob/main/.github/workflows/dependency-audit.yml",
     "workflow 3": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/build.yml",
-    "workflow 4": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/tests.yml"
+    "workflow 4": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/tests.yml"
    }
   },
   "q_gallery_audit": {
@@ -258,7 +258,7 @@
    "links": {
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/license-check.yml",
     "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/license-check.yml",
-    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/dependency-license.yml",
+    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/dependency-license.yml",
     "workflow 4": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/license-check.yml"
    }
   },
@@ -295,11 +295,14 @@
    }
   },
   "q_node_js_latest_lts": {
-   "desc": "Every Node.js version the repo names (engines, .nvmrc, workflows) is the latest LTS. Fails the pull request when it fails in webcomponents.",
+   "desc": "Every Node.js version the repo names (engines, .nvmrc, workflows) is the latest LTS. Fails the pull request when it fails in create, haxcms-nodejs, haxcms-php, webcomponents.",
    "kind": "gate",
    "status": "deployed",
    "links": {
-    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/rule-checks.yml"
+    "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/node-lts.yml",
+    "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/node-lts.yml",
+    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/node-lts.yml",
+    "workflow 4": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/rule-checks.yml"
    }
   },
   "q_tests_poll_don_t_sleep": {
@@ -397,7 +400,7 @@
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/perf.yml",
-    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/perf.yml"
+    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/perf.yml"
    }
   },
   "q_ubiquity_assets": {
@@ -406,7 +409,7 @@
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/ubiquity-assets.yml",
-    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/ubiquity-assets.yml"
+    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/ubiquity-assets.yml"
    }
   },
   "q_phpstan": {
@@ -414,7 +417,7 @@
    "kind": "gate",
    "status": "deployed",
    "links": {
-    "workflow": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/phpstan.yml"
+    "workflow": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/phpstan.yml"
    }
   },
   "q_phpunit": {
@@ -422,7 +425,7 @@
    "kind": "gate",
    "status": "deployed",
    "links": {
-    "workflow": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/tests.yml"
+    "workflow": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/tests.yml"
    }
   },
   "q_does_this_pull_request_change_composer_lock": {
@@ -430,7 +433,7 @@
    "kind": "gate",
    "status": "deployed",
    "links": {
-    "workflow": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/tests.yml"
+    "workflow": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/tests.yml"
    }
   },
   "q_unit_tests": {
@@ -642,6 +645,14 @@
     "workflow": "https://github.com/haxtheweb/haxcms-mcp/blob/main/.github/workflows/compliance.yml"
    }
   },
+  "qp_haxcms_php_822": {
+   "desc": "In an open pull request, not running yet.",
+   "status": "planned",
+   "kind": "planned",
+   "links": {
+    "pr": "https://github.com/haxtheweb/haxcms-php/pull/822"
+   }
+  },
   "q_admin_contrast_sched": {
    "desc": "Runs nightly in webcomponents. webcomponents: last scheduled run 2026-11-25, success.",
    "kind": "scheduled",
@@ -651,25 +662,25 @@
    }
   },
   "q_build_and_tests": {
-   "desc": "Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create. webcomponents: last scheduled run 2026-11-25, success.",
+   "desc": "Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create. webcomponents: last scheduled run 2026-11-25, success; haxcms-nodejs: last scheduled run 2026-11-25, success; haxcms-php: last scheduled run 2026-11-25, failure; create: last scheduled run 2026-11-25, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml",
     "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/build.yml",
-    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/tests.yml",
+    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/tests.yml",
     "workflow 4": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/build.yml"
    }
   },
   "q_codeql_sched": {
-   "desc": "Code with known vulnerability patterns in main is caught, including patterns found after it merged. Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create, nightly in praw, nightly in haxcms-mcp. webcomponents: last scheduled run 2026-11-25, success; praw: last scheduled run 2026-11-25, success.",
+   "desc": "Code with known vulnerability patterns in main is caught, including patterns found after it merged. Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create, nightly in praw, nightly in haxcms-mcp. webcomponents: last scheduled run 2026-11-25, success; haxcms-nodejs: last scheduled run 2026-11-25, success; haxcms-php: last scheduled run 2026-11-25, success; create: last scheduled run 2026-11-25, success; praw: last scheduled run 2026-11-25, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/codeql-analysis.yml",
     "workflow 2": "https://github.com/haxtheweb/haxcms-mcp/blob/main/.github/workflows/codeql.yml",
     "workflow 3": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/codeql-analysis.yml",
-    "workflow 4": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/codeql.yml"
+    "workflow 4": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/codeql.yml"
    }
   },
   "q_contrast_design_systems_sched": {
@@ -681,7 +692,7 @@
    }
   },
   "q_audit_sched": {
-   "desc": "Dependencies with known security advisories are caught. Runs nightly in webcomponents, nightly in create. webcomponents: last scheduled run 2026-11-25, success.",
+   "desc": "Dependencies with known security advisories are caught. Runs nightly in webcomponents, nightly in create. webcomponents: last scheduled run 2026-11-25, success; create: last scheduled run 2026-11-25, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -698,13 +709,13 @@
    }
   },
   "q_fuzz_nightly": {
-   "desc": "Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create. webcomponents: last scheduled run 2026-11-25, success.",
+   "desc": "Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create. webcomponents: last scheduled run 2026-11-25, success; haxcms-nodejs: last scheduled run 2026-11-25, success; haxcms-php: last scheduled run 2026-11-25, success; create: last scheduled run 2026-11-25, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/fuzz-nightly.yml",
     "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/fuzz-nightly.yml",
-    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/fuzz-nightly.yml",
+    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/fuzz-nightly.yml",
     "workflow 4": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/fuzz-nightly.yml"
    }
   },
@@ -725,84 +736,84 @@
    }
   },
   "q_dependency_licenses_sched": {
-   "desc": "No dependency under an incompatible license enters the repo, the project stays Apache-2.0, and element source files carry the license header. Runs weekly in webcomponents, weekly in haxcms-nodejs, weekly in haxcms-php, weekly in create, weekly in praw. webcomponents: last scheduled run 2026-11-23, success.",
+   "desc": "No dependency under an incompatible license enters the repo, the project stays Apache-2.0, and element source files carry the license header. Runs weekly in webcomponents, weekly in haxcms-nodejs, weekly in haxcms-php, weekly in create, weekly in praw. webcomponents: last scheduled run 2026-11-23, success; haxcms-nodejs: last scheduled run 2026-11-23, success; haxcms-php: last scheduled run 2026-11-23, success; create: last scheduled run 2026-11-23, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/license-check.yml",
     "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/license-check.yml",
-    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/dependency-license.yml",
+    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/dependency-license.yml",
     "workflow 4": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/license-check.yml"
    }
   },
   "q_mutation_testing": {
-   "desc": "The tests catch real faults: deliberate mutations of the code must make them fail. Runs weekly in webcomponents, weekly in haxcms-nodejs, weekly in haxcms-php. webcomponents: last scheduled run 2026-11-22, success.",
+   "desc": "The tests catch real faults: deliberate mutations of the code must make them fail. Runs weekly in webcomponents, weekly in haxcms-nodejs, weekly in haxcms-php. webcomponents: last scheduled run 2026-11-22, success; haxcms-nodejs: last scheduled run 2026-11-22, success; haxcms-php: last scheduled run 2026-11-22, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/mutation-testing.yml",
-    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/mutation-testing.yml",
+    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/mutation-testing.yml",
     "workflow 3": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/mutation-outline-designer.yml"
    }
   },
   "q_openssf_scorecard": {
-   "desc": "Supply-chain security practices are scored (OpenSSF Scorecard). Runs weekly in webcomponents, weekly in haxcms-nodejs, weekly in haxcms-php, weekly in create, weekly in praw, weekly in haxcms-mcp. webcomponents: last scheduled run 2026-11-23, success; praw: last scheduled run 2026-11-23, success.",
+   "desc": "Supply-chain security practices are scored (OpenSSF Scorecard). Runs weekly in webcomponents, weekly in haxcms-nodejs, weekly in haxcms-php, weekly in create, weekly in praw, weekly in haxcms-mcp. webcomponents: last scheduled run 2026-11-23, success; haxcms-nodejs: last scheduled run 2026-11-23, success; haxcms-php: last scheduled run 2026-11-23, success; create: last scheduled run 2026-11-23, success; praw: last scheduled run 2026-11-23, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/ossf_scorecard.yml",
     "workflow 2": "https://github.com/haxtheweb/haxcms-mcp/blob/main/.github/workflows/ossf_scorecard.yml",
     "workflow 3": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/ossf_scorecard.yml",
-    "workflow 4": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/ossf_scorecard.yml"
+    "workflow 4": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/ossf_scorecard.yml"
    }
   },
   "q_agent_skills_drift": {
-   "desc": "Runs weekly in haxcms-nodejs, weekly in haxcms-php.",
+   "desc": "Runs weekly in haxcms-nodejs, weekly in haxcms-php. haxcms-nodejs: last scheduled run 2026-11-23, success; haxcms-php: last scheduled run 2026-11-23, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/agent-skills-drift.yml",
-    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/agent-skills-drift.yml"
+    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/agent-skills-drift.yml"
    }
   },
   "q_parity": {
-   "desc": "haxcms-nodejs and haxcms-php give the same results for the same operations. Runs nightly in haxcms-nodejs, nightly in haxcms-php.",
+   "desc": "haxcms-nodejs and haxcms-php give the same results for the same operations. Runs nightly in haxcms-nodejs, nightly in haxcms-php. haxcms-nodejs: last scheduled run 2026-11-25, success; haxcms-php: last scheduled run 2026-11-25, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/backend-parity.yml",
-    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/backend-parity.yml"
+    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/backend-parity.yml"
    }
   },
   "q_haxiam_nightly_sched": {
-   "desc": "Runs nightly in haxcms-nodejs, nightly in haxcms-php.",
+   "desc": "Runs nightly in haxcms-nodejs, nightly in haxcms-php. haxcms-nodejs: last scheduled run 2026-11-25, success; haxcms-php: last scheduled run 2026-11-25, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/haxiam-nightly.yml",
-    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/haxiam-nightly.yml"
+    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/haxiam-nightly.yml"
    }
   },
   "q_performance_and_memory_budgets_sched": {
-   "desc": "Memory, page load and outline save time stay inside the budgets in test/perf/budgets.json. Runs weekly in haxcms-nodejs, weekly in haxcms-php.",
+   "desc": "Memory, page load and outline save time stay inside the budgets in test/perf/budgets.json. Runs weekly in haxcms-nodejs, weekly in haxcms-php. haxcms-nodejs: last scheduled run 2026-11-23, success; haxcms-php: last scheduled run 2026-11-23, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/perf.yml",
-    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/perf.yml"
+    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/perf.yml"
    }
   },
   "q_ubiquity_assets_sched": {
-   "desc": "Runs nightly in haxcms-nodejs, nightly in haxcms-php.",
+   "desc": "Runs nightly in haxcms-nodejs, nightly in haxcms-php. haxcms-nodejs: last scheduled run 2026-11-25, success; haxcms-php: last scheduled run 2026-11-25, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/ubiquity-assets.yml",
-    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/ubiquity-assets.yml"
+    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/ubiquity-assets.yml"
    }
   },
   "q_fresh_install_smoke_test": {
-   "desc": "A fresh install can create a site, add a page and serve it. Runs nightly in create.",
+   "desc": "A fresh install can create a site, add a page and serve it. Runs nightly in create. create: last scheduled run 2026-11-25, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -810,7 +821,7 @@
    }
   },
   "q_old_site_compatibility": {
-   "desc": "Sites made from 2021 on keep working: one fixture site per year is upgraded to the latest code and edited the way an author would. Runs weekly in create.",
+   "desc": "Sites made from 2021 on keep working: one fixture site per year is upgraded to the latest code and edited the way an author would. Runs weekly in create. create: last scheduled run 2026-11-23, failure.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -818,7 +829,7 @@
    }
   },
   "q_parity_harness_nodejs_php_cli": {
-   "desc": "The same seeded operations sent to haxcms-nodejs, haxcms-php and the HAX CLI write the same sites (report only). Runs nightly in create.",
+   "desc": "The same seeded operations sent to haxcms-nodejs, haxcms-php and the HAX CLI write the same sites (report only). Runs nightly in create. create: last scheduled run 2026-11-25, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -1019,9 +1030,9 @@
      ]
     },
     {
-     "caption": "No checks are waiting in open pull requests.",
+     "caption": "Planned checks, still in open pull requests.",
      "nodes": [
-      "qg_adv"
+      "qp_haxcms_php_822"
      ]
     },
     {

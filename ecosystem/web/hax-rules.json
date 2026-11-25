@@ -536,7 +536,7 @@
    }
   },
   "r_92dfb3b2_1c32_42dc_89c3_0f4ae66f7227": {
-   "desc": "User prefers to always use the latest Node.js LTS release across the ecosystem (currently Node 24). Apply this to `.nvmrc`/`engines` fields, CI workflow `node-version` matrices (e.g. `actions/setup-node`), Docker base images, and local tooling. When a newer LTS supersedes 24, update this rule and all ecosystem workflows/configs in step. In PRAW RULES.md (scope: global). Enforced by Node.js latest LTS. Partly. webcomponents' rule-checks workflow (scripts/rule-checks.mjs node-version) fails the pull request when engines.node, an .nvmrc or a workflow node-version isn't the latest LTS; the other repos aren't checked yet.",
+   "desc": "User prefers to always use the latest Node.js LTS release across the ecosystem (currently Node 24). Apply this to `.nvmrc`/`engines` fields, CI workflow `node-version` matrices (e.g. `actions/setup-node`), Docker base images, and local tooling. When a newer LTS supersedes 24, update this rule and all ecosystem workflows/configs in step. In PRAW RULES.md (scope: global). Enforced by Node.js latest LTS. webcomponents' rule-checks workflow and the Node.js latest LTS workflow in haxcms-nodejs, haxcms-php and create fail the pull request when engines.node doesn't allow the LTS, an .nvmrc names another version, a single workflow node-version isn't the LTS, or a node-version matrix (the supported range) leaves it out. Dockerfile base images that aren't the LTS are listed without failing until they move with their new digest.",
    "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#nodejs-version--latest-lts"

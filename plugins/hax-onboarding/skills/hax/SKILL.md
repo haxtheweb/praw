@@ -68,7 +68,7 @@ For developers setting up a full HAX development environment:
 1. **Clone Repositories**: Clone all HAX ecosystem repositories into
    a single workspace folder (ask the user where). Core repos: `webcomponents`, `create`,
    `haxcms-php`, `haxcms-nodejs`, `desktop`, `hax11ty`, `json-outline-schema`,
-   `hax-schema`, `open-apis`, `docs`, and `issues`.
+   `hax-schema`, `haxtheweb.org`, `learn`, `praw`, and `issues`.
 2. **Install HAX CLI**: `npm install --global @haxtheweb/create` (or opt in to the
    auto-install hook with `HAX_PLUGIN_AUTOINSTALL=1`). Update with `hax update`.
 3. **Install Agent Skills**: Run `hax skills install --all` to install bundled

@@ -26,8 +26,6 @@ create/ (HAX CLI)
     ↓ generates scaffolding for
 desktop/ (Local Development)
     ↓ facilitates
-open-apis/ (Microservices)
-    ↓ supports conversion/analysis for
 All HAX Projects
 ```
 
@@ -240,9 +238,9 @@ Access pattern: Merlin program invocation OR admin overview panel. Form data flo
 
 ### Micro-Frontend-Registry
 
-- **Role**: Service discovery layer that connects HAX to external microservices.
-- **Primary target**: `open-apis.hax.cloud` (conversion, analysis, processing services).
-- **Flexibility**: Can be rerouted to point at alternative service endpoints.
+- **Role**: Service discovery layer that connects HAX elements to services.
+- **Targets**: the HAXcms backends, on-premises: system-wide work at `/system/api/v1` (`@system/`) and site-scoped work at `x/api/v1` (`@site/`). `open-apis.hax.cloud` is being shut down: route nothing there.
+- **Flexibility**: `MicroFrontendRegistryConfig.base` can reroute endpoints to another host.
 - **Usage pattern**: `import { MicroFrontendRegistry } from "@haxtheweb/micro-frontend-registry/micro-frontend-registry.js"` + `enableServices([...])` to activate specific service integrations.
 
 ### Site Creation Flow (app-hax v2)
@@ -255,8 +253,7 @@ Access pattern: Merlin program invocation OR admin overview panel. Form data flo
 
 ### Site Insights / Reports Dashboard
 
-- **Current state**: `haxcms-site-insights.js` currently calls open-apis endpoints to assemble and churn site information.
-- **Planned migration**: Data source should move from open-apis to **site-local `x/api` endpoints** (planned, not yet implemented). These endpoints would serve structured data about the site under the reserved `x/` route prefix.
+- **Current state**: site reports come from the backends' site-local endpoints, `x/api/v1/reports` and `x/api/v1/reports/{report}`, under the reserved `x/` route prefix. The move off open-apis is done.
 - **Vision**: A dashboard providing actionable insights to the site author:
   - Content analysis (what's in the site, content quality metrics)
   - Accessibility auditing results

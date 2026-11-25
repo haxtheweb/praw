@@ -42,13 +42,12 @@ declare -A REPOSITORIES=(
     ["hax11ty"]="Integration layer bridging HAX components with Eleventy static site generator"
     ["json-outline-schema"]="JSON schema used by HAXcms for content structure and navigation"
     ["hax-schema"]="HAX property schemas defining web component integration with authoring interface"
-    ["open-apis"]="Microservice APIs and shared infrastructure (https://open-apis.hax.cloud/)"
-    ["docs"]="Official HAX documentation site built as HAXcms site"
+    ["haxtheweb.org"]="The haxtheweb.org site, built as a HAXcms site"
+    ["learn"]="Learn HAX tutorials site (learn.hax.cloud), built as a HAXcms site"
     ["issues"]="Unified issue tracking repository for entire HAX ecosystem"
     
     # Additional Development Tools
     ["psucdn"]="CDN and asset management"
-    ["screenshotUrl"]="Screenshot generation services"
     ["edtechjoker"]="Educational technology blog and resources"
     
     # AI and Training Data (Note: ai-site-training-data is private)

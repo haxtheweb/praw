@@ -73,7 +73,7 @@ generic advice. Investigate:
   local clone if there is one; otherwise read or clone it from GitHub. Common repos:
   - `webcomponents` (the monorepo; elements under `elements/`)
   - `haxcms-nodejs`, `haxcms-php`, `create` (the `hax` CLI), `desktop`, `hax11ty`
-  - `docs`, `open-apis`, `hax-schema`, `hax-element-schema`
+  - `haxtheweb.org`, `learn`, `praw`, `hax-schema`, `hax-element-schema`
   - `issues` (the unified issue queue)
 - **Search the codebase.** Use `grep` for exact symbols/strings and `codebase_semantic_search` for
   conceptual lookups. Many HAX repos are indexed — pass the matching `codebase_path` when available.

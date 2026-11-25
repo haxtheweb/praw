@@ -309,15 +309,11 @@ THEME = {"element": "clean-one", "path": "@haxtheweb/clean-one/clean-one.js", "n
 if ECO_THEME:
     THEME = {"element": "ecosystem-theme", "path": "@haxtheweb/ecosystem-theme/ecosystem-theme.js", "name": "Ecosystem",
              "variables": {"ecosystemSrc": "ecosystem-webs.json",
-                           "nav": [{"label": "Explore", "slug": items[0]["slug"]}, {"label": "Tours", "slug": by_id[tours_root]["slug"]}]
-                                  + [{"label": x["title"], "slug": slug(x["slug"])} for x in EXTRA if x.get("nav")],
                            # no "links": HAXTheWeb, Build now and Web components are in the network bar above
                            # the home page's greeting: before anything else, that it is all one network
                            "welcome": {"title": "Everything in HAX is connected",
                                        "text": "Every part of HAX, every site in the HAX network and everyone who builds it, in one web. "
-                                               "Select a tile to see what it connects to, take a tour, or ask Merlin to take you anywhere in the network.",
-                                       "tour": by_id[page_of[("tour", "main", "everyone")]]["slug"] if ("tour", "main", "everyone") in page_of else by_id[tours_root]["slug"],
-                                       "tourLabel": "Take the tour"},
+                                               "Select a tile to see what it connects to, take a tour, or search everything from Travel anywhere at the top."},
                            "footerNote": "Built from PRAW on every push to main.",
                            "footer": [{"label": "Source: praw/ecosystem", "href": "https://github.com/haxtheweb/praw/tree/main/ecosystem"},
                                       {"label": "Roadmap", "href": "https://github.com/haxtheweb/issues/issues/3310"}]}}

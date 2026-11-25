@@ -10,6 +10,20 @@ Data that ties the HAX ecosystem web to the evidence and skills behind it. Each 
 
 The JSON files are the source; this page summarizes them. Statuses and pillar links are a self-assessment for maintainer review, not a HEOSAT score.
 
+
+## Growth data
+
+How HAX grew, and what its reuse saves ([haxtheweb/issues#3409](https://github.com/haxtheweb/issues/issues/3409)). [`build/build_growth.py`](build/build_growth.py) reads git history and source from full-history clones it keeps in `ecosystem/.work/growth`, and writes a snapshot to [`build/data/growth/`](build/data/growth) that is committed, so the history is reviewable here and a site build never clones history. `build_data.py` publishes it at `hax.cloud/data/growth/` and lists it in the catalog, llms.txt and `data/openapi.json`.
+
+| File | What it holds |
+| --- | --- |
+| `repos.json` | First commit and commits per month for every repository in the network: the network-bar properties (from [`network.json`](network.json)), RPG me, the runtimes and the site.json contract. |
+| `themes.json` | Every theme whose class reaches HAXCMSLitElementTheme: when its file appeared, what it extends (the core or a family base such as HomageThemeBase or BookTheme), its own code size. |
+| `elements.json` | Every element package: when it appeared, its main file's size, DDD or not, the packages it imports and how many import it. |
+| `payload.json` | Gzipped size of every file a theme or element loads, the shared core, which files each theme and element loads, and sample visitor journeys for the cache view. |
+| `series.json` | Monthly series on one axis: commits across the network, merged PRs, issues closed and sites built (from [`impact/`](../impact)), and running totals of themes, elements and platforms. |
+
+Definitions, also in every file's `meta`: a theme or element "appeared" when its file first existed at its current path; bytes are gzip of each file's source, file by file, with third-party code (lit, mobx) left out, so they show code written rather than minified CDN output; the shared core is haxcms-site-builder's static closure plus every module at least 80% of themes load; and browsers keep one cache per site, so savings between sites apply on the same host. Refresh it with `python3 -I ecosystem/build/build_growth.py` (the Sunday mechanical-update job can run it) and commit the diff; `python3 -I ecosystem/test/growth-check.py` checks the snapshot holds together and runs in `ecosystem-web.yml`.
 ## The web
 
 The ecosystem web itself lives here too: every sub-web's structure and details, the generators that build them from source, and the player that turns them into one page.
@@ -17,8 +31,8 @@ The ecosystem web itself lives here too: every sub-web's structure and details, 
 | Folder | What's in it |
 | --- | --- |
 | [`web/`](web) | One `.mmd` and `.json` pair per sub-web (`hax-ecosystem` is the main web), plus `gap-answers.json`, the answers that filled the main web's gaps. These are the source of truth. |
-| [`build/`](build) | The generators (`build_*.py`), `drift.py`, `graph-drift.mjs`, `assemble.py`, `sources.sh` and `run.sh`. `site.sh` builds hax.cloud from them: `build_site.py` writes the pages, `build_data.py` publishes the webs as open datasets (`hax.cloud/data/`: a schema.org catalog at `data/index.json`, one JSON per web with its nodes' pages and edges, and the whole graph in `data/graph.json`) and `build_recent.py` adds recent activity. |
-| [`build/data/`](build/data) | Extracts the generators read that don't come from a repo checkout: where a tile's code lives (`concept-code.json`), MCP tools, xAPI verbs, field and Merlin usage, OER Schema, the release script, the HAX Lab README, layer data and a hax.psu.edu snapshot with site owners removed. |
+| [`build/`](build) | The generators (`build_*.py`), `drift.py`, `graph-drift.mjs`, `assemble.py`, `sources.sh` and `run.sh`. `site.sh` builds hax.cloud from them: `build_site.py` writes the pages, `build_data.py` publishes the webs as open datasets (`hax.cloud/data/`: a schema.org catalog at `data/index.json`, one JSON per web with its nodes' pages and edges, the whole graph in `data/graph.json`, the growth data in `data/growth/` and an OpenAPI description of all of it in `data/openapi.json`) and `build_recent.py` adds recent activity. |
+| [`build/data/`](build/data) | Extracts the generators read that don't come from a repo checkout: where a tile's code lives (`concept-code.json`), MCP tools, xAPI verbs, field and Merlin usage, OER Schema, the release script, the HAX Lab README, layer data, a hax.psu.edu snapshot with site owners removed, and the growth data layer in [`build/data/growth/`](build/data/growth) (below). |
 | [`player/`](player) | The page template and the icons, image and mascot it embeds. |
 | [`test/`](test) | `integrity-check.py` (the rules below; standard library Python), `parse-check.js` (every web parses with no errors and every icon is in the inlined set) and `layout-check.js` (no overflow at desktop and phone widths). The last two need Playwright (`npm ci` in `test/`). `recent-check.py` checks the recent activity step with no network, and `tutorial-review-check.py` the tutorials-to-review list. |
 

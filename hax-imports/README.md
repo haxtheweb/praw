@@ -9,7 +9,7 @@ Copies of file based importers are included here as import-example.{format}, one
 - [ODS](import-example.ods)
 - [Markdown](import-example.md)
 - [TXT](import-example.txt) (read as Markdown, so `#` headings become pages)
-- [HTML](import-example.html)
+- [HTML](import-example.html): every page of [Learn HAX](https://learn.hax.cloud) as one site export (top-level pages are `h1`, the pages under them `h2`), loading its blocks from the HAX CDN so it also opens on its own. Rebuild it from a Learn checkout with `node scripts/build-import-example-html.js <learn checkout>` so it keeps up with the docs.
 
 The ODT, ODP and ODS files are the DOCX, PPTX and XLSX examples saved in their OpenDocument formats, so each pair should import to the same pages.
 

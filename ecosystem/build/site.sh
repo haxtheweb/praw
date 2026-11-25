@@ -39,6 +39,9 @@ rm -rf "$OUT/pages" "$OUT/site.json" "$OUT/.github" "$OUT/docker" "$OUT/Dockerfi
   "$OUT/config.php" "$OUT/.htaccess" "$OUT/llms.txt" "$OUT/netlify.toml"
 cp "$OUT/ghpages.html" "$OUT/index.html"
 cd "$ROOT/ecosystem/.work" && python3 -I ../build/build_site.py "$OUT" hax-area-icons.html
+# the webs as open datasets (data/): a schema.org catalog, one JSON per web with its nodes' pages and edges, and
+# the whole graph, built from the bundle and slugs build_site.py just wrote so data and site can't disagree
+python3 -I "$ROOT/ecosystem/build/build_data.py" "$OUT"
 # recent activity from the public GitHub API (https://github.com/haxtheweb/issues/issues/3387): recent.json, the
 # Recent page and each repository's tile page. It keeps the last published snapshot when GitHub can't be read,
 # and never stops the build.
@@ -57,6 +60,8 @@ node "$ROOT/ecosystem/build/static_site.cjs" "$TMP/hn" "$OUT"
 # the rebuild brings back the boilerplate's server-only files; a static host doesn't run them
 rm -rf "$OUT/docker" "$OUT/Dockerfile" "$OUT/index.php" "$OUT/config.php" "$OUT/.htaccess" "$OUT/files/.htaccess" \
   "$OUT/netlify.toml" "$OUT/.hax-static-build"
+# llms.txt was just regenerated: point agents at the datasets
+cat "$OUT/data/llms-section.md" >> "$OUT/llms.txt" && rm "$OUT/data/llms-section.md"
 
 # build/: the compiled front end, shipped with the site. The magic script finds ./build/ and loads from it,
 # so nothing comes from cdn.hax.cloud; the registry files sit at the top of the site where HAXcms looks.

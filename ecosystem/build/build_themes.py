@@ -15,6 +15,7 @@ FAM = {  # theme -> family
  "polaris-theme": "polaris", "polaris-flex-theme": "polaris", "polaris-flex-sidebar": "polaris", "polaris-invent-theme": "polaris",
  "clean-portfolio-theme": "portfolio", "glossy-portfolio-theme": "portfolio", "resume-theme": "portfolio", "journey-theme": "portfolio",
  "haxma-theme": "docs",
+ "al-folio-theme": "portfolio", "writing-theme": "site", "astrowind-theme": "site",
  "bootstrap-theme": "site", "spacebook-theme": "site", "link-card-theme": "site", "twenty-six-theme": "site",
  "terrible-themes": "fun", "terrible-best-themes": "fun", "terrible-outlet-themes": "fun", "terrible-productionz-themes": "fun", "terrible-resume-themes": "fun",
 }
@@ -27,6 +28,9 @@ NOTES = {
  "learn-two-theme": "A popular course-content theme.",
  "polaris-invent-theme": "haxtheweb.org uses Polaris Invent.",
  "polaris-flex-theme": "Covers many psu.edu patterns, including mega menus.",
+ "al-folio-theme": "A homage to the al-folio academic site; the Academic skeleton starts from it.",
+ "writing-theme": "The Writing skeleton starts from it.",
+ "astrowind-theme": "A homage to the AstroWind landing page; the Landing page skeleton starts from it.",
 }
 visible = [t for t in themes if t in FAM]
 for t in visible:
@@ -62,7 +66,7 @@ for f, d in skels.items():
     th = d.get("theme") if isinstance(d.get("theme"), str) else (d.get("build", {}) or {}).get("theme") or d["site"].get("theme")
     if isinstance(th, dict): th = th.get("element")
     if th in FAM: lines.append(f"  {sid(f)} -->|starts with| {tid(th)}")
-    if SKEL_USE[f]: lines.append(f"  {sid(f)} -->|is a| {SKEL_USE[f]}")
+    if SKEL_USE.get(f): lines.append(f"  {sid(f)} -->|is a| {SKEL_USE[f]}")  # a skeleton new in source has no use case here yet, like the skeletons web
     lines.append(f"  skeletons -->|includes| {sid(f)}")
 for p, t, verb in PEOPLE: lines.append(f"  {p} ---|{verb}| {tid(t)}")
 lines.append("  ddd -->|styles| fam_polaris")

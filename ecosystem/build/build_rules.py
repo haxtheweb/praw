@@ -55,7 +55,12 @@ for repo, nid in REPOS.items():
                                         "key": "agents:" + key, "id": "ra_" + slug(key), "repos": [], "url": info["html_url"]})
             if nid not in a["repos"]: a["repos"].append(nid)
 # ---------- proposed rules (not written down yet) ----------
-cands = [{"title": c["title"], "group": "Proposed: " + c["group"], "text": c["text"], "src": "plan", "key": "candidate:" + c["id"], "id": "rc_" + c["id"], "repos": []} for c in LINKS["candidates"]]
+cands = [{"title": c["title"], "group": "Proposed: " + c["group"], "text": c["text"], "src": "plan", "key": "candidate:" + c["id"], "id": "rc_" + c["id"], "repos": [], "written": c.get("written")} for c in LINKS["candidates"]]
+for c in cands:  # a candidate a RULES.md rule now covers points at that rule
+    if c["written"]:
+        hit = [r for r in rules if r["rid"].startswith(c["written"])]
+        if len(hit) != 1: raise SystemExit(f"candidate {c['key']}: written {c['written']} matches {len(hit)} RULES.md rules")
+        c["written"] = hit[0]; c["url"] = hit[0]["url"]
 ALL = rules + list(agents.values()) + cands
 def links_for(key):  # RULES.md Rule IDs may be given in full or by their first characters
     if key in LINKS["rules"]: return LINKS["rules"][key]
@@ -111,10 +116,13 @@ for g in groups:
 for r in ALL:
     how = f" {r['how']}" if r["how"] else ""
     enf = f"Enforced by {', '.join(qlabel(q) for q in r['enf'])}.{how}" if r["enf"] else f"Guidance by design: no check enforces this, and none is planned.{how}" if r["guidance"] else f"Nothing enforces this yet.{'' if r['lost'] else how}"
-    where = {"RULES.md": f"In PRAW RULES.md (scope: {r.get('scope') or 'none'}).", "AGENTS.md": f"In the AGENTS.md of {', '.join(sorted(r['repos']))}.", "plan": "Proposed in the HAX Scheduled Background Jobs Plan; not written into RULES.md or AGENTS.md yet."}[r["src"]]
+    plan = f"Proposed in the HAX Scheduled Background Jobs Plan; now written into PRAW RULES.md as part of \"{r['written']['title']}\"." if r.get("written") else "Proposed in the HAX Scheduled Background Jobs Plan; not written into RULES.md or AGENTS.md yet."
+    where = {"RULES.md": f"In PRAW RULES.md (scope: {r.get('scope') or 'none'}).", "AGENTS.md": f"In the AGENTS.md of {', '.join(sorted(r['repos']))}.", "plan": plan}[r["src"]]
     if r.get("also"): where += f" Also in {', '.join(r['also'])}."
-    d = {"desc": f"{r['text']} {where} {enf}".strip(), "kind": "proposed" if r["src"] == "plan" else ("enforced" if r["enf"] else "guidance" if r["guidance"] else "gap")}
-    if r["src"] == "plan": d["status"] = "planned"
+    # a proposal is planned only while nothing backs it: a check that enforces it or a RULES.md rule that covers it means it landed
+    planned = r["src"] == "plan" and not r["enf"] and not r.get("written")
+    d = {"desc": f"{r['text']} {where} {enf}".strip(), "kind": "proposed" if planned else ("enforced" if r["enf"] else "guidance" if r["guidance"] else "gap")}
+    if planned: d["status"] = "planned"
     elif r["guidance"]: d["status"] = "guidance"
     elif not r["enf"]: d["status"] = "gap"
     if r.get("url"): d["links"] = {"rule": r["url"]}
@@ -126,8 +134,8 @@ tours = [{"id": "rules", "label": "Rules and what guarantees them", "kind": "sto
     S(f"{len(enforced)} rules have a check that enforces them.", *[r["id"] for r in enforced], *checks),
     S("Rules serve the pillars.", *PILLARS, *[r["id"] for r in ALL if r["pillars"]]),
     S(f"{len(guidance)} rules are guidance by design: how agents and people work, which no check could decide.", *[r["id"] for r in guidance]),
-    S(f"{len(gaps)} rules nothing enforces yet: the backlog of what to automate next.", *[r["id"] for r in gaps if r["src"] != "plan"]),
-    S("Proposed rules, not written down yet.", *[r["id"] for r in cands]),
+    S(f"{len(gaps)} rules nothing enforces yet: the backlog of what to automate next.", *[r["id"] for r in gaps if r["src"] != "plan" or r.get("written")]),
+    S("Proposed rules still waiting: not written down and not enforced yet.", *[r["id"] for r in cands if not r["enf"] and not r.get("written")]),
     S("All of it.")]}]
 meta = {"name": "Rules and guarantees", "parent": "main", "noTimeline": True, "sectionLabels": {"group": "where rules come from", "enforced": "enforced", "guidance": "guidance by design", "gap": "nothing enforces it yet", "proposed": "proposed"},
         "about": f"Every rule HAX keeps, generated from PRAW's RULES.md ({len(rules)} rules) and each repo's AGENTS.md ({len(agents)}), plus {len(cands)} the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. {len(enforced)} are enforced; {len(guidance)} are guidance by design, which no check could decide; {len(gaps)} are gaps, the backlog of what to automate next.",

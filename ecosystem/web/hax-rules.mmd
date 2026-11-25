@@ -42,6 +42,7 @@ flowchart TB
     r_1992902d74844c908ab446["HAX UI: Admin Surfaces Layer of DDD"]
     r_ccca6768_05e0_4d4d_b3a1_4b9895531558["HAXcms Prototypes Are Built On The Real System"]
     r_956c54783626475ea901a6["Admin Fields Are simple-fields"]
+    r_411423ec_d922_4bd4_8c45_3d8c65b9fbfa["Every Area Has an Icon, a DDD Color and a Motion on Record"]
     r_rvsctsdjae8lrmsjmpo3mk["HAX Schema Capability"]
     r_7cpveferpsf0az8tkqxw0y["Accessibility Audits"]
     r_13a03330_483e_404e_9e48_b0d9f16432d3["Color Vision — Opposing Actions Read Apart Without Color"]
@@ -59,6 +60,7 @@ flowchart TB
     r_ea643795_98bc_47fb_bf31_999644a48f77["Tracking Is Visible to the Person Tracked"]
     r_2e0e8483_8e58_4854_b6f9_f28f77aec17b["Tracking Records the Outcome, Not the Stream"]
     r_1b8b8a93_0458_41f9_85a4_ba8d16923765["SSR Safety & Enhancement Audit"]
+    r_47905658_f1c9_448d_99e5_9e933bdc6990["i18n — Locale URLs Name the Shipped English File"]
     r_646fc5cf_6f1f_47e0_b48c_c54544cda490["Testing — Use the Repo's Own Runner Config"]
     r_932f6cd4_90a9_451c_98af_4fb577007f9d["Testing — Poll, Don't Sleep"]
     r_4e5b2533_8d87_4d77_b303_2d2907a78339["Testing — Property Tests For Untrusted Input"]
@@ -118,13 +120,17 @@ flowchart TB
     ra_license_header["License header"]
     ra_modern_javascript["Modern JavaScript"]
     ra_html_sinks["HTML sinks"]
+    ra_no_bindings_inside_style["No bindings inside `<style>`"]
     ra_css_template_literals["CSS template literals"]
+    ra_browser_support["Browser Support"]
+    ra_hax_rules_win_over_outside_guidance["HAX rules win over outside guidance."]
     ra_every_field_in_admin_chrome_is_a_simple_fields_field["Every field in admin chrome is a `simple-fields-field`"]
     ra_theme_development["Theme Development"]
     ra_file_structure["File Structure"]
     ra_web_components["Web Components"]
     ra_package_names["Package Names"]
     ra_css_classes["CSS Classes"]
+    ra_locale_urls_name_the_english_file["Locale URLs name the English file"]
     ra_feature_prs_change_english_source_strings_only["Feature PRs change English source strings only"]
     ra_security_audits["Security Audits"]
     ra_dependencies["Dependencies"]
@@ -134,7 +140,6 @@ flowchart TB
     ra_component_security["Component Security"]
     ra_schema_validation["Schema Validation"]
     ra_library_security["Library Security"]
-    ra_external_dependencies["External Dependencies"]
     rc_content_contract["Element front-end APIs never change"]
     rc_content_no_ddd["Content elements don't require the full DDD stack"]
     rc_user_links["User-authored links are always respected"]
@@ -254,6 +259,7 @@ flowchart TB
   r_956c54783626475ea901a6 -.->|applies to| ddd
   r_956c54783626475ea901a6 -.->|applies to| haxcms
   r_956c54783626475ea901a6 -.->|applies to| editor
+  rg_design_system_standards -->|includes| r_411423ec_d922_4bd4_8c45_3d8c65b9fbfa
   rg_web_component_development -->|includes| r_rvsctsdjae8lrmsjmpo3mk
   q_haxschema -->|enforces| r_rvsctsdjae8lrmsjmpo3mk
   r_rvsctsdjae8lrmsjmpo3mk ==>|serves| extensible
@@ -283,7 +289,6 @@ flowchart TB
   rg_web_component_development -->|includes| r_cehsaztyfb2vtcwthggnbk
   q_lint -->|enforces| r_cehsaztyfb2vtcwthggnbk
   r_cehsaztyfb2vtcwthggnbk -.->|applies to| components
-  r_cehsaztyfb2vtcwthggnbk -.->|is written in| cli
   rg_web_component_development -->|includes| r_njf4syugdn5wr5tevadtgy
   q_lint -->|enforces| r_njf4syugdn5wr5tevadtgy
   r_njf4syugdn5wr5tevadtgy ==>|serves| agnostic
@@ -305,6 +310,7 @@ flowchart TB
   rg_web_component_development -->|includes| r_ea643795_98bc_47fb_bf31_999644a48f77
   rg_web_component_development -->|includes| r_2e0e8483_8e58_4854_b6f9_f28f77aec17b
   rg_web_component_development -->|includes| r_1b8b8a93_0458_41f9_85a4_ba8d16923765
+  rg_web_component_development -->|includes| r_47905658_f1c9_448d_99e5_9e933bdc6990
   rg_build_development_workflow -->|includes| r_646fc5cf_6f1f_47e0_b48c_c54544cda490
   rg_build_development_workflow -->|includes| r_932f6cd4_90a9_451c_98af_4fb577007f9d
   rg_build_development_workflow -->|includes| r_4e5b2533_8d87_4d77_b303_2d2907a78339
@@ -422,34 +428,34 @@ flowchart TB
   r_7d6f9c3e_8d0c_4127_948e_e6260465fa95 -.->|applies to| praw
   rg_agents_md_code_style -->|includes| ra_language
   ra_language -.->|is written in| components
-  ra_language -.->|is written in| cli
   rg_agents_md_code_style -->|includes| ra_no_typescript
   ra_no_typescript -.->|is written in| components
-  ra_no_typescript -.->|is written in| cli
   rg_agents_md_code_style -->|includes| ra_unbundled_approach
   q_size_report -->|enforces| ra_unbundled_approach
   ra_unbundled_approach ==>|serves| efficient
   ra_unbundled_approach -.->|applies to| components
-  ra_unbundled_approach -.->|is written in| cli
   rg_agents_md_code_style -->|includes| ra_third_party_libraries
   ra_third_party_libraries -.->|is written in| components
-  ra_third_party_libraries -.->|is written in| cli
   rg_agents_md_code_style -->|includes| ra_formatting
   q_format_check -->|enforces| ra_formatting
   ra_formatting -.->|applies to| components
   ra_formatting -.->|applies to| cli
   rg_agents_md_code_style -->|includes| ra_es_modules
   ra_es_modules -.->|is written in| components
-  ra_es_modules -.->|is written in| cli
   rg_agents_md_code_style -->|includes| ra_license_header
   ra_license_header -.->|is written in| components
   rg_agents_md_code_style -->|includes| ra_modern_javascript
   ra_modern_javascript -.->|is written in| components
-  ra_modern_javascript -.->|is written in| cli
   rg_agents_md_code_style -->|includes| ra_html_sinks
   ra_html_sinks -.->|is written in| components
+  rg_agents_md_code_style -->|includes| ra_no_bindings_inside_style
+  ra_no_bindings_inside_style -.->|is written in| components
   rg_agents_md_code_style -->|includes| ra_css_template_literals
   ra_css_template_literals -.->|is written in| components
+  rg_agents_md_code_style -->|includes| ra_browser_support
+  ra_browser_support -.->|is written in| components
+  rg_agents_md_code_style -->|includes| ra_hax_rules_win_over_outside_guidance
+  ra_hax_rules_win_over_outside_guidance -.->|is written in| components
   rg_agents_md_code_style -->|includes| ra_every_field_in_admin_chrome_is_a_simple_fields_field
   ra_every_field_in_admin_chrome_is_a_simple_fields_field -.->|is written in| components
   rg_agents_md_code_style -->|includes| ra_theme_development
@@ -458,13 +464,12 @@ flowchart TB
   ra_file_structure -.->|is written in| components
   rg_agents_md_code_style -->|includes| ra_web_components
   ra_web_components -.->|is written in| components
-  ra_web_components -.->|is written in| cli
   rg_agents_md_code_style -->|includes| ra_package_names
   ra_package_names -.->|is written in| components
-  ra_package_names -.->|is written in| cli
   rg_agents_md_code_style -->|includes| ra_css_classes
   ra_css_classes -.->|is written in| components
-  ra_css_classes -.->|is written in| cli
+  rg_agents_md_code_style -->|includes| ra_locale_urls_name_the_english_file
+  ra_locale_urls_name_the_english_file -.->|is written in| components
   rg_agents_md_code_style -->|includes| ra_feature_prs_change_english_source_strings_only
   q_locale_guard -->|enforces| ra_feature_prs_change_english_source_strings_only
   ra_feature_prs_change_english_source_strings_only ==>|serves| accessible
@@ -472,9 +477,6 @@ flowchart TB
   ra_feature_prs_change_english_source_strings_only -.->|applies to| languages
   rg_agents_md_security -->|includes| ra_security_audits
   ra_security_audits -.->|is written in| components
-  ra_security_audits -.->|is written in| nodejs
-  ra_security_audits -.->|is written in| php
-  ra_security_audits -.->|is written in| cli
   rg_agents_md_security -->|includes| ra_dependencies
   q_audit -->|enforces| ra_dependencies
   ra_dependencies ==>|serves| sustainable
@@ -484,31 +486,16 @@ flowchart TB
   ra_dependencies -.->|applies to| cli
   rg_agents_md_security -->|includes| ra_sensitive_data
   ra_sensitive_data -.->|is written in| components
-  ra_sensitive_data -.->|is written in| nodejs
-  ra_sensitive_data -.->|is written in| php
-  ra_sensitive_data -.->|is written in| cli
   rg_agents_md_security -->|includes| ra_site_imports
   ra_site_imports -.->|is written in| components
-  ra_site_imports -.->|is written in| nodejs
-  ra_site_imports -.->|is written in| php
-  ra_site_imports -.->|is written in| cli
   rg_agents_md_security -->|includes| ra_file_permissions
   ra_file_permissions -.->|is written in| components
-  ra_file_permissions -.->|is written in| nodejs
-  ra_file_permissions -.->|is written in| php
-  ra_file_permissions -.->|is written in| cli
   rg_agents_md_security -->|includes| ra_component_security
   q_codeql -->|enforces| ra_component_security
   ra_component_security ==>|serves| sustainable
   ra_component_security -.->|applies to| components
-  ra_component_security -.->|is written in| nodejs
-  ra_component_security -.->|is written in| php
-  ra_component_security -.->|is written in| cli
   rg_agents_md_security -->|includes| ra_schema_validation
   ra_schema_validation -.->|is written in| components
-  ra_schema_validation -.->|is written in| nodejs
-  ra_schema_validation -.->|is written in| php
-  ra_schema_validation -.->|is written in| cli
   rg_agents_md_security -->|includes| ra_library_security
   q_audit -->|enforces| ra_library_security
   q_dependency_licenses -->|enforces| ra_library_security
@@ -518,8 +505,6 @@ flowchart TB
   ra_library_security -.->|applies to| nodejs
   ra_library_security -.->|applies to| php
   ra_library_security -.->|applies to| cli
-  rg_agents_md_code_style -->|includes| ra_external_dependencies
-  ra_external_dependencies -.->|is written in| cli
   rg_proposed_content_contract -->|includes| rc_content_contract
   q_element_api_snapshot -->|enforces| rc_content_contract
   rc_content_contract ==>|serves| sustainable
@@ -606,6 +591,7 @@ flowchart TB
   %%@ node r_1992902d74844c908ab446 icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_ccca6768_05e0_4d4d_b3a1_4b9895531558 icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_956c54783626475ea901a6 icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_411423ec_d922_4bd4_8c45_3d8c65b9fbfa icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_rvsctsdjae8lrmsjmpo3mk icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_7cpveferpsf0az8tkqxw0y icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_13a03330_483e_404e_9e48_b0d9f16432d3 icon=icons:gavel color=limestoneGray motion=nudge
@@ -623,6 +609,7 @@ flowchart TB
   %%@ node r_ea643795_98bc_47fb_bf31_999644a48f77 icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_2e0e8483_8e58_4854_b6f9_f28f77aec17b icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_1b8b8a93_0458_41f9_85a4_ba8d16923765 icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_47905658_f1c9_448d_99e5_9e933bdc6990 icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_646fc5cf_6f1f_47e0_b48c_c54544cda490 icon=icons:book color=skyBlue motion=nudge
   %%@ node r_932f6cd4_90a9_451c_98af_4fb577007f9d icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_4e5b2533_8d87_4d77_b303_2d2907a78339 icon=icons:verified-user color=forestGreen motion=nudge
@@ -680,13 +667,17 @@ flowchart TB
   %%@ node ra_license_header icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_modern_javascript icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_html_sinks icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node ra_no_bindings_inside_style icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_css_template_literals icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node ra_browser_support icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node ra_hax_rules_win_over_outside_guidance icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_every_field_in_admin_chrome_is_a_simple_fields_field icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_theme_development icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_file_structure icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_web_components icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_package_names icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_css_classes icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node ra_locale_urls_name_the_english_file icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_feature_prs_change_english_source_strings_only icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node ra_security_audits icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_dependencies icon=icons:verified-user color=forestGreen motion=nudge
@@ -696,7 +687,6 @@ flowchart TB
   %%@ node ra_component_security icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node ra_schema_validation icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_library_security icon=icons:verified-user color=forestGreen motion=nudge
-  %%@ node ra_external_dependencies icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node rc_content_contract icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node rc_content_no_ddd icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node rc_user_links icon=icons:gavel color=limestoneGray motion=nudge

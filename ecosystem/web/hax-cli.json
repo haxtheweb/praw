@@ -7,7 +7,7 @@
    "group": "areas",
    "command": "commands"
   },
-  "about": "Every command the hax CLI offers (92 in 8 areas), generated from haxtheweb/create: the top-level commands in create.js, the site, party and skills action menus, and the audits. Gray tiles are aliases or scripted-only actions.",
+  "about": "Every command the hax CLI offers (97 in 8 areas), generated from haxtheweb/create: the top-level commands in create.js, the site, party and skills action menus, and the audits. Gray tiles are aliases or scripted-only actions.",
   "kindLabels": {
    "rel": "area to command, command to what it touches"
   }
@@ -17,7 +17,7 @@
    "always": true
   },
   "g_top": {
-   "desc": "Top-level commands (hax …): 8 commands.",
+   "desc": "Top-level commands (hax …): 9 commands.",
    "kind": "group"
   },
   "g_node": {
@@ -25,7 +25,7 @@
    "kind": "group"
   },
   "g_site": {
-   "desc": "Sites (site:*): 59 commands.",
+   "desc": "Sites (site:*): 63 commands.",
    "kind": "group"
   },
   "g_setup": {
@@ -99,6 +99,13 @@
   },
   "c_skills": {
    "desc": "List and install bundled agent skills for HAX ecosystem agents",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_platform": {
+   "desc": "Check, upgrade or verify the HAXcms install here",
    "kind": "command",
    "links": {
     "repo": "https://github.com/haxtheweb/create"
@@ -335,6 +342,13 @@
     "repo": "https://github.com/haxtheweb/create"
    }
   },
+  "c_site_build_static": {
+   "desc": "Build for a static host (every page with its metadata and text)",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
   "c_site_surge": {
    "desc": "Publish site to Surge.sh",
    "kind": "command",
@@ -351,6 +365,13 @@
   },
   "c_site_vercel": {
    "desc": "Publish site to Vercel",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_site_login_link": {
+   "desc": "Generate a one-time login link (forgot password)",
    "kind": "command",
    "links": {
     "repo": "https://github.com/haxtheweb/create"
@@ -545,6 +566,20 @@
     "repo": "https://github.com/haxtheweb/create"
    }
   },
+  "c_move": {
+   "desc": "Move among siblings: up, down, indent or outdent",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
+  "c_locked": {
+   "desc": "Locked (true or false); a locked page can't be changed until it is unlocked",
+   "kind": "command",
+   "links": {
+    "repo": "https://github.com/haxtheweb/create"
+   }
+  },
   "c_custom_theme": {
    "desc": "Create Custom Theme",
    "kind": "command",
@@ -698,7 +733,7 @@
   {
    "id": "cli",
    "label": "Everything the CLI does",
-   "message": "92 commands in 8 areas, generated from the create repo so it never drifts from the real CLI.",
+   "message": "97 commands in 8 areas, generated from the create repo so it never drifts from the real CLI.",
    "scenes": [
     {
      "caption": "One CLI for sites, elements, audits and the community.",
@@ -715,6 +750,7 @@
       "c_wc",
       "c_party",
       "c_skills",
+      "c_platform",
       "c_list",
       "c_alias",
       "c_completion"

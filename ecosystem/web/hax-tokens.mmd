@@ -12,11 +12,11 @@ flowchart TB
     f_ddd_tokens_json[("ddd.tokens.json")]
   end
   subgraph groupsg ["Token groups"]
-    g_ddd_color["ddd.color (101)"]
-    g_ddd_font["ddd.font (34)"]
-    g_ddd_letterspacing["ddd.letterSpacing (26)"]
-    g_ddd_lineheight["ddd.lineHeight (4)"]
-    g_ddd_spacing["ddd.spacing (31)"]
+    g_ddd_color["ddd.color (127)"]
+    g_ddd_font["ddd.font (36)"]
+    g_ddd_letterspacing["ddd.letterSpacing (27)"]
+    g_ddd_lineheight["ddd.lineHeight (5)"]
+    g_ddd_spacing["ddd.spacing (34)"]
     g_ddd_border["ddd.border (8)"]
     g_ddd_headerborder["ddd.headerBorder (16)"]
     g_ddd_dropzone["ddd.dropZone (6)"]
@@ -25,7 +25,7 @@ flowchart TB
     g_ddd_layout["ddd.layout (19)"]
     g_ddd_radius["ddd.radius (8)"]
     g_ddd_icon["ddd.icon (11)"]
-    g_ddd_zindex["ddd.zIndex (6)"]
+    g_ddd_zindex["ddd.zIndex (7)"]
     g_ddd_opacity["ddd.opacity (6)"]
     g_ddd_duration["ddd.duration (4)"]
     g_ddd_easing["ddd.easing (5)"]
@@ -33,11 +33,13 @@ flowchart TB
     g_ddd_textfieldheight["ddd.textfieldHeight (3)"]
     g_ddd_controlheight["ddd.controlHeight (4)"]
     g_ddd_targetsize["ddd.targetSize (2)"]
+    g_ddd_density["ddd.density (5)"]
     g_ddd_mediacontrol["ddd.mediaControl (8)"]
     g_ddd_state["ddd.state (5)"]
     g_ddd_eyebrow["ddd.eyebrow (9)"]
     g_ddd_aspectratio["ddd.aspectRatio (3)"]
     g_ddd_skeleton["ddd.skeleton (5)"]
+    g_ddd_range["ddd.range (5)"]
     g_ddd_status["ddd.status (29)"]
     g_simple_colors_fixed["simple-colors.fixed (228)"]
     g_simple_colors_default["simple-colors.default (228)"]
@@ -111,6 +113,7 @@ flowchart TB
   f_ddd_tokens_json -->|holds| g_ddd_easing
   g_ddd_easing -.->|is typed| ty_cubicbezier
   f_ddd_tokens_json -->|holds| g_ddd_focus
+  f_ddd_dark_tokens_json -.->|overrides in dark mode| g_ddd_focus
   g_ddd_focus -.->|is typed| ty_border
   f_ddd_tokens_json -->|holds| g_ddd_textfieldheight
   g_ddd_textfieldheight -.->|is typed| ty_dimension
@@ -118,6 +121,8 @@ flowchart TB
   g_ddd_controlheight -.->|is typed| ty_dimension
   f_ddd_tokens_json -->|holds| g_ddd_targetsize
   g_ddd_targetsize -.->|is typed| ty_dimension
+  f_ddd_tokens_json -->|holds| g_ddd_density
+  g_ddd_density -.->|is typed| ty_dimension
   f_ddd_tokens_json -->|holds| g_ddd_mediacontrol
   g_ddd_mediacontrol -.->|is typed| ty_color
   f_ddd_tokens_json -->|holds| g_ddd_state
@@ -130,6 +135,8 @@ flowchart TB
   f_ddd_tokens_json -->|holds| g_ddd_skeleton
   f_ddd_dark_tokens_json -.->|overrides in dark mode| g_ddd_skeleton
   g_ddd_skeleton -.->|is typed| ty_color
+  f_ddd_tokens_json -->|holds| g_ddd_range
+  g_ddd_range -.->|is typed| ty_dimension
   f_ddd_tokens_json -->|holds| g_ddd_status
   f_ddd_dark_tokens_json -.->|overrides in dark mode| g_ddd_status
   g_ddd_status -.->|is typed| ty_color
@@ -191,11 +198,13 @@ flowchart TB
   %%@ node g_ddd_textfieldheight icon=lrn:palette color=beaverBlue motion=pop
   %%@ node g_ddd_controlheight icon=lrn:palette color=beaverBlue motion=pop
   %%@ node g_ddd_targetsize icon=lrn:palette color=beaverBlue motion=pop
+  %%@ node g_ddd_density icon=lrn:palette color=beaverBlue motion=pop
   %%@ node g_ddd_mediacontrol icon=lrn:palette color=beaverBlue motion=pop
   %%@ node g_ddd_state icon=lrn:palette color=beaverBlue motion=pop
   %%@ node g_ddd_eyebrow icon=lrn:palette color=beaverBlue motion=pop
   %%@ node g_ddd_aspectratio icon=lrn:palette color=beaverBlue motion=pop
   %%@ node g_ddd_skeleton icon=lrn:palette color=beaverBlue motion=pop
+  %%@ node g_ddd_range icon=lrn:palette color=beaverBlue motion=pop
   %%@ node g_ddd_status icon=lrn:palette color=beaverBlue motion=pop
   %%@ node g_simple_colors_fixed icon=lrn:palette color=athertonViolet motion=pop
   %%@ node g_simple_colors_default icon=lrn:palette color=athertonViolet motion=pop

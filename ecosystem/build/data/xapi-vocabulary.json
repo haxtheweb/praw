@@ -28,8 +28,27 @@
    "extensions.https://w3id.org/xapi/video/extensions/progress"
   ],
   "countsTowardCompletion": true,
-  "done": "95% of the media actually watched, or played on into the end after watching 80% (seeking ahead does not count)",
+  "done": "every quarter of the media actually watched (90% of its seconds), or the first three and the player reaching its end; seeking ahead does not count, and each milestone is sent once per learner",
   "source": "elements/a11y-media-player/a11y-media-player.js"
+ },
+ "arithmetic-drill": {
+  "tag": "arithmetic-drill",
+  "event": "user-engagement",
+  "verbs": [
+   "attempted",
+   "progressed",
+   "completed"
+  ],
+  "objectType": "http://adlnet.gov/expapi/activities/simulation",
+  "result": [
+   "completion",
+   "score",
+   "duration",
+   "extensions.https://haxtheweb.org/xapi/extensions/progress"
+  ],
+  "countsTowardCompletion": true,
+  "done": "a run finished: every problem answered, or the timer ran out",
+  "source": "elements/arithmetic-drill/arithmetic-drill.js"
  },
  "audio-player": {
   "tag": "audio-player",
@@ -46,8 +65,33 @@
    "extensions.https://w3id.org/xapi/video/extensions/progress"
   ],
   "countsTowardCompletion": true,
-  "done": "95% of the media actually watched, or played on into the end after watching 80% (seeking ahead does not count)",
+  "done": "every quarter of the media actually watched (90% of its seconds), or the first three and the player reaching its end; seeking ahead does not count, and each milestone is sent once per learner",
   "source": "elements/audio-player/audio-player.js"
+ },
+ "branching-scenario": {
+  "tag": "branching-scenario",
+  "event": "user-engagement",
+  "verbs": [
+   "progressed",
+   "completed"
+  ],
+  "objectType": "http://adlnet.gov/expapi/activities/cmi.interaction",
+  "interactionType": "sequencing",
+  "definition": [
+   "name",
+   "interactionType",
+   "choices"
+  ],
+  "response": "scene ids of the path the learner took, in order, joined by [,]",
+  "result": [
+   "success",
+   "completion",
+   "response",
+   "score"
+  ],
+  "countsTowardCompletion": true,
+  "done": "any ending reached",
+  "source": "elements/branching-scenario/branching-scenario.js"
  },
  "bullet-check-list": {
   "tag": "bullet-check-list",
@@ -126,6 +170,32 @@
   "done": "game completed",
   "source": "elements/micro-game-base/lib/concept-runner-game.js"
  },
+ "crossword-puzzle": {
+  "tag": "crossword-puzzle",
+  "event": "user-engagement",
+  "verbs": [
+   "answered"
+  ],
+  "objectType": "http://adlnet.gov/expapi/activities/cmi.interaction",
+  "interactionType": "fill-in",
+  "definition": [
+   "name",
+   "interactionType",
+   "correctResponsesPattern"
+  ],
+  "response": "the word entered for each clue, across clues then down clues in number order, joined by [,]; an empty square inside a word is _",
+  "result": [
+   "success",
+   "completion",
+   "response",
+   "score",
+   "extensions.attempts",
+   "extensions.max-attempts"
+  ],
+  "countsTowardCompletion": true,
+  "done": "every word in the grid is correct, or out of attempts",
+  "source": "elements/crossword-puzzle/crossword-puzzle.js"
+ },
  "fill-in-the-blanks": {
   "tag": "fill-in-the-blanks",
   "event": "user-engagement",
@@ -202,11 +272,40 @@
   "result": [
    "completion",
    "duration",
-   "extensions.https://haxtheweb.org/xapi/extensions/progress"
+   "extensions.https://haxtheweb.org/xapi/extensions/progress",
+   "extensions.https://haxtheweb.org/xapi/extensions/checkpoints"
   ],
   "countsTowardCompletion": false,
-  "done": "page content scrolled through to its end (each page counts its reading toward being done on its own)",
+  "done": "90% of the page content scrolled through and, when the page has reading checkpoints, 80% of them seen on screen (each page counts its reading toward being done on its own)",
   "source": "elements/haxcms-elements/lib/core/haxcms-reading-progress.js"
+ },
+ "identify-hotspots": {
+  "tag": "identify-hotspots",
+  "event": "user-engagement",
+  "verbs": [
+   "answered"
+  ],
+  "objectType": "http://adlnet.gov/expapi/activities/cmi.interaction",
+  "interactionType": "choice",
+  "definition": [
+   "name",
+   "interactionType",
+   "choices",
+   "correctResponsesPattern"
+  ],
+  "response": "ids of the hotspots the learner found joined by [,]",
+  "result": [
+   "success",
+   "completion",
+   "response",
+   "score",
+   "extensions.attempts",
+   "extensions.max-attempts",
+   "extensions.misses"
+  ],
+  "countsTowardCompletion": true,
+  "done": "every hotspot found, or out of attempts",
+  "source": "elements/identify-hotspots/identify-hotspots.js"
  },
  "image-compare-slider": {
   "tag": "image-compare-slider",
@@ -220,6 +319,34 @@
   "done": "never required; records that the learner moved the slider",
   "source": "elements/image-compare-slider/image-compare-slider.js"
  },
+ "image-dropzone": {
+  "tag": "image-dropzone",
+  "event": "user-engagement",
+  "verbs": [
+   "answered"
+  ],
+  "objectType": "http://adlnet.gov/expapi/activities/cmi.interaction",
+  "interactionType": "matching",
+  "definition": [
+   "name",
+   "interactionType",
+   "source",
+   "target",
+   "correctResponsesPattern"
+  ],
+  "response": "label[.]zone id pairs joined by [,]",
+  "result": [
+   "success",
+   "completion",
+   "response",
+   "score",
+   "extensions.attempts",
+   "extensions.max-attempts"
+  ],
+  "countsTowardCompletion": true,
+  "done": "answered correctly or out of attempts",
+  "source": "elements/image-dropzone/image-dropzone.js"
+ },
  "lrndesign-imagemap": {
   "tag": "lrndesign-imagemap",
   "event": "user-engagement",
@@ -230,7 +357,8 @@
   "objectType": "http://adlnet.gov/expapi/activities/interaction",
   "result": [
    "completion",
-   "score"
+   "score",
+   "response"
   ],
   "countsTowardCompletion": false,
   "done": "never required; completed once every hotspot has been opened",
@@ -252,6 +380,18 @@
   "countsTowardCompletion": false,
   "done": "never; records the authored verb when clicked or viewed",
   "source": "elements/lrs-elements/lib/lrs-emitter.js"
+ },
+ "lti-launch": {
+  "tag": "lti-launch",
+  "event": "user-engagement",
+  "verbs": [
+   "attempted"
+  ],
+  "objectType": "http://adlnet.gov/expapi/activities/interaction",
+  "result": [],
+  "countsTowardCompletion": false,
+  "done": "never required; the block cannot know the learner finished in the tool. It records that the tool was opened",
+  "source": "elements/lti-launch/lti-launch.js"
  },
  "mark-the-words": {
   "tag": "mark-the-words",
@@ -308,6 +448,37 @@
   "done": "answered correctly or out of attempts",
   "source": "elements/matching-question/matching-question.js"
  },
+ "media-image": {
+  "tag": "media-image",
+  "event": "user-engagement",
+  "verbs": [
+   "experienced"
+  ],
+  "objectType": "http://adlnet.gov/expapi/activities/interaction",
+  "result": [],
+  "countsTowardCompletion": false,
+  "done": "never required; records that the image was opened to look at it closely",
+  "source": "elements/media-image/media-image.js"
+ },
+ "memory-match": {
+  "tag": "memory-match",
+  "event": "user-engagement",
+  "verbs": [
+   "progressed",
+   "completed"
+  ],
+  "objectType": "http://adlnet.gov/expapi/activities/simulation",
+  "response": "ids of the pairs matched so far (c- + 8 hex of each pair)",
+  "result": [
+   "completion",
+   "response",
+   "extensions.https://haxtheweb.org/xapi/extensions/progress",
+   "extensions.https://haxtheweb.org/xapi/extensions/moves"
+  ],
+  "countsTowardCompletion": true,
+  "done": "every pair matched",
+  "source": "elements/memory-match/memory-match.js"
+ },
  "multiple-choice": {
   "tag": "multiple-choice",
   "event": "user-engagement",
@@ -334,6 +505,35 @@
   "countsTowardCompletion": true,
   "done": "answered correctly or out of attempts",
   "source": "elements/multiple-choice/multiple-choice.js"
+ },
+ "numeric-question": {
+  "tag": "numeric-question",
+  "event": "user-engagement",
+  "verbs": [
+   "answered"
+  ],
+  "objectType": "http://adlnet.gov/expapi/activities/cmi.interaction",
+  "interactionType": "numeric",
+  "definition": [
+   "name",
+   "interactionType",
+   "correctResponsesPattern"
+  ],
+  "response": "the number the learner typed",
+  "result": [
+   "success",
+   "completion",
+   "response",
+   "score",
+   "extensions.attempts",
+   "extensions.max-attempts"
+  ],
+  "context": [
+   "extensions.variables"
+  ],
+  "countsTowardCompletion": true,
+  "done": "answered correctly or out of attempts",
+  "source": "elements/numeric-question/numeric-question.js"
  },
  "reading-analysis": {
   "tag": "reading-analysis",
@@ -435,10 +635,11 @@
   "objectType": "http://adlnet.gov/expapi/activities/interaction",
   "result": [
    "completion",
-   "score"
+   "score",
+   "extensions.https://haxtheweb.org/xapi/extensions/progress"
   ],
   "countsTowardCompletion": false,
-  "done": "never required; completed once every slide has been shown",
+  "done": "never required; progressed as each quarter of the slides is shown, completed once every slide has been shown; each once per learner",
   "source": "elements/slide-deck/slide-deck.js"
  },
  "sorting-question": {
@@ -531,7 +732,7 @@
   "objectType": "http://adlnet.gov/expapi/activities/interaction",
   "result": [],
   "countsTowardCompletion": false,
-  "done": "never; records that something was seen (visibility) or used (click, keypress)",
+  "done": "never; records that something was seen (visibility) or used (click, key press)",
   "source": "elements/user-action/user-action.js"
  },
  "video-player": {
@@ -549,7 +750,7 @@
    "extensions.https://w3id.org/xapi/video/extensions/progress"
   ],
   "countsTowardCompletion": true,
-  "done": "95% of the media actually watched, or played on into the end after watching 80% (seeking ahead does not count)",
+  "done": "every quarter of the media actually watched (90% of its seconds), or the first three and the player reaching its end; seeking ahead does not count, and each milestone is sent once per learner",
   "source": "elements/video-player/video-player.js"
  },
  "vocab-term": {
@@ -563,5 +764,24 @@
   "countsTowardCompletion": false,
   "done": "never required; records that the definition was opened",
   "source": "elements/vocab-term/vocab-term.js"
+ },
+ "word-search": {
+  "tag": "word-search",
+  "event": "user-engagement",
+  "verbs": [
+   "progressed",
+   "completed"
+  ],
+  "objectType": "http://adlnet.gov/expapi/activities/simulation",
+  "response": "ids of the words found so far (c- + 8 hex of each word)",
+  "result": [
+   "completion",
+   "response",
+   "score",
+   "extensions.https://haxtheweb.org/xapi/extensions/progress"
+  ],
+  "countsTowardCompletion": true,
+  "done": "every word found",
+  "source": "elements/word-search/word-search.js"
  }
 }

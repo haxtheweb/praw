@@ -59,6 +59,7 @@ flowchart TB
     q_rule_checks["Rule checks"]
     q_script_tests["Script tests"]
     q_security_lint["Security lint"]
+    q_shadow_boundary_aria_references["Shadow-boundary ARIA references"]
     q_smoke_tests["Smoke tests"]
     q_stylelint["Stylelint"]
     q_test_all_elements["Test all elements"]
@@ -67,6 +68,7 @@ flowchart TB
     q_unit_and_api_conformance_tests["Unit and API conformance tests"]
     q_unit_tests["Unit tests"]
     q_walkthrough_status["Walkthrough status"]
+    q_a11y_collapse_heading_button["a11y-collapse heading-button"]
     q_a11y_modes["a11y-modes"]
     q_admin_contrast["admin-contrast"]
     q_contrast_design_systems["contrast-design-systems"]
@@ -220,6 +222,10 @@ flowchart TB
   q_node_js_latest_lts -.->|fails PRs in| cli
   qg_block -->|includes| q_tests_poll_don_t_sleep
   q_tests_poll_don_t_sleep -.->|fails PRs in| components
+  qg_block -->|includes| q_shadow_boundary_aria_references
+  q_shadow_boundary_aria_references -.->|fails PRs in| components
+  qg_block -->|includes| q_a11y_collapse_heading_button
+  q_a11y_collapse_heading_button -.->|fails PRs in| components
   qg_block -->|includes| q_css_in_css_templates
   q_css_in_css_templates -.->|fails PRs in| components
   qg_block -->|includes| q_html_structure_in_html_and_svg_templates
@@ -455,6 +461,8 @@ flowchart TB
   %%@ node q_no_typescript icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_node_js_latest_lts icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_tests_poll_don_t_sleep icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_shadow_boundary_aria_references icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_a11y_collapse_heading_button icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_css_in_css_templates icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_html_structure_in_html_and_svg_templates icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_locale_urls_point_at_a_shipped_locale_file icon=icons:check-circle color=forestGreen motion=nudge

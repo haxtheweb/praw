@@ -834,6 +834,18 @@
     "q_lint"
    ],
    "how": "A stray backtick ends the css`` template early; the file stops parsing and ESLint fails the pull request on the syntax error."
+  },
+  "410c4334-a186-4356-9584-0796e5d2bc2d": {
+   "enforced_by": [
+    "q_shadow_boundary_aria_references"
+   ],
+   "how": "webcomponents' rule-checks workflow (scripts/rule-checks.mjs aria-refs) fails the pull request when an element file gains an id reference (aria-labelledby, aria-describedby, aria-controls, aria-owns, aria-activedescendant, for) whose id isn't written in the same file. A heuristic: dynamic ids and light-DOM elements are skipped; files that predate it are in scripts/aria-refs.baseline.json, which only shrinks."
+  },
+  "WQoGOB824VGW5HECMh08ew": {
+   "enforced_by": [
+    "q_a11y_collapse_heading_button"
+   ],
+   "how": "webcomponents' rule-checks workflow (scripts/rule-checks.mjs a11y-collapse) fails the pull request when element code, a demo or a HAX schema gains an <a11y-collapse> without heading-button. Files that predate it are in scripts/a11y-collapse.baseline.json, which only shrinks."
   }
  },
  "candidates": [

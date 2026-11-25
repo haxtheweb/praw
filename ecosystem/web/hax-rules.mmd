@@ -153,6 +153,7 @@ flowchart TB
   subgraph outer ["Checks, pillars and parts"]
     ct_a11y["ct_a11y"]
     ct_fuzz["ct_fuzz"]
+    q_a11y_collapse_heading_button["q_a11y_collapse_heading_button"]
     q_a11y_modes["q_a11y_modes"]
     q_audit["q_audit"]
     q_codeql["q_codeql"]
@@ -181,6 +182,7 @@ flowchart TB
     q_phpunit["q_phpunit"]
     q_render_benchmarks["q_render_benchmarks"]
     q_script_tests["q_script_tests"]
+    q_shadow_boundary_aria_references["q_shadow_boundary_aria_references"]
     q_size_report["q_size_report"]
     q_skills_lock_json_hashes_are_current["q_skills_lock_json_hashes_are_current"]
     q_test_all_elements["q_test_all_elements"]
@@ -313,8 +315,10 @@ flowchart TB
   r_njf4syugdn5wr5tevadtgy ==>|serves| agnostic
   r_njf4syugdn5wr5tevadtgy -.->|applies to| components
   rg_web_component_development -->|includes| r_410c4334_a186_4356_9584_0796e5d2bc2d
+  q_shadow_boundary_aria_references -->|enforces| r_410c4334_a186_4356_9584_0796e5d2bc2d
   rg_web_component_development -->|includes| r_eis0l9w9l2jg1cofysmvdt
   rg_web_component_development -->|includes| r_wqogob824vgw5hecmh08ew
+  q_a11y_collapse_heading_button -->|enforces| r_wqogob824vgw5hecmh08ew
   rg_web_component_development -->|includes| r_haxhooks_lifecycle_integration
   rg_web_component_development -->|includes| r_40983ddf_40b7_4a5e_a600_8f9fcb58da83
   q_without_hax -->|enforces| r_40983ddf_40b7_4a5e_a600_8f9fcb58da83
@@ -660,9 +664,9 @@ flowchart TB
   %%@ node r_34ef39a0_b970_43ba_b68a_251f99d64424 icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_cehsaztyfb2vtcwthggnbk icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_njf4syugdn5wr5tevadtgy icon=icons:verified-user color=forestGreen motion=nudge
-  %%@ node r_410c4334_a186_4356_9584_0796e5d2bc2d icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_410c4334_a186_4356_9584_0796e5d2bc2d icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_eis0l9w9l2jg1cofysmvdt icon=icons:book color=skyBlue motion=nudge
-  %%@ node r_wqogob824vgw5hecmh08ew icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_wqogob824vgw5hecmh08ew icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_haxhooks_lifecycle_integration icon=icons:book color=skyBlue motion=nudge
   %%@ node r_40983ddf_40b7_4a5e_a600_8f9fcb58da83 icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_c3xjsqfbcmoa3cxsoonyxg icon=icons:book color=skyBlue motion=nudge
@@ -760,6 +764,7 @@ flowchart TB
   %%@ node rc_correct_colors icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ct_a11y portal=quality
   %%@ node ct_fuzz portal=quality
+  %%@ node q_a11y_collapse_heading_button portal=quality
   %%@ node q_a11y_modes portal=quality
   %%@ node q_audit portal=quality
   %%@ node q_codeql portal=quality
@@ -788,6 +793,7 @@ flowchart TB
   %%@ node q_phpunit portal=quality
   %%@ node q_render_benchmarks portal=quality
   %%@ node q_script_tests portal=quality
+  %%@ node q_shadow_boundary_aria_references portal=quality
   %%@ node q_size_report portal=quality
   %%@ node q_skills_lock_json_hashes_are_current portal=quality
   %%@ node q_test_all_elements portal=quality

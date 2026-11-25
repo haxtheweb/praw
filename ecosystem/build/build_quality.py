@@ -18,10 +18,30 @@ def slug(s): return re.sub(r"[^a-z0-9]+", "_", s.lower()).strip("_")
 
 # ---------- what each kind of check guards (matched on the check's name) ----------
 GUARDS = [
+ # specific checks first: the first pattern that matches a check's name says what it guards
+ (r"a11y modes", "Changed elements keep a visible focus indicator, stay visible under forced colors (Windows high contrast), reflow at 320 px and keep 24 px targets."),
+ (r"admin contrast", "The HAXcms admin (top bar, site admin sections, confirm and prompt cards) keeps text and control contrast in light and dark under DDD and every bridged design system."),
+ (r"blocks under the design system|contrast design systems", "Every HAX block keeps WCAG AA contrast in light and dark under every bridged design system. Known failures are baselined."),
+ (r"baseline only shrinks", "A pull request can remove known failures from a check's baseline, never add them."),
+ (r"palette roles", "Each palette's own pairings (links on the page surface, text on each palette color) keep contrast in every palette, scheme and design system."),
+ (r"dark motion", "Changed elements respond to dark mode and run no animation when reduced motion is asked for."),
+ (r"hax ui admin contract", "Admin surfaces stay in the HAX UI layer: admin font scale, the shared dialog frame, simple-fields fields, no browser dialogs."),
+ (r"haxschema", "Changed HAX-capable elements have a valid HAX editing schema that edits only what the element declares."),
+ (r"without hax", "Content made with HAX works without HAX: changed authorable elements import no editor or HAXcms code and render on a bare page."),
+ (r"locale urls", "Each element points the i18n manager at a locale file that ships, so bundlers can read it."),
+ (r"gallery contrast", "The component gallery's own chrome is readable in light and dark mode, open select lists included."),
+ (r"gallery audit", "The component gallery passes WCAG 2.2 A/AA, phone layout, focus, reduced motion and design system checks in every state a reviewer reaches."),
+ (r"mascot name", "The mascot is always the Future Traveler; retired names don't come back."),
+ (r"no local paths", "Nothing in skills, the ecosystem webs or Markdown points at a path on someone's machine."),
+ (r"org spelling", "Links and package scopes say haxtheweb, never a near-miss."),
+ (r"skills.lock|skill indexes", "The skills index and pinned outside skills match what is in the repo."),
+ (r"rule exports", "The rule exports are rebuilt from RULES.md and checked for duplicate ids and valid scopes."),
+ (r"parse check", "Every ecosystem web parses in the player with no broken tile, portal, tour or icon."),
+ (r"layout check", "The ecosystem page lays out without overflow on desktop and phone."),
  (r"color contrast", "Text in the demos of the elements a pull request touches meets WCAG AA contrast in light and dark mode. Known failures are baselined, and the baseline can only shrink."),
  (r"old-site", "Sites made from 2021 on keep working: one fixture site per year is upgraded to the latest code and edited the way an author would."),
  (r"codeql", "Code with known vulnerability patterns doesn't merge."),
- (r"licen", "No dependency under an incompatible license enters the repo, and the project stays Apache-2.0."),
+ (r"licen", "No dependency under an incompatible license enters the repo, the project stays Apache-2.0, and element source files carry the license header."),
  (r"dependency audit|composer audit", "Dependencies with known security advisories are caught."),
  (r"^cla$", "Every contributor has signed the contributor license agreement."),
  (r"security lint", "Unsafe patterns (eval, shell injection and the like) don't merge into the CLI."),
@@ -73,7 +93,7 @@ STEP = [(r"^prettier format check|^format check", "Format check"), (r"^eslint$|^
         (r"^build$", "Build"), (r"^validate component gallery", "Gallery build")]
 SKIP = re.compile(r"^(checkout|set ?up|setup|install|cache|get (yarn|composer)|upload|download|restore|job summary|note a failed|decide|comment|read license|"
                   r"generate|show|validate tag|log in|derive|build and push|pack|attach|fill|flag|rebuild elements readme|coverage|checkout base|run analysis|"
-                  r"initialize|perform|analyze|check out)", re.I)
+                  r"initialize|perform|analyze|check out|print what still fails)", re.I)
 ADVISORY_WORDS = re.compile(r"warning only|report[- ]only", re.I)
 ID = {"E2E UI tests": "q_e2e", "Backend parity": "q_parity", "CodeQL": "q_codeql", "CLA": "q_cla", "Dependency audit": "q_audit", "ESLint": "q_lint"}
 def node_id(label): return ID.get(label) or "q_" + slug(label)

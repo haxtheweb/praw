@@ -11,7 +11,7 @@
    "scheduled": "scheduled jobs",
    "task": "Claude scheduled tasks"
   },
-  "about": "Every safeguard on what enters HAX, generated from the workflow files on each repo's default branch, so only checks that are merged and running appear: 65 blocking gates, 6 advisory checks, 25 scheduled jobs and 7 Claude scheduled tasks. Planned tiles are open pull requests. Element test suites include axe accessibility tests where an element has them; whole-project accessibility is covered by the weekly sweep, not a blocking gate.",
+  "about": "Every safeguard on what enters HAX, generated from the workflow files on each repo's default branch, so only checks that are merged and running appear: 63 blocking gates, 6 advisory checks, 25 scheduled jobs and 7 Claude scheduled tasks. Planned tiles are open pull requests. Element test suites include axe accessibility tests where an element has them; whole-project accessibility is covered by the weekly sweep, not a blocking gate.",
   "kindLabels": {
    "rel": "kind of safeguard",
    "schema": "where it runs"
@@ -24,7 +24,7 @@
   },
   "testing": {},
   "qg_block": {
-   "desc": "65 checks that fail a pull request when they fail, in at least one repo; whether a failing check stops the merge is up to each repo's branch rules. Each is read from the repo's workflow files on its default branch, so only checks that are merged and running appear.",
+   "desc": "63 checks that fail a pull request when they fail, in at least one repo; whether a failing check stops the merge is up to each repo's branch rules. Each is read from the repo's workflow files on its default branch, so only checks that are merged and running appear.",
    "kind": "group"
   },
   "qg_adv": {
@@ -144,24 +144,8 @@
     "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/contrast-design-systems.yml"
    }
   },
-  "q_blocks_under_the_design_system": {
-   "desc": "Fails the pull request when it fails in webcomponents.",
-   "kind": "gate",
-   "status": "deployed",
-   "links": {
-    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/contrast-design-systems.yml"
-   }
-  },
-  "q_print_what_still_fails": {
-   "desc": "Fails the pull request when it fails in webcomponents.",
-   "kind": "gate",
-   "status": "deployed",
-   "links": {
-    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/contrast-design-systems.yml"
-   }
-  },
   "q_baseline_only_shrinks": {
-   "desc": "Fails the pull request when it fails in webcomponents.",
+   "desc": "A pull request can remove known failures from a check's baseline, never add them. Fails the pull request when it fails in webcomponents.",
    "kind": "gate",
    "status": "deployed",
    "links": {
@@ -177,7 +161,7 @@
    }
   },
   "q_palette_roles": {
-   "desc": "Fails the pull request when it fails in webcomponents.",
+   "desc": "Each palette's own pairings (links on the page surface, text on each palette color) keep contrast in every palette, scheme and design system. Fails the pull request when it fails in webcomponents.",
    "kind": "gate",
    "status": "deployed",
    "links": {
@@ -236,7 +220,7 @@
    }
   },
   "q_haxschema": {
-   "desc": "Fails the pull request when it fails in webcomponents.",
+   "desc": "Changed HAX-capable elements have a valid HAX editing schema that edits only what the element declares. Fails the pull request when it fails in webcomponents.",
    "kind": "gate",
    "status": "deployed",
    "links": {
@@ -268,7 +252,7 @@
    }
   },
   "q_dependency_licenses": {
-   "desc": "No dependency under an incompatible license enters the repo, and the project stays Apache-2.0. Fails the pull request when it fails in create, haxcms-nodejs, haxcms-php, praw, webcomponents.",
+   "desc": "No dependency under an incompatible license enters the repo, the project stays Apache-2.0, and element source files carry the license header. Fails the pull request when it fails in create, haxcms-nodejs, haxcms-php, praw, webcomponents.",
    "kind": "gate",
    "status": "deployed",
    "links": {
@@ -319,7 +303,7 @@
    }
   },
   "q_locale_urls_point_at_a_shipped_locale_file": {
-   "desc": "Fails the pull request when it fails in webcomponents.",
+   "desc": "Each element points the i18n manager at a locale file that ships, so bundlers can read it. Fails the pull request when it fails in webcomponents.",
    "kind": "gate",
    "status": "deployed",
    "links": {
@@ -459,7 +443,7 @@
    }
   },
   "q_parse_check": {
-   "desc": "Fails the pull request when it fails in praw.",
+   "desc": "Every ecosystem web parses in the player with no broken tile, portal, tour or icon. Fails the pull request when it fails in praw.",
    "kind": "gate",
    "status": "deployed",
    "links": {
@@ -467,7 +451,7 @@
    }
   },
   "q_layout_check": {
-   "desc": "Fails the pull request when it fails in praw.",
+   "desc": "The ecosystem page lays out without overflow on desktop and phone. Fails the pull request when it fails in praw.",
    "kind": "gate",
    "status": "deployed",
    "links": {
@@ -507,7 +491,7 @@
    }
   },
   "q_mascot_name": {
-   "desc": "Fails the pull request when it fails in praw.",
+   "desc": "The mascot is always the Future Traveler; retired names don't come back. Fails the pull request when it fails in praw.",
    "kind": "gate",
    "status": "deployed",
    "links": {
@@ -515,7 +499,7 @@
    }
   },
   "q_no_local_paths": {
-   "desc": "Fails the pull request when it fails in praw.",
+   "desc": "Nothing in skills, the ecosystem webs or Markdown points at a path on someone's machine. Fails the pull request when it fails in praw.",
    "kind": "gate",
    "status": "deployed",
    "links": {
@@ -523,7 +507,7 @@
    }
   },
   "q_github_org_spelling": {
-   "desc": "Fails the pull request when it fails in praw.",
+   "desc": "Links and package scopes say haxtheweb, never a near-miss. Fails the pull request when it fails in praw.",
    "kind": "gate",
    "status": "deployed",
    "links": {
@@ -531,7 +515,7 @@
    }
   },
   "q_project_license_is_apache_2_0": {
-   "desc": "No dependency under an incompatible license enters the repo, and the project stays Apache-2.0. Fails the pull request when it fails in praw.",
+   "desc": "No dependency under an incompatible license enters the repo, the project stays Apache-2.0, and element source files carry the license header. Fails the pull request when it fails in praw.",
    "kind": "gate",
    "status": "deployed",
    "links": {
@@ -539,7 +523,7 @@
    }
   },
   "q_build_skill_indexes": {
-   "desc": "Fails the pull request when it fails in praw.",
+   "desc": "The skills index and pinned outside skills match what is in the repo. Fails the pull request when it fails in praw.",
    "kind": "gate",
    "status": "deployed",
    "links": {
@@ -547,7 +531,7 @@
    }
   },
   "q_skills_lock_json_hashes_are_current": {
-   "desc": "Fails the pull request when it fails in praw.",
+   "desc": "The skills index and pinned outside skills match what is in the repo. Fails the pull request when it fails in praw.",
    "kind": "gate",
    "status": "deployed",
    "links": {
@@ -555,7 +539,7 @@
    }
   },
   "q_build_rule_exports": {
-   "desc": "Fails the pull request when it fails in praw.",
+   "desc": "The rule exports are rebuilt from RULES.md and checked for duplicate ids and valid scopes. Fails the pull request when it fails in praw.",
    "kind": "gate",
    "status": "deployed",
    "links": {
@@ -627,7 +611,7 @@
    }
   },
   "q_admin_contrast_sched": {
-   "desc": "Runs nightly in webcomponents. webcomponents: last scheduled run 2026-11-24, success.",
+   "desc": "Runs nightly in webcomponents. webcomponents: last scheduled run 2026-11-25, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -646,7 +630,7 @@
    }
   },
   "q_codeql_sched": {
-   "desc": "Code with known vulnerability patterns in main is caught, including patterns found after it merged. Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create, nightly in praw, nightly in haxcms-mcp. webcomponents: last scheduled run 2026-11-25, success; praw: last scheduled run 2026-11-24, success.",
+   "desc": "Code with known vulnerability patterns in main is caught, including patterns found after it merged. Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create, nightly in praw, nightly in haxcms-mcp. webcomponents: last scheduled run 2026-11-25, success; praw: last scheduled run 2026-11-25, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -657,7 +641,7 @@
    }
   },
   "q_contrast_design_systems_sched": {
-   "desc": "Runs nightly in webcomponents. webcomponents: last scheduled run 2026-11-24, success.",
+   "desc": "Runs nightly in webcomponents. webcomponents: last scheduled run 2026-11-25, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -665,7 +649,7 @@
    }
   },
   "q_audit_sched": {
-   "desc": "Dependencies with known security advisories are caught. Runs nightly in webcomponents, nightly in create. webcomponents: last scheduled run 2026-11-24, success.",
+   "desc": "Dependencies with known security advisories are caught. Runs nightly in webcomponents, nightly in create. webcomponents: last scheduled run 2026-11-25, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -709,7 +693,7 @@
    }
   },
   "q_dependency_licenses_sched": {
-   "desc": "No dependency under an incompatible license enters the repo, and the project stays Apache-2.0. Runs weekly in webcomponents, weekly in haxcms-nodejs, weekly in haxcms-php, weekly in create, weekly in praw. webcomponents: last scheduled run 2026-11-23, success.",
+   "desc": "No dependency under an incompatible license enters the repo, the project stays Apache-2.0, and element source files carry the license header. Runs weekly in webcomponents, weekly in haxcms-nodejs, weekly in haxcms-php, weekly in create, weekly in praw. webcomponents: last scheduled run 2026-11-23, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -918,7 +902,7 @@
    "message": "Every safeguard on what enters HAX, read from the CI that actually runs.",
    "scenes": [
     {
-     "caption": "65 blocking gates: a pull request can't merge until these pass.",
+     "caption": "63 blocking gates: a pull request can't merge until these pass.",
      "nodes": [
       "qg_block",
       "q_a11y_modes",
@@ -933,8 +917,6 @@
       "q_cla",
       "q_codeql",
       "q_contrast_design_systems",
-      "q_blocks_under_the_design_system",
-      "q_print_what_still_fails",
       "q_baseline_only_shrinks",
       "q_color_contrast_of_changed_elements",
       "q_palette_roles",

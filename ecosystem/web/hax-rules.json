@@ -10,7 +10,7 @@
    "gap": "nothing enforces it yet",
    "proposed": "proposed"
   },
-  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (87 rules) and each repo's AGENTS.md (29), plus 9 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 30 are enforced; 21 are guidance by design, which no check could decide; 74 are gaps, the backlog of what to automate next.",
+  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (88 rules) and each repo's AGENTS.md (29), plus 8 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 38 are enforced; 30 are guidance by design, which no check could decide; 57 are gaps, the backlog of what to automate next.",
   "kindLabels": {
    "rel": "where a rule comes from and what enforces it",
    "pillar": "pillars a rule serves",
@@ -26,7 +26,7 @@
    "always": true
   },
   "rg_architecture_file_structure_rules": {
-   "desc": "Architecture & File Structure Rules: 12 rules, 1 enforced by a check.",
+   "desc": "Architecture & File Structure Rules: 12 rules, 2 enforced by a check.",
    "kind": "group"
   },
   "rg_design_system_standards": {
@@ -34,11 +34,11 @@
    "kind": "group"
   },
   "rg_web_component_development": {
-   "desc": "Web Component Development: 18 rules, 7 enforced by a check.",
+   "desc": "Web Component Development: 19 rules, 9 enforced by a check.",
    "kind": "group"
   },
   "rg_build_development_workflow": {
-   "desc": "Build & Development Workflow: 36 rules, 8 enforced by a check.",
+   "desc": "Build & Development Workflow: 36 rules, 9 enforced by a check.",
    "kind": "group"
   },
   "rg_ai_generated_content": {
@@ -54,7 +54,7 @@
    "kind": "group"
   },
   "rg_agents_md_code_style": {
-   "desc": "AGENTS.md: code style: 21 rules, 3 enforced by a check.",
+   "desc": "AGENTS.md: code style: 21 rules, 7 enforced by a check.",
    "kind": "group"
   },
   "rg_agents_md_security": {
@@ -71,10 +71,6 @@
   },
   "rg_proposed_ddd_layers": {
    "desc": "Proposed: DDD layers: 1 rule, 0 enforced by a check.",
-   "kind": "group"
-  },
-  "rg_proposed_learning_data": {
-   "desc": "Proposed: Learning data: 1 rule, 0 enforced by a check.",
    "kind": "group"
   },
   "rg_proposed_conventions": {
@@ -145,9 +141,8 @@
    }
   },
   "r_1286150dc8944178aa82ca": {
-   "desc": "When changing API endpoints or auth code in haxcms-php or haxcms-nodejs, check the HAXiam path (`config->iam`) as well as single-tenant mode. In multi-tenant mode each user has an isolated sites directory, and endpoints such as `connectionSettings` must enforce strict alignment between the authenticated user and the requested path (for example `getIAMTenantUserName()` and `getRequestPathUserName()`). Never weaken that check, and verify the change in both backends. Rationale: KNOWLEDGE.md entry \"HAXiam multi-tenant auth model\". In PRAW RULES.md (scope: haxcms). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "When changing API endpoints or auth code in haxcms-php or haxcms-nodejs, check the HAXiam path (`config->iam`) as well as single-tenant mode. In multi-tenant mode each user has an isolated sites directory, and endpoints such as `connectionSettings` must enforce strict alignment between the authenticated user and the requested path (for example `getIAMTenantUserName()` and `getRequestPathUserName()`). Never weaken that check, and verify the change in both backends. Rationale: KNOWLEDGE.md entry \"HAXiam multi-tenant auth model\". In PRAW RULES.md (scope: haxcms). Enforced by haxiam nightly. Partly. haxcms-nodejs and haxcms-php run a nightly HAXiam isolation job: throwaway multi-tenant users on localhost must not list, read, edit, clone or download each other's sites. A failure turns the run red and files an issue; it doesn't block a pull request.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#haxiam-multi-tenant-pathuser-alignment"
    }
@@ -199,9 +194,9 @@
    }
   },
   "r_c4f0b69d_9ed4_4b6d_bf52_6a3d9937c98f": {
-   "desc": "For any design-related decisions in this repository, `DESIGN.md` at the repository root is the canonical source of truth. Future design work must conform to its design tokens, CSS variable implementation patterns, component guidance, and Do's/Don'ts. In PRAW RULES.md (scope: design-system). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "For any design-related decisions in this repository, `DESIGN.md` at the repository root is the canonical source of truth. Future design work must conform to its design tokens, CSS variable implementation patterns, component guidance, and Do's/Don'ts. In PRAW RULES.md (scope: design-system). Guidance by design: no check enforces this, and none is planned. Says which document settles design questions in this repo; a person or agent applies it while designing.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#designmd-compliance-praw-design-source-of-truth"
    }
@@ -223,9 +218,9 @@
    }
   },
   "r_ccca6768_05e0_4d4d_b3a1_4b9895531558": {
-   "desc": "A prototype of HAXcms itself (whole-site designs, the editor top bar and edit mode, menus, outline, site or system admin, the dashboard, and any multipage flow) is built on the running system from latest main, never redrawn from memory. Use the `haxcms-prototype` skill (<https://github.com/haxtheweb/praw/tree/main/skills/haxcms-prototype>). Write the prototype brief first: the real states shown, in order, and exactly what is proposed in each. The base of every state is either a branch of the real code or an unchanged capture from the haxcms-nodejs UI inventory (`npm run ui:inventory`); only the proposed change is authored by hand, and it is always visibly marked as proposed. Visible text outside proposed regions must be real labels; new labels, components and tokens are declared in the brief. Styles come from the inventory's `tokens.css` (HAX UI for admin surfaces and editor chrome, DDD for anything a visitor sees, per `1992902d74844c908ab446`), never retyped values. Multipage and admin flows show each step as its own real state. Every prototype carries its provenance (commit SHAs, inventory date, fixture) and passes the skill's fidelity check before review. When review finds drift, fix the prototype and record the cause: an inventory gap is fixed in `scripts/ui-inventory.js`, a repeatable agent mistake goes in the skill's deviation log. A loose concept sketch is allowed only when asked for, labeled \"Concept, not the current UI\", and is never reviewed as a HAXcms prototype. Single elements use `hax-element-demo`. Tracked in haxtheweb/issues#3234. In PRAW RULES.md (scope: design-system). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "A prototype of HAXcms itself (whole-site designs, the editor top bar and edit mode, menus, outline, site or system admin, the dashboard, and any multipage flow) is built on the running system from latest main, never redrawn from memory. Use the `haxcms-prototype` skill (<https://github.com/haxtheweb/praw/tree/main/skills/haxcms-prototype>). Write the prototype brief first: the real states shown, in order, and exactly what is proposed in each. The base of every state is either a branch of the real code or an unchanged capture from the haxcms-nodejs UI inventory (`npm run ui:inventory`); only the proposed change is authored by hand, and it is always visibly marked as proposed. Visible text outside proposed regions must be real labels; new labels, components and tokens are declared in the brief. Styles come from the inventory's `tokens.css` (HAX UI for admin surfaces and editor chrome, DDD for anything a visitor sees, per `1992902d74844c908ab446`), never retyped values. Multipage and admin flows show each step as its own real state. Every prototype carries its provenance (commit SHAs, inventory date, fixture) and passes the skill's fidelity check before review. When review finds drift, fix the prototype and record the cause: an inventory gap is fixed in `scripts/ui-inventory.js`, a repeatable agent mistake goes in the skill's deviation log. A loose concept sketch is allowed only when asked for, labeled \"Concept, not the current UI\", and is never reviewed as a HAXcms prototype. Single elements use `hax-element-demo`. Tracked in haxtheweb/issues#3234. In PRAW RULES.md (scope: design-system). Guidance by design: no check enforces this, and none is planned. Says how to build a HAXcms prototype (on the running system, with the haxcms-prototype skill); no check can tell a redrawn prototype from a real one.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#haxcms-prototypes-are-built-on-the-real-system"
    }
@@ -366,18 +361,24 @@
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#tracking-records-the-outcome-not-the-stream"
    }
   },
+  "r_6150b048_e030_467c_b1f7_2ceaa271f00e": {
+   "desc": "Every xAPI statement a HAX element sends conforms to xAPI 1.0.3: it validates against the statement schema, scores sit within their min and max, and each `result.response` and `correctResponsesPattern` follows the grammar of its interaction type. Extensions HAX writes live under `https://haxtheweb.org/xapi/extensions/`. Interaction component ids come from the option itself (`componentIds()`, `c-` plus 8 hex characters), never from its position, so reordering options does not change an answer key and results stay comparable across edits and over time. Test new or changed statements with `validateStatement()` from `scripts/lib/xapi-conformance.mjs` (browser tests: the `xapi-validate` server command); `yarn test:scripts` runs the conformance suite on every pull request. In PRAW RULES.md (scope: webcomponents). Enforced by Script tests. webcomponents yarn test:scripts (Script tests in the build workflow) runs scripts/test/xapi-conformance.test.mjs: statement schema, response-pattern grammar, HAX extension IRIs, and component ids that stay stable when options are reordered. It fails the pull request.",
+   "kind": "enforced",
+   "links": {
+    "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#xapi-statements-conform-and-answer-keys-stay-stable"
+   }
+  },
   "r_1b8b8a93_0458_41f9_85a4_ba8d16923765": {
-   "desc": "When creating a new component or theme, or working in an existing one, audit it for server-side rendering (SSR) without assuming issues exist. HAXcms server-renders elements with Lit SSR (`@lit-labs/ssr`) plus a small inert DOM shim. `hax audit ssr` (report-only, in the `create` repo) shows how an element fares; run it and read the saved HTML (`--save-html`). The server runs only the constructor, `willUpdate` and `render`; `connectedCallback`, `firstUpdated`, `updated` and `disconnectedCallback` do not run. Safety: (1) Keep the constructor, `willUpdate`, `render` and anything they call free of `document.body`, `document.head`, `localStorage` / `sessionStorage`, `location` and layout measurements. The shim supplies an inert `window`, event listeners, `matchMedia`, observers and query / child / class / style APIs, so those do not throw but find nothing, and `getBoundingClientRect` returns zeros. (2) Put browser-only work, including reading storage and measuring layout, in `connectedCallback`, `firstUpdated` or `updated`. (3) Guard any browser API the server can reach with `globalThis` (`typeof globalThis.document !== 'undefined'`, `globalThis.localStorage && ...`) or a try / catch, never a bare `window` / `document` reference, and do not use `?.`. (4) Add listeners and observers in `connectedCallback` and remove them in `disconnectedCallback`, so they keep working if the element is moved. (5) Keep import-time side effects out of helper modules; an element module defining its own tag is expected. (6) Load browser-only dependencies with dynamic `import()` from client-only lifecycle methods. (7) An element that cannot render on the server (WebGL, audio, real layout) sets `static ssr = false`, optionally with `static ssrSkipReason`, instead of throwing. Enhancement (go beyond not breaking): (8) Make the first render useful without JavaScript: default text, slotted content and attribute defaults should produce meaningful HTML on the server, not an empty shell. `radar-chart` is a good model, its server output holds the SVG, a text description and a data table. (9) The shim's `children` is empty, so data the first render needs must arrive through properties or attributes, not be read from light DOM children after upgrade; if an element keeps authored data in light DOM, make sure the render is still meaningful without it. (10) In templates, use attribute bindings instead of property bindings on native elements: `?checked` / `?disabled` rather than `.checked` / `.disabled` (SSR writes `.checked=${false}` out as `checked=\"false\"`, which browsers read as on until hydration), and `src=${v}` / `href=${v}` (with `ifDefined` when it can be undefined) rather than `.src` / `.href` (SSR does not write a property binding at all, so an `<iframe .src=${url}>` reaches the server HTML with no address). `hax audit ssr` flags both. (11) Put attributes that crawlers or styles need (RDFa `typeof`, state that CSS selects on) in the rendered template, a reflected property or authored content, not in `setAttribute` calls inside `firstUpdated`, which the server never runs. (12) Keep `render()` deterministic (no `Math.random()`, `Date.now()` or generated ids) and use `static styles` rather than runtime-injected styles. (13) If the content lives only in a property or in the shadow render (a video address, a number, images), provide a `progressiveEnhancement` hook in `haxHooks()` that returns fallback light DOM markup (a link, text, an `<img>`) for crawlers, RSS, markdown exports and no-JS readers. HAX runs the hook on save and appends its output after the element's existing light DOM children, so make it save once: either set `saveOptions.wipeSlot: true` when the element has no authored slot content to keep, or mark the fallback (`data-prog-fallback`) and remove it in an `editModeChanged` hook when edit mode starts. Put it in a slot the shadow root does not render (the default slot when only named slots are rendered, or `slot=\"prog-fallback\"`) so it is never drawn beside the real element, escape every value and accept only http(s) or relative URLs. (14) For themes, keep the skip link and named regions in the server-rendered template and do not depend on `document.body` or global state at import time. When the audit finds a gap, fix it if it is in scope of the change; otherwise note it so it can be tracked. Rationale and test cases: KNOWLEDGE.md entry \"SSR audit of checklist, reflective nudge and radar chart\". In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "When creating a new component or theme, or working in an existing one, audit it for server-side rendering (SSR) without assuming issues exist. HAXcms server-renders elements with Lit SSR (`@lit-labs/ssr`) plus a small inert DOM shim. `hax audit ssr` (report-only, in the `create` repo) shows how an element fares; run it and read the saved HTML (`--save-html`). The server runs only the constructor, `willUpdate` and `render`; `connectedCallback`, `firstUpdated`, `updated` and `disconnectedCallback` do not run. Safety: (1) Keep the constructor, `willUpdate`, `render` and anything they call free of `document.body`, `document.head`, `localStorage` / `sessionStorage`, `location` and layout measurements. The shim supplies an inert `window`, event listeners, `matchMedia`, observers and query / child / class / style APIs, so those do not throw but find nothing, and `getBoundingClientRect` returns zeros. (2) Put browser-only work, including reading storage and measuring layout, in `connectedCallback`, `firstUpdated` or `updated`. (3) Guard any browser API the server can reach with `globalThis` (`typeof globalThis.document !== 'undefined'`, `globalThis.localStorage && ...`) or a try / catch, never a bare `window` / `document` reference, and do not use `?.`. (4) Add listeners and observers in `connectedCallback` and remove them in `disconnectedCallback`, so they keep working if the element is moved. (5) Keep import-time side effects out of helper modules; an element module defining its own tag is expected. (6) Load browser-only dependencies with dynamic `import()` from client-only lifecycle methods. (7) An element that cannot render on the server (WebGL, audio, real layout) sets `static ssr = false`, optionally with `static ssrSkipReason`, instead of throwing. Enhancement (go beyond not breaking): (8) Make the first render useful without JavaScript: default text, slotted content and attribute defaults should produce meaningful HTML on the server, not an empty shell. `radar-chart` is a good model, its server output holds the SVG, a text description and a data table. (9) The shim's `children` is empty, so data the first render needs must arrive through properties or attributes, not be read from light DOM children after upgrade; if an element keeps authored data in light DOM, make sure the render is still meaningful without it. (10) In templates, use attribute bindings instead of property bindings on native elements: `?checked` / `?disabled` rather than `.checked` / `.disabled` (SSR writes `.checked=${false}` out as `checked=\"false\"`, which browsers read as on until hydration), and `src=${v}` / `href=${v}` (with `ifDefined` when it can be undefined) rather than `.src` / `.href` (SSR does not write a property binding at all, so an `<iframe .src=${url}>` reaches the server HTML with no address). `hax audit ssr` flags both. (11) Put attributes that crawlers or styles need (RDFa `typeof`, state that CSS selects on) in the rendered template, a reflected property or authored content, not in `setAttribute` calls inside `firstUpdated`, which the server never runs. (12) Keep `render()` deterministic (no `Math.random()`, `Date.now()` or generated ids) and use `static styles` rather than runtime-injected styles. (13) If the content lives only in a property or in the shadow render (a video address, a number, images), provide a `progressiveEnhancement` hook in `haxHooks()` that returns fallback light DOM markup (a link, text, an `<img>`) for crawlers, RSS, markdown exports and no-JS readers. HAX runs the hook on save and appends its output after the element's existing light DOM children, so make it save once: either set `saveOptions.wipeSlot: true` when the element has no authored slot content to keep, or mark the fallback (`data-prog-fallback`) and remove it in an `editModeChanged` hook when edit mode starts. Put it in a slot the shadow root does not render (the default slot when only named slots are rendered, or `slot=\"prog-fallback\"`) so it is never drawn beside the real element, escape every value and accept only http(s) or relative URLs. (14) For themes, keep the skip link and named regions in the server-rendered template and do not depend on `document.body` or global state at import time. When the audit finds a gap, fix it if it is in scope of the change; otherwise note it so it can be tracked. Rationale and test cases: KNOWLEDGE.md entry \"SSR audit of checklist, reflective nudge and radar chart\". In PRAW RULES.md (scope: webcomponents). Guidance by design: no check enforces this, and none is planned. Says to audit a component for server-side rendering while working on it; finding what would break SSR takes reading the component.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#ssr-safety--enhancement-audit"
    }
   },
   "r_47905658_f1c9_448d_99e5_9e933bdc6990": {
-   "desc": "An element points the i18n manager at its locales by naming its English locale file and stepping back to the folder: `new URL(\"./locales/<tag>.en.json\", import.meta.url).href + \"/../\"` (from `lib/`, `../locales/<tag>.en.json`). This applies to `registerLocalization` and to the haxProperties `i18n-manager-register-element` event alike. Never point `new URL()` at the folder (`\"./locales/\"`, `` `./locales` ``) or at a language file the element does not commit (such as a scaffold's `.ar.json`): bundlers using `@web/rollup-plugin-import-meta-assets` fail on both (EISDIR on 1.x, ENOENT on every version). Name the file literally, never with a runtime expression such as `` `../locales/${this.tag}.es.json` `` (`tag` is static, so on an instance that is `undefined`, and a bundler cannot resolve it). A base element that sites subclass with their own tag passes `namespace: \"<tag>\"` so the subclass still loads its translations. The `\"/../\"` resolves back to `locales/`, so the runtime fetch is identical unbundled. Anchor on English because it is the one locale file every element commits (feature PRs are English-only). An element with only haxProperties locales anchors on a haxProperties file it ships. A bundled site still copies element `locales/*.json` next to the emitted anchor asset if it wants languages beyond the anchor. Enforced in haxtheweb/webcomponents by `yarn lint:locale-urls` (blocking in `yarn precheck` and CI). The `hax webcomponent` templates ship `<name>.en.json` and anchor on it. Extends haxtheweb/issues#1616. Tracking: <https://github.com/haxtheweb/issues/issues/3402>. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "An element points the i18n manager at its locales by naming its English locale file and stepping back to the folder: `new URL(\"./locales/<tag>.en.json\", import.meta.url).href + \"/../\"` (from `lib/`, `../locales/<tag>.en.json`). This applies to `registerLocalization` and to the haxProperties `i18n-manager-register-element` event alike. Never point `new URL()` at the folder (`\"./locales/\"`, `` `./locales` ``) or at a language file the element does not commit (such as a scaffold's `.ar.json`): bundlers using `@web/rollup-plugin-import-meta-assets` fail on both (EISDIR on 1.x, ENOENT on every version). Name the file literally, never with a runtime expression such as `` `../locales/${this.tag}.es.json` `` (`tag` is static, so on an instance that is `undefined`, and a bundler cannot resolve it). A base element that sites subclass with their own tag passes `namespace: \"<tag>\"` so the subclass still loads its translations. The `\"/../\"` resolves back to `locales/`, so the runtime fetch is identical unbundled. Anchor on English because it is the one locale file every element commits (feature PRs are English-only). An element with only haxProperties locales anchors on a haxProperties file it ships. A bundled site still copies element `locales/*.json` next to the emitted anchor asset if it wants languages beyond the anchor. Enforced in haxtheweb/webcomponents by `yarn lint:locale-urls` (blocking in `yarn precheck` and CI). The `hax webcomponent` templates ship `<name>.en.json` and anchor on it. Extends haxtheweb/issues#1616. Tracking: <https://github.com/haxtheweb/issues/issues/3402>. In PRAW RULES.md (scope: webcomponents). Enforced by Locale URLs point at a shipped locale file. Partly. Template lint's locale-url check fails the pull request when new URL() for locales names the locales/ folder or a file that doesn't ship; that it is the English file is checked in review.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#i18n--locale-urls-name-the-shipped-english-file"
    }
@@ -436,9 +437,9 @@
    }
   },
   "r_8369fe15_5bae_4fb0_9f49_ca30193a6569": {
-   "desc": "When a PR adds a new HAXcms theme (or reworks an existing one), hand it over with the editor demo deep link as well as the theme's own demo: `<vercel-preview>/elements/haxcms-elements/demo/index.html?theme=<theme-tag>` (for example `https://webcomponents-git-<branch>-haxtheweb.vercel.app/elements/haxcms-elements/demo/index.html?theme=vhs-blog-theme`). That demo loads the theme in a real HAXcms site with site content, the top bar and edit mode, so the theme is reviewed in context of site content rather than only its own demo page. Put the link in the PR body and in the reply that reports the PR. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "When a PR adds a new HAXcms theme (or reworks an existing one), hand it over with the editor demo deep link as well as the theme's own demo: `<vercel-preview>/elements/haxcms-elements/demo/index.html?theme=<theme-tag>` (for example `https://webcomponents-git-<branch>-haxtheweb.vercel.app/elements/haxcms-elements/demo/index.html?theme=vhs-blog-theme`). That demo loads the theme in a real HAXcms site with site content, the top bar and edit mode, so the theme is reviewed in context of site content rather than only its own demo page. Put the link in the PR body and in the reply that reports the PR. In PRAW RULES.md (scope: webcomponents). Guidance by design: no check enforces this, and none is planned. Says what a theme PR hands over for review (the editor demo link); it is how work is handed over, not a property of the code.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#new-themes-ship-with-the-editor-demo-link"
    }
@@ -561,9 +562,8 @@
    }
   },
   "r_d2a1207c_b6d1_4cd6_9930_bd21b29a516c": {
-   "desc": "Agent skills or guidance packages HAX did not write run at the exact version in `skills-lock.json` (https://github.com/haxtheweb/praw/blob/main/skills-lock.json), never `@latest` or a range; e.g. `DISABLE_TELEMETRY=1 npx -y modern-web-guidance@<version>`. MWG's `--skill-version` only tags telemetry and is not a pin; `DISABLE_TELEMETRY=1` is required in CI and scheduled jobs. A bump is its own PR updating `version`, `integrity` and `license` and summarizing what changed; `node scripts/update-skills-lock.js --check` rejects non-exact pins. In PRAW RULES.md (scope: global). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Agent skills or guidance packages HAX did not write run at the exact version in `skills-lock.json` (https://github.com/haxtheweb/praw/blob/main/skills-lock.json), never `@latest` or a range; e.g. `DISABLE_TELEMETRY=1 npx -y modern-web-guidance@<version>`. MWG's `--skill-version` only tags telemetry and is not a pin; `DISABLE_TELEMETRY=1` is required in CI and scheduled jobs. A bump is its own PR updating `version`, `integrity` and `license` and summarizing what changed; `node scripts/update-skills-lock.js --check` rejects non-exact pins. In PRAW RULES.md (scope: global). Enforced by skills-lock.json hashes are current. praw's Rule checks workflow runs scripts/update-skills-lock.js --check and fails the pull request when an outside skill's files no longer match the hash pinned in skills-lock.json.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#outside-skills-are-version-pinned"
    }
@@ -584,9 +584,9 @@
    }
   },
   "r_00413a27_a2a8_466c_b08e_c60f7fc7837d": {
-   "desc": "Only suggest libraries, dictionaries, data files or tools whose license can ship inside the Apache-2.0 backends (`haxcms-nodejs`, `haxcms-php`): permissive licenses (MIT, BSD, Apache-2.0, ISC, public domain) or LGPL used unmodified and replaceable. For a multi-licensed package, pick the shippable option and name it. Anything else (GPL, AGPL, MPL, EUPL, CC-BY-SA, unclear) is not offered as an option at all, not even with a caveat; if nothing shippable fits, say so. Transforming LGPL data (for example expanding a dictionary into a word list) is a modification, so ship it unmodified and transform at runtime instead. In PRAW RULES.md (scope: global). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Only suggest libraries, dictionaries, data files or tools whose license can ship inside the Apache-2.0 backends (`haxcms-nodejs`, `haxcms-php`): permissive licenses (MIT, BSD, Apache-2.0, ISC, public domain) or LGPL used unmodified and replaceable. For a multi-licensed package, pick the shippable option and name it. Anything else (GPL, AGPL, MPL, EUPL, CC-BY-SA, unclear) is not offered as an option at all, not even with a caveat; if nothing shippable fits, say so. Transforming LGPL data (for example expanding a dictionary into a word list) is a modification, so ship it unmodified and transform at runtime instead. In PRAW RULES.md (scope: global). Guidance by design: no check enforces this, and none is planned. Says which libraries and data files may be suggested at all; the license of what actually lands is enforced by the Dependency licenses check.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#suggest-only-what-the-backends-can-ship"
    }
@@ -632,9 +632,9 @@
    }
   },
   "r_186fad44_1725_470e_80a7_903ea54fce1a": {
-   "desc": "Before editing in a repo, read its `AGENTS.md` and the `scripts` in its `package.json` to find the lint, format and test commands it expects; do not assume a check you ran elsewhere is the one it uses. Before pushing code or opening a PR, run the repo's `precheck` script (`npm run precheck`; `yarn precheck` in `webcomponents`), fix every failure it reports, and re-run until it passes (`precheck:fix` repairs formatting and fixable lint). Run it again after your last commit, not only after the first. Repos with a `precheck` script (`create`, `haxcms-nodejs`, `webcomponents`) also block `git push` and `gh pr create` via a Claude Code hook, but that hook only fires for those commands, run from inside that repo; a PR opened another way (for example `gh api` where GraphQL is unavailable) or from another working directory is not checked, so run `precheck` yourself first. Do not bypass it by loosening lint or format configs, adding ignore entries, or skipping hooks. ESLint alone is not a substitute: it commonly ignores test files, which Prettier still checks, so a new test file can pass lint and fail format. In a repo without `precheck` (for example `haxcms-php`), run its test suite and any lint or format-check scripts it has on the files you changed, and say in the PR description what you ran. In a sparse or partial checkout where `precheck` or its config is missing, run Prettier and ESLint directly with the repo's own config on the changed files, and say what could not be run. After pushing, check the PR's CI results (`gh pr checks`, or the REST API where GraphQL is unavailable) and, if a check fails, read its logs, fix the cause, and push again. In PRAW RULES.md (scope: global). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Before editing in a repo, read its `AGENTS.md` and the `scripts` in its `package.json` to find the lint, format and test commands it expects; do not assume a check you ran elsewhere is the one it uses. Before pushing code or opening a PR, run the repo's `precheck` script (`npm run precheck`; `yarn precheck` in `webcomponents`), fix every failure it reports, and re-run until it passes (`precheck:fix` repairs formatting and fixable lint). Run it again after your last commit, not only after the first. Repos with a `precheck` script (`create`, `haxcms-nodejs`, `webcomponents`) also block `git push` and `gh pr create` via a Claude Code hook, but that hook only fires for those commands, run from inside that repo; a PR opened another way (for example `gh api` where GraphQL is unavailable) or from another working directory is not checked, so run `precheck` yourself first. Do not bypass it by loosening lint or format configs, adding ignore entries, or skipping hooks. ESLint alone is not a substitute: it commonly ignores test files, which Prettier still checks, so a new test file can pass lint and fail format. In a repo without `precheck` (for example `haxcms-php`), run its test suite and any lint or format-check scripts it has on the files you changed, and say in the PR description what you ran. In a sparse or partial checkout where `precheck` or its config is missing, run Prettier and ESLint directly with the repo's own config on the changed files, and say what could not be run. After pushing, check the PR's CI results (`gh pr checks`, or the REST API where GraphQL is unavailable) and, if a check fails, read its logs, fix the cause, and push again. In PRAW RULES.md (scope: global). Guidance by design: no check enforces this, and none is planned. Says what an agent does before submitting (read AGENTS.md, run the repo's own lint and tests); the checks it points to are each enforced on their own.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#ai-guardrails--pre-submission-checks"
    }
@@ -743,9 +743,9 @@
    }
   },
   "r_759643a6db03433a9d742f": {
-   "desc": "Recurring security audits cover create, haxcms-nodejs, webcomponents, haxcms-php, and HAXiam. Start every audit by reading that repo's SECURITY-AUDIT.md (read order, scope, commands, regression guards, reporting convention). The repo's undated security_best_practices_report.md is the canonical current state; dated security_best_practices_report_YYYY-MM-DD.md files are archived rounds. Cite findings with file:line and mark fixes with inline security comments referencing the finding ID. Report vulnerabilities via SECURITY.md private advisories, never public issues. Keep haxcms-php and haxcms-nodejs security/spec fixes mirrored in both backends. In PRAW RULES.md (scope: global). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Recurring security audits cover create, haxcms-nodejs, webcomponents, haxcms-php, and HAXiam. Start every audit by reading that repo's SECURITY-AUDIT.md (read order, scope, commands, regression guards, reporting convention). The repo's undated security_best_practices_report.md is the canonical current state; dated security_best_practices_report_YYYY-MM-DD.md files are archived rounds. Cite findings with file:line and mark fixes with inline security comments referencing the finding ID. Report vulnerabilities via SECURITY.md private advisories, never public issues. Keep haxcms-php and haxcms-nodejs security/spec fixes mirrored in both backends. In PRAW RULES.md (scope: global). Guidance by design: no check enforces this, and none is planned. Says how a recurring security audit is run and what it starts from; it is a playbook, not a property of the code.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#recurring-security-audit-playbook-for-the-5-core-repos"
    }
@@ -804,9 +804,8 @@
    }
   },
   "ra_license_header": {
-   "desc": "every `.js` source file under `elements/<name>/` starts with the Apache-2.0 header `hax webcomponent` writes (`Copyright <year> The Pennsylvania State University` and `@license Apache-2.0, see LICENSE for full text.` in a leading `/** */` block; a contributor's own Copyright line, where present, stays as a second line). The `license-check` workflow and `yarn precheck` fail when any file lacks it; tests, demos, generated files and the third-party code listed in `THIRD_PARTY` (scripts/license-header-check.mjs) are exempt. See CONTRIBUTING.md, \"License header\". In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "every `.js` source file under `elements/<name>/` starts with the Apache-2.0 header `hax webcomponent` writes (`Copyright <year> The Pennsylvania State University` and `@license Apache-2.0, see LICENSE for full text.` in a leading `/** */` block; a contributor's own Copyright line, where present, stays as a second line). The `license-check` workflow and `yarn precheck` fail when any file lacks it; tests, demos, generated files and the third-party code listed in `THIRD_PARTY` (scripts/license-header-check.mjs) are exempt. See CONTRIBUTING.md, \"License header\". In the AGENTS.md of components. Enforced by Dependency licenses. The License header on element files job in webcomponents' license-check workflow runs scripts/license-header-check.mjs --all and fails the pull request when an element source file lacks the Apache-2.0 header.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
@@ -828,9 +827,8 @@
    }
   },
   "ra_no_bindings_inside_style": {
-   "desc": "in an `html` template never write `${...}` inside the text of a `<style>` element. Lit SSR cannot render it and the element throws on a server. Set a CSS custom property (style attribute on a wrapper, or on the host) and keep the style text static. `yarn lint:html-templates` fails on new ones. In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "in an `html` template never write `${...}` inside the text of a `<style>` element. Lit SSR cannot render it and the element throws on a server. Set a CSS custom property (style attribute on a wrapper, or on the host) and keep the style text static. `yarn lint:html-templates` fails on new ones. In the AGENTS.md of components. Enforced by HTML structure in html and svg templates. Template lint's html-template-check flags a binding inside <style> text in an html`` or svg`` template and fails the pull request; known cases are baselined.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
@@ -852,17 +850,16 @@
    }
   },
   "ra_hax_rules_win_over_outside_guidance": {
-   "desc": "[Modern Web Guidance](https://github.com/GoogleChrome/modern-web-guidance) (MWG) and similar agent guidance are advice. Where they conflict with a rule in this file or in PRAW, follow the HAX rule and say in the PR which advice you set aside. Known conflicts: In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "[Modern Web Guidance](https://github.com/GoogleChrome/modern-web-guidance) (MWG) and similar agent guidance are advice. Where they conflict with a rule in this file or in PRAW, follow the HAX rule and say in the PR which advice you set aside. Known conflicts: In the AGENTS.md of components. Guidance by design: no check enforces this, and none is planned. Says which advice wins when two sources disagree; each conflict it lists has its own rule and check.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
   "ra_every_field_in_admin_chrome_is_a_simple_fields_field": {
-   "desc": "(app-hax, HAXcms core UI, the editor, outline-designer, the character builder): text, search, select, textarea, checkbox and radio. Style it with `HaxUiAdminSimpleFields` from `@haxtheweb/d-d-d/lib/HaxUiAdminControls.js` (`class=\"hax-ui-simple-field\"`, add `compact` for a 32px toolbar field) and read changes from its `value-changed` event (`e.detail.value`; it also fires for the value it was rendered with, so set state from it rather than toggling). Never hand-draw `<input>`, `<select>` or `<textarea>` there: a native control styled per element is how white-on-white dark mode bugs slip in. Hidden and file inputs are the only exceptions. In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "(app-hax, HAXcms core UI, the editor, outline-designer, the character builder): text, search, select, textarea, checkbox and radio. Style it with `HaxUiAdminSimpleFields` from `@haxtheweb/d-d-d/lib/HaxUiAdminControls.js` (`class=\"hax-ui-simple-field\"`, add `compact` for a 32px toolbar field) and read changes from its `value-changed` event (`e.detail.value`; it also fires for the value it was rendered with, so set state from it rather than toggling). Never hand-draw `<input>`, `<select>` or `<textarea>` there: a native control styled per element is how white-on-white dark mode bugs slip in. Hidden and file inputs are the only exceptions. In the AGENTS.md of components. Enforced by hax-ui-admin-contract. The HAX UI admin contract check (yarn lint:hax-ui-admin, rule raw-field) fails the pull request on a new hand-drawn field in admin chrome; fields that predate the rule are baselined.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
@@ -908,9 +905,8 @@
    }
   },
   "ra_locale_urls_name_the_english_file": {
-   "desc": "point `localesPath` at `new URL(\"./locales/<tag>.en.json\", import.meta.url).href + \"/../\"` (from `lib/`, `../locales/<tag>.en.json`), for both `registerLocalization` and the `i18n-manager-register-element` event. Never `new URL(\"./locales/\", ...)` (the folder) or a language file the element does not commit: bundlers using `@web/rollup-plugin-import-meta-assets` fail on both (EISDIR / ENOENT). The `\"/../\"` lands back on `locales/`, so the runtime fetch is the same. `yarn lint:locale-urls` checks it in `yarn precheck` and CI (haxtheweb/issues#3402). In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "point `localesPath` at `new URL(\"./locales/<tag>.en.json\", import.meta.url).href + \"/../\"` (from `lib/`, `../locales/<tag>.en.json`), for both `registerLocalization` and the `i18n-manager-register-element` event. Never `new URL(\"./locales/\", ...)` (the folder) or a language file the element does not commit: bundlers using `@web/rollup-plugin-import-meta-assets` fail on both (EISDIR / ENOENT). The `\"/../\"` lands back on `locales/`, so the runtime fetch is the same. `yarn lint:locale-urls` checks it in `yarn precheck` and CI (haxtheweb/issues#3402). In the AGENTS.md of components. Enforced by Locale URLs point at a shipped locale file. Partly. Template lint's locale-url check fails the pull request when new URL() for locales names the locales/ folder or a file that doesn't ship; that it is the English file is checked in review.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
@@ -923,9 +919,9 @@
    }
   },
   "ra_security_audits": {
-   "desc": "For recurring security audits of this repo, start with `SECURITY-AUDIT.md` — it defines the read order, scope, commands, regression guards, and reporting convention In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "For recurring security audits of this repo, start with `SECURITY-AUDIT.md` — it defines the read order, scope, commands, regression guards, and reporting convention In the AGENTS.md of components. Guidance by design: no check enforces this, and none is planned. Says where a recurring security audit of this repo starts (SECURITY-AUDIT.md); it is a playbook, not a property of the code.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
@@ -1026,11 +1022,6 @@
    "kind": "proposed",
    "status": "planned"
   },
-  "rc_xapi": {
-   "desc": "Learning activities send conformant xAPI statements, and answer keys stay stable so results stay comparable. Proposed in the HAX Scheduled Background Jobs Plan; not written into RULES.md or AGENTS.md yet. Nothing enforces this yet.",
-   "kind": "proposed",
-   "status": "planned"
-  },
   "rc_correct_colors": {
    "desc": "Correct is green and incorrect is purple, never red, for decisions with consequences. Proposed in the HAX Scheduled Background Jobs Plan; now written into PRAW RULES.md as part of \"Meaning Channels — Meaning and Consequential Decisions Use All Five\". Nothing enforces this yet.",
    "kind": "gap",
@@ -1046,7 +1037,7 @@
    "id": "rules",
    "label": "Rules and what guarantees them",
    "kind": "story",
-   "message": "125 rules: 30 enforced by a check, 21 guidance by design, 74 not yet.",
+   "message": "125 rules: 38 enforced by a check, 30 guidance by design, 57 not yet.",
    "scenes": [
     {
      "caption": "Rules come from PRAW's RULES.md, each repo's AGENTS.md, and the plan's proposals.",
@@ -1063,14 +1054,14 @@
       "rg_proposed_content_contract",
       "rg_proposed_platform_rules",
       "rg_proposed_ddd_layers",
-      "rg_proposed_learning_data",
       "rg_proposed_conventions"
      ]
     },
     {
-     "caption": "30 rules have a check that enforces them.",
+     "caption": "38 rules have a check that enforces them.",
      "nodes": [
       "r_a8bf4a47_3d4f_4f8e_a356_a04db66ce1ab",
+      "r_1286150dc8944178aa82ca",
       "r_mlhl56jnsqhvnriaw5a2gr",
       "r_mt6hpj9bdha13jwsxjcmea",
       "r_956c54783626475ea901a6",
@@ -1081,17 +1072,24 @@
       "r_cehsaztyfb2vtcwthggnbk",
       "r_njf4syugdn5wr5tevadtgy",
       "r_40983ddf_40b7_4a5e_a600_8f9fcb58da83",
+      "r_6150b048_e030_467c_b1f7_2ceaa271f00e",
+      "r_47905658_f1c9_448d_99e5_9e933bdc6990",
       "r_4e5b2533_8d87_4d77_b303_2d2907a78339",
       "r_8e6a9af3_0301_4c48_b75f_fcff2fc928e6",
       "r_13166db2_909f_4a34_87d1_1b697834eb4b",
       "r_0cf20bb0_0afa_4c6a_9100_e76f76a5cc1a",
       "r_bakmwcmrqrlgdwmunwgvuw",
       "r_4e0800ef_32ff_42dc_83f0_bbb953d97554",
+      "r_d2a1207c_b6d1_4cd6_9930_bd21b29a516c",
       "r_4a7c9e2b_8d5f_4e1a_9c3b_7f2e6d5a4b3c",
       "r_cd0800bf_8611_4835_a421_ad10e88b01e9",
       "r_7d6f9c3e_8d0c_4127_948e_e6260465fa95",
       "ra_unbundled_approach",
       "ra_formatting",
+      "ra_license_header",
+      "ra_no_bindings_inside_style",
+      "ra_every_field_in_admin_chrome_is_a_simple_fields_field",
+      "ra_locale_urls_name_the_english_file",
       "ra_feature_prs_change_english_source_strings_only",
       "ra_dependencies",
       "ra_component_security",
@@ -1113,9 +1111,12 @@
       "q_format_check",
       "q_fuzz_nightly",
       "q_hax_ui_admin_contract",
+      "q_haxiam_nightly",
       "q_haxschema",
+      "q_html_structure_in_html_and_svg_templates",
       "q_lint",
       "q_locale_guard",
+      "q_locale_urls_point_at_a_shipped_locale_file",
       "q_mascot_name",
       "q_memory_leaks",
       "q_mutation_testing",
@@ -1123,7 +1124,9 @@
       "q_parity",
       "q_phpunit",
       "q_render_benchmarks",
+      "q_script_tests",
       "q_size_report",
+      "q_skills_lock_json_hashes_are_current",
       "q_test_all_elements",
       "q_unit_and_api_conformance_tests",
       "q_unused_code_knip",
@@ -1154,6 +1157,7 @@
       "r_njf4syugdn5wr5tevadtgy",
       "r_40983ddf_40b7_4a5e_a600_8f9fcb58da83",
       "r_c3xjsqfbcmoa3cxsoonyxg",
+      "r_6150b048_e030_467c_b1f7_2ceaa271f00e",
       "r_4e5b2533_8d87_4d77_b303_2d2907a78339",
       "r_8e6a9af3_0301_4c48_b75f_fcff2fc928e6",
       "r_13166db2_909f_4a34_87d1_1b697834eb4b",
@@ -1161,7 +1165,6 @@
       "r_bakmwcmrqrlgdwmunwgvuw",
       "r_4e0800ef_32ff_42dc_83f0_bbb953d97554",
       "r_cd0800bf_8611_4835_a421_ad10e88b01e9",
-      "r_1eaa87af_8025_4b7f_9a63_492bf0fac68a",
       "r_7d6f9c3e_8d0c_4127_948e_e6260465fa95",
       "ra_unbundled_approach",
       "ra_feature_prs_change_english_source_strings_only",
@@ -1175,17 +1178,20 @@
       "rc_no_native_dialogs",
       "rc_explicit_js",
       "rc_ddd_layers",
-      "rc_xapi",
       "rc_correct_colors"
      ]
     },
     {
-     "caption": "21 rules are guidance by design: how agents and people work, which no check could decide.",
+     "caption": "30 rules are guidance by design: how agents and people work, which no check could decide.",
      "nodes": [
       "r_tjnufvxe11bgtoleu8opxk",
       "r_7e2c1a94_3b58_4d0f_9c6a_1f8e4d2b5a30",
       "r_9f3c2a7e_6b1d_4e8a_9c5f_2d7b8e1a4f60",
+      "r_c4f0b69d_9ed4_4b6d_bf52_6a3d9937c98f",
+      "r_ccca6768_05e0_4d4d_b3a1_4b9895531558",
+      "r_1b8b8a93_0458_41f9_85a4_ba8d16923765",
       "r_646fc5cf_6f1f_47e0_b48c_c54544cda490",
+      "r_8369fe15_5bae_4fb0_9f49_ca30193a6569",
       "r_ip9iudnwzrzqsyk4ggvczh",
       "r_e9zioqke3y0gdnwb08xqn8",
       "r_hax_site_scaffold",
@@ -1194,19 +1200,24 @@
       "r_pacoyoqw2aiyato3r6asnl",
       "r_edaxma3ziihz86gyx4mosu",
       "r_f54de8cb_0b65_4f50_98e6_43e8c2ebc4c7",
+      "r_00413a27_a2a8_466c_b08e_c60f7fc7837d",
       "r_ssy9vkxaqbticixvyustga",
       "r_74cc0274_6bf2_45a0_8e06_b88254f4cf9e",
       "r_f98f5e24_c343_4c12_b1c8_d6ae9783afaa",
       "r_d2315f2d_f4b2_4e86_bdd0_37b2d42fef89",
       "r_f15ba99a_0a0a_42a0_a413_d8dfdc8eb20b",
+      "r_186fad44_1725_470e_80a7_903ea54fce1a",
       "r_c089870b608c482a847ccc",
       "r_a1b2c3d4_e5f6_4789_9abc_def012345678",
       "r_4ab69ab2_d295_4c01_a448_1ce1689c7366",
-      "r_fc4153f1_90f0_4d22_a023_fec8f492b408"
+      "r_fc4153f1_90f0_4d22_a023_fec8f492b408",
+      "r_759643a6db03433a9d742f",
+      "ra_hax_rules_win_over_outside_guidance",
+      "ra_security_audits"
      ]
     },
     {
-     "caption": "74 rules nothing enforces yet: the backlog of what to automate next.",
+     "caption": "57 rules nothing enforces yet: the backlog of what to automate next.",
      "nodes": [
       "r_zvem3yg7jtxbsxbop3ypzy",
       "r_rhq7llrzmzlnfvelrwslun",
@@ -1214,13 +1225,10 @@
       "r_69qeidwqwmafq9ewziwmln",
       "r_82dc87fd_6bc1_4d20_9d68_5b077bb88b89",
       "r_d513754d87c145d6a166ec",
-      "r_1286150dc8944178aa82ca",
       "r_54e36477_ac8a_4fb2_bd9e_c46463f608aa",
       "r_k0lv6bjoprqp7ijmzkemuw",
-      "r_c4f0b69d_9ed4_4b6d_bf52_6a3d9937c98f",
       "r_447f8d9bc5484749b1188e",
       "r_1992902d74844c908ab446",
-      "r_ccca6768_05e0_4d4d_b3a1_4b9895531558",
       "r_411423ec_d922_4bd4_8c45_3d8c65b9fbfa",
       "r_13a03330_483e_404e_9e48_b0d9f16432d3",
       "r_410c4334_a186_4356_9584_0796e5d2bc2d",
@@ -1231,20 +1239,14 @@
       "r_01ed665f326941e9888ab1",
       "r_ea643795_98bc_47fb_bf31_999644a48f77",
       "r_2e0e8483_8e58_4854_b6f9_f28f77aec17b",
-      "r_1b8b8a93_0458_41f9_85a4_ba8d16923765",
-      "r_47905658_f1c9_448d_99e5_9e933bdc6990",
       "r_932f6cd4_90a9_451c_98af_4fb577007f9d",
       "r_35309388_b7be_40ca_88a9_539fe1dd4b0d",
       "r_896ecfa1_8965_4c06_a3ab_31c7e7eb28bf",
-      "r_8369fe15_5bae_4fb0_9f49_ca30193a6569",
       "r_f3c7716773784e8f94254a",
       "r_cfypzrdqlaj6xsxteavewt",
       "r_z61ldoq98dttlrwen7tl9t",
       "r_92dfb3b2_1c32_42dc_89c3_0f4ae66f7227",
-      "r_d2a1207c_b6d1_4cd6_9930_bd21b29a516c",
       "r_09255ba6_e67a_44ce_b8cb_f0d5e80f97ab",
-      "r_00413a27_a2a8_466c_b08e_c60f7fc7837d",
-      "r_186fad44_1725_470e_80a7_903ea54fce1a",
       "r_1eaa87af_8025_4b7f_9a63_492bf0fac68a",
       "r_dc5c2839_f04e_428c_a622_1e6d8cce1214",
       "r_5cf2787e_c2df_4184_8b61_53c42ffad9cf",
@@ -1253,26 +1255,19 @@
       "r_9b2e454c_9b5b_46dc_b443_6470b3b4abe9",
       "r_2472221d_091f_48bc_a44f_acf03f41ce29",
       "r_cd0bc4fc_a502_4b33_8036_057882b5f0e9",
-      "r_759643a6db03433a9d742f",
       "ra_language",
       "ra_no_typescript",
       "ra_third_party_libraries",
       "ra_es_modules",
-      "ra_license_header",
       "ra_modern_javascript",
       "ra_html_sinks",
-      "ra_no_bindings_inside_style",
       "ra_css_template_literals",
       "ra_browser_support",
-      "ra_hax_rules_win_over_outside_guidance",
-      "ra_every_field_in_admin_chrome_is_a_simple_fields_field",
       "ra_theme_development",
       "ra_file_structure",
       "ra_web_components",
       "ra_package_names",
       "ra_css_classes",
-      "ra_locale_urls_name_the_english_file",
-      "ra_security_audits",
       "ra_sensitive_data",
       "ra_site_imports",
       "ra_file_permissions",
@@ -1285,8 +1280,7 @@
      "caption": "Proposed rules still waiting: not written down and not enforced yet.",
      "nodes": [
       "rc_content_no_ddd",
-      "rc_ddd_layers",
-      "rc_xapi"
+      "rc_ddd_layers"
      ]
     },
     {

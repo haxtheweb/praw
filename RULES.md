@@ -219,6 +219,11 @@ Every rule has one of four scopes:
 - **Scope**: `webcomponents`
 - **Content**: Tracking stores the smallest record that answers the question being asked (did they go through the page, did they finish the activity), not raw behavior. Collapse positional and "seen" signals (scroll depth, element visibility, checkpoints, time ticks) in the client into one outcome record; do not send a statement per signal. Once an outcome is complete it stops being recorded, and it never fires twice in one visit. Thresholds forgive (about 80% of checkpoints seen, never pixel-exact). A new statement type names what reads it (a report, a completion rule, the tracked view); if nothing reads it, it is not recorded. Rationale: KNOWLEDGE.md entry "Tracking is translucent: visible to the tracked, abstract by default".
 
+### xAPI Statements Conform, and Answer Keys Stay Stable
+- **Rule ID**: `6150b048-e030-467c-b1f7-2ceaa271f00e`
+- **Scope**: `webcomponents`
+- **Content**: Every xAPI statement a HAX element sends conforms to xAPI 1.0.3: it validates against the statement schema, scores sit within their min and max, and each `result.response` and `correctResponsesPattern` follows the grammar of its interaction type. Extensions HAX writes live under `https://haxtheweb.org/xapi/extensions/`. Interaction component ids come from the option itself (`componentIds()`, `c-` plus 8 hex characters), never from its position, so reordering options does not change an answer key and results stay comparable across edits and over time. Test new or changed statements with `validateStatement()` from `scripts/lib/xapi-conformance.mjs` (browser tests: the `xapi-validate` server command); `yarn test:scripts` runs the conformance suite on every pull request.
+
 ### SSR Safety & Enhancement Audit
 - **Rule ID**: `1b8b8a93-0458-41f9-85a4-ba8d16923765`
 - **Scope**: `webcomponents`

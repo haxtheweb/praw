@@ -156,7 +156,7 @@
       "type": "skill-md",
       "description": "Scaffold and translate HAX web component i18n locale files: extract this.t strings or haxProperties text, stub ~100 languages, translate, validate. Use for \"translate <element>\", \"i18n my component\" or work on an element's locales/ folder.",
       "url": "hax-i18n-translate/SKILL.md",
-      "digest": "sha256:008d58e35ae31b150c84be7feed91922d38f11db1640da21d8c822c3ffb6a4f6",
+      "digest": "sha256:74992e48c1c49e330f0809d1aa13813c7ae3b9b901177e39e2076d03860989d0",
       "files": [
         {
           "path": "references/languages.json",

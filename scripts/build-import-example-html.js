@@ -115,6 +115,17 @@ function demoteHeadings(html) {
   });
 }
 
+// whether any text sits outside the tags (a check, not a sanitizer: nothing is removed)
+function hasText(html) {
+  let inTag = false;
+  for (const ch of html) {
+    if (ch === "<") inTag = true;
+    else if (ch === ">") inTag = false;
+    else if (!inTag && ch.trim()) return true;
+  }
+  return false;
+}
+
 const body = [];
 let pages = 0;
 for (const { item, depth } of ordered) {
@@ -131,7 +142,7 @@ for (const { item, depth } of ordered) {
   html = shelfToList(stripSiteOnly(html), item);
   html = absolutize(html);
   html = demoteHeadings(html).trim();
-  if (!html.replace(/<[^>]+>/g, "").trim()) {
+  if (!hasText(html)) {
     html = "<p></p>"; // keep the page so its children stay under it
   }
   const h = depth === 0 ? "h1" : "h2";

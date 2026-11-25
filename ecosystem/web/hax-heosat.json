@@ -505,7 +505,7 @@
    }
   },
   "hq_ai5": {
-   "desc": "The project collects user feedback and uses it to improve product direction. Feedback arrives through issues and Merlin; a structured user study is planned.",
+   "desc": "The project collects user feedback and uses it to improve product direction. Feedback arrives through the goggles (Merlin's Contribute with the goggles: Flag reports pointed at the element, in the editor, the dashboard and every public HAX site), the issue queue and Discord; a structured user study is planned.",
    "status": "in-progress",
    "kind": "partial",
    "note": "Partly evidenced. Section: Adoption, Impact & Institutional Fit.",

@@ -460,6 +460,7 @@ flowchart TB
   rg_agents_md_code_style -->|includes| ra_modern_javascript
   ra_modern_javascript -.->|is written in| components
   rg_agents_md_code_style -->|includes| ra_html_sinks
+  q_lint -->|enforces| ra_html_sinks
   ra_html_sinks -.->|is written in| components
   rg_agents_md_code_style -->|includes| ra_no_bindings_inside_style
   q_html_structure_in_html_and_svg_templates -->|enforces| ra_no_bindings_inside_style
@@ -673,7 +674,7 @@ flowchart TB
   %%@ node ra_es_modules icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_license_header icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node ra_modern_javascript icon=icons:gavel color=limestoneGray motion=nudge
-  %%@ node ra_html_sinks icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node ra_html_sinks icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node ra_no_bindings_inside_style icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node ra_css_template_literals icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_browser_support icon=icons:gavel color=limestoneGray motion=nudge

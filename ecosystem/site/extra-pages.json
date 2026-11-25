@@ -8,5 +8,10 @@
     "slug": "recent",
     "title": "Recent",
     "description": "The latest merges, releases and new issues across the HAX repositories."
+  },
+  {
+    "slug": "growth",
+    "title": "Growth",
+    "description": "How HAX grew over time and what its reuse saves: themes, elements and platforms, with what each costs a visitor to load."
   }
 ]

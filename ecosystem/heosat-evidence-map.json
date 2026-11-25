@@ -543,11 +543,15 @@
       ],
       "evidence": [
         {
-          "label": "haxtheweb/docs",
-          "url": "https://github.com/haxtheweb/docs"
+          "label": "Learn HAX",
+          "url": "https://learn.hax.cloud"
+        },
+        {
+          "label": "hax.cloud",
+          "url": "https://www.hax.cloud"
         }
       ],
-      "note": "End-user docs exist but are mid-rebuild; the ecosystem doc site and Learn HAX are the planned replacement."
+      "note": "The old docs site is retired; end-user docs now live in Learn HAX and hax.cloud, still being filled out."
     },
     {
       "id": "DO3",

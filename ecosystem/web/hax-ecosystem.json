@@ -105,7 +105,8 @@
     "url": "https://haxtheweb.org"
    },
    "links": {
-    "docs": "https://haxtheweb.org/documentation"
+    "docs": "https://learn.hax.cloud",
+    "repo": "https://github.com/haxtheweb/haxcms-nodejs"
    },
    "status": "released",
    "year": 2019,
@@ -354,13 +355,13 @@
    "always": true
   },
   "learnhax": {
-   "desc": "Learn HAX: tutorials, reference and onboarding for the HAX ecosystem, at learn.haxtheweb.org. This web is meant to fold into it.",
+   "desc": "Learn HAX: tutorials, reference and onboarding for the HAX ecosystem, at learn.hax.cloud. This web is meant to fold into it.",
    "source": {
-    "label": "learn.haxtheweb.org",
-    "url": "https://learn.haxtheweb.org"
+    "label": "learn.hax.cloud",
+    "url": "https://learn.hax.cloud"
    },
    "links": {
-    "site": "https://learn.haxtheweb.org",
+    "site": "https://learn.hax.cloud",
     "repo": "https://github.com/haxtheweb/learn"
    },
    "status": "living"
@@ -829,7 +830,8 @@
    },
    "links": {
     "site": "https://invent.psu.edu/programs/customer-discovery-101/",
-    "story": "https://www.apereo.org/programs/software/HAX"
+    "story": "https://www.apereo.org/programs/software/HAX",
+    "news": "https://www.psu.edu/news/arts-and-architecture/story/office-digital-learning-creates-platform-simplify-website-content"
    }
   },
   "dbf": {
@@ -840,7 +842,8 @@
    },
    "links": {
     "site": "https://openpublishing.psu.edu/digital-beaumont-fletcher-about-project",
-    "story": "https://www.apereo.org/programs/software/HAX"
+    "story": "https://www.apereo.org/programs/software/HAX",
+    "news": "https://www.psu.edu/news/arts-and-architecture/story/office-digital-learning-creates-platform-simplify-website-content"
    }
   },
   "jukebox": {
@@ -877,10 +880,13 @@
    }
   },
   "aa": {
-   "desc": "The College of Arts and Architecture, where HAX began for online courses and where HAX Lab and the Office of Digital Learning work.",
+   "desc": "The College of Arts and Architecture, where HAX began for online courses and where HAX Lab and the Office of Digital Learning work. ODL built HAX and runs 47 online courses (more than 250 sections) on it each year, for more than 12,000 World Campus and University Park students.",
    "source": {
-    "label": "WINS.md: 640+ open HTML tags",
-    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#640-open-html-tags-used-across-penn-state"
+    "label": "Penn State News (2024)",
+    "url": "https://www.psu.edu/news/arts-and-architecture/story/office-digital-learning-creates-platform-simplify-website-content"
+   },
+   "links": {
+    "news": "https://www.psu.edu/news/arts-and-architecture/story/office-digital-learning-creates-platform-simplify-website-content"
    },
    "year": 2015,
    "yearNote": "HAX begins for online courses in Arts and Architecture",
@@ -905,17 +911,23 @@
    "year": 2026
   },
   "eberly": {
-   "desc": "The Eberly College of Science: 14 courses on hax.psu.edu with 1,803 pages, from BIOL 110 and CHEM 110 to PHYS 211 and 212.",
+   "desc": "The Eberly College of Science: 14 courses on hax.psu.edu with 1,803 pages, from BIOL 110 and CHEM 110 to PHYS 211 and 212, serving its online students.",
    "source": {
     "label": "hax.psu.edu stats snapshot",
     "url": "https://hax.psu.edu"
+   },
+   "links": {
+    "news": "https://www.psu.edu/news/arts-and-architecture/story/office-digital-learning-creates-platform-simplify-website-content"
    }
   },
   "libraries": {
-   "desc": "Penn State University Libraries publishes XML-based plays with HAX.",
+   "desc": "Penn State University Libraries publishes XML-based plays with HAX, starting with The Sea Voyage in 2022.",
    "source": {
     "label": "WINS.md: 640+ open HTML tags",
     "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#640-open-html-tags-used-across-penn-state"
+   },
+   "links": {
+    "news": "https://www.psu.edu/news/arts-and-architecture/story/office-digital-learning-creates-platform-simplify-website-content"
    }
   },
   "haxlab": {
@@ -926,7 +938,8 @@
    },
    "links": {
     "repo": "https://github.com/haxtheweb/lab",
-    "site": "https://haxtheweb.org/hax-lab"
+    "site": "https://lab.hax.cloud",
+    "news": "https://www.psu.edu/news/arts-and-architecture/story/office-digital-learning-creates-platform-simplify-website-content"
    },
    "year": 2016,
    "yearNote": "The first HAX Lab contribution (xAPI and AI integration)",
@@ -1066,7 +1079,8 @@
    "desc": "Creator of HAX and its lead; teaches IST 256 and runs HAX Lab. The rpg-character and the Future Traveler are caricatures of him.",
    "role": "staff",
    "links": {
-    "profile": "https://github.com/btopro"
+    "profile": "https://github.com/btopro",
+    "news": "https://www.psu.edu/news/arts-and-architecture/story/office-digital-learning-creates-platform-simplify-website-content"
    },
    "source": {
     "label": "WORLDVIEW.md",
@@ -1084,11 +1098,14 @@
    }
   },
   "billrose": {
-   "desc": "HAX product owner: the course ontology, cognitive apprenticeship framing and partner-facing voice.",
+   "desc": "HAX product owner: the course ontology, cognitive apprenticeship framing and partner-facing voice. Leads the Office of Digital Learning team that built HAX.",
    "role": "staff",
    "source": {
     "label": "WORLDVIEW.md: People who shaped it",
     "url": "https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md"
+   },
+   "links": {
+    "news": "https://www.psu.edu/news/arts-and-architecture/story/office-digital-learning-creates-platform-simplify-website-content"
    }
   },
   "keithbailey": {

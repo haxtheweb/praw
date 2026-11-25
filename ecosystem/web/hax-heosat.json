@@ -277,12 +277,13 @@
    }
   },
   "hq_do2": {
-   "desc": "The project provides end-user documentation appropriate to its primary audiences. End-user docs exist but are mid-rebuild; the ecosystem doc site and Learn HAX are the planned replacement.",
+   "desc": "The project provides end-user documentation appropriate to its primary audiences. The old docs site is retired; end-user docs now live in Learn HAX and hax.cloud, still being filled out.",
    "status": "in-progress",
    "kind": "partial",
    "note": "Partly evidenced. Section: Documentation & Onboarding.",
    "links": {
-    "haxtheweb/docs": "https://github.com/haxtheweb/docs"
+    "Learn HAX": "https://learn.hax.cloud",
+    "hax.cloud": "https://www.hax.cloud"
    }
   },
   "hq_do3": {

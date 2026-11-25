@@ -20,6 +20,7 @@ This repository contains:
 - **`METAPHORS.md`** - Metaphors and refrains for talks and public copy: the blur, the zoom, the grammar, and lines worth repeating
 - **`WHY.md`** - Why the work matters, in Bryan's words
 - **`FUTURE-TRAVELER.md`** - The story of the Future Traveler, HAX's mascot and logo, and why he is drawn in every era
+- **`PLEDGES.md`** - The community pledges: accessibility and empowerment, environmental impact, performance is access
 - **`WINS.md`** - Sourced stories that prove the worldview works (draft)
 - **`visuals/`** - Impact visuals (SIIP timeline, issue velocity) with alt text
 - **`talks/`** - Notes and recordings of talks that carry the worldview
@@ -372,6 +373,7 @@ praw/
 ├── VOICE.md                    # Voice and tone for public writing
 ├── WHY.md                      # Purpose, in Bryan's words
 ├── FUTURE-TRAVELER.md          # The mascot's story, what each part of him means, his eras
+├── PLEDGES.md                  # Community pledges
 ├── WINS.md                     # Sourced wins
 ├── visuals/                    # Impact visuals with alt text
 ├── talks/                      # Talk notes and recordings
@@ -416,7 +418,7 @@ Using these rules provides:
 
 ## Watch and Learn more about HAX here:
 - Try Hax: https://hax.cloud
-- HAXCellence https://haxtheweb.org/what-is-hax
+- What is HAX: [what-is-hax.md](what-is-hax.md) and https://haxtheweb.org
 - Youtube channel - https://www.youtube.com/@haxtheweb
 
 ## Maintenance

@@ -88,15 +88,15 @@ for g in SDG["goals"]: L.append(f"  sdgs -->|includes| {g['_id']}"); L += links_
 L += ["  un_sdg -.->|shows any goal on a page| sdgs", "",
       "  %%@ group hub tier=0", "  %%@ group goalsg tier=1", "  %%@ group pilg tier=2", "  %%@ group partsg tier=3", "  %%@ group winsg tier=4",
       "  %%@ node sdgs mono=SDG color=creekTeal motion=beat"]
-L += [f"  %%@ node {g['_id']} mono={g['n']} color={'forestGreen' if g['source'] == 'docs' else 'creekTeal'} motion=pop" for g in SDG["goals"]]
+L += [f"  %%@ node {g['_id']} mono={g['n']} color={'forestGreen' if g['source'] == 'pledges' else 'creekTeal'} motion=pop" for g in SDG["goals"]]
 L += [f"  %%@ node {p} portal" for p in pil + parts] + ["  %%@ node un_sdg icon=hax:code-json color=slateGray motion=nudge"]
 L += win_lines(wins)
-N = {"sdgs": {"always": True, "desc": f"The UN's 17 Sustainable Development Goals, limited to the {len(SDG['goals'])} HAX meets: " + ", ".join(f"{g['n']} {g['name']}" for g in SDG["goals"]) + ". Goals 7 and 12 come from the HAX docs' Efficient pillar page; the rest rest on WORLDVIEW, the pledges and WINS.",
+N = {"sdgs": {"always": True, "desc": f"The UN's 17 Sustainable Development Goals, limited to the {len(SDG['goals'])} HAX meets: " + ", ".join(f"{g['n']} {g['name']}" for g in SDG["goals"]) + ". Goals 7 and 12 come from the HAX pledges (PLEDGES.md); the rest rest on WORLDVIEW, the pledges and WINS.",
              "links": {"UN": SDG["un"], "links": PRAW + "ecosystem/build/data/sdg-links.json"}}}
 for g in SDG["goals"]:
     N[g["_id"]] = {"desc": f"{g['why']} Targets: {'; '.join(g['targets'])}.", "kind": "goal", "links": {e["label"]: e["url"] for e in g["evidence"]},
-                   "note": "From the HAX docs (un-sdg on the Efficient pillar page)." if g["source"] == "docs" else "Rests on WORLDVIEW, the pledges and WINS."}
-N["un_sdg"] = {"desc": "The un-sdg web component shows a goal's official icon and color on any HAX page; the docs use it on the Efficient pillar page.", "kind": "part", "links": {"element": SDG["element"]}}
+                   "note": "From the HAX pledges: Performance is access and Environmental impact (PLEDGES.md)." if g["source"] == "pledges" else "Rests on WORLDVIEW, the pledges and WINS."}
+N["un_sdg"] = {"desc": "The un-sdg web component shows a goal's official icon and color on any HAX page; the HAX pledges used it to mark goals 7 and 12.", "kind": "part", "links": {"element": SDG["element"]}}
 win_nodes(N, wins)
 T = [{"id": "sdgs", "label": "The UN goals HAX meets", "kind": "story", "message": f"{len(SDG['goals'])} of the 17 goals, each with the pillars, parts and wins behind it.",
       "scenes": [S("HAX meets " + str(len(SDG["goals"])) + " of the UN's 17 Sustainable Development Goals.", "sdgs", *[g["_id"] for g in SDG["goals"]])] +

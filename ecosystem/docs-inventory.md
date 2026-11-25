@@ -1,8 +1,9 @@
 # HAX docs content inventory (haxtheweb.org)
 
-Every page of [haxtheweb/docs](https://github.com/haxtheweb/docs), recorded so nothing is lost when the ecosystem web replaces haxtheweb.org. Each page maps to one to three ecosystem web nodes. WCFactory pages are marked to drop: the create CLI replaced it. The docs site's own pillar pages (under Welcome → Community → Pillars) should take the new pillar phrases and descriptions.
+Every page of the retired haxtheweb/docs repository, recorded so nothing is lost now that the docs site is retired. Each page maps to one to three ecosystem web nodes. WCFactory pages are marked to drop: the create CLI replaced it. The docs site's own pillar pages (under Welcome → Community → Pillars) should take the new pillar phrases and descriptions.
 
-- Source: https://github.com/haxtheweb/docs at commit `ea4dd184bd3063c4993267fcde29dba89e5df4ba` (branch master)
+- Source: haxtheweb/docs (archived; don't link to it) at commit `ea4dd184bd3063c4993267fcde29dba89e5df4ba` (branch master)
+- Carried into PRAW: the Pledges pages (Environmental impact, Accessibility and Empowerment) and the Efficient pillar page now live in [`PLEDGES.md`](../PLEDGES.md); cite that, not the docs pages.
 - Total pages: **156** (site.json `items`: 156)
 - Total words (visible page text, scripts/styles excluded): **39,889**
 - Unpublished: Site things; published flag unset: AI integration

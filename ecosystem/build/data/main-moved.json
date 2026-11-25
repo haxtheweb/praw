@@ -29,9 +29,10 @@
   "desc": ""
  },
  "docs": {
-  "desc": "Project documentation, being rebuilt as Learn HAX.",
+  "desc": "Project documentation. The old docs site is retired: tutorials and reference live in Learn HAX, the rules, pledges and worldview in PRAW (hax.cloud), and the case for HAX on haxtheweb.org.",
   "links": {
-   "site": "https://haxtheweb.org/documentation"
+   "site": "https://learn.hax.cloud",
+   "repo": "https://github.com/haxtheweb/praw"
   }
  }
 }

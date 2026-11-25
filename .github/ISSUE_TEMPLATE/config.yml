@@ -10,5 +10,5 @@ contact_links:
     url: https://github.com/haxtheweb/issues/security/advisories/new
     about: Report vulnerabilities privately, never in a public issue
   - name: 📚 Documentation
-    url: https://haxtheweb.org/documentation
+    url: https://learn.hax.cloud
     about: Check our documentation for guides and tutorials

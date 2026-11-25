@@ -15,6 +15,7 @@ Read these before writing anything public about HAX or making product decisions:
 - **VOICE.md**: how HAX sounds; core message, audiences, signature lines, what the voice doesn't do — https://github.com/haxtheweb/praw/blob/main/VOICE.md
 - **METAPHORS.md**: metaphors and refrains for explaining HAX and PRAW (coarse to fine, the blur and the grid, fractal, vocabulary and grammar, "With the right tools you can build anything.") with accuracy notes — https://github.com/haxtheweb/praw/blob/main/METAPHORS.md
 - **FUTURE-TRAVELER.md**: the story of the Future Traveler, HAX's mascot and logo; what each part of him means and why he is drawn in every era — https://github.com/haxtheweb/praw/blob/main/FUTURE-TRAVELER.md
+- **PLEDGES.md**: the community pledges (accessibility and empowerment, environmental impact, performance is access) — https://github.com/haxtheweb/praw/blob/main/PLEDGES.md
 - **WINS.md**: sourced impact stories to cite (never funding amounts) — https://github.com/haxtheweb/praw/blob/main/WINS.md
 - **impact/**: the data behind the wins (npm downloads, release velocity, merged PRs, SIIP timeline), refreshed with `node scripts/impact-stats.mjs` — https://github.com/haxtheweb/praw/tree/main/impact
 - **talks/**: notes and recordings of key talks — https://github.com/haxtheweb/praw/tree/main/talks
@@ -183,8 +184,10 @@ npx skills add anthropics/skills --skill docx --skill pdf --skill pptx --skill x
 ## Documentation
 
 - PRAW Repository: https://github.com/haxtheweb/praw
-- HAX Documentation: https://haxtheweb.org/
-- DDD Design System: https://haxtheweb.org/ddd
+- HAX: https://haxtheweb.org/
+- Learn HAX (tutorials): https://learn.hax.cloud
+- Ecosystem web: https://www.hax.cloud
+- DDD Design System: https://github.com/haxtheweb/webcomponents/tree/master/elements/d-d-d
 - HAX CLI: https://www.npmjs.com/package/@haxtheweb/create
 
 ## Community

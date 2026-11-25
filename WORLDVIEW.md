@@ -40,6 +40,7 @@ This document captures a normalized worldview profile derived from two aligned s
 - Non-technical educators should be able to produce high-quality, accessible learning experiences.
 - Open Educational Resources and reusable content patterns are essential to scale impact.
 - Better authoring interfaces reduce accessibility debt and improve pedagogical reach.
+- The commitments behind this pillar are in `PLEDGES.md` (Accessibility and empowerment).
 ### 6) Community-building is part of the architecture
 - Build in public with faculty, designers, technologists, students, and open-source contributors.
 - Progress is amplified through shared issue queues, demos, and collaborative refinement.
@@ -47,7 +48,7 @@ This document captures a normalized worldview profile derived from two aligned s
 ### 7) Sustainable systems matter technically, economically, and socially
 - "Open but unmaintainable" is treated as a failure mode.
 - Preferred solutions are understandable, maintainable, and deployable by regular practitioners.
-- Long-term sustainability (including resource use and organizational resilience) is a design requirement.
+- Long-term sustainability (including resource use and organizational resilience) is a design requirement. The resource-use commitments are in `PLEDGES.md` (Environmental impact, Performance is access).
 - Improving developer experience to expand the available developer base is always worth more than minor performance metrics. Bundling and build complexity is what keeps people who can copy and paste JavaScript from using JS tools, so HAX ships unbundled ES modules over HTTP/2 and 3 and one "magic script" hydrates any registered tag on demand, from a CDN or a site's own build.
 - Unbundled, semantic tags make fixes retroactive: upgrading a tag's definition fixes it everywhere it is used. A release improved `simple-cta`'s accessibility on existing sites without a developer or content author ever touching their HTML.
 ### 7b) Collapse cost structures

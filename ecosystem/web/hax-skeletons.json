@@ -125,9 +125,9 @@
    }
   },
   "docs": {
-   "desc": "Project documentation sites; haxtheweb.org's docs are being rebuilt as Learn HAX.",
+   "desc": "Project documentation sites; HAX's own docs now live in Learn HAX.",
    "links": {
-    "site": "https://haxtheweb.org/documentation"
+    "site": "https://learn.hax.cloud"
    }
   },
   "club": {

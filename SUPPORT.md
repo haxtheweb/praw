@@ -7,7 +7,7 @@ If you need help with PRAW, please use the following resources:
 ### Community Support
 
 - **Discord**: Join our community Discord server for real-time help and discussion: [HAXTheWeb Discord](https://discord.gg/aCGxmRHEJP)
-- **Documentation**: This repo's [README](README.md) and [skills catalog](skills/README.md), plus the [HAXTheWeb Docs](https://haxtheweb.org/documentation)
+- **Documentation**: This repo's [README](README.md) and [skills catalog](skills/README.md), plus [Learn HAX](https://learn.hax.cloud) for tutorials and [hax.cloud](https://www.hax.cloud) for the ecosystem web
 - **Issues**: For bug reports and feature requests, please use our unified issue queue and pick **Other** as the project: [HAXTheWeb Issues](https://github.com/haxtheweb/issues/issues)
 
 ### Getting Started

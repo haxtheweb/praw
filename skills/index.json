@@ -203,7 +203,7 @@
       "type": "skill-md",
       "description": "Research a GitHub issue in the HAX ecosystem, propose a plan, and post it as a \"Plan Created\" comment. Use when given an issue URL to \"research\", \"scope\" or \"write a plan for\"; presents the plan for confirmation before posting.",
       "url": "hax-issue-research/SKILL.md",
-      "digest": "sha256:7126c24440b234456fb573dc4559c2561acead2d537802cfcdf2fe964ab73226"
+      "digest": "sha256:3c55659f28a815d7b838b0391d0acd3665a13c76374e8570dce0dee8fd8d3c36"
     },
     {
       "name": "hax-managed-files",

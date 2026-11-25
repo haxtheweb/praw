@@ -33,7 +33,7 @@ Only list wins that have happened. Proposals and pilots in progress stay out unt
 - Before → after: the team searched for a platform that was flexible, customizable and accessible for its end users, and had limited design experience, so it needed something user-friendly and intuitive. It built the program on HAX, and in Annie's words the program "has received overwhelmingly positive reviews from our users for both functionality and design." **verify**: launch year.
 - Why it matters: a public training program, not a for-credit course, built and owned by a small team without designers, with accessibility handled by the platform (pillars 4 and 5).
 - For partners / institutions: an outreach unit got a professional, accessible learning experience without buying an LMS or hiring a design team.
-- Source: [Apereo HAX project page: Success Stories](https://www.apereo.org/programs/software/HAX), [Customer Discovery 101](https://invent.psu.edu/programs/customer-discovery-101/)
+- Source: [Apereo HAX project page: Success Stories](https://www.apereo.org/programs/software/HAX), [Customer Discovery 101](https://invent.psu.edu/programs/customer-discovery-101/), [Penn State News (2024)](https://www.psu.edu/news/arts-and-architecture/story/office-digital-learning-creates-platform-simplify-website-content)
 
 ### Learning Design Summer Camp: rebuilt in minutes (2024)
 - Who: the team running Learning Design Summer Camp 2024.

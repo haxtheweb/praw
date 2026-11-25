@@ -387,7 +387,7 @@ ${REPOSITORIES[$repo_name]:-"Part of the HAX ecosystem"}
 
 ## Getting Help
 - Check issues at: https://github.com/haxtheweb/issues
-- Documentation: https://github.com/haxtheweb/docs
+- Documentation: https://learn.hax.cloud
 - HAX CLI help: \`hax --help\`
 EOF
             fi

@@ -13,7 +13,7 @@ repo that owns it:
 | CLI and interface skills | https://github.com/haxtheweb/create |
 | Rules, workflow skills, plugins | https://github.com/haxtheweb/praw |
 | Backends | https://github.com/haxtheweb/haxcms-nodejs and https://github.com/haxtheweb/haxcms-php |
-| Documentation | https://github.com/haxtheweb/docs |
+| Documentation | https://learn.hax.cloud (tutorials, source https://github.com/haxtheweb/learn) and https://www.hax.cloud (the ecosystem web, built from praw) |
 
 ## A first change, end to end
 

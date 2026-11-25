@@ -23,7 +23,7 @@
  "nodes": {
   "sdgs": {
    "always": true,
-   "desc": "The UN's 17 Sustainable Development Goals, limited to the 8 HAX meets: 3 Good Health and Well-being, 4 Quality Education, 7 Affordable and Clean Energy, 8 Decent Work and Economic Growth, 9 Industry, Innovation and Infrastructure, 10 Reduced Inequalities, 12 Responsible Consumption and Production, 17 Partnerships for the Goals. Goals 7 and 12 come from the HAX docs' Efficient pillar page; the rest rest on WORLDVIEW, the pledges and WINS.",
+   "desc": "The UN's 17 Sustainable Development Goals, limited to the 8 HAX meets: 3 Good Health and Well-being, 4 Quality Education, 7 Affordable and Clean Energy, 8 Decent Work and Economic Growth, 9 Industry, Innovation and Infrastructure, 10 Reduced Inequalities, 12 Responsible Consumption and Production, 17 Partnerships for the Goals. Goals 7 and 12 come from the HAX pledges (PLEDGES.md); the rest rest on WORLDVIEW, the pledges and WINS.",
    "links": {
     "UN": "https://sdgs.un.org/goals",
     "links": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/sdg-links.json"
@@ -49,10 +49,10 @@
    "desc": "Less energy per page: web standards over large libraries, offline-capable PWAs, caching, and services that run only when called. Targets: 7.3 energy efficiency.",
    "kind": "goal",
    "links": {
-    "Efficient pillar page (un-sdg goal 7)": "https://github.com/haxtheweb/docs/blob/master/pages/item-6cf36319-fe20-4a72-9cb3-97e44e80f8b9/index.html",
-    "Environmental impact pledge": "https://github.com/haxtheweb/docs/blob/master/pages/item-edcd6f86-05b5-43a9-8766-8a56709451c8/index.html"
+    "PLEDGES: Performance is access": "https://github.com/haxtheweb/praw/blob/main/PLEDGES.md#performance-is-access",
+    "PLEDGES: Environmental impact": "https://github.com/haxtheweb/praw/blob/main/PLEDGES.md#environmental-impact"
    },
-   "note": "From the HAX docs (un-sdg on the Efficient pillar page)."
+   "note": "From the HAX pledges: Performance is access and Environmental impact (PLEDGES.md)."
   },
   "sdg_8": {
    "desc": "Students leave with real-product experience that carries into industry; small businesses run their own sites. Targets: 8.6 youth in education, employment or training; 8.3 small enterprises.",
@@ -74,8 +74,8 @@
    "desc": "Access for everyone, everywhere, regardless of physical ability, technical ability or device; performance treated as access. Targets: 10.2 inclusion of all, irrespective of disability.",
    "kind": "goal",
    "links": {
-    "Accessibility and empowerment pledge": "https://github.com/haxtheweb/docs/blob/master/pages/item-d64f8a31-bd4c-499d-a0e0-e97ad1c9d1cb/index.html",
-    "Efficient pillar page": "https://github.com/haxtheweb/docs/blob/master/pages/item-6cf36319-fe20-4a72-9cb3-97e44e80f8b9/index.html"
+    "PLEDGES: Accessibility and empowerment": "https://github.com/haxtheweb/praw/blob/main/PLEDGES.md#accessibility-and-empowerment",
+    "PLEDGES: Performance is access": "https://github.com/haxtheweb/praw/blob/main/PLEDGES.md#performance-is-access"
    },
    "note": "Rests on WORLDVIEW, the pledges and WINS."
   },
@@ -83,10 +83,10 @@
    "desc": "Content outlives redesigns, so nothing is rebuilt; standards replace heavy libraries and whole layers of code. Targets: 12.2 efficient use of resources; 12.5 less waste.",
    "kind": "goal",
    "links": {
-    "Efficient pillar page (un-sdg goal 12)": "https://github.com/haxtheweb/docs/blob/master/pages/item-6cf36319-fe20-4a72-9cb3-97e44e80f8b9/index.html",
-    "Environmental impact pledge": "https://github.com/haxtheweb/docs/blob/master/pages/item-edcd6f86-05b5-43a9-8766-8a56709451c8/index.html"
+    "PLEDGES: Performance is access": "https://github.com/haxtheweb/praw/blob/main/PLEDGES.md#performance-is-access",
+    "PLEDGES: Environmental impact": "https://github.com/haxtheweb/praw/blob/main/PLEDGES.md#environmental-impact"
    },
-   "note": "From the HAX docs (un-sdg on the Efficient pillar page)."
+   "note": "From the HAX pledges: Performance is access and Environmental impact (PLEDGES.md)."
   },
   "sdg_17": {
    "desc": "Community is architecture: colleges, foundations, companies and students build HAX together. Targets: 17.17 multi-stakeholder partnerships.",
@@ -97,7 +97,7 @@
    "note": "Rests on WORLDVIEW, the pledges and WINS."
   },
   "un_sdg": {
-   "desc": "The un-sdg web component shows a goal's official icon and color on any HAX page; the docs use it on the Efficient pillar page.",
+   "desc": "The un-sdg web component shows a goal's official icon and color on any HAX page; the HAX pledges used it to mark goals 7 and 12.",
    "kind": "part",
    "links": {
     "element": "https://github.com/haxtheweb/webcomponents/tree/master/elements/un-sdg"

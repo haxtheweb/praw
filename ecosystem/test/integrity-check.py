@@ -34,6 +34,9 @@ SUBGRAPH = re.compile(r'^subgraph\s+(\w+)\s*(?:\[\s*"?([^"\]]*)"?\s*\])?$')
 ANNOTATION = re.compile(r"^(group|node)\s+(\w+)\s*(.*)$")
 
 
+RETIRED = re.compile(r"github\.com/haxtheweb/docs\b|haxtheweb\.org/documentation")  # the archived docs repo and its old site
+
+
 def parse(text):
     """The Mermaid subset the player reads: subgraphs, tiles, connections and %%@ annotations."""
     web = {"nodes": {}, "edges": [], "groups": set(), "ann": {}, "errors": []}
@@ -220,6 +223,16 @@ def check(webs, pillars=None, allow=None):
                 break
             seen.add(at)
             at = (webs[at]["doc"].get("meta") or {}).get("parent")
+    # retired documentation is never linked: PRAW carries what it cites (PLEDGES.md and the like) or points at a live space
+    for w, web in webs.items():
+        for i, d in (web["doc"].get("nodes") or {}).items():
+            if not isinstance(d, dict):
+                continue
+            urls = [u for u in (d.get("links") or {}).values() if isinstance(u, str)]
+            urls += [x.get("url", "") for x in (d.get("source"), d.get("yearSource")) if isinstance(x, dict)]
+            for u in urls:
+                if RETIRED.search(u):
+                    errors[w].append(f'tile "{i}" links retired docs ({u}): carry the content into PRAW or link a live space')
     return {w: e for w, e in errors.items() if e}
 
 
@@ -260,6 +273,7 @@ def self_test():
         ("sub-web orphan", run(sub_doc={"meta": {"parent": "main"}}), '"lone" is an orphan'),
         ("sub-web orphan allowed by name", run(sub_doc={"meta": {"parent": "main"}}, allow={"cli:lone": "why"}), None),
         ("stale allow entry", run(allow={"cli:a": "why"}), 'lists "cli:a"'),
+        ("retired docs link", run(main_doc=dict(good_main_doc, nodes={"cms": {"desc": "x", "links": {"docs": "https://github.com/haxtheweb/docs/blob/master/pages/x/index.html"}}})), 'tile "cms" links retired docs'),
         ("rule check gone", run(sub_doc={"meta": {"parent": "main"}, "nodes": {"lone": {"status": "gap", "note": "A check that enforced this is gone from Quality control: q_x."}}}), 'tile "lone": A check that enforced this is gone'),
     ]
     failed = 0

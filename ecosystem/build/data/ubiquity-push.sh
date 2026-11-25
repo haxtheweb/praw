@@ -305,14 +305,6 @@ done
 
 # STEP 6 THESE NEED THEIR PACKAGE UPDATED FOR NODEJS VERSION INTERNALLY
 
-cd ~/haxtheweb/open-apis
-git pull origin main
-git add -A
-git commit -m "ubiquity publish"
-./node_modules/.bin/commit-and-tag-version --release-as $version
-git push --follow-tags origin main
-npm publish
-
 cd ~/haxtheweb/desktop/
 git pull origin master
 npm update @haxtheweb/haxcms-nodejs --save
@@ -326,7 +318,6 @@ git push --follow-tags origin master
 cd ~/haxtheweb/create/
 git pull origin main
 npm update @haxtheweb/haxcms-nodejs --save
-npm update @haxtheweb/open-apis --save
 git add -A
 git commit -m "ubiquity publish"
 npm run build

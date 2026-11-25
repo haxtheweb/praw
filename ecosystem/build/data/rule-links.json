@@ -729,7 +729,7 @@
    "enforced_by": [
     "q_node_js_latest_lts"
    ],
-   "how": "Partly. webcomponents' rule-checks workflow (scripts/rule-checks.mjs node-version) fails the pull request when engines.node, an .nvmrc or a workflow node-version isn't the latest LTS; the other repos aren't checked yet."
+   "how": "webcomponents' rule-checks workflow and the Node.js latest LTS workflow in haxcms-nodejs, haxcms-php and create fail the pull request when engines.node doesn't allow the LTS, an .nvmrc names another version, a single workflow node-version isn't the LTS, or a node-version matrix (the supported range) leaves it out. Dockerfile base images that aren't the LTS are listed without failing until they move with their new digest."
   },
   "932f6cd4": {
    "enforced_by": [

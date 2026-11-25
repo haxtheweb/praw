@@ -141,7 +141,6 @@ flowchart TB
     ra_schema_validation["Schema Validation"]
     ra_library_security["Library Security"]
     rc_content_contract["Element front-end APIs never change"]
-    rc_content_no_ddd["Content elements don't require the full DDD stack"]
     rc_user_links["User-authored links are always respected"]
     rc_version_hidden["The HAX version is never shown to unauthenticated users"]
     rc_no_native_dialogs["No native prompt or confirm dialogs"]
@@ -528,11 +527,6 @@ flowchart TB
   rc_content_contract ==>|serves| remixable
   rc_content_contract ==>|serves| open
   rc_content_contract -.->|applies to| components
-  rg_proposed_content_contract -->|includes| rc_content_no_ddd
-  rc_content_no_ddd ==>|serves| extensible
-  rc_content_no_ddd ==>|serves| agnostic
-  rc_content_no_ddd -.->|applies to| components
-  rc_content_no_ddd -.->|applies to| ddd
   rg_proposed_content_contract -->|includes| rc_user_links
   rc_user_links ==>|serves| open
   rc_user_links -.->|applies to| editor
@@ -701,7 +695,6 @@ flowchart TB
   %%@ node ra_schema_validation icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_library_security icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node rc_content_contract icon=icons:verified-user color=forestGreen motion=nudge
-  %%@ node rc_content_no_ddd icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node rc_user_links icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node rc_version_hidden icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node rc_no_native_dialogs icon=icons:verified-user color=forestGreen motion=nudge

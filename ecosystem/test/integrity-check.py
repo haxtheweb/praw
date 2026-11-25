@@ -12,6 +12,7 @@ Reads every web in ecosystem/web (hax-<web>.mmd and hax-<web>.json) and exits 1 
                    the center (people and their companion, who touch every pillar); every sub-web is
                    opened by a tile and its parents (meta.parent) lead back to the main web
   rule checks      no rule points at a Quality control check that no longer exists
+  area records     every area on the main web has an icon, a DDD color and a motion on record
   no orphans       every tile has a connection. In a sub-web a tile may stand alone only as a gap
                    (status "gap": something a coverage map says is missing), as a portal (the same tile,
                    connected in the web it comes from) or when integrity-allow.json names it with a reason
@@ -27,6 +28,7 @@ import glob, json, os, re, sys, tempfile
 HERE = os.path.dirname(os.path.abspath(__file__))
 ECO = os.path.dirname(HERE)
 LOST = "A check that enforced this is gone"
+NOT_AREAS = {"people", "orgs", "reuse", "practices"}
 MAIN = "main"  # the web hax-ecosystem is called "main" everywhere a web is named
 NODE = re.compile(r'^(\w+)\s*(\(\(|\{\{|\[\[|\[\(|\(\[|\[|>)\s*"?(.*?)"?\s*(\)\)|\}\}|\]\]|\)\]|\]\)|\])$')
 EDGE = re.compile(r"^(\w+)\s*(-->|---|--o|==>|-\.->)\s*(?:\|([^|]*)\|)?\s*(\w+)$")
@@ -197,6 +199,18 @@ def check(webs, pillars=None, allow=None):
         if i not in reached and i not in center:
             E.append(f'line {n["line"]}: "{i}" has no path to a pillar (other than through the center)')
 
+    # every area on the main web has its icon, DDD color and motion on record (RULES.md 411423ec);
+    # people, organizations, reused sites and outside practices are not HAX areas
+    main = webs.get(MAIN)
+    if main:
+        for i, n in main["nodes"].items():
+            if n["group"] in NOT_AREAS:
+                continue
+            a = main["ann"].get(("node", i), {})
+            missing = [k for k, ok in (("icon", a.get("icon") or a.get("image")), ("color", a.get("color")), ("motion", a.get("motion"))) if not ok]
+            if missing:
+                errors[MAIN].append(f'area "{i}" has no {" or ".join(missing)} on record: add icon=, color= and motion= to its %%@ node line')
+
     # a rule still points at every check that enforces it (build_rules.py notes a check that is gone)
     for w, web in webs.items():
         for i, d in ((web["doc"].get("nodes") or {})).items():
@@ -240,7 +254,8 @@ def self_test():
     """The rules against small webs written here: one that passes, then one break per rule."""
     good_main = 'flowchart TB\n  subgraph center ["c"]\n    human(("Humans"))\n  end\n  subgraph pillars ["p"]\n    open{{"Open"}}\n  end\n' \
                 '  subgraph core ["core"]\n    cms["CMS"]\n    cli["CLI"]\n  end\n  human ==> open\n  cms ==> open\n  cli --> cms\n' \
-                "  %%@ node open icon=icons:lock-open color=keystoneYellow\n  %%@ node cli web=cli\n"
+                "  %%@ node open icon=icons:lock-open color=keystoneYellow motion=pop\n  %%@ node cli web=cli\n  %%@ node cli icon=hax:code color=skyBlue motion=lift\n" \
+                "  %%@ node human icon=social:people color=keystoneYellow motion=beat\n  %%@ node cms icon=hax:site-map color=discoveryCoral motion=pop\n"
     good_sub = 'flowchart TB\n  subgraph g ["g"]\n    cli["cli"]\n    a["A"]\n    lone["Lone"]\n  end\n  cli --> a\n  %%@ node cli portal\n'
     good_main_doc = {"nodes": {"cms": {"desc": "x"}}, "evidence": {"cms>open": {}}, "tours": [{"id": "t", "scenes": [{"nodes": ["cms", "cli"]}]}]}
     good_sub_doc = {"meta": {"parent": "main"}, "nodes": {"lone": {"status": "gap"}}}
@@ -274,6 +289,8 @@ def self_test():
         ("sub-web orphan allowed by name", run(sub_doc={"meta": {"parent": "main"}}, allow={"cli:lone": "why"}), None),
         ("stale allow entry", run(allow={"cli:a": "why"}), 'lists "cli:a"'),
         ("retired docs link", run(main_doc=dict(good_main_doc, nodes={"cms": {"desc": "x", "links": {"docs": "https://github.com/haxtheweb/docs/blob/master/pages/x/index.html"}}})), 'tile "cms" links retired docs'),
+        ("area without a motion", run(main=good_main.replace(" color=discoveryCoral motion=pop", " color=discoveryCoral")), 'area "cms" has no motion on record'),
+        ("area without anything", run(main=good_main.replace("  %%@ node cms icon=hax:site-map color=discoveryCoral motion=pop\n", "")), 'area "cms" has no icon or color or motion'),
         ("rule check gone", run(sub_doc={"meta": {"parent": "main"}, "nodes": {"lone": {"status": "gap", "note": "A check that enforced this is gone from Quality control: q_x."}}}), 'tile "lone": A check that enforced this is gone'),
     ]
     failed = 0

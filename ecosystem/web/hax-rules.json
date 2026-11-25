@@ -10,7 +10,7 @@
    "gap": "nothing enforces it yet",
    "proposed": "proposed"
   },
-  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (88 rules) and each repo's AGENTS.md (29), plus 7 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 39 are enforced; 30 are guidance by design, which no check could decide; 55 are gaps, the backlog of what to automate next.",
+  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (88 rules) and each repo's AGENTS.md (30), plus 7 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 43 are enforced; 31 are guidance by design, which no check could decide; 51 are gaps, the backlog of what to automate next.",
   "kindLabels": {
    "rel": "where a rule comes from and what enforces it",
    "pillar": "pillars a rule serves",
@@ -34,11 +34,11 @@
    "kind": "group"
   },
   "rg_web_component_development": {
-   "desc": "Web Component Development: 19 rules, 9 enforced by a check.",
+   "desc": "Web Component Development: 19 rules, 10 enforced by a check.",
    "kind": "group"
   },
   "rg_build_development_workflow": {
-   "desc": "Build & Development Workflow: 36 rules, 9 enforced by a check.",
+   "desc": "Build & Development Workflow: 36 rules, 11 enforced by a check.",
    "kind": "group"
   },
   "rg_ai_generated_content": {
@@ -54,7 +54,7 @@
    "kind": "group"
   },
   "rg_agents_md_code_style": {
-   "desc": "AGENTS.md: code style: 21 rules, 8 enforced by a check.",
+   "desc": "AGENTS.md: code style: 22 rules, 9 enforced by a check.",
    "kind": "group"
   },
   "rg_agents_md_security": {
@@ -255,9 +255,8 @@
    }
   },
   "r_13a03330_483e_404e_9e48_b0d9f16432d3": {
-   "desc": "Any pair of controls or states a person must tell apart (accept vs dismiss, save vs cancel, keep vs delete, on vs off, pressed vs not pressed) must stay distinguishable in greyscale (low-power and night modes, personal preference) and with red/green or blue/yellow color vision deficiencies. Hue alone never carries the difference: either the two fills differ by at least 3:1 in luminance, or a non-color cue does the work. Use the HAX UI conventions: fill weight shows which action is primary (filled, then outlined, then text); the diagonal hatch (`--hax-ui-danger-hatch`, `--hax-ui-danger-hatch-on-fill`) shows that an action throws work away; pressed and on states add a bar, border or knob position, not only a wash. When you add or change such a pair, declare it in `scripts/vision-pairs.json` in haxtheweb/webcomponents (with `evidence` for any non-color cue, so removing the cue later fails the check) and run `yarn lint:vision`; `yarn precheck` runs it blocking. Judge what the math can't see (icons, patterns, layout) with `yarn vision:gallery <url> --selector <css>`, or DevTools > Rendering > Emulate vision deficiencies. HAX's correct/incorrect convention (purple vs green, not red vs green) follows from the same rule. Tracking: <https://github.com/haxtheweb/issues/issues/3219>. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Any pair of controls or states a person must tell apart (accept vs dismiss, save vs cancel, keep vs delete, on vs off, pressed vs not pressed) must stay distinguishable in greyscale (low-power and night modes, personal preference) and with red/green or blue/yellow color vision deficiencies. Hue alone never carries the difference: either the two fills differ by at least 3:1 in luminance, or a non-color cue does the work. Use the HAX UI conventions: fill weight shows which action is primary (filled, then outlined, then text); the diagonal hatch (`--hax-ui-danger-hatch`, `--hax-ui-danger-hatch-on-fill`) shows that an action throws work away; pressed and on states add a bar, border or knob position, not only a wash. When you add or change such a pair, declare it in `scripts/vision-pairs.json` in haxtheweb/webcomponents (with `evidence` for any non-color cue, so removing the cue later fails the check) and run `yarn lint:vision`; `yarn precheck` runs it blocking. Judge what the math can't see (icons, patterns, layout) with `yarn vision:gallery <url> --selector <css>`, or DevTools > Rendering > Emulate vision deficiencies. HAX's correct/incorrect convention (purple vs green, not red vs green) follows from the same rule. Tracking: <https://github.com/haxtheweb/issues/issues/3219>. In PRAW RULES.md (scope: webcomponents). Enforced by Color vision action pairs. webcomponents' rule-checks workflow runs scripts/vision-pairs-check.mjs --strict on every pull request: each accept / dismiss pair in scripts/vision-pairs.json must read apart in greyscale and under protanopia, deuteranopia and tritanopia, by luminance or a non-color cue. It also runs in yarn precheck.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#color-vision--opposing-actions-read-apart-without-color"
    }
@@ -392,9 +391,8 @@
    }
   },
   "r_932f6cd4_90a9_451c_98af_4fb577007f9d": {
-   "desc": "Do not wait for asynchronous work in tests (or e2e flows) with a fixed `setTimeout`/sleep. Poll for the condition the test actually needs (a property, attribute, rendered node or dialog) with a bounded timeout, so a slow CI runner passes and a real failure still reports the real assertion. Use fixed waits only to prove that something does not happen. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Do not wait for asynchronous work in tests (or e2e flows) with a fixed `setTimeout`/sleep. Poll for the condition the test actually needs (a property, attribute, rendered node or dialog) with a bounded timeout, so a slow CI runner passes and a real failure still reports the real assertion. Use fixed waits only to prove that something does not happen. In PRAW RULES.md (scope: webcomponents). Enforced by Tests poll, don't sleep. webcomponents' rule-checks workflow (scripts/rule-checks.mjs test-sleeps) fails the pull request when a test file gains a fixed sleep (aTimeout, setTimeout in a bare Promise, waitForTimeout). Sleeps that predate the rule are in scripts/test-sleeps.baseline.json, which only shrinks.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#testing--poll-dont-sleep"
    }
@@ -539,9 +537,8 @@
    }
   },
   "r_92dfb3b2_1c32_42dc_89c3_0f4ae66f7227": {
-   "desc": "User prefers to always use the latest Node.js LTS release across the ecosystem (currently Node 24). Apply this to `.nvmrc`/`engines` fields, CI workflow `node-version` matrices (e.g. `actions/setup-node`), Docker base images, and local tooling. When a newer LTS supersedes 24, update this rule and all ecosystem workflows/configs in step. In PRAW RULES.md (scope: global). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "User prefers to always use the latest Node.js LTS release across the ecosystem (currently Node 24). Apply this to `.nvmrc`/`engines` fields, CI workflow `node-version` matrices (e.g. `actions/setup-node`), Docker base images, and local tooling. When a newer LTS supersedes 24, update this rule and all ecosystem workflows/configs in step. In PRAW RULES.md (scope: global). Enforced by Node.js latest LTS. Partly. webcomponents' rule-checks workflow (scripts/rule-checks.mjs node-version) fails the pull request when engines.node, an .nvmrc or a workflow node-version isn't the latest LTS; the other repos aren't checked yet.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#nodejs-version--latest-lts"
    }
@@ -655,9 +652,9 @@
    }
   },
   "r_1eaa87af_8025_4b7f_9a63_492bf0fac68a": {
-   "desc": "For any non-trivial feature, skill, plugin, integration or architectural change in the HAX ecosystem, run the Pillar checks in https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#pillar-checks and report the results in the PR description. Any \"no\" must be named with its reason and a follow-up issue in https://github.com/haxtheweb/issues. Public-facing writing should also follow https://github.com/haxtheweb/praw/blob/main/VOICE.md. In PRAW RULES.md (scope: global). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "For any non-trivial feature, skill, plugin, integration or architectural change in the HAX ecosystem, run the Pillar checks in https://github.com/haxtheweb/praw/blob/main/WORLDVIEW.md#pillar-checks and report the results in the PR description. Any \"no\" must be named with its reason and a follow-up issue in https://github.com/haxtheweb/issues. Public-facing writing should also follow https://github.com/haxtheweb/praw/blob/main/VOICE.md. In PRAW RULES.md (scope: global). Guidance by design: no check enforces this, and none is planned. Says to run the worldview Pillar checks before a non-trivial change; judging a change against the pillars takes a person or agent.",
+   "kind": "guidance",
+   "status": "guidance",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#worldview-pillar-checks"
    }
@@ -766,9 +763,8 @@
    }
   },
   "ra_no_typescript": {
-   "desc": "HAX strictly avoids TypeScript to eliminate compilation requirements In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "HAX strictly avoids TypeScript to eliminate compilation requirements. `yarn lint:rules` and the `rule-checks` workflow fail on any `.ts`, `.tsx`, `.mts` or `.cts` source under `elements/` (`.d.ts` declarations are fine) In the AGENTS.md of components. Enforced by No TypeScript. webcomponents' rule-checks workflow (scripts/rule-checks.mjs typescript) fails the pull request on any .ts, .tsx, .mts or .cts source under elements/; .d.ts declarations are allowed.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
@@ -910,6 +906,14 @@
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
+  "ra_t_is_reserved": {
+   "desc": "I18NMixin and the i18n-manager keep an element's English strings in `this._t` (and its bookkeeping in `__i18n*` names). Never use `_t` for an element's own property, field, method or state; adding English defaults with `this._t = { ...this._t, ...more }` is the one allowed write. ESLint reports the rest (`haxtheweb-i18n/reserved-t`, `scripts/eslint-rules/i18n-reserved.mjs`). In the AGENTS.md of components. Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
+   }
+  },
   "ra_feature_prs_change_english_source_strings_only": {
    "desc": "`this.t`, `lib/*.haxProperties.json`, and `locales/*.en.json`. Never add, edit, rename or delete any other locale file (`elements/*/locales/<namespace>.<lang>.json`, including `<tag>.haxProperties.<lang>.json`), even when the `hax-i18n-translate` skill or a scaffold suggests it. In the AGENTS.md of components. Enforced by Locale guard. locale-guard workflow, warning only.",
    "kind": "enforced",
@@ -1031,7 +1035,7 @@
    "id": "rules",
    "label": "Rules and what guarantees them",
    "kind": "story",
-   "message": "124 rules: 39 enforced by a check, 30 guidance by design, 55 not yet.",
+   "message": "125 rules: 43 enforced by a check, 31 guidance by design, 51 not yet.",
    "scenes": [
     {
      "caption": "Rules come from PRAW's RULES.md, each repo's AGENTS.md, and the plan's proposals.",
@@ -1052,7 +1056,7 @@
      ]
     },
     {
-     "caption": "39 rules have a check that enforces them.",
+     "caption": "43 rules have a check that enforces them.",
      "nodes": [
       "r_a8bf4a47_3d4f_4f8e_a356_a04db66ce1ab",
       "r_1286150dc8944178aa82ca",
@@ -1061,6 +1065,7 @@
       "r_956c54783626475ea901a6",
       "r_rvsctsdjae8lrmsjmpo3mk",
       "r_7cpveferpsf0az8tkqxw0y",
+      "r_13a03330_483e_404e_9e48_b0d9f16432d3",
       "r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123",
       "r_34ef39a0_b970_43ba_b68a_251f99d64424",
       "r_cehsaztyfb2vtcwthggnbk",
@@ -1068,16 +1073,19 @@
       "r_40983ddf_40b7_4a5e_a600_8f9fcb58da83",
       "r_6150b048_e030_467c_b1f7_2ceaa271f00e",
       "r_47905658_f1c9_448d_99e5_9e933bdc6990",
+      "r_932f6cd4_90a9_451c_98af_4fb577007f9d",
       "r_4e5b2533_8d87_4d77_b303_2d2907a78339",
       "r_8e6a9af3_0301_4c48_b75f_fcff2fc928e6",
       "r_13166db2_909f_4a34_87d1_1b697834eb4b",
       "r_0cf20bb0_0afa_4c6a_9100_e76f76a5cc1a",
       "r_bakmwcmrqrlgdwmunwgvuw",
+      "r_92dfb3b2_1c32_42dc_89c3_0f4ae66f7227",
       "r_4e0800ef_32ff_42dc_83f0_bbb953d97554",
       "r_d2a1207c_b6d1_4cd6_9930_bd21b29a516c",
       "r_4a7c9e2b_8d5f_4e1a_9c3b_7f2e6d5a4b3c",
       "r_cd0800bf_8611_4835_a421_ad10e88b01e9",
       "r_7d6f9c3e_8d0c_4127_948e_e6260465fa95",
+      "ra_no_typescript",
       "ra_unbundled_approach",
       "ra_formatting",
       "ra_license_header",
@@ -1099,6 +1107,7 @@
       "q_audit",
       "q_codeql",
       "q_color_contrast_of_changed_elements",
+      "q_color_vision_action_pairs",
       "q_dark_motion",
       "q_ddd_token_lint",
       "q_dependency_licenses",
@@ -1116,6 +1125,8 @@
       "q_memory_leaks",
       "q_mutation_testing",
       "q_no_local_paths",
+      "q_no_typescript",
+      "q_node_js_latest_lts",
       "q_parity",
       "q_phpunit",
       "q_render_benchmarks",
@@ -1123,6 +1134,7 @@
       "q_size_report",
       "q_skills_lock_json_hashes_are_current",
       "q_test_all_elements",
+      "q_tests_poll_don_t_sleep",
       "q_unit_and_api_conformance_tests",
       "q_unused_code_knip",
       "q_without_hax"
@@ -1160,6 +1172,7 @@
       "r_bakmwcmrqrlgdwmunwgvuw",
       "r_4e0800ef_32ff_42dc_83f0_bbb953d97554",
       "r_cd0800bf_8611_4835_a421_ad10e88b01e9",
+      "r_1eaa87af_8025_4b7f_9a63_492bf0fac68a",
       "r_7d6f9c3e_8d0c_4127_948e_e6260465fa95",
       "ra_unbundled_approach",
       "ra_feature_prs_change_english_source_strings_only",
@@ -1176,7 +1189,7 @@
      ]
     },
     {
-     "caption": "30 rules are guidance by design: how agents and people work, which no check could decide.",
+     "caption": "31 rules are guidance by design: how agents and people work, which no check could decide.",
      "nodes": [
       "r_tjnufvxe11bgtoleu8opxk",
       "r_7e2c1a94_3b58_4d0f_9c6a_1f8e4d2b5a30",
@@ -1202,6 +1215,7 @@
       "r_f15ba99a_0a0a_42a0_a413_d8dfdc8eb20b",
       "r_186fad44_1725_470e_80a7_903ea54fce1a",
       "r_c089870b608c482a847ccc",
+      "r_1eaa87af_8025_4b7f_9a63_492bf0fac68a",
       "r_a1b2c3d4_e5f6_4789_9abc_def012345678",
       "r_4ab69ab2_d295_4c01_a448_1ce1689c7366",
       "r_fc4153f1_90f0_4d22_a023_fec8f492b408",
@@ -1211,7 +1225,7 @@
      ]
     },
     {
-     "caption": "55 rules nothing enforces yet: the backlog of what to automate next.",
+     "caption": "51 rules nothing enforces yet: the backlog of what to automate next.",
      "nodes": [
       "r_zvem3yg7jtxbsxbop3ypzy",
       "r_rhq7llrzmzlnfvelrwslun",
@@ -1224,7 +1238,6 @@
       "r_447f8d9bc5484749b1188e",
       "r_1992902d74844c908ab446",
       "r_411423ec_d922_4bd4_8c45_3d8c65b9fbfa",
-      "r_13a03330_483e_404e_9e48_b0d9f16432d3",
       "r_410c4334_a186_4356_9584_0796e5d2bc2d",
       "r_eis0l9w9l2jg1cofysmvdt",
       "r_wqogob824vgw5hecmh08ew",
@@ -1233,15 +1246,12 @@
       "r_01ed665f326941e9888ab1",
       "r_ea643795_98bc_47fb_bf31_999644a48f77",
       "r_2e0e8483_8e58_4854_b6f9_f28f77aec17b",
-      "r_932f6cd4_90a9_451c_98af_4fb577007f9d",
       "r_35309388_b7be_40ca_88a9_539fe1dd4b0d",
       "r_896ecfa1_8965_4c06_a3ab_31c7e7eb28bf",
       "r_f3c7716773784e8f94254a",
       "r_cfypzrdqlaj6xsxteavewt",
       "r_z61ldoq98dttlrwen7tl9t",
-      "r_92dfb3b2_1c32_42dc_89c3_0f4ae66f7227",
       "r_09255ba6_e67a_44ce_b8cb_f0d5e80f97ab",
-      "r_1eaa87af_8025_4b7f_9a63_492bf0fac68a",
       "r_dc5c2839_f04e_428c_a622_1e6d8cce1214",
       "r_5cf2787e_c2df_4184_8b61_53c42ffad9cf",
       "r_c0f72fdb_5537_478d_8cd1_558160984430",
@@ -1250,7 +1260,6 @@
       "r_2472221d_091f_48bc_a44f_acf03f41ce29",
       "r_cd0bc4fc_a502_4b33_8036_057882b5f0e9",
       "ra_language",
-      "ra_no_typescript",
       "ra_third_party_libraries",
       "ra_es_modules",
       "ra_modern_javascript",
@@ -1261,6 +1270,7 @@
       "ra_web_components",
       "ra_package_names",
       "ra_css_classes",
+      "ra_t_is_reserved",
       "ra_sensitive_data",
       "ra_site_imports",
       "ra_file_permissions",

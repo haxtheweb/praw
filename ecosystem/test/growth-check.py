@@ -4,9 +4,10 @@ holds together before hax.cloud publishes it. Standard library only; no network.
     python3 -I ecosystem/test/growth-check.py
 
 Fails (exit 1) when a file is missing or unreadable, a date is not YYYY-MM-DD, a repository's monthly commits don't
-add up to its total, an element depends on a package that isn't listed or its usedBy count is wrong, a payload
+add up to its total, an element depends on a package that isn't listed, its usedBy count is wrong or its
+weight (gz, load, adds) or theme count is out of range, a payload
 references a module that doesn't exist or its sums disagree, a journey names a theme or element with no payload, or
-a series doesn't cover every month.
+a series doesn't cover every month, or a contributor's months don't add up to their totals or start at their first date.
 """
 import json, os, re, sys
 
@@ -31,7 +32,7 @@ def load(name):
     return d
 
 
-repos, themes, elements, payload, series = (load(n) for n in ("repos", "themes", "elements", "payload", "series"))
+repos, themes, elements, payload, series, people = (load(n) for n in ("repos", "themes", "elements", "payload", "series", "contributors"))
 if repos:
     for r in repos["repos"]:
         if not DATE.match(r.get("first") or ""):
@@ -60,6 +61,25 @@ if elements:
     for e in elements["elements"]:
         if e["usedBy"] != used.get(e["name"], 0):
             err("elements: %s usedBy is %d, links say %d" % (e["name"], e["usedBy"], used.get(e["name"], 0)))
+        # the Weight and Reuse lenses' numbers (https://github.com/haxtheweb/issues/issues/3413)
+        if not (0 <= e.get("adds", -1) <= e.get("load", -1)) or e["gz"] > e["load"]:
+            err("elements: %s weight is wrong (gz %s, load %s, adds %s)" % (e["name"], e["gz"], e.get("load"), e.get("adds")))
+        if themes and not 0 <= e.get("themes", -1) <= len(themes["themes"]):
+            err("elements: %s themes count is wrong" % e["name"])
+if people:
+    ids = [x["id"] for x in people["people"]]
+    if len(ids) != len(set(ids)):
+        err("contributors: an id is listed twice")
+    if people.get("root") not in ids:
+        err("contributors: root is not one of the people")
+    for x in people["people"]:
+        if not DATE.match(x.get("first") or ""):
+            err("contributors: %s has no first date" % x["id"])
+        sums = [sum(v[i] for v in x["monthly"].values()) for i in range(3)]
+        if sums != [x["totals"][k] for k in people["kinds"]]:
+            err("contributors: %s monthly counts don't add up to its totals" % x["id"])
+        if x["monthly"] and min(x["monthly"]) != (x.get("first") or "")[:7]:
+            err("contributors: %s first date isn't its first month" % x["id"])
 if payload:
     mods = payload["modules"]
     n = len(mods)

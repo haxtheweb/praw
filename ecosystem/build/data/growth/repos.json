@@ -3,7 +3,7 @@
   "generated": "2026-11-25",
   "generator": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/build_growth.py",
   "source": {
-   "webcomponents": "6c0e7a61c3da8a97a2d8450807ecd42313bb4297"
+   "webcomponents": "86f695077af6b0461776552f13a06351a889748a"
   },
   "license": "https://www.apache.org/licenses/LICENSE-2.0",
   "about": "First commit and commits per month (all branches) for every repository in the HAX network: the network-bar properties, the runtimes and the site.json contract.",
@@ -59,7 +59,7 @@
    "purpose": "The brain of the HAX ecosystem: every person, pillar and project, and how they connect.",
    "parent": null,
    "first": "2025-09-24",
-   "total": 414,
+   "total": 424,
    "monthly": {
     "2025-09": 8,
     "2025-10": 1,
@@ -72,7 +72,7 @@
     "2026-08": 6,
     "2026-09": 19,
     "2026-10": 125,
-    "2026-11": 214
+    "2026-11": 224
    }
   },
   {
@@ -85,9 +85,9 @@
    "purpose": "Use HAX right now in this browser tab. Nothing to install.",
    "parent": null,
    "first": "2026-11-12",
-   "total": 99,
+   "total": 101,
    "monthly": {
-    "2026-11": 99
+    "2026-11": 101
    }
   },
   {
@@ -100,11 +100,11 @@
    "purpose": "Tutorials that teach HAX one flow at a time.",
    "parent": null,
    "first": "2026-08-27",
-   "total": 50,
+   "total": 54,
    "monthly": {
     "2026-08": 8,
     "2026-09": 12,
-    "2026-11": 30
+    "2026-11": 34
    }
   },
   {
@@ -117,13 +117,13 @@
    "purpose": "HAX Lab: where students and junior developers learn by shipping real HAX work.",
    "parent": null,
    "first": "2025-03-17",
-   "total": 52,
+   "total": 54,
    "monthly": {
     "2025-03": 24,
     "2025-04": 2,
     "2025-05": 3,
     "2026-01": 2,
-    "2026-11": 21
+    "2026-11": 23
    }
   },
   {
@@ -136,7 +136,7 @@
    "purpose": "Every HAX element, with live demos and walkthroughs.",
    "parent": null,
    "first": "2018-09-25",
-   "total": 11506,
+   "total": 11512,
    "monthly": {
     "2018-09": 47,
     "2018-10": 356,
@@ -236,7 +236,7 @@
     "2026-08": 95,
     "2026-09": 206,
     "2026-10": 758,
-    "2026-11": 1648
+    "2026-11": 1654
    }
   },
   {
@@ -289,7 +289,7 @@
    "purpose": "HAXcms on PHP: the original backend.",
    "parent": null,
    "first": "2018-07-19",
-   "total": 2661,
+   "total": 2662,
    "monthly": {
     "2018-07": 43,
     "2018-08": 63,
@@ -386,7 +386,7 @@
     "2026-08": 118,
     "2026-09": 86,
     "2026-10": 257,
-    "2026-11": 436
+    "2026-11": 437
    }
   },
   {
@@ -399,7 +399,7 @@
    "purpose": "HAXcms on Node.js, kept at parity with PHP.",
    "parent": null,
    "first": "2024-06-17",
-   "total": 1576,
+   "total": 1578,
    "monthly": {
     "2024-06": 44,
     "2024-07": 18,
@@ -429,7 +429,7 @@
     "2026-08": 130,
     "2026-09": 89,
     "2026-10": 375,
-    "2026-11": 505
+    "2026-11": 507
    }
   },
   {

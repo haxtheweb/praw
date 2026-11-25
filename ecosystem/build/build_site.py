@@ -313,7 +313,10 @@ if ECO_THEME:
                            # the home page's greeting: before anything else, that it is all one network
                            "welcome": {"title": "Everything in HAX is connected",
                                        "text": "Every part of HAX, every site in the HAX network and everyone who builds it, in one web. "
-                                               "Select a tile to see what it connects to, take a tour, or search everything from Travel anywhere at the top."},
+                                               "Select a tile to see what it connects to, take a tour, or search everything from Travel anywhere at the top.",
+                                       # a way to Growth from the home page itself, not only the menu
+                                       # (https://github.com/haxtheweb/issues/issues/3416)
+                                       "actions": [{"label": "How HAX grew", "href": "growth", "icon": "icons:trending-up"}]},
                            "footerNote": "Built from PRAW on every push to main.",
                            "footer": [{"label": "Source: praw/ecosystem", "href": "https://github.com/haxtheweb/praw/tree/main/ecosystem"},
                                       {"label": "Roadmap", "href": "https://github.com/haxtheweb/issues/issues/3310"}]}}
@@ -359,6 +362,45 @@ bundle["images"].update(json.load(open(main_art)))
 layers_src = os.path.join("ext", "layers.json") if os.path.exists(os.path.join("ext", "layers.json")) else os.path.join(ECO, "build", "data", "layers.json")
 bundle["layers"] = json.load(open(layers_src))
 bundle["layers"]["maintainers"] = ["bryan", "billrose"]
+# the Reuse and Weight lenses (https://github.com/haxtheweb/issues/issues/3413), read from the committed growth
+# snapshot (data/growth/elements.json) at build time so they always match the data hax.cloud publishes. A tile is
+# measured when its repo, code, docs or npm link names an element package (its folder or its main file), or, on the
+# main web, when ext/concept-code.json says which package it is.
+def growth_lenses():
+    gdir = os.path.join(ECO, "build", "data", "growth")
+    try:
+        E = {e["name"]: e for e in json.load(open(os.path.join(gdir, "elements.json")))["elements"]}
+    except (OSError, ValueError, KeyError):
+        return {}, {}
+    gh = re.compile(r"https://github\.com/haxtheweb/webcomponents/(?:tree|blob)/[^/]+/elements/([^/#?]+)(/[^#?]*)?$")
+    npm = re.compile(r"https://(?:www\.)?npmjs\.com/package/@haxtheweb/([^/#?]+)/?$")
+    def pkg(u):
+        m = gh.match(u or "")
+        if m and (m.group(2) or "").strip("/") in ("", m.group(1) + ".js"):
+            return m.group(1)
+        m = npm.match(u or "")
+        return m.group(1) if m else None
+    cc_src = os.path.join(ECO, "build", "data", "concept-code.json")
+    code = json.load(open(cc_src)).get("main", {}) if os.path.exists(cc_src) else {}
+    reuse, weight = {}, {}
+    for w, W in WEBS.items():
+        for k, n in (W["data"].get("nodes") or {}).items():
+            p = next((x for lk, u in (n.get("links") or {}).items() if lk in ("repo", "code", "docs", "npm")
+                      for x in [pkg(u)] if x in E), None)
+            if not p and w == "main" and k in code and code[k][0] == "haxtheweb/webcomponents":
+                q = code[k][1].split("/")
+                p = q[1] if len(q) == 2 and q[0] == "elements" and q[1] in E else None
+            if p:
+                e = E[p]
+                reuse.setdefault(w, {})[k] = {"package": p, "usedBy": e["usedBy"], "themes": e.get("themes", 0)}
+                if "adds" in e:
+                    weight.setdefault(w, {})[k] = {"package": p, "gz": e["gz"], "load": e["load"], "adds": e["adds"]}
+    return reuse, weight
+bundle["layers"]["reuse"], bundle["layers"]["weight"] = growth_lenses()
+try:
+    bundle["layers"]["themeCount"] = len(json.load(open(os.path.join(ECO, "build", "data", "growth", "themes.json")))["themes"])
+except (OSError, ValueError, KeyError):
+    pass
 json.dump(bundle, open(os.path.join(OUT, "ecosystem-webs.json"), "w"), ensure_ascii=False, separators=(",", ":"))
 # a slug index: every page's path by its key
 json.dump({it["_key"]: it["slug"] for it in items}, open(os.path.join(OUT, "slugs.json"), "w"), indent=0, sort_keys=True)

@@ -704,6 +704,12 @@
   "agents:HAX rules win over outside guidance.": {
    "automation": "guidance",
    "how": "Says which advice wins when two sources disagree; each conflict it lists has its own rule and check."
+  },
+  "agents:HTML sinks": {
+   "enforced_by": [
+    "q_lint"
+   ],
+   "how": "ESLint rule haxtheweb-html/unsanitized-html-sink (scripts/eslint-rules/html-sinks.mjs) fails the pull request on a new unsanitized write to innerHTML, insertAdjacentHTML, unsafeHTML or an .innerHTML binding; hits that predate it are recorded in eslint-suppressions.json."
   }
  },
  "candidates": [

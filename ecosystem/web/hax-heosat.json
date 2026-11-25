@@ -268,7 +268,7 @@
    }
   },
   "hq_do1": {
-   "desc": "The project has clear installation, configuration, and upgrade documentation. Install and setup are documented; upgrade documentation is thin while the docs site is being rebuilt.",
+   "desc": "The project has clear installation, configuration, and upgrade documentation. Install and setup are documented; upgrade documentation is thin.",
    "status": "in-progress",
    "kind": "partial",
    "note": "Partly evidenced. Section: Documentation & Onboarding.",

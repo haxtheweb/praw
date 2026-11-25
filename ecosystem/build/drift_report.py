@@ -57,6 +57,43 @@ def growth_summary():
     return ["- Growth data refreshed: " + ", ".join(parts) + ". Its files are in the artifact with the rest."]
 
 
+SAMPLE = "hax-imports/import-example.html"
+
+
+def sample_summary(out, changed):
+    """Lines on the HTML import sample (hax-imports/import-example.html), rebuilt from this run's Learn clone by
+    scripts/build-import-example-html.js so it can't fall behind Learn. A changed sample goes into out/files like
+    the generators' files; nothing is committed."""
+    outcome = os.environ.get("SAMPLE_OUTCOME", "")
+    if not outcome:
+        return []
+    if outcome != "success":
+        return ["- HTML import sample rebuild (`scripts/build-import-example-html.js`): **did not finish** (%s); the "
+                "committed sample is unchanged. The step's log says why." % outcome]
+    full = os.path.join(ROOT, SAMPLE)
+    if not git("status", "--porcelain", "--", SAMPLE).strip():
+        return ["- HTML import sample: matches Learn HAX."]
+    if not os.path.isfile(full) or os.path.islink(full):
+        return ["- HTML import sample: the rebuild left no plain file at `%s`." % SAMPLE]
+
+    def pages(text):
+        return text.count("<div data-jos-item-id=")
+    try:
+        was = pages(git("show", "HEAD:" + SAMPLE))
+    except subprocess.CalledProcessError:
+        was = None
+    with open(full, encoding="utf-8") as f:
+        now = pages(f.read())
+    dest = os.path.join(out, "files", SAMPLE)
+    os.makedirs(os.path.dirname(dest), exist_ok=True)
+    shutil.copyfile(full, dest)
+    changed.append({"path": SAMPLE, "mode": "100644"})
+    count = "%s pages" % now + (" (was %s)" % was if was is not None and was != now else "")
+    return ["- HTML import sample: **Learn HAX changed**, so `%s` is out of date (%s). The rebuilt file is in the "
+            "artifact; to take it, run `node scripts/build-import-example-html.js <learn checkout>` and open a pull "
+            "request." % (SAMPLE, count)]
+
+
 def collect(out):
     """Copy what changed under ecosystem/ (tracked or new, never ignored files) into out/files and describe it."""
     changed, deleted = [], []
@@ -88,6 +125,7 @@ def collect(out):
     integrity = subprocess.run([sys.executable, "-I", os.path.join(ROOT, "ecosystem", "test", "integrity-check.py")],
                                capture_output=True, text=True, env={k: v for k, v in os.environ.items() if k != "GITHUB_ACTIONS"})
     check = integrity.stdout.strip()[-6000:]
+    sample = sample_summary(out, changed)
     body = [
         "# Ecosystem web: weekly drift",
         "",
@@ -95,7 +133,7 @@ def collect(out):
         "",
         f"- {len(changed)} files changed" + (f", {len(deleted)} removed" if deleted else "") + ". They are in this run's `ecosystem-drift` artifact, under `files/`.",
         "- Integrity check on the regenerated webs: " + ("passes." if integrity.returncode == 0 else "**fails** (below)."),
-    ] + growth_summary() + [
+    ] + growth_summary() + sample + [
         "- This run changes nothing in the repository. To take the changes, run `ecosystem/build/run.sh` locally and open a pull request.",
         "",
     ]

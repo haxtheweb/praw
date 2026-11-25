@@ -1,6 +1,6 @@
-# Standalone Version of HAX Lab Information
+# HAX Lab
 
-Information about HAX lab is provided on [HAX Lab Website](https://haxtheweb.org/hax-lab).
+This repository is the HAX Lab site, published at [lab.hax.cloud](https://lab.hax.cloud): what HAX Lab is and how it works, SIIP (the Sustainable Impact and Innovation Pipeline), graduates, faculty and funding, outcomes, and the onboarding course that takes students and junior developers from zero to their first HAX contribution. It is a HAXsite: run `npm start` (or `hax serve`) in this folder to work on it locally. Students fork it as part of onboarding.
 
 The commits here also help associate github user names to past contributors
 

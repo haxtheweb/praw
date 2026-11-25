@@ -75,6 +75,21 @@ def parse_mmd(mmd):
     return labels, edges, about
 
 
+def people_pages(src, dst, slugs_file):
+    """contributors.json as published: each person with a tile also gets that tile's page on hax.cloud (page), so the
+    Contributors view links to their story (https://github.com/haxtheweb/issues/issues/3425)"""
+    data = json.load(open(src))
+    try:
+        slugs = json.load(open(slugs_file))
+    except (OSError, ValueError):
+        slugs = {}
+    for p in data.get("people", []):
+        slug = slugs.get("tile:main:" + (p.get("tile") or ""))
+        if slug:
+            p["page"] = "/" + slug.strip("/")
+    json.dump(data, open(dst, "w"), separators=(",", ":"))
+
+
 def growth(data_dir, catalog, llms):
     """copy the committed growth snapshot into data/growth/ and list each file in the catalog"""
     if not os.path.isdir(GROWTH):
@@ -85,7 +100,11 @@ def growth(data_dir, catalog, llms):
         src = os.path.join(GROWTH, key + ".json")
         if not os.path.isfile(src):
             continue
-        shutil.copyfile(src, os.path.join(data_dir, "growth", key + ".json"))
+        dst = os.path.join(data_dir, "growth", key + ".json")
+        if key == "contributors":
+            people_pages(src, dst, os.path.join(os.path.dirname(data_dir), "slugs.json"))
+        else:
+            shutil.copyfile(src, dst)
         meta = json.load(open(src)).get("meta", {})
         url = SITE + "data/growth/" + key + ".json"
         ds = {"@type": "Dataset", "identifier": "growth-" + key, "name": name, "description": about,

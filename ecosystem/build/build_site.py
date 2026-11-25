@@ -77,6 +77,17 @@ for w, f in order:
             d[k] = v if _ else True
     edges = re.findall(r"^\s+(\w+) ([-=.o>]+)\|([^|]+)\| (\w+)", m, re.M)
     WEBS[w] = {"tiles": tiles, "meta": meta, "edges": edges, "data": D, "groups": groups}
+# a person's tile links to when they contributed (the Growth page's Contributors view, at their busiest month), and
+# the growth data links back to their tile's page (build_data.py): two views of the same people
+# (https://github.com/haxtheweb/issues/issues/3425)
+try:
+    _people = json.load(open(os.path.join(ECO, "build", "data", "growth", "contributors.json")))["people"]
+except (OSError, ValueError, KeyError):
+    _people = []
+for _p in _people:
+    _n = WEBS.get("main", {}).get("data", {}).get("nodes", {}).get(_p.get("tile") or "")
+    if _n is not None and re.fullmatch(r"[A-Za-z0-9_-]{1,60}", _p["id"]):
+        _n.setdefault("links", {})["growth"] = "https://hax.cloud/growth#watch&person=" + _p["id"]
 
 # ---------- which tile is whose: owners, portals, and the tile that opens each web ----------
 opens = {}  # web id -> (web, tile) that opens it
@@ -223,9 +234,10 @@ def label(w, nid):
 def player(w):
     return (f'<iframe src="/ecosystem.html{"#" + w if w != "main" else ""}" title="{E(web_name(w))}: the interactive web" '
             f'style="width:100%;height:80vh;border:0" loading="lazy"></iframe>')
+LINK_WORDS = {"growth": "When they contributed"}
 def links_html(links):
     if not links: return ""
-    return "<ul>" + "".join(f'<li><a href="{E(u)}">{E(k)}</a></li>' for k, u in links.items() if isinstance(u, str) and u.startswith(("http", "/"))) + "</ul>"
+    return "<ul>" + "".join(f'<li><a href="{E(u)}">{E(LINK_WORDS.get(k, k))}</a></li>' for k, u in links.items() if isinstance(u, str) and u.startswith(("http", "/"))) + "</ul>"
 def connects(w, nid):
     out = []
     for a, arrow, lab, b in WEBS[w]["edges"]:
@@ -316,7 +328,7 @@ if ECO_THEME:
                                                "Select a tile to see what it connects to, take a tour, or search everything from Travel anywhere at the top.",
                                        # a way to Growth from the home page itself, not only the menu
                                        # (https://github.com/haxtheweb/issues/issues/3416)
-                                       "actions": [{"label": "How HAX grew", "href": "growth", "icon": "icons:trending-up"}]},
+                                       "actions": [{"label": "Watch HAX grow", "href": "growth#watch", "icon": "icons:trending-up"}]},
                            "footerNote": "Built from PRAW on every push to main.",
                            "footer": [{"label": "Source: praw/ecosystem", "href": "https://github.com/haxtheweb/praw/tree/main/ecosystem"},
                                       {"label": "Roadmap", "href": "https://github.com/haxtheweb/issues/issues/3310"}]}}

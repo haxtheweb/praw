@@ -11,6 +11,7 @@ Reads every web in ecosystem/web (hax-<web>.mmd and hax-<web>.json) and exits 1 
   path to a pillar every tile in the main web reaches a pillar along its connections without passing through
                    the center (people and their companion, who touch every pillar); every sub-web is
                    opened by a tile and its parents (meta.parent) lead back to the main web
+  rule checks      no rule points at a Quality control check that no longer exists
   no orphans       every tile has a connection. In a sub-web a tile may stand alone only as a gap
                    (status "gap": something a coverage map says is missing), as a portal (the same tile,
                    connected in the web it comes from) or when integrity-allow.json names it with a reason
@@ -25,6 +26,7 @@ import glob, json, os, re, sys, tempfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ECO = os.path.dirname(HERE)
+LOST = "A check that enforced this is gone"
 MAIN = "main"  # the web hax-ecosystem is called "main" everywhere a web is named
 NODE = re.compile(r'^(\w+)\s*(\(\(|\{\{|\[\[|\[\(|\(\[|\[|>)\s*"?(.*?)"?\s*(\)\)|\}\}|\]\]|\)\]|\]\)|\])$')
 EDGE = re.compile(r"^(\w+)\s*(-->|---|--o|==>|-\.->)\s*(?:\|([^|]*)\|)?\s*(\w+)$")
@@ -192,6 +194,11 @@ def check(webs, pillars=None, allow=None):
         if i not in reached and i not in center:
             E.append(f'line {n["line"]}: "{i}" has no path to a pillar (other than through the center)')
 
+    # a rule still points at every check that enforces it (build_rules.py notes a check that is gone)
+    for w, web in webs.items():
+        for i, d in ((web["doc"].get("nodes") or {})).items():
+            if isinstance(d, dict) and str(d.get("note", "")).startswith(LOST):
+                errors[w].append(f'tile "{i}": {d["note"]} Point build/data/rule-links.json at the check\'s current id')
     # every sub-web is opened by a tile, and its parents lead back to the main web
     for w, web in webs.items():
         if w == MAIN:
@@ -253,6 +260,7 @@ def self_test():
         ("sub-web orphan", run(sub_doc={"meta": {"parent": "main"}}), '"lone" is an orphan'),
         ("sub-web orphan allowed by name", run(sub_doc={"meta": {"parent": "main"}}, allow={"cli:lone": "why"}), None),
         ("stale allow entry", run(allow={"cli:a": "why"}), 'lists "cli:a"'),
+        ("rule check gone", run(sub_doc={"meta": {"parent": "main"}, "nodes": {"lone": {"status": "gap", "note": "A check that enforced this is gone from Quality control: q_x."}}}), 'tile "lone": A check that enforced this is gone'),
     ]
     failed = 0
     for name, got, want in cases:

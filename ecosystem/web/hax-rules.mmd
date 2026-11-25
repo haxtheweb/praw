@@ -153,20 +153,24 @@ flowchart TB
   subgraph outer ["Checks, pillars and parts"]
     ct_a11y["ct_a11y"]
     ct_fuzz["ct_fuzz"]
+    q_a11y_modes["q_a11y_modes"]
     q_audit["q_audit"]
     q_codeql["q_codeql"]
-    q_color_contrast_light_and_dark["q_color_contrast_light_and_dark"]
+    q_color_contrast_of_changed_elements["q_color_contrast_of_changed_elements"]
     q_dark_motion["q_dark_motion"]
     q_ddd_token_lint["q_ddd_token_lint"]
     q_dependency_licenses["q_dependency_licenses"]
     q_element_api_snapshot["q_element_api_snapshot"]
     q_format_check["q_format_check"]
     q_fuzz_nightly["q_fuzz_nightly"]
+    q_hax_ui_admin_contract["q_hax_ui_admin_contract"]
     q_haxschema["q_haxschema"]
     q_lint["q_lint"]
     q_locale_guard["q_locale_guard"]
+    q_mascot_name["q_mascot_name"]
     q_memory_leaks["q_memory_leaks"]
     q_mutation_testing["q_mutation_testing"]
+    q_no_local_paths["q_no_local_paths"]
     q_parity["q_parity"]
     q_phpunit["q_phpunit"]
     q_render_benchmarks["q_render_benchmarks"]
@@ -174,6 +178,7 @@ flowchart TB
     q_test_all_elements["q_test_all_elements"]
     q_unit_and_api_conformance_tests["q_unit_and_api_conformance_tests"]
     q_unused_code_knip["q_unused_code_knip"]
+    q_without_hax["q_without_hax"]
     accessible["accessible"]
     efficient["efficient"]
     extensible["extensible"]
@@ -255,6 +260,7 @@ flowchart TB
   r_1992902d74844c908ab446 -.->|applies to| haxcms
   rg_design_system_standards -->|includes| r_ccca6768_05e0_4d4d_b3a1_4b9895531558
   rg_design_system_standards -->|includes| r_956c54783626475ea901a6
+  q_hax_ui_admin_contract -->|enforces| r_956c54783626475ea901a6
   r_956c54783626475ea901a6 ==>|serves| accessible
   r_956c54783626475ea901a6 -.->|applies to| ddd
   r_956c54783626475ea901a6 -.->|applies to| haxcms
@@ -266,7 +272,7 @@ flowchart TB
   r_rvsctsdjae8lrmsjmpo3mk -.->|applies to| components
   r_rvsctsdjae8lrmsjmpo3mk -.->|applies to| haxschema
   rg_web_component_development -->|includes| r_7cpveferpsf0az8tkqxw0y
-  q_color_contrast_light_and_dark -->|enforces| r_7cpveferpsf0az8tkqxw0y
+  q_color_contrast_of_changed_elements -->|enforces| r_7cpveferpsf0az8tkqxw0y
   q_test_all_elements -->|enforces| r_7cpveferpsf0az8tkqxw0y
   ct_a11y -->|enforces| r_7cpveferpsf0az8tkqxw0y
   r_7cpveferpsf0az8tkqxw0y ==>|serves| accessible
@@ -277,6 +283,7 @@ flowchart TB
   r_13a03330_483e_404e_9e48_b0d9f16432d3 -.->|applies to| ddd
   r_13a03330_483e_404e_9e48_b0d9f16432d3 -.->|applies to| meaningchannels
   rg_web_component_development -->|includes| r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123
+  q_a11y_modes -->|enforces| r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123
   r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123 ==>|serves| accessible
   r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123 -.->|applies to| meaningchannels
   r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123 -.->|applies to| ddd
@@ -298,6 +305,7 @@ flowchart TB
   rg_web_component_development -->|includes| r_wqogob824vgw5hecmh08ew
   rg_web_component_development -->|includes| r_haxhooks_lifecycle_integration
   rg_web_component_development -->|includes| r_40983ddf_40b7_4a5e_a600_8f9fcb58da83
+  q_without_hax -->|enforces| r_40983ddf_40b7_4a5e_a600_8f9fcb58da83
   r_40983ddf_40b7_4a5e_a600_8f9fcb58da83 ==>|serves| agnostic
   r_40983ddf_40b7_4a5e_a600_8f9fcb58da83 ==>|serves| remixable
   r_40983ddf_40b7_4a5e_a600_8f9fcb58da83 ==>|serves| sustainable
@@ -350,6 +358,7 @@ flowchart TB
   rg_build_development_workflow -->|includes| r_pacoyoqw2aiyato3r6asnl
   rg_build_development_workflow -->|includes| r_edaxma3ziihz86gyx4mosu
   rg_build_development_workflow -->|includes| r_bakmwcmrqrlgdwmunwgvuw
+  q_no_local_paths -->|enforces| r_bakmwcmrqrlgdwmunwgvuw
   r_bakmwcmrqrlgdwmunwgvuw ==>|serves| agnostic
   r_bakmwcmrqrlgdwmunwgvuw ==>|serves| open
   r_bakmwcmrqrlgdwmunwgvuw -.->|applies to| praw
@@ -423,6 +432,7 @@ flowchart TB
   rg_instructional_design -->|includes| r_fc4153f1_90f0_4d22_a023_fec8f492b408
   rg_project_specific_rules -->|includes| r_759643a6db03433a9d742f
   rg_project_specific_rules -->|includes| r_7d6f9c3e_8d0c_4127_948e_e6260465fa95
+  q_mascot_name -->|enforces| r_7d6f9c3e_8d0c_4127_948e_e6260465fa95
   r_7d6f9c3e_8d0c_4127_948e_e6260465fa95 ==>|serves| open
   r_7d6f9c3e_8d0c_4127_948e_e6260465fa95 -.->|applies to| traveler
   r_7d6f9c3e_8d0c_4127_948e_e6260465fa95 -.->|applies to| praw
@@ -590,12 +600,12 @@ flowchart TB
   %%@ node r_447f8d9bc5484749b1188e icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_1992902d74844c908ab446 icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_ccca6768_05e0_4d4d_b3a1_4b9895531558 icon=icons:gavel color=limestoneGray motion=nudge
-  %%@ node r_956c54783626475ea901a6 icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_956c54783626475ea901a6 icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_411423ec_d922_4bd4_8c45_3d8c65b9fbfa icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_rvsctsdjae8lrmsjmpo3mk icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_7cpveferpsf0az8tkqxw0y icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_13a03330_483e_404e_9e48_b0d9f16432d3 icon=icons:gavel color=limestoneGray motion=nudge
-  %%@ node r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123 icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123 icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_34ef39a0_b970_43ba_b68a_251f99d64424 icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_cehsaztyfb2vtcwthggnbk icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_njf4syugdn5wr5tevadtgy icon=icons:verified-user color=forestGreen motion=nudge
@@ -603,7 +613,7 @@ flowchart TB
   %%@ node r_eis0l9w9l2jg1cofysmvdt icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_wqogob824vgw5hecmh08ew icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_haxhooks_lifecycle_integration icon=icons:gavel color=limestoneGray motion=nudge
-  %%@ node r_40983ddf_40b7_4a5e_a600_8f9fcb58da83 icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_40983ddf_40b7_4a5e_a600_8f9fcb58da83 icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_c3xjsqfbcmoa3cxsoonyxg icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_01ed665f326941e9888ab1 icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_ea643795_98bc_47fb_bf31_999644a48f77 icon=icons:gavel color=limestoneGray motion=nudge
@@ -629,7 +639,7 @@ flowchart TB
   %%@ node r_z61ldoq98dttlrwen7tl9t icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_pacoyoqw2aiyato3r6asnl icon=icons:book color=skyBlue motion=nudge
   %%@ node r_edaxma3ziihz86gyx4mosu icon=icons:book color=skyBlue motion=nudge
-  %%@ node r_bakmwcmrqrlgdwmunwgvuw icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_bakmwcmrqrlgdwmunwgvuw icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_92dfb3b2_1c32_42dc_89c3_0f4ae66f7227 icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_4e0800ef_32ff_42dc_83f0_bbb953d97554 icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_f54de8cb_0b65_4f50_98e6_43e8c2ebc4c7 icon=icons:book color=skyBlue motion=nudge
@@ -657,7 +667,7 @@ flowchart TB
   %%@ node r_4ab69ab2_d295_4c01_a448_1ce1689c7366 icon=icons:book color=skyBlue motion=nudge
   %%@ node r_fc4153f1_90f0_4d22_a023_fec8f492b408 icon=icons:book color=skyBlue motion=nudge
   %%@ node r_759643a6db03433a9d742f icon=icons:gavel color=limestoneGray motion=nudge
-  %%@ node r_7d6f9c3e_8d0c_4127_948e_e6260465fa95 icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_7d6f9c3e_8d0c_4127_948e_e6260465fa95 icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node ra_language icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_no_typescript icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_unbundled_approach icon=icons:verified-user color=forestGreen motion=nudge
@@ -698,20 +708,24 @@ flowchart TB
   %%@ node rc_correct_colors icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ct_a11y portal=quality
   %%@ node ct_fuzz portal=quality
+  %%@ node q_a11y_modes portal=quality
   %%@ node q_audit portal=quality
   %%@ node q_codeql portal=quality
-  %%@ node q_color_contrast_light_and_dark portal=quality
+  %%@ node q_color_contrast_of_changed_elements portal=quality
   %%@ node q_dark_motion portal=quality
   %%@ node q_ddd_token_lint portal=quality
   %%@ node q_dependency_licenses portal=quality
   %%@ node q_element_api_snapshot portal=quality
   %%@ node q_format_check portal=quality
   %%@ node q_fuzz_nightly portal=quality
+  %%@ node q_hax_ui_admin_contract portal=quality
   %%@ node q_haxschema portal=quality
   %%@ node q_lint portal=quality
   %%@ node q_locale_guard portal=quality
+  %%@ node q_mascot_name portal=quality
   %%@ node q_memory_leaks portal=quality
   %%@ node q_mutation_testing portal=quality
+  %%@ node q_no_local_paths portal=quality
   %%@ node q_parity portal=quality
   %%@ node q_phpunit portal=quality
   %%@ node q_render_benchmarks portal=quality
@@ -719,6 +733,7 @@ flowchart TB
   %%@ node q_test_all_elements portal=quality
   %%@ node q_unit_and_api_conformance_tests portal=quality
   %%@ node q_unused_code_knip portal=quality
+  %%@ node q_without_hax portal=quality
   %%@ node accessible portal
   %%@ node efficient portal
   %%@ node extensible portal

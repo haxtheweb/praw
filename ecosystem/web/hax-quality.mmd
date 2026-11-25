@@ -12,36 +12,74 @@ flowchart TB
     testing["testing"]
   end
   subgraph blockg ["Blocking gates"]
+    q_assemble_the_page["Assemble the page"]
+    q_baseline_only_shrinks["Baseline only shrinks"]
+    q_blocks_under_the_design_system["Blocks under the design system"]
     q_build["Build"]
+    q_build_rule_exports["Build rule exports"]
+    q_build_skill_indexes["Build skill indexes"]
+    q_build_the_site["Build the site"]
+    q_ci["CI"]
     q_cla["CLA"]
+    q_css_in_css_templates["CSS in css templates"]
+    q_check_recent_activity["Check recent activity"]
+    q_check_the_site["Check the site"]
     q_codeql["CodeQL"]
-    q_color_contrast_light_and_dark["Color contrast (light and dark)"]
+    q_color_contrast_of_changed_elements["Color contrast of changed elements"]
+    q_compliance["Compliance"]
     q_ddd_token_lint["DDD token lint"]
     q_audit["Dependency audit"]
     q_dependency_licenses["Dependency licenses"]
+    q_does_this_pull_request_change_composer_lock["Does this pull request change composer.lock?"]
+    q_e2e["E2E UI tests"]
     q_lint["ESLint"]
     q_element_api_snapshot["Element API snapshot"]
     q_format_check["Format check"]
     q_gallery_build["Gallery build"]
+    q_github_org_spelling["GitHub org spelling"]
+    q_growth_data_check["Growth data check"]
+    q_html_structure_in_html_and_svg_templates["HTML structure in html and svg templates"]
+    q_layout_check["Layout check"]
+    q_locale_urls_point_at_a_shipped_locale_file["Locale URLs point at a shipped locale file"]
+    q_mascot_name["Mascot name"]
     q_memory_leaks["Memory leaks"]
+    q_mypy["Mypy"]
+    q_no_local_paths["No local paths"]
+    q_nothing_changed["Nothing changed"]
     q_phpstan["PHPStan"]
     q_phpunit["PHPUnit"]
+    q_palette_roles["Palette roles"]
+    q_parse_check["Parse check"]
+    q_print_what_still_fails["Print what still fails"]
+    q_project_license_is_apache_2_0["Project license is Apache-2.0"]
     q_pseudo_locale_and_rtl_layout["Pseudo-locale and RTL layout"]
+    q_ruff_check["Ruff check"]
+    q_ruff_format_check["Ruff format check"]
+    q_rule_checks["Rule checks"]
     q_script_tests["Script tests"]
     q_security_lint["Security lint"]
     q_smoke_tests["Smoke tests"]
     q_stylelint["Stylelint"]
-    q_template_lint["Template lint"]
     q_test_all_elements["Test all elements"]
+    q_tool_docs_drift_check["Tool docs drift check"]
     q_unit_and_api_conformance_tests["Unit and API conformance tests"]
     q_unit_tests["Unit tests"]
     q_walkthrough_status["Walkthrough status"]
+    q_a11y_modes["a11y-modes"]
+    q_admin_contrast["admin-contrast"]
+    q_contrast_design_systems["contrast-design-systems"]
     q_dark_motion["dark-motion"]
+    q_gallery_audit["gallery-audit"]
+    q_gallery_contrast["gallery-contrast"]
+    q_hax_ui_admin_contract["hax-ui-admin-contract"]
+    q_haxiam_nightly["haxiam nightly"]
     q_haxschema["haxschema"]
+    q_skills_lock_json_hashes_are_current["skills-lock.json hashes are current"]
     q_ubiquity_assets["ubiquity assets"]
+    q_without_hax["without-hax"]
   end
   subgraph advg ["Advisory checks and planned"]
-    q_e2e["E2E UI tests"]
+    q_accessibility["Accessibility"]
     q_locale_guard["Locale guard"]
     q_performance_and_memory_budgets["Performance and memory budgets"]
     q_render_benchmarks["Render benchmarks"]
@@ -51,8 +89,10 @@ flowchart TB
   subgraph schedg ["Scheduled"]
     q_parity["Backend parity, nightly"]
     q_codeql_sched["CodeQL, nightly"]
+    q_compliance_sched["Compliance, weekly"]
     q_audit_sched["Dependency audit, nightly"]
     q_dependency_licenses_sched["Dependency licenses, weekly"]
+    q_ecosystem_web_drift["Ecosystem web drift, weekly"]
     q_fresh_install_smoke_test["Fresh-install smoke test, nightly"]
     q_mutation_testing["Mutation testing, weekly"]
     q_build_and_tests["Nightly build and tests"]
@@ -61,9 +101,15 @@ flowchart TB
     q_parity_harness_nodejs_php_cli["Parity harness (nodejs, PHP, CLI), nightly"]
     q_performance_and_memory_budgets_sched["Performance and memory budgets, weekly"]
     q_unused_code_knip_sched["Unused code (knip), weekly"]
+    q_upstream_drift["Upstream drift, nightly"]
+    q_admin_contrast_sched["admin-contrast, nightly"]
     q_agent_skills_drift["agent skills drift, weekly"]
+    q_contrast_design_systems_sched["contrast-design-systems, nightly"]
     q_docs_weekly["docs-weekly, weekly"]
     q_fuzz_nightly["fuzz-nightly, nightly"]
+    q_hax_cloud["hax.cloud, weekly"]
+    q_haxiam_nightly_sched["haxiam nightly, nightly"]
+    q_legacy_scan["legacy-scan, weekly"]
     q_ubiquity_assets_sched["ubiquity assets, nightly"]
     q_weekly_report["weekly-report, weekly"]
     ct_translations["Nightly translations"]
@@ -88,6 +134,10 @@ flowchart TB
   quality -->|has| qg_adv
   quality -->|has| qg_sched
   testing -->|is part of| quality
+  qg_block -->|includes| q_a11y_modes
+  q_a11y_modes -.->|fails PRs in| components
+  qg_block -->|includes| q_admin_contrast
+  q_admin_contrast -.->|fails PRs in| components
   qg_block -->|includes| q_element_api_snapshot
   q_element_api_snapshot -.->|fails PRs in| components
   qg_block -->|includes| q_lint
@@ -112,14 +162,27 @@ flowchart TB
   q_cla -.->|fails PRs in| php
   q_cla -.->|fails PRs in| cli
   q_cla -.->|fails PRs in| praw
+  q_cla -.->|fails PRs in| mcp
   q_cla -.->|fails PRs in| issues
   qg_block -->|includes| q_codeql
   q_codeql -.->|fails PRs in| components
   q_codeql -.->|fails PRs in| nodejs
   q_codeql -.->|fails PRs in| php
   q_codeql -.->|fails PRs in| cli
-  qg_block -->|includes| q_color_contrast_light_and_dark
-  q_color_contrast_light_and_dark -.->|fails PRs in| components
+  q_codeql -.->|fails PRs in| praw
+  q_codeql -.->|fails PRs in| mcp
+  qg_block -->|includes| q_contrast_design_systems
+  q_contrast_design_systems -.->|fails PRs in| components
+  qg_block -->|includes| q_blocks_under_the_design_system
+  q_blocks_under_the_design_system -.->|fails PRs in| components
+  qg_block -->|includes| q_print_what_still_fails
+  q_print_what_still_fails -.->|fails PRs in| components
+  qg_block -->|includes| q_baseline_only_shrinks
+  q_baseline_only_shrinks -.->|fails PRs in| components
+  qg_block -->|includes| q_color_contrast_of_changed_elements
+  q_color_contrast_of_changed_elements -.->|fails PRs in| components
+  qg_block -->|includes| q_palette_roles
+  q_palette_roles -.->|fails PRs in| components
   qg_block -->|includes| q_dark_motion
   q_dark_motion -.->|fails PRs in| components
   qg_block -->|includes| q_ddd_token_lint
@@ -129,6 +192,12 @@ flowchart TB
   q_audit -.->|fails PRs in| nodejs
   q_audit -.->|advises on PRs in| php
   q_audit -.->|fails PRs in| cli
+  qg_block -->|includes| q_gallery_audit
+  q_gallery_audit -.->|fails PRs in| components
+  qg_block -->|includes| q_gallery_contrast
+  q_gallery_contrast -.->|fails PRs in| components
+  qg_block -->|includes| q_hax_ui_admin_contract
+  q_hax_ui_admin_contract -.->|fails PRs in| components
   qg_block -->|includes| q_haxschema
   q_haxschema -.->|fails PRs in| components
   qg_block -->|includes| q_pseudo_locale_and_rtl_layout
@@ -140,15 +209,26 @@ flowchart TB
   q_dependency_licenses -.->|fails PRs in| nodejs
   q_dependency_licenses -.->|fails PRs in| php
   q_dependency_licenses -.->|fails PRs in| cli
-  qg_block -->|includes| q_template_lint
-  q_template_lint -.->|fails PRs in| components
+  q_dependency_licenses -.->|fails PRs in| praw
+  qg_block -->|includes| q_css_in_css_templates
+  q_css_in_css_templates -.->|fails PRs in| components
+  qg_block -->|includes| q_html_structure_in_html_and_svg_templates
+  q_html_structure_in_html_and_svg_templates -.->|fails PRs in| components
+  qg_block -->|includes| q_locale_urls_point_at_a_shipped_locale_file
+  q_locale_urls_point_at_a_shipped_locale_file -.->|fails PRs in| components
   qg_block -->|includes| q_walkthrough_status
   q_walkthrough_status -.->|fails PRs in| components
+  qg_block -->|includes| q_without_hax
+  q_without_hax -.->|fails PRs in| components
   qg_block -->|includes| q_build
   q_build -.->|fails PRs in| nodejs
   q_build -.->|fails PRs in| cli
   qg_block -->|includes| q_unit_and_api_conformance_tests
   q_unit_and_api_conformance_tests -.->|fails PRs in| nodejs
+  qg_block -->|includes| q_e2e
+  q_e2e -.->|fails PRs in| nodejs
+  qg_block -->|includes| q_haxiam_nightly
+  q_haxiam_nightly -.->|fails PRs in| nodejs
   qg_block -->|includes| q_ubiquity_assets
   q_ubiquity_assets -.->|fails PRs in| nodejs
   q_ubiquity_assets -.->|fails PRs in| php
@@ -156,12 +236,59 @@ flowchart TB
   q_phpstan -.->|fails PRs in| php
   qg_block -->|includes| q_phpunit
   q_phpunit -.->|fails PRs in| php
+  qg_block -->|includes| q_does_this_pull_request_change_composer_lock
+  q_does_this_pull_request_change_composer_lock -.->|fails PRs in| php
   qg_block -->|includes| q_unit_tests
   q_unit_tests -.->|fails PRs in| cli
+  q_unit_tests -.->|fails PRs in| mcp
   qg_block -->|includes| q_security_lint
   q_security_lint -.->|fails PRs in| cli
   qg_block -->|includes| q_smoke_tests
   q_smoke_tests -.->|fails PRs in| cli
+  qg_block -->|includes| q_growth_data_check
+  q_growth_data_check -.->|fails PRs in| praw
+  qg_block -->|includes| q_assemble_the_page
+  q_assemble_the_page -.->|fails PRs in| praw
+  qg_block -->|includes| q_parse_check
+  q_parse_check -.->|fails PRs in| praw
+  qg_block -->|includes| q_layout_check
+  q_layout_check -.->|fails PRs in| praw
+  qg_block -->|includes| q_build_the_site
+  q_build_the_site -.->|fails PRs in| praw
+  qg_block -->|includes| q_check_the_site
+  q_check_the_site -.->|fails PRs in| praw
+  qg_block -->|includes| q_check_recent_activity
+  q_check_recent_activity -.->|fails PRs in| praw
+  qg_block -->|includes| q_mascot_name
+  q_mascot_name -.->|fails PRs in| praw
+  qg_block -->|includes| q_no_local_paths
+  q_no_local_paths -.->|fails PRs in| praw
+  qg_block -->|includes| q_github_org_spelling
+  q_github_org_spelling -.->|fails PRs in| praw
+  qg_block -->|includes| q_project_license_is_apache_2_0
+  q_project_license_is_apache_2_0 -.->|fails PRs in| praw
+  qg_block -->|includes| q_build_skill_indexes
+  q_build_skill_indexes -.->|fails PRs in| praw
+  qg_block -->|includes| q_skills_lock_json_hashes_are_current
+  q_skills_lock_json_hashes_are_current -.->|fails PRs in| praw
+  qg_block -->|includes| q_build_rule_exports
+  q_build_rule_exports -.->|fails PRs in| praw
+  qg_block -->|includes| q_nothing_changed
+  q_nothing_changed -.->|fails PRs in| praw
+  qg_block -->|includes| q_rule_checks
+  q_rule_checks -.->|fails PRs in| praw
+  qg_block -->|includes| q_ruff_check
+  q_ruff_check -.->|fails PRs in| mcp
+  qg_block -->|includes| q_ruff_format_check
+  q_ruff_format_check -.->|fails PRs in| mcp
+  qg_block -->|includes| q_mypy
+  q_mypy -.->|fails PRs in| mcp
+  qg_block -->|includes| q_tool_docs_drift_check
+  q_tool_docs_drift_check -.->|fails PRs in| mcp
+  qg_block -->|includes| q_ci
+  q_ci -.->|fails PRs in| mcp
+  qg_block -->|includes| q_compliance
+  q_compliance -.->|fails PRs in| mcp
   qg_adv -->|includes| q_unused_code_knip
   q_unused_code_knip -.->|advises on PRs in| components
   qg_adv -->|includes| q_locale_guard
@@ -170,10 +297,13 @@ flowchart TB
   q_render_benchmarks -.->|advises on PRs in| components
   qg_adv -->|includes| q_size_report
   q_size_report -.->|advises on PRs in| components
-  qg_adv -->|includes| q_e2e
-  q_e2e -.->|advises on PRs in| nodejs
   qg_adv -->|includes| q_performance_and_memory_budgets
   q_performance_and_memory_budgets -.->|advises on PRs in| nodejs
+  q_performance_and_memory_budgets -.->|advises on PRs in| php
+  qg_adv -->|includes| q_accessibility
+  q_accessibility -.->|advises on PRs in| praw
+  qg_sched -->|includes| q_admin_contrast_sched
+  q_admin_contrast_sched -.->|runs nightly in| components
   qg_sched -->|includes| q_build_and_tests
   q_build_and_tests -.->|runs nightly in| components
   q_build_and_tests -.->|runs nightly in| nodejs
@@ -184,6 +314,10 @@ flowchart TB
   q_codeql_sched -.->|runs nightly in| nodejs
   q_codeql_sched -.->|runs nightly in| php
   q_codeql_sched -.->|runs nightly in| cli
+  q_codeql_sched -.->|runs nightly in| praw
+  q_codeql_sched -.->|runs nightly in| mcp
+  qg_sched -->|includes| q_contrast_design_systems_sched
+  q_contrast_design_systems_sched -.->|runs nightly in| components
   qg_sched -->|includes| q_audit_sched
   q_audit_sched -.->|runs nightly in| components
   q_audit_sched -.->|runs nightly in| cli
@@ -192,30 +326,41 @@ flowchart TB
   qg_sched -->|includes| q_fuzz_nightly
   q_fuzz_nightly -.->|runs nightly in| components
   q_fuzz_nightly -.->|runs nightly in| nodejs
+  q_fuzz_nightly -.->|runs nightly in| php
   q_fuzz_nightly -.->|runs nightly in| cli
   qg_sched -->|includes| q_unused_code_knip_sched
   q_unused_code_knip_sched -.->|runs weekly in| components
+  qg_sched -->|includes| q_legacy_scan
+  q_legacy_scan -.->|runs weekly in| components
   qg_sched -->|includes| q_dependency_licenses_sched
   q_dependency_licenses_sched -.->|runs weekly in| components
   q_dependency_licenses_sched -.->|runs weekly in| nodejs
   q_dependency_licenses_sched -.->|runs weekly in| php
   q_dependency_licenses_sched -.->|runs weekly in| cli
+  q_dependency_licenses_sched -.->|runs weekly in| praw
   qg_sched -->|includes| q_mutation_testing
   q_mutation_testing -.->|runs weekly in| components
   q_mutation_testing -.->|runs weekly in| nodejs
+  q_mutation_testing -.->|runs weekly in| php
   qg_sched -->|includes| q_openssf_scorecard
   q_openssf_scorecard -.->|runs weekly in| components
   q_openssf_scorecard -.->|runs weekly in| nodejs
   q_openssf_scorecard -.->|runs weekly in| php
   q_openssf_scorecard -.->|runs weekly in| cli
+  q_openssf_scorecard -.->|runs weekly in| praw
+  q_openssf_scorecard -.->|runs weekly in| mcp
   qg_sched -->|includes| q_agent_skills_drift
   q_agent_skills_drift -.->|runs weekly in| nodejs
   q_agent_skills_drift -.->|runs weekly in| php
   qg_sched -->|includes| q_parity
   q_parity -.->|runs nightly in| nodejs
   q_parity -.->|runs nightly in| php
+  qg_sched -->|includes| q_haxiam_nightly_sched
+  q_haxiam_nightly_sched -.->|runs nightly in| nodejs
+  q_haxiam_nightly_sched -.->|runs nightly in| php
   qg_sched -->|includes| q_performance_and_memory_budgets_sched
   q_performance_and_memory_budgets_sched -.->|runs weekly in| nodejs
+  q_performance_and_memory_budgets_sched -.->|runs weekly in| php
   qg_sched -->|includes| q_ubiquity_assets_sched
   q_ubiquity_assets_sched -.->|runs nightly in| nodejs
   q_ubiquity_assets_sched -.->|runs nightly in| php
@@ -225,6 +370,14 @@ flowchart TB
   q_old_site_compatibility -.->|runs weekly in| cli
   qg_sched -->|includes| q_parity_harness_nodejs_php_cli
   q_parity_harness_nodejs_php_cli -.->|runs nightly in| cli
+  qg_sched -->|includes| q_ecosystem_web_drift
+  q_ecosystem_web_drift -.->|runs weekly in| praw
+  qg_sched -->|includes| q_hax_cloud
+  q_hax_cloud -.->|runs weekly in| praw
+  qg_sched -->|includes| q_compliance_sched
+  q_compliance_sched -.->|runs weekly in| mcp
+  qg_sched -->|includes| q_upstream_drift
+  q_upstream_drift -.->|runs nightly in| mcp
   qg_sched -->|includes| q_weekly_report
   q_weekly_report -.->|runs weekly in| issues
   qg_sched -->|includes| ct_translations
@@ -261,6 +414,8 @@ flowchart TB
   %%@ node qg_block icon=icons:verified-user color=forestGreen motion=pop
   %%@ node qg_adv icon=icons:report color=roarGolden motion=pop
   %%@ node qg_sched icon=hax:timeline color=beaverBlue motion=pop
+  %%@ node q_a11y_modes icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_admin_contrast icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_element_api_snapshot icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_lint icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_script_tests icon=icons:check-circle color=forestGreen motion=nudge
@@ -270,51 +425,95 @@ flowchart TB
   %%@ node q_gallery_build icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_cla icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_codeql icon=icons:check-circle color=forestGreen motion=nudge
-  %%@ node q_color_contrast_light_and_dark icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_contrast_design_systems icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_blocks_under_the_design_system icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_print_what_still_fails icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_baseline_only_shrinks icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_color_contrast_of_changed_elements icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_palette_roles icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_dark_motion icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_ddd_token_lint icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_audit icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_gallery_audit icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_gallery_contrast icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_hax_ui_admin_contract icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_haxschema icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_pseudo_locale_and_rtl_layout icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_memory_leaks icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_dependency_licenses icon=icons:check-circle color=forestGreen motion=nudge
-  %%@ node q_template_lint icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_css_in_css_templates icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_html_structure_in_html_and_svg_templates icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_locale_urls_point_at_a_shipped_locale_file icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_walkthrough_status icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_without_hax icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_build icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_unit_and_api_conformance_tests icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_e2e icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_haxiam_nightly icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_ubiquity_assets icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_phpstan icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_phpunit icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_does_this_pull_request_change_composer_lock icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_unit_tests icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_security_lint icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_smoke_tests icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_growth_data_check icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_assemble_the_page icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_parse_check icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_layout_check icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_build_the_site icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_check_the_site icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_check_recent_activity icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_mascot_name icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_no_local_paths icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_github_org_spelling icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_project_license_is_apache_2_0 icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_build_skill_indexes icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_skills_lock_json_hashes_are_current icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_build_rule_exports icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_nothing_changed icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_rule_checks icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_ruff_check icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_ruff_format_check icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_mypy icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_tool_docs_drift_check icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_ci icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_compliance icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_unused_code_knip icon=icons:report color=roarGolden motion=nudge
   %%@ node q_locale_guard icon=icons:report color=roarGolden motion=nudge
   %%@ node q_render_benchmarks icon=icons:report color=roarGolden motion=nudge
   %%@ node q_size_report icon=icons:report color=roarGolden motion=nudge
-  %%@ node q_e2e icon=icons:report color=roarGolden motion=nudge
   %%@ node q_performance_and_memory_budgets icon=icons:report color=roarGolden motion=nudge
+  %%@ node q_accessibility icon=icons:report color=roarGolden motion=nudge
+  %%@ node q_admin_contrast_sched icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_build_and_tests icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_codeql_sched icon=hax:timeline color=beaverBlue motion=nudge
+  %%@ node q_contrast_design_systems_sched icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_audit_sched icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_docs_weekly icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_fuzz_nightly icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_unused_code_knip_sched icon=hax:timeline color=beaverBlue motion=nudge
+  %%@ node q_legacy_scan icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_dependency_licenses_sched icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_mutation_testing icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_openssf_scorecard icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_agent_skills_drift icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_parity icon=hax:timeline color=beaverBlue motion=nudge
+  %%@ node q_haxiam_nightly_sched icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_performance_and_memory_budgets_sched icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_ubiquity_assets_sched icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_fresh_install_smoke_test icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_old_site_compatibility icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_parity_harness_nodejs_php_cli icon=hax:timeline color=beaverBlue motion=nudge
+  %%@ node q_ecosystem_web_drift icon=hax:timeline color=beaverBlue motion=nudge
+  %%@ node q_hax_cloud icon=hax:timeline color=beaverBlue motion=nudge
+  %%@ node q_compliance_sched icon=hax:timeline color=beaverBlue motion=nudge
+  %%@ node q_upstream_drift icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_weekly_report icon=hax:timeline color=beaverBlue motion=nudge
-  %%@ node ct_translations icon=hax:wand color=limestoneGray motion=nudge
+  %%@ node ct_translations icon=hax:wand color=wonderPurple motion=nudge
   %%@ node ct_docs icon=hax:wand color=limestoneGray motion=nudge
   %%@ node ct_whatsnew icon=hax:wand color=wonderPurple motion=nudge
-  %%@ node ct_tours icon=hax:wand color=limestoneGray motion=nudge
+  %%@ node ct_tours icon=hax:wand color=wonderPurple motion=nudge
   %%@ node ct_a11y icon=hax:wand color=limestoneGray motion=nudge
   %%@ node ct_sweep icon=hax:wand color=wonderPurple motion=nudge
   %%@ node ct_fuzz icon=hax:wand color=wonderPurple motion=nudge

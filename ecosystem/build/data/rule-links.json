@@ -68,7 +68,7 @@
   },
   "7CPveF": {
    "enforced_by": [
-    "q_color_contrast_light_and_dark",
+    "q_color_contrast_of_changed_elements",
     "q_test_all_elements",
     "ct_a11y"
    ],

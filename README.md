@@ -412,7 +412,7 @@ Using these rules provides:
 
 - Discord Channel - https://discord.gg/aCGxmRHEJP
 - Unified issue queue - https://github.com/haxtheweb/issues/issues
-- Using Merlin directly in any HAX spaces and type "Issue" to jump start a report!
+- Contribute with the goggles: in any HAX space open Merlin (Search and commands) and pick "Contribute with the goggles" to see how HAX is made, who made it, and report a bug or idea pointed right at the piece
 - Security vulnerabilities: report privately, see [SECURITY.md](SECURITY.md)
 - More ways to get help: [SUPPORT.md](SUPPORT.md); how to contribute: [CONTRIBUTING.md](CONTRIBUTING.md)
 

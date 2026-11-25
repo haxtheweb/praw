@@ -244,7 +244,7 @@ Overall: 33 evidenced, 12 partial, 2 gaps.
 | PO5: The project tracks maintainership capacity and bus factor risks. | partial | Succession is documented; maintainer capacity and bus factor are not tracked over time. |
 | AI3: The project supports evaluation, pilots, and procurement due diligence. | partial | hax.cloud offers a no-install demo, but there are no HECVAT-style procurement answers or a pilot guide. |
 | AI4: The project documents implementation services, hosting options, or support partners when available. | partial | Hosting options exist (HAXiam, Reclaim Hosting, Docker images) but no single page lists hosting and support partners. |
-| AI5: The project collects user feedback and uses it to improve product direction. | partial | Feedback arrives through issues and Merlin; a structured user study is planned. |
+| AI5: The project collects user feedback and uses it to improve product direction. | partial | Feedback arrives through the goggles (Merlin's Contribute with the goggles: Flag reports pointed at the element, in the editor, the dashboard and every public HAX site), the issue queue and Discord; a structured user study is planned. |
 | FS5: The project periodically assesses sustainability risks and publishes improvement priorities. | partial | One assessment has been run (haxcms-php). There is no recurring reassessment or published improvement priority list yet. |
 
 ### Proposed nodes

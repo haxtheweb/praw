@@ -846,6 +846,13 @@
     "q_a11y_collapse_heading_button"
    ],
    "how": "webcomponents' rule-checks workflow (scripts/rule-checks.mjs a11y-collapse) fails the pull request when element code, a demo or a HAX schema gains an <a11y-collapse> without heading-button. Files that predate it are in scripts/a11y-collapse.baseline.json, which only shrinks."
+  },
+  "411423ec": {
+   "enforced_by": [
+    "q_rule_checks",
+    "q_parse_check"
+   ],
+   "how": "Partly. praw's Ecosystem web integrity job (ecosystem/test/integrity-check.py) fails the pull request when an area on the main web has no icon (or image), DDD color or motion on its %%@ node line, and the parse check rejects a color or motion that isn't a DDD name. Sites in network.json don't record a motion yet, and keeping the network bar and the main web on one record is review."
   }
  },
  "candidates": [

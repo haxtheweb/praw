@@ -179,8 +179,10 @@ flowchart TB
     q_no_typescript["q_no_typescript"]
     q_node_js_latest_lts["q_node_js_latest_lts"]
     q_parity["q_parity"]
+    q_parse_check["q_parse_check"]
     q_phpunit["q_phpunit"]
     q_render_benchmarks["q_render_benchmarks"]
+    q_rule_checks["q_rule_checks"]
     q_script_tests["q_script_tests"]
     q_shadow_boundary_aria_references["q_shadow_boundary_aria_references"]
     q_size_report["q_size_report"]
@@ -278,6 +280,8 @@ flowchart TB
   r_956c54783626475ea901a6 -.->|applies to| haxcms
   r_956c54783626475ea901a6 -.->|applies to| editor
   rg_design_system_standards -->|includes| r_411423ec_d922_4bd4_8c45_3d8c65b9fbfa
+  q_rule_checks -->|enforces| r_411423ec_d922_4bd4_8c45_3d8c65b9fbfa
+  q_parse_check -->|enforces| r_411423ec_d922_4bd4_8c45_3d8c65b9fbfa
   rg_web_component_development -->|includes| r_rvsctsdjae8lrmsjmpo3mk
   q_haxschema -->|enforces| r_rvsctsdjae8lrmsjmpo3mk
   r_rvsctsdjae8lrmsjmpo3mk ==>|serves| extensible
@@ -656,7 +660,7 @@ flowchart TB
   %%@ node r_1992902d74844c908ab446 icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_ccca6768_05e0_4d4d_b3a1_4b9895531558 icon=icons:book color=skyBlue motion=nudge
   %%@ node r_956c54783626475ea901a6 icon=icons:verified-user color=forestGreen motion=nudge
-  %%@ node r_411423ec_d922_4bd4_8c45_3d8c65b9fbfa icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_411423ec_d922_4bd4_8c45_3d8c65b9fbfa icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_rvsctsdjae8lrmsjmpo3mk icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_7cpveferpsf0az8tkqxw0y icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_13a03330_483e_404e_9e48_b0d9f16432d3 icon=icons:verified-user color=forestGreen motion=nudge
@@ -790,8 +794,10 @@ flowchart TB
   %%@ node q_no_typescript portal=quality
   %%@ node q_node_js_latest_lts portal=quality
   %%@ node q_parity portal=quality
+  %%@ node q_parse_check portal=quality
   %%@ node q_phpunit portal=quality
   %%@ node q_render_benchmarks portal=quality
+  %%@ node q_rule_checks portal=quality
   %%@ node q_script_tests portal=quality
   %%@ node q_shadow_boundary_aria_references portal=quality
   %%@ node q_size_report portal=quality

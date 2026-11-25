@@ -24,57 +24,57 @@
   },
   "checked": "2026-11-06",
   "releases": {
-   "npm:@haxtheweb/code-sample": "26.8.0",
-   "npm:@haxtheweb/course-design": "26.8.0",
-   "npm:@haxtheweb/fill-in-the-blanks": "26.8.0",
-   "npm:@haxtheweb/flash-card": "26.8.0",
-   "npm:@haxtheweb/h5p-element": "26.8.0",
-   "npm:@haxtheweb/mark-the-words": "26.8.0",
-   "npm:@haxtheweb/matching-question": "26.8.0",
-   "npm:@haxtheweb/lrn-math": "26.8.0",
-   "npm:@haxtheweb/multiple-choice": "26.8.0",
-   "npm:@haxtheweb/self-check": "26.8.0",
-   "npm:@haxtheweb/sorting-question": "26.8.0",
-   "npm:@haxtheweb/stop-note": "26.8.0",
-   "npm:@haxtheweb/tagging-question": "26.8.0",
-   "npm:@haxtheweb/lrndesign-timeline": "26.8.0",
-   "npm:@haxtheweb/vocab-term": "26.8.0",
-   "npm:@haxtheweb/audio-player": "26.8.0",
-   "npm:@haxtheweb/media-image": "26.8.0",
-   "npm:@haxtheweb/a11y-gif-player": "26.8.0",
-   "npm:@haxtheweb/image-compare-slider": "26.8.0",
-   "npm:@haxtheweb/image-gallery": "26.8.0",
-   "npm:@haxtheweb/inline-audio": "26.8.0",
-   "npm:@haxtheweb/media-playlist": "26.8.0",
-   "npm:@haxtheweb/meme-maker": "26.8.0",
-   "npm:@haxtheweb/spotify-embed": "26.8.0",
-   "npm:@haxtheweb/tableau-embed": "26.8.0",
-   "npm:@haxtheweb/video-player": "26.8.0",
-   "npm:@haxtheweb/simple-cta": "26.8.0",
-   "npm:@haxtheweb/accent-card": "26.8.0",
-   "npm:@haxtheweb/a11y-collapse": "26.8.0",
-   "npm:@haxtheweb/grid-plate": "26.8.0",
-   "npm:@haxtheweb/person-testimonial": "26.8.0",
-   "npm:@haxtheweb/page-section": "26.8.0",
-   "npm:@haxtheweb/play-list": "26.8.0",
-   "npm:@haxtheweb/bibliography-builder": "no release",
-   "npm:@haxtheweb/career-timeline": "no release",
-   "npm:@haxtheweb/citation-element": "26.8.0",
-   "npm:@haxtheweb/place-holder": "26.8.0",
-   "npm:@haxtheweb/ai-usage-license": "26.8.0",
-   "npm:@haxtheweb/course-model": "26.8.0",
-   "npm:@haxtheweb/date-card": "26.8.0",
-   "npm:@haxtheweb/license-element": "26.8.0",
-   "npm:@haxtheweb/md-block": "26.8.0",
-   "npm:@haxtheweb/page-break": "26.8.0",
-   "npm:@haxtheweb/page-flag": "26.8.0",
-   "npm:@haxtheweb/q-r": "26.8.0",
-   "npm:@haxtheweb/haxcms-elements": "26.8.0",
-   "npm:@haxtheweb/rpg-character": "26.8.0",
-   "npm:@haxtheweb/moar-sarcasm": "26.8.0",
-   "npm:@haxtheweb/simple-fields": "26.8.0",
-   "npm:@haxtheweb/twitter-embed": "26.8.0",
-   "npm:@haxtheweb/wikipedia-query": "26.8.0"
+   "npm:@haxtheweb/code-sample": "26.11.0",
+   "npm:@haxtheweb/course-design": "26.11.0",
+   "npm:@haxtheweb/fill-in-the-blanks": "26.11.0",
+   "npm:@haxtheweb/flash-card": "26.11.0",
+   "npm:@haxtheweb/h5p-element": "26.11.0",
+   "npm:@haxtheweb/mark-the-words": "26.11.0",
+   "npm:@haxtheweb/matching-question": "26.11.0",
+   "npm:@haxtheweb/lrn-math": "26.11.0",
+   "npm:@haxtheweb/multiple-choice": "26.11.0",
+   "npm:@haxtheweb/self-check": "26.11.0",
+   "npm:@haxtheweb/sorting-question": "26.11.0",
+   "npm:@haxtheweb/stop-note": "26.11.0",
+   "npm:@haxtheweb/tagging-question": "26.11.0",
+   "npm:@haxtheweb/lrndesign-timeline": "26.11.0",
+   "npm:@haxtheweb/vocab-term": "26.11.0",
+   "npm:@haxtheweb/audio-player": "26.11.0",
+   "npm:@haxtheweb/media-image": "26.11.0",
+   "npm:@haxtheweb/a11y-gif-player": "26.11.0",
+   "npm:@haxtheweb/image-compare-slider": "26.11.0",
+   "npm:@haxtheweb/image-gallery": "26.11.0",
+   "npm:@haxtheweb/inline-audio": "26.11.0",
+   "npm:@haxtheweb/media-playlist": "26.11.0",
+   "npm:@haxtheweb/meme-maker": "26.11.0",
+   "npm:@haxtheweb/spotify-embed": "26.11.0",
+   "npm:@haxtheweb/tableau-embed": "26.11.0",
+   "npm:@haxtheweb/video-player": "26.11.0",
+   "npm:@haxtheweb/simple-cta": "26.11.0",
+   "npm:@haxtheweb/accent-card": "26.11.0",
+   "npm:@haxtheweb/a11y-collapse": "26.11.0",
+   "npm:@haxtheweb/grid-plate": "26.11.0",
+   "npm:@haxtheweb/person-testimonial": "26.11.0",
+   "npm:@haxtheweb/page-section": "26.11.0",
+   "npm:@haxtheweb/play-list": "26.11.0",
+   "npm:@haxtheweb/bibliography-builder": "26.11.0",
+   "npm:@haxtheweb/career-timeline": "26.11.0",
+   "npm:@haxtheweb/citation-element": "26.11.0",
+   "npm:@haxtheweb/place-holder": "26.11.0",
+   "npm:@haxtheweb/ai-usage-license": "26.11.0",
+   "npm:@haxtheweb/course-model": "26.11.0",
+   "npm:@haxtheweb/date-card": "26.11.0",
+   "npm:@haxtheweb/license-element": "26.11.0",
+   "npm:@haxtheweb/md-block": "26.11.0",
+   "npm:@haxtheweb/page-break": "26.11.0",
+   "npm:@haxtheweb/page-flag": "26.11.0",
+   "npm:@haxtheweb/q-r": "26.11.0",
+   "npm:@haxtheweb/haxcms-elements": "26.11.0",
+   "npm:@haxtheweb/rpg-character": "26.11.0",
+   "npm:@haxtheweb/moar-sarcasm": "26.11.0",
+   "npm:@haxtheweb/simple-fields": "26.11.0",
+   "npm:@haxtheweb/twitter-embed": "26.11.0",
+   "npm:@haxtheweb/wikipedia-query": "26.11.0"
   }
  },
  "nodes": {
@@ -171,7 +171,7 @@
    },
    "release": "npm:@haxtheweb/code-sample",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_ebook_button": {
    "desc": "A button that links to an Ebook.",
@@ -186,7 +186,7 @@
    },
    "release": "npm:@haxtheweb/course-design",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_fill_in_the_blanks": {
    "desc": "Assessment activity where learners complete missing words in a statement.",
@@ -201,7 +201,7 @@
    },
    "release": "npm:@haxtheweb/fill-in-the-blanks",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_flash_card": {
    "desc": "Practice concepts with front-and-back flash cards.",
@@ -216,7 +216,7 @@
    },
    "release": "npm:@haxtheweb/flash-card",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_h5p_element": {
    "desc": "h5p wrapper for loading and presenting .h5p files",
@@ -231,7 +231,7 @@
    },
    "release": "npm:@haxtheweb/h5p-element",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_learning_component": {
    "desc": "A card for instructors to communicate pedagogy and instructional strategies.",
@@ -246,7 +246,7 @@
    },
    "release": "npm:@haxtheweb/course-design",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_mark_the_words": {
    "desc": "Identify concepts via words by clicking within a body of text.",
@@ -261,7 +261,7 @@
    },
    "release": "npm:@haxtheweb/mark-the-words",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_matching_question": {
    "desc": "Drag-and-drop matching activity that pairs prompts with their correct responses.",
@@ -276,7 +276,7 @@
    },
    "release": "npm:@haxtheweb/matching-question",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_lrn_math": {
    "desc": "Present math in a nice looking way.",
@@ -291,7 +291,7 @@
    },
    "release": "npm:@haxtheweb/lrn-math",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_multiple_choice": {
    "desc": "Multiple-choice self-check question.",
@@ -306,7 +306,7 @@
    },
    "release": "npm:@haxtheweb/multiple-choice",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_self_check": {
    "desc": "Users can complete a self-check.",
@@ -321,7 +321,7 @@
    },
    "release": "npm:@haxtheweb/self-check",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_short_answer_question": {
    "desc": "Have the user answer a basic question",
@@ -336,7 +336,7 @@
    },
    "release": "npm:@haxtheweb/multiple-choice",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_sorting_question": {
    "desc": "Sort items into the correct order.",
@@ -351,7 +351,7 @@
    },
    "release": "npm:@haxtheweb/sorting-question",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_stop_note": {
    "desc": "A message to alert readers to specific directions.",
@@ -366,7 +366,7 @@
    },
    "release": "npm:@haxtheweb/stop-note",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_tagging_question": {
    "desc": "Select tags to answer the question.",
@@ -381,7 +381,7 @@
    },
    "release": "npm:@haxtheweb/tagging-question",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_lrndesign_timeline": {
    "desc": "A timeline of events with images and text",
@@ -396,7 +396,7 @@
    },
    "release": "npm:@haxtheweb/lrndesign-timeline",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_true_false_question": {
    "desc": "True false question",
@@ -411,7 +411,7 @@
    },
    "release": "npm:@haxtheweb/multiple-choice",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_vocab_term": {
    "desc": "Vocabulary term.",
@@ -426,7 +426,7 @@
    },
    "release": "npm:@haxtheweb/vocab-term",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_worksheet_download": {
    "desc": "A button for displaying files available for download.",
@@ -441,7 +441,7 @@
    },
    "release": "npm:@haxtheweb/course-design",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_audio_player": {
    "desc": "This can present video in a highly accessible manner regardless of source.",
@@ -457,7 +457,7 @@
    "release": "npm:@haxtheweb/audio-player",
    "status": "released",
    "note": "Mission-critical: redesigns are limited to wrapping it, so existing content keeps working.",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_media_image": {
    "desc": "A way of presenting images with various enhancements.",
@@ -472,7 +472,7 @@
    },
    "release": "npm:@haxtheweb/media-image",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_a11y_gif_player": {
    "desc": "Make animated GIFs accessible.",
@@ -487,7 +487,7 @@
    },
    "release": "npm:@haxtheweb/a11y-gif-player",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_image_compare_slider": {
    "desc": "Swipe one image over another for comparison.",
@@ -502,7 +502,7 @@
    },
    "release": "npm:@haxtheweb/image-compare-slider",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_image_gallery": {
    "desc": "A gallery that presents images in grid, masonry, or slideshow layouts.",
@@ -517,7 +517,7 @@
    },
    "release": "npm:@haxtheweb/image-gallery",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_inline_audio": {
    "desc": "Play audio inline to supplement page content.",
@@ -532,7 +532,7 @@
    },
    "release": "npm:@haxtheweb/inline-audio",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_media_playlist": {
    "desc": "A playlist that presents video and audio players in a player + sidebar layout.",
@@ -547,7 +547,7 @@
    },
    "release": "npm:@haxtheweb/media-playlist",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_meme_maker": {
    "desc": "Make a meme out of an image.",
@@ -562,7 +562,7 @@
    },
    "release": "npm:@haxtheweb/meme-maker",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_spotify_embed": {
    "desc": "Wrapper for Spotify player embeds.",
@@ -577,7 +577,7 @@
    },
    "release": "npm:@haxtheweb/spotify-embed",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_tableau_embed": {
    "desc": "Embed Tableau visualizations from a share URL.",
@@ -592,7 +592,7 @@
    },
    "release": "npm:@haxtheweb/tableau-embed",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_video_player": {
    "desc": "Accessible video playback across multiple sources.",
@@ -608,7 +608,7 @@
    "release": "npm:@haxtheweb/video-player",
    "status": "released",
    "note": "Mission-critical: redesigns are limited to wrapping it, so existing content keeps working.",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_block_quote": {
    "desc": "Styled quote block.",
@@ -623,7 +623,7 @@
    },
    "release": "npm:@haxtheweb/course-design",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_simple_cta": {
    "desc": "A simple button with a link to take action.",
@@ -638,7 +638,7 @@
    },
    "release": "npm:@haxtheweb/simple-cta",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_accent_card": {
    "desc": "A card with optional accent styling.",
@@ -653,7 +653,7 @@
    },
    "release": "npm:@haxtheweb/accent-card",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_a11y_collapse": {
    "desc": "Single expandable and collapsible container.",
@@ -668,7 +668,7 @@
    },
    "release": "npm:@haxtheweb/a11y-collapse",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_grid_plate": {
    "desc": "Layout material in simple columns",
@@ -683,7 +683,7 @@
    },
    "release": "npm:@haxtheweb/grid-plate",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_person_testimonial": {
    "desc": "Stylized quote with an optional image.",
@@ -698,7 +698,7 @@
    },
    "release": "npm:@haxtheweb/person-testimonial",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_page_section": {
    "desc": "Section container for page content and screen-based layouts.",
@@ -713,7 +713,7 @@
    },
    "release": "npm:@haxtheweb/page-section",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_play_list": {
    "desc": "Display any kind of content in a playlist.",
@@ -728,7 +728,7 @@
    },
    "release": "npm:@haxtheweb/play-list",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_bibliography_builder": {
    "desc": "A tool for creating and managing bibliographies",
@@ -813,7 +813,7 @@
    },
    "release": "npm:@haxtheweb/citation-element",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_place_holder": {
    "desc": "A place holder that can be converted into the media type that's been selected",
@@ -828,7 +828,7 @@
    },
    "release": "npm:@haxtheweb/place-holder",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_ai_usage_license": {
    "desc": "Display an AI Usage License (AIUL) badge for your work",
@@ -843,7 +843,7 @@
    },
    "release": "npm:@haxtheweb/ai-usage-license",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_course_model": {
    "desc": "Interactive layout for course concepts with details, animation, and knowledge checks.",
@@ -858,7 +858,7 @@
    },
    "release": "npm:@haxtheweb/course-model",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_date_card": {
    "desc": "Display a calendar date with details.",
@@ -873,7 +873,7 @@
    },
    "release": "npm:@haxtheweb/date-card",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_license_element": {
    "desc": "Provide a license for your work.",
@@ -888,7 +888,7 @@
    },
    "release": "npm:@haxtheweb/license-element",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_md_block": {
    "desc": "A block of markdown content directly or remote loaded",
@@ -903,7 +903,7 @@
    },
    "release": "npm:@haxtheweb/md-block",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_page_anchor": {
    "desc": "Link to specific points in media on the page.",
@@ -918,7 +918,7 @@
    },
    "release": "npm:@haxtheweb/page-break",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_page_break": {
    "desc": "Define a visual split between pages which CMSs can use to create pages.",
@@ -933,7 +933,7 @@
    },
    "release": "npm:@haxtheweb/page-break",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_page_flag": {
    "desc": "Editorial note for page authors.",
@@ -948,7 +948,7 @@
    },
    "release": "npm:@haxtheweb/page-flag",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_q_r": {
    "desc": "Code to scan from a smartphone.",
@@ -963,7 +963,7 @@
    },
    "release": "npm:@haxtheweb/q-r",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_site_remote_content": {
    "desc": "Reuse content from one site in another.",
@@ -978,7 +978,7 @@
    },
    "release": "npm:@haxtheweb/haxcms-elements",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_rpg_character": {
    "desc": "Fun character from HAX.",
@@ -993,7 +993,7 @@
    },
    "release": "npm:@haxtheweb/rpg-character",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_moar_sarcasm": {
    "desc": "Presenting text in a trolly way",
@@ -1008,7 +1008,7 @@
    },
    "release": "npm:@haxtheweb/moar-sarcasm",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_simple_tags": {
    "desc": "Simple tag list for display on the page.",
@@ -1023,7 +1023,7 @@
    },
    "release": "npm:@haxtheweb/simple-fields",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_twitter_embed": {
    "desc": "Embed a tweet from X in context.",
@@ -1038,7 +1038,7 @@
    },
    "release": "npm:@haxtheweb/twitter-embed",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "b_wikipedia_query": {
    "desc": "This can display a wikipedia article in context in a variety of formats.",
@@ -1053,7 +1053,7 @@
    },
    "release": "npm:@haxtheweb/wikipedia-query",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   }
  },
  "evidence": {

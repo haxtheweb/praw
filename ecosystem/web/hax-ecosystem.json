@@ -133,7 +133,7 @@
     "label": "DrupalCon Baltimore 2017 session",
     "url": "https://events.drupal.org/baltimore2017/sessions/mad-scientist-road-show"
    },
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "merlin": {
    "desc": "HAX's command program, marked by the wand: search for and run actions while editing. HAX Tips will surface here.",
@@ -160,7 +160,7 @@
     "label": "WINS.md",
     "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
    },
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "themes": {
    "desc": "Ways to theme HAXcms matched to skill set: skin a site with CSS, or build a theme from web components. Themes grew from 14 at the end of 2024 to more than 30.",
@@ -173,7 +173,7 @@
    },
    "release": "npm:@haxtheweb/haxcms-elements",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "php": {
    "desc": "HAXcms on PHP. Kept in step with the Node.js backend through a shared OpenAPI contract; powers haxtheweb.org through HAXiam.",
@@ -186,7 +186,7 @@
    },
    "release": "git:haxtheweb/haxcms-php",
    "status": "released",
-   "version": "26.8.2"
+   "version": "26.11.0"
   },
   "nodejs": {
    "desc": "HAXcms on Node.js, started with npx @haxtheweb/haxcms-nodejs. The most-downloaded @haxtheweb package.",
@@ -200,7 +200,7 @@
    },
    "release": "npm:@haxtheweb/haxcms-nodejs",
    "status": "released",
-   "version": "26.8.1"
+   "version": "26.11.0"
   },
   "browser": {
    "desc": "haxcms-nodejs bundled to run in a browser tab: no install, no server. Sites save to a folder, the browser, or cloud storage (Google Drive, OneDrive, Dropbox, Box, WebDAV); people sign in with an account they have; and sites publish straight to Surge, GitHub Pages, GitLab Pages, Codeberg Pages, Netlify or Vercel. Open its web for every service.",
@@ -276,7 +276,7 @@
    },
    "release": "git:haxtheweb/hax11ty",
    "status": "released",
-   "version": "26.0.0"
+   "version": "26.11.0"
   },
   "cli": {
    "desc": "hax: install with npm install --global @haxtheweb/create, then run hax start. Creates sites and components, audits DDD and publishes. Needs Node 20+.",
@@ -296,7 +296,7 @@
     "label": "WINS.md: Winston White",
     "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#winston-white-student-to-trainer"
    },
-   "version": "26.8.1"
+   "version": "26.11.0"
   },
   "ubiquity": {
    "desc": "The webcomponents release build that ships every element, as one tested set, to haxcms-nodejs and the other backends.",
@@ -306,7 +306,7 @@
    },
    "release": "git:haxtheweb/webcomponents",
    "status": "released",
-   "version": "26.8.1"
+   "version": "26.11.0"
   },
   "staticpub": {
    "desc": "Static export and Lit SSR built into haxcms-nodejs, haxcms-php and the CLI, so any site publishes as static files from core; HAX11ty becomes a wrapper around it.",
@@ -453,7 +453,7 @@
     "label": "WINS.md SIIP timeline",
     "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
    },
-   "version": "26.8.1"
+   "version": "26.11.0"
   },
   "ddd": {
    "desc": "DDD (Design, Develop, Deliver), the HAX design system. It began as Keith Charlton Jr's class project and now spans 60+ elements: \"PSU-esque designs by PSU.\"",
@@ -473,7 +473,7 @@
     "label": "hax-lab README",
     "url": "https://github.com/haxtheweb/lab"
    },
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "plugins": {
    "desc": "A plugin architecture in progress: spec and examples in haxcms-plugin-examples, while core keeps the evolving baseline (SEO, accessibility, sitemaps).",
@@ -642,7 +642,7 @@
    },
    "release": "npm:@haxtheweb/json-outline-schema",
    "status": "released",
-   "version": "26.8.0"
+   "version": "26.11.0"
   },
   "haxschema": {
    "desc": "\"For your element to talk to the HAX editor, you implement static get haxProperties()\": the schema that gives every block its editing form.",

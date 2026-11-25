@@ -331,6 +331,13 @@
       "digest": "sha256:fa584d61aaf9342da68c18898bb7de3865a138df39952fa664fdc3b888ee2394"
     },
     {
+      "name": "hax-site-generator",
+      "type": "skill-md",
+      "description": "Build a site generator service (a wizard, converter or themed starter like the GeoCities Generator) that makes a real HAXcms site in the browser and opens it straight in browser.hax.cloud with the Open in HAX handoff, no download. Use when asked to make a generator, wizard or 'click to make a site' service for HAX, to add an Open in HAX button, or to hand a site to HAX from another website.",
+      "url": "hax-site-generator/SKILL.md",
+      "digest": "sha256:8b14a24c2c4aa14c365d36a22037fc6b86f38c1a91fc2a91bec5ddec6fd83c85"
+    },
+    {
       "name": "hax-site-structure",
       "type": "skill-md",
       "description": "Read and navigate an existing HAXcms site from its portable files: site.json, pages/, files/, theme, basePath, wc-registry.json. Load FIRST when an agent lands on any HAXsite or deployment.",

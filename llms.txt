@@ -144,6 +144,8 @@ All skills below live in `skills/` in this repo. The machine-readable discovery 
   - Path: `/skills/hax-design-system-ingest/SKILL.md`
 - **hax-theme-builder**: Turn a screenshot, or a well known static site generator theme, into an accessible, dark-mode-ready HAXcms theme
   - Path: `/skills/hax-theme-builder/SKILL.md`
+- **hax-site-generator**: Build a generator service that makes a HAXcms site in the browser and opens it in browser.hax.cloud with Open in HAX (the hax-handoff protocol), no download
+  - Path: `/skills/hax-site-generator/SKILL.md`
 - **youtube-vtt**: Generate a WebVTT transcript from a YouTube URL with yt-dlp, no video download
   - Path: `/skills/youtube-vtt/SKILL.md`
 

@@ -6,8 +6,8 @@ grew over time, how they reuse each other, and what that reuse saves in bytes. W
 Reads git history and source, so it needs full-history clones (no file contents for history, the element source
 for sizes and imports). It keeps them in DIR (default ecosystem/.work/growth): blobless bare clones of every
 repository in the network, and a blobless clone of webcomponents with its element JavaScript checked out. Clones
-are reused and fetched on later runs. Run it by hand or from the Sunday mechanical-update job and commit the
-result; the hax.cloud build only publishes the committed snapshot (build_data.py), so a build never clones history.
+are reused and fetched on later runs. The Sunday drift run (ecosystem-drift.yml) runs it and reports the diff
+without committing; to take it, run it here and commit the result; the hax.cloud build only publishes the committed snapshot (build_data.py), so a build never clones history.
 
 Writes, each with a "meta" block saying when, from which commits and by which definitions:
   repos.json     first commit and commits per month for every repository in the network
@@ -241,12 +241,13 @@ def main():
               for k, r, l, pu in RUNTIMES]
     props.append({"key": CENTER[0], "repo": CENTER[1], "kind": "contract", "label": CENTER[2], "url": "", "color": "",
                   "purpose": CENTER[3], "parent": None})
-    repos = []
+    repos, dirs = [], {}
     for p in props:
         d = wc if p["key"] == "webcomponents" else sync(args.src, p["key"], p["repo"])
         if not d:
             print("growth: skipped", p["repo"], "(not reachable)", file=sys.stderr)
             continue
+        dirs[p["key"]] = d
         first, months = monthly(d)
         repos.append(dict(p, first=first, total=sum(months.values()), monthly=months))
     json.dump({"meta": meta("First commit and commits per month (all branches) for every repository in the HAX "
@@ -300,15 +301,14 @@ def main():
     used_by = collections.Counter(q for e in elements for q in e["dependsOn"])
     for e in elements:
         e["usedBy"] = used_by[e["name"]]
-    json.dump({"meta": meta("Every element package in webcomponents: when its package.json appeared, its main file's "
-                            "gzipped size, whether it builds on DDD, the packages it imports (statically or "
-                            "dynamically) and how many packages import it. History starts in September 2018, when "
-                            "the existing elements were moved into this repository."),
-               "elements": elements}, open(os.path.join(OUT, "elements.json"), "w"), indent=1)
 
     # ---- payload: which files each theme and element loads, and their gzipped sizes
     builder = g.closure(BUILDER)
     tsets = {t["tag"]: g.closure(t["path"]) | builder for t in themes}
+    # an element's weight (the Weight lens, https://github.com/haxtheweb/issues/issues/3413): everything its main
+    # file loads, and what of that a site with the shared core does not already have; its reach into themes
+    # (the Reuse lens): how many themes load at least one of its files
+    in_themes = collections.Counter(p for s in tsets.values() for p in {f.split("/")[1] for f in s})
     content = sorted({e for _, _, pages in JOURNEY for _, els in pages for e in els} | {"grid-plate"})
     esets = {n: g.closure(element_main(wc, n)) for n in content if element_main(wc, n)}
     freq = collections.Counter(f for s in tsets.values() for f in s)
@@ -335,6 +335,24 @@ def main():
                      "note": "every page also uses grid-plate; moving between pages of one site keeps what is loaded"},
     }
     json.dump(payload, open(os.path.join(OUT, "payload.json"), "w"), separators=(",", ":"))
+    for e in elements:
+        s = g.closure(e["main"])
+        e["load"], e["adds"], e["themes"] = gzs(s), gzs(s - core), in_themes[e["name"]]
+    json.dump({"meta": meta("Every element package in webcomponents: when its package.json appeared, its main file's "
+                            "gzipped size (gz), whether it builds on DDD, the packages it imports (statically or "
+                            "dynamically), how many packages import it (usedBy) and how many themes load any of its "
+                            "files (themes); load is the gzipped size of everything its main file loads (static "
+                            "imports, third-party code left out) and adds is the part of that outside the shared "
+                            "core (payload.json), what it costs a visitor on a site that already has the core. "
+                            "History starts in September 2018, when the existing elements were moved into this "
+                            "repository."),
+               "elements": elements}, open(os.path.join(OUT, "elements.json"), "w"), indent=1)
+
+    # ---- contributors: who connects to the network, when, and how (https://github.com/haxtheweb/issues/issues/3416)
+    people = contributors(dirs, today)
+    active = people.pop("active")
+    people = dict({"meta": meta(people.pop("about"))}, **people)
+    json.dump(people, open(os.path.join(OUT, "contributors.json"), "w"), separators=(",", ":"))
 
     # ---- series: one month axis for every chart
     start = min(r["first"] for r in repos if r["first"])[:7]
@@ -369,12 +387,201 @@ def main():
             {"key": "platforms", "label": "Network properties and platforms (running total)",
              "values": cum([r["first"] for r in repos if r["kind"] != "contract"])},
             {"key": "sites", "label": "Sites built with HAX (yearly, SIIP)", "values": [sites(m) for m in months]},
+            {"key": "contributors", "label": "Contributors active that month", "values": active.get_series(months)},
+            {"key": "people", "label": "Contributors (running total)",
+             "values": cum([x["first"] for x in people["people"] if x["kind"] == "person"])},
         ],
     }
     json.dump(series, open(os.path.join(OUT, "series.json"), "w"), indent=1)
     print("growth: %d repos, %d themes, %d elements (%d links), %d modules (core %d files, %d KB gz)"
           % (len(repos), len(themes), len(elements), sum(len(e["dependsOn"]) for e in elements), len(files),
              len(core), payload["core"]["gz"] // 1000))
+
+
+# ---- contributors
+
+BOT = re.compile(r"\[bot\]|\bbot\b|dependabot|renovate|github-actions|greenkeeper|snyk|semantic-release", re.I)
+# commits with no person behind them: a local development container's default identity
+NOBODY = re.compile(r"^(ddev-local user|unknown|root|user|your name)$", re.I)
+AGENT = re.compile(r"\b(claude|copilot|codex|warp|oz-agent|cursor|devin)\b|@anthropic\.com|@warp\.dev", re.I)
+GENERIC = re.compile(r"example\.com$|localhost|\.local$|\.lan$|\.attlocal\.net$|\.$|^root@|^nobody@|users\.noreply\.github\.com$")
+NOREPLY = re.compile(r"^(?:\d+\+)?([A-Za-z0-9-]+)@users\.noreply\.github\.com$")
+KINDS = ("commits", "opened", "closed")  # the three kinds of contribution counted per month
+
+
+class Active(dict):
+    """month -> set of person ids active that month"""
+
+    def get_series(self, months):
+        return [len(self.get(m, ())) for m in months]
+
+
+def people_tiles():
+    """PRAW's main-web people with a GitHub login: login -> (tile id, label)"""
+    try:
+        nodes = json.load(open(os.path.join(ECO, "web", "hax-ecosystem.json")))["nodes"]
+        mmd = open(os.path.join(ECO, "web", "hax-ecosystem.mmd")).read()
+    except (OSError, ValueError, KeyError):
+        return {}
+    labels = dict(re.findall(r"^\s*(\w+)\(\(\"([^\"]+)\"\)\)", mmd, re.M))
+    return {n["github"].lower(): (k, labels.get(k, n["github"])) for k, n in nodes.items() if n.get("github")}
+
+
+def gh_lines(path, jq):
+    """every page of a GitHub API list, each item through jq to one tab-separated line; None when gh can't read it.
+    Pages are read one at a time, each tried three times, so one dropped connection doesn't lose the list."""
+    rows, page = [], 1
+    while True:
+        for attempt in range(3):
+            try:
+                r = subprocess.run(["gh", "api", "%s&page=%d" % (path, page), "--jq", '"#\\(length)", (%s)' % jq], capture_output=True,
+                                   text=True, timeout=120)
+            except (OSError, subprocess.TimeoutExpired) as e:
+                r = None
+                err = str(e)
+            if r is not None and r.returncode == 0:
+                break
+            err = r.stderr.strip()[-200:] if r is not None else err
+        else:
+            print("growth: contributors: could not read", path, "page", page, err, file=sys.stderr)
+            return None
+        lines = r.stdout.splitlines()
+        if not lines or lines[0] == "#0":  # an empty page: the list is done
+            return rows
+        got = [ln.split("\t") for ln in lines[1:] if ln.count("\t") == 1]
+        rows += got
+        page += 1
+
+
+def contributors(dirs, today):
+    """people who contributed, merged across their git names, emails and GitHub logins, with what they did each month:
+    commits to any network repository, issues opened and issues closed in the unified queue (haxtheweb/issues)"""
+    parent_of = {}
+
+    def find(x):
+        while parent_of.setdefault(x, x) != x:
+            parent_of[x] = parent_of[parent_of[x]]
+            x = parent_of[x]
+        return x
+
+    def union(a, b):
+        a, b = find(a), find(b)
+        if a != b:
+            parent_of[max(a, b)] = min(a, b)
+
+    tiles = people_tiles()
+    names = collections.defaultdict(collections.Counter)  # root -> names seen
+    commits = []  # (key, month, repo)
+    agents = []  # (month, repo): commits an AI agent authored
+    for repo, d in dirs.items():
+        log = git(d, "log", "--all", "--format=%as|%an|%ae")
+        for line in log.splitlines():
+            parts = line.split("|", 2)
+            if len(parts) != 3:
+                continue
+            day, name, email = parts[0], parts[1].strip(), parts[2].strip().lower()
+            if BOT.search(name) or BOT.search(email) or NOBODY.match(name):
+                continue
+            if AGENT.search(name) or AGENT.search(email):
+                agents.append((day, repo))
+                continue
+            nk = "n:" + name.lower()
+            m = NOREPLY.match(email)
+            if m:
+                union(nk, "l:" + m.group(1).lower())
+            elif not GENERIC.search(email):
+                union(nk, "e:" + email)
+            if re.fullmatch(r"[A-Za-z0-9-]+", name):  # a name that looks like a login is one
+                union(nk, "l:" + name.lower())
+            names[nk][name] += 1
+            commits.append((nk, day, repo))
+    for login, (tile, label) in tiles.items():  # PRAW names who is who, also when git has a longer form of the name
+        union("l:" + login, "n:" + label.lower())
+        words = label.lower().split()
+        for nk in list(names):
+            if len(words) >= 2 and nk[2:].split()[:len(words)] == words:
+                union("l:" + login, nk)
+    issue_rows = {}
+    for kind, path, jq in (("opened", "repos/haxtheweb/issues/issues?state=all&per_page=100",
+                            '.[] | select(.pull_request | not) | [.user.login, .created_at[:10]] | @tsv'),
+                           ("closed", "repos/haxtheweb/issues/issues/events?per_page=100",
+                            '.[] | select(.event == "closed" and .actor != null) | [.actor.login, .created_at[:10]] | @tsv')):
+        rows = gh_lines(path, jq)
+        issue_rows[kind] = rows
+        for login, day in rows or []:
+            if BOT.search(login) or AGENT.search(login):
+                continue
+            find("l:" + login.lower())
+
+    people = {}
+
+    def person(key):
+        r = find(key)
+        if r not in people:
+            people[r] = {"monthly": collections.defaultdict(lambda: [0, 0, 0]), "repos": collections.Counter(), "first": None, "firstRepo": None}
+        return people[r]
+
+    def add(p, day, i, repo=None):
+        p["monthly"][day[:7]][i] += 1
+        if repo:
+            p["repos"][repo] += 1
+        if p["first"] is None or day < p["first"]:
+            p["first"], p["firstRepo"] = day, repo or "issues"
+
+    for key, day, repo in commits:
+        add(person(key), day, 0, repo)
+    for i, kind in ((1, "opened"), (2, "closed")):
+        for login, day in issue_rows[kind] or []:
+            if not (BOT.search(login) or AGENT.search(login)):
+                add(person("l:" + login.lower()), day, i)
+
+    # a stable id and a name for each person: the GitHub login when one is known, else the most used git name
+    members = collections.defaultdict(set)
+    for k in list(parent_of):
+        members[find(k)].add(k)
+    out, ids = [], {}
+    for r, p in people.items():
+        logins = sorted(k[2:] for k in members[r] if k.startswith("l:"))
+        login = next((l for l in logins if l in tiles), None) or (min(logins, key=len) if logins else None)
+        seen = collections.Counter()
+        for k in members[r]:
+            seen.update(names.get(k, {}))
+        tile = tiles.get(login) if login else None
+        shown = tile[1] if tile else (login or (seen.most_common(1)[0][0] if seen else "?"))
+        pid = login or re.sub(r"[^a-z0-9]+", "-", shown.lower()).strip("-")
+        while pid in ids.values():
+            pid += "-2"
+        ids[r] = pid
+        tot = [sum(v[i] for v in p["monthly"].values()) for i in range(3)]
+        out.append({"id": pid, "name": shown, "login": login, "tile": tile[0] if tile else None, "kind": "person",
+                    "first": p["first"], "firstRepo": p["firstRepo"], "totals": dict(zip(KINDS, tot)),
+                    "monthly": {m: v for m, v in sorted(p["monthly"].items())}, "_repos": p["repos"]})
+    # the root: whoever PRAW names as HAX's creator (the "bryan" tile); the drawing grows everyone else out from them
+    root = next((x for x in out if x["tile"] == "bryan"), None) or min(out, key=lambda x: x["first"] or "9")
+    for x in out:
+        x.pop("_repos")
+    out.sort(key=lambda x: (x["first"] or "9", x["id"]))
+    if agents:
+        am = collections.Counter(d[:7] for d, _ in agents)
+        out.append({"id": "agents", "name": "AI agents", "login": None, "tile": None, "kind": "agents",
+                    "first": min(d for d, _ in agents), "firstRepo": None,
+                    "totals": {"commits": len(agents), "opened": 0, "closed": 0},
+                    "monthly": {m: [n, 0, 0] for m, n in sorted(am.items())}})
+    active = Active()
+    for x in out:
+        if x["kind"] == "person":
+            for m in x["monthly"]:
+                active.setdefault(m, set()).add(x["id"])
+    sources = {"commits": sorted(dirs), "opened": issue_rows["opened"] is not None, "closed": issue_rows["closed"] is not None}
+    return {
+        "about": "Everyone who has contributed to the HAX network, by month: commits to any network repository "
+                 "(repos.json), and issues opened and closed in the unified queue (haxtheweb/issues). A person's git "
+                 "names, emails and GitHub login are merged into one; PRAW's people tiles name who is who. Bots are "
+                 "left out. Commits an AI agent authored are counted together as 'AI agents', not as people. "
+                 "monthly maps YYYY-MM to [commits, issues opened, issues closed]; first is a person's earliest "
+                 "contribution of any kind and firstRepo where it was ('issues' for the queue). root is the network's "
+                 "creator, as PRAW's people tiles name them.",
+        "root": root["id"], "kinds": list(KINDS), "sources": sources, "people": out, "active": active}
 
 
 if __name__ == "__main__":

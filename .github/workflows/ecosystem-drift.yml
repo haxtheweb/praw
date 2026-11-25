@@ -6,6 +6,13 @@ name: Ecosystem web drift
 # Report only. The job holds a read-only token and writes nothing to the repository: no branch, no pull request,
 # no comment, no deployment. The changed files and the report are kept for a week as the ecosystem-drift artifact
 # (ecosystem/build/drift_report.py).
+#
+# It also refreshes the growth data layer (ecosystem/build/data/growth/, https://github.com/haxtheweb/issues/issues/3415):
+# build_growth.py reads every network repository's git history from blobless clones in the runner's temp folder,
+# and the unified issue queue's issues and close events through the read-only token for who contributed when.
+# Its changed files land in the same artifact and its summary in the same report; a refresh that fails is reported
+# there and does not stop the rest of the report. No AI runs here, and nothing is committed: to take the new snapshot,
+# run build_growth.py locally (or copy the artifact's files) and open a pull request.
 on:
   schedule:
     - cron: "41 8 * * 0" # Sundays, 08:41 UTC
@@ -21,7 +28,7 @@ jobs:
     # forks don't run it, and it only ever reports on main (a scheduled run is always on the default branch)
     if: github.repository == 'haxtheweb/praw' && github.ref_name == 'main'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45 # the generators, then the growth layer's history clones
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -35,7 +42,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }} # read-only here: the generators read public haxtheweb repos through gh
         run: ecosystem/build/run.sh
+      - name: Refresh the growth data
+        id: growth
+        continue-on-error: true # reported below; the rest of the drift report still lands
+        env:
+          GH_TOKEN: ${{ github.token }} # read-only: contributors.json reads haxtheweb/issues' public issues and events
+        run: python3 -I ecosystem/build/build_growth.py --src "$RUNNER_TEMP/growth"
       - name: Report what changed
+        env:
+          GROWTH_OUTCOME: ${{ steps.growth.outcome }}
         run: python3 -I ecosystem/build/drift_report.py "$RUNNER_TEMP/drift"
       - name: Keep the report and the changed files
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

@@ -28,7 +28,8 @@ GROWTH_FILES = {
     "themes": ("Themes over time", "Every theme on the shared theme core: when it appeared, what it extends, its own code size."),
     "elements": ("Elements and their dependencies", "Every element package: when it appeared, its size, DDD or not, and which packages it imports and is imported by."),
     "payload": ("What a visitor loads", "Gzipped size of every file a theme or element loads, the shared core, and sample visitor journeys for cache savings."),
-    "series": ("Growth series", "Monthly series on one axis: commits, merged PRs, issues closed, totals of themes, elements and platforms, sites built."),
+    "series": ("Growth series", "Monthly series on one axis: commits, merged PRs, issues closed, totals of themes, elements and platforms, sites built, contributors."),
+    "contributors": ("Contributors over time", "Everyone who has contributed to the HAX network, by month: commits to any network repository, issues opened and issues closed in the unified queue."),
 }
 ARROWS = {"-->": "solid", "-.->": "dashed", "==>": "thick", "---": "line"}
 EDGE = re.compile(r"^\s*([\w-]+)\s*(-->|-\.->|==>|---)\s*(?:\|([^|]*)\|)?\s*([\w-]+)\s*$")

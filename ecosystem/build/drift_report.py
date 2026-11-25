@@ -20,6 +20,43 @@ def git(*args):
     return subprocess.run(["git", "-C", ROOT] + list(args), capture_output=True, text=True, check=True).stdout
 
 
+def growth_summary():
+    """Lines on the growth data layer (https://github.com/haxtheweb/issues/issues/3415): whether the refresh ran,
+    and its headline counts, committed snapshot first and this run's second."""
+    outcome = os.environ.get("GROWTH_OUTCOME", "")
+    if not outcome:
+        return []
+    if outcome != "success":
+        return ["- Growth data refresh (`ecosystem/build/build_growth.py`): **did not finish** (%s); the committed "
+                "snapshot is unchanged. The step's log says why." % outcome]
+
+    def counts(read):
+        try:
+            th, el, rp, pl = (json.loads(read(n)) for n in ("themes", "elements", "repos", "payload"))
+            try:
+                people = sum(1 for x in json.loads(read("contributors"))["people"] if x.get("kind") == "person")
+            except (OSError, ValueError, KeyError, TypeError, subprocess.CalledProcessError):
+                people = None
+            return {"contributors": people,"themes": len(th["themes"]), "elements": len(el["elements"]), "repositories": len(rp["repos"]),
+                    "dependency links": sum(len(e["dependsOn"]) for e in el["elements"]),
+                    "KB gzipped in the shared core": round(pl["core"]["gz"] / 1024)}
+        except (OSError, ValueError, KeyError, TypeError, subprocess.CalledProcessError):
+            return None
+    rel = "ecosystem/build/data/growth/%s.json"
+    was = counts(lambda n: git("show", "HEAD:" + rel % n))
+    now = counts(lambda n: open(os.path.join(ROOT, rel % n), encoding="utf-8").read())
+    if not now:
+        return ["- Growth data refresh: ran, but its files could not be read."]
+    def part(k, v):
+        if v is None:
+            return "no %s" % k
+        if was and was.get(k) is not None and was[k] != v:
+            return "%s %s (was %s)" % (v, k, was[k])
+        return "%s %s" % (v, k)
+    parts = [part(k, v) for k, v in now.items()]
+    return ["- Growth data refreshed: " + ", ".join(parts) + ". Its files are in the artifact with the rest."]
+
+
 def collect(out):
     """Copy what changed under ecosystem/ (tracked or new, never ignored files) into out/files and describe it."""
     changed, deleted = [], []
@@ -58,6 +95,7 @@ def collect(out):
         "",
         f"- {len(changed)} files changed" + (f", {len(deleted)} removed" if deleted else "") + ". They are in this run's `ecosystem-drift` artifact, under `files/`.",
         "- Integrity check on the regenerated webs: " + ("passes." if integrity.returncode == 0 else "**fails** (below)."),
+    ] + growth_summary() + [
         "- This run changes nothing in the repository. To take the changes, run `ecosystem/build/run.sh` locally and open a pull request.",
         "",
     ]

@@ -3,10 +3,10 @@
   "generated": "2026-11-25",
   "generator": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/build_growth.py",
   "source": {
-   "webcomponents": "6c0e7a61c3da8a97a2d8450807ecd42313bb4297"
+   "webcomponents": "86f695077af6b0461776552f13a06351a889748a"
   },
   "license": "https://www.apache.org/licenses/LICENSE-2.0",
-  "about": "Every element package in webcomponents: when its package.json appeared, its main file's gzipped size, whether it builds on DDD, the packages it imports (statically or dynamically) and how many packages import it. History starts in September 2018, when the existing elements were moved into this repository.",
+  "about": "Every element package in webcomponents: when its package.json appeared, its main file's gzipped size (gz), whether it builds on DDD, the packages it imports (statically or dynamically), how many packages import it (usedBy) and how many themes load any of its files (themes); load is the gzipped size of everything its main file loads (static imports, third-party code left out) and adds is the part of that outside the shared core (payload.json), what it costs a visitor on a site that already has the core. History starts in September 2018, when the existing elements were moved into this repository.",
   "issue": "https://github.com/haxtheweb/issues/issues/3409"
  },
  "elements": [
@@ -21,7 +21,10 @@
     "radio-behaviors",
     "simple-icon"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 13634,
+   "adds": 7193,
+   "themes": 0
   },
   {
    "name": "a11y-collapse",
@@ -37,7 +40,10 @@
     "simple-tooltip",
     "user-action"
    ],
-   "usedBy": 5
+   "usedBy": 5,
+   "load": 99788,
+   "adds": 13484,
+   "themes": 34
   },
   {
    "name": "a11y-compare-image",
@@ -49,7 +55,10 @@
    "dependsOn": [
     "d-d-d"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 48413,
+   "adds": 12557,
+   "themes": 0
   },
   {
    "name": "a11y-details",
@@ -61,7 +70,10 @@
    "dependsOn": [
     "i18n-manager"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 13602,
+   "adds": 4203,
+   "themes": 0
   },
   {
    "name": "a11y-figure",
@@ -73,7 +85,10 @@
    "dependsOn": [
     "a11y-details"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 16870,
+   "adds": 7471,
+   "themes": 0
   },
   {
    "name": "a11y-footnote",
@@ -86,7 +101,10 @@
     "d-d-d",
     "i18n-manager"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 76311,
+   "adds": 5703,
+   "themes": 0
   },
   {
    "name": "a11y-gif-player",
@@ -103,7 +121,10 @@
     "simple-icon",
     "simple-tooltip"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 37900,
+   "adds": 22060,
+   "themes": 0
   },
   {
    "name": "a11y-media-player",
@@ -129,7 +150,10 @@
     "user-action",
     "utils"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 225110,
+   "adds": 111616,
+   "themes": 0
   },
   {
    "name": "a11y-menu-button",
@@ -142,7 +166,10 @@
     "absolute-position-behavior",
     "utils"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 17111,
+   "adds": 12267,
+   "themes": 0
   },
   {
    "name": "a11y-tabs",
@@ -157,7 +184,10 @@
     "simple-icon",
     "simple-tooltip"
    ],
-   "usedBy": 4
+   "usedBy": 4,
+   "load": 37550,
+   "adds": 17263,
+   "themes": 0
   },
   {
    "name": "absolute-position-behavior",
@@ -167,7 +197,10 @@
    "gz": 2103,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 9
+   "usedBy": 9,
+   "load": 6947,
+   "adds": 2103,
+   "themes": 69
   },
   {
    "name": "accent-card",
@@ -182,7 +215,10 @@
     "intersection-element",
     "simple-icon"
    ],
-   "usedBy": 3
+   "usedBy": 3,
+   "load": 81394,
+   "adds": 7420,
+   "themes": 1
   },
   {
    "name": "aframe-player",
@@ -196,7 +232,10 @@
     "hax-consent-gate",
     "schema-behaviors"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 12907,
+   "adds": 5707,
+   "themes": 0
   },
   {
    "name": "ai-usage-license",
@@ -210,7 +249,10 @@
     "i18n-manager",
     "schema-behaviors"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 76460,
+   "adds": 5852,
+   "themes": 0
   },
   {
    "name": "air-horn",
@@ -220,7 +262,10 @@
    "gz": 2378,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 2378,
+   "adds": 2378,
+   "themes": 0
   },
   {
    "name": "anchor-behaviors",
@@ -230,7 +275,10 @@
    "gz": 1301,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 5
+   "usedBy": 5,
+   "load": 1301,
+   "adds": 0,
+   "themes": 69
   },
   {
    "name": "app-hax",
@@ -271,7 +319,10 @@
     "utils",
     "wc-autoload"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 495444,
+   "adds": 368129,
+   "themes": 0
   },
   {
    "name": "arithmetic-drill",
@@ -286,7 +337,10 @@
     "simple-icon",
     "user-action"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 101876,
+   "adds": 18799,
+   "themes": 0
   },
   {
    "name": "audio-player",
@@ -298,7 +352,10 @@
    "dependsOn": [
     "video-player"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 249480,
+   "adds": 133067,
+   "themes": 0
   },
   {
    "name": "author-card",
@@ -311,7 +368,10 @@
     "d-d-d",
     "i18n-manager"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 73366,
+   "adds": 2758,
+   "themes": 0
   },
   {
    "name": "awesome-explosion",
@@ -324,7 +384,10 @@
     "d-d-d",
     "i18n-manager"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 74308,
+   "adds": 3700,
+   "themes": 0
   },
   {
    "name": "b-r",
@@ -334,7 +397,10 @@
    "gz": 765,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 765,
+   "adds": 765,
+   "themes": 0
   },
   {
    "name": "baseline-build-hax",
@@ -368,7 +434,10 @@
     "wikipedia-query",
     "wysiwyg-hax"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 1064540,
+   "adds": 925714,
+   "themes": 0
   },
   {
    "name": "beaker-broker",
@@ -378,7 +447,10 @@
    "gz": 1814,
    "ddd": true,
    "dependsOn": [],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 1814,
+   "adds": 1814,
+   "themes": 0
   },
   {
    "name": "bibliography-builder",
@@ -395,7 +467,10 @@
     "simple-icon",
     "simple-modal"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 106197,
+   "adds": 28996,
+   "themes": 0
   },
   {
    "name": "book-theme",
@@ -411,7 +486,10 @@
     "simple-datetime",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 274754,
+   "adds": 72147,
+   "themes": 5
   },
   {
    "name": "bootstrap-theme",
@@ -430,7 +508,10 @@
     "simple-tooltip",
     "utils"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 313136,
+   "adds": 110192,
+   "themes": 1
   },
   {
    "name": "branching-scenario",
@@ -445,7 +526,10 @@
     "simple-icon",
     "user-action"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 105556,
+   "adds": 22479,
+   "themes": 0
   },
   {
    "name": "bullet-check-list",
@@ -462,7 +546,10 @@
     "simple-icon",
     "user-action"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 99698,
+   "adds": 16621,
+   "themes": 0
   },
   {
    "name": "carbon-theme",
@@ -477,7 +564,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 268454,
+   "adds": 65847,
+   "themes": 1
   },
   {
    "name": "career-timeline",
@@ -491,7 +581,10 @@
     "i18n-manager",
     "schema-behaviors"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 81379,
+   "adds": 10771,
+   "themes": 0
   },
   {
    "name": "chamfer-theme",
@@ -506,7 +599,10 @@
     "i18n-manager",
     "scroll-button"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 271834,
+   "adds": 69227,
+   "themes": 1
   },
   {
    "name": "chartist-render",
@@ -519,7 +615,10 @@
     "es-global-bridge",
     "utils"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 57960,
+   "adds": 40663,
+   "themes": 0
   },
   {
    "name": "citation-element",
@@ -536,14 +635,17 @@
     "simple-icon",
     "utils"
    ],
-   "usedBy": 3
+   "usedBy": 3,
+   "load": 87142,
+   "adds": 13168,
+   "themes": 0
   },
   {
    "name": "clean-one",
    "package": "@haxtheweb/clean-one",
    "main": "elements/clean-one/clean-one.js",
    "appeared": "2020-06-29",
-   "gz": 9198,
+   "gz": 9269,
    "ddd": true,
    "dependsOn": [
     "d-d-d",
@@ -553,7 +655,10 @@
     "scroll-button",
     "user-scaffold"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 269543,
+   "adds": 66936,
+   "themes": 1
   },
   {
    "name": "clean-portfolio-theme",
@@ -571,7 +676,10 @@
     "simple-icon",
     "user-scaffold"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 228381,
+   "adds": 27169,
+   "themes": 1
   },
   {
    "name": "clean-two",
@@ -586,7 +694,10 @@
     "micro-frontend-registry",
     "simple-icon"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 288463,
+   "adds": 85856,
+   "themes": 4
   },
   {
    "name": "cms-hax",
@@ -600,7 +711,10 @@
     "hax-body",
     "utils"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 876169,
+   "adds": 739357,
+   "themes": 0
   },
   {
    "name": "code-editor",
@@ -614,7 +728,10 @@
     "schema-behaviors",
     "utils"
    ],
-   "usedBy": 5
+   "usedBy": 5,
+   "load": 27654,
+   "adds": 11418,
+   "themes": 0
   },
   {
    "name": "code-sample",
@@ -629,7 +746,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 47375,
+   "adds": 31535,
+   "themes": 1
   },
   {
    "name": "collection-list",
@@ -646,7 +766,10 @@
     "simple-icon",
     "utils"
    ],
-   "usedBy": 3
+   "usedBy": 3,
+   "load": 65197,
+   "adds": 999,
+   "themes": 2
   },
   {
    "name": "count-up",
@@ -660,7 +783,10 @@
     "intersection-element",
     "utils"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 22568,
+   "adds": 7622,
+   "themes": 0
   },
   {
    "name": "course-design",
@@ -678,7 +804,10 @@
     "simple-icon",
     "simple-tooltip"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 2791,
+   "adds": 2791,
+   "themes": 0
   },
   {
    "name": "course-model",
@@ -691,7 +820,10 @@
     "i18n-manager",
     "schema-behaviors"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 17536,
+   "adds": 8137,
+   "themes": 0
   },
   {
    "name": "crossword-puzzle",
@@ -704,7 +836,10 @@
     "d-d-d",
     "multiple-choice"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 186489,
+   "adds": 97196,
+   "themes": 0
   },
   {
    "name": "csv-render",
@@ -720,7 +855,10 @@
     "intersection-element",
     "simple-icon"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 85275,
+   "adds": 11301,
+   "themes": 0
   },
   {
    "name": "d-d-d",
@@ -738,7 +876,10 @@
     "simple-modal",
     "simple-tooltip"
    ],
-   "usedBy": 141
+   "usedBy": 141,
+   "load": 61209,
+   "adds": 0,
+   "themes": 69
   },
   {
    "name": "d-d-docs",
@@ -790,7 +931,10 @@
     "video-player",
     "vocab-term"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 725065,
+   "adds": 602596,
+   "themes": 0
   },
   {
    "name": "date-card",
@@ -803,7 +947,10 @@
     "d-d-d",
     "i18n-manager"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 74959,
+   "adds": 4351,
+   "themes": 1
   },
   {
    "name": "deduping-fix",
@@ -813,7 +960,10 @@
    "gz": 419,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 419,
+   "adds": 419,
+   "themes": 0
   },
   {
    "name": "demo-snippet",
@@ -827,7 +977,10 @@
     "d-d-d",
     "utils"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 124044,
+   "adds": 35124,
+   "themes": 0
   },
   {
    "name": "discord-embed",
@@ -844,7 +997,10 @@
     "iframe-loader",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 37694,
+   "adds": 14331,
+   "themes": 0
   },
   {
    "name": "disqus-embed",
@@ -857,7 +1013,10 @@
     "hax-consent-gate",
     "haxcms-elements"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 10282,
+   "adds": 3082,
+   "themes": 0
   },
   {
    "name": "documentation-player",
@@ -873,7 +1032,10 @@
     "utils",
     "video-player"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 144937,
+   "adds": 57032,
+   "themes": 0
   },
   {
    "name": "doodle-board",
@@ -887,7 +1049,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 72509,
+   "adds": 1901,
+   "themes": 0
   },
   {
    "name": "dynamic-import-registry",
@@ -897,26 +1062,29 @@
    "gz": 1816,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 3
+   "usedBy": 3,
+   "load": 1816,
+   "adds": 1816,
+   "themes": 0
   },
   {
    "name": "ecosystem-theme",
    "package": "@haxtheweb/ecosystem-theme",
    "main": "elements/ecosystem-theme/ecosystem-theme.js",
    "appeared": "2026-11-12",
-   "gz": 7479,
+   "gz": 7335,
    "ddd": true,
    "dependsOn": [
     "d-d-d",
     "ecosystem-web",
-    "hax-iconset",
     "hax-network-bar",
     "haxcms-elements",
-    "simple-fields",
-    "simple-icon",
     "utils"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 356436,
+   "adds": 153829,
+   "themes": 1
   },
   {
    "name": "ecosystem-web",
@@ -931,7 +1099,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 120784,
+   "adds": 46810,
+   "themes": 1
   },
   {
    "name": "editable-table",
@@ -954,7 +1125,10 @@
     "simple-tooltip",
     "utils"
    ],
-   "usedBy": 7
+   "usedBy": 7,
+   "load": 336653,
+   "adds": 231184,
+   "themes": 69
   },
   {
    "name": "elmsln-loading",
@@ -969,7 +1143,10 @@
     "simple-colors",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 32293,
+   "adds": 2545,
+   "themes": 0
   },
   {
    "name": "enhanced-text",
@@ -982,7 +1159,10 @@
     "utils",
     "vocab-term"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 51600,
+   "adds": 34303,
+   "themes": 0
   },
   {
    "name": "es-global-bridge",
@@ -992,7 +1172,10 @@
    "gz": 1381,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 13
+   "usedBy": 13,
+   "load": 1381,
+   "adds": 1381,
+   "themes": 12
   },
   {
    "name": "event-badge",
@@ -1004,7 +1187,10 @@
    "dependsOn": [
     "simple-colors"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 104762,
+   "adds": 91177,
+   "themes": 0
   },
   {
    "name": "example-hax-element",
@@ -1017,7 +1203,10 @@
     "d-d-d",
     "i18n-manager"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 71484,
+   "adds": 876,
+   "themes": 0
   },
   {
    "name": "example-haxcms-theme",
@@ -1029,7 +1218,10 @@
    "dependsOn": [
     "haxcms-elements"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 210905,
+   "adds": 11525,
+   "themes": 1
   },
   {
    "name": "figure-label",
@@ -1041,7 +1233,10 @@
    "dependsOn": [
     "d-d-d"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 62445,
+   "adds": 1236,
+   "themes": 0
   },
   {
    "name": "file-system-broker",
@@ -1053,7 +1248,10 @@
    "dependsOn": [
     "es-global-bridge"
    ],
-   "usedBy": 3
+   "usedBy": 3,
+   "load": 3689,
+   "adds": 3689,
+   "themes": 0
   },
   {
    "name": "fill-in-the-blanks",
@@ -1066,7 +1264,10 @@
     "mark-the-words",
     "user-action"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 181388,
+   "adds": 92095,
+   "themes": 0
   },
   {
    "name": "flash-card",
@@ -1085,7 +1286,10 @@
     "simple-toolbar",
     "user-action"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 118163,
+   "adds": 35086,
+   "themes": 0
   },
   {
    "name": "fluent-theme",
@@ -1100,7 +1304,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 268743,
+   "adds": 66136,
+   "themes": 1
   },
   {
    "name": "full-width-image",
@@ -1113,7 +1320,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 18632,
+   "adds": 2792,
+   "themes": 1
   },
   {
    "name": "fullscreen-behaviors",
@@ -1123,7 +1333,10 @@
    "gz": 1298,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 1298,
+   "adds": 1298,
+   "themes": 0
   },
   {
    "name": "future-terminal-text",
@@ -1135,7 +1348,10 @@
    "dependsOn": [
     "simple-colors"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 16423,
+   "adds": 2838,
+   "themes": 1
   },
   {
    "name": "git-corner",
@@ -1145,7 +1361,10 @@
    "gz": 2084,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 2084,
+   "adds": 2084,
+   "themes": 0
   },
   {
    "name": "github-preview",
@@ -1164,7 +1383,10 @@
     "simple-icon",
     "utils"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 95620,
+   "adds": 14446,
+   "themes": 0
   },
   {
    "name": "glossy-portfolio-theme",
@@ -1179,7 +1401,10 @@
     "i18n-manager",
     "license-element"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 240849,
+   "adds": 42864,
+   "themes": 1
   },
   {
    "name": "grade-book",
@@ -1211,7 +1436,10 @@
     "utils",
     "video-player"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 301589,
+   "adds": 191861,
+   "themes": 0
   },
   {
    "name": "grid-plate",
@@ -1223,7 +1451,10 @@
    "dependsOn": [
     "responsive-utility"
    ],
-   "usedBy": 7
+   "usedBy": 7,
+   "load": 9219,
+   "adds": 6230,
+   "themes": 1
   },
   {
    "name": "h-a-x",
@@ -1237,7 +1468,10 @@
     "hax-body",
     "utils"
    ],
-   "usedBy": 3
+   "usedBy": 3,
+   "load": 872696,
+   "adds": 735884,
+   "themes": 0
   },
   {
    "name": "h5p-element",
@@ -1255,7 +1489,10 @@
     "simple-icon",
     "user-action"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 44245,
+   "adds": 19302,
+   "themes": 0
   },
   {
    "name": "hal-9000",
@@ -1268,7 +1505,10 @@
     "simple-colors",
     "utils"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 10926,
+   "adds": 8529,
+   "themes": 0
   },
   {
    "name": "hax-app-installer",
@@ -1285,7 +1525,10 @@
     "simple-icon",
     "stop-note"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 152965,
+   "adds": 75121,
+   "themes": 0
   },
   {
    "name": "hax-body",
@@ -1324,7 +1567,10 @@
     "user-scaffold",
     "utils"
    ],
-   "usedBy": 8
+   "usedBy": 8,
+   "load": 707466,
+   "adds": 570654,
+   "themes": 0
   },
   {
    "name": "hax-body-behaviors",
@@ -1336,7 +1582,10 @@
    "dependsOn": [
     "simple-fields"
    ],
-   "usedBy": 3
+   "usedBy": 3,
+   "load": 183772,
+   "adds": 91901,
+   "themes": 0
   },
   {
    "name": "hax-consent-gate",
@@ -1351,7 +1600,10 @@
     "simple-icon",
     "utils"
    ],
-   "usedBy": 13
+   "usedBy": 13,
+   "load": 81210,
+   "adds": 4839,
+   "themes": 69
   },
   {
    "name": "hax-iconset",
@@ -1363,7 +1615,10 @@
    "dependsOn": [
     "simple-icon"
    ],
-   "usedBy": 35
+   "usedBy": 34,
+   "load": 250,
+   "adds": 250,
+   "themes": 66
   },
   {
    "name": "hax-logo",
@@ -1373,7 +1628,10 @@
    "gz": 1551,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 1551,
+   "adds": 1551,
+   "themes": 0
   },
   {
    "name": "hax-marketing-theme",
@@ -1395,7 +1653,10 @@
     "simple-icon",
     "utils"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 294500,
+   "adds": 89557,
+   "themes": 1
   },
   {
    "name": "hax-network-bar",
@@ -1411,7 +1672,10 @@
     "simple-icon",
     "super-daemon"
    ],
-   "usedBy": 4
+   "usedBy": 4,
+   "load": 123043,
+   "adds": 49069,
+   "themes": 2
   },
   {
    "name": "haxcms-elements",
@@ -1487,7 +1751,10 @@
     "utils",
     "video-player"
    ],
-   "usedBy": 47
+   "usedBy": 47,
+   "load": 1385258,
+   "adds": 1172585,
+   "themes": 69
   },
   {
    "name": "haxma-theme",
@@ -1501,7 +1768,10 @@
     "haxcms-elements",
     "i18n-manager"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 347146,
+   "adds": 144539,
+   "themes": 1
   },
   {
    "name": "haxor-slevin",
@@ -1523,7 +1793,10 @@
     "social-share-link",
     "utils"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 230216,
+   "adds": 27609,
+   "themes": 1
   },
   {
    "name": "hex-picker",
@@ -1535,7 +1808,10 @@
    "dependsOn": [
     "i18n-manager"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 12284,
+   "adds": 2885,
+   "themes": 0
   },
   {
    "name": "hexagon-loader",
@@ -1545,7 +1821,10 @@
    "gz": 2890,
    "ddd": true,
    "dependsOn": [],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 4175,
+   "adds": 4175,
+   "themes": 0
   },
   {
    "name": "html-block",
@@ -1557,7 +1836,10 @@
    "dependsOn": [
     "utils"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 50123,
+   "adds": 32826,
+   "themes": 0
   },
   {
    "name": "i18n-manager",
@@ -1567,7 +1849,10 @@
    "gz": 6315,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 145
+   "usedBy": 145,
+   "load": 6315,
+   "adds": 0,
+   "themes": 69
   },
   {
    "name": "ics-render",
@@ -1584,7 +1869,10 @@
     "intersection-element",
     "lrndesign-timeline"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 94260,
+   "adds": 20286,
+   "themes": 0
   },
   {
    "name": "identify-hotspots",
@@ -1597,7 +1885,10 @@
     "multiple-choice",
     "user-action"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 181519,
+   "adds": 92226,
+   "themes": 0
   },
   {
    "name": "iframe-loader",
@@ -1610,7 +1901,10 @@
     "hax-consent-gate",
     "utils"
    ],
-   "usedBy": 5
+   "usedBy": 5,
+   "load": 12299,
+   "adds": 5099,
+   "themes": 3
   },
   {
    "name": "image-compare-slider",
@@ -1627,7 +1921,10 @@
     "schema-behaviors",
     "user-action"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 39775,
+   "adds": 14832,
+   "themes": 0
   },
   {
    "name": "image-dropzone",
@@ -1640,7 +1937,10 @@
     "multiple-choice",
     "user-action"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 181193,
+   "adds": 91900,
+   "themes": 0
   },
   {
    "name": "image-gallery",
@@ -1654,7 +1954,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 3
+   "usedBy": 3,
+   "load": 84900,
+   "adds": 7699,
+   "themes": 0
   },
   {
    "name": "image-inspector",
@@ -1669,7 +1972,10 @@
     "img-pan-zoom",
     "simple-icon"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 39613,
+   "adds": 23773,
+   "themes": 0
   },
   {
    "name": "img-pan-zoom",
@@ -1682,7 +1988,10 @@
     "es-global-bridge",
     "hexagon-loader"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 7032,
+   "adds": 7032,
+   "themes": 0
   },
   {
    "name": "img-view-modal",
@@ -1700,7 +2009,10 @@
     "simple-tooltip",
     "utils"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 47079,
+   "adds": 28012,
+   "themes": 0
   },
   {
    "name": "inline-audio",
@@ -1715,7 +2027,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 83721,
+   "adds": 6520,
+   "themes": 0
   },
   {
    "name": "instructional-cadence",
@@ -1729,7 +2044,10 @@
     "i18n-manager",
     "sheet-music"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 82126,
+   "adds": 11518,
+   "themes": 0
   },
   {
    "name": "intersection-element",
@@ -1739,7 +2057,10 @@
    "gz": 1394,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 20
+   "usedBy": 20,
+   "load": 1394,
+   "adds": 1394,
+   "themes": 1
   },
   {
    "name": "journey-theme",
@@ -1759,7 +2080,10 @@
     "simple-tooltip",
     "user-scaffold"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 252549,
+   "adds": 51337,
+   "themes": 3
   },
   {
    "name": "json-outline-schema",
@@ -1772,7 +2096,10 @@
     "dynamic-import-registry",
     "utils"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 6722,
+   "adds": 0,
+   "themes": 69
   },
   {
    "name": "jwt-login",
@@ -1782,7 +2109,10 @@
    "gz": 6322,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 6322,
+   "adds": 6322,
+   "themes": 0
   },
   {
    "name": "la-tex",
@@ -1798,7 +2128,10 @@
     "lrn-math",
     "utils"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 33598,
+   "adds": 14132,
+   "themes": 0
   },
   {
    "name": "lazy-image-helpers",
@@ -1812,7 +2145,10 @@
     "replace-tag",
     "simple-icon"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 7042,
+   "adds": 3967,
+   "themes": 0
   },
   {
    "name": "lazy-import-discover",
@@ -1822,7 +2158,10 @@
    "gz": 1033,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 1033,
+   "adds": 1033,
+   "themes": 0
   },
   {
    "name": "learn-two-theme",
@@ -1837,7 +2176,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 271981,
+   "adds": 69374,
+   "themes": 1
   },
   {
    "name": "license-element",
@@ -1851,7 +2193,10 @@
     "i18n-manager",
     "schema-behaviors"
    ],
-   "usedBy": 7
+   "usedBy": 7,
+   "load": 78803,
+   "adds": 8195,
+   "themes": 7
   },
   {
    "name": "link-card-theme",
@@ -1868,7 +2213,10 @@
     "simple-icon",
     "user-scaffold"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 208197,
+   "adds": 5590,
+   "themes": 1
   },
   {
    "name": "linkedin-embed",
@@ -1883,7 +2231,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 75893,
+   "adds": 1919,
+   "themes": 0
   },
   {
    "name": "lorem-data",
@@ -1898,7 +2249,10 @@
     "simple-colors",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 50780,
+   "adds": 21355,
+   "themes": 0
   },
   {
    "name": "lrn-math",
@@ -1908,7 +2262,10 @@
    "gz": 3641,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 5849,
+   "adds": 5849,
+   "themes": 0
   },
   {
    "name": "lrn-table",
@@ -1924,7 +2281,10 @@
     "i18n-manager",
     "schema-behaviors"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 25942,
+   "adds": 9779,
+   "themes": 0
   },
   {
    "name": "lrn-vocab",
@@ -1939,7 +2299,10 @@
     "simple-icon",
     "simple-modal"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 33342,
+   "adds": 14275,
+   "themes": 0
   },
   {
    "name": "lrndesign-chart",
@@ -1953,7 +2316,10 @@
     "d-d-d",
     "i18n-manager"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 92712,
+   "adds": 59575,
+   "themes": 0
   },
   {
    "name": "lrndesign-imagemap",
@@ -1971,7 +2337,10 @@
     "simple-popover",
     "user-action"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 99070,
+   "adds": 15993,
+   "themes": 0
   },
   {
    "name": "lrndesign-sidenote",
@@ -1984,7 +2353,10 @@
     "d-d-d",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 74397,
+   "adds": 9822,
+   "themes": 0
   },
   {
    "name": "lrndesign-timeline",
@@ -2001,7 +2373,10 @@
     "simple-colors",
     "utils"
    ],
-   "usedBy": 3
+   "usedBy": 3,
+   "load": 47441,
+   "adds": 15027,
+   "themes": 0
   },
   {
    "name": "lrs-elements",
@@ -2015,7 +2390,10 @@
     "user-action",
     "utils"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 65038,
+   "adds": 36279,
+   "themes": 0
   },
   {
    "name": "lti-launch",
@@ -2030,7 +2408,10 @@
     "simple-icon",
     "user-action"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 100009,
+   "adds": 16932,
+   "themes": 0
   },
   {
    "name": "lunr-search",
@@ -2043,7 +2424,10 @@
     "es-global-bridge",
     "i18n-manager"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 14471,
+   "adds": 5072,
+   "themes": 3
   },
   {
    "name": "map-menu",
@@ -2061,7 +2445,10 @@
     "simple-tooltip",
     "utils"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 135500,
+   "adds": 49196,
+   "themes": 34
   },
   {
    "name": "mark-the-words",
@@ -2074,7 +2461,10 @@
     "multiple-choice",
     "simple-toolbar"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 176140,
+   "adds": 86847,
+   "themes": 0
   },
   {
    "name": "matching-question",
@@ -2087,7 +2477,10 @@
     "multiple-choice",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 176975,
+   "adds": 87682,
+   "themes": 0
   },
   {
    "name": "material-theme",
@@ -2102,7 +2495,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 270004,
+   "adds": 67397,
+   "themes": 1
   },
   {
    "name": "md-block",
@@ -2115,7 +2511,10 @@
     "d-d-d",
     "utils"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 110474,
+   "adds": 31968,
+   "themes": 0
   },
   {
    "name": "media-behaviors",
@@ -2127,7 +2526,10 @@
    "dependsOn": [
     "utils"
    ],
-   "usedBy": 3
+   "usedBy": 3,
+   "load": 4975,
+   "adds": 2534,
+   "themes": 0
   },
   {
    "name": "media-image",
@@ -2145,7 +2547,10 @@
     "simple-modal",
     "user-action"
    ],
-   "usedBy": 3
+   "usedBy": 3,
+   "load": 107649,
+   "adds": 21345,
+   "themes": 0
   },
   {
    "name": "media-playlist",
@@ -2163,7 +2568,10 @@
     "utils",
     "video-player"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 287809,
+   "adds": 170069,
+   "themes": 0
   },
   {
    "name": "media-quote",
@@ -2176,7 +2584,10 @@
     "d-d-d",
     "i18n-manager"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 73170,
+   "adds": 2562,
+   "themes": 0
   },
   {
    "name": "meme-maker",
@@ -2186,7 +2597,10 @@
    "gz": 2244,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 2244,
+   "adds": 2244,
+   "themes": 0
   },
   {
    "name": "memory-match",
@@ -2201,7 +2615,10 @@
     "simple-icon",
     "user-action"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 100464,
+   "adds": 17387,
+   "themes": 0
   },
   {
    "name": "merit-badge",
@@ -2217,7 +2634,10 @@
     "simple-colors",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 46252,
+   "adds": 11983,
+   "themes": 0
   },
   {
    "name": "mermaid-diagram",
@@ -2233,7 +2653,10 @@
     "simple-icon",
     "simple-tooltip"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 104627,
+   "adds": 30653,
+   "themes": 0
   },
   {
    "name": "micro-frontend-registry",
@@ -2243,7 +2666,10 @@
    "gz": 4389,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 8
+   "usedBy": 8,
+   "load": 4389,
+   "adds": 4389,
+   "themes": 9
   },
   {
    "name": "micro-game-base",
@@ -2262,7 +2688,10 @@
     "schema-behaviors",
     "user-action"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 121135,
+   "adds": 37345,
+   "themes": 0
   },
   {
    "name": "moar-sarcasm",
@@ -2274,7 +2703,10 @@
    "dependsOn": [
     "i18n-manager"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 11866,
+   "adds": 2467,
+   "themes": 0
   },
   {
    "name": "moment-element",
@@ -2286,7 +2718,10 @@
    "dependsOn": [
     "es-global-bridge"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 2884,
+   "adds": 2884,
+   "themes": 0
   },
   {
    "name": "multiple-choice",
@@ -2306,7 +2741,10 @@
     "simple-toolbar",
     "user-action"
    ],
-   "usedBy": 14
+   "usedBy": 14,
+   "load": 172911,
+   "adds": 83618,
+   "themes": 0
   },
   {
    "name": "music-player",
@@ -2320,7 +2758,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 25809,
+   "adds": 9969,
+   "themes": 0
   },
   {
    "name": "mutation-observer-import-mixin",
@@ -2332,7 +2773,10 @@
    "dependsOn": [
     "dynamic-import-registry"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 2842,
+   "adds": 2842,
+   "themes": 0
   },
   {
    "name": "night-draft-theme",
@@ -2347,7 +2791,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 208469,
+   "adds": 10484,
+   "themes": 1
   },
   {
    "name": "numeric-question",
@@ -2360,7 +2807,10 @@
     "multiple-choice",
     "user-action"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 183859,
+   "adds": 94566,
+   "themes": 0
   },
   {
    "name": "oer-schema",
@@ -2372,7 +2822,10 @@
    "dependsOn": [
     "schema-behaviors"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 9377,
+   "adds": 9377,
+   "themes": 0
   },
   {
    "name": "outline-designer",
@@ -2394,7 +2847,10 @@
     "simple-toolbar",
     "utils"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 641546,
+   "adds": 484810,
+   "themes": 0
   },
   {
    "name": "outline-player",
@@ -2411,7 +2867,10 @@
     "simple-colors",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 213193,
+   "adds": 11981,
+   "themes": 1
   },
   {
    "name": "page-break",
@@ -2432,7 +2891,10 @@
     "simple-toolbar",
     "utils"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 85341,
+   "adds": 18628,
+   "themes": 0
   },
   {
    "name": "page-contents-menu",
@@ -2448,7 +2910,10 @@
     "simple-tooltip",
     "utils"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 69812,
+   "adds": 8603,
+   "themes": 17
   },
   {
    "name": "page-flag",
@@ -2468,7 +2933,10 @@
     "simple-picker",
     "utils"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 126818,
+   "adds": 73663,
+   "themes": 0
   },
   {
    "name": "page-section",
@@ -2483,7 +2951,10 @@
     "simple-icon",
     "simple-tooltip"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 90973,
+   "adds": 13772,
+   "themes": 0
   },
   {
    "name": "paper-input-flagged",
@@ -2497,7 +2968,10 @@
     "simple-icon",
     "simple-tooltip"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 58111,
+   "adds": 34858,
+   "themes": 0
   },
   {
    "name": "papermod-theme",
@@ -2513,7 +2987,10 @@
     "simple-datetime",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 225776,
+   "adds": 23169,
+   "themes": 12
   },
   {
    "name": "parallax-image",
@@ -2525,7 +3002,10 @@
    "dependsOn": [
     "schema-behaviors"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 3614,
+   "adds": 3614,
+   "themes": 0
   },
   {
    "name": "patternfly-theme",
@@ -2540,7 +3020,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 266255,
+   "adds": 63648,
+   "themes": 1
   },
   {
    "name": "pdf-browser-viewer",
@@ -2554,7 +3037,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 26177,
+   "adds": 10337,
+   "themes": 0
   },
   {
    "name": "person-testimonial",
@@ -2567,7 +3053,10 @@
     "d-d-d",
     "schema-behaviors"
    ],
-   "usedBy": 3
+   "usedBy": 3,
+   "load": 65344,
+   "adds": 4135,
+   "themes": 0
   },
   {
    "name": "place-holder",
@@ -2581,7 +3070,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 77961,
+   "adds": 3987,
+   "themes": 0
   },
   {
    "name": "play-list",
@@ -2597,7 +3089,10 @@
     "simple-icon",
     "utils"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 138054,
+   "adds": 43556,
+   "themes": 0
   },
   {
    "name": "polaris-theme",
@@ -2614,7 +3109,10 @@
     "scroll-button",
     "simple-tooltip"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 273974,
+   "adds": 71367,
+   "themes": 4
   },
   {
    "name": "portal-launcher",
@@ -2624,7 +3122,10 @@
    "gz": 1797,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 1797,
+   "adds": 1797,
+   "themes": 0
   },
   {
    "name": "post-card",
@@ -2637,7 +3138,10 @@
     "i18n-manager",
     "simple-colors"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 12740,
+   "adds": 3341,
+   "themes": 0
   },
   {
    "name": "pouch-db",
@@ -2647,7 +3151,10 @@
    "gz": 2684,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 2684,
+   "adds": 2684,
+   "themes": 0
   },
   {
    "name": "primer-theme",
@@ -2662,7 +3169,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 268458,
+   "adds": 65851,
+   "themes": 1
   },
   {
    "name": "privacy-choices",
@@ -2679,7 +3189,10 @@
     "simple-icon",
     "utils"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 134689,
+   "adds": 55091,
+   "themes": 0
   },
   {
    "name": "product-glance",
@@ -2692,7 +3205,10 @@
     "simple-colors",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 15338,
+   "adds": 1753,
+   "themes": 0
   },
   {
    "name": "product-offering",
@@ -2706,7 +3222,10 @@
     "intersection-element",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 70716,
+   "adds": 6141,
+   "themes": 0
   },
   {
    "name": "progress-donut",
@@ -2718,7 +3237,10 @@
    "dependsOn": [
     "lrndesign-chart"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 154726,
+   "adds": 63455,
+   "themes": 0
   },
   {
    "name": "promise-progress",
@@ -2730,7 +3252,10 @@
    "dependsOn": [
     "wc-autoload"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 2340,
+   "adds": 2340,
+   "themes": 0
   },
   {
    "name": "q-r",
@@ -2744,7 +3269,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 4
+   "usedBy": 4,
+   "load": 18636,
+   "adds": 2796,
+   "themes": 1
   },
   {
    "name": "radar-chart",
@@ -2757,7 +3285,10 @@
     "d-d-d",
     "i18n-manager"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 88697,
+   "adds": 14723,
+   "themes": 0
   },
   {
    "name": "radio-behaviors",
@@ -2767,7 +3298,10 @@
    "gz": 2630,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 2630,
+   "adds": 2630,
+   "themes": 0
   },
   {
    "name": "reading-analysis",
@@ -2780,7 +3314,10 @@
     "multiple-choice",
     "user-action"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 189922,
+   "adds": 100629,
+   "themes": 0
   },
   {
    "name": "relative-heading",
@@ -2794,7 +3331,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 26898,
+   "adds": 6530,
+   "themes": 0
   },
   {
    "name": "replace-tag",
@@ -2806,7 +3346,10 @@
    "dependsOn": [
     "wc-autoload"
    ],
-   "usedBy": 3
+   "usedBy": 3,
+   "load": 6604,
+   "adds": 0,
+   "themes": 69
   },
   {
    "name": "responsive-grid",
@@ -2818,7 +3361,10 @@
    "dependsOn": [
     "responsive-utility"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 6685,
+   "adds": 3696,
+   "themes": 0
   },
   {
    "name": "responsive-utility",
@@ -2828,7 +3374,10 @@
    "gz": 2989,
    "ddd": true,
    "dependsOn": [],
-   "usedBy": 10
+   "usedBy": 10,
+   "load": 2989,
+   "adds": 0,
+   "themes": 69
   },
   {
    "name": "resume-theme",
@@ -2843,7 +3392,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 202323,
+   "adds": 4338,
+   "themes": 1
   },
   {
    "name": "retro-card",
@@ -2855,7 +3407,10 @@
    "dependsOn": [
     "simple-colors"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 16985,
+   "adds": 3400,
+   "themes": 0
   },
   {
    "name": "retro-tv",
@@ -2869,7 +3424,10 @@
     "i18n-manager",
     "rpg-character"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 22623,
+   "adds": 9998,
+   "themes": 1
   },
   {
    "name": "rich-text-editor",
@@ -2893,7 +3451,10 @@
     "simple-toolbar",
     "utils"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 291593,
+   "adds": 189262,
+   "themes": 0
   },
   {
    "name": "rpg-character",
@@ -2911,7 +3472,10 @@
     "simple-tooltip",
     "utils"
    ],
-   "usedBy": 7
+   "usedBy": 7,
+   "load": 30590,
+   "adds": 16292,
+   "themes": 2
   },
   {
    "name": "schema-behaviors",
@@ -2923,7 +3487,10 @@
    "dependsOn": [
     "utils"
    ],
-   "usedBy": 38
+   "usedBy": 38,
+   "load": 1842,
+   "adds": 1842,
+   "themes": 43
   },
   {
    "name": "screen-recorder",
@@ -2937,7 +3504,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 84225,
+   "adds": 10251,
+   "themes": 0
   },
   {
    "name": "scroll-button",
@@ -2950,7 +3520,10 @@
     "simple-icon",
     "simple-tooltip"
    ],
-   "usedBy": 10
+   "usedBy": 10,
+   "load": 11407,
+   "adds": 1739,
+   "themes": 14
   },
   {
    "name": "self-check",
@@ -2967,7 +3540,10 @@
     "simple-icon",
     "user-action"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 100896,
+   "adds": 17819,
+   "themes": 0
   },
   {
    "name": "self-reflective-nudge",
@@ -2983,7 +3559,10 @@
     "simple-icon",
     "user-action"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 96104,
+   "adds": 13027,
+   "themes": 0
   },
   {
    "name": "shadcn-theme",
@@ -2998,7 +3577,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 268272,
+   "adds": 65665,
+   "themes": 1
   },
   {
    "name": "shadow-style",
@@ -3008,7 +3590,10 @@
    "gz": 2495,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 2495,
+   "adds": 2495,
+   "themes": 0
   },
   {
    "name": "sheet-music",
@@ -3024,7 +3609,10 @@
     "simple-icon",
     "simple-tooltip"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 100848,
+   "adds": 23647,
+   "themes": 0
   },
   {
    "name": "simple-autocomplete",
@@ -3040,7 +3628,10 @@
     "simple-popover",
     "utils"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 31667,
+   "adds": 17424,
+   "themes": 0
   },
   {
    "name": "simple-blog",
@@ -3060,7 +3651,10 @@
     "simple-tooltip",
     "utils"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 217553,
+   "adds": 16341,
+   "themes": 1
   },
   {
    "name": "simple-colors",
@@ -3073,7 +3667,10 @@
     "simple-colors-shared-styles",
     "simple-picker"
    ],
-   "usedBy": 25
+   "usedBy": 25,
+   "load": 13585,
+   "adds": 0,
+   "themes": 66
   },
   {
    "name": "simple-colors-shared-styles",
@@ -3083,7 +3680,10 @@
    "gz": 6717,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 6717,
+   "adds": 0,
+   "themes": 69
   },
   {
    "name": "simple-cta",
@@ -3097,7 +3697,10 @@
     "simple-icon",
     "utils"
    ],
-   "usedBy": 4
+   "usedBy": 4,
+   "load": 71839,
+   "adds": 7264,
+   "themes": 1
   },
   {
    "name": "simple-datetime",
@@ -3107,7 +3710,10 @@
    "gz": 1009,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 7
+   "usedBy": 7,
+   "load": 2831,
+   "adds": 2831,
+   "themes": 3
   },
   {
    "name": "simple-emoji",
@@ -3117,7 +3723,10 @@
    "gz": 787,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 787,
+   "adds": 787,
+   "themes": 0
   },
   {
    "name": "simple-fields",
@@ -3142,7 +3751,10 @@
     "utils",
     "voice-recorder"
    ],
-   "usedBy": 19
+   "usedBy": 18,
+   "load": 169823,
+   "adds": 77952,
+   "themes": 3
   },
   {
    "name": "simple-filter",
@@ -3152,7 +3764,10 @@
    "gz": 2623,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 4
+   "usedBy": 4,
+   "load": 2623,
+   "adds": 2623,
+   "themes": 0
   },
   {
    "name": "simple-icon",
@@ -3164,7 +3779,10 @@
    "dependsOn": [
     "simple-colors"
    ],
-   "usedBy": 123
+   "usedBy": 122,
+   "load": 20269,
+   "adds": 883,
+   "themes": 69
   },
   {
    "name": "simple-icon-picker",
@@ -3177,7 +3795,10 @@
     "simple-icon",
     "simple-picker"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 47932,
+   "adds": 26545,
+   "themes": 0
   },
   {
    "name": "simple-img",
@@ -3187,7 +3808,10 @@
    "gz": 2856,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 2856,
+   "adds": 2856,
+   "themes": 0
   },
   {
    "name": "simple-login",
@@ -3201,7 +3825,10 @@
     "simple-fields",
     "simple-progress"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 59251,
+   "adds": 34407,
+   "themes": 0
   },
   {
    "name": "simple-modal",
@@ -3214,7 +3841,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 10
+   "usedBy": 10,
+   "load": 28756,
+   "adds": 9689,
+   "themes": 11
   },
   {
    "name": "simple-pager",
@@ -3228,7 +3858,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 3
+   "usedBy": 3,
+   "load": 80155,
+   "adds": 2954,
+   "themes": 0
   },
   {
    "name": "simple-picker",
@@ -3242,7 +3875,10 @@
     "simple-icon",
     "utils"
    ],
-   "usedBy": 6
+   "usedBy": 6,
+   "load": 32692,
+   "adds": 11305,
+   "themes": 0
   },
   {
    "name": "simple-popover",
@@ -3257,7 +3893,10 @@
     "simple-icon",
     "utils"
    ],
-   "usedBy": 10
+   "usedBy": 10,
+   "load": 10111,
+   "adds": 5267,
+   "themes": 0
   },
   {
    "name": "simple-progress",
@@ -3267,7 +3906,10 @@
    "gz": 1591,
    "ddd": true,
    "dependsOn": [],
-   "usedBy": 3
+   "usedBy": 3,
+   "load": 1591,
+   "adds": 0,
+   "themes": 69
   },
   {
    "name": "simple-range-input",
@@ -3279,7 +3921,10 @@
    "dependsOn": [
     "d-d-d"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 66812,
+   "adds": 5603,
+   "themes": 0
   },
   {
    "name": "simple-search",
@@ -3294,7 +3939,10 @@
     "simple-tooltip",
     "utils"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 77095,
+   "adds": 38896,
+   "themes": 0
   },
   {
    "name": "simple-toast",
@@ -3306,7 +3954,10 @@
    "dependsOn": [
     "d-d-d"
    ],
-   "usedBy": 6
+   "usedBy": 6,
+   "load": 65615,
+   "adds": 4406,
+   "themes": 1
   },
   {
    "name": "simple-toolbar",
@@ -3323,7 +3974,10 @@
     "simple-tooltip",
     "utils"
    ],
-   "usedBy": 12
+   "usedBy": 12,
+   "load": 91508,
+   "adds": 26933,
+   "themes": 0
   },
   {
    "name": "simple-tooltip",
@@ -3333,7 +3987,10 @@
    "gz": 6515,
    "ddd": true,
    "dependsOn": [],
-   "usedBy": 26
+   "usedBy": 26,
+   "load": 6515,
+   "adds": 6515,
+   "themes": 44
   },
   {
    "name": "slide-deck",
@@ -3349,7 +4006,10 @@
     "user-action",
     "utils"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 150232,
+   "adds": 46631,
+   "themes": 0
   },
   {
    "name": "social-share-link",
@@ -3363,7 +4023,10 @@
     "hax-iconset",
     "simple-icon"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 68397,
+   "adds": 3822,
+   "themes": 0
   },
   {
    "name": "sorting-question",
@@ -3380,7 +4043,10 @@
     "simple-toast",
     "simple-toolbar"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 182527,
+   "adds": 93234,
+   "themes": 0
   },
   {
    "name": "spacebook-theme",
@@ -3394,7 +4060,10 @@
     "haxcms-elements",
     "i18n-manager"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 331526,
+   "adds": 128919,
+   "themes": 1
   },
   {
    "name": "spectrum-theme",
@@ -3409,7 +4078,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 276527,
+   "adds": 73920,
+   "themes": 1
   },
   {
    "name": "spotify-embed",
@@ -3425,7 +4097,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 32184,
+   "adds": 8821,
+   "themes": 0
   },
   {
    "name": "star-rating",
@@ -3441,7 +4116,10 @@
     "simple-colors",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 42223,
+   "adds": 9571,
+   "themes": 0
   },
   {
    "name": "stat-tile",
@@ -3454,7 +4132,10 @@
     "d-d-d",
     "i18n-manager"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 72605,
+   "adds": 1997,
+   "themes": 0
   },
   {
    "name": "stop-note",
@@ -3470,7 +4151,10 @@
     "simple-icon",
     "utils"
    ],
-   "usedBy": 3
+   "usedBy": 3,
+   "load": 90818,
+   "adds": 16844,
+   "themes": 0
   },
   {
    "name": "super-daemon",
@@ -3495,7 +4179,10 @@
     "user-scaffold",
     "utils"
    ],
-   "usedBy": 4
+   "usedBy": 4,
+   "load": 273608,
+   "adds": 156318,
+   "themes": 2
   },
   {
    "name": "tableau-embed",
@@ -3511,7 +4198,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 32222,
+   "adds": 8859,
+   "themes": 0
   },
   {
    "name": "tagging-question",
@@ -3523,7 +4213,10 @@
    "dependsOn": [
     "multiple-choice"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 176897,
+   "adds": 87604,
+   "themes": 0
   },
   {
    "name": "tailwind-theme",
@@ -3538,7 +4231,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 276309,
+   "adds": 73702,
+   "themes": 1
   },
   {
    "name": "terrible-themes",
@@ -3552,7 +4248,10 @@
     "haxcms-elements",
     "scroll-button"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 234014,
+   "adds": 31407,
+   "themes": 5
   },
   {
    "name": "training-theme",
@@ -3566,7 +4265,10 @@
     "haxcms-elements",
     "utils"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 263361,
+   "adds": 60754,
+   "themes": 1
   },
   {
    "name": "twenty-six-theme",
@@ -3582,7 +4284,10 @@
     "simple-datetime",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 219820,
+   "adds": 20440,
+   "themes": 1
   },
   {
    "name": "twitter-embed",
@@ -3596,7 +4301,10 @@
     "i18n-manager",
     "utils"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 19213,
+   "adds": 2614,
+   "themes": 0
   },
   {
    "name": "type-writer",
@@ -3608,7 +4316,10 @@
    "dependsOn": [
     "intersection-element"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 3584,
+   "adds": 3584,
+   "themes": 0
   },
   {
    "name": "un-sdg",
@@ -3621,7 +4332,10 @@
     "i18n-manager",
     "schema-behaviors"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 13644,
+   "adds": 4245,
+   "themes": 0
   },
   {
    "name": "undo-manager",
@@ -3631,7 +4345,10 @@
    "gz": 3420,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 3420,
+   "adds": 3420,
+   "themes": 0
   },
   {
    "name": "unity-webgl",
@@ -3645,7 +4362,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 25419,
+   "adds": 9579,
+   "themes": 0
   },
   {
    "name": "user-action",
@@ -3655,7 +4375,10 @@
    "gz": 2528,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 26
+   "usedBy": 26,
+   "load": 13990,
+   "adds": 2528,
+   "themes": 69
   },
   {
    "name": "user-scaffold",
@@ -3667,7 +4390,10 @@
    "dependsOn": [
     "utils"
    ],
-   "usedBy": 7
+   "usedBy": 7,
+   "load": 20856,
+   "adds": 0,
+   "themes": 69
   },
   {
    "name": "uswds-theme",
@@ -3682,7 +4408,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 267366,
+   "adds": 64759,
+   "themes": 1
   },
   {
    "name": "utils",
@@ -3692,7 +4421,10 @@
    "gz": 14604,
    "ddd": false,
    "dependsOn": [],
-   "usedBy": 61
+   "usedBy": 61,
+   "load": 47683,
+   "adds": 30386,
+   "themes": 69
   },
   {
    "name": "vcf-render",
@@ -3709,7 +4441,10 @@
     "media-quote",
     "person-testimonial"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 91748,
+   "adds": 17774,
+   "themes": 0
   },
   {
    "name": "vhs-blog-theme",
@@ -3725,7 +4460,10 @@
     "q-r",
     "retro-tv"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 363250,
+   "adds": 160643,
+   "themes": 1
   },
   {
    "name": "video-player",
@@ -3748,7 +4486,10 @@
     "simple-modal",
     "utils"
    ],
-   "usedBy": 7
+   "usedBy": 7,
+   "load": 248707,
+   "adds": 132294,
+   "themes": 0
   },
   {
    "name": "vocab-term",
@@ -3765,7 +4506,10 @@
     "simple-popover",
     "user-action"
    ],
-   "usedBy": 2
+   "usedBy": 2,
+   "load": 56441,
+   "adds": 23427,
+   "themes": 0
   },
   {
    "name": "voice-recorder",
@@ -3777,7 +4521,10 @@
    "dependsOn": [
     "simple-icon"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 18610,
+   "adds": 8942,
+   "themes": 0
   },
   {
    "name": "wc-autoload",
@@ -3789,7 +4536,10 @@
    "dependsOn": [
     "dynamic-import-registry"
    ],
-   "usedBy": 3
+   "usedBy": 3,
+   "load": 4909,
+   "adds": 4909,
+   "themes": 0
   },
   {
    "name": "web-baseline-status",
@@ -3802,7 +4552,10 @@
     "d-d-d",
     "hax-consent-gate"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 70303,
+   "adds": 1894,
+   "themes": 0
   },
   {
    "name": "webawesome-theme",
@@ -3817,7 +4570,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 274971,
+   "adds": 72364,
+   "themes": 1
   },
   {
    "name": "wikipedia-query",
@@ -3835,7 +4591,10 @@
     "simple-icon",
     "utils"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 134134,
+   "adds": 42863,
+   "themes": 0
   },
   {
    "name": "word-count",
@@ -3847,7 +4606,10 @@
    "dependsOn": [
     "i18n-manager"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 11097,
+   "adds": 1698,
+   "themes": 0
   },
   {
    "name": "word-search",
@@ -3862,7 +4624,10 @@
     "simple-icon",
     "user-action"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 104870,
+   "adds": 21793,
+   "themes": 0
   },
   {
    "name": "writing-theme",
@@ -3876,7 +4641,10 @@
     "haxcms-elements",
     "i18n-manager"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 205298,
+   "adds": 7313,
+   "themes": 1
   },
   {
    "name": "wysiwyg-hax",
@@ -3889,7 +4657,10 @@
     "cms-hax",
     "hax-body"
    ],
-   "usedBy": 1
+   "usedBy": 1,
+   "load": 878310,
+   "adds": 741498,
+   "themes": 0
   },
   {
    "name": "wysiwyg96-theme",
@@ -3904,7 +4675,10 @@
     "i18n-manager",
     "simple-icon"
    ],
-   "usedBy": 0
+   "usedBy": 0,
+   "load": 346236,
+   "adds": 143629,
+   "themes": 1
   }
  ]
 }

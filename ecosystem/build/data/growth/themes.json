@@ -3,7 +3,7 @@
   "generated": "2026-11-25",
   "generator": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/build_growth.py",
   "source": {
-   "webcomponents": "6c0e7a61c3da8a97a2d8450807ecd42313bb4297"
+   "webcomponents": "86f695077af6b0461776552f13a06351a889748a"
   },
   "license": "https://www.apache.org/licenses/LICENSE-2.0",
   "about": "Every HAXcms theme built on the shared theme core (HAXCMSLitElementTheme): when its file appeared, the class it extends ('core' or a family base), and its own code size (bytes and gzipped).",
@@ -102,8 +102,8 @@
    "base": "core",
    "family": "clean-one",
    "appeared": "2020-06-29",
-   "bytes": 40781,
-   "gz": 9198
+   "bytes": 40974,
+   "gz": 9269
   },
   {
    "tag": "clean-two",
@@ -422,8 +422,8 @@
    "base": "core",
    "family": "ecosystem-theme",
    "appeared": "2026-11-12",
-   "bytes": 29370,
-   "gz": 7479
+   "bytes": 28829,
+   "gz": 7335
   },
   {
    "tag": "material-theme",

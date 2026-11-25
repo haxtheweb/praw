@@ -78,7 +78,7 @@ Patterns from recent decks:
 
 ## Recurring metaphors
 
-Reach for these before inventing new ones. They already carry meaning in the corpus.
+Reach for these before inventing new ones. They already carry meaning in the corpus. The ones that carry a whole talk are written out, with accuracy notes, in `METAPHORS.md`.
 
 | Metaphor | What it carries |
 | --- | --- |
@@ -94,12 +94,16 @@ Reach for these before inventing new ones. They already carry meaning in the cor
 | Russian nesting dolls | Small tags inside bigger tags, all the way up to a whole site |
 | A box of kittens | Give something away and people now have to care for it; that care forms the community (from the thesis) |
 | Your painting on your wall | Your site is yours to take down and hang somewhere else; template builders are paint-by-number (an interviewer's line) |
+| Coarse to fine (the zoom) | Shape first, detail last: how ideas become PRs ("Napkin 2 PR") and how AI draws; see `METAPHORS.md` |
+| The blur and the grid | AI breaks things down by blurring them; HAX breaks things down and keeps the labels on; see `METAPHORS.md` |
+| Every piece carries the whole (fractal) | Zoom in anywhere and find the same promises; see `METAPHORS.md` |
+| Vocabulary and grammar | Elements are the words, PRAW is the grammar: a shared language for people and agents; see `METAPHORS.md` |
 
 ## Signature lines (Bryan's own)
 
 - "My social cause: reduce the cost of web publishing to zero, regardless of ability."
 - "Enable creativity to flow like water."
-- "With the right tools you can build anything." (a family saying)
+- "With the right tools you can build anything." (a family saying; a refrain, see `METAPHORS.md`)
 - "Automation begets automation."
 - "It's not lazy, it's process optimization."
 - "Simple. 99% invisible."

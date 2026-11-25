@@ -10,7 +10,7 @@
    "gap": "nothing enforces it yet",
    "proposed": "proposed"
   },
-  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (88 rules) and each repo's AGENTS.md (29), plus 8 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 38 are enforced; 30 are guidance by design, which no check could decide; 57 are gaps, the backlog of what to automate next.",
+  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (88 rules) and each repo's AGENTS.md (29), plus 7 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 38 are enforced; 30 are guidance by design, which no check could decide; 56 are gaps, the backlog of what to automate next.",
   "kindLabels": {
    "rel": "where a rule comes from and what enforces it",
    "pillar": "pillars a rule serves",
@@ -62,7 +62,7 @@
    "kind": "group"
   },
   "rg_proposed_content_contract": {
-   "desc": "Proposed: Content contract: 3 rules, 1 enforced by a check.",
+   "desc": "Proposed: Content contract: 2 rules, 1 enforced by a check.",
    "kind": "group"
   },
   "rg_proposed_platform_rules": {
@@ -986,11 +986,6 @@
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#hax-rules-win-over-modern-web-guidance"
    }
   },
-  "rc_content_no_ddd": {
-   "desc": "Content-level elements work without loading the whole DDD design system. Proposed in the HAX Scheduled Background Jobs Plan; not written into RULES.md or AGENTS.md yet. Nothing enforces this yet.",
-   "kind": "proposed",
-   "status": "planned"
-  },
   "rc_user_links": {
    "desc": "Links an author writes (http included) are kept as written. Proposed in the HAX Scheduled Background Jobs Plan; now written into PRAW RULES.md as part of \"HAX Rules Win Over Modern Web Guidance\". Nothing enforces this yet.",
    "kind": "gap",
@@ -1037,7 +1032,7 @@
    "id": "rules",
    "label": "Rules and what guarantees them",
    "kind": "story",
-   "message": "125 rules: 38 enforced by a check, 30 guidance by design, 57 not yet.",
+   "message": "124 rules: 38 enforced by a check, 30 guidance by design, 56 not yet.",
    "scenes": [
     {
      "caption": "Rules come from PRAW's RULES.md, each repo's AGENTS.md, and the plan's proposals.",
@@ -1172,7 +1167,6 @@
       "ra_component_security",
       "ra_library_security",
       "rc_content_contract",
-      "rc_content_no_ddd",
       "rc_user_links",
       "rc_version_hidden",
       "rc_no_native_dialogs",
@@ -1217,7 +1211,7 @@
      ]
     },
     {
-     "caption": "57 rules nothing enforces yet: the backlog of what to automate next.",
+     "caption": "56 rules nothing enforces yet: the backlog of what to automate next.",
      "nodes": [
       "r_zvem3yg7jtxbsxbop3ypzy",
       "r_rhq7llrzmzlnfvelrwslun",
@@ -1279,7 +1273,6 @@
     {
      "caption": "Proposed rules still waiting: not written down and not enforced yet.",
      "nodes": [
-      "rc_content_no_ddd",
       "rc_ddd_layers"
      ]
     },

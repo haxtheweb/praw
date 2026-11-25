@@ -312,16 +312,6 @@
     "components"
    ]
   },
-  "candidate:content_no_ddd": {
-   "pillars": [
-    "extensible",
-    "agnostic"
-   ],
-   "touches": [
-    "components",
-    "ddd"
-   ]
-  },
   "candidate:user_links": {
    "pillars": [
     "open"
@@ -723,12 +713,6 @@
    "group": "Content contract",
    "text": "Attributes, usage and existing labels of authorable elements never change, so all content ever made keeps working. Visual and language-support improvements are fine.",
    "written": "f54de8cb"
-  },
-  {
-   "id": "content_no_ddd",
-   "title": "Content elements don't require the full DDD stack",
-   "group": "Content contract",
-   "text": "Content-level elements work without loading the whole DDD design system."
   },
   {
    "id": "user_links",

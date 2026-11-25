@@ -5,9 +5,10 @@ merged and running. Three groups: blocking pull request gates, advisory pull req
 (GitHub Actions on a cron, plus the Claude scheduled tasks in build/data/scheduled-tasks.json, whose output is
 checked on GitHub). Open PRs that add a workflow file, and the PRs in build/data/quality-planned.json, are planned
 tiles linking to the PR. Details in hax-quality.json."""
-import json, re, subprocess, base64, collections, datetime, yaml
+import json, re, subprocess, base64, collections, datetime, yaml, os
 GH = "https://github.com/haxtheweb"
 REPOS = {"webcomponents": "components", "haxcms-nodejs": "nodejs", "haxcms-php": "php", "create": "cli", "praw": "praw", "haxcms-mcp": "mcp", "issues": "issues"}
+LOCAL = {"haxcms-nodejs": "haxcms-nodejs", "haxcms-php": "haxcms-php", "create": "createrepo", "haxcms-mcp": "mcprepo", "praw": "prawrepo", "webcomponents": "wcrepo"}  # clones from sources.sh
 def api(q):
     r = subprocess.run(["gh", "api", q], capture_output=True, text=True, timeout=90)
     try: return json.loads(r.stdout)
@@ -100,14 +101,20 @@ default_branch = {}
 for repo, nid in REPOS.items():
     info = api(f"repos/haxtheweb/{repo}") or {}
     default_branch[repo] = info.get("default_branch", "main")
-    files = api(f"repos/haxtheweb/{repo}/contents/.github/workflows") or []
-    if not isinstance(files, list): continue
+    files = api(f"repos/haxtheweb/{repo}/contents/.github/workflows")
+    if not isinstance(files, list):
+        # no API access to this repo here: read the workflows from the clone sources.sh made, or stop. A web
+        # missing a repo's checks would quietly turn every rule those checks enforce into a gap.
+        d = os.path.join(LOCAL.get(repo, "-"), ".github/workflows")
+        if not os.path.isdir(d): raise SystemExit(f"build_quality: can't read {repo}'s workflows (no API access, no clone); not writing a partial web")
+        files = [{"name": n, "path": ".github/workflows/" + n, "local": os.path.join(d, n)} for n in sorted(os.listdir(d))]
+        print(f"{repo}: workflows read from the local clone (no API access); scheduled run results unknown")
     states = {w["path"].split("/")[-1]: w for w in ((api(f"repos/haxtheweb/{repo}/actions/workflows?per_page=100") or {}).get("workflows") or [])}
     for f in files:
         if not f["name"].endswith((".yml", ".yaml")): continue
         st = states.get(f["name"])
         if st and st.get("state") != "active": continue  # disabled workflows aren't running
-        y = yaml.safe_load(base64.b64decode((api(f"repos/haxtheweb/{repo}/contents/{f['path']}") or {}).get("content", "")).decode() or "{}") or {}
+        y = yaml.safe_load((open(f["local"]).read() if f.get("local") else base64.b64decode((api(f"repos/haxtheweb/{repo}/contents/{f['path']}") or {}).get("content", "")).decode()) or "{}") or {}
         on = y.get(True) or y.get("on") or {}
         trig = set(on) if isinstance(on, dict) else ({on} if isinstance(on, str) else set(on))
         wname = (y.get("name") or f["name"].rsplit(".", 1)[0]).strip()

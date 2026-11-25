@@ -10,7 +10,7 @@
    "gap": "nothing enforces it yet",
    "proposed": "proposed"
   },
-  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (87 rules) and each repo's AGENTS.md (29), plus 9 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 25 are enforced; 21 are guidance by design, which no check could decide; 79 are gaps, the backlog of what to automate next.",
+  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (87 rules) and each repo's AGENTS.md (29), plus 9 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 30 are enforced; 21 are guidance by design, which no check could decide; 74 are gaps, the backlog of what to automate next.",
   "kindLabels": {
    "rel": "where a rule comes from and what enforces it",
    "pillar": "pillars a rule serves",
@@ -30,15 +30,15 @@
    "kind": "group"
   },
   "rg_design_system_standards": {
-   "desc": "Design System Standards: 9 rules, 2 enforced by a check.",
+   "desc": "Design System Standards: 9 rules, 3 enforced by a check.",
    "kind": "group"
   },
   "rg_web_component_development": {
-   "desc": "Web Component Development: 18 rules, 5 enforced by a check.",
+   "desc": "Web Component Development: 18 rules, 7 enforced by a check.",
    "kind": "group"
   },
   "rg_build_development_workflow": {
-   "desc": "Build & Development Workflow: 36 rules, 7 enforced by a check.",
+   "desc": "Build & Development Workflow: 36 rules, 8 enforced by a check.",
    "kind": "group"
   },
   "rg_ai_generated_content": {
@@ -50,7 +50,7 @@
    "kind": "group"
   },
   "rg_project_specific_rules": {
-   "desc": "Project-Specific Rules: 2 rules, 0 enforced by a check.",
+   "desc": "Project-Specific Rules: 2 rules, 1 enforced by a check.",
    "kind": "group"
   },
   "rg_agents_md_code_style": {
@@ -231,13 +231,11 @@
    }
   },
   "r_956c54783626475ea901a6": {
-   "desc": "Every field in admin chrome (app-hax, HAXcms core UI, the editor, outline-designer, the character builder) is a `simple-fields-field`: text, search, select, textarea, checkbox and radio. Style it with `HaxUiAdminSimpleFields` from `@haxtheweb/d-d-d/lib/HaxUiAdminControls.js` (`class=\"hax-ui-simple-field\"`, `compact` for a 32px toolbar field) and read changes from `value-changed` (`e.detail.value`; it also fires for the value it was rendered with, so set state from it rather than toggling). Never hand-draw `<input>`, `<select>` or `<textarea>` in admin chrome: a native control styled per element is how white-on-white dark mode bugs slip through, and one element gives one look, one keyboard and screen reader behavior and one place where light and dark colors are set. Hidden and file inputs are not fields. Enforced in haxtheweb/webcomponents by the HAX UI admin contract check (`yarn lint:hax-ui-admin`, rule `raw-field`), which fails `yarn precheck` and CI on a new hand-drawn field; fields that predate the rule are listed in `scripts/hax-ui-admin-contract.baseline.json` and are converted when their files are touched. Extends `1992902d74844c908ab446`. In PRAW RULES.md (scope: design-system). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Every field in admin chrome (app-hax, HAXcms core UI, the editor, outline-designer, the character builder) is a `simple-fields-field`: text, search, select, textarea, checkbox and radio. Style it with `HaxUiAdminSimpleFields` from `@haxtheweb/d-d-d/lib/HaxUiAdminControls.js` (`class=\"hax-ui-simple-field\"`, `compact` for a 32px toolbar field) and read changes from `value-changed` (`e.detail.value`; it also fires for the value it was rendered with, so set state from it rather than toggling). Never hand-draw `<input>`, `<select>` or `<textarea>` in admin chrome: a native control styled per element is how white-on-white dark mode bugs slip through, and one element gives one look, one keyboard and screen reader behavior and one place where light and dark colors are set. Hidden and file inputs are not fields. Enforced in haxtheweb/webcomponents by the HAX UI admin contract check (`yarn lint:hax-ui-admin`, rule `raw-field`), which fails `yarn precheck` and CI on a new hand-drawn field; fields that predate the rule are listed in `scripts/hax-ui-admin-contract.baseline.json` and are converted when their files are touched. Extends `1992902d74844c908ab446`. In PRAW RULES.md (scope: design-system). Enforced by hax-ui-admin-contract. The HAX UI admin contract check (yarn lint:hax-ui-admin, rule raw-field) fails yarn precheck and the pull request on a new hand-drawn field in admin chrome; fields that predate the rule are baselined.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#admin-fields-are-simple-fields"
-   },
-   "note": "A check that enforced this is gone from Quality control: q_hax_ui_admin_contract."
+   }
   },
   "r_411423ec_d922_4bd4_8c45_3d8c65b9fbfa": {
    "desc": "Every part of HAX that people are shown (a project area, backend, tool, schema, surface or site in the network) has one icon, one DDD color and one icon motion, and all three are on record in PRAW before it ships: the `%%@ node <id> icon=<set:name> color=<DDD color name> motion=<DDD motion name>` line in the ecosystem web that draws it (`ecosystem/web/hax-ecosystem.mmd` for an area, that area's sub-web for a part of it) and, for a site, its entry in `ecosystem/network.json`. That record is the only copy: anything that shows an area (a site, the network bar, a dashboard or Merlin entry, docs, social art, a poster) takes the icon, color and motion from it and never picks its own, and a change is made to the record first. The icon is in `@haxtheweb/simple-icon` or `@haxtheweb/hax-iconset`, drawn in one ink on the 24 grid, and is HAX's own mark: never another project's logo, mascot or wordmark. The color is a DDD named color with a black or white glyph, whichever contrasts more. The motion is one of the nine DDD icon motions (`pop`, `wiggle`, `tilt`, `beat`, `lift`, `spin`, `nudge`, `strike`, `glow`; the scale motion is `beat`, `pulse` is the attention ring), which plays once on hover or keyboard focus, never moves under `prefers-reduced-motion: reduce` and never carries meaning alone. Style guide, when to use each motion and how to add one: `ecosystem/README.md`, \"Area icons, colors and motion\" (<https://github.com/haxtheweb/praw/blob/main/ecosystem/README.md#area-icons-colors-and-motion>). In PRAW RULES.md (scope: design-system). Nothing enforces this yet.",
@@ -255,7 +253,7 @@
    }
   },
   "r_7cpveferpsf0az8tkqxw0y": {
-   "desc": "Whenever working on a specific webcomponent, perform a quick audit for potential accessibility enhancements without assuming issues exist, but ensure to look for them. In PRAW RULES.md (scope: webcomponents). Enforced by Color contrast (light and dark), Test all elements, Accessibility sweep. The color-contrast gate fails a PR when a touched element's demo falls below WCAG AA contrast in light or dark mode; element test suites include axe checks where an element has tests; the weekly sweep checks every demo. Other accessibility checks are not a blocking gate.",
+   "desc": "Whenever working on a specific webcomponent, perform a quick audit for potential accessibility enhancements without assuming issues exist, but ensure to look for them. In PRAW RULES.md (scope: webcomponents). Enforced by Color contrast of changed elements, Test all elements, Accessibility sweep. The color-contrast gate fails a PR when a touched element's demo falls below WCAG AA contrast in light or dark mode; element test suites include axe checks where an element has tests; the weekly sweep checks every demo. Other accessibility checks are not a blocking gate.",
    "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#accessibility-audits"
@@ -270,13 +268,11 @@
    }
   },
   "r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123": {
-   "desc": "Anything that carries meaning a user must interpret, or a decision with consequences (saving permanently, deleting permanently, confirm vs deny, correct vs incorrect), conveys it through all five channels: (1) a label shown on hover and on focus; (2) a color different enough to tell apart (HAX uses green for correct and purple for incorrect, not red); (3) a focus state; (4) a texture or pattern that still distinguishes it in grayscale; (5) an icon unique to that meaning. Applies to: quiz feedback, confirm/deny and accept/cancel actions, form validation, status chips (draft/published/locked), outline states (new/deleting/current page), revision diffs, chart series and learner progress, reading flags and highlights. Easily undone edits (e.g. turning a paragraph into a heading) and purely navigational or aesthetic controls only need a clear label, a focus state and contrast. Does not need texture: ordinary toolbar buttons, navigation links and menus, tabs and toggles (a selected state still needs more than color). This extends the Color Vision rule (`13a03330-483e-404e-9e48-b0d9f16432d3`), whose danger hatch and `yarn lint:vision` pairs cover the color and texture channels. Enforcement: checked in review, and by the accessibility checks where automatable. Tracking: <https://github.com/haxtheweb/issues/issues/3262>. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Anything that carries meaning a user must interpret, or a decision with consequences (saving permanently, deleting permanently, confirm vs deny, correct vs incorrect), conveys it through all five channels: (1) a label shown on hover and on focus; (2) a color different enough to tell apart (HAX uses green for correct and purple for incorrect, not red); (3) a focus state; (4) a texture or pattern that still distinguishes it in grayscale; (5) an icon unique to that meaning. Applies to: quiz feedback, confirm/deny and accept/cancel actions, form validation, status chips (draft/published/locked), outline states (new/deleting/current page), revision diffs, chart series and learner progress, reading flags and highlights. Easily undone edits (e.g. turning a paragraph into a heading) and purely navigational or aesthetic controls only need a clear label, a focus state and contrast. Does not need texture: ordinary toolbar buttons, navigation links and menus, tabs and toggles (a selected state still needs more than color). This extends the Color Vision rule (`13a03330-483e-404e-9e48-b0d9f16432d3`), whose danger hatch and `yarn lint:vision` pairs cover the color and texture channels. Enforcement: checked in review, and by the accessibility checks where automatable. Tracking: <https://github.com/haxtheweb/issues/issues/3262>. In PRAW RULES.md (scope: webcomponents). Enforced by a11y-modes. Partly. The a11y-modes check in webcomponents fails a pull request when a changed element loses its focus indicator or a control disappears under forced colors (the focus channel), and yarn lint:vision in yarn precheck covers the color and texture channels for the pairs declared in scripts/vision-pairs.json. The label and icon channels are checked in review. The standard is written in RULES.md and in the DDD authoring guide (elements/d-d-d/design-system/source/README.md, Meaning channels).",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#meaning-channels--meaning-and-consequential-decisions-use-all-five"
-   },
-   "note": "A check that enforced this is gone from Quality control: q_a11y_modes."
+   }
   },
   "r_34ef39a0_b970_43ba_b68a_251f99d64424": {
    "desc": "Every element responds to dark mode and respects reduced motion. Colors an element sets change in dark mode: take them from DDD tokens (which have dark values) or switch them with `light-dark()`, `prefers-color-scheme` or `color-scheme`; never hard-code colors that render the same in both schemes. With `prefers-reduced-motion: reduce`, no CSS animation, transition or `element.animate()` longer than 10ms runs on the element or in its shadow root, on load or on hover/focus. The webcomponents `dark-motion` check enforces this for every element a pull request changes; its baseline (`scripts/dark-motion.baseline.json`) only shrinks. Contrast in each scheme is the contrast check's job. In PRAW RULES.md (scope: webcomponents). Enforced by dark-motion. The dark-motion check opens each changed element's demo in light and dark with reduced motion on, and fails the pull request on a new failure.",
@@ -332,13 +328,11 @@
    }
   },
   "r_40983ddf_40b7_4a5e_a600_8f9fcb58da83": {
-   "desc": "Content made with the HAX editor must work when HAX is not present. A HAX-capable element knows about HAX only through `static get haxProperties()` (and `haxHooks()` when needed), never by importing or requiring the editor. An element may react to editing only to block clicks while editing (buttons, dialog openers, links), to expose editable content that is hard to reach visually, or to extend the HAX UI through hooks, and it must still render and work outside HAX. Only elements built for a HAX site may depend on one (an in-page menu, `smart-collection-list` reading `site.json`). Elements that rely on a third-party service must still work without HAX. Rationale: KNOWLEDGE.md entry \"With or without HAX, work\". In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Content made with the HAX editor must work when HAX is not present. A HAX-capable element knows about HAX only through `static get haxProperties()` (and `haxHooks()` when needed), never by importing or requiring the editor. An element may react to editing only to block clicks while editing (buttons, dialog openers, links), to expose editable content that is hard to reach visually, or to extend the HAX UI through hooks, and it must still render and work outside HAX. Only elements built for a HAX site may depend on one (an in-page menu, `smart-collection-list` reading `site.json`). Elements that rely on a third-party service must still work without HAX. Rationale: KNOWLEDGE.md entry \"With or without HAX, work\". In PRAW RULES.md (scope: webcomponents). Enforced by without-hax. The without-hax check in webcomponents fails a pull request when a changed HAX-capable element statically imports editor or HAXcms code, or does not render on a bare page without HAX; known problems are baselined and the baseline only shrinks.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#works-with-or-without-hax"
-   },
-   "note": "A check that enforced this is gone from Quality control: q_without_hax."
+   }
   },
   "r_c3xjsqfbcmoa3cxsoonyxg": {
    "desc": "Creating educational elements in HAX? Apply OER Schema metadata for consistent semantic structure and interoperability. Audit authored content with the `oerschema-audit` skill; find components missing schema with the `oerschema-integration-finder` skill. Map to real OER classes (Course/Unit/Module/Lesson/LearningObjective/Assessment/Quiz/Activity/Task/Rubric/SupportingMaterial/TableOfContents) — never invent classes. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
@@ -537,13 +531,11 @@
    }
   },
   "r_bakmwcmrqrlgdwmunwgvuw": {
-   "desc": "When one HAX repo, rule, skill or doc refers to another, use its public URL (`https://github.com/haxtheweb/<repo>`, or `https://raw.githubusercontent.com/haxtheweb/<repo>/<branch>/<path>` for a single file), never a path on someone's machine such as a home-folder checkout. Many agents run in the cloud and cannot see a local checkout. Instructions for a person at a terminal should be relative to their own clone. In PRAW RULES.md (scope: global). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "When one HAX repo, rule, skill or doc refers to another, use its public URL (`https://github.com/haxtheweb/<repo>`, or `https://raw.githubusercontent.com/haxtheweb/<repo>/<branch>/<path>` for a single file), never a path on someone's machine such as a home-folder checkout. Many agents run in the cloud and cannot see a local checkout. Instructions for a person at a terminal should be relative to their own clone. In PRAW RULES.md (scope: global). Enforced by No local paths. praw scripts/rule-checks.py local-paths, run on every praw pull request by the Rule checks workflow: a home-folder or checkout path in skills/, ecosystem/, plugins/ or any Markdown file fails it (haxtheweb/issues#3295).",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#cross-repo-references--no-local-paths"
-   },
-   "note": "A check that enforced this is gone from Quality control: q_no_local_paths."
+   }
   },
   "r_92dfb3b2_1c32_42dc_89c3_0f4ae66f7227": {
    "desc": "User prefers to always use the latest Node.js LTS release across the ecosystem (currently Node 24). Apply this to `.nvmrc`/`engines` fields, CI workflow `node-version` matrices (e.g. `actions/setup-node`), Docker base images, and local tooling. When a newer LTS supersedes 24, update this rule and all ecosystem workflows/configs in step. In PRAW RULES.md (scope: global). Nothing enforces this yet.",
@@ -759,13 +751,11 @@
    }
   },
   "r_7d6f9c3e_8d0c_4127_948e_e6260465fa95": {
-   "desc": "HAX's official mascot, the little red-helmeted time traveler, is always called the **Future Traveler**: he traveled to the future to bring our ideas to life. Never call him the World Traveler, World Changer or any other variant in new copy, docs, alt text, captions, page titles or agent output; those names are retired. The art lives in <https://github.com/haxtheweb/art> under the `future-traveler/` folder (catalogued under the art manifest's `future_traveler` key); link to those paths, not the retired `world-traveler/` ones. His icons are `hax:future-traveler` (color) and `hax:future-traveler-plain` (one ink) in `@haxtheweb/hax-iconset`; use those names. The retired `hax:world-traveler` and `hax:world-traveler-plain` files stay in the iconset only so content that already names them keeps drawing; they are left out of the icon picker. The omnibar / command palette is **Merlin** in code, schemas and architecture docs only (`<super-daemon>`, `merlin-schema`, \"Merlin program\"); don't rename it there. Nothing front-facing says Merlin or shows a wand: on screen the palette is labelled \"Search and commands\" and drawn as the Future Traveler's goggles (or him wearing them), which light when it is active; the voice answers to \"Ok Future\" and identifies itself as \"Future\". His lightbulb is named **Eureka!** and stands for the moment an idea lands, not for the palette. The story behind these names is in `FUTURE-TRAVELER.md`. In PRAW RULES.md (scope: global). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "HAX's official mascot, the little red-helmeted time traveler, is always called the **Future Traveler**: he traveled to the future to bring our ideas to life. Never call him the World Traveler, World Changer or any other variant in new copy, docs, alt text, captions, page titles or agent output; those names are retired. The art lives in <https://github.com/haxtheweb/art> under the `future-traveler/` folder (catalogued under the art manifest's `future_traveler` key); link to those paths, not the retired `world-traveler/` ones. His icons are `hax:future-traveler` (color) and `hax:future-traveler-plain` (one ink) in `@haxtheweb/hax-iconset`; use those names. The retired `hax:world-traveler` and `hax:world-traveler-plain` files stay in the iconset only so content that already names them keeps drawing; they are left out of the icon picker. The omnibar / command palette is **Merlin** in code, schemas and architecture docs only (`<super-daemon>`, `merlin-schema`, \"Merlin program\"); don't rename it there. Nothing front-facing says Merlin or shows a wand: on screen the palette is labelled \"Search and commands\" and drawn as the Future Traveler's goggles (or him wearing them), which light when it is active; the voice answers to \"Ok Future\" and identifies itself as \"Future\". His lightbulb is named **Eureka!** and stands for the moment an idea lands, not for the palette. The story behind these names is in `FUTURE-TRAVELER.md`. In PRAW RULES.md (scope: global). Enforced by Mascot name. praw scripts/rule-checks.py mascot, run on every praw pull request by the Rule checks workflow: either retired mascot name in any tracked file fails it (the retired icon names and the art folder name are allowed) (haxtheweb/issues#3295).",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#mascot-name-the-future-traveler"
-   },
-   "note": "A check that enforced this is gone from Quality control: q_mascot_name."
+   }
   },
   "ra_language": {
    "desc": "Pure JavaScript with LitElement for web components In the AGENTS.md of components. Nothing enforces this yet.",
@@ -1056,7 +1046,7 @@
    "id": "rules",
    "label": "Rules and what guarantees them",
    "kind": "story",
-   "message": "125 rules: 25 enforced by a check, 21 guidance by design, 79 not yet.",
+   "message": "125 rules: 30 enforced by a check, 21 guidance by design, 74 not yet.",
    "scenes": [
     {
      "caption": "Rules come from PRAW's RULES.md, each repo's AGENTS.md, and the plan's proposals.",
@@ -1078,23 +1068,28 @@
      ]
     },
     {
-     "caption": "25 rules have a check that enforces them.",
+     "caption": "30 rules have a check that enforces them.",
      "nodes": [
       "r_a8bf4a47_3d4f_4f8e_a356_a04db66ce1ab",
       "r_mlhl56jnsqhvnriaw5a2gr",
       "r_mt6hpj9bdha13jwsxjcmea",
+      "r_956c54783626475ea901a6",
       "r_rvsctsdjae8lrmsjmpo3mk",
       "r_7cpveferpsf0az8tkqxw0y",
+      "r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123",
       "r_34ef39a0_b970_43ba_b68a_251f99d64424",
       "r_cehsaztyfb2vtcwthggnbk",
       "r_njf4syugdn5wr5tevadtgy",
+      "r_40983ddf_40b7_4a5e_a600_8f9fcb58da83",
       "r_4e5b2533_8d87_4d77_b303_2d2907a78339",
       "r_8e6a9af3_0301_4c48_b75f_fcff2fc928e6",
       "r_13166db2_909f_4a34_87d1_1b697834eb4b",
       "r_0cf20bb0_0afa_4c6a_9100_e76f76a5cc1a",
+      "r_bakmwcmrqrlgdwmunwgvuw",
       "r_4e0800ef_32ff_42dc_83f0_bbb953d97554",
       "r_4a7c9e2b_8d5f_4e1a_9c3b_7f2e6d5a4b3c",
       "r_cd0800bf_8611_4835_a421_ad10e88b01e9",
+      "r_7d6f9c3e_8d0c_4127_948e_e6260465fa95",
       "ra_unbundled_approach",
       "ra_formatting",
       "ra_feature_prs_change_english_source_strings_only",
@@ -1107,27 +1102,32 @@
       "rc_explicit_js",
       "ct_a11y",
       "ct_fuzz",
+      "q_a11y_modes",
       "q_audit",
       "q_codeql",
-      "q_color_contrast_light_and_dark",
+      "q_color_contrast_of_changed_elements",
       "q_dark_motion",
       "q_ddd_token_lint",
       "q_dependency_licenses",
       "q_element_api_snapshot",
       "q_format_check",
       "q_fuzz_nightly",
+      "q_hax_ui_admin_contract",
       "q_haxschema",
       "q_lint",
       "q_locale_guard",
+      "q_mascot_name",
       "q_memory_leaks",
       "q_mutation_testing",
+      "q_no_local_paths",
       "q_parity",
       "q_phpunit",
       "q_render_benchmarks",
       "q_size_report",
       "q_test_all_elements",
       "q_unit_and_api_conformance_tests",
-      "q_unused_code_knip"
+      "q_unused_code_knip",
+      "q_without_hax"
      ]
     },
     {
@@ -1206,7 +1206,7 @@
      ]
     },
     {
-     "caption": "79 rules nothing enforces yet: the backlog of what to automate next.",
+     "caption": "74 rules nothing enforces yet: the backlog of what to automate next.",
      "nodes": [
       "r_zvem3yg7jtxbsxbop3ypzy",
       "r_rhq7llrzmzlnfvelrwslun",
@@ -1221,15 +1221,12 @@
       "r_447f8d9bc5484749b1188e",
       "r_1992902d74844c908ab446",
       "r_ccca6768_05e0_4d4d_b3a1_4b9895531558",
-      "r_956c54783626475ea901a6",
       "r_411423ec_d922_4bd4_8c45_3d8c65b9fbfa",
       "r_13a03330_483e_404e_9e48_b0d9f16432d3",
-      "r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123",
       "r_410c4334_a186_4356_9584_0796e5d2bc2d",
       "r_eis0l9w9l2jg1cofysmvdt",
       "r_wqogob824vgw5hecmh08ew",
       "r_haxhooks_lifecycle_integration",
-      "r_40983ddf_40b7_4a5e_a600_8f9fcb58da83",
       "r_c3xjsqfbcmoa3cxsoonyxg",
       "r_01ed665f326941e9888ab1",
       "r_ea643795_98bc_47fb_bf31_999644a48f77",
@@ -1243,7 +1240,6 @@
       "r_f3c7716773784e8f94254a",
       "r_cfypzrdqlaj6xsxteavewt",
       "r_z61ldoq98dttlrwen7tl9t",
-      "r_bakmwcmrqrlgdwmunwgvuw",
       "r_92dfb3b2_1c32_42dc_89c3_0f4ae66f7227",
       "r_d2a1207c_b6d1_4cd6_9930_bd21b29a516c",
       "r_09255ba6_e67a_44ce_b8cb_f0d5e80f97ab",
@@ -1258,7 +1254,6 @@
       "r_2472221d_091f_48bc_a44f_acf03f41ce29",
       "r_cd0bc4fc_a502_4b33_8036_057882b5f0e9",
       "r_759643a6db03433a9d742f",
-      "r_7d6f9c3e_8d0c_4127_948e_e6260465fa95",
       "ra_language",
       "ra_no_typescript",
       "ra_third_party_libraries",

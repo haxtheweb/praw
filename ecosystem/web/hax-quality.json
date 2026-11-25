@@ -11,12 +11,12 @@
    "scheduled": "scheduled jobs",
    "task": "Claude scheduled tasks"
   },
-  "about": "Every safeguard on what enters HAX, generated from the workflow files on each repo's default branch, so only checks that are merged and running appear: 27 blocking gates, 6 advisory checks, 17 scheduled jobs and 7 Claude scheduled tasks. Planned tiles are open pull requests. Element test suites include axe accessibility tests where an element has them; whole-project accessibility is covered by the weekly sweep, not a blocking gate.",
+  "about": "Every safeguard on what enters HAX, generated from the workflow files on each repo's default branch, so only checks that are merged and running appear: 65 blocking gates, 6 advisory checks, 25 scheduled jobs and 7 Claude scheduled tasks. Planned tiles are open pull requests. Element test suites include axe accessibility tests where an element has them; whole-project accessibility is covered by the weekly sweep, not a blocking gate.",
   "kindLabels": {
    "rel": "kind of safeguard",
    "schema": "where it runs"
   },
-  "generated": "2026-11-11"
+  "generated": "2026-11-25"
  },
  "nodes": {
   "quality": {
@@ -24,7 +24,7 @@
   },
   "testing": {},
   "qg_block": {
-   "desc": "27 checks that fail a pull request when they fail, in at least one repo; whether a failing check stops the merge is up to each repo's branch rules. Each is read from the repo's workflow files on its default branch, so only checks that are merged and running appear.",
+   "desc": "65 checks that fail a pull request when they fail, in at least one repo; whether a failing check stops the merge is up to each repo's branch rules. Each is read from the repo's workflow files on its default branch, so only checks that are merged and running appear.",
    "kind": "group"
   },
   "qg_adv": {
@@ -32,10 +32,26 @@
    "kind": "group"
   },
   "qg_sched": {
-   "desc": "17 GitHub Actions jobs on a schedule and 7 Claude scheduled tasks. Nothing auto-merges: every PR waits for review, and every flag lands in the unified issue queue.",
+   "desc": "25 GitHub Actions jobs on a schedule and 7 Claude scheduled tasks. Nothing auto-merges: every PR waits for review, and every flag lands in the unified issue queue.",
    "kind": "group",
    "links": {
     "tracking": "https://github.com/haxtheweb/issues/issues/3262"
+   }
+  },
+  "q_a11y_modes": {
+   "desc": "Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/a11y-modes.yml"
+   }
+  },
+  "q_admin_contrast": {
+   "desc": "Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/admin-contrast.yml"
    }
   },
   "q_element_api_snapshot": {
@@ -47,7 +63,7 @@
    }
   },
   "q_lint": {
-   "desc": "Code follows the repo's lint rules, such as no optional chaining in webcomponents. Fails the pull request when it fails in create, haxcms-nodejs, webcomponents.",
+   "desc": "Code follows the repo's lint rules, such as no optional chaining or browser alert / confirm / prompt dialogs in webcomponents. Fails the pull request when it fails in create, haxcms-nodejs, webcomponents.",
    "kind": "gate",
    "status": "deployed",
    "links": {
@@ -99,29 +115,69 @@
    }
   },
   "q_cla": {
-   "desc": "Every contributor has signed the contributor license agreement. Fails the pull request when it fails in create, haxcms-nodejs, haxcms-php, issues, praw, webcomponents.",
+   "desc": "Every contributor has signed the contributor license agreement. Fails the pull request when it fails in create, haxcms-mcp, haxcms-nodejs, haxcms-php, issues, praw, webcomponents.",
    "kind": "gate",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/cla.yml",
-    "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/cla.yml",
-    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/cla.yml",
-    "workflow 4": "https://github.com/haxtheweb/issues/blob/master/.github/workflows/cla.yml"
+    "workflow 2": "https://github.com/haxtheweb/haxcms-mcp/blob/main/.github/workflows/cla.yml",
+    "workflow 3": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/cla.yml",
+    "workflow 4": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/cla.yml"
    }
   },
   "q_codeql": {
-   "desc": "Code with known vulnerability patterns doesn't merge. Fails the pull request when it fails in create, haxcms-nodejs, haxcms-php, webcomponents.",
+   "desc": "Code with known vulnerability patterns doesn't merge. Fails the pull request when it fails in create, haxcms-mcp, haxcms-nodejs, haxcms-php, praw, webcomponents.",
    "kind": "gate",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/codeql-analysis.yml",
-    "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/codeql-analysis.yml",
-    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/codeql.yml",
-    "workflow 4": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/codeql-analysis.yml"
+    "workflow 2": "https://github.com/haxtheweb/haxcms-mcp/blob/main/.github/workflows/codeql.yml",
+    "workflow 3": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/codeql-analysis.yml",
+    "workflow 4": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/codeql.yml"
    }
   },
-  "q_color_contrast_light_and_dark": {
+  "q_contrast_design_systems": {
+   "desc": "Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/contrast-design-systems.yml"
+   }
+  },
+  "q_blocks_under_the_design_system": {
+   "desc": "Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/contrast-design-systems.yml"
+   }
+  },
+  "q_print_what_still_fails": {
+   "desc": "Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/contrast-design-systems.yml"
+   }
+  },
+  "q_baseline_only_shrinks": {
+   "desc": "Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/contrast.yml"
+   }
+  },
+  "q_color_contrast_of_changed_elements": {
    "desc": "Text in the demos of the elements a pull request touches meets WCAG AA contrast in light and dark mode. Known failures are baselined, and the baseline can only shrink. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/contrast.yml"
+   }
+  },
+  "q_palette_roles": {
+   "desc": "Fails the pull request when it fails in webcomponents.",
    "kind": "gate",
    "status": "deployed",
    "links": {
@@ -152,7 +208,31 @@
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml",
     "workflow 2": "https://github.com/haxtheweb/create/blob/main/.github/workflows/dependency-audit.yml",
     "workflow 3": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/build.yml",
-    "workflow 4": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/tests.yml"
+    "workflow 4": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/tests.yml"
+   }
+  },
+  "q_gallery_audit": {
+   "desc": "The component gallery still builds. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/gallery-audit.yml"
+   }
+  },
+  "q_gallery_contrast": {
+   "desc": "The component gallery still builds. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/gallery-contrast.yml"
+   }
+  },
+  "q_hax_ui_admin_contract": {
+   "desc": "Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/hax-ui-admin-contract.yml"
    }
   },
   "q_haxschema": {
@@ -188,14 +268,14 @@
    }
   },
   "q_dependency_licenses": {
-   "desc": "No dependency under an incompatible license enters the repo, and the project stays Apache-2.0. Fails the pull request when it fails in create, haxcms-nodejs, haxcms-php, webcomponents.",
+   "desc": "No dependency under an incompatible license enters the repo, and the project stays Apache-2.0. Fails the pull request when it fails in create, haxcms-nodejs, haxcms-php, praw, webcomponents.",
    "kind": "gate",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/license-check.yml",
     "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/license-check.yml",
-    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/dependency-license.yml",
-    "workflow 4": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/license-check.yml"
+    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/dependency-license.yml",
+    "workflow 4": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/license-check.yml"
    }
   },
   "q_locale_guard": {
@@ -222,8 +302,24 @@
     "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/size-report.yml"
    }
   },
-  "q_template_lint": {
+  "q_css_in_css_templates": {
    "desc": "CSS and HTML templates inside elements are well formed. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/template-lint.yml"
+   }
+  },
+  "q_html_structure_in_html_and_svg_templates": {
+   "desc": "CSS and HTML templates inside elements are well formed. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/template-lint.yml"
+   }
+  },
+  "q_locale_urls_point_at_a_shipped_locale_file": {
+   "desc": "Fails the pull request when it fails in webcomponents.",
    "kind": "gate",
    "status": "deployed",
    "links": {
@@ -236,6 +332,14 @@
    "status": "deployed",
    "links": {
     "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/walkthrough-status.yml"
+   }
+  },
+  "q_without_hax": {
+   "desc": "Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/without-hax.yml"
    }
   },
   "q_build": {
@@ -256,11 +360,19 @@
    }
   },
   "q_e2e": {
-   "desc": "End-to-end flows in the real UI keep working. Reports without failing the pull request in haxcms-nodejs.",
-   "kind": "advisory",
+   "desc": "End-to-end flows in the real UI keep working. Fails the pull request when it fails in haxcms-nodejs.",
+   "kind": "gate",
    "status": "deployed",
    "links": {
     "workflow": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/build.yml"
+   }
+  },
+  "q_haxiam_nightly": {
+   "desc": "Fails the pull request when it fails in haxcms-nodejs.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/haxiam-nightly.yml"
    }
   },
   "q_performance_and_memory_budgets": {
@@ -268,7 +380,8 @@
    "kind": "advisory",
    "status": "deployed",
    "links": {
-    "workflow": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/perf.yml"
+    "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/perf.yml",
+    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/perf.yml"
    }
   },
   "q_ubiquity_assets": {
@@ -277,7 +390,7 @@
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/ubiquity-assets.yml",
-    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/ubiquity-assets.yml"
+    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/ubiquity-assets.yml"
    }
   },
   "q_phpstan": {
@@ -285,7 +398,7 @@
    "kind": "gate",
    "status": "deployed",
    "links": {
-    "workflow": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/phpstan.yml"
+    "workflow": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/phpstan.yml"
    }
   },
   "q_phpunit": {
@@ -293,15 +406,24 @@
    "kind": "gate",
    "status": "deployed",
    "links": {
-    "workflow": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/tests.yml"
+    "workflow": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/tests.yml"
    }
   },
-  "q_unit_tests": {
-   "desc": "Changes don't break existing behavior. Fails the pull request when it fails in create.",
+  "q_does_this_pull_request_change_composer_lock": {
+   "desc": "Fails the pull request when it fails in haxcms-php.",
    "kind": "gate",
    "status": "deployed",
    "links": {
-    "workflow": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml"
+    "workflow": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/tests.yml"
+   }
+  },
+  "q_unit_tests": {
+   "desc": "Changes don't break existing behavior. Fails the pull request when it fails in create, haxcms-mcp.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml",
+    "workflow 2": "https://github.com/haxtheweb/haxcms-mcp/blob/main/.github/workflows/ci.yml"
    }
   },
   "q_security_lint": {
@@ -320,30 +442,230 @@
     "workflow": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml"
    }
   },
+  "q_growth_data_check": {
+   "desc": "Fails the pull request when it fails in praw.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/ecosystem-web.yml"
+   }
+  },
+  "q_assemble_the_page": {
+   "desc": "Fails the pull request when it fails in praw.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/ecosystem-web.yml"
+   }
+  },
+  "q_parse_check": {
+   "desc": "Fails the pull request when it fails in praw.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/ecosystem-web.yml"
+   }
+  },
+  "q_layout_check": {
+   "desc": "Fails the pull request when it fails in praw.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/ecosystem-web.yml"
+   }
+  },
+  "q_build_the_site": {
+   "desc": "Fails the pull request when it fails in praw.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/hax-cloud.yml"
+   }
+  },
+  "q_check_the_site": {
+   "desc": "Fails the pull request when it fails in praw.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/hax-cloud.yml"
+   }
+  },
+  "q_check_recent_activity": {
+   "desc": "Fails the pull request when it fails in praw.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/hax-cloud.yml"
+   }
+  },
+  "q_accessibility": {
+   "desc": "Reports without failing the pull request in praw.",
+   "kind": "advisory",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/hax-cloud.yml"
+   }
+  },
+  "q_mascot_name": {
+   "desc": "Fails the pull request when it fails in praw.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_no_local_paths": {
+   "desc": "Fails the pull request when it fails in praw.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_github_org_spelling": {
+   "desc": "Fails the pull request when it fails in praw.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_project_license_is_apache_2_0": {
+   "desc": "No dependency under an incompatible license enters the repo, and the project stays Apache-2.0. Fails the pull request when it fails in praw.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_build_skill_indexes": {
+   "desc": "Fails the pull request when it fails in praw.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_skills_lock_json_hashes_are_current": {
+   "desc": "Fails the pull request when it fails in praw.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_build_rule_exports": {
+   "desc": "Fails the pull request when it fails in praw.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_nothing_changed": {
+   "desc": "Fails the pull request when it fails in praw.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_rule_checks": {
+   "desc": "PRAW itself follows its rules: the mascot is always the Future Traveler, and nothing points at a path on someone's machine. Fails the pull request when it fails in praw.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_ruff_check": {
+   "desc": "Fails the pull request when it fails in haxcms-mcp.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/haxcms-mcp/blob/main/.github/workflows/ci.yml"
+   }
+  },
+  "q_ruff_format_check": {
+   "desc": "Formatting stays consistent (Prettier). Fails the pull request when it fails in haxcms-mcp.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/haxcms-mcp/blob/main/.github/workflows/ci.yml"
+   }
+  },
+  "q_mypy": {
+   "desc": "Fails the pull request when it fails in haxcms-mcp.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/haxcms-mcp/blob/main/.github/workflows/ci.yml"
+   }
+  },
+  "q_tool_docs_drift_check": {
+   "desc": "Fails the pull request when it fails in haxcms-mcp.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/haxcms-mcp/blob/main/.github/workflows/ci.yml"
+   }
+  },
+  "q_ci": {
+   "desc": "Fails the pull request when it fails in haxcms-mcp.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/haxcms-mcp/blob/main/.github/workflows/ci.yml"
+   }
+  },
+  "q_compliance": {
+   "desc": "Fails the pull request when it fails in haxcms-mcp.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/haxcms-mcp/blob/main/.github/workflows/compliance.yml"
+   }
+  },
+  "q_admin_contrast_sched": {
+   "desc": "Runs nightly in webcomponents. webcomponents: last scheduled run 2026-11-24, success.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/admin-contrast.yml"
+   }
+  },
   "q_build_and_tests": {
-   "desc": "Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create. webcomponents: last scheduled run 2026-11-10, success; haxcms-nodejs: last scheduled run 2026-11-10, success; haxcms-php: last scheduled run 2026-11-10, failure; create: last scheduled run 2026-11-10, success.",
+   "desc": "Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create. webcomponents: last scheduled run 2026-11-24, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml",
     "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/build.yml",
-    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/tests.yml",
+    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/tests.yml",
     "workflow 4": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/build.yml"
    }
   },
   "q_codeql_sched": {
-   "desc": "Code with known vulnerability patterns in main is caught, including patterns found after it merged. Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create. webcomponents: last scheduled run 2026-11-10, success; haxcms-nodejs: last scheduled run 2026-11-10, success; haxcms-php: last scheduled run 2026-11-10, success; create: last scheduled run 2026-11-10, success.",
+   "desc": "Code with known vulnerability patterns in main is caught, including patterns found after it merged. Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create, nightly in praw, nightly in haxcms-mcp. webcomponents: last scheduled run 2026-11-25, success; praw: last scheduled run 2026-11-24, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/codeql-analysis.yml",
-    "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/codeql-analysis.yml",
-    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/codeql.yml",
-    "workflow 4": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/codeql-analysis.yml"
+    "workflow 2": "https://github.com/haxtheweb/haxcms-mcp/blob/main/.github/workflows/codeql.yml",
+    "workflow 3": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/codeql-analysis.yml",
+    "workflow 4": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/codeql.yml"
+   }
+  },
+  "q_contrast_design_systems_sched": {
+   "desc": "Runs nightly in webcomponents. webcomponents: last scheduled run 2026-11-24, success.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/contrast-design-systems.yml"
    }
   },
   "q_audit_sched": {
-   "desc": "Dependencies with known security advisories are caught. Runs nightly in webcomponents, nightly in create. webcomponents: last scheduled run 2026-11-10, success; create: last scheduled run 2026-11-10, success.",
+   "desc": "Dependencies with known security advisories are caught. Runs nightly in webcomponents, nightly in create. webcomponents: last scheduled run 2026-11-24, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -352,7 +674,7 @@
    }
   },
   "q_docs_weekly": {
-   "desc": "Runs weekly in webcomponents.",
+   "desc": "Runs weekly in webcomponents. webcomponents: last scheduled run 2026-11-23, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -360,52 +682,62 @@
    }
   },
   "q_fuzz_nightly": {
-   "desc": "Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in create.",
+   "desc": "Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create. webcomponents: last scheduled run 2026-11-24, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/fuzz-nightly.yml",
     "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/fuzz-nightly.yml",
-    "workflow 3": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/fuzz-nightly.yml"
+    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/fuzz-nightly.yml",
+    "workflow 4": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/fuzz-nightly.yml"
    }
   },
   "q_unused_code_knip_sched": {
-   "desc": "Unused files, exports and dependencies are found. Runs weekly in webcomponents.",
+   "desc": "Unused files, exports and dependencies are found. Runs weekly in webcomponents. webcomponents: last scheduled run 2026-11-23, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/knip.yml"
    }
   },
+  "q_legacy_scan": {
+   "desc": "Runs weekly in webcomponents.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/legacy-scan.yml"
+   }
+  },
   "q_dependency_licenses_sched": {
-   "desc": "No dependency under an incompatible license enters the repo, and the project stays Apache-2.0. Runs weekly in webcomponents, weekly in haxcms-nodejs, weekly in haxcms-php, weekly in create.",
+   "desc": "No dependency under an incompatible license enters the repo, and the project stays Apache-2.0. Runs weekly in webcomponents, weekly in haxcms-nodejs, weekly in haxcms-php, weekly in create, weekly in praw. webcomponents: last scheduled run 2026-11-23, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/license-check.yml",
     "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/license-check.yml",
-    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/dependency-license.yml",
-    "workflow 4": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/license-check.yml"
+    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/dependency-license.yml",
+    "workflow 4": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/license-check.yml"
    }
   },
   "q_mutation_testing": {
-   "desc": "The tests catch real faults: deliberate mutations of the code must make them fail. Runs weekly in webcomponents, weekly in haxcms-nodejs.",
+   "desc": "The tests catch real faults: deliberate mutations of the code must make them fail. Runs weekly in webcomponents, weekly in haxcms-nodejs, weekly in haxcms-php. webcomponents: last scheduled run 2026-11-22, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/mutation-testing.yml",
-    "workflow 2": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/mutation-outline-designer.yml"
+    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/mutation-testing.yml",
+    "workflow 3": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/mutation-outline-designer.yml"
    }
   },
   "q_openssf_scorecard": {
-   "desc": "Supply-chain security practices are scored (OpenSSF Scorecard). Runs weekly in webcomponents, weekly in haxcms-nodejs, weekly in haxcms-php, weekly in create. webcomponents: last scheduled run 2026-11-09, success; haxcms-nodejs: last scheduled run 2026-11-09, success; haxcms-php: last scheduled run 2026-11-09, success; create: last scheduled run 2026-11-09, success.",
+   "desc": "Supply-chain security practices are scored (OpenSSF Scorecard). Runs weekly in webcomponents, weekly in haxcms-nodejs, weekly in haxcms-php, weekly in create, weekly in praw, weekly in haxcms-mcp. webcomponents: last scheduled run 2026-11-23, success; praw: last scheduled run 2026-11-23, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/ossf_scorecard.yml",
-    "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/ossf_scorecard.yml",
-    "workflow 3": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/ossf_scorecard.yml",
-    "workflow 4": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/ossf_scorecard.yml"
+    "workflow 2": "https://github.com/haxtheweb/haxcms-mcp/blob/main/.github/workflows/ossf_scorecard.yml",
+    "workflow 3": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/ossf_scorecard.yml",
+    "workflow 4": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/ossf_scorecard.yml"
    }
   },
   "q_agent_skills_drift": {
@@ -414,37 +746,47 @@
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/agent-skills-drift.yml",
-    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/agent-skills-drift.yml"
+    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/agent-skills-drift.yml"
    }
   },
   "q_parity": {
-   "desc": "haxcms-nodejs and haxcms-php give the same results for the same operations. Runs nightly in haxcms-nodejs, nightly in haxcms-php. haxcms-nodejs: last scheduled run 2026-11-10, failure; haxcms-php: last scheduled run 2026-11-10, failure.",
+   "desc": "haxcms-nodejs and haxcms-php give the same results for the same operations. Runs nightly in haxcms-nodejs, nightly in haxcms-php.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/backend-parity.yml",
-    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/backend-parity.yml"
+    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/backend-parity.yml"
    }
   },
-  "q_performance_and_memory_budgets_sched": {
-   "desc": "Memory, page load and outline save time stay inside the budgets in test/perf/budgets.json. Runs weekly in haxcms-nodejs.",
+  "q_haxiam_nightly_sched": {
+   "desc": "Runs nightly in haxcms-nodejs, nightly in haxcms-php.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
-    "workflow": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/perf.yml"
+    "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/haxiam-nightly.yml",
+    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/haxiam-nightly.yml"
+   }
+  },
+  "q_performance_and_memory_budgets_sched": {
+   "desc": "Memory, page load and outline save time stay inside the budgets in test/perf/budgets.json. Runs weekly in haxcms-nodejs, weekly in haxcms-php.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/perf.yml",
+    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/perf.yml"
    }
   },
   "q_ubiquity_assets_sched": {
-   "desc": "Runs nightly in haxcms-nodejs, nightly in haxcms-php. haxcms-nodejs: last scheduled run 2026-11-11, success; haxcms-php: last scheduled run 2026-11-11, success.",
+   "desc": "Runs nightly in haxcms-nodejs, nightly in haxcms-php.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
     "workflow 1": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/ubiquity-assets.yml",
-    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/master/.github/workflows/ubiquity-assets.yml"
+    "workflow 2": "https://github.com/haxtheweb/haxcms-php/blob/main/.github/workflows/ubiquity-assets.yml"
    }
   },
   "q_fresh_install_smoke_test": {
-   "desc": "A fresh install can create a site, add a page and serve it. Runs nightly in create. create: last scheduled run 2026-11-10, success.",
+   "desc": "A fresh install can create a site, add a page and serve it. Runs nightly in create.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -467,8 +809,40 @@
     "workflow": "https://github.com/haxtheweb/create/blob/main/.github/workflows/parity-nightly.yml"
    }
   },
+  "q_ecosystem_web_drift": {
+   "desc": "Runs weekly in praw.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/ecosystem-drift.yml"
+   }
+  },
+  "q_hax_cloud": {
+   "desc": "Runs weekly in praw.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/praw/blob/main/.github/workflows/hax-cloud.yml"
+   }
+  },
+  "q_compliance_sched": {
+   "desc": "Runs weekly in haxcms-mcp.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/haxcms-mcp/blob/main/.github/workflows/compliance.yml"
+   }
+  },
+  "q_upstream_drift": {
+   "desc": "Runs nightly in haxcms-mcp.",
+   "kind": "scheduled",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/haxcms-mcp/blob/main/.github/workflows/upstream-drift.yml"
+   }
+  },
   "q_weekly_report": {
-   "desc": "Runs weekly in issues.",
+   "desc": "Runs weekly in issues. issues: last scheduled run 2026-11-23, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -476,10 +850,11 @@
    }
   },
   "ct_translations": {
-   "desc": "Claude scheduled task, nightly. New and changed English strings reach every language, in one rolling PR. Scheduled, but no output on GitHub yet.",
+   "desc": "Claude scheduled task, nightly. New and changed English strings reach every language, in one rolling PR. Running and producing output.",
    "kind": "task",
-   "status": "in-progress",
+   "status": "deployed",
    "links": {
+    "latest output": "https://github.com/haxtheweb/webcomponents/pull/1584",
     "tracking": "https://github.com/haxtheweb/issues/issues/3262"
    }
   },
@@ -501,10 +876,11 @@
    }
   },
   "ct_tours": {
-   "desc": "Claude scheduled task, weekly. Element walkthroughs are redrafted when an element's surface changes; approved ones are listed for review. Scheduled, but no output on GitHub yet.",
+   "desc": "Claude scheduled task, weekly. Element walkthroughs are redrafted when an element's surface changes; approved ones are listed for review. Running and producing output.",
    "kind": "task",
-   "status": "in-progress",
+   "status": "deployed",
    "links": {
+    "latest output": "https://github.com/haxtheweb/webcomponents/pull/1559",
     "tracking": "https://github.com/haxtheweb/issues/issues/3262"
    }
   },
@@ -542,9 +918,11 @@
    "message": "Every safeguard on what enters HAX, read from the CI that actually runs.",
    "scenes": [
     {
-     "caption": "27 blocking gates: a pull request can't merge until these pass.",
+     "caption": "65 blocking gates: a pull request can't merge until these pass.",
      "nodes": [
       "qg_block",
+      "q_a11y_modes",
+      "q_admin_contrast",
       "q_element_api_snapshot",
       "q_lint",
       "q_script_tests",
@@ -554,24 +932,60 @@
       "q_gallery_build",
       "q_cla",
       "q_codeql",
-      "q_color_contrast_light_and_dark",
+      "q_contrast_design_systems",
+      "q_blocks_under_the_design_system",
+      "q_print_what_still_fails",
+      "q_baseline_only_shrinks",
+      "q_color_contrast_of_changed_elements",
+      "q_palette_roles",
       "q_dark_motion",
       "q_ddd_token_lint",
       "q_audit",
+      "q_gallery_audit",
+      "q_gallery_contrast",
+      "q_hax_ui_admin_contract",
       "q_haxschema",
       "q_pseudo_locale_and_rtl_layout",
       "q_memory_leaks",
       "q_dependency_licenses",
-      "q_template_lint",
+      "q_css_in_css_templates",
+      "q_html_structure_in_html_and_svg_templates",
+      "q_locale_urls_point_at_a_shipped_locale_file",
       "q_walkthrough_status",
+      "q_without_hax",
       "q_build",
       "q_unit_and_api_conformance_tests",
+      "q_e2e",
+      "q_haxiam_nightly",
       "q_ubiquity_assets",
       "q_phpstan",
       "q_phpunit",
+      "q_does_this_pull_request_change_composer_lock",
       "q_unit_tests",
       "q_security_lint",
-      "q_smoke_tests"
+      "q_smoke_tests",
+      "q_growth_data_check",
+      "q_assemble_the_page",
+      "q_parse_check",
+      "q_layout_check",
+      "q_build_the_site",
+      "q_check_the_site",
+      "q_check_recent_activity",
+      "q_mascot_name",
+      "q_no_local_paths",
+      "q_github_org_spelling",
+      "q_project_license_is_apache_2_0",
+      "q_build_skill_indexes",
+      "q_skills_lock_json_hashes_are_current",
+      "q_build_rule_exports",
+      "q_nothing_changed",
+      "q_rule_checks",
+      "q_ruff_check",
+      "q_ruff_format_check",
+      "q_mypy",
+      "q_tool_docs_drift_check",
+      "q_ci",
+      "q_compliance"
      ]
     },
     {
@@ -582,8 +996,8 @@
       "q_locale_guard",
       "q_render_benchmarks",
       "q_size_report",
-      "q_e2e",
-      "q_performance_and_memory_budgets"
+      "q_performance_and_memory_budgets",
+      "q_accessibility"
      ]
     },
     {
@@ -596,27 +1010,35 @@
      "caption": "Scheduled GitHub Actions run nightly and weekly against main.",
      "nodes": [
       "qg_sched",
+      "q_admin_contrast_sched",
       "q_build_and_tests",
       "q_codeql_sched",
+      "q_contrast_design_systems_sched",
       "q_audit_sched",
       "q_docs_weekly",
       "q_fuzz_nightly",
       "q_unused_code_knip_sched",
+      "q_legacy_scan",
       "q_dependency_licenses_sched",
       "q_mutation_testing",
       "q_openssf_scorecard",
       "q_agent_skills_drift",
       "q_parity",
+      "q_haxiam_nightly_sched",
       "q_performance_and_memory_budgets_sched",
       "q_ubiquity_assets_sched",
       "q_fresh_install_smoke_test",
       "q_old_site_compatibility",
       "q_parity_harness_nodejs_php_cli",
+      "q_ecosystem_web_drift",
+      "q_hax_cloud",
+      "q_compliance_sched",
+      "q_upstream_drift",
       "q_weekly_report"
      ]
     },
     {
-     "caption": "Claude scheduled tasks take the jobs that need judgment: translating, docs, triage. Not producing output yet: Nightly translations, Documentation pass, Element tours, Accessibility sweep.",
+     "caption": "Claude scheduled tasks take the jobs that need judgment: translating, docs, triage. Not producing output yet: Documentation pass, Accessibility sweep.",
      "nodes": [
       "qg_sched",
       "ct_translations",

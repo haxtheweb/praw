@@ -88,7 +88,11 @@
     "components",
     "ddd",
     "meaningchannels"
-   ]
+   ],
+   "enforced_by": [
+    "q_color_vision_action_pairs"
+   ],
+   "how": "webcomponents' rule-checks workflow runs scripts/vision-pairs-check.mjs --strict on every pull request: each accept / dismiss pair in scripts/vision-pairs.json must read apart in greyscale and under protanopia, deuteranopia and tritanopia, by luminance or a non-color cue. It also runs in yarn precheck."
   },
   "a8bf4a": {
    "enforced_by": [
@@ -232,7 +236,9 @@
    ],
    "touches": [
     "praw"
-   ]
+   ],
+   "automation": "guidance",
+   "how": "Says to run the worldview Pillar checks before a non-trivial change; judging a change against the pillars takes a person or agent."
   },
   "agents:Formatting": {
    "enforced_by": [
@@ -677,10 +683,6 @@
    "automation": "guidance",
    "how": "Says what a theme PR hands over for review (the editor demo link); it is how work is handed over, not a property of the code."
   },
-  "1eaa87af": {
-   "automation": "guidance",
-   "how": "Says to run the worldview Pillar checks before a non-trivial change; judging a change against the pillars takes a person or agent."
-  },
   "186fad44": {
    "automation": "guidance",
    "how": "Says what an agent does before submitting (read AGENTS.md, run the repo's own lint and tests); the checks it points to are each enforced on their own."
@@ -710,6 +712,24 @@
     "q_lint"
    ],
    "how": "ESLint rule haxtheweb-html/unsanitized-html-sink (scripts/eslint-rules/html-sinks.mjs) fails the pull request on a new unsanitized write to innerHTML, insertAdjacentHTML, unsafeHTML or an .innerHTML binding; hits that predate it are recorded in eslint-suppressions.json."
+  },
+  "agents:NO TypeScript": {
+   "enforced_by": [
+    "q_no_typescript"
+   ],
+   "how": "webcomponents' rule-checks workflow (scripts/rule-checks.mjs typescript) fails the pull request on any .ts, .tsx, .mts or .cts source under elements/; .d.ts declarations are allowed."
+  },
+  "92dfb3b2": {
+   "enforced_by": [
+    "q_node_js_latest_lts"
+   ],
+   "how": "Partly. webcomponents' rule-checks workflow (scripts/rule-checks.mjs node-version) fails the pull request when engines.node, an .nvmrc or a workflow node-version isn't the latest LTS; the other repos aren't checked yet."
+  },
+  "932f6cd4": {
+   "enforced_by": [
+    "q_tests_poll_don_t_sleep"
+   ],
+   "how": "webcomponents' rule-checks workflow (scripts/rule-checks.mjs test-sleeps) fails the pull request when a test file gains a fixed sleep (aTimeout, setTimeout in a bare Promise, waitForTimeout). Sleeps that predate the rule are in scripts/test-sleeps.baseline.json, which only shrinks."
   }
  },
  "candidates": [

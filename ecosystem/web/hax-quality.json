@@ -11,7 +11,7 @@
    "scheduled": "scheduled jobs",
    "task": "Claude scheduled tasks"
   },
-  "about": "Every safeguard on what enters HAX, generated from the workflow files on each repo's default branch, so only checks that are merged and running appear: 63 blocking gates, 6 advisory checks, 25 scheduled jobs and 7 Claude scheduled tasks. Planned tiles are open pull requests. Element test suites include axe accessibility tests where an element has them; whole-project accessibility is covered by the weekly sweep, not a blocking gate.",
+  "about": "Every safeguard on what enters HAX, generated from the workflow files on each repo's default branch, so only checks that are merged and running appear: 67 blocking gates, 6 advisory checks, 25 scheduled jobs and 7 Claude scheduled tasks. Planned tiles are open pull requests. Element test suites include axe accessibility tests where an element has them; whole-project accessibility is covered by the weekly sweep, not a blocking gate.",
   "kindLabels": {
    "rel": "kind of safeguard",
    "schema": "where it runs"
@@ -24,7 +24,7 @@
   },
   "testing": {},
   "qg_block": {
-   "desc": "63 checks that fail a pull request when they fail, in at least one repo; whether a failing check stops the merge is up to each repo's branch rules. Each is read from the repo's workflow files on its default branch, so only checks that are merged and running appear.",
+   "desc": "67 checks that fail a pull request when they fail, in at least one repo; whether a failing check stops the merge is up to each repo's branch rules. Each is read from the repo's workflow files on its default branch, so only checks that are merged and running appear.",
    "kind": "group"
   },
   "qg_adv": {
@@ -276,6 +276,38 @@
    "status": "deployed",
    "links": {
     "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/render-bench.yml"
+   }
+  },
+  "q_color_vision_action_pairs": {
+   "desc": "Accept and dismiss pairs (save vs cancel, keep vs delete) stay tellable apart in greyscale and with color vision deficiencies. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_no_typescript": {
+   "desc": "No TypeScript source enters elements/; HAX ships JavaScript with no compile step. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_node_js_latest_lts": {
+   "desc": "Every Node.js version the repo names (engines, .nvmrc, workflows) is the latest LTS. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_tests_poll_don_t_sleep": {
+   "desc": "No test gains a fixed sleep; tests wait for the condition they need. Sleeps that predate the rule are baselined, and the baseline only shrinks. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/rule-checks.yml"
    }
   },
   "q_size_report": {
@@ -619,7 +651,7 @@
    }
   },
   "q_build_and_tests": {
-   "desc": "Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create. webcomponents: last scheduled run 2026-11-24, success.",
+   "desc": "Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create. webcomponents: last scheduled run 2026-11-25, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -666,7 +698,7 @@
    }
   },
   "q_fuzz_nightly": {
-   "desc": "Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create. webcomponents: last scheduled run 2026-11-24, success.",
+   "desc": "Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create. webcomponents: last scheduled run 2026-11-25, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -902,7 +934,7 @@
    "message": "Every safeguard on what enters HAX, read from the CI that actually runs.",
    "scenes": [
     {
-     "caption": "63 blocking gates: a pull request can't merge until these pass.",
+     "caption": "67 blocking gates: a pull request can't merge until these pass.",
      "nodes": [
       "qg_block",
       "q_a11y_modes",
@@ -930,6 +962,10 @@
       "q_pseudo_locale_and_rtl_layout",
       "q_memory_leaks",
       "q_dependency_licenses",
+      "q_color_vision_action_pairs",
+      "q_no_typescript",
+      "q_node_js_latest_lts",
+      "q_tests_poll_don_t_sleep",
       "q_css_in_css_templates",
       "q_html_structure_in_html_and_svg_templates",
       "q_locale_urls_point_at_a_shipped_locale_file",

@@ -25,6 +25,7 @@ flowchart TB
     q_check_the_site["Check the site"]
     q_codeql["CodeQL"]
     q_color_contrast_of_changed_elements["Color contrast of changed elements"]
+    q_color_vision_action_pairs["Color vision action pairs"]
     q_compliance["Compliance"]
     q_ddd_token_lint["DDD token lint"]
     q_audit["Dependency audit"]
@@ -43,7 +44,9 @@ flowchart TB
     q_mascot_name["Mascot name"]
     q_memory_leaks["Memory leaks"]
     q_mypy["Mypy"]
+    q_no_typescript["No TypeScript"]
     q_no_local_paths["No local paths"]
+    q_node_js_latest_lts["Node.js latest LTS"]
     q_nothing_changed["Nothing changed"]
     q_phpstan["PHPStan"]
     q_phpunit["PHPUnit"]
@@ -59,6 +62,7 @@ flowchart TB
     q_smoke_tests["Smoke tests"]
     q_stylelint["Stylelint"]
     q_test_all_elements["Test all elements"]
+    q_tests_poll_don_t_sleep["Tests poll, don't sleep"]
     q_tool_docs_drift_check["Tool docs drift check"]
     q_unit_and_api_conformance_tests["Unit and API conformance tests"]
     q_unit_tests["Unit tests"]
@@ -204,6 +208,14 @@ flowchart TB
   q_dependency_licenses -.->|fails PRs in| php
   q_dependency_licenses -.->|fails PRs in| cli
   q_dependency_licenses -.->|fails PRs in| praw
+  qg_block -->|includes| q_color_vision_action_pairs
+  q_color_vision_action_pairs -.->|fails PRs in| components
+  qg_block -->|includes| q_no_typescript
+  q_no_typescript -.->|fails PRs in| components
+  qg_block -->|includes| q_node_js_latest_lts
+  q_node_js_latest_lts -.->|fails PRs in| components
+  qg_block -->|includes| q_tests_poll_don_t_sleep
+  q_tests_poll_don_t_sleep -.->|fails PRs in| components
   qg_block -->|includes| q_css_in_css_templates
   q_css_in_css_templates -.->|fails PRs in| components
   qg_block -->|includes| q_html_structure_in_html_and_svg_templates
@@ -433,6 +445,10 @@ flowchart TB
   %%@ node q_pseudo_locale_and_rtl_layout icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_memory_leaks icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_dependency_licenses icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_color_vision_action_pairs icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_no_typescript icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_node_js_latest_lts icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_tests_poll_don_t_sleep icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_css_in_css_templates icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_html_structure_in_html_and_svg_templates icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_locale_urls_point_at_a_shipped_locale_file icon=icons:check-circle color=forestGreen motion=nudge

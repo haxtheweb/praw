@@ -64,8 +64,9 @@ for c in cands:  # a candidate a RULES.md rule now covers points at that rule
 ALL = rules + list(agents.values()) + cands
 def links_for(key):  # RULES.md Rule IDs may be given in full or by their first characters
     if key in LINKS["rules"]: return LINKS["rules"][key]
-    hit = [v for k, v in LINKS["rules"].items() if ":" not in k and key.startswith(k)]
-    return hit[0] if len(hit) == 1 else {}
+    hit = [k for k in LINKS["rules"] if ":" not in k and key.startswith(k)]
+    if len(hit) > 1: raise SystemExit(f"rule-links.json: {', '.join(hit)} all name Rule ID {key}; merge them into one entry")
+    return LINKS["rules"][hit[0]] if hit else {}
 for r in ALL:
     L = links_for(r["key"])
     r["enf"] = [q for q in L.get("enforced_by", []) if q in QUALITY]

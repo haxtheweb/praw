@@ -17,6 +17,7 @@ This repository contains:
 - **`KNOWLEDGE.md`** - Log of emergent knowledge, decisions, and conventions that inform rule development
 - **`WORLDVIEW.md`** - Curated worldview synthesis from long-form ecosystem writing, with pillar checks
 - **`VOICE.md`** - How HAX sounds: register, metaphors and signature lines for public writing (draft)
+- **`METAPHORS.md`** - Metaphors and refrains for talks and public copy: the blur, the zoom, the grammar, and lines worth repeating
 - **`WHY.md`** - Why the work matters, in Bryan's words
 - **`FUTURE-TRAVELER.md`** - The story of the Future Traveler, HAX's mascot and logo, and why he is drawn in every era
 - **`WINS.md`** - Sourced stories that prove the worldview works (draft)

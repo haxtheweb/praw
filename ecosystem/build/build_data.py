@@ -88,7 +88,7 @@ def growth(data_dir, catalog, llms):
         meta = json.load(open(src)).get("meta", {})
         url = SITE + "data/growth/" + key + ".json"
         ds = {"@type": "Dataset", "identifier": "growth-" + key, "name": name, "description": about,
-              "url": url, "license": LICENSE, "isAccessibleForFree": True,
+              "url": SITE + "growth", "license": LICENSE, "isAccessibleForFree": True,
               "isBasedOn": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/growth/" + key + ".json",
               "distribution": [{"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": url}]}
         if meta.get("generated"):

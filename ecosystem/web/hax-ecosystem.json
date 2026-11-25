@@ -405,7 +405,8 @@
     "url": "https://github.com/haxtheweb/praw"
    },
    "links": {
-    "repo": "https://github.com/haxtheweb/praw"
+    "repo": "https://github.com/haxtheweb/praw",
+    "Growth": "https://hax.cloud/growth"
    },
    "status": "living"
   },

@@ -22,7 +22,7 @@
  "nodes": {
   "skillsindex": {
    "always": true,
-   "desc": "The agentskills.io discovery index (0.2.0): one JSON file that tells an agent which skills a place offers and where to read each one. PRAW keeps the canonical index of all 52 skills; HAXcms deployment roots carry the system set and every site carries the site set.",
+   "desc": "The agentskills.io discovery index (0.2.0): one JSON file that tells an agent which skills a place offers and where to read each one. PRAW keeps the canonical index of all 54 skills; HAXcms deployment roots carry the system set and every site carries the site set.",
    "links": {
     "spec": "https://github.com/cloudflare/agent-skills-discovery-rfc",
     "index": "https://github.com/haxtheweb/praw/blob/main/.well-known/agent-skills/index.json"
@@ -37,33 +37,33 @@
    "kind": "field"
   },
   "f_name": {
-   "desc": "The skill's name: lowercase letters, digits and hyphens, at most 64 characters. On 52 of 52 skills.",
+   "desc": "The skill's name: lowercase letters, digits and hyphens, at most 64 characters. On 54 of 54 skills.",
    "kind": "field"
   },
   "f_type": {
-   "desc": "How the skill is packaged; every HAX skill is skill-md (a SKILL.md with YAML frontmatter). On 52 of 52 skills.",
+   "desc": "How the skill is packaged; every HAX skill is skill-md (a SKILL.md with YAML frontmatter). On 54 of 54 skills.",
    "kind": "field"
   },
   "f_description": {
-   "desc": "What the skill does and when to use it, from the SKILL.md frontmatter (at most 1,024 characters). On 52 of 52 skills.",
+   "desc": "What the skill does and when to use it, from the SKILL.md frontmatter (at most 1,024 characters). On 54 of 54 skills.",
    "kind": "field"
   },
   "f_url": {
-   "desc": "Where the SKILL.md is, relative to the index, so the same entry works from PRAW, a deployment root or a site. On 52 of 52 skills.",
+   "desc": "Where the SKILL.md is, relative to the index, so the same entry works from PRAW, a deployment root or a site. On 54 of 54 skills.",
    "kind": "field"
   },
   "f_digest": {
-   "desc": "The sha256 of the SKILL.md, so a client can tell whether its copy is current. On 52 of 52 skills.",
+   "desc": "The sha256 of the SKILL.md, so a client can tell whether its copy is current. On 54 of 54 skills.",
    "kind": "field"
   },
   "f_files": {
-   "desc": "Not in the spec: the skill's other files (references and the like) with their own digests, so the HAXcms copy step can copy and verify each one. Spec clients ignore it. On 22 of 52 skills.",
+   "desc": "Not in the spec: the skill's other files (references and the like) with their own digests, so the HAXcms copy step can copy and verify each one. Spec clients ignore it. On 23 of 54 skills.",
    "kind": "field",
    "status": "in-progress",
    "note": "A HAX extension, not part of the discovery spec."
   },
   "set_all": {
-   "desc": "Every skill in PRAW: 52. Served from PRAW itself; developer and ecosystem tooling stays here only.",
+   "desc": "Every skill in PRAW: 54. Served from PRAW itself; developer and ecosystem tooling stays here only.",
    "kind": "set",
    "links": {
     "skills": "https://github.com/haxtheweb/praw/blob/main/skills"
@@ -84,14 +84,14 @@
    }
   },
   "praw_index": {
-   "desc": "The canonical index: 52 skills, written by build-agent-skills-index.js.",
+   "desc": "The canonical index: 54 skills, written by build-agent-skills-index.js.",
    "kind": "copy",
    "links": {
     "file": "https://github.com/haxtheweb/praw/blob/main/.well-known/agent-skills/index.json"
    }
   },
   "praw_full": {
-   "desc": "The same skills with files[] filled in (22 skills have extra files), read by the copy step.",
+   "desc": "The same skills with files[] filled in (23 skills have extra files), read by the copy step.",
    "kind": "copy",
    "links": {
     "file": "https://github.com/haxtheweb/praw/blob/main/skills/index.json"
@@ -171,7 +171,7 @@
    "id": "skillsindex",
    "label": "How an agent finds HAX skills",
    "kind": "story",
-   "message": "52 skills in PRAW, cut into 2 sets and copied to 4 places; 0 copies are out of step.",
+   "message": "54 skills in PRAW, cut into 2 sets and copied to 4 places; 0 copies are out of step.",
    "scenes": [
     {
      "caption": "The index is one JSON file in .well-known: the spec it follows and a list of skills.",

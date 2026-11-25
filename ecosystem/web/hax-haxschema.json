@@ -9,7 +9,7 @@
    "field": "field types",
    "element": "elements"
   },
-  "about": "What an element tells the editor, generated from haxProperties.schema.json: the JSON Schema it is written in, 14 top-level keys, the four settings groups, all 34 field types (inputMethod) and the 24 element packages that use fields most, counted across the built packages. Gray field tiles are defined but unused.",
+  "about": "What an element tells the editor, generated from haxProperties.schema.json: the JSON Schema it is written in, 14 top-level keys, the four settings groups, all 37 field types (inputMethod) and the 24 element packages that use fields most, counted across the built packages. Gray field tiles are defined but unused.",
   "kindLabels": {
    "rel": "part, family, field, element",
    "schema": "built on and validated by"
@@ -190,6 +190,10 @@
    "desc": "inputMethod \"haxcms-theme-picker\": used 1 times across 1 element packages, most in haxcms-elements.",
    "kind": "field"
   },
+  "fd_haxcms_language_picker": {
+   "desc": "inputMethod \"haxcms-language-picker\": used 2 times across 2 element packages, most in app-hax, haxcms-elements.",
+   "kind": "field"
+  },
   "fd_date_time": {
    "desc": "inputMethod \"date-time\": defined by the schema; no built element package uses it yet.",
    "kind": "field"
@@ -224,6 +228,14 @@
   },
   "fd_srcset": {
    "desc": "inputMethod \"srcset\": used 1 times across 1 element packages, most in hax-body.",
+   "kind": "field"
+  },
+  "fd_image_framing": {
+   "desc": "inputMethod \"image-framing\": defined by the schema; no built element package uses it yet.",
+   "kind": "field"
+  },
+  "fd_doodle": {
+   "desc": "inputMethod \"doodle\": defined by the schema; no built element package uses it yet.",
    "kind": "field"
   },
   "fd_code": {
@@ -363,7 +375,7 @@
   {
    "id": "haxschema",
    "label": "How an element talks to the editor",
-   "message": "HAXSchema in parts: a JSON Schema file, 14 top-level keys, four settings groups and 34 field types.",
+   "message": "HAXSchema in parts: a JSON Schema file, 14 top-level keys, four settings groups and 37 field types.",
    "scenes": [
     {
      "caption": "HAXSchema is written in JSON Schema, with a second schema for translations.",
@@ -412,7 +424,7 @@
      ]
     },
     {
-     "caption": "34 field types in five families.",
+     "caption": "37 field types in five families.",
      "nodes": [
       "fam_text",
       "fam_choice",
@@ -432,7 +444,7 @@
      ]
     },
     {
-     "caption": "14 field types no built element uses yet.",
+     "caption": "16 field types no built element uses yet.",
      "nodes": [
       "fd_combo",
       "fd_color",
@@ -441,6 +453,8 @@
       "fd_weekpicker",
       "fd_timepicker",
       "fd_screenrecorder",
+      "fd_image_framing",
+      "fd_doodle",
       "fd_code",
       "fd_markup",
       "fd_html_block",

@@ -30,15 +30,16 @@
    "status": "released"
   },
   "insights": {
-   "desc": "A planned admin dashboard of stats computed from site content: content, broken links, accessibility and where to add activities.",
+   "desc": "Site Insights: an admin dashboard of reports computed from site content, including content, live outside link status, accessibility and where to add activities.",
    "source": {
     "label": "haxtheweb/issues #3167",
     "url": "https://github.com/haxtheweb/issues/issues/3167"
    },
    "links": {
-    "issue": "https://github.com/haxtheweb/issues/issues/3167"
+    "issue": "https://github.com/haxtheweb/issues/issues/3167",
+    "pr": "https://github.com/haxtheweb/webcomponents/pull/1146"
    },
-   "status": "planned"
+   "status": "released"
   },
   "whatsnew": {
    "desc": "A What's New dialog on the dashboard that tells people about new features, read by the CLI and agents too.",

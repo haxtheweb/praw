@@ -16,21 +16,30 @@ flowchart TB
   subgraph els ["Elements that send them"]
     x_a11y_collapse["a11y-collapse"]
     x_a11y_media_player["a11y-media-player"]
+    x_arithmetic_drill["arithmetic-drill"]
     x_audio_player["audio-player"]
+    x_branching_scenario["branching-scenario"]
     x_bullet_check_list["bullet-check-list"]
     x_concept_map_game["concept-map-game"]
     x_concept_quest_game["concept-quest-game"]
     x_concept_runner_game["concept-runner-game"]
+    x_crossword_puzzle["crossword-puzzle"]
     x_fill_in_the_blanks["fill-in-the-blanks"]
     x_flash_card["flash-card"]
     x_h5p_element["h5p-element"]
     x_haxcms_page["haxcms-page"]
+    x_identify_hotspots["identify-hotspots"]
     x_image_compare_slider["image-compare-slider"]
+    x_image_dropzone["image-dropzone"]
     x_lrndesign_imagemap["lrndesign-imagemap"]
     x_lrs_emitter["lrs-emitter"]
+    x_lti_launch["lti-launch"]
     x_mark_the_words["mark-the-words"]
     x_matching_question["matching-question"]
+    x_media_image["media-image"]
+    x_memory_match["memory-match"]
     x_multiple_choice["multiple-choice"]
+    x_numeric_question["numeric-question"]
     x_reading_analysis["reading-analysis"]
     x_self_check["self-check"]
     x_self_reflective_nudge["self-reflective-nudge"]
@@ -42,6 +51,7 @@ flowchart TB
     x_user_action["user-action"]
     x_video_player["video-player"]
     x_vocab_term["vocab-term"]
+    x_word_search["word-search"]
   end
   subgraph sink ["Where statements go"]
     insights["insights"]
@@ -58,9 +68,14 @@ flowchart TB
   x_a11y_media_player -->|sends| v_attempted
   x_a11y_media_player -->|sends| v_progressed
   x_a11y_media_player -->|sends| v_completed
+  x_arithmetic_drill -->|sends| v_attempted
+  x_arithmetic_drill -->|sends| v_progressed
+  x_arithmetic_drill -->|sends| v_completed
   x_audio_player -->|sends| v_attempted
   x_audio_player -->|sends| v_progressed
   x_audio_player -->|sends| v_completed
+  x_branching_scenario -->|sends| v_progressed
+  x_branching_scenario -->|sends| v_completed
   x_bullet_check_list -->|sends| v_progressed
   x_bullet_check_list -->|sends| v_completed
   x_concept_map_game -->|sends| v_attempted
@@ -72,6 +87,7 @@ flowchart TB
   x_concept_runner_game -->|sends| v_attempted
   x_concept_runner_game -->|sends| v_answered
   x_concept_runner_game -->|sends| v_completed
+  x_crossword_puzzle -->|sends| v_answered
   x_fill_in_the_blanks -->|sends| v_answered
   x_flash_card -->|sends| v_answered
   x_h5p_element -->|sends| v_attempted
@@ -80,7 +96,9 @@ flowchart TB
   x_haxcms_page -->|sends| v_experienced
   x_haxcms_page -->|sends| v_progressed
   x_haxcms_page -->|sends| v_completed
+  x_identify_hotspots -->|sends| v_answered
   x_image_compare_slider -->|sends| v_interacted
+  x_image_dropzone -->|sends| v_answered
   x_lrndesign_imagemap -->|sends| v_progressed
   x_lrndesign_imagemap -->|sends| v_completed
   x_lrs_emitter -->|sends| v_experienced
@@ -89,9 +107,14 @@ flowchart TB
   x_lrs_emitter -->|sends| v_progressed
   x_lrs_emitter -->|sends| v_attempted
   x_lrs_emitter -->|sends| v_completed
+  x_lti_launch -->|sends| v_attempted
   x_mark_the_words -->|sends| v_answered
   x_matching_question -->|sends| v_answered
+  x_media_image -->|sends| v_experienced
+  x_memory_match -->|sends| v_progressed
+  x_memory_match -->|sends| v_completed
   x_multiple_choice -->|sends| v_answered
+  x_numeric_question -->|sends| v_answered
   x_reading_analysis -->|sends| v_answered
   x_self_check -->|sends| v_experienced
   x_self_reflective_nudge -->|sends| v_answered
@@ -108,6 +131,8 @@ flowchart TB
   x_video_player -->|sends| v_progressed
   x_video_player -->|sends| v_completed
   x_vocab_term -->|sends| v_experienced
+  x_word_search -->|sends| v_progressed
+  x_word_search -->|sends| v_completed
   xapi -.->|feeds| insights
   course -->|records learning through| xapi
 
@@ -124,21 +149,30 @@ flowchart TB
   %%@ node v_interacted icon=hax:clipboard-pulse color=roarGolden motion=beat
   %%@ node x_a11y_collapse icon=hax:bricks color=opportunityGreen motion=nudge
   %%@ node x_a11y_media_player icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_arithmetic_drill icon=hax:bricks color=opportunityGreen motion=nudge
   %%@ node x_audio_player icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_branching_scenario icon=hax:bricks color=opportunityGreen motion=nudge
   %%@ node x_bullet_check_list icon=hax:bricks color=opportunityGreen motion=nudge
   %%@ node x_concept_map_game icon=hax:bricks color=opportunityGreen motion=nudge
   %%@ node x_concept_quest_game icon=hax:bricks color=opportunityGreen motion=nudge
   %%@ node x_concept_runner_game icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_crossword_puzzle icon=hax:bricks color=opportunityGreen motion=nudge
   %%@ node x_fill_in_the_blanks icon=hax:bricks color=opportunityGreen motion=nudge
   %%@ node x_flash_card icon=hax:bricks color=opportunityGreen motion=nudge
   %%@ node x_h5p_element icon=hax:bricks color=slateGray motion=nudge
   %%@ node x_haxcms_page icon=hax:bricks color=slateGray motion=nudge
+  %%@ node x_identify_hotspots icon=hax:bricks color=opportunityGreen motion=nudge
   %%@ node x_image_compare_slider icon=hax:bricks color=slateGray motion=nudge
+  %%@ node x_image_dropzone icon=hax:bricks color=opportunityGreen motion=nudge
   %%@ node x_lrndesign_imagemap icon=hax:bricks color=slateGray motion=nudge
   %%@ node x_lrs_emitter icon=hax:bricks color=slateGray motion=nudge
+  %%@ node x_lti_launch icon=hax:bricks color=slateGray motion=nudge
   %%@ node x_mark_the_words icon=hax:bricks color=opportunityGreen motion=nudge
   %%@ node x_matching_question icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_media_image icon=hax:bricks color=slateGray motion=nudge
+  %%@ node x_memory_match icon=hax:bricks color=opportunityGreen motion=nudge
   %%@ node x_multiple_choice icon=hax:bricks color=opportunityGreen motion=nudge
+  %%@ node x_numeric_question icon=hax:bricks color=opportunityGreen motion=nudge
   %%@ node x_reading_analysis icon=hax:bricks color=opportunityGreen motion=nudge
   %%@ node x_self_check icon=hax:bricks color=opportunityGreen motion=nudge
   %%@ node x_self_reflective_nudge icon=hax:bricks color=opportunityGreen motion=nudge
@@ -150,5 +184,6 @@ flowchart TB
   %%@ node x_user_action icon=hax:bricks color=slateGray motion=nudge
   %%@ node x_video_player icon=hax:bricks color=opportunityGreen motion=nudge
   %%@ node x_vocab_term icon=hax:bricks color=slateGray motion=nudge
+  %%@ node x_word_search icon=hax:bricks color=opportunityGreen motion=nudge
   %%@ node insights portal=haxcms
   %%@ node course portal

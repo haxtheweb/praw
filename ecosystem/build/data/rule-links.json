@@ -1,5 +1,5 @@
 {
- "about": "What enforces each rule, which pillars it serves and which parts it touches. Keyed by RULES.md Rule ID, by agents:<AGENTS.md key>, or by candidate:<id> for rules proposed in the HAX Scheduled Background Jobs Plan that aren't written into RULES.md or AGENTS.md yet. enforced_by names tiles in the Quality control web; build_rules.py drops any that no longer exist there, so a rule whose check goes away turns back into a gap. Every enforcement link here was checked against the workflow or lint config that does it. A rule nothing enforces is a gap, the backlog of what to automate next, unless it carries \"automation\": \"guidance\": that marks a rule that is guidance by design (how an agent or person works, which no check could decide), so the web can tell \"not automatable\" apart from \"not automated yet\". Leave the field off any rule a check could enforce one day; build_rules.py ignores it on a rule that has an enforced_by check.",
+ "about": "What enforces each rule, which pillars it serves and which parts it touches. Keyed by RULES.md Rule ID, by agents:<AGENTS.md key>, or by candidate:<id> for rules proposed in the HAX Scheduled Background Jobs Plan that aren't written into RULES.md or AGENTS.md as rules of their own. A candidate that a RULES.md rule now covers names it in \"written\" (a Rule ID prefix); one with an enforced_by check counts as enforced, not planned. enforced_by names tiles in the Quality control web; build_rules.py drops any that no longer exist there, so a rule whose check goes away turns back into a gap. Every enforcement link here was checked against the workflow or lint config that does it. A rule nothing enforces is a gap, the backlog of what to automate next, unless it carries \"automation\": \"guidance\": that marks a rule that is guidance by design (how an agent or person works, which no check could decide), so the web can tell \"not automatable\" apart from \"not automated yet\". Leave the field off any rule a check could enforce one day; build_rules.py ignores it on a rule that has an enforced_by check.",
  "aliases": {
   "agents:Global References": "CEHsAz",
   "agents:DDD System": "MLhl56",
@@ -635,7 +635,8 @@
    "id": "content_contract",
    "title": "Element front-end APIs never change",
    "group": "Content contract",
-   "text": "Attributes, usage and existing labels of authorable elements never change, so all content ever made keeps working. Visual and language-support improvements are fine."
+   "text": "Attributes, usage and existing labels of authorable elements never change, so all content ever made keeps working. Visual and language-support improvements are fine.",
+   "written": "f54de8cb"
   },
   {
    "id": "content_no_ddd",
@@ -647,7 +648,8 @@
    "id": "user_links",
    "title": "User-authored links are always respected",
    "group": "Content contract",
-   "text": "Links an author writes (http included) are kept as written."
+   "text": "Links an author writes (http included) are kept as written.",
+   "written": "f54de8cb"
   },
   {
    "id": "version_hidden",
@@ -659,13 +661,15 @@
    "id": "no_native_dialogs",
    "title": "No native prompt or confirm dialogs",
    "group": "Platform rules",
-   "text": "Confirmation steps are built into the page, never the browser's prompt(), confirm() or alert()."
+   "text": "Confirmation steps are built into the page, never the browser's prompt(), confirm() or alert().",
+   "written": "f54de8cb"
   },
   {
    "id": "explicit_js",
    "title": "HAX imports use explicit .js paths",
    "group": "Platform rules",
-   "text": "Our own elements are imported with the full .js file path, since the server can't load extensionless paths."
+   "text": "Our own elements are imported with the full .js file path, since the server can't load extensionless paths.",
+   "written": "f54de8cb"
   },
   {
    "id": "ddd_layers",
@@ -683,7 +687,8 @@
    "id": "correct_colors",
    "title": "Green for correct, purple for incorrect",
    "group": "Conventions",
-   "text": "Correct is green and incorrect is purple, never red, for decisions with consequences."
+   "text": "Correct is green and incorrect is purple, never red, for decisions with consequences.",
+   "written": "8d0c033b"
   }
  ]
 }

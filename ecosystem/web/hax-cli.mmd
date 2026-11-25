@@ -24,6 +24,7 @@ flowchart TB
     c_audit["hax audit"]
     c_party["hax party"]
     c_skills["hax skills"]
+    c_platform["hax platform"]
     c_list["hax list"]
     c_alias["hax alias"]
     c_completion["hax completion"]
@@ -57,9 +58,11 @@ flowchart TB
     c_site_skeleton_install["site:skeleton-install"]
     c_site_sync["site:sync"]
     c_site_rsync["site:rsync"]
+    c_site_build_static["site:build-static"]
     c_site_surge["site:surge"]
     c_site_netlify["site:netlify"]
     c_site_vercel["site:vercel"]
+    c_site_login_link["site:login-link"]
     c_setup_github_actions["setup:github-actions"]
     c_setup_gitlab_ci["setup:gitlab-ci"]
     c_setup_replit["setup:replit"]
@@ -87,6 +90,8 @@ flowchart TB
     c_order["order"]
     c_theme["theme"]
     c_hideinmenu["hideInMenu"]
+    c_move["move"]
+    c_locked["locked"]
     c_custom_theme["custom-theme"]
     c_site_status["site:status"]
     c_node_status["node:status"]
@@ -142,6 +147,7 @@ flowchart TB
   g_audit -->|includes| c_audit
   g_top -->|includes| c_party
   g_top -->|includes| c_skills
+  g_top -->|includes| c_platform
   g_top -->|includes| c_list
   g_top -->|includes| c_alias
   g_top -->|includes| c_completion
@@ -175,9 +181,11 @@ flowchart TB
   g_site -->|includes| c_site_skeleton_install
   g_site -->|includes| c_site_sync
   g_site -->|includes| c_site_rsync
+  g_site -->|includes| c_site_build_static
   g_site -->|includes| c_site_surge
   g_site -->|includes| c_site_netlify
   g_site -->|includes| c_site_vercel
+  g_site -->|includes| c_site_login_link
   g_setup -->|includes| c_setup_github_actions
   g_setup -->|includes| c_setup_gitlab_ci
   g_setup -->|includes| c_setup_replit
@@ -205,6 +213,8 @@ flowchart TB
   g_site -->|includes| c_order
   g_site -->|includes| c_theme
   g_site -->|includes| c_hideinmenu
+  g_site -->|includes| c_move
+  g_site -->|includes| c_locked
   g_site -->|includes| c_custom_theme
   g_site -->|includes| c_site_status
   g_node -->|includes| c_node_status
@@ -275,6 +285,7 @@ flowchart TB
   %%@ node c_audit mono=AUDIT color=skyBlue motion=nudge
   %%@ node c_party mono=PARTY color=skyBlue motion=nudge
   %%@ node c_skills mono=SKILL color=skyBlue motion=nudge
+  %%@ node c_platform mono=PLATF color=skyBlue motion=nudge
   %%@ node c_list mono=LIST color=skyBlue motion=nudge
   %%@ node c_alias mono=ALIAS color=limestoneGray motion=nudge
   %%@ node c_completion mono=COMPL color=skyBlue motion=nudge
@@ -308,9 +319,11 @@ flowchart TB
   %%@ node c_site_skeleton_install mono=SKELE color=skyBlue motion=nudge
   %%@ node c_site_sync mono=SYNC color=skyBlue motion=nudge
   %%@ node c_site_rsync mono=RSYNC color=skyBlue motion=nudge
+  %%@ node c_site_build_static mono=BUILD color=skyBlue motion=nudge
   %%@ node c_site_surge mono=SURGE color=skyBlue motion=nudge
   %%@ node c_site_netlify mono=NETLI color=skyBlue motion=nudge
   %%@ node c_site_vercel mono=VERCE color=skyBlue motion=nudge
+  %%@ node c_site_login_link mono=LOGIN color=skyBlue motion=nudge
   %%@ node c_setup_github_actions mono=GITHU color=skyBlue motion=nudge
   %%@ node c_setup_gitlab_ci mono=GITLA color=skyBlue motion=nudge
   %%@ node c_setup_replit mono=REPLI color=skyBlue motion=nudge
@@ -338,6 +351,8 @@ flowchart TB
   %%@ node c_order mono=ORDER color=skyBlue motion=nudge
   %%@ node c_theme mono=THEME color=skyBlue motion=nudge
   %%@ node c_hideinmenu mono=HIDEI color=skyBlue motion=nudge
+  %%@ node c_move mono=MOVE color=skyBlue motion=nudge
+  %%@ node c_locked mono=LOCKE color=skyBlue motion=nudge
   %%@ node c_custom_theme mono=CUSTO color=skyBlue motion=nudge
   %%@ node c_site_status mono=STATU color=limestoneGray motion=nudge
   %%@ node c_node_status mono=STATU color=limestoneGray motion=nudge

@@ -133,7 +133,7 @@
     "label": "DrupalCon Baltimore 2017 session",
     "url": "https://events.drupal.org/baltimore2017/sessions/mad-scientist-road-show"
    },
-   "version": "26.11.0"
+   "version": "26.8.0"
   },
   "merlin": {
    "desc": "HAX's command program, marked by the wand: search for and run actions while editing. HAX Tips will surface here.",
@@ -160,7 +160,7 @@
     "label": "WINS.md",
     "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#site-dashboard-three-generations-of-students-20222026"
    },
-   "version": "26.11.0"
+   "version": "26.8.0"
   },
   "themes": {
    "desc": "Ways to theme HAXcms matched to skill set: skin a site with CSS, or build a theme from web components. Themes grew from 14 at the end of 2024 to more than 30.",
@@ -173,7 +173,7 @@
    },
    "release": "npm:@haxtheweb/haxcms-elements",
    "status": "released",
-   "version": "26.11.0"
+   "version": "26.8.0"
   },
   "php": {
    "desc": "HAXcms on PHP. Kept in step with the Node.js backend through a shared OpenAPI contract; powers haxtheweb.org through HAXiam.",
@@ -186,7 +186,7 @@
    },
    "release": "git:haxtheweb/haxcms-php",
    "status": "released",
-   "version": "26.11.0"
+   "version": "26.8.2"
   },
   "nodejs": {
    "desc": "HAXcms on Node.js, started with npx @haxtheweb/haxcms-nodejs. The most-downloaded @haxtheweb package.",
@@ -200,7 +200,7 @@
    },
    "release": "npm:@haxtheweb/haxcms-nodejs",
    "status": "released",
-   "version": "26.11.0"
+   "version": "26.8.1"
   },
   "browser": {
    "desc": "haxcms-nodejs bundled to run in a browser tab: no install, no server. Sites save to a folder, the browser, or cloud storage (Google Drive, OneDrive, Dropbox, Box, WebDAV); people sign in with an account they have; and sites publish straight to Surge, GitHub Pages, GitLab Pages, Codeberg Pages, Netlify or Vercel. Open its web for every service.",
@@ -253,16 +253,20 @@
    "yearNote": "hax.psu.edu opens on HAXiam"
   },
   "ssr": {
-   "desc": "Lit server-side rendering so elements render for search engines and AI crawlers. Publish-time static SSR comes first; serving SSR live is parked until it is stable.",
+   "desc": "Lit server-side rendering so elements render for search engines and AI crawlers. Publish-time static SSR landed with static export in core, and elements were made SSR-safe; serving SSR live from the page route stays parked until it is stable.",
    "source": {
-    "label": "haxtheweb/issues #3170",
-    "url": "https://github.com/haxtheweb/issues/issues/3170"
+    "label": "haxtheweb/issues #3161",
+    "url": "https://github.com/haxtheweb/issues/issues/3161"
    },
    "links": {
     "issue": "https://github.com/haxtheweb/issues/issues/3161",
+    "static": "https://github.com/haxtheweb/issues/issues/3162",
+    "live": "https://github.com/haxtheweb/issues/issues/3170",
     "earlier": "https://github.com/haxtheweb/issues/issues/2082"
    },
-   "status": "in-progress"
+   "status": "released",
+   "year": 2026,
+   "yearNote": "Publish-time SSR lands in core"
   },
   "hax11ty": {
    "desc": "\"HAX + 11ty = HAX11ty! The best of SEO from 11ty while using the HAX editor and the HAXcms theme engine.\"",
@@ -276,7 +280,7 @@
    },
    "release": "git:haxtheweb/hax11ty",
    "status": "released",
-   "version": "26.11.0"
+   "version": "26.0.0"
   },
   "cli": {
    "desc": "hax: install with npm install --global @haxtheweb/create, then run hax start. Creates sites and components, audits DDD and publishes. Needs Node 20+.",
@@ -296,7 +300,7 @@
     "label": "WINS.md: Winston White",
     "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#winston-white-student-to-trainer"
    },
-   "version": "26.11.0"
+   "version": "26.8.1"
   },
   "ubiquity": {
    "desc": "The webcomponents release build that ships every element, as one tested set, to haxcms-nodejs and the other backends.",
@@ -306,7 +310,7 @@
    },
    "release": "git:haxtheweb/webcomponents",
    "status": "released",
-   "version": "26.11.0"
+   "version": "26.8.1"
   },
   "staticpub": {
    "desc": "Static export and Lit SSR built into haxcms-nodejs, haxcms-php and the CLI, so any site publishes as static files from core; HAX11ty becomes a wrapper around it.",
@@ -317,12 +321,12 @@
    "links": {
     "issue": "https://github.com/haxtheweb/issues/issues/3162"
    },
-   "status": "planned",
+   "status": "released",
    "year": 2026,
-   "yearNote": "Static export moves into core"
+   "yearNote": "Static export moves into core: hax site site:build-static"
   },
   "magiclink": {
-   "desc": "One-time login links issued from the CLI, so an admin can recover or hand out access without a password.",
+   "desc": "One-time login links issued from the CLI (hax site site:login-link), so an admin can recover or hand out access without a password.",
    "source": {
     "label": "haxtheweb/issues #2854",
     "url": "https://github.com/haxtheweb/issues/issues/2854"
@@ -330,7 +334,7 @@
    "links": {
     "issue": "https://github.com/haxtheweb/issues/issues/2854"
    },
-   "status": "planned",
+   "status": "released",
    "year": 2026,
    "yearNote": "One-time login links"
   },
@@ -453,7 +457,7 @@
     "label": "WINS.md SIIP timeline",
     "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md"
    },
-   "version": "26.11.0"
+   "version": "26.8.1"
   },
   "ddd": {
    "desc": "DDD (Design, Develop, Deliver), the HAX design system. It began as Keith Charlton Jr's class project and now spans 60+ elements: \"PSU-esque designs by PSU.\"",
@@ -473,7 +477,7 @@
     "label": "hax-lab README",
     "url": "https://github.com/haxtheweb/lab"
    },
-   "version": "26.11.0"
+   "version": "26.8.0"
   },
   "plugins": {
    "desc": "A plugin architecture in progress: spec and examples in haxcms-plugin-examples, while core keeps the evolving baseline (SEO, accessibility, sitemaps).",
@@ -488,7 +492,7 @@
    "status": "in-progress"
   },
   "languages": {
-   "desc": "Internationalization for any web component, plus a shared registry of 102 supported languages being built in phases.",
+   "desc": "Internationalization for any web component, plus one canonical registry of 102 supported languages shared by the installer, system settings and site settings.",
    "source": {
     "label": "haxtheweb/issues #3165",
     "url": "https://github.com/haxtheweb/issues/issues/3165"
@@ -496,18 +500,19 @@
    "links": {
     "issue": "https://github.com/haxtheweb/issues/issues/3165"
    },
-   "status": "in-progress"
+   "status": "released"
   },
   "insights": {
-   "desc": "A planned admin dashboard of stats computed from site content: content, broken links, accessibility and where to add activities.",
+   "desc": "Site Insights: an admin dashboard of reports computed from site content, including content, live outside link status, accessibility and where to add activities.",
    "source": {
     "label": "haxtheweb/issues #3167",
     "url": "https://github.com/haxtheweb/issues/issues/3167"
    },
    "links": {
-    "issue": "https://github.com/haxtheweb/issues/issues/3167"
+    "issue": "https://github.com/haxtheweb/issues/issues/3167",
+    "pr": "https://github.com/haxtheweb/webcomponents/pull/1146"
    },
-   "status": "planned"
+   "status": "released"
   },
   "presentations": {
    "desc": "Talks, podcasts and webinars about HAX from 2017 to 2026. Open the Presentations web to see each one, who gave it, where and what it covered.",
@@ -642,7 +647,7 @@
    },
    "release": "npm:@haxtheweb/json-outline-schema",
    "status": "released",
-   "version": "26.11.0"
+   "version": "26.8.0"
   },
   "haxschema": {
    "desc": "\"For your element to talk to the HAX editor, you implement static get haxProperties()\": the schema that gives every block its editing form.",
@@ -724,13 +729,6 @@
    },
    "always": true
   },
-  "sdgs": {
-   "desc": "The UN Sustainable Development Goals HAX meets: 3 Good Health and Well-being, 4 Quality Education, 7 Affordable and Clean Energy, 8 Decent Work and Economic Growth, 9 Industry, Innovation and Infrastructure, 10 Reduced Inequalities, 12 Responsible Consumption and Production, 17 Partnerships for the Goals. The un-sdg element shows them on HAX pages; the docs tie 7 and 12 to the Efficient pillar.",
-   "links": {
-    "UN": "https://sdgs.un.org/goals",
-    "links": "https://github.com/haxtheweb/praw/blob/main/ecosystem/build/data/sdg-links.json"
-   }
-  },
   "rules": {
    "desc": "Rules and guarantees: every rule HAX keeps, generated from PRAW's RULES.md and each repo's AGENTS.md, linked up to the pillars it serves, across to the parts it touches and down to the checks that enforce it. A rule nothing enforces shows as a gap.",
    "links": {
@@ -753,26 +751,6 @@
    "yearSource": {
     "label": "hax-lab README",
     "url": "https://github.com/haxtheweb/lab"
-   }
-  },
-  "skillsindex": {
-   "desc": "The agentskills.io discovery index: one JSON file at .well-known/agent-skills/index.json that tells any agent which HAX skills a place offers. PRAW keeps the full index; every HAXcms deployment and every site carries a copy of its set.",
-   "links": {
-    "index": "https://github.com/haxtheweb/praw/blob/main/.well-known/agent-skills/index.json",
-    "spec": "https://github.com/cloudflare/agent-skills-discovery-rfc"
-   }
-  },
-  "registry": {
-   "desc": "The manifests HAX generates about its own elements: wc-registry.json (where every tag loads from), each package's custom-elements.json, the elements catalog, and the language and translation manifests. The ubiquity build writes them; the autoloader, both backends and the CLI read them.",
-   "links": {
-    "registry": "https://github.com/haxtheweb/webcomponents/blob/master/wc-registry.json"
-   }
-  },
-  "dtcg": {
-   "desc": "DDD and SimpleColors exported as W3C Design Tokens Community Group JSON, generated from the element source, so Figma (through Tokens Studio), Style Dictionary and Penpot see the same tokens the elements use. CI fails a pull request when the export falls out of date.",
-   "links": {
-    "tokens": "https://github.com/haxtheweb/webcomponents/tree/master/elements/d-d-d/tokens",
-    "DTCG": "https://www.designtokens.org/"
    }
   },
   "skeletons": {
@@ -840,6 +818,38 @@
    "yearSource": {
     "label": "WINS.md",
     "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#learn-to-flourish-hub-flourishhhdpsuedu-2026"
+   }
+  },
+  "cd101": {
+   "desc": "Customer Discovery 101, a public entrepreneurship training program from Invent Penn State LaunchBox, built on HAX by a team with limited design experience; users have praised both its functionality and design.",
+   "source": {
+    "label": "WINS.md: Customer Discovery 101",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#customer-discovery-101-invent-penn-state-launchbox"
+   },
+   "links": {
+    "site": "https://invent.psu.edu/programs/customer-discovery-101/",
+    "story": "https://www.apereo.org/programs/software/HAX"
+   }
+  },
+  "dbf": {
+   "desc": "Digital Beaumont & Fletcher, an open-access edition of the rarely taught Beaumont and Fletcher plays, with every text prepared by undergraduate and graduate students and published with HAX for classroom use.",
+   "source": {
+    "label": "WINS.md: Digital Beaumont & Fletcher",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#digital-beaumont--fletcher-students-edit-the-rarely-taught-plays"
+   },
+   "links": {
+    "site": "https://openpublishing.psu.edu/digital-beaumont-fletcher-about-project",
+    "story": "https://www.apereo.org/programs/software/HAX"
+   }
+  },
+  "jukebox": {
+   "desc": "The Jukebox, required listening for INART 116, History of Rock and Roll: 1950s, from the Office of Digital Learning: a one-column introduction, then audio on the left with annotation on the right, then collapsible lyrics, all built in HAX.",
+   "source": {
+    "label": "Apereo: HAX project page",
+    "url": "https://www.apereo.org/programs/software/HAX"
+   },
+   "links": {
+    "story": "https://www.apereo.org/programs/software/HAX"
    }
   },
   "textbook": {
@@ -966,6 +976,16 @@
    "yearSource": {
     "label": "Slides on SlideShare",
     "url": "https://www.slideshare.net/slideshow/haxtheweb-apereo-19/148822203"
+   }
+  },
+  "gatech": {
+   "desc": "Georgia Tech, where undergraduates contribute features to HAX alongside Penn State students.",
+   "source": {
+    "label": "Apereo: HAX project page",
+    "url": "https://www.apereo.org/programs/software/HAX"
+   },
+   "links": {
+    "site": "https://www.gatech.edu/"
    }
   },
   "github": {
@@ -1837,48 +1857,6 @@
     "label": "hax-lab README",
     "url": "https://github.com/haxtheweb/lab"
    }
-  },
-  "gatech": {
-   "desc": "Georgia Tech, where undergraduates contribute features to HAX alongside Penn State students.",
-   "source": {
-    "label": "Apereo: HAX project page",
-    "url": "https://www.apereo.org/programs/software/HAX"
-   },
-   "links": {
-    "site": "https://www.gatech.edu/"
-   }
-  },
-  "cd101": {
-   "desc": "Customer Discovery 101, a public entrepreneurship training program from Invent Penn State LaunchBox, built on HAX by a team with limited design experience; users have praised both its functionality and design.",
-   "source": {
-    "label": "WINS.md: Customer Discovery 101",
-    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#customer-discovery-101-invent-penn-state-launchbox"
-   },
-   "links": {
-    "site": "https://invent.psu.edu/programs/customer-discovery-101/",
-    "story": "https://www.apereo.org/programs/software/HAX"
-   }
-  },
-  "dbf": {
-   "desc": "Digital Beaumont & Fletcher, an open-access edition of the rarely taught Beaumont and Fletcher plays, with every text prepared by undergraduate and graduate students and published with HAX for classroom use.",
-   "source": {
-    "label": "WINS.md: Digital Beaumont & Fletcher",
-    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#digital-beaumont--fletcher-students-edit-the-rarely-taught-plays"
-   },
-   "links": {
-    "site": "https://openpublishing.psu.edu/digital-beaumont-fletcher-about-project",
-    "story": "https://www.apereo.org/programs/software/HAX"
-   }
-  },
-  "jukebox": {
-   "desc": "The Jukebox, required listening for INART 116, History of Rock and Roll: 1950s, from the Office of Digital Learning: a one-column introduction, then audio on the left with annotation on the right, then collapsible lyrics, all built in HAX.",
-   "source": {
-    "label": "Apereo: HAX project page",
-    "url": "https://www.apereo.org/programs/software/HAX"
-   },
-   "links": {
-    "story": "https://www.apereo.org/programs/software/HAX"
-   }
   }
  },
  "evidence": {
@@ -2118,6 +2096,30 @@
    {
     "label": "SIIP talk, Apereo microconference",
     "url": "https://www.youtube.com/watch?v=TNF0uzYi9Kk"
+   }
+  ],
+  "wins>cd101": [
+   {
+    "label": "WINS: Customer Discovery 101",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#customer-discovery-101-invent-penn-state-launchbox"
+   }
+  ],
+  "wins>dbf": [
+   {
+    "label": "WINS: Digital Beaumont & Fletcher",
+    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#digital-beaumont--fletcher-students-edit-the-rarely-taught-plays"
+   }
+  ],
+  "gatech>components": [
+   {
+    "label": "Apereo: HAX project page (Continuous Improvement)",
+    "url": "https://www.apereo.org/programs/software/HAX"
+   }
+  ],
+  "jukebox>course": [
+   {
+    "label": "Apereo: HAX project page (The Jukebox)",
+    "url": "https://www.apereo.org/programs/software/HAX"
    }
   ],
   "wins>npm": [
@@ -2596,30 +2598,6 @@
    {
     "label": "WINS: First hax-camp, 40+ people",
     "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#first-hax-camp-40-people"
-   }
-  ],
-  "wins>cd101": [
-   {
-    "label": "WINS: Customer Discovery 101",
-    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#customer-discovery-101-invent-penn-state-launchbox"
-   }
-  ],
-  "wins>dbf": [
-   {
-    "label": "WINS: Digital Beaumont & Fletcher",
-    "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#digital-beaumont--fletcher-students-edit-the-rarely-taught-plays"
-   }
-  ],
-  "gatech>components": [
-   {
-    "label": "Apereo: HAX project page (Continuous Improvement)",
-    "url": "https://www.apereo.org/programs/software/HAX"
-   }
-  ],
-  "jukebox>course": [
-   {
-    "label": "Apereo: HAX project page (The Jukebox)",
-    "url": "https://www.apereo.org/programs/software/HAX"
    }
   ]
  },
@@ -3301,6 +3279,7 @@
      "caption": "Accessible: Built for everyone, by everyone.",
      "nodes": [
       "accessible",
+      "browser",
       "cd101",
       "components",
       "ddd",
@@ -3603,17 +3582,17 @@
    "id": "roadmap",
    "label": "What's coming",
    "kind": "story",
-   "message": "The Future Traveler is from the future. Planned parts show as ghosted tiles, each tied to its issue in the unified queue.",
+   "message": "The Future Traveler is from the future. Planned and in-progress parts show as ghosted tiles, each tied to its issue in the unified queue.",
    "scenes": [
     {
-     "caption": "Static export and Lit SSR move into core; HAX11ty becomes a wrapper.",
+     "caption": "Landed from this roadmap in 2026: static export and publish-time SSR in core, one-time login links, Site Insights and one language registry.",
      "nodes": [
       "staticpub",
       "ssr",
-      "php",
-      "nodejs",
-      "cli",
-      "hax11ty"
+      "magiclink",
+      "insights",
+      "languages",
+      "cli"
      ]
     },
     {
@@ -3625,17 +3604,10 @@
      ]
     },
     {
-     "caption": "One-time login links from the CLI.",
+     "caption": "What's New and Tips tell people about new features in the dashboard and in Merlin; open HAXcms for them.",
      "nodes": [
-      "magiclink",
-      "cli"
-     ]
-    },
-    {
-     "caption": "Insights lands in the dashboard: stats computed from site content. What's New and Tips join it; open HAXcms for them.",
-     "nodes": [
-      "insights",
       "dashboard",
+      "merlin",
       "haxcms"
      ]
     },
@@ -3648,13 +3620,10 @@
      ]
     },
     {
-     "caption": "Everything planned, at once.",
+     "caption": "Everything still coming, at once.",
      "nodes": [
-      "staticpub",
       "plugins",
-      "magiclink",
-      "insights",
-      "ssr",
+      "haxcms",
       "ai",
       "mcp"
      ]

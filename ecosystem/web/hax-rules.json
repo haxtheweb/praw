@@ -10,7 +10,7 @@
    "gap": "nothing enforces it yet",
    "proposed": "proposed"
   },
-  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (85 rules) and each repo's AGENTS.md (26), plus 9 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 25 are enforced; 21 are guidance by design, which no check could decide; 74 are gaps, the backlog of what to automate next.",
+  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (87 rules) and each repo's AGENTS.md (29), plus 9 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 25 are enforced; 21 are guidance by design, which no check could decide; 79 are gaps, the backlog of what to automate next.",
   "kindLabels": {
    "rel": "where a rule comes from and what enforces it",
    "pillar": "pillars a rule serves",
@@ -30,11 +30,11 @@
    "kind": "group"
   },
   "rg_design_system_standards": {
-   "desc": "Design System Standards: 8 rules, 2 enforced by a check.",
+   "desc": "Design System Standards: 9 rules, 2 enforced by a check.",
    "kind": "group"
   },
   "rg_web_component_development": {
-   "desc": "Web Component Development: 17 rules, 5 enforced by a check.",
+   "desc": "Web Component Development: 18 rules, 5 enforced by a check.",
    "kind": "group"
   },
   "rg_build_development_workflow": {
@@ -54,7 +54,7 @@
    "kind": "group"
   },
   "rg_agents_md_code_style": {
-   "desc": "AGENTS.md: code style: 18 rules, 3 enforced by a check.",
+   "desc": "AGENTS.md: code style: 21 rules, 3 enforced by a check.",
    "kind": "group"
   },
   "rg_agents_md_security": {
@@ -239,6 +239,14 @@
    },
    "note": "A check that enforced this is gone from Quality control: q_hax_ui_admin_contract."
   },
+  "r_411423ec_d922_4bd4_8c45_3d8c65b9fbfa": {
+   "desc": "Every part of HAX that people are shown (a project area, backend, tool, schema, surface or site in the network) has one icon, one DDD color and one icon motion, and all three are on record in PRAW before it ships: the `%%@ node <id> icon=<set:name> color=<DDD color name> motion=<DDD motion name>` line in the ecosystem web that draws it (`ecosystem/web/hax-ecosystem.mmd` for an area, that area's sub-web for a part of it) and, for a site, its entry in `ecosystem/network.json`. That record is the only copy: anything that shows an area (a site, the network bar, a dashboard or Merlin entry, docs, social art, a poster) takes the icon, color and motion from it and never picks its own, and a change is made to the record first. The icon is in `@haxtheweb/simple-icon` or `@haxtheweb/hax-iconset`, drawn in one ink on the 24 grid, and is HAX's own mark: never another project's logo, mascot or wordmark. The color is a DDD named color with a black or white glyph, whichever contrasts more. The motion is one of the nine DDD icon motions (`pop`, `wiggle`, `tilt`, `beat`, `lift`, `spin`, `nudge`, `strike`, `glow`; the scale motion is `beat`, `pulse` is the attention ring), which plays once on hover or keyboard focus, never moves under `prefers-reduced-motion: reduce` and never carries meaning alone. Style guide, when to use each motion and how to add one: `ecosystem/README.md`, \"Area icons, colors and motion\" (<https://github.com/haxtheweb/praw/blob/main/ecosystem/README.md#area-icons-colors-and-motion>). In PRAW RULES.md (scope: design-system). Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#every-area-has-an-icon-a-ddd-color-and-a-motion-on-record"
+   }
+  },
   "r_rvsctsdjae8lrmsjmpo3mk": {
    "desc": "Elements with a haxProperties method are HAX capable, leveraging the HAXSchema standard to interface with the HAX editor. The demoSchema part provides all necessary information to create example elements in HAX. For demos launching in codepen, use demoSchema and HAX helper methods to create valid demos with appropriate tag names, properties, and slotted content for accurate examples. In PRAW RULES.md (scope: webcomponents). Also in webcomponents AGENTS.md. Enforced by haxschema. The HAXSchema check fails a webcomponents pull request when a changed element's haxProperties don't validate or don't match what it declares; known problems are baselined and the baseline only shrinks.",
    "kind": "enforced",
@@ -278,7 +286,7 @@
    }
   },
   "r_cehsaztyfb2vtcwthggnbk": {
-   "desc": "When writing global scope referenced JavaScript, use `globalThis` instead of `window` for consistency. In PRAW RULES.md (scope: webcomponents). Also in webcomponents AGENTS.md, create AGENTS.md. Enforced by ESLint. ESLint no-restricted-globals (window) in webcomponents: an error in CI (the ESLint step of the build workflow) and in yarn precheck.",
+   "desc": "When writing global scope referenced JavaScript, use `globalThis` instead of `window` for consistency. In PRAW RULES.md (scope: webcomponents). Also in webcomponents AGENTS.md. Enforced by ESLint. ESLint no-restricted-globals (window) in webcomponents: an error in CI (the ESLint step of the build workflow) and in yarn precheck.",
    "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#javascript-standards--globalthis"
@@ -370,6 +378,14 @@
    "status": "gap",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#ssr-safety--enhancement-audit"
+   }
+  },
+  "r_47905658_f1c9_448d_99e5_9e933bdc6990": {
+   "desc": "An element points the i18n manager at its locales by naming its English locale file and stepping back to the folder: `new URL(\"./locales/<tag>.en.json\", import.meta.url).href + \"/../\"` (from `lib/`, `../locales/<tag>.en.json`). This applies to `registerLocalization` and to the haxProperties `i18n-manager-register-element` event alike. Never point `new URL()` at the folder (`\"./locales/\"`, `` `./locales` ``) or at a language file the element does not commit (such as a scaffold's `.ar.json`): bundlers using `@web/rollup-plugin-import-meta-assets` fail on both (EISDIR on 1.x, ENOENT on every version). Name the file literally, never with a runtime expression such as `` `../locales/${this.tag}.es.json` `` (`tag` is static, so on an instance that is `undefined`, and a bundler cannot resolve it). A base element that sites subclass with their own tag passes `namespace: \"<tag>\"` so the subclass still loads its translations. The `\"/../\"` resolves back to `locales/`, so the runtime fetch is identical unbundled. Anchor on English because it is the one locale file every element commits (feature PRs are English-only). An element with only haxProperties locales anchors on a haxProperties file it ships. A bundled site still copies element `locales/*.json` next to the emitted anchor asset if it wants languages beyond the anchor. Enforced in haxtheweb/webcomponents by `yarn lint:locale-urls` (blocking in `yarn precheck` and CI). The `hax webcomponent` templates ship `<name>.en.json` and anchor on it. Extends haxtheweb/issues#1616. Tracking: <https://github.com/haxtheweb/issues/issues/3402>. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#i18n--locale-urls-name-the-shipped-english-file"
    }
   },
   "r_646fc5cf_6f1f_47e0_b48c_c54544cda490": {
@@ -752,7 +768,7 @@
    "note": "A check that enforced this is gone from Quality control: q_mascot_name."
   },
   "ra_language": {
-   "desc": "Pure JavaScript with LitElement for web components In the AGENTS.md of cli, components. Nothing enforces this yet.",
+   "desc": "Pure JavaScript with LitElement for web components In the AGENTS.md of components. Nothing enforces this yet.",
    "kind": "gap",
    "status": "gap",
    "links": {
@@ -760,7 +776,7 @@
    }
   },
   "ra_no_typescript": {
-   "desc": "HAX strictly avoids TypeScript to eliminate compilation requirements In the AGENTS.md of cli, components. Nothing enforces this yet.",
+   "desc": "HAX strictly avoids TypeScript to eliminate compilation requirements In the AGENTS.md of components. Nothing enforces this yet.",
    "kind": "gap",
    "status": "gap",
    "links": {
@@ -768,14 +784,14 @@
    }
   },
   "ra_unbundled_approach": {
-   "desc": "Components ship as native JS/HTML/CSS for maximum compatibility In the AGENTS.md of cli, components. Enforced by size-report. Partly, and only as a report: the size report measures what an unbundled page downloads for each changed element, without failing the pull request.",
+   "desc": "Components ship as native JS/HTML/CSS for maximum compatibility In the AGENTS.md of components. Enforced by size-report. Partly, and only as a report: the size report measures what an unbundled page downloads for each changed element, without failing the pull request.",
    "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
   "ra_third_party_libraries": {
-   "desc": "When using libraries written in TypeScript, always import the pre-compiled JavaScript distribution In the AGENTS.md of cli, components. Nothing enforces this yet.",
+   "desc": "When using libraries written in TypeScript, always import the pre-compiled JavaScript distribution In the AGENTS.md of components. Nothing enforces this yet.",
    "kind": "gap",
    "status": "gap",
    "links": {
@@ -783,14 +799,14 @@
    }
   },
   "ra_formatting": {
-   "desc": "In the AGENTS.md of cli, components. Enforced by Format check. Prettier format check: fails the PR in create and haxcms-nodejs, reports only in webcomponents.",
+   "desc": "In the AGENTS.md of components. Enforced by Format check. Prettier format check: fails the PR in create and haxcms-nodejs, reports only in webcomponents.",
    "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
   "ra_es_modules": {
-   "desc": "Use standard ES6 import/export syntax In the AGENTS.md of cli, components. Nothing enforces this yet.",
+   "desc": "Use standard ES6 import/export syntax In the AGENTS.md of components. Nothing enforces this yet.",
    "kind": "gap",
    "status": "gap",
    "links": {
@@ -806,7 +822,7 @@
    }
   },
   "ra_modern_javascript": {
-   "desc": "Leverage ES2018+ features while maintaining browser compatibility In the AGENTS.md of cli, components. Nothing enforces this yet.",
+   "desc": "Leverage ES2018+ features while maintaining browser compatibility In the AGENTS.md of components. Nothing enforces this yet.",
    "kind": "gap",
    "status": "gap",
    "links": {
@@ -821,8 +837,32 @@
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
+  "ra_no_bindings_inside_style": {
+   "desc": "in an `html` template never write `${...}` inside the text of a `<style>` element. Lit SSR cannot render it and the element throws on a server. Set a CSS custom property (style attribute on a wrapper, or on the host) and keep the style text static. `yarn lint:html-templates` fails on new ones. In the AGENTS.md of components. Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
+   }
+  },
   "ra_css_template_literals": {
    "desc": "Never write a backtick (`` ` ``) character inside a `css` comment block (or anywhere else in a LitElement `css\\`...\\`` tagged template), including in prose like \"don't\" or \"it's\". A stray backtick terminates the template literal early and breaks the build/parse. In the AGENTS.md of components. Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
+   }
+  },
+  "ra_browser_support": {
+   "desc": "Current and previous evergreen browsers. Baseline Widely available features without fallbacks; Baseline Newly available features behind feature detection with a working plain path; no polyfills. In the AGENTS.md of components. Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
+   }
+  },
+  "ra_hax_rules_win_over_outside_guidance": {
+   "desc": "[Modern Web Guidance](https://github.com/GoogleChrome/modern-web-guidance) (MWG) and similar agent guidance are advice. Where they conflict with a rule in this file or in PRAW, follow the HAX rule and say in the PR which advice you set aside. Known conflicts: In the AGENTS.md of components. Nothing enforces this yet.",
    "kind": "gap",
    "status": "gap",
    "links": {
@@ -854,7 +894,7 @@
    }
   },
   "ra_web_components": {
-   "desc": "Use hyphenated names (e.g., `my-element`) In the AGENTS.md of cli, components. Nothing enforces this yet.",
+   "desc": "Use hyphenated names (e.g., `my-element`) In the AGENTS.md of components. Nothing enforces this yet.",
    "kind": "gap",
    "status": "gap",
    "links": {
@@ -862,7 +902,7 @@
    }
   },
   "ra_package_names": {
-   "desc": "Match component/site name in `package.json` In the AGENTS.md of cli, components. Nothing enforces this yet.",
+   "desc": "Match component/site name in `package.json` In the AGENTS.md of components. Nothing enforces this yet.",
    "kind": "gap",
    "status": "gap",
    "links": {
@@ -870,7 +910,15 @@
    }
   },
   "ra_css_classes": {
-   "desc": "Follow BEM methodology when not using DDD tokens In the AGENTS.md of cli, components. Nothing enforces this yet.",
+   "desc": "Follow BEM methodology when not using DDD tokens In the AGENTS.md of components. Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
+   }
+  },
+  "ra_locale_urls_name_the_english_file": {
+   "desc": "point `localesPath` at `new URL(\"./locales/<tag>.en.json\", import.meta.url).href + \"/../\"` (from `lib/`, `../locales/<tag>.en.json`), for both `registerLocalization` and the `i18n-manager-register-element` event. Never `new URL(\"./locales/\", ...)` (the folder) or a language file the element does not commit: bundlers using `@web/rollup-plugin-import-meta-assets` fail on both (EISDIR / ENOENT). The `\"/../\"` lands back on `locales/`, so the runtime fetch is the same. `yarn lint:locale-urls` checks it in `yarn precheck` and CI (haxtheweb/issues#3402). In the AGENTS.md of components. Nothing enforces this yet.",
    "kind": "gap",
    "status": "gap",
    "links": {
@@ -885,7 +933,7 @@
    }
   },
   "ra_security_audits": {
-   "desc": "For recurring security audits of this repo, start with `SECURITY-AUDIT.md` — it defines the read order, scope, commands, regression guards, and reporting convention In the AGENTS.md of cli, components, nodejs, php. Nothing enforces this yet.",
+   "desc": "For recurring security audits of this repo, start with `SECURITY-AUDIT.md` — it defines the read order, scope, commands, regression guards, and reporting convention In the AGENTS.md of components. Nothing enforces this yet.",
    "kind": "gap",
    "status": "gap",
    "links": {
@@ -893,14 +941,14 @@
    }
   },
   "ra_dependencies": {
-   "desc": "Keep dependencies updated before running `yarn install` In the AGENTS.md of cli, components, nodejs, php. Enforced by Dependency audit.",
+   "desc": "Keep dependencies updated before running `yarn install` In the AGENTS.md of components. Enforced by Dependency audit.",
    "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
   "ra_sensitive_data": {
-   "desc": "Avoid committing API keys or sensitive data to `package.json`, `site.json`, or public files In the AGENTS.md of cli, components, nodejs, php. Nothing enforces this yet.",
+   "desc": "Avoid committing API keys or sensitive data to `package.json`, `site.json`, or public files In the AGENTS.md of components. Nothing enforces this yet.",
    "kind": "gap",
    "status": "gap",
    "links": {
@@ -908,7 +956,7 @@
    }
   },
   "ra_site_imports": {
-   "desc": "Validate source URLs when using `--import-site` to prevent malicious content In the AGENTS.md of cli, components, nodejs, php. Nothing enforces this yet.",
+   "desc": "Validate source URLs when using `--import-site` to prevent malicious content In the AGENTS.md of components. Nothing enforces this yet.",
    "kind": "gap",
    "status": "gap",
    "links": {
@@ -916,7 +964,7 @@
    }
   },
   "ra_file_permissions": {
-   "desc": "Ensure scripts have correct execution permissions (`chmod +x script.sh`) In the AGENTS.md of cli, components, nodejs, php. Nothing enforces this yet.",
+   "desc": "Ensure scripts have correct execution permissions (`chmod +x script.sh`) In the AGENTS.md of components. Nothing enforces this yet.",
    "kind": "gap",
    "status": "gap",
    "links": {
@@ -924,14 +972,14 @@
    }
   },
   "ra_component_security": {
-   "desc": "Sanitize user inputs in custom components In the AGENTS.md of cli, components, nodejs, php. Enforced by CodeQL. CodeQL flags unsanitized input flowing into the DOM.",
+   "desc": "Sanitize user inputs in custom components In the AGENTS.md of components. Enforced by CodeQL. CodeQL flags unsanitized input flowing into the DOM.",
    "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
   "ra_schema_validation": {
-   "desc": "Validate against JSON schemas before processing content In the AGENTS.md of cli, components, nodejs, php. Nothing enforces this yet.",
+   "desc": "Validate against JSON schemas before processing content In the AGENTS.md of components. Nothing enforces this yet.",
    "kind": "gap",
    "status": "gap",
    "links": {
@@ -939,24 +987,18 @@
    }
   },
   "ra_library_security": {
-   "desc": "Only import from trusted, well-maintained JavaScript distributions In the AGENTS.md of cli, components, nodejs, php. Enforced by Dependency audit, Dependency licenses.",
+   "desc": "Only import from trusted, well-maintained JavaScript distributions In the AGENTS.md of components. Enforced by Dependency audit, Dependency licenses.",
    "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
   },
-  "ra_external_dependencies": {
-   "desc": "Leverage libraries like `vaadin-upload`, `shoelace-carousel`, etc. but always use their JS builds In the AGENTS.md of cli. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
-   "links": {
-    "rule": "https://github.com/haxtheweb/create/blob/main/AGENTS.md"
-   }
-  },
   "rc_content_contract": {
-   "desc": "Attributes, usage and existing labels of authorable elements never change, so all content ever made keeps working. Visual and language-support improvements are fine. Proposed in the HAX Scheduled Background Jobs Plan; not written into RULES.md or AGENTS.md yet. Enforced by Element API snapshot.",
-   "kind": "proposed",
-   "status": "planned"
+   "desc": "Attributes, usage and existing labels of authorable elements never change, so all content ever made keeps working. Visual and language-support improvements are fine. Proposed in the HAX Scheduled Background Jobs Plan; now written into PRAW RULES.md as part of \"HAX Rules Win Over Modern Web Guidance\". Enforced by Element API snapshot.",
+   "kind": "enforced",
+   "links": {
+    "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#hax-rules-win-over-modern-web-guidance"
+   }
   },
   "rc_content_no_ddd": {
    "desc": "Content-level elements work without loading the whole DDD design system. Proposed in the HAX Scheduled Background Jobs Plan; not written into RULES.md or AGENTS.md yet. Nothing enforces this yet.",
@@ -964,24 +1006,30 @@
    "status": "planned"
   },
   "rc_user_links": {
-   "desc": "Links an author writes (http included) are kept as written. Proposed in the HAX Scheduled Background Jobs Plan; not written into RULES.md or AGENTS.md yet. Nothing enforces this yet.",
-   "kind": "proposed",
-   "status": "planned"
+   "desc": "Links an author writes (http included) are kept as written. Proposed in the HAX Scheduled Background Jobs Plan; now written into PRAW RULES.md as part of \"HAX Rules Win Over Modern Web Guidance\". Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#hax-rules-win-over-modern-web-guidance"
+   }
   },
   "rc_version_hidden": {
    "desc": "No version number reaches anyone who isn't logged in. Proposed in the HAX Scheduled Background Jobs Plan; not written into RULES.md or AGENTS.md yet. Enforced by Unit and API conformance tests, PHPUnit. haxcms-nodejs test/unit/version-not-exposed-unauthenticated.test.cjs runs in its unit tests; haxcms-php OpenApiRouteContractTest::testVersionAndStatusEndpointsAreNeverPublic runs in PHPUnit. Both fail the pull request.",
-   "kind": "proposed",
-   "status": "planned"
+   "kind": "enforced"
   },
   "rc_no_native_dialogs": {
-   "desc": "Confirmation steps are built into the page, never the browser's prompt(), confirm() or alert(). Proposed in the HAX Scheduled Background Jobs Plan; not written into RULES.md or AGENTS.md yet. Enforced by ESLint. ESLint no-alert (alert, confirm and prompt calls) in webcomponents, an error in CI and in yarn precheck (haxtheweb/issues#3295).",
-   "kind": "proposed",
-   "status": "planned"
+   "desc": "Confirmation steps are built into the page, never the browser's prompt(), confirm() or alert(). Proposed in the HAX Scheduled Background Jobs Plan; now written into PRAW RULES.md as part of \"HAX Rules Win Over Modern Web Guidance\". Enforced by ESLint. ESLint no-alert (alert, confirm and prompt calls) in webcomponents, an error in CI and in yarn precheck (haxtheweb/issues#3295).",
+   "kind": "enforced",
+   "links": {
+    "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#hax-rules-win-over-modern-web-guidance"
+   }
   },
   "rc_explicit_js": {
-   "desc": "Our own elements are imported with the full .js file path, since the server can't load extensionless paths. Proposed in the HAX Scheduled Background Jobs Plan; not written into RULES.md or AGENTS.md yet. Enforced by ESLint. ESLint no-restricted-syntax in webcomponents flags extensionless or bare imports of @haxtheweb/* and relative modules; an error in CI and in yarn precheck.",
-   "kind": "proposed",
-   "status": "planned"
+   "desc": "Our own elements are imported with the full .js file path, since the server can't load extensionless paths. Proposed in the HAX Scheduled Background Jobs Plan; now written into PRAW RULES.md as part of \"HAX Rules Win Over Modern Web Guidance\". Enforced by ESLint. ESLint no-restricted-syntax in webcomponents flags extensionless or bare imports of @haxtheweb/* and relative modules; an error in CI and in yarn precheck.",
+   "kind": "enforced",
+   "links": {
+    "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#hax-rules-win-over-modern-web-guidance"
+   }
   },
   "rc_ddd_layers": {
    "desc": "Each surface uses its DDD layer: content scale for what readers see, the denser HAX UI style for admin surfaces, and the instructional element blueprint for activities. Proposed in the HAX Scheduled Background Jobs Plan; not written into RULES.md or AGENTS.md yet. Nothing enforces this yet.",
@@ -994,9 +1042,12 @@
    "status": "planned"
   },
   "rc_correct_colors": {
-   "desc": "Correct is green and incorrect is purple, never red, for decisions with consequences. Proposed in the HAX Scheduled Background Jobs Plan; not written into RULES.md or AGENTS.md yet. Nothing enforces this yet.",
-   "kind": "proposed",
-   "status": "planned"
+   "desc": "Correct is green and incorrect is purple, never red, for decisions with consequences. Proposed in the HAX Scheduled Background Jobs Plan; now written into PRAW RULES.md as part of \"Meaning Channels — Meaning and Consequential Decisions Use All Five\". Nothing enforces this yet.",
+   "kind": "gap",
+   "status": "gap",
+   "links": {
+    "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#meaning-channels--meaning-and-consequential-decisions-use-all-five"
+   }
   }
  },
  "evidence": {},
@@ -1005,7 +1056,7 @@
    "id": "rules",
    "label": "Rules and what guarantees them",
    "kind": "story",
-   "message": "120 rules: 25 enforced by a check, 21 guidance by design, 74 not yet.",
+   "message": "125 rules: 25 enforced by a check, 21 guidance by design, 79 not yet.",
    "scenes": [
     {
      "caption": "Rules come from PRAW's RULES.md, each repo's AGENTS.md, and the plan's proposals.",
@@ -1155,7 +1206,7 @@
      ]
     },
     {
-     "caption": "74 rules nothing enforces yet: the backlog of what to automate next.",
+     "caption": "79 rules nothing enforces yet: the backlog of what to automate next.",
      "nodes": [
       "r_zvem3yg7jtxbsxbop3ypzy",
       "r_rhq7llrzmzlnfvelrwslun",
@@ -1171,6 +1222,7 @@
       "r_1992902d74844c908ab446",
       "r_ccca6768_05e0_4d4d_b3a1_4b9895531558",
       "r_956c54783626475ea901a6",
+      "r_411423ec_d922_4bd4_8c45_3d8c65b9fbfa",
       "r_13a03330_483e_404e_9e48_b0d9f16432d3",
       "r_8d0c033b_7c96_4c6e_aafc_7dfff8ad9123",
       "r_410c4334_a186_4356_9584_0796e5d2bc2d",
@@ -1183,6 +1235,7 @@
       "r_ea643795_98bc_47fb_bf31_999644a48f77",
       "r_2e0e8483_8e58_4854_b6f9_f28f77aec17b",
       "r_1b8b8a93_0458_41f9_85a4_ba8d16923765",
+      "r_47905658_f1c9_448d_99e5_9e933bdc6990",
       "r_932f6cd4_90a9_451c_98af_4fb577007f9d",
       "r_35309388_b7be_40ca_88a9_539fe1dd4b0d",
       "r_896ecfa1_8965_4c06_a3ab_31c7e7eb28bf",
@@ -1213,33 +1266,32 @@
       "ra_license_header",
       "ra_modern_javascript",
       "ra_html_sinks",
+      "ra_no_bindings_inside_style",
       "ra_css_template_literals",
+      "ra_browser_support",
+      "ra_hax_rules_win_over_outside_guidance",
       "ra_every_field_in_admin_chrome_is_a_simple_fields_field",
       "ra_theme_development",
       "ra_file_structure",
       "ra_web_components",
       "ra_package_names",
       "ra_css_classes",
+      "ra_locale_urls_name_the_english_file",
       "ra_security_audits",
       "ra_sensitive_data",
       "ra_site_imports",
       "ra_file_permissions",
       "ra_schema_validation",
-      "ra_external_dependencies"
+      "rc_user_links",
+      "rc_correct_colors"
      ]
     },
     {
-     "caption": "Proposed rules, not written down yet.",
+     "caption": "Proposed rules still waiting: not written down and not enforced yet.",
      "nodes": [
-      "rc_content_contract",
       "rc_content_no_ddd",
-      "rc_user_links",
-      "rc_version_hidden",
-      "rc_no_native_dialogs",
-      "rc_explicit_js",
       "rc_ddd_layers",
-      "rc_xapi",
-      "rc_correct_colors"
+      "rc_xapi"
      ]
     },
     {

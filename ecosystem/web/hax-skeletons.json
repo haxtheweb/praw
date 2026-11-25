@@ -3,7 +3,7 @@
   "name": "HAX skeletons",
   "parent": "main",
   "noTimeline": true,
-  "about": "9 starter sites shipped with HAXcms (from haxcms-nodejs, branch skeleton-names), the use case each serves and the theme each starts from.",
+  "about": "13 starter sites shipped with HAXcms (from haxcms-nodejs, branch skeleton-names), the use case each serves and the theme each starts from.",
   "kindLabels": {
    "rel": "skeleton to use case and theme",
    "schema": "data contracts",
@@ -14,8 +14,16 @@
   "skeletons": {
    "always": true
   },
+  "k_academic": {
+   "desc": "A research group or scholar site on the al-folio theme: about, publications by year, projects, teaching, people and contact, shown with a sample coastal ecology lab.",
+   "kind": "skeleton",
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/academic.json"
+   },
+   "note": "Machine name academic; theme al-folio-theme; tags academic, research, publications, lab."
+  },
   "k_art_portfolio": {
-   "desc": "Art portfolio theme skeleton use case",
+   "desc": "An artist portfolio on the Clean Portfolio theme: artist statement, featured works, two series and a contact page for commissions.",
    "kind": "skeleton",
    "links": {
     "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/art-portfolio.json"
@@ -23,7 +31,7 @@
    "note": "Machine name art-portfolio; theme clean-portfolio-theme; tags art, gallery, portfolio."
   },
   "k_blog": {
-   "desc": "A blog starter on the Clean One theme: posts, a journal and topic pages, shown with a sample coffee blog.",
+   "desc": "A blog starter on the Clean One theme: posts, a journal, topic pages, about and contact, shown with a sample coffee blog.",
    "kind": "skeleton",
    "links": {
     "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/blog.json"
@@ -31,7 +39,7 @@
    "note": "Machine name blog; theme clean-one; tags blog, journal, writing."
   },
   "k_club_website": {
-   "desc": "Club website starter using the Polaris Flex theme",
+   "desc": "A website for a student club or organization on the Polaris Flex theme: about, events, a blog and a way to join, shown with a sample book club.",
    "kind": "skeleton",
    "links": {
     "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/club-website.json"
@@ -46,8 +54,16 @@
    },
    "note": "Machine name default-starter; theme clean-two; tags default."
   },
+  "k_department": {
+   "desc": "A website for a university department, office or center on the Polaris Flex Sidebar theme: about, services, people, news, contact and a privacy page, shown with a sample learning design office.",
+   "kind": "skeleton",
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/department.json"
+   },
+   "note": "Machine name department; theme polaris-flex-sidebar; tags department, office, organization, university."
+  },
   "k_docs": {
-   "desc": "HAXma themed documentation site with pages focused on documenting a coding project using HAX create.",
+   "desc": "A documentation site on the HAXma theme, shown documenting the HAX command line tool (HAX create).",
    "kind": "skeleton",
    "links": {
     "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/docs.json"
@@ -62,16 +78,24 @@
    },
    "note": "Machine name isc-graduate-portfolio; theme clean-portfolio-theme; tags portfolio, graduate, competencies."
   },
+  "k_landing_page": {
+   "desc": "A landing page for a small business or product on the AstroWind theme: a home page that sells, services, pricing, about, contact and a privacy page, shown with a sample bike repair shop.",
+   "kind": "skeleton",
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/landing-page.json"
+   },
+   "note": "Machine name landing-page; theme astrowind-theme; tags landing, business, marketing, services."
+  },
   "k_online_course": {
-   "desc": "Clean One themed online course skeleton with a syllabus and a Lesson 1 unit containing three subpages.",
+   "desc": "An online course on the Clean One theme, shown as a short orientation lesson that teaches learners how to find their way around a HAX site and edit a page.",
    "kind": "skeleton",
    "links": {
     "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/online-course.json"
    },
-   "note": "Machine name online-course; theme clean-one; tags online, lesson, syllabus."
+   "note": "Machine name online-course; theme clean-one; tags online, lesson, orientation."
   },
   "k_portfolio": {
-   "desc": "A professional portfolio on the Glossy Portfolio theme: summary, projects, experience, and education and certifications.",
+   "desc": "A professional portfolio on the Glossy Portfolio theme: summary, projects, experience, education and certifications, and contact.",
    "kind": "skeleton",
    "links": {
     "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/portfolio.json"
@@ -85,6 +109,14 @@
     "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/resume-journey.json"
    },
    "note": "Machine name resume-journey; theme journey-theme; tags resume, career, skills."
+  },
+  "k_writing": {
+   "desc": "A writing-only site on the Writing theme: a home page of recent posts, an About page, a Contact page, an archive by year, and posts under Posts.",
+   "kind": "skeleton",
+   "links": {
+    "source": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/src/coreConfig/skeletons/writing.json"
+   },
+   "note": "Machine name writing; theme writing-theme; tags blog, writing, posts, minimal."
   },
   "blog": {
    "desc": "Blogs and journals on HAXcms, like btopro.com, written in the same editor as courses.",
@@ -107,7 +139,7 @@
   {
    "id": "skeletons",
    "label": "Start a site from a skeleton",
-   "message": "The 9 skeletons HAXcms ships, the use case each serves and the theme each starts from.",
+   "message": "The 13 skeletons HAXcms ships, the use case each serves and the theme each starts from.",
    "scenes": [
     {
      "caption": "A skeleton is a full working site you can start from and hand to someone else.",
@@ -118,15 +150,19 @@
     {
      "caption": "Courses, portfolios, a blog, docs, a club site and a plain starter.",
      "nodes": [
+      "k_academic",
       "k_art_portfolio",
       "k_blog",
       "k_club_website",
       "k_default_starter",
+      "k_department",
       "k_docs",
       "k_isc_graduate_portfolio",
+      "k_landing_page",
       "k_online_course",
       "k_portfolio",
-      "k_resume_journey"
+      "k_resume_journey",
+      "k_writing"
      ]
     },
     {
@@ -143,13 +179,17 @@
     {
      "caption": "Each one starts from a theme; open Themes to see them.",
      "nodes": [
+      "t_al_folio_theme",
+      "t_astrowind_theme",
       "t_clean_one",
       "t_clean_portfolio_theme",
       "t_clean_two",
       "t_glossy_portfolio_theme",
       "t_haxma_theme",
       "t_journey_theme",
-      "t_polaris_flex_theme"
+      "t_polaris_flex_sidebar",
+      "t_polaris_flex_theme",
+      "t_writing_theme"
      ]
     },
     {

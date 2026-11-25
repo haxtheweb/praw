@@ -35,6 +35,8 @@ GUARDS = [
  (r"no typescript", "No TypeScript source enters elements/; HAX ships JavaScript with no compile step."),
  (r"latest lts", "Every Node.js version the repo names (engines, .nvmrc, workflows) is the latest LTS."),
  (r"poll, don't sleep|poll don t sleep", "No test gains a fixed sleep; tests wait for the condition they need. Sleeps that predate the rule are baselined, and the baseline only shrinks."),
+ (r"shadow-boundary aria", "No element gains an id reference (aria-labelledby, aria-controls, for and the like) that points across a shadow boundary or at nothing."),
+ (r"a11y-collapse heading-button", "No element, demo or HAX schema gains an a11y-collapse whose whole heading doesn't open it."),
  (r"mascot name", "The mascot is always the Future Traveler; retired names don't come back."),
  (r"no local paths", "Nothing in skills, the ecosystem webs or Markdown points at a path on someone's machine."),
  (r"org spelling", "Links and package scopes say haxtheweb, never a near-miss."),

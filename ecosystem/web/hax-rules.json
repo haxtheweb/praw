@@ -10,7 +10,7 @@
    "gap": "nothing enforces it yet",
    "proposed": "proposed"
   },
-  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (88 rules) and each repo's AGENTS.md (31), plus 7 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 47 are enforced; 52 are guidance by design, which no check could decide; 27 are gaps, the backlog of what to automate next.",
+  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (88 rules) and each repo's AGENTS.md (31), plus 7 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 49 are enforced; 52 are guidance by design, which no check could decide; 25 are gaps, the backlog of what to automate next.",
   "kindLabels": {
    "rel": "where a rule comes from and what enforces it",
    "pillar": "pillars a rule serves",
@@ -34,7 +34,7 @@
    "kind": "group"
   },
   "rg_web_component_development": {
-   "desc": "Web Component Development: 19 rules, 10 enforced by a check.",
+   "desc": "Web Component Development: 19 rules, 12 enforced by a check.",
    "kind": "group"
   },
   "rg_build_development_workflow": {
@@ -289,9 +289,8 @@
    }
   },
   "r_410c4334_a186_4356_9584_0796e5d2bc2d": {
-   "desc": "An `id` reference (`aria-labelledby`, `aria-describedby`, `aria-controls`, `aria-owns`, `aria-activedescendant`, `<label for>`) only resolves inside the tree it is written in. One that points from light DOM into a shadow root, or out of a shadow root to light DOM, finds nothing and fails silently: no error, no axe failure in many cases, just a control with no name. Inside an element, keep the labelling control and its label in the same shadow root, or take the label as a property/attribute and render it next to the control. To label a shadow-internal control from slotted or light DOM content, set the reflected element properties (`ariaLabelledByElements`, `ariaDescribedByElements`, `ariaControlsElements`) in `firstUpdated`/`updated`; they resolve outward only (shadow tree to light DOM or ancestor trees), never inward, so a host cannot be labelled by its own shadow content this way. They are Baseline Newly available, so feature-detect (`'ariaLabelledByElements' in Element.prototype`) and keep a working label when they are missing (see the Browser Support Policy rule `4e0800ef-32ff-42dc-83f0-bbb953d97554`). Focus: when the element wraps one internal focusable control that owns the semantics (an input, a button), attach the shadow root with `delegatesFocus: true` (in Lit, `static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true }`) instead of putting `tabindex` on the host; do not also give the host a role or state, or focus lands on the inner control and the host's state is skipped. When the host itself is the control (a custom toggle with `role` and `aria-pressed` on the host), put `tabindex=\"0\"` on the host and leave `delegatesFocus` off. Never use a positive `tabindex`. Check this when adding or reviewing labels, descriptions or focus handling in an element; `hax-a11y-audit` checks the authored-content side. Source: Modern Web Guidance `accessible-web-components`. Tracking: <https://github.com/haxtheweb/issues/issues/3298>. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "An `id` reference (`aria-labelledby`, `aria-describedby`, `aria-controls`, `aria-owns`, `aria-activedescendant`, `<label for>`) only resolves inside the tree it is written in. One that points from light DOM into a shadow root, or out of a shadow root to light DOM, finds nothing and fails silently: no error, no axe failure in many cases, just a control with no name. Inside an element, keep the labelling control and its label in the same shadow root, or take the label as a property/attribute and render it next to the control. To label a shadow-internal control from slotted or light DOM content, set the reflected element properties (`ariaLabelledByElements`, `ariaDescribedByElements`, `ariaControlsElements`) in `firstUpdated`/`updated`; they resolve outward only (shadow tree to light DOM or ancestor trees), never inward, so a host cannot be labelled by its own shadow content this way. They are Baseline Newly available, so feature-detect (`'ariaLabelledByElements' in Element.prototype`) and keep a working label when they are missing (see the Browser Support Policy rule `4e0800ef-32ff-42dc-83f0-bbb953d97554`). Focus: when the element wraps one internal focusable control that owns the semantics (an input, a button), attach the shadow root with `delegatesFocus: true` (in Lit, `static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true }`) instead of putting `tabindex` on the host; do not also give the host a role or state, or focus lands on the inner control and the host's state is skipped. When the host itself is the control (a custom toggle with `role` and `aria-pressed` on the host), put `tabindex=\"0\"` on the host and leave `delegatesFocus` off. Never use a positive `tabindex`. Check this when adding or reviewing labels, descriptions or focus handling in an element; `hax-a11y-audit` checks the authored-content side. Source: Modern Web Guidance `accessible-web-components`. Tracking: <https://github.com/haxtheweb/issues/issues/3298>. In PRAW RULES.md (scope: webcomponents). Enforced by Shadow-boundary ARIA references. webcomponents' rule-checks workflow (scripts/rule-checks.mjs aria-refs) fails the pull request when an element file gains an id reference (aria-labelledby, aria-describedby, aria-controls, aria-owns, aria-activedescendant, for) whose id isn't written in the same file. A heuristic: dynamic ids and light-DOM elements are skipped; files that predate it are in scripts/aria-refs.baseline.json, which only shrinks.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#shadow-boundary-aria-references"
    }
@@ -305,9 +304,8 @@
    }
   },
   "r_wqogob824vgw5hecmh08ew": {
-   "desc": "When using a11y-collapse, ensure that the `heading-button` property is set on the HTML element to make it easier for the end user to click the whole heading to expand the content. Without it, only the small toggle icon is clickable; with it, the entire heading bar becomes a clickable button, which is a better UX. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "When using a11y-collapse, ensure that the `heading-button` property is set on the HTML element to make it easier for the end user to click the whole heading to expand the content. Without it, only the small toggle icon is clickable; with it, the entire heading bar becomes a clickable button, which is a better UX. In PRAW RULES.md (scope: webcomponents). Enforced by a11y-collapse heading-button. webcomponents' rule-checks workflow (scripts/rule-checks.mjs a11y-collapse) fails the pull request when element code, a demo or a HAX schema gains an <a11y-collapse> without heading-button. Files that predate it are in scripts/a11y-collapse.baseline.json, which only shrinks.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#a11y-collapse-heading-button"
    }
@@ -1039,7 +1037,7 @@
    "id": "rules",
    "label": "Rules and what guarantees them",
    "kind": "story",
-   "message": "126 rules: 47 enforced by a check, 52 guidance by design, 27 not yet.",
+   "message": "126 rules: 49 enforced by a check, 52 guidance by design, 25 not yet.",
    "scenes": [
     {
      "caption": "Rules come from PRAW's RULES.md, each repo's AGENTS.md, and the plan's proposals.",
@@ -1060,7 +1058,7 @@
      ]
     },
     {
-     "caption": "47 rules have a check that enforces them.",
+     "caption": "49 rules have a check that enforces them.",
      "nodes": [
       "r_a8bf4a47_3d4f_4f8e_a356_a04db66ce1ab",
       "r_1286150dc8944178aa82ca",
@@ -1075,6 +1073,8 @@
       "r_34ef39a0_b970_43ba_b68a_251f99d64424",
       "r_cehsaztyfb2vtcwthggnbk",
       "r_njf4syugdn5wr5tevadtgy",
+      "r_410c4334_a186_4356_9584_0796e5d2bc2d",
+      "r_wqogob824vgw5hecmh08ew",
       "r_40983ddf_40b7_4a5e_a600_8f9fcb58da83",
       "r_6150b048_e030_467c_b1f7_2ceaa271f00e",
       "r_47905658_f1c9_448d_99e5_9e933bdc6990",
@@ -1111,6 +1111,7 @@
       "rc_explicit_js",
       "ct_a11y",
       "ct_fuzz",
+      "q_a11y_collapse_heading_button",
       "q_a11y_modes",
       "q_audit",
       "q_codeql",
@@ -1139,6 +1140,7 @@
       "q_phpunit",
       "q_render_benchmarks",
       "q_script_tests",
+      "q_shadow_boundary_aria_references",
       "q_size_report",
       "q_skills_lock_json_hashes_are_current",
       "q_test_all_elements",
@@ -1254,7 +1256,7 @@
      ]
     },
     {
-     "caption": "27 rules nothing enforces yet: the backlog of what to automate next.",
+     "caption": "25 rules nothing enforces yet: the backlog of what to automate next.",
      "nodes": [
       "r_q4d9hl9sfnorlmpt1z2zeb",
       "r_69qeidwqwmafq9ewziwmln",
@@ -1262,8 +1264,6 @@
       "r_54e36477_ac8a_4fb2_bd9e_c46463f608aa",
       "r_447f8d9bc5484749b1188e",
       "r_411423ec_d922_4bd4_8c45_3d8c65b9fbfa",
-      "r_410c4334_a186_4356_9584_0796e5d2bc2d",
-      "r_wqogob824vgw5hecmh08ew",
       "r_ea643795_98bc_47fb_bf31_999644a48f77",
       "r_f3c7716773784e8f94254a",
       "r_09255ba6_e67a_44ce_b8cb_f0d5e80f97ab",

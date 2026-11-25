@@ -67,6 +67,14 @@ python3 -I ecosystem/build/tutorial_review.py --map                  # every tau
 
 It also lists the taught tiles with no code on record, which is where to add a link or an entry. `python3 -I ecosystem/test/tutorial-review-check.py` checks it.
 
+### Connection sprints
+
+The Connect lens on hax.cloud (the goggles: Merlin `>developer/goggles`, or `?goggles=connect&from=<address>`) lets a team member rewrite what a tile says, connect it to other tiles or to something the web does not have yet, fix a connection and add links, then copy a `praw-edit/1` prompt. Nothing is filed from the site.
+
+- [`build/connection_gaps.py`](build/connection_gaps.py) lists where the web is thin (stub stories, people and organizations with one connection, people with no link, pillars with no funding story, story tours with no evidence, rules no HEOSAT question names), each tile linked into the lens. A monthly scheduled task runs it as a reminder before a sprint; it changes nothing.
+- [`build/route_edit.py`](build/route_edit.py) reads a copied prompt and says which file each change belongs in: the main web's structure in `web/hax-ecosystem.mmd`, its text, links and evidence in `build_json.py`, and every other generated web through its generator.
+- The [praw-connection-ingest](../skills/praw-connection-ingest/SKILL.md) skill takes it from there to one pull request; [`test/connection-tools-check.py`](test/connection-tools-check.py) checks both scripts.
+
 ### Build it
 
 ```bash

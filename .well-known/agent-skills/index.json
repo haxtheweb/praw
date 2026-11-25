@@ -708,6 +708,13 @@
       ]
     },
     {
+      "name": "praw-connection-ingest",
+      "type": "skill-md",
+      "description": "Turn a hax.cloud Connect lens prompt (praw-edit/1 blocks: a tile's rewritten blurb, new or changed connections, new tiles, links) into one PRAW pull request, routing each change to its generator. Use when handed a copied Connect prompt or a connection sprint list.",
+      "url": "praw-connection-ingest/SKILL.md",
+      "digest": "sha256:b540647ed3f7b0c192133db37ec9796c692e99a56cfdc385b2e02ed8f5b1aecb"
+    },
+    {
       "name": "reading-notes",
       "type": "skill-md",
       "description": "Draft paragraph-level Reading Notes for a book chapter or long reading: topic rows, page ranges, first…last word anchors and one-sentence paraphrases, for human review. Use for \"make reading notes\", \"paraphrase this chapter paragraph by paragraph\" or the comparison notes for a book-player reading analysis question.",

@@ -381,15 +381,6 @@
     "components"
    ]
   },
-  "candidate:xapi": {
-   "pillars": [
-    "remixable"
-   ],
-   "touches": [
-    "xapi",
-    "components"
-   ]
-  },
   "candidate:correct_colors": {
    "pillars": [
     "accessible"
@@ -628,6 +619,101 @@
   "fc4153f1-90f0-4d22-a023-fec8f492b408": {
    "automation": "guidance",
    "how": "Says which skills to use when matching instruction to learner proficiency."
+  },
+  "6150b048-e030-467c-b1f7-2ceaa271f00e": {
+   "pillars": [
+    "remixable"
+   ],
+   "touches": [
+    "xapi",
+    "components"
+   ],
+   "enforced_by": [
+    "q_script_tests"
+   ],
+   "how": "webcomponents yarn test:scripts (Script tests in the build workflow) runs scripts/test/xapi-conformance.test.mjs: statement schema, response-pattern grammar, HAX extension IRIs, and component ids that stay stable when options are reordered. It fails the pull request."
+  },
+  "agents:License header": {
+   "enforced_by": [
+    "q_dependency_licenses"
+   ],
+   "how": "The License header on element files job in webcomponents' license-check workflow runs scripts/license-header-check.mjs --all and fails the pull request when an element source file lacks the Apache-2.0 header."
+  },
+  "agents:No bindings inside `<style>`": {
+   "enforced_by": [
+    "q_html_structure_in_html_and_svg_templates"
+   ],
+   "how": "Template lint's html-template-check flags a binding inside <style> text in an html`` or svg`` template and fails the pull request; known cases are baselined."
+  },
+  "agents:Every field in admin chrome is a `simple-fields-field`": {
+   "enforced_by": [
+    "q_hax_ui_admin_contract"
+   ],
+   "how": "The HAX UI admin contract check (yarn lint:hax-ui-admin, rule raw-field) fails the pull request on a new hand-drawn field in admin chrome; fields that predate the rule are baselined."
+  },
+  "agents:Locale URLs name the English file": {
+   "enforced_by": [
+    "q_locale_urls_point_at_a_shipped_locale_file"
+   ],
+   "how": "Partly. Template lint's locale-url check fails the pull request when new URL() for locales names the locales/ folder or a file that doesn't ship; that it is the English file is checked in review."
+  },
+  "47905658": {
+   "enforced_by": [
+    "q_locale_urls_point_at_a_shipped_locale_file"
+   ],
+   "how": "Partly. Template lint's locale-url check fails the pull request when new URL() for locales names the locales/ folder or a file that doesn't ship; that it is the English file is checked in review."
+  },
+  "d2a1207c": {
+   "enforced_by": [
+    "q_skills_lock_json_hashes_are_current"
+   ],
+   "how": "praw's Rule checks workflow runs scripts/update-skills-lock.js --check and fails the pull request when an outside skill's files no longer match the hash pinned in skills-lock.json."
+  },
+  "1286150": {
+   "enforced_by": [
+    "q_haxiam_nightly"
+   ],
+   "how": "Partly. haxcms-nodejs and haxcms-php run a nightly HAXiam isolation job: throwaway multi-tenant users on localhost must not list, read, edit, clone or download each other's sites. A failure turns the run red and files an issue; it doesn't block a pull request."
+  },
+  "c4f0b69d": {
+   "automation": "guidance",
+   "how": "Says which document settles design questions in this repo; a person or agent applies it while designing."
+  },
+  "ccca6768": {
+   "automation": "guidance",
+   "how": "Says how to build a HAXcms prototype (on the running system, with the haxcms-prototype skill); no check can tell a redrawn prototype from a real one."
+  },
+  "8369fe15": {
+   "automation": "guidance",
+   "how": "Says what a theme PR hands over for review (the editor demo link); it is how work is handed over, not a property of the code."
+  },
+  "1eaa87af": {
+   "automation": "guidance",
+   "how": "Says to run the worldview Pillar checks before a non-trivial change; judging a change against the pillars takes a person or agent."
+  },
+  "186fad44": {
+   "automation": "guidance",
+   "how": "Says what an agent does before submitting (read AGENTS.md, run the repo's own lint and tests); the checks it points to are each enforced on their own."
+  },
+  "759643a6": {
+   "automation": "guidance",
+   "how": "Says how a recurring security audit is run and what it starts from; it is a playbook, not a property of the code."
+  },
+  "00413a27": {
+   "automation": "guidance",
+   "how": "Says which libraries and data files may be suggested at all; the license of what actually lands is enforced by the Dependency licenses check."
+  },
+  "agents:Security Audits": {
+   "automation": "guidance",
+   "how": "Says where a recurring security audit of this repo starts (SECURITY-AUDIT.md); it is a playbook, not a property of the code."
+  },
+  "1b8b8a93": {
+   "automation": "guidance",
+   "how": "Says to audit a component for server-side rendering while working on it; finding what would break SSR takes reading the component."
+  },
+  "agents:HAX rules win over outside guidance.": {
+   "automation": "guidance",
+   "how": "Says which advice wins when two sources disagree; each conflict it lists has its own rule and check."
   }
  },
  "candidates": [
@@ -676,12 +762,6 @@
    "title": "DDD layers: content scale, HAX UI admin style, instructional element blueprint",
    "group": "DDD layers",
    "text": "Each surface uses its DDD layer: content scale for what readers see, the denser HAX UI style for admin surfaces, and the instructional element blueprint for activities."
-  },
-  {
-   "id": "xapi",
-   "title": "xAPI conformance and stable answer keys",
-   "group": "Learning data",
-   "text": "Learning activities send conformant xAPI statements, and answer keys stay stable so results stay comparable."
   },
   {
    "id": "correct_colors",

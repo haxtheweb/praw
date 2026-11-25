@@ -14,7 +14,6 @@ flowchart TB
   subgraph blockg ["Blocking gates"]
     q_assemble_the_page["Assemble the page"]
     q_baseline_only_shrinks["Baseline only shrinks"]
-    q_blocks_under_the_design_system["Blocks under the design system"]
     q_build["Build"]
     q_build_rule_exports["Build rule exports"]
     q_build_skill_indexes["Build skill indexes"]
@@ -50,7 +49,6 @@ flowchart TB
     q_phpunit["PHPUnit"]
     q_palette_roles["Palette roles"]
     q_parse_check["Parse check"]
-    q_print_what_still_fails["Print what still fails"]
     q_project_license_is_apache_2_0["Project license is Apache-2.0"]
     q_pseudo_locale_and_rtl_layout["Pseudo-locale and RTL layout"]
     q_ruff_check["Ruff check"]
@@ -173,10 +171,6 @@ flowchart TB
   q_codeql -.->|fails PRs in| mcp
   qg_block -->|includes| q_contrast_design_systems
   q_contrast_design_systems -.->|fails PRs in| components
-  qg_block -->|includes| q_blocks_under_the_design_system
-  q_blocks_under_the_design_system -.->|fails PRs in| components
-  qg_block -->|includes| q_print_what_still_fails
-  q_print_what_still_fails -.->|fails PRs in| components
   qg_block -->|includes| q_baseline_only_shrinks
   q_baseline_only_shrinks -.->|fails PRs in| components
   qg_block -->|includes| q_color_contrast_of_changed_elements
@@ -426,8 +420,6 @@ flowchart TB
   %%@ node q_cla icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_codeql icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_contrast_design_systems icon=icons:check-circle color=forestGreen motion=nudge
-  %%@ node q_blocks_under_the_design_system icon=icons:check-circle color=forestGreen motion=nudge
-  %%@ node q_print_what_still_fails icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_baseline_only_shrinks icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_color_contrast_of_changed_elements icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_palette_roles icon=icons:check-circle color=forestGreen motion=nudge

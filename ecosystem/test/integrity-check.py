@@ -13,6 +13,7 @@ Reads every web in ecosystem/web (hax-<web>.mmd and hax-<web>.json) and exits 1 
                    opened by a tile and its parents (meta.parent) lead back to the main web
   rule checks      no rule points at a Quality control check that no longer exists
   area records     every area on the main web has an icon, a DDD color and a motion on record
+  network record   a network property's main web tile matches network.json (icon, color, motion)
   no orphans       every tile has a connection. In a sub-web a tile may stand alone only as a gap
                    (status "gap": something a coverage map says is missing), as a portal (the same tile,
                    connected in the web it comes from) or when integrity-allow.json names it with a reason
@@ -111,7 +112,7 @@ def neighbors(web):
     return out
 
 
-def check(webs, pillars=None, allow=None):
+def check(webs, pillars=None, allow=None, network=None):
     """Every broken rule, as {web: [message]}. pillars is build/data/pillars.json's list, allow is integrity-allow.json's orphans."""
     allow = allow or {}
     errors = {w: list(web["errors"]) for w, web in webs.items()}
@@ -211,6 +212,20 @@ def check(webs, pillars=None, allow=None):
             if missing:
                 errors[MAIN].append(f'area "{i}" has no {" or ".join(missing)} on record: add icon=, color= and motion= to its %%@ node line')
 
+    # a network property's main web tile takes its icon, color and motion from network.json, the record
+    if main and network:
+        for key, prop in (network.get("properties") or {}).items():
+            tile = prop.get("tile")
+            if not tile:
+                continue
+            if tile not in main["nodes"]:
+                errors[MAIN].append(f'network.json: "{key}" names tile "{tile}", which the main web does not have')
+                continue
+            a = main["ann"].get(("node", tile), {})
+            for field in ("icon", "color", "motion"):
+                if prop.get(field) and a.get(field) != prop[field]:
+                    errors[MAIN].append(f'tile "{tile}" has {field}={a.get(field)}, but network.json records {field}={prop[field]} for "{key}": the network record wins, copy it')
+
     # a rule still points at every check that enforces it (build_rules.py notes a check that is gone)
     for w, web in webs.items():
         for i, d in ((web["doc"].get("nodes") or {})).items():
@@ -261,14 +276,16 @@ def self_test():
     good_sub_doc = {"meta": {"parent": "main"}, "nodes": {"lone": {"status": "gap"}}}
     pillars = [{"id": "open", "icon": "icons:lock-open", "color": "keystoneYellow"}]
 
-    def run(main=good_main, sub=good_sub, main_doc=good_main_doc, sub_doc=good_sub_doc, allow=None):
+    good_network = {"properties": {"lab": {"icon": "hax:site-map", "color": "discoveryCoral", "motion": "pop", "tile": "cms"}}}
+
+    def run(main=good_main, sub=good_sub, main_doc=good_main_doc, sub_doc=good_sub_doc, allow=None, network=good_network):
         with tempfile.TemporaryDirectory() as d:
             for name, text, doc in (("ecosystem", main, main_doc), ("cli", sub, sub_doc)):
                 with open(os.path.join(d, f"hax-{name}.mmd"), "w", encoding="utf-8") as f:
                     f.write(text)
                 with open(os.path.join(d, f"hax-{name}.json"), "w", encoding="utf-8") as f:
                     json.dump(doc, f)
-            return " | ".join(m for e in check(load(d), pillars, allow).values() for m in e)
+            return " | ".join(m for e in check(load(d), pillars, allow, network).values() for m in e)
 
     cases = [
         ("a sound web passes", run(), None),
@@ -291,6 +308,8 @@ def self_test():
         ("retired docs link", run(main_doc=dict(good_main_doc, nodes={"cms": {"desc": "x", "links": {"docs": "https://github.com/haxtheweb/docs/blob/master/pages/x/index.html"}}})), 'tile "cms" links retired docs'),
         ("area without a motion", run(main=good_main.replace(" color=discoveryCoral motion=pop", " color=discoveryCoral")), 'area "cms" has no motion on record'),
         ("area without anything", run(main=good_main.replace("  %%@ node cms icon=hax:site-map color=discoveryCoral motion=pop\n", "")), 'area "cms" has no icon or color or motion'),
+        ("tile differs from the network record", run(network={"properties": {"lab": {"icon": "hax:site-map", "color": "skyBlue", "tile": "cms"}}}), 'tile "cms" has color=discoveryCoral, but network.json records color=skyBlue'),
+        ("network names a missing tile", run(network={"properties": {"lab": {"tile": "nope"}}}), 'names tile "nope"'),
         ("rule check gone", run(sub_doc={"meta": {"parent": "main"}, "nodes": {"lone": {"status": "gap", "note": "A check that enforced this is gone from Quality control: q_x."}}}), 'tile "lone": A check that enforced this is gone'),
     ]
     failed = 0
@@ -312,8 +331,10 @@ def main(argv):
         pillars = json.load(f)["pillars"]
     with open(os.path.join(HERE, "integrity-allow.json"), encoding="utf-8") as f:
         allow = json.load(f)["orphans"]
+    with open(os.path.join(ECO, "network.json"), encoding="utf-8") as f:
+        network = json.load(f)
     webs = load(folder)
-    errors = check(webs, pillars, allow)
+    errors = check(webs, pillars, allow, network)
     total = 0
     for w in sorted(errors):
         name = "hax-ecosystem" if w == MAIN else "hax-" + w

@@ -10,7 +10,7 @@
    "gap": "nothing enforces it yet",
    "proposed": "proposed"
   },
-  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (88 rules) and each repo's AGENTS.md (31), plus 7 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 56 are enforced; 52 are guidance by design, which no check could decide; 18 are gaps, the backlog of what to automate next.",
+  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (88 rules) and each repo's AGENTS.md (31), plus 7 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 73 are enforced; 52 are guidance by design, which no check could decide; 1 are gaps, the backlog of what to automate next.",
   "kindLabels": {
    "rel": "where a rule comes from and what enforces it",
    "pillar": "pillars a rule serves",
@@ -26,23 +26,23 @@
    "always": true
   },
   "rg_architecture_file_structure_rules": {
-   "desc": "Architecture & File Structure Rules: 12 rules, 4 enforced by a check.",
+   "desc": "Architecture & File Structure Rules: 12 rules, 6 enforced by a check.",
    "kind": "group"
   },
   "rg_design_system_standards": {
-   "desc": "Design System Standards: 9 rules, 5 enforced by a check.",
+   "desc": "Design System Standards: 9 rules, 6 enforced by a check.",
    "kind": "group"
   },
   "rg_web_component_development": {
-   "desc": "Web Component Development: 19 rules, 12 enforced by a check.",
+   "desc": "Web Component Development: 19 rules, 13 enforced by a check.",
    "kind": "group"
   },
   "rg_build_development_workflow": {
-   "desc": "Build & Development Workflow: 36 rules, 12 enforced by a check.",
+   "desc": "Build & Development Workflow: 36 rules, 13 enforced by a check.",
    "kind": "group"
   },
   "rg_ai_generated_content": {
-   "desc": "AI-Generated Content: 7 rules, 0 enforced by a check.",
+   "desc": "AI-Generated Content: 7 rules, 7 enforced by a check.",
    "kind": "group"
   },
   "rg_instructional_design": {
@@ -54,15 +54,15 @@
    "kind": "group"
   },
   "rg_agents_md_code_style": {
-   "desc": "AGENTS.md: code style: 23 rules, 15 enforced by a check.",
+   "desc": "AGENTS.md: code style: 23 rules, 17 enforced by a check.",
    "kind": "group"
   },
   "rg_agents_md_security": {
-   "desc": "AGENTS.md: security: 8 rules, 3 enforced by a check.",
+   "desc": "AGENTS.md: security: 8 rules, 4 enforced by a check.",
    "kind": "group"
   },
   "rg_proposed_content_contract": {
-   "desc": "Proposed: Content contract: 2 rules, 1 enforced by a check.",
+   "desc": "Proposed: Content contract: 2 rules, 2 enforced by a check.",
    "kind": "group"
   },
   "rg_proposed_platform_rules": {
@@ -74,7 +74,7 @@
    "kind": "group"
   },
   "rg_proposed_conventions": {
-   "desc": "Proposed: Conventions: 1 rule, 0 enforced by a check.",
+   "desc": "Proposed: Conventions: 1 rule, 1 enforced by a check.",
    "kind": "group"
   },
   "r_zvem3yg7jtxbsxbop3ypzy": {
@@ -101,9 +101,8 @@
    }
   },
   "r_69qeidwqwmafq9ewziwmln": {
-   "desc": "wc-registry.json is a file that is built by the ubiquity script and is used for our \"magic script\". This register contains references to every valid web component that we publish on our CDN and is hydrated based on tag-name being undefined, detected in the DOM, and then imported dynamically at the associated object key. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "wc-registry.json is a file that is built by the ubiquity script and is used for our \"magic script\". This register contains references to every valid web component that we publish on our CDN and is hydrated based on tag-name being undefined, detected in the DOM, and then imported dynamically at the associated object key. In PRAW RULES.md (scope: webcomponents). Enforced by Web component registry. webcomponents' rule-checks workflow (scripts/rule-checks.mjs wc-registry) fails the pull request when a @haxtheweb entry in wc-registry.json names a file no element ships, or the haxcms-elements demo copy differs.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#web-component-registry"
    }
@@ -124,9 +123,8 @@
    }
   },
   "r_82dc87fd_6bc1_4d20_9d68_5b077bb88b89": {
-   "desc": "System-level calls (site imports, file format conversions, operations not scoped to a single site) must use the MicroFrontendRegistry (MFR) `@system/` namespace, registered from the on-premises OpenAPI spec at `/system/api/v1` (see `app-hax-system-api-registry.js` and `system-spec.yaml`; handlers in `haxcms-nodejs/src/systemRoutes/v1`). Site-scoped calls must use the `@site/` namespace (handlers in `haxcms-nodejs/src/siteRoutes/v1`); v0 site endpoints are removed. Do not add new `@haxcms/`-namespaced registrations or route new work through the retired `open-apis` broker (the legacy v0 import path) — use `@system/` or `@site/` instead. A new site importer is complete only when every layer is wired and each repo has its PR open without being asked: both backends (`haxcms-nodejs` and `haxcms-php`, same behavior), the webcomponents client (MFR service and chooser card), and the `create` CLI, where `IMPORT_STRUCTURE_MAP` must map `<name>ToSite` to the `site/import/:platform` dispatcher (which calls the v1 handlers in-process) and the name must be listed in `--import-structure` help, the man page and the README. Use the `hax-importer-dev` skill. (Full detail lives in `haxcms/WARP.md`.) In PRAW RULES.md (scope: haxcms). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "System-level calls (site imports, file format conversions, operations not scoped to a single site) must use the MicroFrontendRegistry (MFR) `@system/` namespace, registered from the on-premises OpenAPI spec at `/system/api/v1` (see `app-hax-system-api-registry.js` and `system-spec.yaml`; handlers in `haxcms-nodejs/src/systemRoutes/v1`). Site-scoped calls must use the `@site/` namespace (handlers in `haxcms-nodejs/src/siteRoutes/v1`); v0 site endpoints are removed. Do not add new `@haxcms/`-namespaced registrations or route new work through the retired `open-apis` broker (the legacy v0 import path) — use `@system/` or `@site/` instead. A new site importer is complete only when every layer is wired and each repo has its PR open without being asked: both backends (`haxcms-nodejs` and `haxcms-php`, same behavior), the webcomponents client (MFR service and chooser card), and the `create` CLI, where `IMPORT_STRUCTURE_MAP` must map `<name>ToSite` to the `site/import/:platform` dispatcher (which calls the v1 handlers in-process) and the name must be listed in `--import-structure` help, the man page and the README. Use the `hax-importer-dev` skill. (Full detail lives in `haxcms/WARP.md`.) In PRAW RULES.md (scope: haxcms). Enforced by MFR namespacing. Partly. webcomponents' rule-checks workflow (scripts/rule-checks.mjs mfr-haxcms) fails the pull request on a new call in the retired @haxcms/ micro-frontend namespace; the calls that predate it are baselined and the baseline only shrinks. That a new importer is wired through every layer is review.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#mfr-call-namespacing-system-and-site"
    }
@@ -200,9 +198,8 @@
    }
   },
   "r_447f8d9bc5484749b1188e": {
-   "desc": "Use `data-primary` / `data-accent` for a single color on an element (they set `--ddd-theme-primary` / `--ddd-theme-accent`); use `data-palette` for a coordinated multi-color palette across a region or site (`--ddd-palette-color-1` to `-7`, palettes `0` to `7`). `DDDPaletteStyles` selects `[data-palette=\"N\"]`, not `:host([data-palette])`, so those styles must exist where they can match the element: extend `DDDSuper(...)` so DDD registers at the document level, or add `DDDAllStyles` to the global theme stylesheet via `HAXCMSGlobalStyleSheetContent()`. Shadow-scoped inclusion alone can make palette switching silently do nothing. Details: KNOWLEDGE.md entry \"DDD data-palette\". In PRAW RULES.md (scope: design-system). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Use `data-primary` / `data-accent` for a single color on an element (they set `--ddd-theme-primary` / `--ddd-theme-accent`); use `data-palette` for a coordinated multi-color palette across a region or site (`--ddd-palette-color-1` to `-7`, palettes `0` to `7`). `DDDPaletteStyles` selects `[data-palette=\"N\"]`, not `:host([data-palette])`, so those styles must exist where they can match the element: extend `DDDSuper(...)` so DDD registers at the document level, or add `DDDAllStyles` to the global theme stylesheet via `HAXCMSGlobalStyleSheetContent()`. Shadow-scoped inclusion alone can make palette switching silently do nothing. Details: KNOWLEDGE.md entry \"DDD data-palette\". In PRAW RULES.md (scope: design-system). Enforced by Palette roles, Palette roles self-test. Partly. webcomponents' contrast workflow (scripts/palette-roles-check.mjs) fails the pull request when data-palette does not switch the palette: in every palette, scheme and design system, --ddd-palette-color-1..7 must resolve and no two palettes may resolve to the same colors; a self-test plants a repeated palette first to prove the check can fail. Choosing data-palette over data-primary / data-accent for a multi-color region is review.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#ddd-palettes-vs-single-colors"
    }
@@ -230,7 +227,7 @@
    }
   },
   "r_411423ec_d922_4bd4_8c45_3d8c65b9fbfa": {
-   "desc": "Every part of HAX that people are shown (a project area, backend, tool, schema, surface or site in the network) has one icon, one DDD color and one icon motion, and all three are on record in PRAW before it ships: the `%%@ node <id> icon=<set:name> color=<DDD color name> motion=<DDD motion name>` line in the ecosystem web that draws it (`ecosystem/web/hax-ecosystem.mmd` for an area, that area's sub-web for a part of it) and, for a site, its entry in `ecosystem/network.json`. That record is the only copy: anything that shows an area (a site, the network bar, a dashboard or Merlin entry, docs, social art, a poster) takes the icon, color and motion from it and never picks its own, and a change is made to the record first. The icon is in `@haxtheweb/simple-icon` or `@haxtheweb/hax-iconset`, drawn in one ink on the 24 grid, and is HAX's own mark: never another project's logo, mascot or wordmark. The color is a DDD named color with a black or white glyph, whichever contrasts more. The motion is one of the nine DDD icon motions (`pop`, `wiggle`, `tilt`, `beat`, `lift`, `spin`, `nudge`, `strike`, `glow`; the scale motion is `beat`, `pulse` is the attention ring), which plays once on hover or keyboard focus, never moves under `prefers-reduced-motion: reduce` and never carries meaning alone. Style guide, when to use each motion and how to add one: `ecosystem/README.md`, \"Area icons, colors and motion\" (<https://github.com/haxtheweb/praw/blob/main/ecosystem/README.md#area-icons-colors-and-motion>). In PRAW RULES.md (scope: design-system). Enforced by Rule checks, Parse check. Partly. praw's Ecosystem web integrity job (ecosystem/test/integrity-check.py) fails the pull request when an area on the main web has no icon (or image), DDD color or motion on its %%@ node line, and the parse check rejects a color or motion that isn't a DDD name. Sites in network.json don't record a motion yet, and keeping the network bar and the main web on one record is review.",
+   "desc": "Every part of HAX that people are shown (a project area, backend, tool, schema, surface or site in the network) has one icon, one DDD color and one icon motion, and all three are on record in PRAW before it ships: the `%%@ node <id> icon=<set:name> color=<DDD color name> motion=<DDD motion name>` line in the ecosystem web that draws it (`ecosystem/web/hax-ecosystem.mmd` for an area, that area's sub-web for a part of it) and, for a site, its entry in `ecosystem/network.json`. That record is the only copy: anything that shows an area (a site, the network bar, a dashboard or Merlin entry, docs, social art, a poster) takes the icon, color and motion from it and never picks its own, and a change is made to the record first. The icon is in `@haxtheweb/simple-icon` or `@haxtheweb/hax-iconset`, drawn in one ink on the 24 grid, and is HAX's own mark: never another project's logo, mascot or wordmark. The color is a DDD named color with a black or white glyph, whichever contrasts more. The motion is one of the nine DDD icon motions (`pop`, `wiggle`, `tilt`, `beat`, `lift`, `spin`, `nudge`, `strike`, `glow`; the scale motion is `beat`, `pulse` is the attention ring), which plays once on hover or keyboard focus, never moves under `prefers-reduced-motion: reduce` and never carries meaning alone. Style guide, when to use each motion and how to add one: `ecosystem/README.md`, \"Area icons, colors and motion\" (<https://github.com/haxtheweb/praw/blob/main/ecosystem/README.md#area-icons-colors-and-motion>). In PRAW RULES.md (scope: design-system). Enforced by Rule checks, Parse check. praw's Ecosystem web integrity job (ecosystem/test/integrity-check.py) fails the pull request when an area on the main web has no icon (or image), DDD color or motion on its %%@ node line, or when a network property's tile differs from its network.json record (the record wins); the parse check rejects a color or motion that isn't a DDD name. network.json records each site's icon motion and its glyph motions, which are DDD's (DDDMotionGlyphNames).",
    "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#every-area-has-an-icon-a-ddd-color-and-a-motion-on-record"
@@ -339,9 +336,8 @@
    }
   },
   "r_ea643795_98bc_47fb_bf31_999644a48f77": {
-   "desc": "Any feature that records what a person does (xAPI statements, page completion, progress, remembered interaction state, presence) gives that person a way to see, in the interface where it is recorded, what is recorded about them and what counts toward completion. A view only editors or admins can open (the \"what's tracked\" lens in edit mode) does not meet this on its own; the learner needs the same answer about their own data. When you add or change tracking in an element, make it show up in that view in the same PR, or link a follow-up issue in <https://github.com/haxtheweb/issues>. Nothing is recorded that the view cannot show. Rationale: KNOWLEDGE.md entry \"Tracking is translucent: visible to the tracked, abstract by default\". In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Any feature that records what a person does (xAPI statements, page completion, progress, remembered interaction state, presence) gives that person a way to see, in the interface where it is recorded, what is recorded about them and what counts toward completion. A view only editors or admins can open (the \"what's tracked\" lens in edit mode) does not meet this on its own; the learner needs the same answer about their own data. When you add or change tracking in an element, make it show up in that view in the same PR, or link a follow-up issue in <https://github.com/haxtheweb/issues>. Nothing is recorded that the view cannot show. Rationale: KNOWLEDGE.md entry \"Tracking is translucent: visible to the tracked, abstract by default\". In PRAW RULES.md (scope: webcomponents). Enforced by Tracking is declared. Partly. webcomponents' rule-checks workflow (scripts/rule-checks.mjs tracking-declared) fails the pull request when a file that sends xAPI doesn't declare static get xapiVocabulary(), which the What's tracked view and My learning read; the infrastructure that predates it is baselined. That the learner's own view shows it is review.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#tracking-is-visible-to-the-person-tracked"
    }
@@ -559,9 +555,8 @@
    }
   },
   "r_09255ba6_e67a_44ce_b8cb_f0d5e80f97ab": {
-   "desc": "Every rule and skill section must change what an agent does. A new or substantially changed praw skill ships `evals/evals.json` whose cases record `expected_output` and `baseline_behavior` (what an agent does without the skill); content whose cases match the baseline gets trimmed, and a rule an agent would follow anyway is not added. `node scripts/eval-coverage.js` reports per-skill lines and eval coverage for trimming passes and HEOSAT evidence. In PRAW RULES.md (scope: global). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Every rule and skill section must change what an agent does. A new or substantially changed praw skill ships `evals/evals.json` whose cases record `expected_output` and `baseline_behavior` (what an agent does without the skill); content whose cases match the baseline gets trimmed, and a rule an agent would follow anyway is not added. `node scripts/eval-coverage.js` reports per-skill lines and eval coverage for trimming passes and HEOSAT evidence. In PRAW RULES.md (scope: global). Enforced by Skills ship evals. Partly. praw's rule-checks workflow (scripts/rule-checks.py skill-evals) fails the pull request when a skill eval lacks expected_output or baseline_behavior, or a skill that changes substantially ships no evals. Trimming content that matches the baseline is review.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#rules-and-skills-earn-their-tokens"
    }
@@ -653,57 +648,50 @@
    }
   },
   "r_dc5c2839_f04e_428c_a622_1e6d8cce1214": {
-   "desc": "Wherever a model produces content or decisions in HAX (haxcms-mcp tools, AI features in app-hax, PRAW skills and agents), its response is checked against a schema before anything uses it: known ids, allowed values, length limits. A reference to an id that does not exist is dropped, never trusted, and dropping it does not fail the whole step. The reference implementation for this rule and the other AI Content rules is the Course Consultant in <https://github.com/djfusco/hax-ai-canvas>, which keeps each one in code and tests. Tracking: <https://github.com/haxtheweb/issues/issues/3353>. In PRAW RULES.md (scope: global). Nothing enforces this yet. A check would be a test per AI feature that feeds it a response with unknown ids, disallowed values and over-long fields and asserts they are dropped without failing the step.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Wherever a model produces content or decisions in HAX (haxcms-mcp tools, AI features in app-hax, PRAW skills and agents), its response is checked against a schema before anything uses it: known ids, allowed values, length limits. A reference to an id that does not exist is dropped, never trusted, and dropping it does not fail the whole step. The reference implementation for this rule and the other AI Content rules is the Course Consultant in <https://github.com/djfusco/hax-ai-canvas>, which keeps each one in code and tests. Tracking: <https://github.com/haxtheweb/issues/issues/3353>. In PRAW RULES.md (scope: global). Enforced by Model calls. Partly. No HAX element calls a model today (haxcms-mcp serves an agent and calls none itself). webcomponents' rule-checks workflow (scripts/rule-checks.mjs model-calls) fails the pull request on a new model call site (a hosted provider's API or SDK, or a browser built-in model) unless scripts/ai-call-sites.json lists it with the test covering each AI Content rule, and on any test that reaches a real model. The rule itself is checked by that call site's tests once one exists.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#ai-content--model-output-is-validated-before-use"
    }
   },
   "r_5cf2787e_c2df_4184_8b61_53c42ffad9cf": {
-   "desc": "In AI-assisted output, dates, points, counts, ids, slugs and outline order are inserted by code from the source data; the model only writes the prose around them. A list of facts, such as a week's checklist of due dates, is built by the application and never generated. Tracking: <https://github.com/haxtheweb/issues/issues/3353>. In PRAW RULES.md (scope: global). Nothing enforces this yet. A check would be a test per AI feature asserting that dates, points, counts, ids and slugs in the output equal the source data whatever the scripted model returns.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "In AI-assisted output, dates, points, counts, ids, slugs and outline order are inserted by code from the source data; the model only writes the prose around them. A list of facts, such as a week's checklist of due dates, is built by the application and never generated. Tracking: <https://github.com/haxtheweb/issues/issues/3353>. In PRAW RULES.md (scope: global). Enforced by Model calls. Partly. No HAX element calls a model today (haxcms-mcp serves an agent and calls none itself). webcomponents' rule-checks workflow (scripts/rule-checks.mjs model-calls) fails the pull request on a new model call site (a hosted provider's API or SDK, or a browser built-in model) unless scripts/ai-call-sites.json lists it with the test covering each AI Content rule, and on any test that reaches a real model. The rule itself is checked by that call site's tests once one exists.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#ai-content--facts-come-from-the-data-not-the-model"
    }
   },
   "r_c0f72fdb_5537_478d_8cd1_558160984430": {
-   "desc": "Model output is stored as proposed, and stays proposed until a person decides. When a person delegates the decision to the model, the result is labelled as such (AI-decided, AI-approved) and stays editable and reversible. Tracking: <https://github.com/haxtheweb/issues/issues/3353>. In PRAW RULES.md (scope: global). Nothing enforces this yet. A check would be a test per AI feature asserting that model output is saved as proposed and that a delegated decision is labelled and can be undone.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Model output is stored as proposed, and stays proposed until a person decides. When a person delegates the decision to the model, the result is labelled as such (AI-decided, AI-approved) and stays editable and reversible. Tracking: <https://github.com/haxtheweb/issues/issues/3353>. In PRAW RULES.md (scope: global). Enforced by Model calls. Partly. No HAX element calls a model today (haxcms-mcp serves an agent and calls none itself). webcomponents' rule-checks workflow (scripts/rule-checks.mjs model-calls) fails the pull request on a new model call site (a hosted provider's API or SDK, or a browser built-in model) unless scripts/ai-call-sites.json lists it with the test covering each AI Content rule, and on any test that reaches a real model. The rule itself is checked by that call site's tests once one exists.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#ai-content--a-model-never-approves-its-own-proposals"
    }
   },
   "r_8d4e63f8_16bd_4a21_9898_c02313941dd5": {
-   "desc": "Student and other personal information is removed from content before it is sent to any model. The person sees counts of what was removed, never the removed text. The stripping is a safeguard, not a guarantee, and the interface says so. Tracking: <https://github.com/haxtheweb/issues/issues/3353>. In PRAW RULES.md (scope: global). Nothing enforces this yet. A check would be a test asserting that the request a scripted provider receives holds none of the personal information in the fixture, and that only counts are reported back.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Student and other personal information is removed from content before it is sent to any model. The person sees counts of what was removed, never the removed text. The stripping is a safeguard, not a guarantee, and the interface says so. Tracking: <https://github.com/haxtheweb/issues/issues/3353>. In PRAW RULES.md (scope: global). Enforced by Model calls. Partly. No HAX element calls a model today (haxcms-mcp serves an agent and calls none itself). webcomponents' rule-checks workflow (scripts/rule-checks.mjs model-calls) fails the pull request on a new model call site (a hosted provider's API or SDK, or a browser built-in model) unless scripts/ai-call-sites.json lists it with the test covering each AI Content rule, and on any test that reaches a real model. The rule itself is checked by that call site's tests once one exists.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#ai-content--personal-information-is-stripped-before-a-model-call"
    }
   },
   "r_9b2e454c_9b5b_46dc_b443_6470b3b4abe9": {
-   "desc": "A prompt is fitted to the model's context and output limits before the call, and anything left out is stated to the person; content is never cut to fit without saying so. Tracking: <https://github.com/haxtheweb/issues/issues/3353>. In PRAW RULES.md (scope: global). Nothing enforces this yet. A check would be a test with input over the model limit asserting that the result names what was left out.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "A prompt is fitted to the model's context and output limits before the call, and anything left out is stated to the person; content is never cut to fit without saying so. Tracking: <https://github.com/haxtheweb/issues/issues/3353>. In PRAW RULES.md (scope: global). Enforced by Model calls. Partly. No HAX element calls a model today (haxcms-mcp serves an agent and calls none itself). webcomponents' rule-checks workflow (scripts/rule-checks.mjs model-calls) fails the pull request on a new model call site (a hosted provider's API or SDK, or a browser built-in model) unless scripts/ai-call-sites.json lists it with the test covering each AI Content rule, and on any test that reaches a real model. The rule itself is checked by that call site's tests once one exists.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#ai-content--nothing-is-truncated-silently"
    }
   },
   "r_2472221d_091f_48bc_a44f_acf03f41ce29": {
-   "desc": "Before an operation that makes more than one model request runs, the person sees an estimate of its requests and tokens, and of its price when the provider publishes one. Tracking: <https://github.com/haxtheweb/issues/issues/3353>. In PRAW RULES.md (scope: global). Nothing enforces this yet. A check would be a test asserting that a multi-request operation returns its estimate before the scripted provider receives a request.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Before an operation that makes more than one model request runs, the person sees an estimate of its requests and tokens, and of its price when the provider publishes one. Tracking: <https://github.com/haxtheweb/issues/issues/3353>. In PRAW RULES.md (scope: global). Enforced by Model calls. Partly. No HAX element calls a model today (haxcms-mcp serves an agent and calls none itself). webcomponents' rule-checks workflow (scripts/rule-checks.mjs model-calls) fails the pull request on a new model call site (a hosted provider's API or SDK, or a browser built-in model) unless scripts/ai-call-sites.json lists it with the test covering each AI Content rule, and on any test that reaches a real model. The rule itself is checked by that call site's tests once one exists.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#ai-content--cost-is-shown-before-bulk-work"
    }
   },
   "r_cd0bc4fc_a502_4b33_8036_057882b5f0e9": {
-   "desc": "Tests run against a scripted fake provider and never reach a real model. Judging output quality with a real model is a separate, opt-in harness, and a person reviews its report. Tracking: <https://github.com/haxtheweb/issues/issues/3353>. In PRAW RULES.md (scope: global). Nothing enforces this yet. A check would be a CI step that runs the tests with no provider key and no outbound network, so a test that reaches a real model fails.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Tests run against a scripted fake provider and never reach a real model. Judging output quality with a real model is a separate, opt-in harness, and a person reviews its report. Tracking: <https://github.com/haxtheweb/issues/issues/3353>. In PRAW RULES.md (scope: global). Enforced by Model calls. Partly. No HAX element calls a model today (haxcms-mcp serves an agent and calls none itself). webcomponents' rule-checks workflow (scripts/rule-checks.mjs model-calls) fails the pull request on a new model call site (a hosted provider's API or SDK, or a browser built-in model) unless scripts/ai-call-sites.json lists it with the test covering each AI Content rule, and on any test that reaches a real model. The rule itself is checked by that call site's tests once one exists.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#ai-content--tests-make-no-paid-or-networked-model-calls"
    }
@@ -827,9 +815,8 @@
    }
   },
   "ra_browser_support": {
-   "desc": "Current and previous evergreen browsers. Baseline Widely available features without fallbacks; Baseline Newly available features behind feature detection with a working plain path; no polyfills. In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Current and previous evergreen browsers. Baseline Widely available features without fallbacks; Baseline Newly available features behind feature detection with a working plain path; no polyfills. In the AGENTS.md of components. Enforced by No new non-Baseline APIs. webcomponents' build workflow (scripts/baseline-apis-check.mjs) fails the pull request when a changed element file has more baseline-js warnings (JS built-ins and Web APIs not Baseline widely available) than on the base branch; a deliberate exception carries an eslint-disable-next-line note with its reason.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
@@ -924,9 +911,8 @@
    }
   },
   "ra_sensitive_data": {
-   "desc": "Avoid committing API keys or sensitive data to `package.json`, `site.json`, or public files In the AGENTS.md of cli, components, nodejs, php. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Avoid committing API keys or sensitive data to `package.json`, `site.json`, or public files In the AGENTS.md of cli, components, nodejs, php. Enforced by Secrets. Partly. webcomponents' rule-checks workflow (scripts/rule-checks.mjs secrets) fails the pull request when a tracked file holds a high-confidence secret shape: AWS, GitHub, Slack, AI-provider or Google keys, or a private key. GitHub secret scanning would cover the other repos and more shapes.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
@@ -970,9 +956,8 @@
    }
   },
   "ra_external_dependencies": {
-   "desc": "Leverage libraries like `vaadin-upload`, `shoelace-carousel`, etc. but always use their JS builds In the AGENTS.md of cli. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Leverage libraries like `vaadin-upload`, `shoelace-carousel`, etc. but always use their JS builds In the AGENTS.md of cli. Enforced by External dependencies use JS builds. create's External dependencies use JS builds workflow (scripts/js-builds-check.mjs) fails the pull request when a file under src/ imports a .ts/.tsx/.mts/.cts file or a package's src/ folder.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/create/blob/main/AGENTS.md"
    }
@@ -985,9 +970,8 @@
    }
   },
   "rc_user_links": {
-   "desc": "Links an author writes (http included) are kept as written. Proposed in the HAX Scheduled Background Jobs Plan; now written into PRAW RULES.md as part of \"HAX Rules Win Over Modern Web Guidance\". Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Links an author writes (http included) are kept as written. Proposed in the HAX Scheduled Background Jobs Plan; now written into PRAW RULES.md as part of \"HAX Rules Win Over Modern Web Guidance\". Enforced by Authored links kept. webcomponents' rule-checks workflow (scripts/rule-checks.mjs link-rewrites) fails the pull request on code that rewrites http links or turns on upgrade-insecure-requests.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#hax-rules-win-over-modern-web-guidance"
    }
@@ -1016,9 +1000,8 @@
    "status": "planned"
   },
   "rc_correct_colors": {
-   "desc": "Correct is green and incorrect is purple, never red, for decisions with consequences. Proposed in the HAX Scheduled Background Jobs Plan; now written into PRAW RULES.md as part of \"Meaning Channels — Meaning and Consequential Decisions Use All Five\". Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Correct is green and incorrect is purple, never red, for decisions with consequences. Proposed in the HAX Scheduled Background Jobs Plan; now written into PRAW RULES.md as part of \"Meaning Channels — Meaning and Consequential Decisions Use All Five\". Enforced by Incorrect is purple, never red. webcomponents' rule-checks workflow (scripts/rule-checks.mjs incorrect-colors) fails the pull request when a style for a wrong or incorrect state uses a red token or color; incorrect is purple (--ddd-status-incorrect-*).",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#meaning-channels--meaning-and-consequential-decisions-use-all-five"
    }
@@ -1030,7 +1013,7 @@
    "id": "rules",
    "label": "Rules and what guarantees them",
    "kind": "story",
-   "message": "126 rules: 56 enforced by a check, 52 guidance by design, 18 not yet.",
+   "message": "126 rules: 73 enforced by a check, 52 guidance by design, 1 not yet.",
    "scenes": [
     {
      "caption": "Rules come from PRAW's RULES.md, each repo's AGENTS.md, and the plan's proposals.",
@@ -1051,14 +1034,17 @@
      ]
     },
     {
-     "caption": "56 rules have a check that enforces them.",
+     "caption": "73 rules have a check that enforces them.",
      "nodes": [
       "r_q4d9hl9sfnorlmpt1z2zeb",
+      "r_69qeidwqwmafq9ewziwmln",
       "r_a8bf4a47_3d4f_4f8e_a356_a04db66ce1ab",
+      "r_82dc87fd_6bc1_4d20_9d68_5b077bb88b89",
       "r_1286150dc8944178aa82ca",
       "r_54e36477_ac8a_4fb2_bd9e_c46463f608aa",
       "r_mlhl56jnsqhvnriaw5a2gr",
       "r_mt6hpj9bdha13jwsxjcmea",
+      "r_447f8d9bc5484749b1188e",
       "r_1992902d74844c908ab446",
       "r_956c54783626475ea901a6",
       "r_411423ec_d922_4bd4_8c45_3d8c65b9fbfa",
@@ -1072,6 +1058,7 @@
       "r_410c4334_a186_4356_9584_0796e5d2bc2d",
       "r_wqogob824vgw5hecmh08ew",
       "r_40983ddf_40b7_4a5e_a600_8f9fcb58da83",
+      "r_ea643795_98bc_47fb_bf31_999644a48f77",
       "r_6150b048_e030_467c_b1f7_2ceaa271f00e",
       "r_47905658_f1c9_448d_99e5_9e933bdc6990",
       "r_932f6cd4_90a9_451c_98af_4fb577007f9d",
@@ -1084,8 +1071,16 @@
       "r_92dfb3b2_1c32_42dc_89c3_0f4ae66f7227",
       "r_4e0800ef_32ff_42dc_83f0_bbb953d97554",
       "r_d2a1207c_b6d1_4cd6_9930_bd21b29a516c",
+      "r_09255ba6_e67a_44ce_b8cb_f0d5e80f97ab",
       "r_4a7c9e2b_8d5f_4e1a_9c3b_7f2e6d5a4b3c",
       "r_cd0800bf_8611_4835_a421_ad10e88b01e9",
+      "r_dc5c2839_f04e_428c_a622_1e6d8cce1214",
+      "r_5cf2787e_c2df_4184_8b61_53c42ffad9cf",
+      "r_c0f72fdb_5537_478d_8cd1_558160984430",
+      "r_8d4e63f8_16bd_4a21_9898_c02313941dd5",
+      "r_9b2e454c_9b5b_46dc_b443_6470b3b4abe9",
+      "r_2472221d_091f_48bc_a44f_acf03f41ce29",
+      "r_cd0bc4fc_a502_4b33_8036_057882b5f0e9",
       "r_7d6f9c3e_8d0c_4127_948e_e6260465fa95",
       "ra_language",
       "ra_no_typescript",
@@ -1096,6 +1091,7 @@
       "ra_html_sinks",
       "ra_no_bindings_inside_style",
       "ra_css_template_literals",
+      "ra_browser_support",
       "ra_every_field_in_admin_chrome_is_a_simple_fields_field",
       "ra_theme_development",
       "ra_package_names",
@@ -1103,17 +1099,22 @@
       "ra_t_is_reserved",
       "ra_feature_prs_change_english_source_strings_only",
       "ra_dependencies",
+      "ra_sensitive_data",
       "ra_component_security",
       "ra_library_security",
+      "ra_external_dependencies",
       "rc_content_contract",
+      "rc_user_links",
       "rc_version_hidden",
       "rc_no_native_dialogs",
       "rc_explicit_js",
+      "rc_correct_colors",
       "ct_a11y",
       "ct_fuzz",
       "q_a11y_collapse_heading_button",
       "q_a11y_modes",
       "q_audit",
+      "q_authored_links_kept",
       "q_codeql",
       "q_color_contrast_of_changed_elements",
       "q_color_vision_action_pairs",
@@ -1123,37 +1124,48 @@
       "q_element_api_snapshot",
       "q_element_docs_setup",
       "q_es_modules",
+      "q_external_dependencies_use_js_builds",
       "q_format_check",
       "q_fuzz_nightly",
       "q_hax_ui_admin_contract",
       "q_haxiam_nightly",
       "q_haxschema",
       "q_html_structure_in_html_and_svg_templates",
+      "q_incorrect_is_purple_never_red",
       "q_lint",
       "q_locale_guard",
       "q_locale_urls_point_at_a_shipped_locale_file",
       "q_mascot_name",
       "q_memory_leaks",
+      "q_mfr_namespacing",
+      "q_model_calls",
       "q_mutation_testing",
       "q_no_local_paths",
+      "q_no_new_non_baseline_apis",
       "q_no_typescript",
       "q_node_js_latest_lts",
       "q_package_names",
+      "q_palette_roles",
+      "q_palette_roles_self_test",
       "q_parity",
       "q_parse_check",
       "q_phpunit",
       "q_render_benchmarks",
       "q_rule_checks",
       "q_script_tests",
+      "q_secrets",
       "q_shadow_boundary_aria_references",
       "q_size_report",
       "q_skills_lock_json_hashes_are_current",
+      "q_skills_ship_evals",
       "q_test_all_elements",
       "q_tests_poll_don_t_sleep",
       "q_themes_extend_haxcmslitelementtheme",
+      "q_tracking_is_declared",
       "q_unit_and_api_conformance_tests",
       "q_unit_tests",
       "q_unused_code_knip",
+      "q_web_component_registry",
       "q_without_hax"
      ]
     },
@@ -1263,26 +1275,8 @@
      ]
     },
     {
-     "caption": "18 rules nothing enforces yet: the backlog of what to automate next.",
-     "nodes": [
-      "r_69qeidwqwmafq9ewziwmln",
-      "r_82dc87fd_6bc1_4d20_9d68_5b077bb88b89",
-      "r_447f8d9bc5484749b1188e",
-      "r_ea643795_98bc_47fb_bf31_999644a48f77",
-      "r_09255ba6_e67a_44ce_b8cb_f0d5e80f97ab",
-      "r_dc5c2839_f04e_428c_a622_1e6d8cce1214",
-      "r_5cf2787e_c2df_4184_8b61_53c42ffad9cf",
-      "r_c0f72fdb_5537_478d_8cd1_558160984430",
-      "r_8d4e63f8_16bd_4a21_9898_c02313941dd5",
-      "r_9b2e454c_9b5b_46dc_b443_6470b3b4abe9",
-      "r_2472221d_091f_48bc_a44f_acf03f41ce29",
-      "r_cd0bc4fc_a502_4b33_8036_057882b5f0e9",
-      "ra_browser_support",
-      "ra_sensitive_data",
-      "ra_external_dependencies",
-      "rc_user_links",
-      "rc_correct_colors"
-     ]
+     "caption": "1 rules nothing enforces yet: the backlog of what to automate next.",
+     "nodes": []
     },
     {
      "caption": "Proposed rules still waiting: not written down and not enforced yet.",

@@ -13,6 +13,7 @@ flowchart TB
   end
   subgraph blockg ["Blocking gates"]
     q_assemble_the_page["Assemble the page"]
+    q_authored_links_kept["Authored links kept"]
     q_baseline_only_shrinks["Baseline only shrinks"]
     q_build["Build"]
     q_build_rule_exports["Build rule exports"]
@@ -36,24 +37,30 @@ flowchart TB
     q_lint["ESLint"]
     q_element_api_snapshot["Element API snapshot"]
     q_element_docs_setup["Element docs setup"]
+    q_external_dependencies_use_js_builds["External dependencies use JS builds"]
     q_format_check["Format check"]
     q_gallery_build["Gallery build"]
     q_github_org_spelling["GitHub org spelling"]
     q_growth_data_check["Growth data check"]
     q_html_structure_in_html_and_svg_templates["HTML structure in html and svg templates"]
+    q_incorrect_is_purple_never_red["Incorrect is purple, never red"]
     q_layout_check["Layout check"]
     q_locale_urls_point_at_a_shipped_locale_file["Locale URLs point at a shipped locale file"]
+    q_mfr_namespacing["MFR namespacing"]
     q_mascot_name["Mascot name"]
     q_memory_leaks["Memory leaks"]
+    q_model_calls["Model calls"]
     q_mypy["Mypy"]
     q_no_typescript["No TypeScript"]
     q_no_local_paths["No local paths"]
+    q_no_new_non_baseline_apis["No new non-Baseline APIs"]
     q_node_js_latest_lts["Node.js latest LTS"]
     q_nothing_changed["Nothing changed"]
     q_phpstan["PHPStan"]
     q_phpunit["PHPUnit"]
     q_package_names["Package names"]
     q_palette_roles["Palette roles"]
+    q_palette_roles_self_test["Palette roles self-test"]
     q_parse_check["Parse check"]
     q_project_license_is_apache_2_0["Project license is Apache-2.0"]
     q_pseudo_locale_and_rtl_layout["Pseudo-locale and RTL layout"]
@@ -61,17 +68,21 @@ flowchart TB
     q_ruff_format_check["Ruff format check"]
     q_rule_checks["Rule checks"]
     q_script_tests["Script tests"]
+    q_secrets["Secrets"]
     q_security_lint["Security lint"]
     q_shadow_boundary_aria_references["Shadow-boundary ARIA references"]
+    q_skills_ship_evals["Skills ship evals"]
     q_smoke_tests["Smoke tests"]
     q_stylelint["Stylelint"]
     q_test_all_elements["Test all elements"]
     q_tests_poll_don_t_sleep["Tests poll, don't sleep"]
     q_themes_extend_haxcmslitelementtheme["Themes extend HAXCMSLitElementTheme"]
     q_tool_docs_drift_check["Tool docs drift check"]
+    q_tracking_is_declared["Tracking is declared"]
     q_unit_and_api_conformance_tests["Unit and API conformance tests"]
     q_unit_tests["Unit tests"]
     q_walkthrough_status["Walkthrough status"]
+    q_web_component_registry["Web component registry"]
     q_a11y_collapse_heading_button["a11y-collapse heading-button"]
     q_a11y_modes["a11y-modes"]
     q_admin_contrast["admin-contrast"]
@@ -94,7 +105,6 @@ flowchart TB
     q_unused_code_knip["Unused code (knip)"]
     q_size_report["size-report"]
     qp_haxcms_php_822["DRAFT plugin platform: native PHP engine…"]
-    qp_create_184["CI: external dependencies use their JS…"]
   end
   subgraph schedg ["Scheduled"]
     q_parity["Backend parity, nightly"]
@@ -154,6 +164,8 @@ flowchart TB
   q_lint -.->|fails PRs in| components
   q_lint -.->|fails PRs in| nodejs
   q_lint -.->|fails PRs in| cli
+  qg_block -->|includes| q_no_new_non_baseline_apis
+  q_no_new_non_baseline_apis -.->|fails PRs in| components
   qg_block -->|includes| q_script_tests
   q_script_tests -.->|fails PRs in| components
   qg_block -->|includes| q_stylelint
@@ -187,6 +199,8 @@ flowchart TB
   q_baseline_only_shrinks -.->|fails PRs in| components
   qg_block -->|includes| q_color_contrast_of_changed_elements
   q_color_contrast_of_changed_elements -.->|fails PRs in| components
+  qg_block -->|includes| q_palette_roles_self_test
+  q_palette_roles_self_test -.->|fails PRs in| components
   qg_block -->|includes| q_palette_roles
   q_palette_roles -.->|fails PRs in| components
   qg_block -->|includes| q_dark_motion
@@ -239,6 +253,20 @@ flowchart TB
   q_element_docs_setup -.->|fails PRs in| components
   qg_block -->|includes| q_es_modules
   q_es_modules -.->|fails PRs in| components
+  qg_block -->|includes| q_secrets
+  q_secrets -.->|fails PRs in| components
+  qg_block -->|includes| q_mfr_namespacing
+  q_mfr_namespacing -.->|fails PRs in| components
+  qg_block -->|includes| q_incorrect_is_purple_never_red
+  q_incorrect_is_purple_never_red -.->|fails PRs in| components
+  qg_block -->|includes| q_tracking_is_declared
+  q_tracking_is_declared -.->|fails PRs in| components
+  qg_block -->|includes| q_authored_links_kept
+  q_authored_links_kept -.->|fails PRs in| components
+  qg_block -->|includes| q_model_calls
+  q_model_calls -.->|fails PRs in| components
+  qg_block -->|includes| q_web_component_registry
+  q_web_component_registry -.->|fails PRs in| components
   qg_block -->|includes| q_css_in_css_templates
   q_css_in_css_templates -.->|fails PRs in| components
   qg_block -->|includes| q_html_structure_in_html_and_svg_templates
@@ -274,6 +302,8 @@ flowchart TB
   q_security_lint -.->|fails PRs in| cli
   qg_block -->|includes| q_smoke_tests
   q_smoke_tests -.->|fails PRs in| cli
+  qg_block -->|includes| q_external_dependencies_use_js_builds
+  q_external_dependencies_use_js_builds -.->|fails PRs in| cli
   qg_block -->|includes| q_growth_data_check
   q_growth_data_check -.->|fails PRs in| praw
   qg_block -->|includes| q_assemble_the_page
@@ -294,6 +324,8 @@ flowchart TB
   q_no_local_paths -.->|fails PRs in| praw
   qg_block -->|includes| q_github_org_spelling
   q_github_org_spelling -.->|fails PRs in| praw
+  qg_block -->|includes| q_skills_ship_evals
+  q_skills_ship_evals -.->|fails PRs in| praw
   qg_block -->|includes| q_project_license_is_apache_2_0
   q_project_license_is_apache_2_0 -.->|fails PRs in| praw
   qg_block -->|includes| q_build_skill_indexes
@@ -333,8 +365,6 @@ flowchart TB
   q_accessibility -.->|advises on PRs in| praw
   qg_adv -->|planned| qp_haxcms_php_822
   qp_haxcms_php_822 -.->|would run in| php
-  qg_adv -->|planned| qp_create_184
-  qp_create_184 -.->|would run in| cli
   qg_sched -->|includes| q_admin_contrast_sched
   q_admin_contrast_sched -.->|runs nightly in| components
   qg_sched -->|includes| q_build_and_tests
@@ -451,6 +481,7 @@ flowchart TB
   %%@ node q_admin_contrast icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_element_api_snapshot icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_lint icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_no_new_non_baseline_apis icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_script_tests icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_stylelint icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_test_all_elements icon=icons:check-circle color=forestGreen motion=nudge
@@ -461,6 +492,7 @@ flowchart TB
   %%@ node q_contrast_design_systems icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_baseline_only_shrinks icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_color_contrast_of_changed_elements icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_palette_roles_self_test icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_palette_roles icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_dark_motion icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_ddd_token_lint icon=icons:check-circle color=forestGreen motion=nudge
@@ -482,6 +514,13 @@ flowchart TB
   %%@ node q_themes_extend_haxcmslitelementtheme icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_element_docs_setup icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_es_modules icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_secrets icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_mfr_namespacing icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_incorrect_is_purple_never_red icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_tracking_is_declared icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_authored_links_kept icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_model_calls icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_web_component_registry icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_css_in_css_templates icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_html_structure_in_html_and_svg_templates icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_locale_urls_point_at_a_shipped_locale_file icon=icons:check-circle color=forestGreen motion=nudge
@@ -498,6 +537,7 @@ flowchart TB
   %%@ node q_unit_tests icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_security_lint icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_smoke_tests icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_external_dependencies_use_js_builds icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_growth_data_check icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_assemble_the_page icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_parse_check icon=icons:check-circle color=forestGreen motion=nudge
@@ -508,6 +548,7 @@ flowchart TB
   %%@ node q_mascot_name icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_no_local_paths icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_github_org_spelling icon=icons:check-circle color=forestGreen motion=nudge
+  %%@ node q_skills_ship_evals icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_project_license_is_apache_2_0 icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_build_skill_indexes icon=icons:check-circle color=forestGreen motion=nudge
   %%@ node q_skills_lock_json_hashes_are_current icon=icons:check-circle color=forestGreen motion=nudge
@@ -527,7 +568,6 @@ flowchart TB
   %%@ node q_performance_and_memory_budgets icon=icons:report color=roarGolden motion=nudge
   %%@ node q_accessibility icon=icons:report color=roarGolden motion=nudge
   %%@ node qp_haxcms_php_822 icon=icons:build color=athertonViolet motion=nudge
-  %%@ node qp_create_184 icon=icons:build color=athertonViolet motion=nudge
   %%@ node q_admin_contrast_sched icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_build_and_tests icon=hax:timeline color=beaverBlue motion=nudge
   %%@ node q_codeql_sched icon=hax:timeline color=beaverBlue motion=nudge

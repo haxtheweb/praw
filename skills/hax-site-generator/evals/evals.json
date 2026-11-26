@@ -1,0 +1,26 @@
+{
+  "skill_name": "hax-site-generator",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm building a little web app where people answer five questions and it makes them a personal homepage. Can you add an Open in HAX button so they can edit the result in HAX without downloading anything?",
+      "expected_output": "Builds the site as a HAXcms site zip (site.json with 1 to 5000 items, pages/<folder>/index.html per item, files/ listed in metadata.files, site.json at the top of the zip or one folder down) from a pure function, loads open-in-hax.js from the HAX it opens and wires <open-in-hax> getSite to return the zip, keeps the download, handles every result (declined, too-large, not-a-zip, invalid-site, timeout, import-failed, popup-blocked, closed) in plain words, and checks the site before offering the button by loading hax-site-check.js from the same HAX and running checkHaxSite({ siteJson, files, zipBytes }), showing errors and not offering Open in HAX while any error remains.",
+      "baseline_behavior": "Without the skill, agents typically invent an upload or a URL parameter to send the site, post the zip to a server, or write their own site.json validation from the prose rules (which drifts from the importer), and handle only the success result.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Our generator sometimes gets 'invalid-site' back from browser.hax.cloud and we can't tell why. How do we find out what's wrong before people press the button?",
+      "expected_output": "Points the generator at hax-site-check.js served by the HAX it opens (beside open-in-hax.js): import it, call globalThis.HAXSiteCheck.checkHaxSite with the decoded or text site.json, the list of paths in the zip and the zip size, and show each { severity, code, message, path } problem. Explains that errors are what the importer refuses and warnings import but lose something (a missing page or file, the site's own JavaScript), that it is the importer's own code so the answers match, and that the generator should drop any hand-written copy of the rules. Notes that empty files such as .nojekyll are fine and that the importer takes up to 50 MB by default.",
+      "baseline_behavior": "Without the skill, agents guess at likely causes, suggest reading haxcms-nodejs source, or write another hand-copied validator that checks only some of the rules (often missing string titles, object metadata, the 255 character id limit or the one-folder-deep site.json rule).",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Can the generator just send the site to our HAXcms server instead of browser.hax.cloud?",
+      "expected_output": "Explains that haxcms-nodejs and haxcms-php take the same zip at POST /system/api/v1/site/import/haxcms for a logged-in user, but only when the operator turns site zip import on (security.siteZipImport: true or HAXCMS_SITE_ZIP_IMPORT=true), because a zip can carry the site's own JavaScript; browser.hax.cloud has it on because it serves only the person in their own tab. Does not tell people to turn it on for a shared server without that trade-off, and still recommends checking the site with hax-site-check.js first.",
+      "baseline_behavior": "Without the skill, agents tell people to point the button at any HAXcms server or to enable the setting without mentioning that the zip can carry code that runs for every visitor and editor.",
+      "files": []
+    }
+  ]
+}

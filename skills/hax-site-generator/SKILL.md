@@ -134,6 +134,12 @@ Rules HAX keeps, so you don't need to:
    the right result. For the receiving side's own tests, see `test/handoff.test.mjs` there.
 7. **Check accessibility.** The generator's own form and button must meet WCAG 2.0 AA (labels,
    focus, contrast). Run `hax-a11y-audit` on a generated site too.
+8. **Check editing on a phone.** People open generated sites in browser.hax.cloud from their
+   phones. If the generator makes a custom theme, follow the `hax-theme-builder` responsive and
+   edit-mode requirements (rule `HAXcms Themes Work in Edit Mode on a Phone` in RULES.md), and
+   add an automated test that renders every look in edit mode at 360px and fails on sideways
+   scroll or a squeezed content column. The usual cause is a tray margin
+   (`--hax-tray-element-align-margin`) with no reset for small screens or a collapsed tray.
 
 ## Opening on a server instead of browser.hax.cloud
 
@@ -147,6 +153,6 @@ them. Don't tell people to turn it on for a shared server without that trade-off
 ## Done when
 
 - Generated zips pass the site.json rules, open in browser.hax.cloud with `ok: true`, and look
-  right (theme or custom theme included).
+  right (theme or custom theme included), in edit mode on a phone as well as on a desktop.
 - Declining, closing the tab and a blocked pop-up each leave the generator in a clear state.
 - The download still works, and nothing people type leaves the browser except by their choice.

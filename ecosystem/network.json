@@ -1,5 +1,5 @@
 {
-  "about": "The HAX network's record: one entry per property, saying what it is called, where it lives, the color and icon that stand for it, what it is for and how it relates to the rest. Everything that names, draws or describes a property reads this, so the network says one thing about itself. color and on are DDD color names (the fill, and the ink that reads on it). icon is a plain simple-icon for places that cannot draw the property's own network icon. order is the order the network bar lists them. A tool that lives within a property names it in within and is not in the network bar: RPG me is one of HAX Art's tools, a stand-alone service at its own address (rpg.art.hax.cloud, which rpg-me.hax.cloud redirects to) linked from the Art site's menu; on RPG me the bar lights up Art. repo is the haxtheweb repository each property is built and deployed from; ubiquity (webcomponents scripts/ubiquity-network.json) must account for every one of them on a release.",
+  "about": "The HAX network's record: one entry per property, saying what it is called, where it lives, the color and icon that stand for it, what it is for and how it relates to the rest. Everything that names, draws or describes a property reads this, so the network says one thing about itself. color and on are DDD color names (the fill, and the ink that reads on it). icon is a plain simple-icon for places that cannot draw the property's own network icon. order is the order the network bar lists them. A tool that lives within a property names it in within and is not in the network bar: RPG me is one of HAX Art's tools, a stand-alone service at its own address (rpg.art.hax.cloud, which rpg-me.hax.cloud redirects to) linked from the Art site's menu; on RPG me the bar lights up Art. repo is the haxtheweb repository each property is built and deployed from; ubiquity (webcomponents scripts/ubiquity-network.json) must account for every one of them on a release. motion is the DDD icon motion that plain icon plays; glyphMotions are the DDD glyph motions (DDDMotionGlyphNames in webcomponents d-d-d lib/DDDMotion.js) the property's own network icon plays. tile is the main web tile that stands for the property: it takes its icon, color and motion from here, and the integrity check fails when they differ.",
   "order": [
     "web",
     "cloud",
@@ -17,6 +17,12 @@
       "color": "keystoneYellow",
       "on": "coalyGray",
       "icon": "hax:hax2022",
+      "motion": "pop",
+      "glyphMotions": [
+        "spread-left",
+        "spread-right",
+        "pop"
+      ],
       "purpose": "Why HAX is for you, and every way to get it.",
       "relation": "The front door. It sends people to try, learn and install."
     },
@@ -27,8 +33,15 @@
       "color": "original87Pink",
       "on": "white",
       "icon": "lrn:network",
+      "motion": "glow",
+      "glyphMotions": [
+        "signal",
+        "fire",
+        "float"
+      ],
       "purpose": "The brain of the HAX ecosystem: every person, pillar and project, and how they connect.",
-      "relation": "PRAW, at hax.cloud, drawn as a web. Every other property takes its stories from here."
+      "relation": "PRAW, at hax.cloud, drawn as a web. Every other property takes its stories from here.",
+      "tile": "praw"
     },
     "try": {
       "label": "Build now",
@@ -37,8 +50,14 @@
       "color": "futureLime",
       "on": "coalyGray",
       "icon": "av:play-circle-filled",
+      "motion": "nudge",
+      "glyphMotions": [
+        "blink",
+        "nudge"
+      ],
       "purpose": "Use HAX right now in this browser tab. Nothing to install.",
-      "relation": "The platform itself, live. Install HAX is how you take it with you."
+      "relation": "The platform itself, live. Install HAX is how you take it with you.",
+      "tile": "browser"
     },
     "learn": {
       "label": "Learn",
@@ -47,8 +66,14 @@
       "color": "skyBlue",
       "on": "coalyGray",
       "icon": "hardware:tv",
+      "motion": "wiggle",
+      "glyphMotions": [
+        "swing",
+        "scan"
+      ],
       "purpose": "Tutorials that teach HAX one flow at a time.",
-      "relation": "Where people go after trying it, as users and as contributors."
+      "relation": "Where people go after trying it, as users and as contributors.",
+      "tile": "learnhax"
     },
     "lab": {
       "label": "Lab",
@@ -57,8 +82,14 @@
       "color": "creekTeal",
       "on": "coalyGray",
       "icon": "hax:hax2022",
+      "motion": "glow",
+      "glyphMotions": [
+        "scan",
+        "fire"
+      ],
       "purpose": "HAX Lab: where students and junior developers learn by shipping real HAX work.",
-      "relation": "Learn teaches HAX. Lab is where people go to build it with us: onboarding, the lab itself, and the people it launched."
+      "relation": "Learn teaches HAX. Lab is where people go to build it with us: onboarding, the lab itself, and the people it launched.",
+      "tile": "haxlab"
     },
     "elements": {
       "label": "Web components",
@@ -67,6 +98,10 @@
       "color": "inventOrange",
       "on": "coalyGray",
       "icon": "icons:extension",
+      "motion": "tilt",
+      "glyphMotions": [
+        "snap"
+      ],
       "purpose": "Every HAX element, with live demos and walkthroughs.",
       "relation": "The parts every HAX site and editor is built from."
     },
@@ -77,6 +112,11 @@
       "color": "discoveryCoral",
       "on": "coalyGray",
       "icon": "image:palette",
+      "motion": "wiggle",
+      "glyphMotions": [
+        "fire",
+        "swing"
+      ],
       "purpose": "The HAX art movement: posters, the Future Traveler across time, and playful tools like RPG me.",
       "relation": "Where HAX's creative side lives. RPG me is one of the tools in it.",
       "place": "After Web components in the network bar; RPG me, one of its tools, is in the Art site's menu, not the bar."
@@ -88,6 +128,8 @@
       "color": "athertonViolet",
       "on": "coalyGray",
       "icon": "face",
+      "motion": "lift",
+      "glyphMotions": [],
       "purpose": "Make the character that is you across HAX.",
       "relation": "One of HAX Art's tools, linked from the Art site's menu rather than the network bar. On RPG me the bar lights up Art.",
       "place": "Not in the network bar: a top-level page in the Art site's menu links to it, and on RPG me the bar lights up Art.",

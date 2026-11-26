@@ -1164,6 +1164,27 @@
    },
    "github": "djfusco"
   },
+  "rmanelius": {
+   "desc": "Drupal community member who first saw HAX in the HAX talk at DrupalCon Nashville 2018 and tested it informally in 2025. In 2026 he built the GeoCities Generator, the first site generator to hand its sites straight to HAXcms in the browser with Open in HAX, and his transcription skill became PRAW's audio program skills.",
+   "role": "community",
+   "links": {
+    "profile": "https://github.com/rickmanelius",
+    "site": "https://geocities-generator.net/",
+    "repo": "https://github.com/rickmanelius/geocities-haxcms",
+    "issue": "https://github.com/haxtheweb/issues/issues/3405"
+   },
+   "source": {
+    "label": "haxtheweb/issues #3405: Open in HAX",
+    "url": "https://github.com/haxtheweb/issues/issues/3405"
+   },
+   "year": 2018,
+   "yearNote": "Rick Manelius sees HAX at DrupalCon Nashville",
+   "yearSource": {
+    "label": "DrupalCon Nashville 2018 session",
+    "url": "https://events.drupal.org/nashville2018/sessions/webcomponents-polymer-and-hax-decoupling-authoring-drupal-and-beyond"
+   },
+   "github": "rickmanelius"
+  },
   "jfrank": {
    "desc": "Funded the International Student Portfolio, so HAX grew into portfolios students can take with them.",
    "role": "faculty",
@@ -2616,6 +2637,28 @@
    {
     "label": "WINS: First hax-camp, 40+ people",
     "url": "https://github.com/haxtheweb/praw/blob/main/WINS.md#first-hax-camp-40-people"
+   }
+  ],
+  "rmanelius>browser": [
+   {
+    "label": "haxtheweb/issues #3405: Open in HAX",
+    "url": "https://github.com/haxtheweb/issues/issues/3405"
+   },
+   {
+    "label": "GeoCities Generator",
+    "url": "https://geocities-generator.net/"
+   }
+  ],
+  "rmanelius>agents": [
+   {
+    "label": "skills/audio-program-transcribe (adapted from Rick Manelius's skill)",
+    "url": "https://github.com/haxtheweb/praw/tree/main/skills/audio-program-transcribe"
+   }
+  ],
+  "rmanelius>drupalcon": [
+   {
+    "label": "DrupalCon Nashville 2018: Webcomponents, Polymer and HAX",
+    "url": "https://events.drupal.org/nashville2018/sessions/webcomponents-polymer-and-hax-decoupling-authoring-drupal-and-beyond"
    }
   ]
  },

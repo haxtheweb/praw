@@ -63,9 +63,11 @@ another platform's export into HAX (use `hax-importer-dev`), or building a theme
    - Optionally `metadata.theme.element`, a theme HAX ships. If HAX doesn't have it, the site
      gets the default theme.
 
-   The files can sit at the top of the zip or in one folder. If site.json doesn't match the rules
-   above, HAX refuses the whole zip (`invalid-site`), so validate before you offer it. The zip can
-   be at most 100 MB.
+   The files can sit at the top of the zip or in one folder, and empty files (`.nojekyll`,
+   placeholders) are fine. If site.json doesn't match the rules above, HAX refuses the whole zip
+   (`invalid-site`), so check it before you offer it with HAX's own checker (step 4 below), not
+   a copy of these rules. The importer takes a zip of up to 50 MB by default (the hand-off itself
+   stops at 100 MB).
 2. **Add the button.** Load the helper from the HAX you want to open. It opens that same HAX, so
    self-hosted copies work too:
 
@@ -126,8 +128,24 @@ Rules HAX keeps, so you don't need to:
 3. **Zip it in the browser.** Any zip library with a license that permits redistribution works
    (for example JSZip, MIT/GPLv3 dual-licensed: use it under MIT), or a small stored-zip writer.
    Put site.json at the top of the zip or in one folder.
-4. **Validate before offering.** Check the site.json rules above in your own code, so people get
-   a clear message from you instead of an `invalid-site` from HAX.
+4. **Check before offering, with HAX's own rules.** Load `hax-site-check.js` from the HAX you
+   open (it is served beside `open-in-hax.js`) and run it on the site you built. It is the code
+   the importer itself runs (haxcms-nodejs `lib/shared/hax-site-check.js`), so its answer is the
+   importer's; don't keep your own copy of the rules, which drifts:
+
+   ```js
+   import "https://browser.hax.cloud/hax-site-check.js";
+   const { ok, problems } = globalThis.HAXSiteCheck.checkHaxSite({
+     siteJson,                 // site.json, decoded or as text
+     files: Object.keys(zipFiles), // every path in the zip
+     zipBytes: zipBlob.size,
+   });
+   ```
+
+   Every problem comes back as `{ severity, code, message, path }`: an `error` is something the
+   importer refuses (show people what to fix, and don't offer Open in HAX); a `warning` imports but
+   loses something (a page or file site.json names is not in the zip; the site carries its own
+   JavaScript). In Node or a test, `require` the same file from haxcms-nodejs, or fetch it once.
 5. **Add Open in HAX** next to the download, and handle every result: say what happened in plain
    words, and on `popup-blocked` tell the person to allow pop-ups or use the download.
 6. **Test against a real HAX.** Open browser.hax.cloud, or run haxcms-browser locally
@@ -154,7 +172,7 @@ them. Don't tell people to turn it on for a shared server without that trade-off
 
 ## Done when
 
-- Generated zips pass the site.json rules, open in browser.hax.cloud with `ok: true`, and look
+- Generated zips pass `checkHaxSite` with no errors, open in browser.hax.cloud with `ok: true`, and look
   right (theme or custom theme included), in edit mode on a phone as well as on a desktop.
 - Declining, closing the tab and a blocked pop-up each leave the generator in a clear state.
 - The download still works, and nothing people type leaves the browser except by their choice.

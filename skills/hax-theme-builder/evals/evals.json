@@ -14,6 +14,13 @@
       "expected_output": "Finds the edit-mode tray margin (--hax-tray-element-align-margin) applied at every width. Adds :host([edit-mode][tray-status=\"collapsed\"]){margin:0} and @media (max-width:800px){:host([edit-mode]){margin:0}}, matching polaris-flex-theme. Adds min-width:0 / minmax(0,1fr) and clamp() plus overflow-wrap:anywhere on display type. Re-checks in edit mode at 360, 412 and 1280px: scrollWidth equals the viewport, the main column is nearly the full phone width, and desktop is unchanged.",
       "baseline_behavior": "Without the skill, agents shrink fonts or add overflow:hidden to the title. They don't connect the thin column to the HAX tray margin, so the page still breaks in edit mode, or they remove the margin everywhere and break the desktop editor layout.",
       "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Keep my GeoCities theme looking exactly as loud as it is (marquee, blinking NEW!, sparkle cursor, rainbow title, bulleted nav), but make it accessible and as light as possible on HAXcms's engines.",
+      "expected_output": "Keeps every visual. Adds a 'Stop the animations' labeled checkbox styled like a 1990s bevel button that stops the marquee, blink, title effects, sparkles and site-menu-button's pulse. It starts on for prefers-reduced-motion and persists in localStorage, and without script it works through :has() plus the media query. Nav bullets get content alt text, and the visitor counter gets a sentence alternative. The bulleted nav is drawn from store.routerManifest (not site-menu, which can't draw it, and which would load map-menu), random uses the x/random route, and site-title / site-active-title / site-menu-button stay core. An axe-core WCAG 2 A/AA run over every look is clean.",
+      "baseline_behavior": "Without the skill, agents either strip the motion and bullets to pass accessibility (losing the look) or keep everything with only a prefers-reduced-motion media query and no visible stop control, which fails WCAG 2.2.2. They also tend to swap in site-menu and accept a different look, or rebuild the nav from the raw manifest and pick random pages with Math.random in render().",
+      "files": []
     }
   ]
 }

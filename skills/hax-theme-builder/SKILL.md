@@ -182,7 +182,15 @@ where, and the build/audit results.
      `:host([dark-mode])` (from `HAXCMSThemeParts`).
    - Responsive `@media` breakpoints so the layout collapses sensibly on mobile (matching the
      `900px`/`800px` conventions used in sibling themes) — a fixed-width layout still needs a
-     narrow-viewport fallback.
+     narrow-viewport fallback. Grid tracks use `minmax(0,1fr)`, content columns get
+     `min-width:0`, and display type uses `clamp()` plus `overflow-wrap:anywhere`.
+   - Edit mode on a phone (rule `HAXcms Themes Work in Edit Mode on a Phone` in RULES.md). If
+     the theme shifts for the HAX tray with
+     `:host([edit-mode]){margin:var(--hax-tray-element-align-margin, ...)}`, it must also add
+     `:host([edit-mode][tray-status="collapsed"]){margin:0}` and
+     `@media (max-width:800px){:host([edit-mode]){margin:0}}`, copied from
+     `polaris-flex-theme`. Without them the ~350px tray margin squeezes a phone page into a
+     sliver. Decoration and motion never take space from content or run in edit mode.
    - Any bespoke geometry called out in the screenshot (e.g. a corner notch/chamfer): implement
      with `clip-path` or a pseudo-element on the content container, using DDD radius/spacing
      tokens for the cut dimensions rather than magic numbers where reasonable.
@@ -201,6 +209,10 @@ where, and the build/audit results.
    - Custom-theme target: the `hax site --custom-theme-name` command already ran
      `npm install && npm run build && npm run analyze` inside `<site>/custom/` — just confirm
      it succeeded; re-run only on failure. Run `hax audit` from the site root afterward.
+   - Render the theme with `edit-mode` set and the tray variables (`--hax-tray-width: 350px`,
+     `--hax-tray-menubar-min-width: 44px`) at 360px, 412px and 1280px wide. Fail if the page
+     scrolls sideways (`document.documentElement.scrollWidth` > viewport) or the main content
+     column is much narrower than the viewport on the phone widths. Desktop must be unchanged.
    - Fix any audit findings (missing tokens, contrast, dark-mode gaps) before reporting done.
 8. **Report back once**, concisely: theme name/tag, target (monorepo path or site path), base
    strategy used, palette/region decisions, build + audit result, and the exact file path(s)

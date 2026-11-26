@@ -57,7 +57,9 @@ another platform's export into HAX (use `hax-importer-dev`), or building a theme
    - `files/…` for every file a page uses, listed in that page's `metadata.files`.
    - Optionally `custom/build/custom.es6.js`, the site's custom theme (see `hax-theme-builder`
      and the custom theme conventions). It carries over in browser.hax.cloud, where site zip import
-     is on.
+     is on. A generated theme builds its navigation, titles and regions from HAXcms's own
+     elements (`site-menu`, `site-title`, `site-menu-button`, ...) restyled per look, not from
+     its own copies of them. A wizard preview that can't load HAX may use plain-HTML stand-ins.
    - Optionally `metadata.theme.element`, a theme HAX ships. If HAX doesn't have it, the site
      gets the default theme.
 

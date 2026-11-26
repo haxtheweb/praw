@@ -335,7 +335,7 @@
       "type": "skill-md",
       "description": "Build a site generator service (a wizard, converter or themed starter like the GeoCities Generator) that makes a real HAXcms site in the browser and opens it straight in browser.hax.cloud with the Open in HAX handoff, no download. Use when asked to make a generator, wizard or 'click to make a site' service for HAX, to add an Open in HAX button, or to hand a site to HAX from another website.",
       "url": "hax-site-generator/SKILL.md",
-      "digest": "sha256:6a0acd6e6e15d3c5bbcb76eaa4164dfa8c0f8d7f58c89a582908ac3c619c0836"
+      "digest": "sha256:f8d49d3e7988a4cea8261245780dcb596dcd83423f4b6322f7e0887328abbad6"
     },
     {
       "name": "hax-site-structure",
@@ -356,8 +356,12 @@
       "type": "skill-md",
       "description": "Turn a screenshot, or a well known Hugo/Jekyll/Astro/Docusaurus theme, into an accessible, dark-mode-ready HAXcms theme extending HAXCMSLitElementTheme. Use for 'build a HAXcms theme', a site-layout image, or 'make a HAX theme like <SSG theme>'; adds a custom site theme or a monorepo package.",
       "url": "hax-theme-builder/SKILL.md",
-      "digest": "sha256:b974d80d03d869b8dc7183ced0bdddfe8aa5e336ecbf49aaf907f30fe7561348",
+      "digest": "sha256:a478efa10e756c6d7e1b700908703fbae549e3975553e9aac6175c456c9fedfc",
       "files": [
+        {
+          "path": "evals/evals.json",
+          "digest": "sha256:b128608289613e83b3e94a268727ef996fa327e57fea66d9aa58c288f4d21cfe"
+        },
         {
           "path": "references/haxcms-theme-architecture.md",
           "digest": "sha256:6afab90299fb398b18e5eae145812a837e45b0744854601c0821caf6a3b657e8"

@@ -20,6 +20,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+          fetch-depth: 0  # the base branch, for Skills ship evals
       - name: Mascot name
         # the checks' own cases first, then the repo
         run: |
@@ -29,6 +30,17 @@ jobs:
         run: python3 -I scripts/rule-checks.py local-paths
       - name: GitHub org spelling
         run: python3 -I scripts/rule-checks.py org-name
+      - name: Skills ship evals
+        # Rules and Skills Earn Their Tokens: every eval case records expected_output and baseline_behavior,
+        # and a skill whose SKILL.md is new or changed by 20+ lines in this pull request ships evals/evals.json
+        env:
+          BASE_REF: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || '' }}
+        run: |
+          if [ -n "$BASE_REF" ]; then
+            python3 -I scripts/rule-checks.py skill-evals --base "$BASE_REF"
+          else
+            python3 -I scripts/rule-checks.py skill-evals
+          fi
       - name: Project license is Apache-2.0
         # PRAW's own code uses standard library Python and Node built-ins; the few npm manifests (skill
         # scripts, .github/a11y) are covered by license-check.yml, so here it is the project's LICENSE file.

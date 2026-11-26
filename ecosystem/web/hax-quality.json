@@ -11,7 +11,7 @@
    "scheduled": "scheduled jobs",
    "task": "Claude scheduled tasks"
   },
-  "about": "Every safeguard on what enters HAX, generated from the workflow files on each repo's default branch, so only checks that are merged and running appear: 69 blocking gates, 6 advisory checks, 25 scheduled jobs and 7 Claude scheduled tasks. Planned tiles are open pull requests. Element test suites include axe accessibility tests where an element has them; whole-project accessibility is covered by the weekly sweep, not a blocking gate.",
+  "about": "Every safeguard on what enters HAX, generated from the workflow files on each repo's default branch, so only checks that are merged and running appear: 73 blocking gates, 6 advisory checks, 25 scheduled jobs and 7 Claude scheduled tasks. Planned tiles are open pull requests. Element test suites include axe accessibility tests where an element has them; whole-project accessibility is covered by the weekly sweep, not a blocking gate.",
   "kindLabels": {
    "rel": "kind of safeguard",
    "schema": "where it runs"
@@ -24,11 +24,11 @@
   },
   "testing": {},
   "qg_block": {
-   "desc": "69 checks that fail a pull request when they fail, in at least one repo; whether a failing check stops the merge is up to each repo's branch rules. Each is read from the repo's workflow files on its default branch, so only checks that are merged and running appear.",
+   "desc": "73 checks that fail a pull request when they fail, in at least one repo; whether a failing check stops the merge is up to each repo's branch rules. Each is read from the repo's workflow files on its default branch, so only checks that are merged and running appear.",
    "kind": "group"
   },
   "qg_adv": {
-   "desc": "6 checks that run on pull requests but don't stop a merge (continue-on-error, warning only or report only), plus 1 planned checks still in open pull requests. ESLint stays here until it blocks.",
+   "desc": "6 checks that run on pull requests but don't stop a merge (continue-on-error, warning only or report only), plus 2 planned checks still in open pull requests. ESLint stays here until it blocks.",
    "kind": "group"
   },
   "qg_sched": {
@@ -323,6 +323,38 @@
   },
   "q_a11y_collapse_heading_button": {
    "desc": "No element, demo or HAX schema gains an a11y-collapse whose whole heading doesn't open it. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_package_names": {
+   "desc": "Every element package is named @haxtheweb/<folder>. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_themes_extend_haxcmslitelementtheme": {
+   "desc": "Every theme in themes.json extends HAXCMSLitElementTheme, the base that gives it the editor wiring. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_element_docs_setup": {
+   "desc": "Every element ships its documentation data, and its build regenerates it. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_es_modules": {
+   "desc": "No shipped element code gains CommonJS; elements are ES modules. Fails the pull request when it fails in webcomponents.",
    "kind": "gate",
    "status": "deployed",
    "links": {
@@ -669,6 +701,14 @@
     "pr": "https://github.com/haxtheweb/haxcms-php/pull/822"
    }
   },
+  "qp_create_184": {
+   "desc": "In an open pull request, not running yet. Outside libraries are used through their JavaScript builds, never their TypeScript sources.",
+   "status": "planned",
+   "kind": "planned",
+   "links": {
+    "pr": "https://github.com/haxtheweb/create/pull/184"
+   }
+  },
   "q_admin_contrast_sched": {
    "desc": "Runs nightly in webcomponents. webcomponents: last scheduled run 2026-11-25, success.",
    "kind": "scheduled",
@@ -689,7 +729,7 @@
    }
   },
   "q_codeql_sched": {
-   "desc": "Code with known vulnerability patterns in main is caught, including patterns found after it merged. Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create, nightly in praw, nightly in haxcms-mcp. webcomponents: last scheduled run 2026-11-25, success; haxcms-nodejs: last scheduled run 2026-11-25, success; haxcms-php: last scheduled run 2026-11-25, success; create: last scheduled run 2026-11-25, success; praw: last scheduled run 2026-11-25, success.",
+   "desc": "Code with known vulnerability patterns in main is caught, including patterns found after it merged. Runs nightly in webcomponents, nightly in haxcms-nodejs, nightly in haxcms-php, nightly in create, nightly in praw, nightly in haxcms-mcp. webcomponents: last scheduled run 2026-11-25, success; haxcms-nodejs: last scheduled run 2026-11-25, success; haxcms-php: last scheduled run 2026-11-25, success; create: last scheduled run 2026-11-25, success; praw: last scheduled run 2026-11-25, success; haxcms-mcp: last scheduled run 2026-11-25, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -773,7 +813,7 @@
    }
   },
   "q_openssf_scorecard": {
-   "desc": "Supply-chain security practices are scored (OpenSSF Scorecard). Runs weekly in webcomponents, weekly in haxcms-nodejs, weekly in haxcms-php, weekly in create, weekly in praw, weekly in haxcms-mcp. webcomponents: last scheduled run 2026-11-23, success; haxcms-nodejs: last scheduled run 2026-11-23, success; haxcms-php: last scheduled run 2026-11-23, success; create: last scheduled run 2026-11-23, success; praw: last scheduled run 2026-11-23, success.",
+   "desc": "Supply-chain security practices are scored (OpenSSF Scorecard). Runs weekly in webcomponents, weekly in haxcms-nodejs, weekly in haxcms-php, weekly in create, weekly in praw, weekly in haxcms-mcp. webcomponents: last scheduled run 2026-11-23, success; haxcms-nodejs: last scheduled run 2026-11-23, success; haxcms-php: last scheduled run 2026-11-23, success; create: last scheduled run 2026-11-23, success; praw: last scheduled run 2026-11-23, success; haxcms-mcp: last scheduled run 2026-11-23, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -869,7 +909,7 @@
    }
   },
   "q_compliance_sched": {
-   "desc": "Runs weekly in haxcms-mcp.",
+   "desc": "Runs weekly in haxcms-mcp. haxcms-mcp: last scheduled run 2026-11-23, success.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -877,7 +917,7 @@
    }
   },
   "q_upstream_drift": {
-   "desc": "Runs nightly in haxcms-mcp.",
+   "desc": "Runs nightly in haxcms-mcp. haxcms-mcp: last scheduled run 2026-11-25, failure.",
    "kind": "scheduled",
    "status": "deployed",
    "links": {
@@ -897,7 +937,7 @@
    "kind": "task",
    "status": "deployed",
    "links": {
-    "latest output": "https://github.com/haxtheweb/webcomponents/pull/1584",
+    "latest output": "https://github.com/haxtheweb/webcomponents/pull/1604",
     "tracking": "https://github.com/haxtheweb/issues/issues/3262"
    }
   },
@@ -961,7 +1001,7 @@
    "message": "Every safeguard on what enters HAX, read from the CI that actually runs.",
    "scenes": [
     {
-     "caption": "69 blocking gates: a pull request can't merge until these pass.",
+     "caption": "73 blocking gates: a pull request can't merge until these pass.",
      "nodes": [
       "qg_block",
       "q_a11y_modes",
@@ -995,6 +1035,10 @@
       "q_tests_poll_don_t_sleep",
       "q_shadow_boundary_aria_references",
       "q_a11y_collapse_heading_button",
+      "q_package_names",
+      "q_themes_extend_haxcmslitelementtheme",
+      "q_element_docs_setup",
+      "q_es_modules",
       "q_css_in_css_templates",
       "q_html_structure_in_html_and_svg_templates",
       "q_locale_urls_point_at_a_shipped_locale_file",
@@ -1050,7 +1094,8 @@
     {
      "caption": "Planned checks, still in open pull requests.",
      "nodes": [
-      "qp_haxcms_php_822"
+      "qp_haxcms_php_822",
+      "qp_create_184"
      ]
     },
     {

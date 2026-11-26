@@ -172,7 +172,11 @@ where, and the build/audit results.
    - `site-menu` (via `HAXCMSMobileMenuMixin`'s `HAXCMSMobileMenu()`/`HAXCMSFlexMenu()` helper,
      or a direct `<site-menu>` for a fixed left column) for navigation, `site-menu-button` for
      forward/back where the screenshot shows pager controls, `site-breadcrumb` if the layout
-     has room for one.
+     has room for one, `site-title` for the site name and `site-active-title` for the page
+     title. Never hand-build these, however unusual the look (rule `HAXcms Themes Reuse Core
+     Elements, Restyled`). Make them match the screenshot through their `--site-*` /
+     `--map-menu-*` custom properties, `::part()` and slots. Hand-build only pieces HAXcms has
+     no element for, and make those follow edit mode the way core elements do.
    - `site-region` elements for every region confirmed in step 2/3 (e.g.
      `<site-region name="banner">`, `<site-region name="belowMenu">`,
      `<site-region name="footerPrimary">`).

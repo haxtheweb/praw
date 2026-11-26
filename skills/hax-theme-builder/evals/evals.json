@@ -1,0 +1,19 @@
+{
+  "skill_name": "hax-theme-builder",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Make a custom theme for my HAXsite from this screenshot: a 1990s homepage with a flaming banner title, a left column of nav links with a counter under it, and prev / next links at the bottom of each page. Just for this site.",
+      "expected_output": "A custom/ theme extending HAXCMSLitElementTheme. The title is site-title, styled through ::part(site-name) and --site-title-* properties. Navigation is site-menu, styled through --site-menu-* / --map-menu-* properties. The page title is site-active-title. Prev / next are site-menu-button type=prev / type=next with visible words in the prefix / suffix slots. There are site-region slots for the regions. Core elements come in by explicit .js imports under @haxtheweb/. Only the counter (which has no core element) is hand-built, and it is dimmed in edit mode the way core links are. The layout collapses to one column with minmax(0,1fr) on phones. Any tray margin in edit mode is reset when the tray is collapsed and at 800px and below. The report includes a 360 / 412 / 1280px edit-mode check showing no sideways scroll.",
+      "baseline_behavior": "Without the skill, agents hand-build the title link, a ul of nav links from the manifest, an h1 page title and prev / next anchors so they can match the screenshot exactly. That loses edit-mode inert / dimming, the hide-page-title setting and core a11y fixes. They often copy polaris-flex-theme's :host([edit-mode]) tray margin without its collapsed-tray and 800px resets, which squeezes the page into a ~90px column when editing on a phone.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The theme you made looks terrible when I edit the site on my phone: the content is a thin strip on the right and the title spills out of its box. Fix the theme.",
+      "expected_output": "Finds the edit-mode tray margin (--hax-tray-element-align-margin) applied at every width. Adds :host([edit-mode][tray-status=\"collapsed\"]){margin:0} and @media (max-width:800px){:host([edit-mode]){margin:0}}, matching polaris-flex-theme. Adds min-width:0 / minmax(0,1fr) and clamp() plus overflow-wrap:anywhere on display type. Re-checks in edit mode at 360, 412 and 1280px: scrollWidth equals the viewport, the main column is nearly the full phone width, and desktop is unchanged.",
+      "baseline_behavior": "Without the skill, agents shrink fonts or add overflow:hidden to the title. They don't connect the thin column to the HAX tray margin, so the page still breaks in edit mode, or they remove the margin everywhere and break the desktop editor layout.",
+      "files": []
+    }
+  ]
+}

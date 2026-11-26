@@ -4,6 +4,11 @@
   python3 scripts/rule-checks.py mascot        Mascot Name: the Future Traveler (RULES.md 7d6f9c3e-...)
   python3 scripts/rule-checks.py local-paths   Cross-Repo References: No Local Paths (RULES.md bAKMWCMrqRLGdWmuNWgVUw)
   python3 scripts/rule-checks.py org-name      GitHub org spelling: links and package scopes say haxtheweb, not a near-miss
+  python3 scripts/rule-checks.py skill-evals [--base REF]
+                                               Rules and Skills Earn Their Tokens (RULES.md 09255ba6-...): every
+                                               skills/*/evals/evals.json case records expected_output and
+                                               baseline_behavior; with --base, a skill whose SKILL.md is new or
+                                               changed by SUBSTANTIAL lines or more ships evals/evals.json
   python3 scripts/rule-checks.py self-test     the checks catch what they should and skip what they should
 
 Each check reads the files git tracks, prints file:line for every hit and exits 1 when there is one.
@@ -149,6 +154,62 @@ def run_org_name(files):
     )
 
 
+# ---------- Rules and Skills Earn Their Tokens ----------
+SUBSTANTIAL = 20  # added + removed SKILL.md lines that make a change "substantial"
+
+
+def eval_case_problems(case):
+    """What an eval case is missing: the fields that say whether the skill changes what an agent does."""
+    return [k for k in ("prompt", "expected_output", "baseline_behavior") if not str(case.get(k, "")).strip()]
+
+
+def evals_problems(path, text):
+    import json
+
+    try:
+        data = json.loads(text)
+    except ValueError as e:
+        return [f"{path}: not valid JSON ({e})"]
+    cases = data.get("evals") if isinstance(data, dict) else data
+    if not isinstance(cases, list) or not cases:
+        return [f"{path}: no eval cases (an \"evals\" list)"]
+    out = []
+    for i, case in enumerate(cases):
+        missing = eval_case_problems(case) if isinstance(case, dict) else ["prompt", "expected_output", "baseline_behavior"]
+        if missing:
+            out.append(f"{path}: case {case.get('id', i + 1) if isinstance(case, dict) else i + 1} has no {', '.join(missing)}")
+    return out
+
+
+def changed_lines(base, path):
+    """Lines added plus removed in path since base (all of it when the file is new)."""
+    out = subprocess.run(["git", "diff", "--numstat", base, "--", path], capture_output=True, text=True).stdout.split()
+    if len(out) >= 2 and out[0].isdigit() and out[1].isdigit():
+        return int(out[0]) + int(out[1])
+    return 0
+
+
+def run_skill_evals(files, base=None):
+    hits = []
+    evals = [f for f in files if re.match(r"^skills/[^/]+/evals/evals\.json$", f)]
+    for f in evals:
+        with open(f, encoding="utf-8") as fh:
+            hits += evals_problems(f, fh.read())
+    if base:
+        merge_base = subprocess.run(["git", "merge-base", base, "HEAD"], capture_output=True, text=True).stdout.strip() or base
+        for f in files:
+            m = re.match(r"^skills/([^/]+)/SKILL\.md$", f)
+            if not m:
+                continue
+            n = changed_lines(merge_base, f)
+            if n >= SUBSTANTIAL and f"skills/{m.group(1)}/evals/evals.json" not in evals:
+                hits.append(f"{f}: {n} lines changed since {base} and the skill ships no evals/evals.json; add cases with expected_output and baseline_behavior (RULES.md 09255ba6, Rules and Skills Earn Their Tokens)")
+    for h in hits:
+        print(h)
+    print(f"skill-evals: {'OK' if not hits else str(len(hits)) + ' problem(s)'} ({len(evals)} eval files)")
+    return 1 if hits else 0
+
+
 def self_test():
     cases = [
         (mascot_hits_in_line, "Meet the World Traveler!", True),
@@ -176,17 +237,27 @@ def self_test():
         (org_name_hits_in_line, "https://github.com/ossf/scorecard and @lit/reactive-element", False),
         (org_name_hits_in_line, "https://github.com/haxcms/haxcms and contact hax@psu.edu/", False),
     ]
+    good = '{"evals": [{"id": 1, "prompt": "p", "expected_output": "e", "baseline_behavior": "b"}]}'
+    cases += [
+        (lambda t: evals_problems("x.json", t), good, False),
+        (lambda t: evals_problems("x.json", t), '{"evals": [{"id": 1, "prompt": "p", "expected_output": "e"}]}', True),
+        (lambda t: evals_problems("x.json", t), '{"evals": []}', True),
+        (lambda t: evals_problems("x.json", t), "not json", True),
+    ]
     failed = 0
     for fn, text, expect in cases:
         got = bool(fn(text))
         if got != expect:
             failed += 1
-            print(f"FAIL {fn.__name__}({text!r}) -> {got}, expected {expect}")
+            print(f"FAIL {getattr(fn, '__name__', 'check')}({text!r}) -> {got}, expected {expect}")
     print("self-test: " + ("OK" if not failed else f"{failed} failed"))
     return 1 if failed else 0
 
 
 def main(argv):
+    if argv[1:2] == ["skill-evals"]:
+        base = argv[argv.index("--base") + 1] if "--base" in argv and argv.index("--base") + 1 < len(argv) else None
+        return run_skill_evals(tracked_files(), base)
     if len(argv) != 2 or argv[1] not in ("mascot", "local-paths", "org-name", "self-test"):
         print(__doc__)
         return 2

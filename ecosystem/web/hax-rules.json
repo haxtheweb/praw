@@ -10,7 +10,7 @@
    "gap": "nothing enforces it yet",
    "proposed": "proposed"
   },
-  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (88 rules) and each repo's AGENTS.md (31), plus 7 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 52 are enforced; 52 are guidance by design, which no check could decide; 22 are gaps, the backlog of what to automate next.",
+  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (88 rules) and each repo's AGENTS.md (31), plus 7 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 56 are enforced; 52 are guidance by design, which no check could decide; 18 are gaps, the backlog of what to automate next.",
   "kindLabels": {
    "rel": "where a rule comes from and what enforces it",
    "pillar": "pillars a rule serves",
@@ -38,7 +38,7 @@
    "kind": "group"
   },
   "rg_build_development_workflow": {
-   "desc": "Build & Development Workflow: 36 rules, 11 enforced by a check.",
+   "desc": "Build & Development Workflow: 36 rules, 12 enforced by a check.",
    "kind": "group"
   },
   "rg_ai_generated_content": {
@@ -54,7 +54,7 @@
    "kind": "group"
   },
   "rg_agents_md_code_style": {
-   "desc": "AGENTS.md: code style: 23 rules, 12 enforced by a check.",
+   "desc": "AGENTS.md: code style: 23 rules, 15 enforced by a check.",
    "kind": "group"
   },
   "rg_agents_md_security": {
@@ -460,9 +460,8 @@
    }
   },
   "r_f3c7716773784e8f94254a": {
-   "desc": "Every element in the webcomponents monorepo ships its documentation data. Scaffold with `hax webcomponent <name> --y --no-i` and never pass `--no-docs` there: in the monorepo the scaffold adds `node ../../scripts/extract-element-docs.mjs --write .` to the end of the element's `build` script, which writes `lib/<tag>.docs.json` for `<documentation-player>`. After changing an element's properties, HAX settings, slots or events, run `yarn run build` in its folder and commit the refreshed docs data. Walkthroughs (`lib/<tag>.motion.json`) and video tutorials (`lib/<tag>.video.json`, written by `scripts/link-element-tutorial.mjs`) sit next to it; check walkthroughs with `node scripts/extract-element-docs.mjs --status <element>`. In PRAW RULES.md (scope: webcomponents). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Every element in the webcomponents monorepo ships its documentation data. Scaffold with `hax webcomponent <name> --y --no-i` and never pass `--no-docs` there: in the monorepo the scaffold adds `node ../../scripts/extract-element-docs.mjs --write .` to the end of the element's `build` script, which writes `lib/<tag>.docs.json` for `<documentation-player>`. After changing an element's properties, HAX settings, slots or events, run `yarn run build` in its folder and commit the refreshed docs data. Walkthroughs (`lib/<tag>.motion.json`) and video tutorials (`lib/<tag>.video.json`, written by `scripts/link-element-tutorial.mjs`) sit next to it; check walkthroughs with `node scripts/extract-element-docs.mjs --status <element>`. In PRAW RULES.md (scope: webcomponents). Enforced by Element docs setup. webcomponents' rule-checks workflow (scripts/rule-checks.mjs element-docs) fails the pull request when an element (its main file defines a custom element) doesn't ship lib/<tag>.docs.json or its build doesn't run extract-element-docs.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#element-docs-setup"
    }
@@ -785,9 +784,8 @@
    }
   },
   "ra_es_modules": {
-   "desc": "Use standard ES6 import/export syntax In the AGENTS.md of cli, components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Use standard ES6 import/export syntax In the AGENTS.md of cli, components. Enforced by ES modules. webcomponents' rule-checks workflow (scripts/rule-checks.mjs es-modules) fails the pull request when shipped element code gains module.exports, exports.x or require(); three vendored bundles are baselined and the baseline only shrinks.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
@@ -852,9 +850,8 @@
    }
   },
   "ra_theme_development": {
-   "desc": "HAXcms themes should extend `HAXCMSLitElement` class In the AGENTS.md of components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "HAXcms themes should extend `HAXCMSLitElement` class In the AGENTS.md of components. Enforced by Themes extend HAXCMSLitElementTheme. webcomponents' rule-checks workflow (scripts/rule-checks.mjs themes) fails the pull request when a theme in haxcms-elements/lib/themes.json doesn't reach HAXCMSLitElementTheme (or HAXCMSLitElement) through its extends chain.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
@@ -876,9 +873,8 @@
    }
   },
   "ra_package_names": {
-   "desc": "Match component/site name in `package.json` In the AGENTS.md of cli, components. Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "Match component/site name in `package.json` In the AGENTS.md of cli, components. Enforced by Package names. webcomponents' rule-checks workflow (scripts/rule-checks.mjs package-names) fails the pull request when an element's package.json isn't named @haxtheweb/<folder>.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/webcomponents/blob/master/AGENTS.md"
    }
@@ -1034,7 +1030,7 @@
    "id": "rules",
    "label": "Rules and what guarantees them",
    "kind": "story",
-   "message": "126 rules: 52 enforced by a check, 52 guidance by design, 22 not yet.",
+   "message": "126 rules: 56 enforced by a check, 52 guidance by design, 18 not yet.",
    "scenes": [
     {
      "caption": "Rules come from PRAW's RULES.md, each repo's AGENTS.md, and the plan's proposals.",
@@ -1055,7 +1051,7 @@
      ]
     },
     {
-     "caption": "52 rules have a check that enforces them.",
+     "caption": "56 rules have a check that enforces them.",
      "nodes": [
       "r_q4d9hl9sfnorlmpt1z2zeb",
       "r_a8bf4a47_3d4f_4f8e_a356_a04db66ce1ab",
@@ -1083,6 +1079,7 @@
       "r_8e6a9af3_0301_4c48_b75f_fcff2fc928e6",
       "r_13166db2_909f_4a34_87d1_1b697834eb4b",
       "r_0cf20bb0_0afa_4c6a_9100_e76f76a5cc1a",
+      "r_f3c7716773784e8f94254a",
       "r_bakmwcmrqrlgdwmunwgvuw",
       "r_92dfb3b2_1c32_42dc_89c3_0f4ae66f7227",
       "r_4e0800ef_32ff_42dc_83f0_bbb953d97554",
@@ -1094,11 +1091,14 @@
       "ra_no_typescript",
       "ra_unbundled_approach",
       "ra_formatting",
+      "ra_es_modules",
       "ra_license_header",
       "ra_html_sinks",
       "ra_no_bindings_inside_style",
       "ra_css_template_literals",
       "ra_every_field_in_admin_chrome_is_a_simple_fields_field",
+      "ra_theme_development",
+      "ra_package_names",
       "ra_locale_urls_name_the_english_file",
       "ra_t_is_reserved",
       "ra_feature_prs_change_english_source_strings_only",
@@ -1121,6 +1121,8 @@
       "q_ddd_token_lint",
       "q_dependency_licenses",
       "q_element_api_snapshot",
+      "q_element_docs_setup",
+      "q_es_modules",
       "q_format_check",
       "q_fuzz_nightly",
       "q_hax_ui_admin_contract",
@@ -1136,6 +1138,7 @@
       "q_no_local_paths",
       "q_no_typescript",
       "q_node_js_latest_lts",
+      "q_package_names",
       "q_parity",
       "q_parse_check",
       "q_phpunit",
@@ -1147,6 +1150,7 @@
       "q_skills_lock_json_hashes_are_current",
       "q_test_all_elements",
       "q_tests_poll_don_t_sleep",
+      "q_themes_extend_haxcmslitelementtheme",
       "q_unit_and_api_conformance_tests",
       "q_unit_tests",
       "q_unused_code_knip",
@@ -1259,13 +1263,12 @@
      ]
     },
     {
-     "caption": "22 rules nothing enforces yet: the backlog of what to automate next.",
+     "caption": "18 rules nothing enforces yet: the backlog of what to automate next.",
      "nodes": [
       "r_69qeidwqwmafq9ewziwmln",
       "r_82dc87fd_6bc1_4d20_9d68_5b077bb88b89",
       "r_447f8d9bc5484749b1188e",
       "r_ea643795_98bc_47fb_bf31_999644a48f77",
-      "r_f3c7716773784e8f94254a",
       "r_09255ba6_e67a_44ce_b8cb_f0d5e80f97ab",
       "r_dc5c2839_f04e_428c_a622_1e6d8cce1214",
       "r_5cf2787e_c2df_4184_8b61_53c42ffad9cf",
@@ -1274,10 +1277,7 @@
       "r_9b2e454c_9b5b_46dc_b443_6470b3b4abe9",
       "r_2472221d_091f_48bc_a44f_acf03f41ce29",
       "r_cd0bc4fc_a502_4b33_8036_057882b5f0e9",
-      "ra_es_modules",
       "ra_browser_support",
-      "ra_theme_development",
-      "ra_package_names",
       "ra_sensitive_data",
       "ra_external_dependencies",
       "rc_user_links",

@@ -868,6 +868,30 @@
     "q_unit_tests"
    ],
    "how": "Partly. haxcms-php PlatformUpgraderTest checks the upgrader (checksums, manifest-only paths, site data untouched, rollback, concurrent runs refused, HAXiam deployments refuse every change, scripts refuse to run over HTTP); haxcms-nodejs and create platform-updates tests check that managed (HAXiam) installs run no update checks and are never upgraded. That no web endpoint downloads or writes release files is review."
+  },
+  "agents:Package Names": {
+   "enforced_by": [
+    "q_package_names"
+   ],
+   "how": "webcomponents' rule-checks workflow (scripts/rule-checks.mjs package-names) fails the pull request when an element's package.json isn't named @haxtheweb/<folder>."
+  },
+  "agents:Theme Development": {
+   "enforced_by": [
+    "q_themes_extend_haxcmslitelementtheme"
+   ],
+   "how": "webcomponents' rule-checks workflow (scripts/rule-checks.mjs themes) fails the pull request when a theme in haxcms-elements/lib/themes.json doesn't reach HAXCMSLitElementTheme (or HAXCMSLitElement) through its extends chain."
+  },
+  "agents:ES Modules": {
+   "enforced_by": [
+    "q_es_modules"
+   ],
+   "how": "webcomponents' rule-checks workflow (scripts/rule-checks.mjs es-modules) fails the pull request when shipped element code gains module.exports, exports.x or require(); three vendored bundles are baselined and the baseline only shrinks."
+  },
+  "f3c77167": {
+   "enforced_by": [
+    "q_element_docs_setup"
+   ],
+   "how": "webcomponents' rule-checks workflow (scripts/rule-checks.mjs element-docs) fails the pull request when an element (its main file defines a custom element) doesn't ship lib/<tag>.docs.json or its build doesn't run extract-element-docs."
   }
  },
  "candidates": [

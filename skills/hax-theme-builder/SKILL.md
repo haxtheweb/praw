@@ -175,8 +175,15 @@ where, and the build/audit results.
      has room for one, `site-title` for the site name and `site-active-title` for the page
      title. Never hand-build these, however unusual the look (rule `HAXcms Themes Reuse Core
      Elements, Restyled`). Make them match the screenshot through their `--site-*` /
-     `--map-menu-*` custom properties, `::part()` and slots. Hand-build only pieces HAXcms has
-     no element for, and make those follow edit mode the way core elements do.
+     `--map-menu-*` custom properties, `::part()` and slots. If the look needs markup a core
+     element can't draw (a bulleted link list, say), draw just that markup from the core
+     engines: `store.routerManifest` / `store.activeId` (honor `metadata.hideInMenu`),
+     `site-query`, and routes such as `x/random`. Hand-build only pieces HAXcms has no element
+     for, and make those follow edit mode the way core elements do.
+   - Playful looks stay accessible (rule `Playful Themes Still Meet WCAG 2.0 AA`). Any motion
+     longer than 5s gets a labeled stop control in the theme's style that starts on for
+     `prefers-reduced-motion` and is remembered. Decorative glyphs are silent, and every
+     palette pair is contrast-tested.
    - `site-region` elements for every region confirmed in step 2/3 (e.g.
      `<site-region name="banner">`, `<site-region name="belowMenu">`,
      `<site-region name="footerPrimary">`).

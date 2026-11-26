@@ -163,6 +163,8 @@ flowchart TB
     q_ddd_token_lint["q_ddd_token_lint"]
     q_dependency_licenses["q_dependency_licenses"]
     q_element_api_snapshot["q_element_api_snapshot"]
+    q_element_docs_setup["q_element_docs_setup"]
+    q_es_modules["q_es_modules"]
     q_format_check["q_format_check"]
     q_fuzz_nightly["q_fuzz_nightly"]
     q_hax_ui_admin_contract["q_hax_ui_admin_contract"]
@@ -178,6 +180,7 @@ flowchart TB
     q_no_local_paths["q_no_local_paths"]
     q_no_typescript["q_no_typescript"]
     q_node_js_latest_lts["q_node_js_latest_lts"]
+    q_package_names["q_package_names"]
     q_parity["q_parity"]
     q_parse_check["q_parse_check"]
     q_phpunit["q_phpunit"]
@@ -189,7 +192,9 @@ flowchart TB
     q_skills_lock_json_hashes_are_current["q_skills_lock_json_hashes_are_current"]
     q_test_all_elements["q_test_all_elements"]
     q_tests_poll_don_t_sleep["q_tests_poll_don_t_sleep"]
+    q_themes_extend_haxcmslitelementtheme["q_themes_extend_haxcmslitelementtheme"]
     q_unit_and_api_conformance_tests["q_unit_and_api_conformance_tests"]
+    q_unit_tests["q_unit_tests"]
     q_unused_code_knip["q_unused_code_knip"]
     q_without_hax["q_without_hax"]
     accessible["accessible"]
@@ -236,6 +241,8 @@ flowchart TB
   rg_architecture_file_structure_rules -->|includes| r_zvem3yg7jtxbsxbop3ypzy
   rg_architecture_file_structure_rules -->|includes| r_rhq7llrzmzlnfvelrwslun
   rg_architecture_file_structure_rules -->|includes| r_q4d9hl9sfnorlmpt1z2zeb
+  q_unit_and_api_conformance_tests -->|enforces| r_q4d9hl9sfnorlmpt1z2zeb
+  q_phpunit -->|enforces| r_q4d9hl9sfnorlmpt1z2zeb
   rg_architecture_file_structure_rules -->|includes| r_69qeidwqwmafq9ewziwmln
   rg_architecture_file_structure_rules -->|includes| r_tjnufvxe11bgtoleu8opxk
   r_tjnufvxe11bgtoleu8opxk ==>|serves| sustainable
@@ -250,6 +257,9 @@ flowchart TB
   rg_architecture_file_structure_rules -->|includes| r_1286150dc8944178aa82ca
   q_haxiam_nightly -->|enforces| r_1286150dc8944178aa82ca
   rg_architecture_file_structure_rules -->|includes| r_54e36477_ac8a_4fb2_bd9e_c46463f608aa
+  q_phpunit -->|enforces| r_54e36477_ac8a_4fb2_bd9e_c46463f608aa
+  q_unit_and_api_conformance_tests -->|enforces| r_54e36477_ac8a_4fb2_bd9e_c46463f608aa
+  q_unit_tests -->|enforces| r_54e36477_ac8a_4fb2_bd9e_c46463f608aa
   rg_architecture_file_structure_rules -->|includes| r_7e2c1a94_3b58_4d0f_9c6a_1f8e4d2b5a30
   rg_architecture_file_structure_rules -->|includes| r_9f3c2a7e_6b1d_4e8a_9c5f_2d7b8e1a4f60
   rg_design_system_standards -->|includes| r_mlhl56jnsqhvnriaw5a2gr
@@ -377,6 +387,7 @@ flowchart TB
   rg_build_development_workflow -->|includes| r_ip9iudnwzrzqsyk4ggvczh
   rg_build_development_workflow -->|includes| r_e9zioqke3y0gdnwb08xqn8
   rg_build_development_workflow -->|includes| r_f3c7716773784e8f94254a
+  q_element_docs_setup -->|enforces| r_f3c7716773784e8f94254a
   rg_build_development_workflow -->|includes| r_hax_site_scaffold
   rg_build_development_workflow -->|includes| r_trwt1r0bv54nuhgefl8iwe
   rg_build_development_workflow -->|includes| r_pccvd8jgmc7zhehtdebzd1
@@ -486,6 +497,7 @@ flowchart TB
   ra_formatting -.->|applies to| components
   ra_formatting -.->|applies to| cli
   rg_agents_md_code_style -->|includes| ra_es_modules
+  q_es_modules -->|enforces| ra_es_modules
   ra_es_modules -.->|is written in| components
   ra_es_modules -.->|is written in| cli
   rg_agents_md_code_style -->|includes| ra_license_header
@@ -511,6 +523,7 @@ flowchart TB
   q_hax_ui_admin_contract -->|enforces| ra_every_field_in_admin_chrome_is_a_simple_fields_field
   ra_every_field_in_admin_chrome_is_a_simple_fields_field -.->|is written in| components
   rg_agents_md_code_style -->|includes| ra_theme_development
+  q_themes_extend_haxcmslitelementtheme -->|enforces| ra_theme_development
   ra_theme_development -.->|is written in| components
   rg_agents_md_code_style -->|includes| ra_file_structure
   ra_file_structure -.->|is written in| components
@@ -518,6 +531,7 @@ flowchart TB
   ra_web_components -.->|is written in| components
   ra_web_components -.->|is written in| cli
   rg_agents_md_code_style -->|includes| ra_package_names
+  q_package_names -->|enforces| ra_package_names
   ra_package_names -.->|is written in| components
   ra_package_names -.->|is written in| cli
   rg_agents_md_code_style -->|includes| ra_css_classes
@@ -642,14 +656,14 @@ flowchart TB
   %%@ node rg_proposed_conventions icon=icons:gavel color=athertonViolet motion=pop
   %%@ node r_zvem3yg7jtxbsxbop3ypzy icon=icons:book color=skyBlue motion=nudge
   %%@ node r_rhq7llrzmzlnfvelrwslun icon=icons:book color=skyBlue motion=nudge
-  %%@ node r_q4d9hl9sfnorlmpt1z2zeb icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_q4d9hl9sfnorlmpt1z2zeb icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_69qeidwqwmafq9ewziwmln icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_tjnufvxe11bgtoleu8opxk icon=icons:book color=skyBlue motion=nudge
   %%@ node r_a8bf4a47_3d4f_4f8e_a356_a04db66ce1ab icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_82dc87fd_6bc1_4d20_9d68_5b077bb88b89 icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_d513754d87c145d6a166ec icon=icons:book color=skyBlue motion=nudge
   %%@ node r_1286150dc8944178aa82ca icon=icons:verified-user color=forestGreen motion=nudge
-  %%@ node r_54e36477_ac8a_4fb2_bd9e_c46463f608aa icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_54e36477_ac8a_4fb2_bd9e_c46463f608aa icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_7e2c1a94_3b58_4d0f_9c6a_1f8e4d2b5a30 icon=icons:book color=skyBlue motion=nudge
   %%@ node r_9f3c2a7e_6b1d_4e8a_9c5f_2d7b8e1a4f60 icon=icons:book color=skyBlue motion=nudge
   %%@ node r_mlhl56jnsqhvnriaw5a2gr icon=icons:verified-user color=forestGreen motion=nudge
@@ -691,7 +705,7 @@ flowchart TB
   %%@ node r_0cf20bb0_0afa_4c6a_9100_e76f76a5cc1a icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_ip9iudnwzrzqsyk4ggvczh icon=icons:book color=skyBlue motion=nudge
   %%@ node r_e9zioqke3y0gdnwb08xqn8 icon=icons:book color=skyBlue motion=nudge
-  %%@ node r_f3c7716773784e8f94254a icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_f3c7716773784e8f94254a icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_hax_site_scaffold icon=icons:book color=skyBlue motion=nudge
   %%@ node r_trwt1r0bv54nuhgefl8iwe icon=icons:book color=skyBlue motion=nudge
   %%@ node r_pccvd8jgmc7zhehtdebzd1 icon=icons:book color=skyBlue motion=nudge
@@ -733,7 +747,7 @@ flowchart TB
   %%@ node ra_unbundled_approach icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node ra_third_party_libraries icon=icons:book color=skyBlue motion=nudge
   %%@ node ra_formatting icon=icons:verified-user color=forestGreen motion=nudge
-  %%@ node ra_es_modules icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node ra_es_modules icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node ra_license_header icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node ra_modern_javascript icon=icons:book color=skyBlue motion=nudge
   %%@ node ra_html_sinks icon=icons:verified-user color=forestGreen motion=nudge
@@ -742,10 +756,10 @@ flowchart TB
   %%@ node ra_browser_support icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node ra_hax_rules_win_over_outside_guidance icon=icons:book color=skyBlue motion=nudge
   %%@ node ra_every_field_in_admin_chrome_is_a_simple_fields_field icon=icons:verified-user color=forestGreen motion=nudge
-  %%@ node ra_theme_development icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node ra_theme_development icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node ra_file_structure icon=icons:book color=skyBlue motion=nudge
   %%@ node ra_web_components icon=icons:book color=skyBlue motion=nudge
-  %%@ node ra_package_names icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node ra_package_names icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node ra_css_classes icon=icons:book color=skyBlue motion=nudge
   %%@ node ra_locale_urls_name_the_english_file icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node ra_t_is_reserved icon=icons:verified-user color=forestGreen motion=nudge
@@ -778,6 +792,8 @@ flowchart TB
   %%@ node q_ddd_token_lint portal=quality
   %%@ node q_dependency_licenses portal=quality
   %%@ node q_element_api_snapshot portal=quality
+  %%@ node q_element_docs_setup portal=quality
+  %%@ node q_es_modules portal=quality
   %%@ node q_format_check portal=quality
   %%@ node q_fuzz_nightly portal=quality
   %%@ node q_hax_ui_admin_contract portal=quality
@@ -793,6 +809,7 @@ flowchart TB
   %%@ node q_no_local_paths portal=quality
   %%@ node q_no_typescript portal=quality
   %%@ node q_node_js_latest_lts portal=quality
+  %%@ node q_package_names portal=quality
   %%@ node q_parity portal=quality
   %%@ node q_parse_check portal=quality
   %%@ node q_phpunit portal=quality
@@ -804,7 +821,9 @@ flowchart TB
   %%@ node q_skills_lock_json_hashes_are_current portal=quality
   %%@ node q_test_all_elements portal=quality
   %%@ node q_tests_poll_don_t_sleep portal=quality
+  %%@ node q_themes_extend_haxcmslitelementtheme portal=quality
   %%@ node q_unit_and_api_conformance_tests portal=quality
+  %%@ node q_unit_tests portal=quality
   %%@ node q_unused_code_knip portal=quality
   %%@ node q_without_hax portal=quality
   %%@ node accessible portal

@@ -37,6 +37,20 @@ GUARDS = [
  (r"poll, don't sleep|poll don t sleep", "No test gains a fixed sleep; tests wait for the condition they need. Sleeps that predate the rule are baselined, and the baseline only shrinks."),
  (r"shadow-boundary aria", "No element gains an id reference (aria-labelledby, aria-controls, for and the like) that points across a shadow boundary or at nothing."),
  (r"a11y-collapse heading-button", "No element, demo or HAX schema gains an a11y-collapse whose whole heading doesn't open it."),
+ (r"package names", "Every element package is named @haxtheweb/<folder>."),
+ (r"themes extend", "Every theme in themes.json extends HAXCMSLitElementTheme, the base that gives it the editor wiring."),
+ (r"element docs setup", "Every element ships its documentation data, and its build regenerates it."),
+ (r"es modules", "No shipped element code gains CommonJS; elements are ES modules."),
+ (r"^secrets$", "No committed file holds a key, token or private key; a value that has to ship is listed by hash with why."),
+ (r"mfr namespacing", "No new calls in the retired @haxcms/ micro-frontend namespace; new work uses @system/ or @site/."),
+ (r"incorrect is purple", "No wrong-answer style is painted red; incorrect is purple."),
+ (r"tracking is declared", "Every element that sends xAPI declares what it sends, so the person tracked can see it."),
+ (r"authored links kept", "Authored http links are kept as written: no rewrite, no upgrade-insecure-requests."),
+ (r"model calls", "No element calls a model until the call site is reviewed against the AI Content rules, and no test reaches a real model."),
+ (r"web component registry", "Every HAX entry in wc-registry.json, which the magic script loads tags from, names a file an element ships."),
+ (r"non-baseline apis", "A pull request adds no new use of a browser API that isn't Baseline widely available, unless marked as a deliberate exception."),
+ (r"js builds", "Outside libraries are used through their JavaScript builds, never their TypeScript sources."),
+ (r"skills ship evals", "Every skill eval records its expected output and the baseline behavior; a skill that changes substantially ships evals."),
  (r"mascot name", "The mascot is always the Future Traveler; retired names don't come back."),
  (r"no local paths", "Nothing in skills, the ecosystem webs or Markdown points at a path on someone's machine."),
  (r"org spelling", "Links and package scopes say haxtheweb, never a near-miss."),
@@ -98,7 +112,7 @@ STEP = [(r"^prettier format check|^format check", "Format check"), (r"^eslint$|^
         (r"^test all elements", "Test all elements"), (r"^script tests", "Script tests"), (r"^smoke tests", "Smoke tests"), (r"^test$", "Unit tests"),
         (r"^build$", "Build"), (r"^validate component gallery", "Gallery build")]
 SKIP = re.compile(r"^(checkout|set ?up|setup|install|cache|get (yarn|composer)|upload|download|restore|job summary|note a failed|decide|comment|read license|"
-                  r"generate|show|validate tag|log in|derive|build and push|pack|attach|fill|flag|rebuild elements readme|coverage|checkout base|run analysis|"
+                  r"generate|show|validate tag|log in|derive|build and push|pack\b|attach|fill|flag|rebuild elements readme|coverage|checkout base|run analysis|"
                   r"initialize|perform|analyze|check out|print what still fails)", re.I)
 ADVISORY_WORDS = re.compile(r"warning only|report[- ]only", re.I)
 ID = {"E2E UI tests": "q_e2e", "Backend parity": "q_parity", "CodeQL": "q_codeql", "CLA": "q_cla", "Dependency audit": "q_audit", "ESLint": "q_lint"}

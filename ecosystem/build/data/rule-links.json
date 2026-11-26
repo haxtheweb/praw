@@ -852,7 +852,46 @@
     "q_rule_checks",
     "q_parse_check"
    ],
-   "how": "praw's Ecosystem web integrity job (ecosystem/test/integrity-check.py) fails the pull request when an area on the main web has no icon (or image), DDD color or motion on its %%@ node line, or when a network property's tile differs from its network.json record (the record wins); the parse check rejects a color or motion that isn't a DDD name. network.json records each site's icon motion and its glyph motions, which are DDD's (DDDMotionGlyphNames)."
+   "how": "Partly. praw's Ecosystem web integrity job (ecosystem/test/integrity-check.py) fails the pull request when an area on the main web has no icon (or image), DDD color or motion on its %%@ node line, and the parse check rejects a color or motion that isn't a DDD name. Sites in network.json don't record a motion yet, and keeping the network bar and the main web on one record is review."
+  },
+  "Q4D9hL9sFNORlMPt1z2ZEb": {
+   "enforced_by": [
+    "q_unit_and_api_conformance_tests",
+    "q_phpunit"
+   ],
+   "how": "Both backends test it: haxcms-nodejs test/unit/slug-description-parity and haxcms-php SlugDescriptionParityTest::testReservedRouteSegmentRule check that a page slug segment \"x\" becomes \"x-x\" (so x/search, x/tags and x/api stay HAXcms's own), idempotently and with the same cases; saveOutline, saveNode and node details all apply it."
+  },
+  "54e36477-ac8a-4fb2-bd9e-c46463f608aa": {
+   "enforced_by": [
+    "q_phpunit",
+    "q_unit_and_api_conformance_tests",
+    "q_unit_tests"
+   ],
+   "how": "Partly. haxcms-php PlatformUpgraderTest checks the upgrader (checksums, manifest-only paths, site data untouched, rollback, concurrent runs refused, HAXiam deployments refuse every change, scripts refuse to run over HTTP); haxcms-nodejs and create platform-updates tests check that managed (HAXiam) installs run no update checks and are never upgraded. That no web endpoint downloads or writes release files is review."
+  },
+  "agents:Package Names": {
+   "enforced_by": [
+    "q_package_names"
+   ],
+   "how": "webcomponents' rule-checks workflow (scripts/rule-checks.mjs package-names) fails the pull request when an element's package.json isn't named @haxtheweb/<folder>."
+  },
+  "agents:Theme Development": {
+   "enforced_by": [
+    "q_themes_extend_haxcmslitelementtheme"
+   ],
+   "how": "webcomponents' rule-checks workflow (scripts/rule-checks.mjs themes) fails the pull request when a theme in haxcms-elements/lib/themes.json doesn't reach HAXCMSLitElementTheme (or HAXCMSLitElement) through its extends chain."
+  },
+  "agents:ES Modules": {
+   "enforced_by": [
+    "q_es_modules"
+   ],
+   "how": "webcomponents' rule-checks workflow (scripts/rule-checks.mjs es-modules) fails the pull request when shipped element code gains module.exports, exports.x or require(); three vendored bundles are baselined and the baseline only shrinks."
+  },
+  "f3c77167": {
+   "enforced_by": [
+    "q_element_docs_setup"
+   ],
+   "how": "webcomponents' rule-checks workflow (scripts/rule-checks.mjs element-docs) fails the pull request when an element (its main file defines a custom element) doesn't ship lib/<tag>.docs.json or its build doesn't run extract-element-docs."
   }
  },
  "candidates": [

@@ -4,8 +4,10 @@
 Supports two i18n patterns (auto-detected by namespace):
 
 - flat (this.t): map is { "<lang>": { "<key>": "<translation>" } }. Keys are
-  the flat this.t keys; output preserves <namespace>.en.json key order and
-  merges with existing files (already-translated es.json is preserved).
+  the flat this.t keys. Map values are merged into existing files: every key
+  a file already has is kept in place (shared namespaces register keys from
+  many files, so en.json is not a full key list), new keys are inserted in
+  <namespace>.en.json order, and untouched files are not rewritten.
 
 - haxProperties: namespace ends with ".haxProperties". Map is
   { "<lang>": { "<dotted.path>": "<translation>" } } using dotted notation
@@ -195,6 +197,48 @@ def write_json(path, obj):
         f.write("\n")
 
 
+def insert_in_order(items, key, val, order):
+    """Insert (key, val) into the ordered item list at its position in `order`.
+
+    Placed after the nearest preceding key from `order` already present, else
+    before the nearest following one, else at the end. Keys not in `order`
+    (e.g. keys another file registers into a shared namespace) never move.
+    """
+    present = [k for k, _ in items]
+    i = order.index(key) if key in order else len(order)
+    for j in range(i - 1, -1, -1):
+        if order[j] in present:
+            items.insert(present.index(order[j]) + 1, (key, val))
+            return
+    for j in range(i + 1, len(order)):
+        if order[j] in present:
+            items.insert(present.index(order[j]), (key, val))
+            return
+    items.append((key, val))
+
+
+def merge_flat(existing, vals, en, en_keys):
+    """Merge map values into an existing locale object without dropping keys.
+
+    Priority: map value > existing value > English placeholder. Every key the
+    file already has is kept, in its current position, even when it is not in
+    <namespace>.en.json: shared namespaces (e.g. haxcms) are registered from
+    many files, so en.json is not a complete list of live keys.
+    """
+    items = list(existing.items())
+    index = {k: n for n, (k, _) in enumerate(items)}
+    for k in en_keys:
+        if k in vals:
+            if k in index:
+                items[index[k]] = (k, vals[k])
+            else:
+                insert_in_order(items, k, vals[k], en_keys)
+        elif k not in index:
+            insert_in_order(items, k, en[k], en_keys)
+        index = {kk: n for n, (kk, _) in enumerate(items)}
+    return dict(items)
+
+
 def apply_flat(locales_dir, namespace, translations):
     en_path = os.path.join(locales_dir, f"{namespace}.en.json")
     if not os.path.isfile(en_path):
@@ -205,8 +249,10 @@ def apply_flat(locales_dir, namespace, translations):
     en_keys = list(en.keys())
 
     written = 0
+    unchanged = 0
     skipped = 0
-    missing_keys = []
+    fallbacks = []
+    unknown = set()
     for code, vals in sorted(translations.items()):
         if code == "en":
             continue
@@ -214,32 +260,35 @@ def apply_flat(locales_dir, namespace, translations):
             print(f"warn: {code} value is not an object, skipping", file=sys.stderr)
             skipped += 1
             continue
+        unknown.update(k for k in vals if k not in en)
         path = os.path.join(locales_dir, f"{namespace}.{code}.json")
         existing = {}
         if os.path.isfile(path):
             try:
                 with open(path, encoding="utf-8") as f:
                     existing = json.load(f)
-            except Exception:
-                existing = {}
-        out = {}
-        for k in en_keys:
-            if k in vals:
-                out[k] = vals[k]
-            elif k in existing:
-                out[k] = existing[k]
-            else:
-                out[k] = en[k]
-        gaps = [k for k in en_keys if k not in vals]
+            except Exception as e:
+                print(f"error: {path} is not valid JSON ({e}); left untouched", file=sys.stderr)
+                skipped += 1
+                continue
+        # keys that end up as English placeholders: in en.json, not in the map
+        # and not already in the file
+        gaps = [k for k in en_keys if k not in vals and k not in existing]
         if gaps:
-            missing_keys.append((code, gaps))
+            fallbacks.append((code, gaps))
+        out = merge_flat(existing, vals, en, en_keys)
+        if out == existing and list(out) == list(existing):
+            unchanged += 1
+            continue
         write_json(path, out)
         written += 1
 
-    print(f"[flat] namespace={namespace}  en keys={len(en_keys)}  written={written}  skipped={skipped}")
-    if missing_keys:
-        print("codes with missing keys (kept existing/en fallback):")
-        for c, gaps in missing_keys:
+    print(f"[flat] namespace={namespace}  en keys={len(en_keys)}  written={written}  unchanged={unchanged}  skipped={skipped}")
+    if unknown:
+        print(f"ignored map keys not in {namespace}.en.json: {sorted(unknown)}")
+    if fallbacks:
+        print("codes given English placeholders (not in map or existing file):")
+        for c, gaps in fallbacks:
             print(f"  {c}: {gaps}")
     return 1 if skipped else 0
 
@@ -271,8 +320,10 @@ def apply_hax(element_dir, locales_dir, namespace, translations):
             try:
                 with open(path, encoding="utf-8") as f:
                     existing = json.load(f)
-            except Exception:
-                existing = {}
+            except Exception as e:
+                print(f"error: {path} is not valid JSON ({e}); left untouched", file=sys.stderr)
+                skipped += 1
+                continue
         # priority: map > existing > skeleton(English)
         merged = deep_merge_override(deep_merge_override(skeleton, existing), materialize(vals))
         write_json(path, merged)

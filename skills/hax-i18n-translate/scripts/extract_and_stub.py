@@ -143,8 +143,25 @@ def run_flat(element_dir, src, tag, languages, namespace_arg):
     os.makedirs(locales_dir, exist_ok=True)
 
     en_path = os.path.join(locales_dir, f"{namespace}.en.json")
-    write_json(en_path, pairs)
-    print(f"[flat] wrote {en_path} ({len(pairs)} strings)")
+    en = dict(pairs)
+    if os.path.isfile(en_path):
+        # Merge, never replace: a shared namespace (e.g. haxcms) is declared
+        # across many files, and this extractor only sees the main one.
+        # Values from this.t win; keys it does not declare are kept.
+        try:
+            with open(en_path, encoding="utf-8") as f:
+                existing = json.load(f)
+        except Exception as e:
+            print(f"error: {en_path} is not valid JSON ({e}); left untouched", file=sys.stderr)
+            return None
+        en = dict(existing)
+        en.update(pairs)
+        extra = [k for k in existing if k not in pairs]
+        if extra:
+            print(f"[flat] kept {len(extra)} en.json keys not declared in this file's this.t "
+                  f"(shared namespace? see scripts/sync-shared-namespace-locales.js): {extra[:10]}")
+    write_json(en_path, en)
+    print(f"[flat] wrote {en_path} ({len(en)} strings, {len(pairs)} from this.t)")
 
     created = 0
     skipped = 0
@@ -155,7 +172,7 @@ def run_flat(element_dir, src, tag, languages, namespace_arg):
         if os.path.exists(path):
             skipped += 1
             continue
-        write_json(path, pairs)
+        write_json(path, en)
         created += 1
     print(f"[flat] stubbed {created}, skipped {skipped} existing (namespace={namespace})")
     return namespace
@@ -330,8 +347,9 @@ def run_hax(element_dir, namespace, base_path, languages):
             try:
                 with open(path, encoding="utf-8") as f:
                     existing = json.load(f)
-            except Exception:
-                existing = {}
+            except Exception as e:
+                print(f"error: {path} is not valid JSON ({e}); left untouched", file=sys.stderr)
+                continue
             merged = deep_merge_fill(skeleton, existing)
             write_json(path, merged)
             filled += 1

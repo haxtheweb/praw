@@ -1,7 +1,7 @@
 ---
 name: hax-i18n-translate
 description: "Scaffold and translate HAX web component i18n locale files: extract this.t strings or haxProperties text, stub ~100 languages, translate, validate. Use for \"translate <element>\", \"i18n my component\" or work on an element's locales/ folder."
-version: 1.3.0
+version: 1.3.1
 license: Apache-2.0
 metadata:
   author: haxtheweb
@@ -109,7 +109,9 @@ node scripts/generate-translation-manifest.js
 ```
 The extractor auto-detects the i18n pattern. For `this.t` elements it reads
 `static get tag()` for the namespace, parses the `this.t = { ... }` block, writes
-`locales/<namespace>.en.json`, then writes `<namespace>.<lang>.json` for every code in
+`locales/<namespace>.en.json` (merged into an existing one: `this.t` values win, and keys
+declared in other files of a shared namespace are kept, so for a namespace like `haxcms`
+use the repo's `scripts/sync-shared-namespace-locales.js` to get the full key set), then writes `<namespace>.<lang>.json` for every code in
 `references/languages.json` (copying English values as placeholders). For haxProperties
 elements it walks `lib/<tag>.haxProperties.json` for the translatable leaves and writes
 a sparse nested `locales/<tag>.haxProperties.<lang>.json` per language (English
@@ -144,9 +146,14 @@ Write it to a temp file and apply it:
 ```bash
 python3 <skill>/scripts/apply_translations.py --map /tmp/<namespace>.translations.json elements/<element-dir>
 ```
-`apply_translations.py` writes every language from the map in one pass, preserving the
-`en.json` key order and merging with existing files (an already-translated `es.json` is
-preserved). It prints the file count and any codes with missing keys. For haxProperties
+`apply_translations.py` writes every language from the map in one pass, merging into
+existing files: every key a file already has stays where it is (an already-translated
+`es.json` is preserved), new keys are inserted in `en.json` order, and files with nothing
+to add are not rewritten. It never drops a key that is missing from `en.json`, because
+shared namespaces such as `haxcms` register keys from many files. A locale file that is
+not valid JSON is reported and left untouched. The map only needs the keys you are
+adding; it prints which codes got English placeholders for keys in neither the map nor
+the file. For haxProperties
 elements the map uses dotted paths with array indices instead of flat keys, e.g.
 `{"af": {"gizmo.title": "...", "settings.configure[0].title": "...",
 "settings.configure[2].options.en": "Engels"}}`; the applier materializes each code's

@@ -11,7 +11,7 @@
    "scheduled": "scheduled jobs",
    "task": "Claude scheduled tasks"
   },
-  "about": "Every safeguard on what enters HAX, generated from the workflow files on each repo's default branch, so only checks that are merged and running appear: 73 blocking gates, 6 advisory checks, 25 scheduled jobs and 7 Claude scheduled tasks. Planned tiles are open pull requests. Element test suites include axe accessibility tests where an element has them; whole-project accessibility is covered by the weekly sweep, not a blocking gate.",
+  "about": "Every safeguard on what enters HAX, generated from the workflow files on each repo's default branch, so only checks that are merged and running appear: 82 blocking gates, 6 advisory checks, 25 scheduled jobs and 7 Claude scheduled tasks. Planned tiles are open pull requests. Element test suites include axe accessibility tests where an element has them; whole-project accessibility is covered by the weekly sweep, not a blocking gate.",
   "kindLabels": {
    "rel": "kind of safeguard",
    "schema": "where it runs"
@@ -24,11 +24,11 @@
   },
   "testing": {},
   "qg_block": {
-   "desc": "73 checks that fail a pull request when they fail, in at least one repo; whether a failing check stops the merge is up to each repo's branch rules. Each is read from the repo's workflow files on its default branch, so only checks that are merged and running appear.",
+   "desc": "82 checks that fail a pull request when they fail, in at least one repo; whether a failing check stops the merge is up to each repo's branch rules. Each is read from the repo's workflow files on its default branch, so only checks that are merged and running appear.",
    "kind": "group"
   },
   "qg_adv": {
-   "desc": "6 checks that run on pull requests but don't stop a merge (continue-on-error, warning only or report only), plus 2 planned checks still in open pull requests. ESLint stays here until it blocks.",
+   "desc": "6 checks that run on pull requests but don't stop a merge (continue-on-error, warning only or report only), plus 1 planned checks still in open pull requests. ESLint stays here until it blocks.",
    "kind": "group"
   },
   "qg_sched": {
@@ -70,6 +70,14 @@
     "workflow 1": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml",
     "workflow 2": "https://github.com/haxtheweb/haxcms-nodejs/blob/main/.github/workflows/build.yml",
     "workflow 3": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/build.yml"
+   }
+  },
+  "q_no_new_non_baseline_apis": {
+   "desc": "A pull request adds no new use of a browser API that isn't Baseline widely available, unless marked as a deliberate exception. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/build.yml"
    }
   },
   "q_script_tests": {
@@ -361,6 +369,62 @@
     "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/rule-checks.yml"
    }
   },
+  "q_secrets": {
+   "desc": "No committed file holds a key, token or private key; a value that has to ship is listed by hash with why. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_mfr_namespacing": {
+   "desc": "No new calls in the retired @haxcms/ micro-frontend namespace; new work uses @system/ or @site/. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_incorrect_is_purple_never_red": {
+   "desc": "No wrong-answer style is painted red; incorrect is purple. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_tracking_is_declared": {
+   "desc": "Every element that sends xAPI declares what it sends, so the person tracked can see it. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_authored_links_kept": {
+   "desc": "Authored http links are kept as written: no rewrite, no upgrade-insecure-requests. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_model_calls": {
+   "desc": "No element calls a model until the call site is reviewed against the AI Content rules, and no test reaches a real model. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/rule-checks.yml"
+   }
+  },
+  "q_web_component_registry": {
+   "desc": "Every HAX entry in wc-registry.json, which the magic script loads tags from, names a file an element ships. Fails the pull request when it fails in webcomponents.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/webcomponents/blob/master/.github/workflows/rule-checks.yml"
+   }
+  },
   "q_size_report": {
    "desc": "Reports without failing the pull request in webcomponents.",
    "kind": "advisory",
@@ -507,6 +571,14 @@
    "status": "deployed",
    "links": {
     "workflow": "https://github.com/haxtheweb/create/blob/main/.github/workflows/build.yml"
+   }
+  },
+  "q_external_dependencies_use_js_builds": {
+   "desc": "Outside libraries are used through their JavaScript builds, never their TypeScript sources. Fails the pull request when it fails in create.",
+   "kind": "gate",
+   "status": "deployed",
+   "links": {
+    "workflow": "https://github.com/haxtheweb/create/blob/main/.github/workflows/js-builds.yml"
    }
   },
   "q_growth_data_check": {
@@ -699,14 +771,6 @@
    "kind": "planned",
    "links": {
     "pr": "https://github.com/haxtheweb/haxcms-php/pull/822"
-   }
-  },
-  "qp_create_184": {
-   "desc": "In an open pull request, not running yet. Outside libraries are used through their JavaScript builds, never their TypeScript sources.",
-   "status": "planned",
-   "kind": "planned",
-   "links": {
-    "pr": "https://github.com/haxtheweb/create/pull/184"
    }
   },
   "q_admin_contrast_sched": {
@@ -1001,13 +1065,14 @@
    "message": "Every safeguard on what enters HAX, read from the CI that actually runs.",
    "scenes": [
     {
-     "caption": "73 blocking gates: a pull request can't merge until these pass.",
+     "caption": "82 blocking gates: a pull request can't merge until these pass.",
      "nodes": [
       "qg_block",
       "q_a11y_modes",
       "q_admin_contrast",
       "q_element_api_snapshot",
       "q_lint",
+      "q_no_new_non_baseline_apis",
       "q_script_tests",
       "q_stylelint",
       "q_test_all_elements",
@@ -1039,6 +1104,13 @@
       "q_themes_extend_haxcmslitelementtheme",
       "q_element_docs_setup",
       "q_es_modules",
+      "q_secrets",
+      "q_mfr_namespacing",
+      "q_incorrect_is_purple_never_red",
+      "q_tracking_is_declared",
+      "q_authored_links_kept",
+      "q_model_calls",
+      "q_web_component_registry",
       "q_css_in_css_templates",
       "q_html_structure_in_html_and_svg_templates",
       "q_locale_urls_point_at_a_shipped_locale_file",
@@ -1055,6 +1127,7 @@
       "q_unit_tests",
       "q_security_lint",
       "q_smoke_tests",
+      "q_external_dependencies_use_js_builds",
       "q_growth_data_check",
       "q_assemble_the_page",
       "q_parse_check",
@@ -1094,8 +1167,7 @@
     {
      "caption": "Planned checks, still in open pull requests.",
      "nodes": [
-      "qp_haxcms_php_822",
-      "qp_create_184"
+      "qp_haxcms_php_822"
      ]
     },
     {

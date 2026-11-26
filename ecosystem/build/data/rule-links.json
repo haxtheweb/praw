@@ -330,7 +330,11 @@
    ],
    "touches": [
     "editor"
-   ]
+   ],
+   "enforced_by": [
+    "q_authored_links_kept"
+   ],
+   "how": "webcomponents' rule-checks workflow (scripts/rule-checks.mjs link-rewrites) fails the pull request on code that rewrites http links or turns on upgrade-insecure-requests."
   },
   "candidate:version_hidden": {
    "enforced_by": [
@@ -391,7 +395,11 @@
     "ddd",
     "components",
     "meaningchannels"
-   ]
+   ],
+   "enforced_by": [
+    "q_incorrect_is_purple_never_red"
+   ],
+   "how": "webcomponents' rule-checks workflow (scripts/rule-checks.mjs incorrect-colors) fails the pull request when a style for a wrong or incorrect state uses a red token or color; incorrect is purple (--ddd-status-incorrect-*)."
   },
   "8d0c033b": {
    "pillars": [
@@ -492,7 +500,10 @@
     "mcp",
     "agents"
    ],
-   "how": "A check would be a test per AI feature that feeds it a response with unknown ids, disallowed values and over-long fields and asserts they are dropped without failing the step."
+   "how": "Partly. No HAX element calls a model today (haxcms-mcp serves an agent and calls none itself). webcomponents' rule-checks workflow (scripts/rule-checks.mjs model-calls) fails the pull request on a new model call site (a hosted provider's API or SDK, or a browser built-in model) unless scripts/ai-call-sites.json lists it with the test covering each AI Content rule, and on any test that reaches a real model. The rule itself is checked by that call site's tests once one exists.",
+   "enforced_by": [
+    "q_model_calls"
+   ]
   },
   "5cf2787e-c2df-4184-8b61-53c42ffad9cf": {
    "touches": [
@@ -500,7 +511,10 @@
     "mcp",
     "agents"
    ],
-   "how": "A check would be a test per AI feature asserting that dates, points, counts, ids and slugs in the output equal the source data whatever the scripted model returns."
+   "how": "Partly. No HAX element calls a model today (haxcms-mcp serves an agent and calls none itself). webcomponents' rule-checks workflow (scripts/rule-checks.mjs model-calls) fails the pull request on a new model call site (a hosted provider's API or SDK, or a browser built-in model) unless scripts/ai-call-sites.json lists it with the test covering each AI Content rule, and on any test that reaches a real model. The rule itself is checked by that call site's tests once one exists.",
+   "enforced_by": [
+    "q_model_calls"
+   ]
   },
   "c0f72fdb-5537-478d-8cd1-558160984430": {
    "touches": [
@@ -508,7 +522,10 @@
     "mcp",
     "agents"
    ],
-   "how": "A check would be a test per AI feature asserting that model output is saved as proposed and that a delegated decision is labelled and can be undone."
+   "how": "Partly. No HAX element calls a model today (haxcms-mcp serves an agent and calls none itself). webcomponents' rule-checks workflow (scripts/rule-checks.mjs model-calls) fails the pull request on a new model call site (a hosted provider's API or SDK, or a browser built-in model) unless scripts/ai-call-sites.json lists it with the test covering each AI Content rule, and on any test that reaches a real model. The rule itself is checked by that call site's tests once one exists.",
+   "enforced_by": [
+    "q_model_calls"
+   ]
   },
   "8d4e63f8-16bd-4a21-9898-c02313941dd5": {
    "touches": [
@@ -516,7 +533,10 @@
     "mcp",
     "agents"
    ],
-   "how": "A check would be a test asserting that the request a scripted provider receives holds none of the personal information in the fixture, and that only counts are reported back."
+   "how": "Partly. No HAX element calls a model today (haxcms-mcp serves an agent and calls none itself). webcomponents' rule-checks workflow (scripts/rule-checks.mjs model-calls) fails the pull request on a new model call site (a hosted provider's API or SDK, or a browser built-in model) unless scripts/ai-call-sites.json lists it with the test covering each AI Content rule, and on any test that reaches a real model. The rule itself is checked by that call site's tests once one exists.",
+   "enforced_by": [
+    "q_model_calls"
+   ]
   },
   "9b2e454c-9b5b-46dc-b443-6470b3b4abe9": {
    "touches": [
@@ -524,7 +544,10 @@
     "mcp",
     "agents"
    ],
-   "how": "A check would be a test with input over the model limit asserting that the result names what was left out."
+   "how": "Partly. No HAX element calls a model today (haxcms-mcp serves an agent and calls none itself). webcomponents' rule-checks workflow (scripts/rule-checks.mjs model-calls) fails the pull request on a new model call site (a hosted provider's API or SDK, or a browser built-in model) unless scripts/ai-call-sites.json lists it with the test covering each AI Content rule, and on any test that reaches a real model. The rule itself is checked by that call site's tests once one exists.",
+   "enforced_by": [
+    "q_model_calls"
+   ]
   },
   "2472221d-091f-48bc-a44f-acf03f41ce29": {
    "touches": [
@@ -532,7 +555,10 @@
     "mcp",
     "agents"
    ],
-   "how": "A check would be a test asserting that a multi-request operation returns its estimate before the scripted provider receives a request."
+   "how": "Partly. No HAX element calls a model today (haxcms-mcp serves an agent and calls none itself). webcomponents' rule-checks workflow (scripts/rule-checks.mjs model-calls) fails the pull request on a new model call site (a hosted provider's API or SDK, or a browser built-in model) unless scripts/ai-call-sites.json lists it with the test covering each AI Content rule, and on any test that reaches a real model. The rule itself is checked by that call site's tests once one exists.",
+   "enforced_by": [
+    "q_model_calls"
+   ]
   },
   "cd0bc4fc-a502-4b33-8036-057882b5f0e9": {
    "touches": [
@@ -540,7 +566,10 @@
     "mcp",
     "agents"
    ],
-   "how": "A check would be a CI step that runs the tests with no provider key and no outbound network, so a test that reaches a real model fails."
+   "how": "Partly. No HAX element calls a model today (haxcms-mcp serves an agent and calls none itself). webcomponents' rule-checks workflow (scripts/rule-checks.mjs model-calls) fails the pull request on a new model call site (a hosted provider's API or SDK, or a browser built-in model) unless scripts/ai-call-sites.json lists it with the test covering each AI Content rule, and on any test that reaches a real model. The rule itself is checked by that call site's tests once one exists.",
+   "enforced_by": [
+    "q_model_calls"
+   ]
   },
   "7e2c1a94-3b58-4d0f-9c6a-1f8e4d2b5a30": {
    "automation": "guidance",
@@ -892,6 +921,42 @@
     "q_element_docs_setup"
    ],
    "how": "webcomponents' rule-checks workflow (scripts/rule-checks.mjs element-docs) fails the pull request when an element (its main file defines a custom element) doesn't ship lib/<tag>.docs.json or its build doesn't run extract-element-docs."
+  },
+  "agents:Sensitive Data": {
+   "enforced_by": [
+    "q_secrets"
+   ],
+   "how": "Partly. webcomponents' rule-checks workflow (scripts/rule-checks.mjs secrets) fails the pull request when a tracked file holds a high-confidence secret shape: AWS, GitHub, Slack, AI-provider or Google keys, or a private key. GitHub secret scanning would cover the other repos and more shapes."
+  },
+  "82dc87fd-6bc1-4d20-9d68-5b077bb88b89": {
+   "enforced_by": [
+    "q_mfr_namespacing"
+   ],
+   "how": "Partly. webcomponents' rule-checks workflow (scripts/rule-checks.mjs mfr-haxcms) fails the pull request on a new call in the retired @haxcms/ micro-frontend namespace; the calls that predate it are baselined and the baseline only shrinks. That a new importer is wired through every layer is review."
+  },
+  "ea643795-98bc-47fb-bf31-999644a48f77": {
+   "enforced_by": [
+    "q_tracking_is_declared"
+   ],
+   "how": "Partly. webcomponents' rule-checks workflow (scripts/rule-checks.mjs tracking-declared) fails the pull request when a file that sends xAPI doesn't declare static get xapiVocabulary(), which the What's tracked view and My learning read; the infrastructure that predates it is baselined. That the learner's own view shows it is review."
+  },
+  "69qEidWQwmAfq9eWziwMLn": {
+   "enforced_by": [
+    "q_web_component_registry"
+   ],
+   "how": "webcomponents' rule-checks workflow (scripts/rule-checks.mjs wc-registry) fails the pull request when a @haxtheweb entry in wc-registry.json names a file no element ships, or the haxcms-elements demo copy differs."
+  },
+  "agents:Browser Support": {
+   "enforced_by": [
+    "q_no_new_non_baseline_apis"
+   ],
+   "how": "webcomponents' build workflow (scripts/baseline-apis-check.mjs) fails the pull request when a changed element file has more baseline-js warnings (JS built-ins and Web APIs not Baseline widely available) than on the base branch; a deliberate exception carries an eslint-disable-next-line note with its reason."
+  },
+  "agents:External Dependencies": {
+   "enforced_by": [
+    "q_external_dependencies_use_js_builds"
+   ],
+   "how": "create's External dependencies use JS builds workflow (scripts/js-builds-check.mjs) fails the pull request when a file under src/ imports a .ts/.tsx/.mts/.cts file or a package's src/ folder."
   }
  },
  "candidates": [

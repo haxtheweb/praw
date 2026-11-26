@@ -852,7 +852,7 @@
     "q_rule_checks",
     "q_parse_check"
    ],
-   "how": "Partly. praw's Ecosystem web integrity job (ecosystem/test/integrity-check.py) fails the pull request when an area on the main web has no icon (or image), DDD color or motion on its %%@ node line, and the parse check rejects a color or motion that isn't a DDD name. Sites in network.json don't record a motion yet, and keeping the network bar and the main web on one record is review."
+   "how": "praw's Ecosystem web integrity job (ecosystem/test/integrity-check.py) fails the pull request when an area on the main web has no icon (or image), DDD color or motion on its %%@ node line, or when a network property's tile differs from its network.json record (the record wins); the parse check rejects a color or motion that isn't a DDD name. network.json records each site's icon motion and its glyph motions, which are DDD's (DDDMotionGlyphNames)."
   }
  },
  "candidates": [

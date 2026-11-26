@@ -222,7 +222,7 @@ In the talks, yellow marks events (courses, collaborations, HAX Camps, adoptions
 ### Rick Manelius: from a DrupalCon talk to the first generator for HAX (2026)
 - Who: **Rick Manelius**, from the Drupal community.
 - Before → after: Rick first saw HAX in the HAX talk at DrupalCon Nashville in 2018, and tested it informally in 2025. In 2026 he built the GeoCities Generator, which makes a 90s homepage as a real HAXcms site in the browser. In November 2026 it became the first outside service to hand its sites straight to HAX: people click Open in HAX and keep editing at browser.hax.cloud, with no download and no server. His transcription skill is also the source of PRAW's audio program skills.
-- Why it matters: someone outside Penn State extended HAX from his own site, using the open contract and PRAW's skills, without joining the core team (pillars 1, 2 and 6). Anyone can now build the next generator.
+- Why it matters: someone outside Penn State extended HAX from his own site, through its open handoff contract, without joining the core team (pillars 1, 2 and 6). Anyone can now build the next generator.
 - Permission: Rick agreed to be named here, through Bryan, in November 2026.
 - Source: [GeoCities Generator](https://geocities-generator.net/), [rickmanelius/geocities-haxcms](https://github.com/rickmanelius/geocities-haxcms), [Open in HAX (haxtheweb/issues#3405)](https://github.com/haxtheweb/issues/issues/3405), [DrupalCon Nashville 2018 session](https://events.drupal.org/nashville2018/sessions/webcomponents-polymer-and-hax-decoupling-authoring-drupal-and-beyond)
 

@@ -190,6 +190,7 @@ flowchart TB
     q_test_all_elements["q_test_all_elements"]
     q_tests_poll_don_t_sleep["q_tests_poll_don_t_sleep"]
     q_unit_and_api_conformance_tests["q_unit_and_api_conformance_tests"]
+    q_unit_tests["q_unit_tests"]
     q_unused_code_knip["q_unused_code_knip"]
     q_without_hax["q_without_hax"]
     accessible["accessible"]
@@ -236,6 +237,8 @@ flowchart TB
   rg_architecture_file_structure_rules -->|includes| r_zvem3yg7jtxbsxbop3ypzy
   rg_architecture_file_structure_rules -->|includes| r_rhq7llrzmzlnfvelrwslun
   rg_architecture_file_structure_rules -->|includes| r_q4d9hl9sfnorlmpt1z2zeb
+  q_unit_and_api_conformance_tests -->|enforces| r_q4d9hl9sfnorlmpt1z2zeb
+  q_phpunit -->|enforces| r_q4d9hl9sfnorlmpt1z2zeb
   rg_architecture_file_structure_rules -->|includes| r_69qeidwqwmafq9ewziwmln
   rg_architecture_file_structure_rules -->|includes| r_tjnufvxe11bgtoleu8opxk
   r_tjnufvxe11bgtoleu8opxk ==>|serves| sustainable
@@ -250,6 +253,9 @@ flowchart TB
   rg_architecture_file_structure_rules -->|includes| r_1286150dc8944178aa82ca
   q_haxiam_nightly -->|enforces| r_1286150dc8944178aa82ca
   rg_architecture_file_structure_rules -->|includes| r_54e36477_ac8a_4fb2_bd9e_c46463f608aa
+  q_phpunit -->|enforces| r_54e36477_ac8a_4fb2_bd9e_c46463f608aa
+  q_unit_and_api_conformance_tests -->|enforces| r_54e36477_ac8a_4fb2_bd9e_c46463f608aa
+  q_unit_tests -->|enforces| r_54e36477_ac8a_4fb2_bd9e_c46463f608aa
   rg_architecture_file_structure_rules -->|includes| r_7e2c1a94_3b58_4d0f_9c6a_1f8e4d2b5a30
   rg_architecture_file_structure_rules -->|includes| r_9f3c2a7e_6b1d_4e8a_9c5f_2d7b8e1a4f60
   rg_design_system_standards -->|includes| r_mlhl56jnsqhvnriaw5a2gr
@@ -642,14 +648,14 @@ flowchart TB
   %%@ node rg_proposed_conventions icon=icons:gavel color=athertonViolet motion=pop
   %%@ node r_zvem3yg7jtxbsxbop3ypzy icon=icons:book color=skyBlue motion=nudge
   %%@ node r_rhq7llrzmzlnfvelrwslun icon=icons:book color=skyBlue motion=nudge
-  %%@ node r_q4d9hl9sfnorlmpt1z2zeb icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_q4d9hl9sfnorlmpt1z2zeb icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_69qeidwqwmafq9ewziwmln icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_tjnufvxe11bgtoleu8opxk icon=icons:book color=skyBlue motion=nudge
   %%@ node r_a8bf4a47_3d4f_4f8e_a356_a04db66ce1ab icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_82dc87fd_6bc1_4d20_9d68_5b077bb88b89 icon=icons:gavel color=limestoneGray motion=nudge
   %%@ node r_d513754d87c145d6a166ec icon=icons:book color=skyBlue motion=nudge
   %%@ node r_1286150dc8944178aa82ca icon=icons:verified-user color=forestGreen motion=nudge
-  %%@ node r_54e36477_ac8a_4fb2_bd9e_c46463f608aa icon=icons:gavel color=limestoneGray motion=nudge
+  %%@ node r_54e36477_ac8a_4fb2_bd9e_c46463f608aa icon=icons:verified-user color=forestGreen motion=nudge
   %%@ node r_7e2c1a94_3b58_4d0f_9c6a_1f8e4d2b5a30 icon=icons:book color=skyBlue motion=nudge
   %%@ node r_9f3c2a7e_6b1d_4e8a_9c5f_2d7b8e1a4f60 icon=icons:book color=skyBlue motion=nudge
   %%@ node r_mlhl56jnsqhvnriaw5a2gr icon=icons:verified-user color=forestGreen motion=nudge
@@ -805,6 +811,7 @@ flowchart TB
   %%@ node q_test_all_elements portal=quality
   %%@ node q_tests_poll_don_t_sleep portal=quality
   %%@ node q_unit_and_api_conformance_tests portal=quality
+  %%@ node q_unit_tests portal=quality
   %%@ node q_unused_code_knip portal=quality
   %%@ node q_without_hax portal=quality
   %%@ node accessible portal

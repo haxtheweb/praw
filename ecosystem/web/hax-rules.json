@@ -10,7 +10,7 @@
    "gap": "nothing enforces it yet",
    "proposed": "proposed"
   },
-  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (88 rules) and each repo's AGENTS.md (31), plus 7 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 50 are enforced; 52 are guidance by design, which no check could decide; 24 are gaps, the backlog of what to automate next.",
+  "about": "Every rule HAX keeps, generated from PRAW's RULES.md (88 rules) and each repo's AGENTS.md (31), plus 7 the plan proposes. Each links up to the pillars it serves, across to the parts it touches and down to the Quality control checks that enforce it. 52 are enforced; 52 are guidance by design, which no check could decide; 22 are gaps, the backlog of what to automate next.",
   "kindLabels": {
    "rel": "where a rule comes from and what enforces it",
    "pillar": "pillars a rule serves",
@@ -26,7 +26,7 @@
    "always": true
   },
   "rg_architecture_file_structure_rules": {
-   "desc": "Architecture & File Structure Rules: 12 rules, 2 enforced by a check.",
+   "desc": "Architecture & File Structure Rules: 12 rules, 4 enforced by a check.",
    "kind": "group"
   },
   "rg_design_system_standards": {
@@ -94,9 +94,8 @@
    }
   },
   "r_q4d9hl9sfnorlmpt1z2zeb": {
-   "desc": "The `x/` prefix for routes is reserved for internal HAXcms paths such as `x/search` and `x/tags`. In PRAW RULES.md (scope: haxcms). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "The `x/` prefix for routes is reserved for internal HAXcms paths such as `x/search` and `x/tags`. In PRAW RULES.md (scope: haxcms). Enforced by Unit and API conformance tests, PHPUnit. Both backends test it: haxcms-nodejs test/unit/slug-description-parity and haxcms-php SlugDescriptionParityTest::testReservedRouteSegmentRule check that a page slug segment \"x\" becomes \"x-x\" (so x/search, x/tags and x/api stay HAXcms's own), idempotently and with the same cases; saveOutline, saveNode and node details all apply it.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#reserved-routes"
    }
@@ -148,9 +147,8 @@
    }
   },
   "r_54e36477_ac8a_4fb2_bd9e_c46463f608aa": {
-   "desc": "HAXcms never updates itself from the web process. The admin panel's Status page and the system status report only say that a release or a missing security fix exists (security status comes from the published advisories on haxtheweb/issues, matched by each backend's package name and patched version) and show the steps for the detected install method; they never download, unpack or write release files, and no endpoint may be added that does. Upgrades run from a shell as the user who owns the files: `php scripts/platform-upgrade.php upgrade|verify|rollback` for haxcms-php installs, which `hax platform upgrade|verify|rollback` runs for you; npm, Docker and git installs are updated with the tool they came from. The upgrader is driven by the release manifest (`platform-manifest.json`): it writes only manifest-listed code paths after checking the archive against `SHA256SUMS` and every file against the manifest, backs up what it changes, never touches `_config`, `_sites`, `_published` or `_archived`, and rolls back on a failed check. On a HAXiam (`haxiam-managed`) deployment the host manages HAXcms: no update checks run, and `upgrade`, `verify` and `rollback` refuse in both the PHP script and the CLI. Keep these invariants in any change to the status report, the upgrader, the CLI or the release workflow (haxtheweb/issues#1768). In PRAW RULES.md (scope: haxcms). Nothing enforces this yet.",
-   "kind": "gap",
-   "status": "gap",
+   "desc": "HAXcms never updates itself from the web process. The admin panel's Status page and the system status report only say that a release or a missing security fix exists (security status comes from the published advisories on haxtheweb/issues, matched by each backend's package name and patched version) and show the steps for the detected install method; they never download, unpack or write release files, and no endpoint may be added that does. Upgrades run from a shell as the user who owns the files: `php scripts/platform-upgrade.php upgrade|verify|rollback` for haxcms-php installs, which `hax platform upgrade|verify|rollback` runs for you; npm, Docker and git installs are updated with the tool they came from. The upgrader is driven by the release manifest (`platform-manifest.json`): it writes only manifest-listed code paths after checking the archive against `SHA256SUMS` and every file against the manifest, backs up what it changes, never touches `_config`, `_sites`, `_published` or `_archived`, and rolls back on a failed check. On a HAXiam (`haxiam-managed`) deployment the host manages HAXcms: no update checks run, and `upgrade`, `verify` and `rollback` refuse in both the PHP script and the CLI. Keep these invariants in any change to the status report, the upgrader, the CLI or the release workflow (haxtheweb/issues#1768). In PRAW RULES.md (scope: haxcms). Enforced by PHPUnit, Unit and API conformance tests, Unit tests. Partly. haxcms-php PlatformUpgraderTest checks the upgrader (checksums, manifest-only paths, site data untouched, rollback, concurrent runs refused, HAXiam deployments refuse every change, scripts refuse to run over HTTP); haxcms-nodejs and create platform-updates tests check that managed (HAXiam) installs run no update checks and are never upgraded. That no web endpoint downloads or writes release files is review.",
+   "kind": "enforced",
    "links": {
     "rule": "https://github.com/haxtheweb/praw/blob/main/RULES.md#haxcms-platform-upgrades-run-from-a-shell-never-on-haxiam"
    }
@@ -1036,7 +1034,7 @@
    "id": "rules",
    "label": "Rules and what guarantees them",
    "kind": "story",
-   "message": "126 rules: 50 enforced by a check, 52 guidance by design, 24 not yet.",
+   "message": "126 rules: 52 enforced by a check, 52 guidance by design, 22 not yet.",
    "scenes": [
     {
      "caption": "Rules come from PRAW's RULES.md, each repo's AGENTS.md, and the plan's proposals.",
@@ -1057,10 +1055,12 @@
      ]
     },
     {
-     "caption": "50 rules have a check that enforces them.",
+     "caption": "52 rules have a check that enforces them.",
      "nodes": [
+      "r_q4d9hl9sfnorlmpt1z2zeb",
       "r_a8bf4a47_3d4f_4f8e_a356_a04db66ce1ab",
       "r_1286150dc8944178aa82ca",
+      "r_54e36477_ac8a_4fb2_bd9e_c46463f608aa",
       "r_mlhl56jnsqhvnriaw5a2gr",
       "r_mt6hpj9bdha13jwsxjcmea",
       "r_1992902d74844c908ab446",
@@ -1148,6 +1148,7 @@
       "q_test_all_elements",
       "q_tests_poll_don_t_sleep",
       "q_unit_and_api_conformance_tests",
+      "q_unit_tests",
       "q_unused_code_knip",
       "q_without_hax"
      ]
@@ -1258,12 +1259,10 @@
      ]
     },
     {
-     "caption": "24 rules nothing enforces yet: the backlog of what to automate next.",
+     "caption": "22 rules nothing enforces yet: the backlog of what to automate next.",
      "nodes": [
-      "r_q4d9hl9sfnorlmpt1z2zeb",
       "r_69qeidwqwmafq9ewziwmln",
       "r_82dc87fd_6bc1_4d20_9d68_5b077bb88b89",
-      "r_54e36477_ac8a_4fb2_bd9e_c46463f608aa",
       "r_447f8d9bc5484749b1188e",
       "r_ea643795_98bc_47fb_bf31_999644a48f77",
       "r_f3c7716773784e8f94254a",
